@@ -1,0 +1,27 @@
+site_name: Vantage Documentation
+theme:
+  name: material
+  features:
+    - navigation.sections
+extra:
+  generator: false
+
+nav:
+  - 'Overview' : 'index.md'
+  - 'General': 
+    - 'Connecting Your Account': 'connecting.md'
+    - 'AWS Permissions' : 'permissions.md'
+    - 'Syncing Your Account': 'syncing.md'
+    - 'Supported AWS Services': 'supported_services.md'
+
+  - 'Features':
+    - 'Views': 'views.md'
+    - 'Workspaces': 'workspaces.md'
+    - 'Cloudwatch Logs': 'logs.md'
+    - 'Cloudwatch Metrics': 'metrics.md'
+    - 'Weekly Cost Reports': 'reports.md'
+    - 'Audit Log': 'audit.md'
+
+google_analytics:
+  - UA-166045679-3
+  - auto
