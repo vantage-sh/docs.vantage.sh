@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/syncing/">
+        <link rel="canonical" href="https://docs.vantage.sh/security/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.9">
     
     
       
-        <title>Syncing Your Account - Vantage Documentation</title>
+        <title>Security - Vantage Documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#syncing" class="md-skip">
+        <a href="#cross-account-iam-roles" class="md-skip">
           Skip to content
         </a>
       
@@ -104,7 +104,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Syncing Your Account
+              Security
             
           </span>
         </div>
@@ -246,65 +246,11 @@
             
   
   
-    
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Syncing Your Account
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../syncing/" class="md-nav__link">
         Syncing Your Account
       </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#automatic-syncing" class="md-nav__link">
-    Automatic Syncing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#manual-syncing" class="md-nav__link">
-    Manual Syncing
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#syncing-considerations" class="md-nav__link">
-    Syncing Considerations
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -324,11 +270,82 @@
             
   
   
+    
   
-    <li class="md-nav__item">
-      <a href="../security/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Security
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         Security
       </a>
+      
+        
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cross-account-iam-roles" class="md-nav__link">
+    Cross Account IAM Roles
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#customizing-cross-account-role-permissions" class="md-nav__link">
+    Customizing Cross Account Role Permissions
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-caching" class="md-nav__link">
+    Data Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-revocation" class="md-nav__link">
+    Data Revocation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-security" class="md-nav__link">
+    Team Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-sharing" class="md-nav__link">
+    Data Sharing
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -483,8 +500,6 @@
   
   
   
-    
-  
   
     <label class="md-nav__title" for="__toc">
       <span class="md-nav__icon md-icon"></span>
@@ -493,22 +508,43 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#automatic-syncing" class="md-nav__link">
-    Automatic Syncing
+  <a href="#cross-account-iam-roles" class="md-nav__link">
+    Cross Account IAM Roles
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#manual-syncing" class="md-nav__link">
-    Manual Syncing
+  <a href="#customizing-cross-account-role-permissions" class="md-nav__link">
+    Customizing Cross Account Role Permissions
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#syncing-considerations" class="md-nav__link">
-    Syncing Considerations
+  <a href="#data-caching" class="md-nav__link">
+    Data Caching
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-revocation" class="md-nav__link">
+    Data Revocation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-security" class="md-nav__link">
+    Team Security
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#data-sharing" class="md-nav__link">
+    Data Sharing
   </a>
   
 </li>
@@ -526,21 +562,23 @@
               
                 
                 
-                <h1 id="syncing">Syncing</h1>
-<h2 id="automatic-syncing">Automatic Syncing</h2>
-<p>Vantage works by retrieving metadata about your infrastructure on a periodic interval that is currently set at a maximum of every hour. Without any action necessary by you, Vantage will determine what resources have been deleted, added and changed and represent them in the Vantage console accordingly. We are sensitive to our impact on AWS API limits and have done considerable work on minimizing the amount of API requests we make to limit impact. That being said, we haven't had a single user mention concerns with API calls we make. </p>
-<p>In the navigation bar at the top of the Vantage console you'll see a refresh icon available to you. When you hover over that refresh icon, Vantage will inform you when the time a sync took place. </p>
-<h2 id="manual-syncing">Manual Syncing</h2>
-<p>In the event that you're making changes to your infrastructure, it's very common that you'll need to refresh the state with Vantage prior to the one hour interval taking place. To issue a manual account sync, you simply need to click the refresh icon in the top right of the navigation bar. The refresh icon will begin rotating signalling that the sync is in progress. When the sync is complete, the icon will stop rotating. You may need to refresh the page you're currently on to get the latest information after the sync has occured. </p>
-<p>When you issue a sync, Vantage will do a global inspection across all AWS regions and services and perform the following:</p>
-<ul>
-<li>Add new AWS resources in the Vantage console that are newly added.</li>
-<li>Remove any references to out of date or deleted resources.</li>
-<li>Update all attributes with existing resources that have been changed. </li>
-</ul>
-<p>Syncs usually take anywhere from 5 seconds to 30 seconds depending on the size and complexity of your AWS account and we're working on tools </p>
-<h2 id="syncing-considerations">Syncing Considerations</h2>
-<p>Note that syncing only impacts Active Resources and you do not need to worry about syncing your account to see accrued costs which are always up-to-date. </p>
+                  <h1>Security</h1>
+                
+                <p>As an infrastructure tool that requires access to your cloud provider we understand there may be questions, concerns and necessary clarification around our own infrastructure, processes and procedures. We as developers on Vantage are also customers of Vantage to more closely align our security concerns with those of our customers. Lastly, our team has worked at public cloud infrastructure providers including Amazon Web Services and DigitalOcean and are applying best practices learned at these providers to ensure security is handled as best it can.</p>
+<h2 id="cross-account-iam-roles">Cross Account IAM Roles</h2>
+<p>Vantage leverages something called Cross Account IAM Roles to sync information about your infrastructure resources. This means we don't store sensitive information like account access keys and access key secrets to use Vantage. This method is the AWS recommended approach and is detailed in depth by AWS here for you to learn more. When you grant access to your AWS account to Vantage by running the provided CloudFormation stack, it creates a cross account role with in-line policies selected by Vantage. These policies are a trimmed down version of the policies in the AWS-managed "ReadOnlyAccess" policy but we've removed actions that would otherwise allow us to access sensitive information in databases, buckets and certain services. Our CloudFormation template is open source and hosted publicly here for transparency. Should you have any other questions please feel free to email us at security@vantage.sh.</p>
+<h2 id="customizing-cross-account-role-permissions">Customizing Cross Account Role Permissions</h2>
+<p>Vantage requests various in-line read-only permissions when creating the cross account role on your behalf. However, we understand this can be too broad of a permission set for certain use-cases. As a result, we do allow for creating Cross Account IAM roles with whatever permissions you're comfortable with. It is important to understand that as a result of narrowing the scope of the permissions Vantage has certain functionality that will be limited.</p>
+<p>If you email support@vantage.sh in advance of that we are happy to facilite provisioning your account with a custom role prior to then. Please note that we will provide you with some custom attributes to associate with your Cross Account Role to prevent against the Confused Deputy problem so please contact Vantage support prior to creating your role.</p>
+<h2 id="data-caching">Data Caching</h2>
+<p>Data about your cloud infrastructure is cached on Vantage's production infrastructure. We do this in order to provide a fast and user-friendly experience. We do not cache all information about your cloud infrastructure. In the event you remove your account with Vantage, we delete all corresponding data from our databases. All data is encrypted at rest and in transit wherever possible.</p>
+<h2 id="data-revocation">Data Revocation</h2>
+<p>In your account settings page you have the ability to revoke the Cross Account IAM Role at any time. Automatically and nearly instantly, Vantage will delete all data associated with that Cross Account IAM Role. It doesn't remove your set of custom Vantage Views created - however all of those views will be empty as there are no resources.</p>
+<p>In your account settings page you also have the ability to delete your account. Upon deleting your account all data is deleted.</p>
+<h2 id="team-security">Team Security</h2>
+<p>Everyone on our team has spent time working at a major cloud infrastructure provider and is well versed in cloud security. We ensure the bare minimum of team members have access to our own AWS cloud infrastructure. Currently the number of team members with access is only two people.</p>
+<h2 id="data-sharing">Data Sharing</h2>
+<p>We do not share any data externally. We do not sell or share any user data with any third parties.</p>
                 
               
               
@@ -560,7 +598,7 @@
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
         
-        <a href="../permissions/" class="md-footer__link md-footer__link--prev" aria-label="Previous: AWS Permissions" rel="prev">
+        <a href="../supported_services/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Supported AWS Services" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -569,20 +607,20 @@
               <span class="md-footer__direction">
                 Previous
               </span>
-              AWS Permissions
+              Supported AWS Services
             </div>
           </div>
         </a>
       
       
         
-        <a href="../supported_services/" class="md-footer__link md-footer__link--next" aria-label="Next: Supported AWS Services" rel="next">
+        <a href="../cost_reports/" class="md-footer__link md-footer__link--next" aria-label="Next: Cost Reports" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
                 Next
               </span>
-              Supported AWS Services
+              Cost Reports
             </div>
           </div>
           <div class="md-footer__button md-icon">

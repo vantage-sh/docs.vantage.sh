@@ -1,5 +1,5 @@
 site_name: Vantage Documentation
-site_url: https://docs.vantage.sh
+site_url: http://docs.vantage.sh
 theme:
   name: material
   features:
