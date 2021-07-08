@@ -1,4 +1,5 @@
 site_name: Vantage Documentation
+site_url: https://docs.vantage.sh
 theme:
   name: material
   features:
@@ -13,6 +14,7 @@ nav:
     - 'AWS Permissions' : 'permissions.md'
     - 'Syncing Your Account': 'syncing.md'
     - 'Supported AWS Services': 'supported_services.md'
+    - 'Security' : 'security.md'
 
   - 'Features':
     - 'Cost Reports': 'cost_reports.md'
@@ -23,6 +25,7 @@ nav:
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Weekly Cost Reports': 'reports.md'
     - 'Audit Log': 'audit.md'
+  
 
 google_analytics:
   - UA-166045679-3

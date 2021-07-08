@@ -25,8 +25,17 @@ Vantage currently supports a limited subset of write, update and delete actions.
 
 Vantage allows you to connect multiple AWS accounts. We advise that you connect your master AWS account first. By default, we require you to start with one AWS account and ensure it properly connected. Upon connecting a master AWS account, Vantage will profile for all member accounts present in the organization. Vantage will be able to show you accrued costs from all member accounts in the organization as well as active resources that are present in that _master AWS account_.
 
-In the event that you have multiple member accounts and want to view Active Resources present in those accounts, Vantage will offer you the ability to run something called a CloudFormation StackSet that will create one role per AWS member account. You're also welcome to skip this step and add/remove AWS accounts from your [account settings](https://console.vantage.sh/settings/organization/workspaces) whenever you see fit. 
+In the event that you have multiple member accounts and want to view Active Resources present in those accounts, Vantage will offer you the ability to run something called a CloudFormation StackSet that will create one role per AWS member account. You're also welcome to skip this step and add/remove AWS accounts from your [account settings](https://console.vantage.sh/settings/organization/workspaces) whenever you see fit. '
 
+We recommend using StackSets if you have several accounts you would like to connect. This will automate the process for all of the accounts in your Organizational Unit. When connecting your account, if you have at least one member account, you will see instructions specific to your account on how to connect your member accounts using StackSets.
+
+### Connecting with Terraform
+
+If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the CloudFormation process, you can click on the terraform instructions which will give you the proper IAM Role creation snippets which can be dropped into your Terraform codebase. Once you create the roles you can enter the ARN of the IAM Role which was created to complete the connection process.
+
+### Connecting by Manually Creating an IAM Role
+
+If you would like to create IAM Roles manually or use another tool to manage your infrastructure you can create the necessary cross acccount role. During onboarding, instead of following the Cloudformation process, you can click on the IAM Role option and you will be presented with a Trust Relationship and an Inline Policy that are required for the role. After creating the role, return to the onboarding page to submit the ARN of the created role to complete the connection.
 
 
 
