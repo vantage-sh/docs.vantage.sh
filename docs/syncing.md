@@ -19,6 +19,7 @@ When you issue a sync, Vantage will do a global inspection across all AWS region
 
 Syncs usually take anywhere from 5 seconds to 30 seconds depending on the size and complexity of your AWS account and we're working on tools 
 
-## Coming Soon: Resource-Level Syncs
 
-Sometimes you don't need to issue a global sync when you're just looking at a single resource that may have changed. Vantage is working on a method for refreshing only a single resource that will be done near instantaneously. We hope to have this complete in Q1 of 2021. 
+## Syncing Considerations
+
+Note that syncing only impacts Active Resources and you do not need to worry about syncing your account to see accrued costs which are always up-to-date. 

@@ -1,59 +1,17 @@
-Views are logical groups of AWS resources that help organize your AWS infrastructure across different AWS services, regions and accounts. When you connect your AWS account, Vantage will automatically profile your account and create three sets of views for you:
+Vantage will look for active resources in your AWS account and provide you with a view for each AWS Service as often as you sync your AWS account. Active Resources are meant to give you a simple way for seeing what active resources are present in your AWS account. Note that we can only show active resources for accounts for which there is a connected IAM Role -- but you can connect as many member accounts as you'd like to see resources present from them. 
 
-* **Service Views**: You'll get a view for each service you use (EC2 instances, S3 Buckets, etc.)
-* **Tagged Views**: If you use tags on AWS, Vantage will group resources together across different services and regions where it sees "significant" groups of AWS resources.
-* **Custom Views**: Vantage will give you your first "custom view" named All Resources that allows you to see all resources in your AWS account. 
+## Active Resource Pricing
 
-You can think of views as being like SQL queries for your infrastructure and you're free to create your own views. 
+Vantage maintains an ever-growing and always-updating AWS pricing database. As Vantage finds active resources, it will find the corresponding rate for the resource to show you an approximate run-rate cost. For things like EC2 Instances, we will profile for the instance type being used, what region its in and apply the proper rate for its lifecycle (on-demand, spot, etc). We also show an approximate monthly run-rate which extrapolates this hourly rate out for the given month. 
 
-## View Templates
+Actively being worked on in our roadmap is also showing actual accrued costs per AWS Resource so not only will you see a rough run-rate but you'll be able to see actual accrued costs per AWS resource soon as well. 
 
-Every user on Vantage has access to a menu of View templates. Below is a screenshot of the view template menu. 
+## Active Resources and Syncing
 
-![View Menu](img/view_menu.png)
-*Above: Example of View Templates*
-
-View templates are popular views that customers have requested. You're free to select from these view templates to add to your Vantage account or create your own views. 
-
-## Creating Custom Views
-
-Vantage gives you the ability to create your own custom views. When you click "Create View" and then "Custom View" you'll arrive at the [view creation page](https://console.vantage.sh/views/new). 
-
-### Attribute conditions
-
-On this page you'll be able to see all of the AWS services you use and a list of attributes you can optionally choose to filter on. We currently only support a limited support of attributes for each service but if you need additional attributes exposed, please contact support@vantage.sh and there is a possibility we can expose the attribute for you within a few days. 
-
-Currently, conditions have the following operators available:
-
-* **equals**: For finding all AWS resources with an exact match on a certain attribute. For example, show me all EC2 instances where the region is us-east-1.
-* **contains**: For finding all AWS resources with a substring match on a certain attribute. For example, show me all EC2 instances where the name contains 'production'.
-* **does not contain**: For finding all AWS resources which do not contain a certain string. For example, show me all IAM roles that do not contain 'AWSServiceRoleFor'
-
-### Multiple AWS services in the same view
-
-Vantage supports grouping AWS resources together across multiple services. To do this, simply click the "New Condition Set" and select the additional AWS service you'd like to include. 
-
-## Editting Views
-
-You may edit any view whenever you like. The only exception is you can not edit Vantage-managed views, which have custom logic in place to find resources. To edit a view:
-
-* Click into the view page. 
-* Click the "..." in the top right of the page.
-* Click "Edit View"
-* Make any changes you'd like
-* Save the view.
-
-## Deleting Views
+Vantage periodically [syncs](/syncing) your account and you may also manually issue a sync from the top navigation bar. Whenever a sync occurs, Vantage will automatically determine what Active Resources are present globally across all [supported services](/supported_services) and represent them accordingly in the Vantage console. If you make an immediate change to your infrastructure and want to see its impact in Vantage simply issue a sync manually and the changes will be picked up accordingly. 
 
 
-You may delete any view whenever you like. To delete a view:
+## Multiple AWS Account Support
 
-* Click into the view page. 
-* Click the "..." in the top right of the page.
-* Click "Delete View"
+As you add multiple roles for supporting active resources from multiple AWS accounts, Vantage will display them accordingly in Active Resource views. As resources are imported across multiple AWS accounts, Vantage will also show which AWS account the resources are in.
 
-Note that deleting a view on Vantage does not impact any of your AWS infrastructure. It merely removes that view from your Vantage console and no resources are impacted. 
-
-## Recommends Views to Vantage
-
-Vantage is always looking for views to include in our view template menu. If you have a recommendation for a good view for users, we want to hear it. Please recommend it in either our Slack community channel or email support@vantage.sh.

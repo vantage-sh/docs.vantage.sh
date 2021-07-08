@@ -2,11 +2,11 @@
 
 ## Supported Services
 
-Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing on for the following services by using custom logic to query APIs for each individual AWS service. While we support per-resource pricing the most popular services we do not offer support for all AWS services by default. That being said: if you have an AWS service you'd like to be supported we can typically add support for most AWS services in under a week. 
+Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing on for the following services by using custom logic to query APIs for each individual AWS service. While we support per-resource pricing for the most popular services we do not offer support for all AWS services by default. That being said: if you have an AWS service you'd like to be supported we can typically add support for most AWS services in under a week. 
 
 To request new service support on Vantage, please email support@vantage.sh with the subject line of "New AWS Service Support" and please include as much information as you can about what information you'd like to see. 
 
-Below is a list of supported AWS services:
+Below is a list of currently supported AWS services for Active Resources:
 
 | Service      | Description |
 | ----------- | ----------- |
@@ -22,6 +22,7 @@ Below is a list of supported AWS services:
 | Fargate   | Vantage supports Fargate services and its corresponding pricing.           |
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
+| MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
 | ECR   | Vantage supports ECR and its corresponding pricing.           |

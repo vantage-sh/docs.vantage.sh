@@ -15,8 +15,10 @@ nav:
     - 'Supported AWS Services': 'supported_services.md'
 
   - 'Features':
-    - 'Views': 'views.md'
+    - 'Cost Reports': 'cost_reports.md'
+    - 'Active Resources': 'views.md'
     - 'Workspaces': 'workspaces.md'
+    - 'Forecasting': 'forecasting.md'
     - 'Cloudwatch Logs': 'logs.md'
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Weekly Cost Reports': 'reports.md'
