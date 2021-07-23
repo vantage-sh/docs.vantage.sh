@@ -12,6 +12,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | ----------- | ----------- |
 | EC2      | Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics & logs. Vantage also imports all underlying EC2 images where possible.      |
 | S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
+| CloudWatch | Vantage supports CloudWatch Log Groups and its corresponding storage pricing.           |
 | CodePipeline    | Vantage supports CodePipeline.           |
 | CodeBuild    | Vantage supports CodeBuild.           |
 | DynamoDB    | Vantage supports DynamoDB tables.           |
@@ -31,6 +32,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Route53   | Vantage supports Route 53 Hosted Zones and its corresponding pricing. We also have write access for Route 53 Record Sets.           |
 | RDS   | Vantage supports RDS and corresponding pricing.           |
 | Tags   | Vantage supports Tags and can allow you to create views from AWS Tags.           |
+| Workspaces | Vantage supports AWS Workspaces and its corresponding pricing.           |
 
 
 ## Supported Regions
