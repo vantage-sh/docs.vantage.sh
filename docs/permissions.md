@@ -69,7 +69,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"cloudtrail:Get*"| Used for Vantage Audit Logs features|
 |"cloudtrail:List*"| Used for Vantage Audit Logs features|
 |"cloudtrail:LookupEvents"| Used for Vantage Audit Logs features|
-|"cloudwatch:Describe*"| Used for getting cloudwatch metrics for resources |
+|"cloudwatch:Describe*"| Used for getting cloudwatch metrics for resources and CloudWatch Log Groups |
 |"cloudwatch:Get*"|Used for getting cloudwatch metrics for resources|
 |"cloudwatch:List*"|Used for getting cloudwatch metrics for resources|
 |"codeartifact:DescribeDomain"|Not used|
@@ -384,4 +384,4 @@ Below is a line-by-line description of each permission requested and what it is 
 |"workmail:Describe*"|Not used|
 |"workmail:List*"|Not used|
 |"workmail:Search*"|Not used|
-|"workspaces:Describe*"|Not used|
+|"workspaces:Describe*"|Used for Vantage Workspaces support.|
