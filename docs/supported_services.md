@@ -10,28 +10,28 @@ Below is a list of currently supported AWS services for Active Resources:
 
 | Service      | Description |
 | ----------- | ----------- |
-| EC2      | Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics & logs. Vantage also imports all underlying EC2 images where possible.      |
-| S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
 | CloudWatch | Vantage supports CloudWatch Log Groups and its corresponding storage pricing.           |
 | CodePipeline    | Vantage supports CodePipeline.           |
 | CodeBuild    | Vantage supports CodeBuild.           |
 | DynamoDB    | Vantage supports DynamoDB tables.           |
 | EBS   | Vantage supports all EBS volume types and corresponding pricing.           |
-| Elasticache   | Vantage supports all Elasticache clusters.           |
-| Elasticsearch Service   | Vantage supports Elasticsearch and its corresponding pricing.           |
+| EC2      | Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics & logs. Vantage also imports all underlying EC2 images where possible.      |
 | ECS  | Vantage supports ECS services and its corresponding pricing.           |
+| ECR   | Vantage supports ECR and its corresponding pricing.           |
+| ELB | Vantage supports ELB and its corresponding pricing.            |
+| Elasticache   | Vantage supports all Elasticache clusters.           |
+| EKS  | Vantage supports EKS and its corresponding pricing.           |
+| Elasticsearch Service   | Vantage supports Elasticsearch and its corresponding pricing.           |
 | Fargate   | Vantage supports Fargate services and its corresponding pricing.           |
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
+| Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
 | MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
-| Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
-| ECR   | Vantage supports ECR and its corresponding pricing.           |
-| EKS  | Vantage supports EKS and its corresponding pricing.           |
-| Secrets Manager   | Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.           |
 | Route53   | Vantage supports Route 53 Hosted Zones and its corresponding pricing. We also have write access for Route 53 Record Sets.           |
 | RDS   | Vantage supports RDS and corresponding pricing.           |
-| Tags   | Vantage supports Tags and can allow you to create views from AWS Tags.           |
+| S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
+| Secrets Manager   | Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.           |
 | Workspaces | Vantage supports AWS Workspaces and its corresponding pricing.           |
 
 
