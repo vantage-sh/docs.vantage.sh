@@ -28,6 +28,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
 | MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
+| Redshift   | Vantage supports Redshift and its corresponding pricing.            |
 | Route53   | Vantage supports Route 53 Hosted Zones and its corresponding pricing. We also have write access for Route 53 Record Sets.           |
 | RDS   | Vantage supports RDS and corresponding pricing.           |
 | S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
