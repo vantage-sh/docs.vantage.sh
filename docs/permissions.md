@@ -283,7 +283,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"rekognition:Search*"|Not used|
 |"rds:Describe*"|Used for Vantage RDS support|
 |"rds:List*"|Used for Vantage RDS support|
-|"redshift:Describe*"|Used for Vantage RedShift support|
+|"redshift:Describe*"|Used for Vantage Redshift support|
 |"redshift:View*"|Not used|
 |"resource-groups:Get*"|Not used|
 |"resource-groups:List*"|Not used|
