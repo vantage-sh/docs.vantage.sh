@@ -231,8 +231,8 @@ Below is a line-by-line description of each permission requested and what it is 
 |"iotanalytics:SampleChannelData"|Not used|
 |"iotsitewise:Describe*"|Not used|
 |"iotsitewise:List*"|Not used|
-|"kafka:Describe*"|Not used|
-|"kafka:List*"|Not used|
+|"kafka:Describe*"| Used for Vantage MSK support |
+|"kafka:List*"| Used for Vantage MSK support |
 |"kinesisanalytics:Describe*"|Not used|
 |"kinesisanalytics:Discover*"|Not used|
 |"kinesisanalytics:List*"|Not used|
