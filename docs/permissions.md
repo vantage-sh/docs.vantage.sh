@@ -70,7 +70,10 @@ Below is a line-by-line description of each permission requested and what it is 
 |"cloudtrail:List*"| Used for Vantage Audit Logs features|
 |"cloudtrail:LookupEvents"| Used for Vantage Audit Logs features|
 |"cloudwatch:Describe*"| Used for getting cloudwatch metrics for resources and CloudWatch Log Groups |
-|"cloudwatch:Get*"|Used for getting cloudwatch metrics for resources|
+|"cloudwatch:GetMetricData" | Used for getting cloudwatch metrics for resources |
+|"cloudwatch:GetDashboard" | Not used | 
+|"cloudwatch:GetMetricStatistics" | Not used |
+|"cloudwatch:GetMetricStream" | Not used |
 |"cloudwatch:List*"|Used for getting cloudwatch metrics for resources|
 |"codeartifact:DescribeDomain"|Not used|
 |"codeartifact:DescribePackageVersion"|Not used|
@@ -88,7 +91,6 @@ Below is a line-by-line description of each permission requested and what it is 
 |"codebuild:List*"|Used for Vantage Codebuild support|
 |"codebuild:BatchGetBuilds"|Used for Vantage Codebuild support|
 |"codecommit:Describe*"| Not used |
-|"codecommit:GitPull"| Not used |
 |"codecommit:List*"| Not used|
 |"codedeploy:List*"| Used for Vantage CodeDeploy support|
 |"codeguru-profiler:Describe*"|Not used|
@@ -129,7 +131,6 @@ Below is a line-by-line description of each permission requested and what it is 
 |"datasync:Describe*"|Not used|
 |"datasync:List*"|Not used|
 |"datapipeline:Describe*"|Not used|
-|"datapipeline:EvaluateExpression"|Not used|
 |"datapipeline:List*"|Not used|
 |"datapipeline:Validate*"|Not used|
 |"dax:Describe*"|Not used|
@@ -244,11 +245,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"lambda:List*"|Used for Vantage Lambda support|
 |"license-manager:List*"|Not used|
 |"logs:Describe*"|Used for Vantage Cloudwatch logs support|
-|"logs:Get*"|Used for Vantage Cloudwatch logs support|
-|"logs:FilterLogEvents"|Used for Vantage Cloudwatch logs support|
 |"logs:ListTagsLogGroup"|Used for Vantage Cloudwatch logs support|
-|"logs:StartQuery"|Used for Vantage Cloudwatch logs support|
-|"logs:StopQuery"|Used for Vantage Cloudwatch logs support|
 |"logs:TestMetricFilter"|Used for Vantage Cloudwatch logs support|
 |"machinelearning:Describe*"|Not used|
 |"mediaconvert:DescribeEndpoints"|Not used|

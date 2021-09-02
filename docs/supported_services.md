@@ -26,6 +26,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
+| Amazon Managed Streaming for Apache Kafka (Amazon MSK) | Vantage supports MSK and its corresponding pricing            |
 | MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
 | Redshift   | Vantage supports Redshift and its corresponding pricing.            |
