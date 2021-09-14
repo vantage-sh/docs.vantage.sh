@@ -11,6 +11,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Service      | Description |
 | ----------- | ----------- |
 | CloudWatch | Vantage supports CloudWatch Log Groups and its corresponding storage pricing.           |
+| CloudFront    | Vantage supports CloudFront and showing accrued costs per CloudFront distribution.           |
 | CodePipeline    | Vantage supports CodePipeline.           |
 | CodeBuild    | Vantage supports CodeBuild.           |
 | DynamoDB    | Vantage supports DynamoDB tables.           |
@@ -26,6 +27,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
+| KMS | Vantage supports showing accrued costs for KMS Keys.           |
 | Amazon Managed Streaming for Apache Kafka (Amazon MSK) | Vantage supports MSK and its corresponding pricing            |
 | MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
@@ -34,6 +36,9 @@ Below is a list of currently supported AWS services for Active Resources:
 | RDS   | Vantage supports RDS and corresponding pricing.           |
 | S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
 | Secrets Manager   | Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.           |
+| SNS | Vantage supports showing accrued costs for SNS Topics.           |
+| SQS | Vantage supports showing accrued costs for SQS Queue.           |
+
 | Workspaces | Vantage supports AWS Workspaces and its corresponding pricing.           |
 
 

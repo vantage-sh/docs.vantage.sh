@@ -60,7 +60,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"cloudformation:Detect*"| Not used|
 |"cloudformation:List*"| Not used|
 |"cloudformation:Estimate*"| Not used|
-|"cloudfront:List*"| Not used|
+|"cloudfront:List*"| Used for getting Cloudfront distributions and showing accompanying costs. |
 |"cloudhsm:List*"| Not used|
 |"cloudhsm:Describe*"| Not used|
 |"cloudsearch:Describe*"| Not used|
@@ -241,7 +241,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"kinesis:Describe*"|Not used|
 |"kinesis:List*"|Not used|
 |"kms:Describe*"|Not used|
-|"kms:List*"|Not used|
+|"kms:List*"| Used to show active KMS key costs |
 |"lambda:List*"|Used for Vantage Lambda support|
 |"license-manager:List*"|Not used|
 |"logs:Describe*"|Used for Vantage Cloudwatch logs support|
@@ -342,9 +342,9 @@ Below is a line-by-line description of each permission requested and what it is 
 |"signer:ListTagsForResource"|Not used|
 |"snowball:Describe*"|Not used|
 |"snowball:List*"|Not used|
-|"sns:List*"|Not used|
+|"sns:List*"| Used for Vantage SNS Topic active resource cost support. |
 |"sns:Check*"|Not used|
-|"sqs:List*"|Not used|
+|"sqs:List*"| Used for Vantage SQS Queue active resource cost support. |
 |"sqs:Receive*"|Not used|
 |"ssm:Describe*"|Not used|
 |"ssm:List*"|Not used|
