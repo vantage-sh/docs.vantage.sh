@@ -38,7 +38,6 @@ Below is a list of currently supported AWS services for Active Resources:
 | Secrets Manager   | Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.           |
 | SNS | Vantage supports showing accrued costs for SNS Topics.           |
 | SQS | Vantage supports showing accrued costs for SQS Queue.           |
-
 | Workspaces | Vantage supports AWS Workspaces and its corresponding pricing.           |
 
 
