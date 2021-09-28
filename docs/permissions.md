@@ -176,7 +176,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"elasticbeanstalk:Request*"|Not used|
 |"elasticbeanstalk:Retrieve*"|Not used|
 |"elasticbeanstalk:Validate*"|Not used|
-|"elasticfilesystem:Describe*"|Not used|
+|"elasticfilesystem:Describe*"| Used for Vantage EFS Support |
 |"elasticloadbalancing:Describe*"|Not used|
 |"elasticmapreduce:Describe*"|Not used|
 |"elasticmapreduce:List*"|Not used|

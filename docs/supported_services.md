@@ -18,6 +18,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | EBS   | Vantage supports all EBS volume types and corresponding pricing.           |
 | EC2      | Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics & logs. Vantage also imports all underlying EC2 images where possible.      |
 | ECS  | Vantage supports ECS services and its corresponding pricing.           |
+| EFS  | Vantage supports EFS and its corresponding pricing.           |
 | ECR   | Vantage supports ECR and its corresponding pricing.           |
 | ELB | Vantage supports ELB and its corresponding pricing.            |
 | Elasticache   | Vantage supports all Elasticache clusters.           |
