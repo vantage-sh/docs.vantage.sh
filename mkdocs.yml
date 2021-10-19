@@ -25,6 +25,7 @@ nav:
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Weekly Cost Reports': 'reports.md'
     - 'Audit Log': 'audit.md'
+    - 'Kubernetes Costs': 'kubernetes.md'
   
 
 google_analytics:
