@@ -2,72 +2,67 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.vantage.sh/</loc>
-         <lastmod>2021-07-08</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://docs.vantage.sh/audit/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/connecting/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/cost_reports/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/forecasting/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://docs.vantage.sh/logs/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <loc>https://docs.vantage.sh/kubernetes/</loc>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/metrics/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/permissions/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/reports/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/security/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/supported_services/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/syncing/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/views/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://docs.vantage.sh/workspaces/</loc>
-         <lastmod>2021-07-08</lastmod>
+         <lastmod>2021-10-19</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>

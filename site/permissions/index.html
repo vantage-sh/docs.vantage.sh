@@ -404,18 +404,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../logs/" class="md-nav__link">
-        Cloudwatch Logs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../metrics/" class="md-nav__link">
         Cloudwatch Metrics
       </a>
@@ -440,8 +428,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit/" class="md-nav__link">
-        Audit Log
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes Costs
       </a>
     </li>
   
@@ -712,7 +700,7 @@
 </tr>
 <tr>
 <td>"cloudfront:List*"</td>
-<td>Not used</td>
+<td>Used for getting Cloudfront distributions and showing accompanying costs.</td>
 </tr>
 <tr>
 <td>"cloudhsm:List*"</td>
@@ -748,11 +736,23 @@
 </tr>
 <tr>
 <td>"cloudwatch:Describe*"</td>
+<td>Used for getting cloudwatch metrics for resources and CloudWatch Log Groups</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricData"</td>
 <td>Used for getting cloudwatch metrics for resources</td>
 </tr>
 <tr>
-<td>"cloudwatch:Get*"</td>
-<td>Used for getting cloudwatch metrics for resources</td>
+<td>"cloudwatch:GetDashboard"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricStatistics"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricStream"</td>
+<td>Not used</td>
 </tr>
 <tr>
 <td>"cloudwatch:List*"</td>
@@ -820,10 +820,6 @@
 </tr>
 <tr>
 <td>"codecommit:Describe*"</td>
-<td>Not used</td>
-</tr>
-<tr>
-<td>"codecommit:GitPull"</td>
 <td>Not used</td>
 </tr>
 <tr>
@@ -984,10 +980,6 @@
 </tr>
 <tr>
 <td>"datapipeline:Describe*"</td>
-<td>Not used</td>
-</tr>
-<tr>
-<td>"datapipeline:EvaluateExpression"</td>
 <td>Not used</td>
 </tr>
 <tr>
@@ -1172,7 +1164,7 @@
 </tr>
 <tr>
 <td>"elasticfilesystem:Describe*"</td>
-<td>Not used</td>
+<td>Used for Vantage EFS Support</td>
 </tr>
 <tr>
 <td>"elasticloadbalancing:Describe*"</td>
@@ -1392,11 +1384,11 @@
 </tr>
 <tr>
 <td>"kafka:Describe*"</td>
-<td>Not used</td>
+<td>Used for Vantage MSK support</td>
 </tr>
 <tr>
 <td>"kafka:List*"</td>
-<td>Not used</td>
+<td>Used for Vantage MSK support</td>
 </tr>
 <tr>
 <td>"kinesisanalytics:Describe*"</td>
@@ -1432,7 +1424,7 @@
 </tr>
 <tr>
 <td>"kms:List*"</td>
-<td>Not used</td>
+<td>Used to show active KMS key costs</td>
 </tr>
 <tr>
 <td>"lambda:List*"</td>
@@ -1447,23 +1439,7 @@
 <td>Used for Vantage Cloudwatch logs support</td>
 </tr>
 <tr>
-<td>"logs:Get*"</td>
-<td>Used for Vantage Cloudwatch logs support</td>
-</tr>
-<tr>
-<td>"logs:FilterLogEvents"</td>
-<td>Used for Vantage Cloudwatch logs support</td>
-</tr>
-<tr>
 <td>"logs:ListTagsLogGroup"</td>
-<td>Used for Vantage Cloudwatch logs support</td>
-</tr>
-<tr>
-<td>"logs:StartQuery"</td>
-<td>Used for Vantage Cloudwatch logs support</td>
-</tr>
-<tr>
-<td>"logs:StopQuery"</td>
 <td>Used for Vantage Cloudwatch logs support</td>
 </tr>
 <tr>
@@ -1604,7 +1580,7 @@
 </tr>
 <tr>
 <td>"redshift:Describe*"</td>
-<td>Not used</td>
+<td>Used for Vantage Redshift support</td>
 </tr>
 <tr>
 <td>"redshift:View*"</td>
@@ -1852,7 +1828,7 @@
 </tr>
 <tr>
 <td>"sns:List*"</td>
-<td>Not used</td>
+<td>Used for Vantage SNS Topic active resource cost support.</td>
 </tr>
 <tr>
 <td>"sns:Check*"</td>
@@ -1860,7 +1836,7 @@
 </tr>
 <tr>
 <td>"sqs:List*"</td>
-<td>Not used</td>
+<td>Used for Vantage SQS Queue active resource cost support.</td>
 </tr>
 <tr>
 <td>"sqs:Receive*"</td>
@@ -2008,7 +1984,7 @@
 </tr>
 <tr>
 <td>"workspaces:Describe*"</td>
-<td>Not used</td>
+<td>Used for Vantage Workspaces support.</td>
 </tr>
 </tbody>
 </table>

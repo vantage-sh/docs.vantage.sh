@@ -1,5 +1,5 @@
 site_name: Vantage Documentation
-site_url: http://docs.vantage.sh
+site_url: https://docs.vantage.sh
 theme:
   name: material
   features:
@@ -21,10 +21,8 @@ nav:
     - 'Active Resources': 'views.md'
     - 'Workspaces': 'workspaces.md'
     - 'Forecasting': 'forecasting.md'
-    - 'Cloudwatch Logs': 'logs.md'
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Weekly Cost Reports': 'reports.md'
-    - 'Audit Log': 'audit.md'
     - 'Kubernetes Costs': 'kubernetes.md'
   
 

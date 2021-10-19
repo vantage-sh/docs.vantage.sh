@@ -411,18 +411,6 @@
   
   
     <li class="md-nav__item">
-      <a href="../logs/" class="md-nav__link">
-        Cloudwatch Logs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
       <a href="../metrics/" class="md-nav__link">
         Cloudwatch Metrics
       </a>
@@ -447,8 +435,8 @@
   
   
     <li class="md-nav__item">
-      <a href="../audit/" class="md-nav__link">
-        Audit Log
+      <a href="../kubernetes/" class="md-nav__link">
+        Kubernetes Costs
       </a>
     </li>
   
@@ -526,12 +514,12 @@
 </thead>
 <tbody>
 <tr>
-<td>EC2</td>
-<td>Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics &amp; logs. Vantage also imports all underlying EC2 images where possible.</td>
+<td>CloudWatch</td>
+<td>Vantage supports CloudWatch Log Groups and its corresponding storage pricing.</td>
 </tr>
 <tr>
-<td>S3</td>
-<td>Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.</td>
+<td>CloudFront</td>
+<td>Vantage supports CloudFront and showing accrued costs per CloudFront distribution.</td>
 </tr>
 <tr>
 <td>CodePipeline</td>
@@ -550,16 +538,36 @@
 <td>Vantage supports all EBS volume types and corresponding pricing.</td>
 </tr>
 <tr>
-<td>Elasticache</td>
-<td>Vantage supports all Elasticache clusters.</td>
-</tr>
-<tr>
-<td>Elasticsearch Service</td>
-<td>Vantage supports Elasticsearch and its corresponding pricing.</td>
+<td>EC2</td>
+<td>Vantage supports all EC2 instance types, all on-demand and spot pricing and supporting CloudWatch metrics &amp; logs. Vantage also imports all underlying EC2 images where possible.</td>
 </tr>
 <tr>
 <td>ECS</td>
 <td>Vantage supports ECS services and its corresponding pricing.</td>
+</tr>
+<tr>
+<td>EFS</td>
+<td>Vantage supports EFS and its corresponding pricing.</td>
+</tr>
+<tr>
+<td>ECR</td>
+<td>Vantage supports ECR and its corresponding pricing.</td>
+</tr>
+<tr>
+<td>ELB</td>
+<td>Vantage supports ELB and its corresponding pricing.</td>
+</tr>
+<tr>
+<td>Elasticache</td>
+<td>Vantage supports all Elasticache clusters.</td>
+</tr>
+<tr>
+<td>EKS</td>
+<td>Vantage supports EKS and its corresponding pricing.</td>
+</tr>
+<tr>
+<td>Elasticsearch Service</td>
+<td>Vantage supports Elasticsearch and its corresponding pricing.</td>
 </tr>
 <tr>
 <td>Fargate</td>
@@ -574,6 +582,18 @@
 <td>Vantage supports IAM Groups, IAM Users and IAM Roles.</td>
 </tr>
 <tr>
+<td>Lambda</td>
+<td>Vantage supports Lambda and is currently bolstering more formal support for it.</td>
+</tr>
+<tr>
+<td>KMS</td>
+<td>Vantage supports showing accrued costs for KMS Keys.</td>
+</tr>
+<tr>
+<td>Amazon Managed Streaming for Apache Kafka (Amazon MSK)</td>
+<td>Vantage supports MSK and its corresponding pricing</td>
+</tr>
+<tr>
 <td>MQ</td>
 <td>Vantage supports MQ Brokers and their corresponding pricing.</td>
 </tr>
@@ -582,20 +602,8 @@
 <td>Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.</td>
 </tr>
 <tr>
-<td>Lambda</td>
-<td>Vantage supports Lambda and is currently bolstering more formal support for it.</td>
-</tr>
-<tr>
-<td>ECR</td>
-<td>Vantage supports ECR and its corresponding pricing.</td>
-</tr>
-<tr>
-<td>EKS</td>
-<td>Vantage supports EKS and its corresponding pricing.</td>
-</tr>
-<tr>
-<td>Secrets Manager</td>
-<td>Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.</td>
+<td>Redshift</td>
+<td>Vantage supports Redshift and its corresponding pricing.</td>
 </tr>
 <tr>
 <td>Route53</td>
@@ -606,8 +614,24 @@
 <td>Vantage supports RDS and corresponding pricing.</td>
 </tr>
 <tr>
-<td>Tags</td>
-<td>Vantage supports Tags and can allow you to create views from AWS Tags.</td>
+<td>S3</td>
+<td>Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.</td>
+</tr>
+<tr>
+<td>Secrets Manager</td>
+<td>Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.</td>
+</tr>
+<tr>
+<td>SNS</td>
+<td>Vantage supports showing accrued costs for SNS Topics.</td>
+</tr>
+<tr>
+<td>SQS</td>
+<td>Vantage supports showing accrued costs for SQS Queue.</td>
+</tr>
+<tr>
+<td>Workspaces</td>
+<td>Vantage supports AWS Workspaces and its corresponding pricing.</td>
 </tr>
 </tbody>
 </table>
