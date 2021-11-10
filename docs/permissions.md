@@ -264,7 +264,7 @@ Below is a line-by-line description of each permission requested and what it is 
 |"opsworks-cm:List*"|Not used|
 |"opsworks-cm:Describe*"|Not used|
 |"organizations:Describe*"|Not used|
-|"organizations:List*"|Not used|
+|"organizations:List*"|Used for getting information about AWS member accounts for various cost reporting functionality.|
 |"outposts:List*"|Not used|
 |"personalize:Describe*"|Not used|
 |"personalize:List*"|Not used|
