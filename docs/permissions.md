@@ -345,7 +345,6 @@ Below is a line-by-line description of each permission requested and what it is 
 |"sns:List*"| Used for Vantage SNS Topic active resource cost support. |
 |"sns:Check*"|Not used|
 |"sqs:List*"| Used for Vantage SQS Queue active resource cost support. |
-|"sqs:Receive*"|Not used|
 |"ssm:Describe*"|Not used|
 |"ssm:List*"|Not used|
 |"sso:Describe*"|Not used|
