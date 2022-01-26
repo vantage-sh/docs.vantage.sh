@@ -14,7 +14,7 @@ Note that everyone who works at Vantage has previously worked in public cloud in
 
 When you create a Cross Account IAM Role using the provided CloudFormation template you are giving Vantage various [permissions](https://docs.vantage.sh/permissions/). All of the permissions by default are ReadOnly. The list of permissions was created by using the official AWS ReadOnly policy and removing some of the permissions AWS includes in that list in order to prevent Vantage from seeing information like reading from S3 Buckets and reading from databases.
 
-Vantage only collects metadata about your infrastructure and never even attempts to read sensitive information from the underlying services. Our CloudFormation template is public and you may audit the list of permissions [here](https://vantage-public.s3.amazonaws.com/x-account-role-create-1624992638.json). 
+Vantage only collects metadata about your infrastructure and never even attempts to read sensitive information from the underlying services. Our CloudFormation template is public and you may audit the list of permissions [here](https://vantage-public.s3.amazonaws.com/vantage-integration-1642438506.json). 
 
 
 ### Opting into Write Actions
