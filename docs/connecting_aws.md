@@ -1,5 +1,4 @@
-# Setup
-
+# Setup AWS
 
 ## Connecting Your AWS Account
 
@@ -16,10 +15,6 @@ When you create a Cross Account IAM Role using the provided CloudFormation templ
 
 Vantage only collects metadata about your infrastructure and never even attempts to read sensitive information from the underlying services. Our CloudFormation template is public and you may audit the list of permissions [here](https://vantage-public.s3.amazonaws.com/vantage-integration-1642438506.json). 
 
-
-### Opting into Write Actions
-
-Vantage currently supports a limited subset of write, update and delete actions. When you attempt to perform these actions with Vantage, Vantage will determine what IAM permissions it needs to complete those actions and request them accordingly. It will always be at your discretion to opt into these actions. You may also choose to never use Vantage for write actions. 
 
 ### Connecting Multiple AWS Accounts
 

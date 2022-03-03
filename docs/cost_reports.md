@@ -1,5 +1,5 @@
 
-Cost Reports give you the ability to see all accrued costs that match certain conditions. By default, Vantage provides you with a Cost Report named "All Resources" that will show you all costs across all AWS member accounts, regions, services and tags. You can create as many Cost Reports as you'd like to filter your costs by any of the aforementioned dimensions. Many customers typically setup one Cost Report per AWS tag that their team has defined to see costs for certain components of their application.
+Cost Reports give you the ability to see all accrued costs that match certain conditions. By default, Vantage provides you with a Cost Report named "All Resources" that will show you all costs across all AWS member accounts, regions, services and tags. You can create as many Cost Reports as you'd like to filter your costs by any of the aforementioned dimensions. As you create cost reports, they will show up in your [Overview](/overview/) and you'll have [forecasts](/forecasting/) generated automatically. For example, many customers typically setup one Cost Report per AWS tag that their team has defined to see costs for certain components of their application.
 
 Below is an example of what a Cost Report will look like after you have connected your account.
 
@@ -7,12 +7,23 @@ Below is an example of what a Cost Report will look like after you have connecte
 
 ## Filtering Cost Reports
 
+![Example Cost Filters](/img/cost_filters.png)
+
 Cost Reports allow you to see your costs grouped by AWS Service in descending order of accrued costs. By clicking AWS Service rows in the table below, the graph will update with just costs for that specific AWS Service. You may also click the AWS Service name link to see subcategory costs which is described in the next section. 
 
-## AWS Service Subcategory Costs
+## AWS Service Category and Subcategory Costs
 
-Each AWS Service typically has multiple underlying subcategory costs. For example, in the main cost report table view you'll see all of your S3 Costs in aggregate. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more. 
+Each AWS Service typically has multiple underlying category and subcategory costs. For example, in the main cost report table view you'll see all of your S3 Costs in aggregate. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more. 
 
-![Example Subcategory Costs](/img/subcategory_costs.png)
+![Example Subcategory Costs](/img/category_costs.png)
 
-When supported and resources are present, Vantage will also show you the Active Resources contributing to these subcategory costs. 
+
+## Per Resource Costs
+
+When supported in the list of [support services](/supported_services/), Vantage will also be able to show you each individual resource cost. For example, you can see not only the total cost of RDS instances in aggregate day by day but then if you click into "Costs by Resource" within a Cost Report, you can also see how much each individual resource costs. Below is an example of two RDS instances present in the account how much each one of them is driving in costs - this data can be seen without the need for you to do any additional tagging:
+
+![Example of Per Resource Costs](/img/per_resource_list.png)
+
+Additionally, you can click in to see the category and subcategory costs on a per-resource basis. So looking at the example above if you want to see a breakdown of costs for the RDS instance named "vantage-production-core-db" this is what that would look like:
+
+![Example of a Single Resource Costs](/img/per_resource_individual.png)

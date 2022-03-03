@@ -26,16 +26,19 @@ Below is a list of currently supported AWS services for Active Resources:
 | Elasticsearch Service   | Vantage supports Elasticsearch and its corresponding pricing.           |
 | Fargate   | Vantage supports Fargate services and its corresponding pricing.           |
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
+| Global Accelerator   | Vantage supports Glacier Accelator its corresponding pricing.           |
+| Glue      | Vantage supports view Glue Job costs.           | 
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |
 | KMS | Vantage supports showing accrued costs for KMS Keys.           |
 | Amazon Managed Streaming for Apache Kafka (Amazon MSK) | Vantage supports MSK and its corresponding pricing            |
+| MediaLive | Vantage supports MediaLive channels, MediaConvert Jobs, MediaConnect Flow, Mediapackage channels, mediastore containers, mediatailor channels and their corresponding pricing.  |
 | MQ | Vantage supports MQ Brokers and their corresponding pricing.  |
 | Networking primitives   | Vantage supports networking primitives like Elastic IPs, VPCs, Subnets, Availability Zones and Security Groups.           |
 | Redshift   | Vantage supports Redshift and its corresponding pricing.            |
 | Route53   | Vantage supports Route 53 Hosted Zones and its corresponding pricing. We also have write access for Route 53 Record Sets.           |
 | RDS   | Vantage supports RDS and corresponding pricing.           |
-| S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. We do not have permission to read from your S3 Buckets.          |
+| S3   | Vantage supports S3 Buckets and corresponding bucket pricing. We provide daily storage and object count figures. Vantage shows total costs per S3 Bucket as well as summaries by storage classes. Vantage will also provide some calculations for you to determine savings impact of enabling S3 Intelligent Tiering. We do not have permission to read from your S3 Buckets.          |
 | Secrets Manager   | Vantage supports AWS Secrets Manager and its corresponding pricing. We do not have permissions to read your secrets.           |
 | SNS | Vantage supports showing accrued costs for SNS Topics.           |
 | SQS | Vantage supports showing accrued costs for SQS Queue.           |

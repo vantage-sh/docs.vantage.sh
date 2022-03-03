@@ -9,21 +9,28 @@ extra:
 
 nav:
   - 'Overview' : 'index.md'
-  - 'General': 
-    - 'Connecting Your Account': 'connecting.md'
-    - 'AWS Permissions' : 'permissions.md'
+  
+  - 'AWS': 
+    - 'Connecting': 'connecting_aws.md'
+    - 'AWS Permissions' : 'permissions_aws.md'
     - 'Syncing Your Account': 'syncing.md'
     - 'Supported AWS Services': 'supported_services.md'
     - 'Security' : 'security.md'
 
+  - 'Google Cloud':
+    - 'Connecting': 'connecting_gcp.md'
+    - 'GCP Permissions': 'permissions_gcp.md'
+
   - 'Features':
+    - 'Overview' : 'overview.md'
     - 'Cost Reports': 'cost_reports.md'
-    - 'Active Resources': 'views.md'
+    - 'Active Resources': 'active_resources.md'
     - 'Workspaces': 'workspaces.md'
     - 'Forecasting': 'forecasting.md'
     - 'Cloudwatch Metrics': 'metrics.md'
-    - 'Weekly Cost Reports': 'reports.md'
+    - 'Cost Report Notifications': 'reports.md'
     - 'Kubernetes Costs': 'kubernetes.md'
+    - 'Savings Planner': 'savings_planner.md'
   
 
 google_analytics:

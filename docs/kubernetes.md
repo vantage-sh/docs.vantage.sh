@@ -1,7 +1,13 @@
 Vantage supports breaking down the cost to run a Kubernetes cluster by service. This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications.
 
 ## How it works
-Vantage calculates the cost of a running POD by taking the reserved CPU and Memory along with the actually used CPU and Memory and multiplying it by the cost to use a single core and single GB of RAM on a specific type of EC2 Instance. 
+
+Vantage calculates the cost of a running Pod by taking the reserved CPU and Memory along with the actually used CPU and Memory and multiplying it by the cost to use a single core and single GB of RAM on a specific type of EC2 Instance. This allows you to see costs by the following dimensions:
+
+* By Kubernetes Service
+* By Kubernetes Namespace
+* By Kubernetes Label. Please note that in order to see costs by label, you will have to inform Vantage of which labels you'd like tracked.
+
 
 ## Enabling Kubernetes Costs
 

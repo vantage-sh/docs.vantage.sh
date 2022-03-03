@@ -2,4 +2,3 @@ Vantage attempts to give you high-fidelity charts for CloudWatch metrics on each
 
 Cloudwatch metrics are configured automatically per resource when you connect an AWS account to Vantage. 
 
-![Cloudwatch Metrics](/img/metrics.png)
