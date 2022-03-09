@@ -20,6 +20,7 @@ nav:
   - 'Google Cloud':
     - 'Connecting': 'connecting_gcp.md'
     - 'GCP Permissions': 'permissions_gcp.md'
+    - 'Billing Export Setup': 'enabling_gcp_billing_export.md'
 
   - 'Features':
     - 'Overview' : 'overview.md'
