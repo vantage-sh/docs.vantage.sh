@@ -1,11 +1,65 @@
 # Setup
 
-## Connecting Your GCP Account
+## Connecting Your GCP Billing Account
 
-Vantage integrates with your GCP account through the use of a Google Service Account. A Google Service Account is generated on a per customer basis on the Vantage side and only is granted permissions to read from the specific billing Big Query table present within your account. When you log into the Vantage console and go to add a GCP integration you'll be provided with the Global Name for your Google Service Account and be given instructions for what to do with it. 
+Vantage integrates with your GCP account through the use of a [service account](https://cloud.google.com/iam/docs/service-accounts). A service account is generated on a per customer basis and is only granted permissions to read from the specific Big Query table in your account.
 
-After following the instructions you'll need to provide Vantage with your GCP Billing Account ID, the project name and the Big Query dataset name. After Vantage validates the connection, it will begin ingesting your billing data within 24 hours dependent on the amount of cloud costs you have.
+## Read-Only by Default
+The service account is read-only by default. It does not have permissions nor will ever attempt to make any changes to your infrastructure. 
+
+## Prerequisites
+
+Before you begin, you will need to:
+
+1. Enable Billing Export
+2. Create a project to store your Billing Export data  
+3. Create a BigQuery dataset to store your Billing Export data 
+
+If you have a pre-existing Billing Export, double-check the requirements below then skip to the [next section](/connecting_gcp/#creating-a-gcp-data-integration). If you need help setting up Billing Export, you can follow the instruction [here](/enabling_gcp_billing_export/).
+
+**Billing Export Requirements:**
+
+- Project is linked to the same Cloud Billing account that Billing Export is enabled on
+- Detailed Billing Export is enabled, not Standard Billing Export
+- The BigQuery dataset and table is deployed to either `us (multiple regions in United States)` or `eu (multiple regions in European Union)`
+- *Note: If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing Export on each one individually.*
+
+**Recommendation:** We recommend that you create a dedicated project to store all Cloud Billing data rather than using an existing project.
+
+## Creating a GCP Data Integration
+
+Now that you have:
+
+1. The Billing account ID
+2. The name of the project
+3. The name of the Big Query dataset
+
+Create a GCP data integration by logging into your Vantage account and going [here](https://console.vantage.sh/gcp_onboarding/overview). You will be asked to add these inputs into the onboarding flow.
 
 
-## Read Only by Default
-For the purpose of being explicit: The Google Service Account is read only by default and does not have permissions nor will ever attempt to make any changes to any of your infrastructure. 
+## Connecting Manually
+
+### Assign Vantage Service Account Permission to Access BigQuery
+1. Open the [IAM Console](https://console.cloud.google.com/iam-admin/iam)
+2. Select the project hosting the BigQuery dataset containing your Billing Export data from the project drop-down in the main navigation bar at top. If you don’t see the project name right away, try the “ALL” tab or search for it
+3. Add a new permission to the project 
+	1. Click the **Add** button 
+	2. Under **New principals**, add your Vantage service account (found in the GCP onboarding workflow in the Vantage console)
+	3. Attach the role `BigQuery Job User`
+	4. Click the **Save** button
+
+### Assign Vantage Service Account Permission to Access BigQuery Dataset
+1. In the hamburger menu, navigate to **BigQuery** under **ANALYTICS** and select **SQL Workspace**
+2. Grant Vantage service account access to the BigQuery dataset:
+	1. Select the project name
+	2. Select the dataset by clicking the **three vertical dots** button and selecting **Open**
+	3. Click the **Share** button and select **Permissions**
+	4. Under New principals, add your Vantage service account
+	5. Attach the role, `BigQuery Data Viewer`
+	6. Click the **Save** button
+7. Return to the Vantage GCP onboarding workflow and click the **Next** button
+
+
+## Connecting with Terraform
+
+If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the manual integration process, you can click on the terraform instructions which will give you the IAM Role creation snippets. This can be dropped into your Terraform codebase. Once this has been deployed you can complete the onboarding workflow.

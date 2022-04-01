@@ -7,8 +7,21 @@ theme:
 extra:
   generator: false
 
+markdown_extensions:
+  - attr_list
+  - toc:
+      permalink: "#"
+  - admonition
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
 nav:
   - 'Overview' : 'index.md'
+  - 'Getting Started' : 'getting_started.md'
   
   - 'AWS': 
     - 'Connecting': 'connecting_aws.md'
@@ -21,6 +34,9 @@ nav:
     - 'Connecting': 'connecting_gcp.md'
     - 'GCP Permissions': 'permissions_gcp.md'
     - 'Billing Export Setup': 'enabling_gcp_billing_export.md'
+
+  - 'Kubernetes':
+    - 'Connecting': 'connecting_kubernetes.md'
 
   - 'Features':
     - 'Overview' : 'overview.md'
