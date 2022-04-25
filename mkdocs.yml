@@ -22,6 +22,7 @@ markdown_extensions:
 nav:
   - 'Overview' : 'index.md'
   - 'Getting Started' : 'getting_started.md'
+  - 'Vantage Account' : 'vantage_account.md'
   
   - 'AWS': 
     - 'Connecting': 'connecting_aws.md'
