@@ -39,6 +39,7 @@ nav:
     - 'Connecting': 'connecting_kubernetes.md'
 
   - 'Features':
+    - 'Autopilot': 'autopilot.md'
     - 'Overview' : 'overview.md'
     - 'Cost Reports': 'cost_reports.md'
     - 'Active Resources': 'active_resources.md'
@@ -49,6 +50,9 @@ nav:
     - 'Kubernetes Costs': 'kubernetes.md'
     - 'Savings Planner': 'savings_planner.md'
   
+  - 'Integrations':
+    - 'Terraform Cloud': 'terraform_cloud_integration.md'
+
 
 google_analytics:
   - UA-166045679-3
