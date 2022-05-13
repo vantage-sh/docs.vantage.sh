@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/permissions_gcp/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>GCP Permissions - Vantage Documentation</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gcp-permissions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              GCP Permissions
             
           </span>
         </div>
@@ -303,14 +308,16 @@
       
 
 
+  
+
 
   
     
   
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Google Cloud
@@ -342,11 +349,20 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../permissions_gcp/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       GCP Permissions
     </a>
+    
   </li>
 
         
@@ -461,16 +477,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Features
@@ -580,18 +594,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -677,22 +684,30 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
-                
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
-<ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
-</ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+                <h1 id="gcp-permissions">GCP Permissions<a class="headerlink" href="#gcp-permissions" title="Permanent link">#</a></h1>
+<p>Vantage requests extremely basic and limited permissions for GCP unlike our deeper integration for <a href="/permissions_aws/">AWS accounts</a>. The generated Google Service Account only needs to be granted access to the specific Big Query dataset that contains your billing data in a speficific project in your account. While we have broader plans for deeper integrations for GCP in time, this is the only permission required. </p>
                 
               
               
@@ -711,7 +726,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../connecting_gcp/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +735,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                Connecting
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../enabling_gcp_billing_export/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                Billing Export Setup
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

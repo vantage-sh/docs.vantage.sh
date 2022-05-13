@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/connecting_fastly/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>Connecting - Vantage Documentation</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#setup-fastly" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              Connecting
             
           </span>
         </div>
@@ -417,14 +422,16 @@
       
 
 
+  
+
 
   
     
   
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" checked>
     
     <label class="md-nav__link" for="nav-7">
       Fastly
@@ -443,11 +450,49 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../connecting_fastly/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Connecting
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Connecting
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-your-fastly-account" class="md-nav__link">
+    Connecting Your Fastly Account
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -461,16 +506,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Features
@@ -580,18 +623,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -677,22 +713,64 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-your-fastly-account" class="md-nav__link">
+    Connecting Your Fastly Account
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
-                
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
+                <h1 id="setup-fastly">Setup Fastly<a class="headerlink" href="#setup-fastly" title="Permanent link">#</a></h1>
+<div class="admonition note">
+<p class="admonition-title">Fastly support is in closed early access.</p>
+<p>Vantage support for displaying Fastly costs is in closed early access. Please contact support@vantage.sh to opt in. </p>
+</div>
+<h2 id="connecting-your-fastly-account">Connecting Your Fastly Account<a class="headerlink" href="#connecting-your-fastly-account" title="Permanent link">#</a></h2>
+<p>Vantage integrates with your Fastly account through a read-only API token. Fastly API Tokens are free for you to create and added them to the Vantage console only takes a few minutes. Step by step instructions for generating a Fastly API Token are below:</p>
 <ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
+<li>Ensure you've logged into the <a href="https://www.fastly.com">Fastly.com console</a></li>
+<li>Click the "+ Create Token" button from your personal <a href="https://manage.fastly.com/account/personal/tokens/new">API Token Page</a>.</li>
+<li>When creating an API Token:<ul>
+<li>Please name the token something relevant like "VantageReadOnlyToken"</li>
+<li>For "Service Access" select "All Services from YOUR_ORGANIZATION_NAME"</li>
+<li>For "Scope" select "Read-only access (global:read) — Read account information, configuration and stats" and ensure everything else is unchecked. Vantage will never attempt to make changes to your Fastly infrastructure. </li>
+<li>For "Expiration", select "Never expire"</li>
 </ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+</li>
+</ul>
+<p>Your token creation form should look like the following:</p>
+<p><img alt="Example Fastly Token Creation Form" src="/img/VantageFastlyInstructions_1.png" /></p>
+<p>After hitting the "Create Token" button, Fastly will generate your API Token. Copy this and head to your <a href="https://console.vantage.sh/settings/integrations">Vantage Integrations Page</a> and add a new Fastly integration. You'll be prompted to copy the API Token you just generated. Upon submitting this token, Vantage will automatically begin ingesting and visualizing your costs within the Vantage console. </p>
                 
               
               
@@ -711,7 +789,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../connecting_kubernetes/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +798,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                Connecting
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../autopilot/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                Autopilot
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

@@ -1,0 +1,2332 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="canonical" href="https://docs.vantage.sh/permissions_aws/">
+      
+      <link rel="shortcut icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
+    
+    
+      
+        <title>AWS Permissions - Vantage Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.3b61ea93.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.39b8e14a.min.css">
+        
+      
+    
+    
+    
+      
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto",-apple-system,BlinkMacSystemFont,Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono",SFMono-Regular,Consolas,Menlo,monospace}</style>
+      
+    
+    
+    
+    
+      
+        
+<script>window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)},ga.l=+new Date,ga("create","UA-166045679-3","auto"),ga("set","anonymizeIp",!0),ga("send","pageview"),document.addEventListener("DOMContentLoaded",function(){document.forms.search&&document.forms.search.query.addEventListener("blur",function(){if(this.value){var e=document.location.pathname;ga("send","pageview",e+"?q="+this.value)}})}),document.addEventListener("DOMContentSwitch",function(){ga("send","pageview",document.location.pathname)})</script>
+<script async src="https://www.google-analytics.com/analytics.js"></script>
+      
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="" data-md-color-primary="none" data-md-color-accent="none">
+      
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#aws-permissions" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid" aria-label="Header">
+    <a href="https://docs.vantage.sh" title="Vantage Documentation" class="md-header-nav__button md-logo" aria-label="Vantage Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    <label class="md-header-nav__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
+    </label>
+    <div class="md-header-nav__title" data-md-component="header-title">
+      <div class="md-header-nav__ellipsis">
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            Vantage Documentation
+          </span>
+        </div>
+        <div class="md-header-nav__topic">
+          <span class="md-ellipsis">
+            
+              AWS Permissions
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      <label class="md-header-nav__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+      </label>
+      
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0116 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 019.5 16 6.5 6.5 0 013 9.5 6.5 6.5 0 019.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+      </label>
+      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" data-md-component="search-reset" tabindex="-1">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="https://docs.vantage.sh" title="Vantage Documentation" class="md-nav__button md-logo" aria-label="Vantage Documentation">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 003-3 3 3 0 00-3-3 3 3 0 00-3 3 3 3 0 003 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+
+    </a>
+    Vantage Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href=".." class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../getting_started/" class="md-nav__link">
+      Getting Started
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  <li class="md-nav__item">
+    <a href="../vantage_account/" class="md-nav__link">
+      Vantage Account
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+    
+    <label class="md-nav__link" for="nav-4">
+      AWS
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="AWS" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        <span class="md-nav__icon md-icon"></span>
+        AWS
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../connecting_aws/" class="md-nav__link">
+      Connecting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        AWS Permissions
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
+      AWS Permissions
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permission-descriptions" class="md-nav__link">
+    Permission Descriptions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../syncing/" class="md-nav__link">
+      Syncing Your Account
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../supported_services/" class="md-nav__link">
+      Supported AWS Services
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../security/" class="md-nav__link">
+      Security
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+    
+    <label class="md-nav__link" for="nav-5">
+      Google Cloud
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Google Cloud" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        <span class="md-nav__icon md-icon"></span>
+        Google Cloud
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../connecting_gcp/" class="md-nav__link">
+      Connecting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../permissions_gcp/" class="md-nav__link">
+      GCP Permissions
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../enabling_gcp_billing_export/" class="md-nav__link">
+      Billing Export Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6" >
+    
+    <label class="md-nav__link" for="nav-6">
+      Kubernetes
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Kubernetes" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        <span class="md-nav__icon md-icon"></span>
+        Kubernetes
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../connecting_kubernetes/" class="md-nav__link">
+      Connecting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7" >
+    
+    <label class="md-nav__link" for="nav-7">
+      Fastly
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Fastly" data-md-level="1">
+      <label class="md-nav__title" for="nav-7">
+        <span class="md-nav__icon md-icon"></span>
+        Fastly
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../connecting_fastly/" class="md-nav__link">
+      Connecting
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
+    
+    <label class="md-nav__link" for="nav-8">
+      Features
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Features" data-md-level="1">
+      <label class="md-nav__title" for="nav-8">
+        <span class="md-nav__icon md-icon"></span>
+        Features
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../autopilot/" class="md-nav__link">
+      Autopilot
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../overview/" class="md-nav__link">
+      Overview
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../cost_reports/" class="md-nav__link">
+      Cost Reports
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../active_resources/" class="md-nav__link">
+      Active Resources
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../workspaces/" class="md-nav__link">
+      Workspaces
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../forecasting/" class="md-nav__link">
+      Forecasting
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../metrics/" class="md-nav__link">
+      Cloudwatch Metrics
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
+      Cost Report Notifications
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../kubernetes/" class="md-nav__link">
+      Kubernetes Costs
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../savings_planner/" class="md-nav__link">
+      Savings Planner
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+
+  
+    
+  
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    
+    
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-9" type="checkbox" id="nav-9" >
+    
+    <label class="md-nav__link" for="nav-9">
+      Integrations
+      <span class="md-nav__icon md-icon"></span>
+    </label>
+    <nav class="md-nav" aria-label="Integrations" data-md-level="1">
+      <label class="md-nav__title" for="nav-9">
+        <span class="md-nav__icon md-icon"></span>
+        Integrations
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+
+  <li class="md-nav__item">
+    <a href="../terraform_cloud_integration/" class="md-nav__link">
+      Terraform Cloud
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#permission-descriptions" class="md-nav__link">
+    Permission Descriptions
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                
+                <h1 id="aws-permissions">AWS Permissions<a class="headerlink" href="#aws-permissions" title="Permanent link">#</a></h1>
+<p>Vantage requests certain IAM permissions to interact with your AWS account. All permissions are ReadOnly be default and the list of permissions was generated by looking at the AWS-managed IAM policy of ReadOnlyAccess and removing a number of permissions from that. The list of permissions can be viewed on our <a href="https://vantage-public.s3.amazonaws.com/vantage-integration-1642438506.json">provided CloudFormation Stack file</a>.</p>
+<h2 id="permission-descriptions">Permission Descriptions<a class="headerlink" href="#permission-descriptions" title="Permanent link">#</a></h2>
+<p>Below is a line-by-line description of each permission requested and what it is used for. In many cases, we have premptively requested permissions that are not used but are reserved for future feature support so that we do not need you to update the permission list for each subsequent feature.</p>
+<table>
+<thead>
+<tr>
+<th>Permission</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>"a4b:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"a4b:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"access-analyzer:ListAnalyzedResources"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"access-analyzer:ListAnalyzers"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"access-analyzer:ListArchiveRules"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"access-analyzer:ListFindings"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"access-analyzer:ListTagsForResource"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"acm:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"acm:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"acm-pca:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"acm-pca:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"amplify:ListApps"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"amplify:ListBranches"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"amplify:ListDomainAssociations"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"amplify:ListJobs"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"application-autoscaling:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"applicationinsights:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"applicationinsights:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"appmesh:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"appmesh:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"appstream:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"appstream:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"appsync:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"autoscaling:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"autoscaling-plans:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"athena:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"athena:Batch*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"aws-portal:View*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"backup:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"backup:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"batch:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"batch:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"budgets:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"budgets:View*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cassandra:Select"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ce:Get*"</td>
+<td>Used for Vantage Cost Center functionality to display historical price data and trends. This permission was added by default on February 7th, 2021.</td>
+</tr>
+<tr>
+<td>"chatbot:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"chime:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"chime:Retrieve*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"chime:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"chime:Validate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloud9:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloud9:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"clouddirectory:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"clouddirectory:BatchRead"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"clouddirectory:LookupPolicy"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudformation:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudformation:Detect*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudformation:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudformation:Estimate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudfront:List*"</td>
+<td>Used for getting Cloudfront distributions and showing accompanying costs.</td>
+</tr>
+<tr>
+<td>"cloudhsm:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudhsm:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudsearch:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudsearch:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudtrail:Describe*"</td>
+<td>Used for Vantage Audit Logs features</td>
+</tr>
+<tr>
+<td>"cloudtrail:Get*"</td>
+<td>Used for Vantage Audit Logs features</td>
+</tr>
+<tr>
+<td>"cloudtrail:List*"</td>
+<td>Used for Vantage Audit Logs features</td>
+</tr>
+<tr>
+<td>"cloudtrail:LookupEvents"</td>
+<td>Used for Vantage Audit Logs features</td>
+</tr>
+<tr>
+<td>"cloudwatch:Describe*"</td>
+<td>Used for getting cloudwatch metrics for resources and CloudWatch Log Groups</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricData"</td>
+<td>Used for getting cloudwatch metrics for resources</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetDashboard"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricStatistics"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudwatch:GetMetricStream"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cloudwatch:List*"</td>
+<td>Used for getting cloudwatch metrics for resources</td>
+</tr>
+<tr>
+<td>"codeartifact:DescribeDomain"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:DescribePackageVersion"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:DescribeRepository"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListDomains"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListPackages"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListPackageVersionAssets"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListPackageVersionDependencies"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListPackageVersions"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListRepositories"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeartifact:ListRepositoriesInDomain"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codebuild:DescribeCodeCoverages"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codebuild:DescribeTestCases"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codebuild:Get*"</td>
+<td>Used for Vantage Codebuild support</td>
+</tr>
+<tr>
+<td>"codebuild:List*"</td>
+<td>Used for Vantage Codebuild support</td>
+</tr>
+<tr>
+<td>"codebuild:BatchGetBuilds"</td>
+<td>Used for Vantage Codebuild support</td>
+</tr>
+<tr>
+<td>"codecommit:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codecommit:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codedeploy:List*"</td>
+<td>Used for Vantage CodeDeploy support</td>
+</tr>
+<tr>
+<td>"codeguru-profiler:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeguru-profiler:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeguru-reviewer:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codeguru-reviewer:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codepipeline:List*"</td>
+<td>Used for Vantage CodePipeline support</td>
+</tr>
+<tr>
+<td>"codepipeline:Get*"</td>
+<td>Used for Vantage CodePipeline support</td>
+</tr>
+<tr>
+<td>"codestar:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar-notifications:describeNotificationRule"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar-notifications:listEventTypes"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar-notifications:listNotificationRules"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar-notifications:listTagsForResource"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"codestar-notifications:ListTargets"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:DescribeRecommendationExportJobs"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:GetAutoScalingGroupRecommendations"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:GetEC2InstanceRecommendations"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:GetEC2RecommendationProjectedMetrics"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:GetEnrollmentStatus"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"compute-optimizer:GetRecommendationSummaries"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-identity:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-identity:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-identity:Lookup*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-sync:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-sync:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-sync:QueryRecords"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-idp:AdminList*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-idp:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"cognito-idp:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"config:Deliver*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"config:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"config:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"config:SelectResourceConfig"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"connect:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"connect:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dataexchange:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"datasync:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"datasync:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"datapipeline:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"datapipeline:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"datapipeline:Validate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dax:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dax:ListTags"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dax:Query"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dax:Scan"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"detective:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"devicefarm:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"directconnect:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"discovery:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"discovery:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dms:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dms:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dms:Test*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ds:Check*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ds:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ds:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ds:Verify*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dynamodb:Describe*"</td>
+<td>Used for Vantage DynamoDB support</td>
+</tr>
+<tr>
+<td>"dynamodb:List*"</td>
+<td>Used for Vantage DynamoDB support</td>
+</tr>
+<tr>
+<td>"dynamodb:Query"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"dynamodb:Scan"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ec2:Describe*"</td>
+<td>Used for Vantage EC2 support</td>
+</tr>
+<tr>
+<td>"ec2:GetCapacityReservationUsage"</td>
+<td>Used for Vantage EC2 support</td>
+</tr>
+<tr>
+<td>"ec2:GetEbsEncryptionByDefault"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ec2:SearchTransitGatewayRoutes"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ecr:BatchCheck*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ecr:Describe*"</td>
+<td>Used for Vantage ECR support</td>
+</tr>
+<tr>
+<td>"ecr:List*"</td>
+<td>Used for Vantage ECR support</td>
+</tr>
+<tr>
+<td>"ecs:Describe*"</td>
+<td>Used for Vantage ECS support</td>
+</tr>
+<tr>
+<td>"ecs:List*"</td>
+<td>Used for Vantage ECS support</td>
+</tr>
+<tr>
+<td>"eks:DescribeCluster"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"eks:DescribeUpdate"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"eks:Describe*"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"eks:ListClusters"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"eks:ListUpdates"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"eks:List*"</td>
+<td>Used for Vantage EKS support</td>
+</tr>
+<tr>
+<td>"elasticache:Describe*"</td>
+<td>Used for Vantage Elasticache support</td>
+</tr>
+<tr>
+<td>"elasticache:List*"</td>
+<td>Used for Vantage Elasticache support</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:Check*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:Request*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:Retrieve*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticbeanstalk:Validate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticfilesystem:Describe*"</td>
+<td>Used for Vantage EFS Support</td>
+</tr>
+<tr>
+<td>"elasticloadbalancing:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticmapreduce:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticmapreduce:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elasticmapreduce:View*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elastictranscoder:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elastictranscoder:Read*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"elemental-appliances-software:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"es:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"es:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"es:ESHttpHead"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"events:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"events:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"events:Test*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"firehose:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"firehose:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"fsx:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"fsx:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"freertos:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"freertos:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"gamelift:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"gamelift:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"gamelift:RequestUploadCredentials"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"gamelift:ResolveAlias"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"gamelift:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glacier:List*"</td>
+<td>Used for Vantage Glacier Support</td>
+</tr>
+<tr>
+<td>"glacier:Describe*"</td>
+<td>Used for Vantage Glacier Support</td>
+</tr>
+<tr>
+<td>"globalaccelerator:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"globalaccelerator:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListCrawlers"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListDevEndpoints"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListJobs"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListMLTransforms"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListTriggers"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"glue:ListWorkflows"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"greengrass:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"guardduty:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"health:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"health:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iam:Generate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iam:Get*"</td>
+<td>Used for Vantage IAM support</td>
+</tr>
+<tr>
+<td>"iam:List*"</td>
+<td>Used for Vantage IAM support</td>
+</tr>
+<tr>
+<td>"iam:Simulate*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"imagebuilder:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"importexport:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"inspector:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"inspector:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"inspector:Preview*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iot:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iot:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iotanalytics:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iotanalytics:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iotanalytics:SampleChannelData"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iotsitewise:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"iotsitewise:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kafka:Describe*"</td>
+<td>Used for Vantage MSK support</td>
+</tr>
+<tr>
+<td>"kafka:List*"</td>
+<td>Used for Vantage MSK support</td>
+</tr>
+<tr>
+<td>"kinesisanalytics:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesisanalytics:Discover*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesisanalytics:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesisvideo:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesisvideo:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesis:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kinesis:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kms:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"kms:List*"</td>
+<td>Used to show active KMS key costs</td>
+</tr>
+<tr>
+<td>"lambda:List*"</td>
+<td>Used for Vantage Lambda support</td>
+</tr>
+<tr>
+<td>"license-manager:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"logs:Describe*"</td>
+<td>Used for Vantage Cloudwatch logs support</td>
+</tr>
+<tr>
+<td>"logs:ListTagsLogGroup"</td>
+<td>Used for Vantage Cloudwatch logs support</td>
+</tr>
+<tr>
+<td>"logs:TestMetricFilter"</td>
+<td>Used for Vantage Cloudwatch logs support</td>
+</tr>
+<tr>
+<td>"machinelearning:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mediaconvert:DescribeEndpoints"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mediaconvert:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mediapackage:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mediapackage:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mgh:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mgh:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mobilehub:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mobilehub:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mobilehub:Verify*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mobiletargeting:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mq:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"mq:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"opsworks:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"opsworks-cm:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"opsworks-cm:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"organizations:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"organizations:List*"</td>
+<td>Used for getting information about AWS member accounts for various cost reporting functionality.</td>
+</tr>
+<tr>
+<td>"outposts:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"personalize:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"personalize:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"pi:DescribeDimensionKeys"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"polly:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"polly:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"polly:SynthesizeSpeech"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"qldb:ListLedgers"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"qldb:DescribeLedger"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"qldb:ListTagsForResource"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ram:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"rekognition:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"rekognition:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"rds:Describe*"</td>
+<td>Used for Vantage RDS support</td>
+</tr>
+<tr>
+<td>"rds:List*"</td>
+<td>Used for Vantage RDS support</td>
+</tr>
+<tr>
+<td>"redshift:Describe*"</td>
+<td>Used for Vantage Redshift support</td>
+</tr>
+<tr>
+<td>"redshift:View*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"resource-groups:Get*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"resource-groups:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"resource-groups:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"robomaker:BatchDescribe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"robomaker:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"robomaker:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"route53:Get*"</td>
+<td>Used for Vantage Route53 Support</td>
+</tr>
+<tr>
+<td>"route53:List*"</td>
+<td>Used for Vantage Route53 Support</td>
+</tr>
+<tr>
+<td>"route53:Test*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"route53domains:Check*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"route53domains:Get*"</td>
+<td>Used for Vantage Route53 support</td>
+</tr>
+<tr>
+<td>"route53domains:List*"</td>
+<td>Used for Vantage Route53 support</td>
+</tr>
+<tr>
+<td>"route53domains:View*"</td>
+<td>Used for Vantage Route53 support</td>
+</tr>
+<tr>
+<td>"route53resolver:Get*"</td>
+<td>Not Used</td>
+</tr>
+<tr>
+<td>"route53resolver:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"s3:List*"</td>
+<td>Used for Vantage S3 support</td>
+</tr>
+<tr>
+<td>"s3:GetBucketLocation"</td>
+<td>Used for Vantage S3 support</td>
+</tr>
+<tr>
+<td>"s3:GetBucketTagging"</td>
+<td>Used for Vantage S3 support</td>
+</tr>
+<tr>
+<td>"sagemaker:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sagemaker:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sagemaker:Search"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"schemas:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"schemas:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"schemas:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sdb:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sdb:Select*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"secretsmanager:List*"</td>
+<td>Used for Vantage Secrets Manager Support</td>
+</tr>
+<tr>
+<td>"secretsmanager:Describe*"</td>
+<td>Used for Vantage Secrets Manager Support</td>
+</tr>
+<tr>
+<td>"securityhub:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"securityhub:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"serverlessrepo:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"serverlessrepo:SearchApplications"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicecatalog:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicecatalog:Scan*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicecatalog:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicecatalog:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicediscovery:Get*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicediscovery:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:GetAssociationForServiceQuotaTemplate"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:GetAWSDefaultServiceQuota"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:GetRequestedServiceQuotaChange"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:GetServiceQuota"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:GetServiceQuotaIncreaseRequestFromTemplate"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListAWSDefaultServiceQuotas"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListRequestedServiceQuotaChangeHistory"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListRequestedServiceQuotaChangeHistoryByQuota"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListServices"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListServiceQuotas"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"servicequotas:ListServiceQuotaIncreaseRequestsInTemplate"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ses:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ses:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"shield:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"shield:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"signer:DescribeSigningJob"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"signer:ListSigningJobs"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"signer:ListSigningPlatforms"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"signer:ListSigningProfiles"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"signer:ListTagsForResource"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"snowball:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"snowball:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sns:List*"</td>
+<td>Used for Vantage SNS Topic active resource cost support.</td>
+</tr>
+<tr>
+<td>"sns:Check*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sqs:List*"</td>
+<td>Used for Vantage SQS Queue active resource cost support.</td>
+</tr>
+<tr>
+<td>"ssm:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"ssm:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso-directory:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso-directory:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sso-directory:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"states:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"states:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"storagegateway:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"storagegateway:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"sts:GetCallerIdentity"</td>
+<td>Used for Cross Account role interactions</td>
+</tr>
+<tr>
+<td>"sts:GetSessionToken"</td>
+<td>Used for Cross Account role interactions</td>
+</tr>
+<tr>
+<td>"swf:Count*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"swf:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"swf:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"synthetics:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"synthetics:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"tag:Get*"</td>
+<td>Used for AWS Tag support</td>
+</tr>
+<tr>
+<td>"transfer:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"transfer:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"transfer:TestIdentityProvider"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"transcribe:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"trustedadvisor:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"waf:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"wafv2:CheckCapacity"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"wafv2:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"wafv2:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"waf-regional:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"worklink:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"worklink:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"workmail:Describe*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"workmail:List*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"workmail:Search*"</td>
+<td>Not used</td>
+</tr>
+<tr>
+<td>"workspaces:Describe*"</td>
+<td>Used for Vantage Workspaces support.</td>
+</tr>
+</tbody>
+</table>
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
+        
+          <a href="../connecting_aws/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
+            </div>
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Connecting
+              </div>
+            </div>
+          </a>
+        
+        
+          <a href="../syncing/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-footer-nav__title">
+              <div class="md-ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Syncing Your Account
+              </div>
+            </div>
+            <div class="md-footer-nav__button md-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        Made with
+        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+          Material for MkDocs
+        </a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../assets/javascripts/vendor.08c56446.min.js"></script>
+      <script src="../assets/javascripts/bundle.6ced434e.min.js"></script><script id="__lang" type="application/json">{"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}</script>
+      
+      <script>
+        app = initialize({
+          base: "..",
+          features: ['navigation.sections'],
+          search: Object.assign({
+            worker: "../assets/javascripts/worker/search.8c7e0a7e.min.js"
+          }, typeof search !== "undefined" && search)
+        })
+      </script>
+      
+    
+  </body>
+</html>

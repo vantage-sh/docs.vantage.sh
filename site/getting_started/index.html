@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/getting_started/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>Getting Started - Vantage Documentation</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#getting-started" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              Getting Started
             
           </span>
         </div>
@@ -181,11 +186,70 @@
       
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../getting_started/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Getting Started
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Getting Started
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-amazon-web-services-aws" class="md-nav__link">
+    Getting Started with Amazon Web Services (AWS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-google-cloud-platform-gcp" class="md-nav__link">
+    Getting Started with Google Cloud Platform (GCP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-kubernetes" class="md-nav__link">
+    Getting Started with Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-providers" class="md-nav__link">
+    Other Providers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
     
@@ -461,16 +525,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Features
@@ -580,18 +642,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -677,22 +732,77 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-amazon-web-services-aws" class="md-nav__link">
+    Getting Started with Amazon Web Services (AWS)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-google-cloud-platform-gcp" class="md-nav__link">
+    Getting Started with Google Cloud Platform (GCP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-started-with-kubernetes" class="md-nav__link">
+    Getting Started with Kubernetes
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#other-providers" class="md-nav__link">
+    Other Providers
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
-                
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
-<ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
-</ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+                <h1 id="getting-started">Getting Started<a class="headerlink" href="#getting-started" title="Permanent link">#</a></h1>
+<p>To get started using Vantage to explore your cloud infrastructure costs, you'll want to create a data integration between at least one of your providers and Vantage.</p>
+<h2 id="getting-started-with-amazon-web-services-aws">Getting Started with Amazon Web Services (AWS)<a class="headerlink" href="#getting-started-with-amazon-web-services-aws" title="Permanent link">#</a></h2>
+<p>Vantage integrates with AWS via a <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html">cross-account IAM role</a>. This gives Vantage read-only access to an organization's cost data. Once the role has been created and given the correct set of permissions, Vantage will begin syncing an organization's cost data and resource metadata. After the initial sync is complete, users will be able to take advantage of all of the features of the Vantage platform to manage, inspect and model their AWS spend.</p>
+<p>Get started by <a href="https://console.vantage.sh/signup">creating a Vantage account</a> and <a href="https://console.vantage.sh/setup">connecting an AWS account</a>. The onboarding flow will guide you through connecting your AWS account to Vantage. Full documentation on connecting an AWS account, can be found <a href="/connecting_aws/">here</a>.</p>
+<h2 id="getting-started-with-google-cloud-platform-gcp">Getting Started with Google Cloud Platform (GCP)<a class="headerlink" href="#getting-started-with-google-cloud-platform-gcp" title="Permanent link">#</a></h2>
+<p>Vantage integrates with GCP via a <a href="https://cloud.google.com/iam/docs/service-accounts">service account</a>. This gives Vantage read-only access to an organization's cost data. Once the role has been created and given the correct set of permissions, Vantage will begin syncing an organization's cost data and resource metadata. After the initial sync is complete, users will be able to take advantage of all of the features of the Vantage platform to manage, inspect and model their GCP spend.</p>
+<p>Get started by <a href="https://console.vantage.sh/signup">creating a Vantage account</a> and <a href="https://console.vantage.sh/setup">connecting a GCP billing account</a>. The onboarding flow will guide you through connecting your AWS account to Vantage. Full documentation on connecting a GCP billing account, can be found <a href="/connecting_gcp/">here</a>.</p>
+<h2 id="getting-started-with-kubernetes">Getting Started with Kubernetes<a class="headerlink" href="#getting-started-with-kubernetes" title="Permanent link">#</a></h2>
+<p>Vantage currently only support Kubernetes as a provider for cloud managed Kubernetes deployments (e.g. Amazon Elastic Kubernetes Service). Vantage integrates with Kubernetes via IAM permissions to read from the metrics store of a Kubernetes cluster. Once cluster metrics are being stored and the Vantage IAM role has permissions to access the metrics, Vantage will begin syncing an organization's usage metrics and resource metadata. After the initial sync is complete, users will be able to take advantage of all of the features of the Vantage platform to manage, inspect and model their Kubernetes spend.</p>
+<p>Get started by <a href="https://console.vantage.sh/signup">creating a Vantage account</a> and <a href="https://console.vantage.sh/setup">connecting a cloud provider account</a>. The onboarding flow will guide you through creating the data integration to your cloud provider. Full documentation on getting started with Kubernetes, can be found <a href="/connecting_kubernetes/">here</a>.</p>
+<h2 id="other-providers">Other Providers<a class="headerlink" href="#other-providers" title="Permanent link">#</a></h2>
+<p>Vantage will be launching support for additional cloud infrastructure providers in the future. If you have a particular provider that you would like supported, please reach out to support@vantage.sh. </p>
                 
               
               
@@ -711,7 +821,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href=".." class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +830,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                Overview
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../vantage_account/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                Vantage Account
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

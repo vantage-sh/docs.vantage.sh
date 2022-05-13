@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/overview/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>Overview - Vantage Documentation</title>
       
     
     
@@ -91,7 +91,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              Overview
             
           </span>
         </div>
@@ -502,11 +502,18 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../overview/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Overview
     </a>
+    
   </li>
 
         
@@ -580,18 +587,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -683,16 +683,17 @@
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
+                  <h1>Overview</h1>
                 
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
+                <p>After you connect either your Google Cloud account or create an IAM Role for your AWS account, Vantage will automatically begin ingesting billing information for the respective account. Once that is complete, you'll be directed to the main console experience within Vantage. The default landing page in the Vantage console is the 'Overview' page, which you can see an example of above. </p>
+<p>The Overview is meant to be an executive level summary of the cost metrics that you care about most which currently creates high-level cost summaries for three things at the moment:</p>
 <ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
+<li>A widget that gives you the ability to see your total on-demand versus committed spend. This gives you an idea of how much you're paying for on-demand versus things like Savings Plans, Reserved Instances, Enterprise Discount Programs and Committed Use Discounts.</li>
+<li>A widget that gives you a breakdown of spend for each member account for AWS or project for GCP. You can see the current accrued costs for either projects or member accounts with their cost trends versus the prior month.</li>
+<li>A widget for each one of the <a href="/cost_reports/">Cost Reports</a> you create. One default Cost Report will be present in your account that is referred to as "All Resources". As you create more Cost Reports in your account, a summary of them will automatically show up in the Overview page. </li>
 </ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+<p>Below is an example screenshot of what the overview looks like:</p>
+<p><img alt="Example of Overview" src="/img/overview.png" /></p>
                 
               
               
@@ -711,7 +712,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../autopilot/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +721,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                Autopilot
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../cost_reports/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                Cost Reports
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

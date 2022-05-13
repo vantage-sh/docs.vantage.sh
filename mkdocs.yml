@@ -39,6 +39,9 @@ nav:
   - 'Kubernetes':
     - 'Connecting': 'connecting_kubernetes.md'
 
+  - 'Fastly':
+    - 'Connecting': 'connecting_fastly.md'
+
   - 'Features':
     - 'Autopilot': 'autopilot.md'
     - 'Overview' : 'overview.md'

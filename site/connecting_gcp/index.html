@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/connecting_gcp/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>Connecting - Vantage Documentation</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#setup" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              Connecting
             
           </span>
         </div>
@@ -303,14 +308,16 @@
       
 
 
+  
+
 
   
     
   
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Google Cloud
@@ -329,11 +336,104 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../connecting_gcp/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Connecting
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Connecting
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-your-gcp-billing-account" class="md-nav__link">
+    Connecting Your GCP Billing Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-only-by-default" class="md-nav__link">
+    Read-Only by Default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-gcp-data-integration" class="md-nav__link">
+    Creating a GCP Data Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-manually" class="md-nav__link">
+    Connecting Manually
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Manually">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-vantage-service-account-permission-to-access-bigquery" class="md-nav__link">
+    Assign Vantage Service Account Permission to Access BigQuery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-vantage-service-account-permission-to-access-bigquery-dataset" class="md-nav__link">
+    Assign Vantage Service Account Permission to Access BigQuery Dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-with-terraform" class="md-nav__link">
+    Connecting with Terraform
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -461,16 +561,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Features
@@ -580,18 +678,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -677,22 +768,156 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-your-gcp-billing-account" class="md-nav__link">
+    Connecting Your GCP Billing Account
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#read-only-by-default" class="md-nav__link">
+    Read-Only by Default
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prerequisites" class="md-nav__link">
+    Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-gcp-data-integration" class="md-nav__link">
+    Creating a GCP Data Integration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-manually" class="md-nav__link">
+    Connecting Manually
+  </a>
+  
+    <nav class="md-nav" aria-label="Connecting Manually">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#assign-vantage-service-account-permission-to-access-bigquery" class="md-nav__link">
+    Assign Vantage Service Account Permission to Access BigQuery
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#assign-vantage-service-account-permission-to-access-bigquery-dataset" class="md-nav__link">
+    Assign Vantage Service Account Permission to Access BigQuery Dataset
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connecting-with-terraform" class="md-nav__link">
+    Connecting with Terraform
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
-                
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
+                <h1 id="setup">Setup<a class="headerlink" href="#setup" title="Permanent link">#</a></h1>
+<h2 id="connecting-your-gcp-billing-account">Connecting Your GCP Billing Account<a class="headerlink" href="#connecting-your-gcp-billing-account" title="Permanent link">#</a></h2>
+<p>Vantage integrates with your GCP account through the use of a <a href="https://cloud.google.com/iam/docs/service-accounts">service account</a>. A service account is generated on a per customer basis and is only granted permissions to read from the specific Big Query table in your account.</p>
+<h2 id="read-only-by-default">Read-Only by Default<a class="headerlink" href="#read-only-by-default" title="Permanent link">#</a></h2>
+<p>The service account is read-only by default. It does not have permissions nor will ever attempt to make any changes to your infrastructure. </p>
+<h2 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">#</a></h2>
+<p>Before you begin, you will need to:</p>
+<ol>
+<li>Enable Billing Export</li>
+<li>Create a project to store your Billing Export data  </li>
+<li>Create a BigQuery dataset to store your Billing Export data </li>
+</ol>
+<p>If you have a pre-existing Billing Export, double-check the requirements below then skip to the <a href="/connecting_gcp/#creating-a-gcp-data-integration">next section</a>. If you need help setting up Billing Export, you can follow the instruction <a href="/enabling_gcp_billing_export/">here</a>.</p>
+<p><strong>Billing Export Requirements:</strong></p>
 <ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
+<li>Project is linked to the same Cloud Billing account that Billing Export is enabled on</li>
+<li>Detailed Billing Export is enabled, not Standard Billing Export</li>
+<li>The BigQuery dataset and table is deployed to either <code>us (multiple regions in United States)</code> or <code>eu (multiple regions in European Union)</code></li>
+<li><em>Note: If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing Export on each one individually.</em></li>
 </ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+<p><strong>Recommendation:</strong> We recommend that you create a dedicated project to store all Cloud Billing data rather than using an existing project.</p>
+<h2 id="creating-a-gcp-data-integration">Creating a GCP Data Integration<a class="headerlink" href="#creating-a-gcp-data-integration" title="Permanent link">#</a></h2>
+<p>Now that you have:</p>
+<ol>
+<li>The Billing account ID</li>
+<li>The name of the project</li>
+<li>The name of the Big Query dataset</li>
+</ol>
+<p>Create a GCP data integration by logging into your Vantage account and going <a href="https://console.vantage.sh/gcp_onboarding/overview">here</a>. You will be asked to add these inputs into the onboarding flow.</p>
+<h2 id="connecting-manually">Connecting Manually<a class="headerlink" href="#connecting-manually" title="Permanent link">#</a></h2>
+<h3 id="assign-vantage-service-account-permission-to-access-bigquery">Assign Vantage Service Account Permission to Access BigQuery<a class="headerlink" href="#assign-vantage-service-account-permission-to-access-bigquery" title="Permanent link">#</a></h3>
+<ol>
+<li>Open the <a href="https://console.cloud.google.com/iam-admin/iam">IAM Console</a></li>
+<li>Select the project hosting the BigQuery dataset containing your Billing Export data from the project drop-down in the main navigation bar at top. If you don’t see the project name right away, try the “ALL” tab or search for it</li>
+<li>Add a new permission to the project <ol>
+<li>Click the <strong>Add</strong> button </li>
+<li>Under <strong>New principals</strong>, add your Vantage service account (found in the GCP onboarding workflow in the Vantage console)</li>
+<li>Attach the role <code>BigQuery Job User</code></li>
+<li>Click the <strong>Save</strong> button</li>
+</ol>
+</li>
+</ol>
+<h3 id="assign-vantage-service-account-permission-to-access-bigquery-dataset">Assign Vantage Service Account Permission to Access BigQuery Dataset<a class="headerlink" href="#assign-vantage-service-account-permission-to-access-bigquery-dataset" title="Permanent link">#</a></h3>
+<ol>
+<li>In the hamburger menu, navigate to <strong>BigQuery</strong> under <strong>ANALYTICS</strong> and select <strong>SQL Workspace</strong></li>
+<li>Grant Vantage service account access to the BigQuery dataset:<ol>
+<li>Select the project name</li>
+<li>Select the dataset by clicking the <strong>three vertical dots</strong> button and selecting <strong>Open</strong></li>
+<li>Click the <strong>Share</strong> button and select <strong>Permissions</strong></li>
+<li>Under New principals, add your Vantage service account</li>
+<li>Attach the role, <code>BigQuery Data Viewer</code></li>
+<li>Click the <strong>Save</strong> button</li>
+</ol>
+</li>
+<li>Return to the Vantage GCP onboarding workflow and click the <strong>Next</strong> button</li>
+</ol>
+<h2 id="connecting-with-terraform">Connecting with Terraform<a class="headerlink" href="#connecting-with-terraform" title="Permanent link">#</a></h2>
+<p>If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the manual integration process, you can click on the terraform instructions which will give you the IAM Role creation snippets. This can be dropped into your Terraform codebase. Once this has been deployed you can complete the onboarding workflow.</p>
                 
               
               
@@ -711,7 +936,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../security/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +945,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                Security
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../permissions_gcp/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                GCP Permissions
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">

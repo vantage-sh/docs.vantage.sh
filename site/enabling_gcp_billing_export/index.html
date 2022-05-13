@@ -9,14 +9,14 @@
       
       
       
-        <link rel="canonical" href="https://docs.vantage.sh/reports/">
+        <link rel="canonical" href="https://docs.vantage.sh/enabling_gcp_billing_export/">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-6.2.3">
     
     
       
-        <title>Cost Report Notifications - Vantage Documentation</title>
+        <title>Billing Export Setup - Vantage Documentation</title>
       
     
     
@@ -63,6 +63,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#gcp-billing-exports" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -91,7 +96,7 @@
         <div class="md-header-nav__topic">
           <span class="md-ellipsis">
             
-              Cost Report Notifications
+              Billing Export Setup
             
           </span>
         </div>
@@ -303,14 +308,16 @@
       
 
 
+  
+
 
   
     
   
-  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" >
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Google Cloud
@@ -355,11 +362,70 @@
           
 
 
+  
 
-  <li class="md-nav__item">
-    <a href="../enabling_gcp_billing_export/" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Billing Export Setup
+        <span class="md-nav__icon md-icon"></span>
+      </label>
+    
+    <a href="./" class="md-nav__link md-nav__link--active">
       Billing Export Setup
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-or-create-a-project" class="md-nav__link">
+    Select or Create a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-bigquery-dataset" class="md-nav__link">
+    Create a BigQuery dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-cloud-billing-export-to-the-bigquery-dataset" class="md-nav__link">
+    Enable Cloud Billing export to the BigQuery dataset
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -461,16 +527,14 @@
       
 
 
-  
-
 
   
     
   
-  <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--section md-nav__item--nested">
     
     
-      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" checked>
+      <input class="md-nav__toggle md-toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8" >
     
     <label class="md-nav__link" for="nav-8">
       Features
@@ -580,18 +644,11 @@
           
 
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-    
-    <a href="./" class="md-nav__link md-nav__link--active">
+  <li class="md-nav__item">
+    <a href="../reports/" class="md-nav__link">
       Cost Report Notifications
     </a>
-    
   </li>
 
         
@@ -677,22 +734,137 @@
               </div>
             
             
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#select-or-create-a-project" class="md-nav__link">
+    Select or Create a project
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-bigquery-dataset" class="md-nav__link">
+    Create a BigQuery dataset
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enable-cloud-billing-export-to-the-bigquery-dataset" class="md-nav__link">
+    Enable Cloud Billing export to the BigQuery dataset
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
           
           <div class="md-content">
             <article class="md-content__inner md-typeset">
               
                 
                 
-                  <h1>Cost Report Notifications</h1>
-                
-                <p>Vantage has the concept of Cost Report Notifications which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Below are the currently supported methods for receiving a Cost Report Notification:</p>
+                <h1 id="gcp-billing-exports">GCP Billing Exports<a class="headerlink" href="#gcp-billing-exports" title="Permanent link">#</a></h1>
+<p><strong>This is streamlined version of <a href="https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup">Google Cloud's official documentation</a></strong></p>
+<h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">#</a></h2>
 <ul>
-<li><strong>E-Mail</strong>: You can deliver a notification to one or more email addresses.  </li>
-<li><strong>Slack</strong>: You can deliver a notification to one or more public or private channels in a Slack workspace. </li>
-<li><strong>Microsoft Teams</strong>: You can deliver a notification to one of more public or private channels in a Microsoft Team account. </li>
+<li>User with permissions to create a project</li>
+<li>User with permissions to create a BigQuery dataset</li>
+<li>User with permissions to modify Billing settings</li>
 </ul>
-<p>Prior to sending you this email, Vantage will automatically issue an sync with your infrastructure accounts to ensure it has an up-to-date representation of your cost data to give you an accurrate cost report.</p>
-<p>The email report will contain a list of all of your views and a point-in-time cost for each view so you can make sure you don't have any surprises on your next AWS bill.</p>
+<h2 id="select-or-create-a-project">Select or Create a project<a class="headerlink" href="#select-or-create-a-project" title="Permanent link">#</a></h2>
+<p>Before you enable Cloud Billing data export, you will need a project to store the data. </p>
+<p>The project needs to be linked to the same Cloud Billing account that you plan to enable Cloud Billing data export on. If you need help assigning a project to a Cloud Billing account, you can follow the instructions <a href="https://cloud.google.com/billing/docs/how-to/modify-project#confirm_billing_is_enabled_on_a_project">here</a>.</p>
+<p><strong>Recommendation:</strong> We recommend that you create a dedicated project to store all Cloud Billing data rather than using an existing project.</p>
+<p><em>Note: If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing Export on each one individually.</em></p>
+<h2 id="create-a-bigquery-dataset">Create a BigQuery dataset<a class="headerlink" href="#create-a-bigquery-dataset" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Sign in to the Google Cloud Console and go to the <a href="https://console.cloud.google.com/bigquery">BigQuery page</a></p>
+</li>
+<li>
+<p>In the <strong>Project</strong> drop-down list at the top of the console, select the project you set up to contain your Cloud Billing data</p>
+</li>
+<li>
+<p>In the <strong>Explorer</strong> panel, click the <strong>three vertical dots</strong> button next to your project ID</p>
+</li>
+<li>
+<p>Click the <strong>Create dataset</strong> button</p>
+<ol>
+<li>
+<p>Enter a <strong>Dataset ID</strong>. We recommend an ID that spans projects, such as "all_billing_data", rather than a project-specific ID</p>
+</li>
+<li>
+<p>Select a <strong>Data location</strong>. Choose either <code>us (multiple regions in United States)</code> or <code>eu (multiple regions in European Union)</code>. One of these two options is required for enabling detailed usage cost data</p>
+</li>
+<li>
+<p>Leave the <strong>Enable table expiration</strong> checkbox <strong>unchecked</strong> to ensure that data never expires.</p>
+</li>
+<li>
+<p>Set the <strong>Encryption option</strong> to Google-managed key. Note: Customer-managed key encryption is not supported for exporting Cloud Billing data records to BigQuery</p>
+</li>
+<li>
+<p>To save, click the <strong>Create dataset</strong> button</p>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="enable-cloud-billing-export-to-the-bigquery-dataset">Enable Cloud Billing export to the BigQuery dataset<a class="headerlink" href="#enable-cloud-billing-export-to-the-bigquery-dataset" title="Permanent link">#</a></h2>
+<ol>
+<li>
+<p>Open the console <strong>Navigation menu</strong>, and then select <strong>Billing</strong></p>
+</li>
+<li>
+<p>In the <strong>Billing navigation menu</strong>, select <strong>Billing export</strong></p>
+</li>
+<li>
+<p>Select the BigQuery export tab (this tab is selected by default)</p>
+</li>
+<li>
+<p>Under <strong>Detailed usage cost</strong>, click the <strong>Edit settings</strong> button</p>
+<ol>
+<li>
+<p>From the <strong>Projects</strong> list, select the project you set up to contain your billing data</p>
+</li>
+<li>
+<p>From the <strong>Dataset ID</strong> field, select the dataset that you set up to contain your exported Cloud Billing data</p>
+</li>
+<li>
+<p>Click the <strong>Save</strong> button</p>
+</li>
+</ol>
+</li>
+</ol>
+<p>Congrats! Your Cloud Billing data will now begin stored in the BigQuery dataset you created. To continue connecting your GCP account to Vantage, return to the instructions <a href="/connecting_gcp/#creating-a-gcp-data-integration">here</a>.</p>
+<p><em>Note: It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24-48 hours to fully propogate.</em></p>
                 
               
               
@@ -711,7 +883,7 @@
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid" aria-label="Footer">
         
-          <a href="../metrics/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../permissions_gcp/" class="md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-footer-nav__button md-icon">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
             </div>
@@ -720,19 +892,19 @@
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Cloudwatch Metrics
+                GCP Permissions
               </div>
             </div>
           </a>
         
         
-          <a href="../kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../connecting_kubernetes/" class="md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-footer-nav__title">
               <div class="md-ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Kubernetes Costs
+                Connecting
               </div>
             </div>
             <div class="md-footer-nav__button md-icon">
