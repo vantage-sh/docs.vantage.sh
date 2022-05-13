@@ -21,3 +21,49 @@ Everyone on our team has spent time working at a major cloud infrastructure prov
 
 ## Data Sharing
 We do not share any data externally. We do not sell or share any user data with any third parties.
+
+## Frequently Asked Questions
+
+**Does Vantage perform penetration tests periodically?**
+
+Yes. Vantage has outsourced pentetration tests to a third party that regularly performs these tests. 
+
+**Does Vantage hold any security certifications such as SOC2, ISO27001?**
+
+No. Though we are pursuing SOC2 certification in 2022 and believe that we already roughly adhere to the standards set forth in these certifications. 
+
+**In terms of application security, How does Vantage deal with security reports received from security researchers? In other words, does Vantage have a bug bounty program or a straightforward process to report security issues to them?**
+
+Vantage receives reports through an email address of security [at] vantage.sh. We review every single report that we receive. We do not have a formal bug bounty program but we do have a process and set of policies and standards we adhere to to process security requests. 
+
+**Does Vantage support 2FA, SSO, or any defensive options?**
+
+Yes. We support SAML SSO and 2FA is on the roadmap. 
+
+**How is customers’ data protected and who has access to Vantage data?**
+
+All data is encrypted in transit and at rest. Only a subset of senior employees have access to data on the Vantage side. Who on the Vantage team has access to customer data is regularly reviewed and revised by the team. 
+
+**Do you have a list of third parties that Vantage uses and explains what each third party is allowed to access and its purpose?**
+
+We use a subset of third parties largely for analytics, support and payment processing. There is no PII sent to third parties and no cost data is shared with third parties. A list of third parties is listed below:
+
+* Mixpanel - Customer analytics
+* Segment - Customer analytics
+* Google Analytics - Customer analytics 
+* Customer.io - Customer communications
+* Hubspot - Sales management
+* Intercom - Support management
+* Stripe - Payment processing
+
+**Do you have a security contact person in case of breaches?**
+
+A team responds to messages at security [at] vantage.sh. Upon request a security employee can be temporarily assigned to your account as well.
+
+**In terms of logging, Do you log access activities of Vantage’s employees who access to the data?**
+
+Yes. 
+
+**Does Vantage store any information regarding cloud infrastructure in the database?**
+
+Yes. We store basic metadata on cloud infrastructure in order to be able to show corresponding costs for associated resources. We do not have the ability to access any of the underlying resources.
