@@ -58,6 +58,7 @@ nav:
     - 'Terraform Cloud': 'terraform_cloud_integration.md'
 
 
-google_analytics:
-  - UA-166045679-3
-  - auto
+extra:
+  analytics:
+    provider: google
+    property: UA-166045679-1
