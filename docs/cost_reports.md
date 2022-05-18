@@ -27,3 +27,19 @@ When supported in the list of [support services](/supported_services/), Vantage 
 Additionally, you can click in to see the category and subcategory costs on a per-resource basis. So looking at the example above if you want to see a breakdown of costs for the RDS instance named "vantage-production-core-db" this is what that would look like:
 
 ![Example of a Single Resource Costs](/img/per_resource_individual.png)
+
+## Percent Based Cost Allocation
+
+It can be useful to showback shared resources like support costs or multi-tenant databases to the team or department utilizing them. As filters are set in a cost report, Vantage will query for costs that meet all of those conditions. In the event that a percentage is set by the customer on a Filter Set, that percentage will be applied to all of the matching costs and represented accordingly in the Cost Report. 
+
+![Example of using Cost Allocation Percents](/img/showback_cost_allocation.png)
+
+To use Percentage Based Allocation, you can do the following:
+
+- Head to any Cost Report
+- Click “Filters”
+- Configure filters to see a subset of costs. For example, see the costs just for RDS.
+- Click the new “Percentage” option on that filter set and set a value of 1-100%.
+- Save the report.
+
+When percent based cost allocation is set as a filter, forecasts will be produced in aggregate for all the set conditions and the percentage allocation will be applied to that forecast. 
