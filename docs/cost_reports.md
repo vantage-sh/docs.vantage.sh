@@ -39,7 +39,7 @@ To use Percentage Based Cost Allocation, you can do the following:
 - Head to any saved Cost Report. If you are on the "All Resources" report click "Save as New" first to begin using the Cost Allocation filter.
 - Click “Filters”
 - Configure filters to see a subset of costs. For example, see the costs just for RDS.
-- Click the new “Percentage” option on that filter set and set a value of 1-100%.
+- Click the new "Add Cost Allocation" option on that filter set and set a value of 1-100%.
 - Save the report.
 
 When percent based cost allocation is set as a filter, forecasts will be produced in aggregate for all the set conditions and the percentage allocation will be applied to that forecast. 
