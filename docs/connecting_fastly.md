@@ -1,9 +1,5 @@
 # Setup Fastly
 
-!!! note "Fastly support is in closed early access."
-     Vantage support for displaying Fastly costs is in closed early access. Please contact support@vantage.sh to opt in. 
-
-
 ## Connecting Your Fastly Account
 
 Vantage integrates with your Fastly account through a read-only API token. Fastly API Tokens are free for you to create and added them to the Vantage console only takes a few minutes. Step by step instructions for generating a Fastly API Token are below:
