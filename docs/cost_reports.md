@@ -34,9 +34,9 @@ It can be useful to showback shared resources like support costs or multi-tenant
 
 ![Example of using Cost Allocation Percents](/img/showback_cost_allocation.png)
 
-To use Percentage Based Cost Allocation, you can do the following:
+To use Percentage Based Allocation, you can do the following:
 
-- Head to any saved Cost Report. If you are on the "All Resources" report click "Save as New" first to begin using the Cost Allocation filter.
+- Head to any Cost Report
 - Click “Filters”
 - Configure filters to see a subset of costs. For example, see the costs just for RDS.
 - Click the new "Add Cost Allocation" option on that filter set and set a value of 1-100%.
