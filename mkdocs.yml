@@ -4,9 +4,17 @@ theme:
   name: material
   features:
     - navigation.sections
+  logo: https://www.vantage.sh/logo.svg
+  icon:
+    repo: fontawesome/brands/github-square
+  favicon: https://assets.vantage.sh/www/favicon-32x32.png
+
 extra:
   generator: false
 
+extra_css:
+  - stylesheets/extra.css
+  
 markdown_extensions:
   - attr_list
   - toc:

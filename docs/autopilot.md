@@ -9,7 +9,7 @@ Autopilot only charges 5% of the _savings found_. This means that in the event t
 As example in the event that your EC2 bill is $10,000 per month and Autopilot buys you enough reserved instances to save you $3,000 per month, the corresponding Autopilot fee will be $150 so your net savings is $2,850 per month. 
 
 
-!!! note "Don't worry: You won't be charged for existing Reserved Instances or Savings Plans."
+!!! contribute "Don't worry: You won't be charged for existing Reserved Instances or Savings Plans."
      Autopilot will respect your existing Savings Plans and Reserved Instances and you won't pay any Autopilot fees for existing commitments. 
 
 
