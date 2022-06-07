@@ -63,6 +63,8 @@ nav:
     - 'Savings Planner': 'savings_planner.md'
   
   - 'Integrations':
+    - 'Slack': 'slack_integration.md'
+    - 'Microsoft Teams': 'microsoft_teams_integration.md'
     - 'Terraform Cloud': 'terraform_cloud_integration.md'
 
 
