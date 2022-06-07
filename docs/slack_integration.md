@@ -1,4 +1,4 @@
-Vantage users can add Vantage to their team's Slack account to get [Cost Report Notifications](/reports/) in a specific channel in Slack. Vantage users can edit existing cost report notifications or create new ones where they'll be able to choose any number of Slack channels from their team's account.
+Vantage users can add Vantage to their team's Slack account to get [Cost Report Notifications](/reports/) in a specific channel in Slack. To add the integration to a private channel, first add the Vantage app with `/invite @Vantage`. Vantage users can edit existing cost report notifications or create new ones where they'll be able to choose any number of Slack channels from their team's account.
 
 All Cost Report Notifications are delivered at 11:30 AM EST (4:30 PM UTC).
 

@@ -1,4 +1,4 @@
-Vantage integrates with Microsoft Teams. From the [Cost Report Notifications page](https://console.vantage.sh/report_notifications), customers can associate their Microsoft Teams account with their Vantage account. Upon completing that integration, users can adjust cost report notifications to be delivered to a specific channel in Microsoft Teams. Vantage users can edit existing cost report notifications or create new ones where they'll be able to choose any number of Microsoft Teams channels from their team's account.
+Vantage integrates with Microsoft Teams. From the [Cost Report Notifications page](https://console.vantage.sh/report_notifications), customers can associate their Microsoft Teams account with their Vantage account. Upon completing that integration, users can adjust cost report notifications to be delivered to a specific public or private channel in Microsoft Teams. Vantage users can edit existing cost report notifications or create new ones where they'll be able to choose any number of Microsoft Teams channels from their team's account.
 
 All [Cost Report Notifications](/reports/) are delivered at 11:30 AM EST (4:30 PM UTC).
 
