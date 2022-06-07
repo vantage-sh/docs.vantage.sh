@@ -47,7 +47,7 @@ Below is a list of currently supported AWS services for Active Resources:
 
 ## Supported Regions
 
-Vantage supports the following AWS regions. In the event your region isn't listed and you'd like it added, please contact Vantage support at support@vantage.sh and we are happy to help. In some cases, we can add the region and in other regions such as GovCloud there are some complications. 
+Vantage supports the following AWS regions. In the event your region isn't listed and you'd like it added, please contact Vantage support at support@vantage.sh and we are happy to help.
 
 | Region | Name | 
 | ----------- | ----------- |
@@ -71,3 +71,4 @@ Vantage supports the following AWS regions. In the event your region isn't liste
 | me-south-1 | Middle East, Bahrain |
 | sa-east-1 | South America, Sao Paulo |
 | af-south-1 | Africa, Cape Town |
+| us-gov-west-1| GovCloud US |
