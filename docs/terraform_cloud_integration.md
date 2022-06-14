@@ -7,11 +7,11 @@ This integration is provided at no additional cost to all Vantage users, includi
 
 ## Run Tasks Integration Instructions
 
-Run Tasks is a Terraform Cloud feature natively provided by HashiCorp that allows users to tie costs from Vantage Workspaces directly to Terraform Cloud. Getting up and running only takes a few minutes. 
+Run Tasks is a Terraform Cloud feature natively provided by HashiCorp that allows users to tie costs from Vantage Workspaces directly to Terraform Cloud. You can setup this integration with either a Terraform Cloud account or self-hosted Terraform Enterprise instance. Getting up and running only takes a few minutes. 
 
 Pre-requisites:
 
-* Register a free account at [Terraform Cloud](https://cloud.hashicorp.com/products/terraform) 
+* Free [Terraform Cloud](https://cloud.hashicorp.com/products/terraform) account or [Terraform Enterprise Instance](https://www.terraform.io/enterprise)
 * Register a free account at [Vantage](https://www.vantage.sh)
 
 To integrate costs from a specific Vantage workspace to Terraform Cloud, follow the instructions here:
