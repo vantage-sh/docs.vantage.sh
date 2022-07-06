@@ -11,9 +11,17 @@ theme:
 
 extra:
   generator: false
+  analytics:
+    provider: google
+    property: UA-166045679-1
 
 extra_css:
   - stylesheets/extra.css
+
+plugins:
+    - redirects:
+        redirect_maps:
+            'kubernetes.md': 'connecting_kubernetes.md'
   
 markdown_extensions:
   - attr_list
@@ -59,16 +67,9 @@ nav:
     - 'Forecasting': 'forecasting.md'
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Cost Report Notifications': 'reports.md'
-    - 'Kubernetes Costs': 'kubernetes.md'
     - 'Savings Planner': 'savings_planner.md'
   
   - 'Integrations':
     - 'Slack': 'slack_integration.md'
     - 'Microsoft Teams': 'microsoft_teams_integration.md'
     - 'Terraform Cloud': 'terraform_cloud_integration.md'
-
-
-extra:
-  analytics:
-    provider: google
-    property: UA-166045679-1
