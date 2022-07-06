@@ -41,7 +41,18 @@ If you manage your infrastructure with Terraform it is very easy to connect to V
 If you would like to create IAM Roles manually or use another tool to manage your infrastructure you can create the necessary cross acccount role. During onboarding, instead of following the Cloudformation process, you can click on the IAM Role option and you will be presented with a Trust Relationship and an Inline Policy that are required for the role. After creating the role, return to the onboarding page to submit the ARN of the created role to complete the connection.
 
 
+### AWS Data Ingestion Delay
 
+As of June 2022, Vantage now creates both an IAM Role as well as a cost and usage report integration through the same provided CloudFormation template and terraform file. While an IAM Role is created within a minute and historical data can be populated nearly immediately, it can take AWS around 6 or 7 hours to deliver the first cost and usage report to Vantage. As a result, only partial data will be present until this first cost and usage report is received. 
+
+This will impact a few things in the Vantage console.
+
+* Active Resources will only show hourly and monthly _rates_ initially. When the first cost and usage report is received, you can see actual accrued costs per resource broken down by cost category and subcategorey.
+* Cost Reports will show line-item data per service initially but won't be able to show "costs by resource" until the first cost and usage report is received. 
+* Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until this first cost and usage report is received. 
+
+
+Once Vantage receives its first cost and usage report, this functionality will be automatically made available and will send you an email letting you know. Ultimately this is a limitation imposed by AWS and we need to wait for them to deliver this data. 
 
 
 
