@@ -47,12 +47,12 @@ As of June 2022, Vantage now creates both an IAM Role as well as a cost and usag
 
 This will impact a few things in the Vantage console.
 
-* Active Resources will only show hourly and monthly _rates_ initially. When the first cost and usage report is received, you can see actual accrued costs per resource broken down by cost category and subcategorey.
-* Cost Reports will show line-item data per service initially but won't be able to show "costs by resource" until the first cost and usage report is received. 
+* [Active Resources](/active_resources) will only show hourly and monthly _rates_ initially. When the first cost and usage report is received, you can see actual accrued costs per resource broken down by cost category and subcategory.
+* [Cost Reports](/cost_reports) will show line-item data per service initially but will not be able to show "costs by resource" until the first cost and usage report is received. 
 * Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until this first cost and usage report is received. 
 
 
-Once Vantage receives its first cost and usage report, this functionality will be automatically made available and will send you an email letting you know. Ultimately this is a limitation imposed by AWS and we need to wait for them to deliver this data. 
+Once Vantage receives its first cost and usage report, this functionality will automatically be made available and Vantage will send you an email letting you know. Ultimately this is a limitation imposed by AWS and we need to wait for them to deliver this data.
 
 
 
