@@ -3,6 +3,7 @@
 ```
 pip3 install --user mkdocs
 pip3 install --user mkdocs-material
+pip3 install --user mkdocs-redirects
 ```
 
 ## Edit docs
