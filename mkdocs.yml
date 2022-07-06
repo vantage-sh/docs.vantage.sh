@@ -59,7 +59,6 @@ nav:
     - 'Forecasting': 'forecasting.md'
     - 'Cloudwatch Metrics': 'metrics.md'
     - 'Cost Report Notifications': 'reports.md'
-    - 'Kubernetes Costs': 'kubernetes.md'
     - 'Savings Planner': 'savings_planner.md'
   
   - 'Integrations':
