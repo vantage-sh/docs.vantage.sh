@@ -1,4 +1,4 @@
-Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It workes by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. 
+Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It workes by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. 
 
 Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60%.
 
@@ -61,6 +61,14 @@ For each compute category, Autopilot is also looking at "peaks and valleys" of u
 
 Yes. Autopilot will account for your existing AWS Savings Plans and Reserved Instances. You will not be charged for existing AWS Savings Plans or Reserved Instances. Even if you feel that you have good coverage with existing AWS Savings Plans and Reserved Instances, you should consider enabling Autopilot as an insurance policy in the event that they expire. Autopilot will automatically detect that your coverage is slipping if anything were to expire and purchase additional Reserved Instances to account for things accordingly. 
 
-## How do I register as a seller in the AWS Reserved Instance Marketplace
+## How do I register as a seller in the AWS Reserved Instance Marketplace?
 
 Autopilot requires that you register as a seller in the AWS reserved instance marketplace before any actions are taken. This is what enables Autopilot to sell reserved instances you are no longer using. You can follow these <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html#ri-market-seller-profile">instructions</a> to complete the seller registration process. As part of this process filling out tax information is optional, however Autopilot requires you complete this step in order to ensure your reserved instances can be sold in the marketplace.
+
+## Are there any timelines I need to be aware of?
+
+AWS imposes a minimum 30-day hold time for all Reserved Instances before you can list them for sale on the AWS EC2 Reserved Instance marketplace. As a result, you shouldn't enable Autopilot if you expect significant *downward* changes in your infrastructure within the first 30 days of enabling Autopilot as they can't technically be listed for sale. If you expect *growth*, there are no concerns around this limitation. 
+
+
+
+
