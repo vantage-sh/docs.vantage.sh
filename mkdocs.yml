@@ -52,6 +52,10 @@ nav:
     - 'GCP Permissions': 'permissions_gcp.md'
     - 'Billing Export Setup': 'enabling_gcp_billing_export.md'
 
+  - 'Snowflake':
+    - 'Connecting': 'connecting_snowflake.md'
+    - 'Cost By Query': 'snowflake_cost_by_query.md'
+
   - 'Kubernetes':
     - 'Connecting': 'connecting_kubernetes.md'
 
