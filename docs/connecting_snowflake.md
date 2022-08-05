@@ -1,5 +1,7 @@
 # Setup Snowflake
 
+![Snowflake Cost Reports](/img/snowflake_cost_report.png)
+
 ## Connecting Your Snowflake Account
 
 Vantage integrates with your Snowflake account through a secure, read-only user that has access to Snowflake usage tables. Optionally, see below for instructions on creating a specific schema for the Vantage user.
