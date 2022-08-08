@@ -19,10 +19,10 @@ extra_css:
   - stylesheets/extra.css
 
 plugins:
-    - redirects:
-        redirect_maps:
-            'kubernetes.md': 'connecting_kubernetes.md'
-  
+  - redirects:
+      redirect_maps:
+        "kubernetes.md": "connecting_kubernetes.md"
+
 markdown_extensions:
   - attr_list
   - toc:
@@ -36,44 +36,46 @@ markdown_extensions:
       emoji_generator: !!python/name:materialx.emoji.to_svg
 
 nav:
-  - 'Overview' : 'index.md'
-  - 'Getting Started' : 'getting_started.md'
-  - 'Vantage Account' : 'vantage_account.md'
-  
-  - 'AWS': 
-    - 'Connecting': 'connecting_aws.md'
-    - 'AWS Permissions' : 'permissions_aws.md'
-    - 'Syncing Your Account': 'syncing.md'
-    - 'Supported AWS Services': 'supported_services.md'
-    - 'Security' : 'security.md'
+  - "Overview": "index.md"
+  - "Getting Started": "getting_started.md"
+  - "Vantage Account": "vantage_account.md"
 
-  - 'Google Cloud':
-    - 'Connecting': 'connecting_gcp.md'
-    - 'GCP Permissions': 'permissions_gcp.md'
-    - 'Billing Export Setup': 'enabling_gcp_billing_export.md'
+  - "AWS":
+      - "Connecting": "connecting_aws.md"
+      - "AWS Permissions": "permissions_aws.md"
+      - "Syncing Your Account": "syncing.md"
+      - "Supported AWS Services": "supported_services.md"
+      - "Security": "security.md"
 
-  - 'Snowflake':
-    - 'Connecting': 'connecting_snowflake.md'
-    - 'Cost By Query': 'snowflake_cost_by_query.md'
+  - "Google Cloud":
+      - "Connecting": "connecting_gcp.md"
+      - "GCP Permissions": "permissions_gcp.md"
+      - "Billing Export Setup": "enabling_gcp_billing_export.md"
 
-  - 'Kubernetes':
-    - 'Connecting': 'connecting_kubernetes.md'
+  - "Snowflake":
+      - "Connecting": "connecting_snowflake.md"
+      - "Cost By Query": "snowflake_cost_by_query.md"
 
-  - 'Fastly':
-    - 'Connecting': 'connecting_fastly.md'
+  - "Kubernetes":
+      - "Connecting": "connecting_kubernetes.md"
+      - "OpenCost": "opencost.md"
+      - "Container Insights": "kubernetes_container_insights.md"
 
-  - 'Features':
-    - 'Autopilot': 'autopilot.md'
-    - 'Overview' : 'overview.md'
-    - 'Cost Reports': 'cost_reports.md'
-    - 'Active Resources': 'active_resources.md'
-    - 'Workspaces': 'workspaces.md'
-    - 'Forecasting': 'forecasting.md'
-    - 'Cloudwatch Metrics': 'metrics.md'
-    - 'Cost Report Notifications': 'reports.md'
-    - 'Savings Planner': 'savings_planner.md'
-  
-  - 'Integrations':
-    - 'Slack': 'slack_integration.md'
-    - 'Microsoft Teams': 'microsoft_teams_integration.md'
-    - 'Terraform Cloud': 'terraform_cloud_integration.md'
+  - "Fastly":
+      - "Connecting": "connecting_fastly.md"
+
+  - "Features":
+      - "Autopilot": "autopilot.md"
+      - "Overview": "overview.md"
+      - "Cost Reports": "cost_reports.md"
+      - "Active Resources": "active_resources.md"
+      - "Workspaces": "workspaces.md"
+      - "Forecasting": "forecasting.md"
+      - "Cloudwatch Metrics": "metrics.md"
+      - "Cost Report Notifications": "reports.md"
+      - "Savings Planner": "savings_planner.md"
+
+  - "Integrations":
+      - "Slack": "slack_integration.md"
+      - "Microsoft Teams": "microsoft_teams_integration.md"
+      - "Terraform Cloud": "terraform_cloud_integration.md"
