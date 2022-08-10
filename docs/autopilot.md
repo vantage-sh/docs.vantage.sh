@@ -39,7 +39,9 @@ Autopilot can not and will never attempt to augment production workloads, read f
                 "redshift:GetReservedNodeExchangeConfigurationOptions",
                 "redshift:GetReservedNodeExchangeOfferings",
                 "servicequotas:Get*",
-                "servicequotas:List*"
+                "servicequotas:List*",
+                "servicequotas:RequestServiceQuotaIncrease",
+                "support:*"
             ],
             "Resource": "*",
             "Effect": "Allow"
