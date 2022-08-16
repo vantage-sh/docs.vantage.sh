@@ -1,4 +1,4 @@
-Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. 
+Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. You can further control what actions Autopilot takes with [Autopilot Controls](#autopilot-controls).
 
 Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60%.
 
@@ -70,6 +70,33 @@ Autopilot requires that you register as a seller in the AWS reserved instance ma
 ## Are there any timelines I need to be aware of?
 
 AWS imposes a minimum 30-day hold time for all Reserved Instances before you can list them for sale on the AWS EC2 Reserved Instance marketplace. As a result, you shouldn't enable Autopilot if you expect significant *downward* changes in your infrastructure within the first 30 days of enabling Autopilot as they can't technically be listed for sale. If you expect *growth*, there are no concerns around this limitation. 
+
+## Autopilot Controls
+
+![Autopilot Controls](/img/autopilot_controls.png)
+
+You can see what actions Autopilot may take or is taking under [Settings](https://console.vantage.sh/financial_planning/autopilot/settings) in the Autopilot page in the console. Here, you can control Autopilot on a per-compute category basis, disabling it and enabling it as needed.
+
+A compute category is a Vantage primitive that is a representation of your normalized EC2 workloads that consists of the following:
+
+- An instance type family such as "m5a".
+- A region.
+- A platform (Windows, Linux, RHEL, Windows SQL Server, etc..)
+
+Each compute category has usage tracked hourly and grouped by the following compute types. Note that Windows, SUSE and RedHat Reserved Instances are targeted at a specific instance type, e.g. m5.2xlarge, instead of the entire family.
+
+- Existing customer usage covered by existing Reserved Instances
+- Existing customer usage covered by existing Savings Plans
+- Existing customer usage covered by credits
+- On-demand usage
+
+Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately beging listing the reserved instances for sale. 
+
+Compute categories can be saved prior to enabling Autopilot and adjusted after enabling Autopilot as well. For example, you may decide initially that you do not want Autopilot to manage purchasing and selling RIs for a new service. After the service sees increasing usage, you may then decide to turn on Autopilot for it.
+
+Autopilot Controls can be changed as often as you’d like. That being said, we generally recommend to do one round of adjusting settings prior to enabling Autopilot and then adjusting things as you see fit.
+
+Once a setting is changed, the changes take effect between 24 and 48 hours. Autopilot purposefully will impose a minimum 24 hour delay before making any changes from Autopilot controls. Please note that because of a 30 day minimum holding period made by AWS with reserved instances, there may be certain cases where even adjusting controls could take some time to be applied.
 
 
 
