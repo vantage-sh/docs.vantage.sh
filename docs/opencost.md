@@ -1,10 +1,10 @@
-[OpenCost](https://www.cncf.io/projects/opencost/) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Vantage can ingest costs via OpenCost and Prometheus Remote Write and display them in the console. Any environments supported by OpenCost, including AWS, GCP, Azure, and on-prem, are supported by Vantage.
+[OpenCost](https://www.opencost.io) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Vantage can ingest costs via OpenCost and Prometheus Remote Write and display them in the console. Any environments supported by OpenCost, including AWS, GCP, Azure, and on-prem, are supported by Vantage.
 
 OpenCost is the recommended way to integrate Kubernetes cost reporting into Vantage.
 
 ## Installing OpenCost
 
-OpenCost is available as a [Helm chart](https://www.opencost.io/docs/install). It can also be deployed statically or built from source. Ensure you set the [cluster_id](https://github.com/kubecost/cost-analyzer-helm-chart/blob/develop/cost-analyzer/values.yaml#L448) value when deploying so that Vantage can properly assign costs to a specific cluster.
+OpenCost can be installed by following [this](https://www.opencost.io/docs/install)) quickstart guide. Ensure you set the [cluster_id](https://github.com/opencost/opencost/blob/develop/kubernetes/opencost.yaml#L157) value when deploying so that Vantage can properly assign costs to a specific cluster.
 
 ### Configuring Prometheus
 
