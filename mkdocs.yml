@@ -67,6 +67,7 @@ nav:
   - "Features":
       - "Autopilot": "autopilot.md"
       - "Overview": "overview.md"
+      - "Cost Anomaly Alerts": "cost_anomaly_alerts.md"
       - "Cost Reports": "cost_reports.md"
       - "Cost Report Notifications": "reports.md"
       - "Forecasting": "forecasting.md"
