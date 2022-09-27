@@ -20,7 +20,7 @@ You can configure a cost anomaly alert by visiting any Cost Report, switching to
 
 ## Taking Action on Alerts
 
-From the Anomalies list on a Cost Report you have two options to take action on the alert. You may click into the alert through the Category column to see it displayed on the overall Cost Report where the specific day which triggered the alert will be highlighted. From here you can choose "Manage Anomaly" and create an issue or ignore the anomaly. The same two actions are available in the More Options menu in the anomalies list.
+From the Anomalies list on a Cost Report you have two options to take action on the alert. You may click into the alert through the Category column to see it displayed on the overall Cost Report where the specific day which triggered the alert will be highlighted. From here you can choose "Manage Anomaly" and create an issue or ignore the anomaly. The same two actions are available in the More Options menu in the anomalies list. Anomalies have three states: Active, Archived, and Ignored.
 
 If you create a [Vantage Issue](https://www.vantage.sh/features/issues) you can link to the Cost Report that is causing the problem. This issue can be assigned to yourself or another teammate to resolve later. The assignee will be able to check the Notifications page to see the alert and any other past Cost Alerts.
 
