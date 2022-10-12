@@ -55,7 +55,7 @@ aws amp list-workspaces --alias VantageOpenCost --query 'workspaces[0].workspace
 
 Then retrieve the Prometheus endpoint value:
 
-```json
+```bash
 aws amp describe-workspace --workspace-id <workspaceId> --query "workspace.prometheusEndpoint"
 ```
 
@@ -71,8 +71,8 @@ helm install my-prometheus --repo https://prometheus-community.github.io/helm-ch
   --set "server.global.external_labels.cluster_id=<CLUSTER_NAME>" \
   --set "server.remoteWrite[0].url=<REMOTE_WRITE_URL>/api/v1/remote_write" \
   --set "server.remoteWrite[0].sigv4.region=us-east-1" \
-	--set "server.remoteWrite[0].sigv4.access_key=<ACCESS_KEY>" \
-	--set "server.remoteWrite[0].sigv4.secret_key=<SECRET_KEY>" \
+  --set "server.remoteWrite[0].sigv4.access_key=<ACCESS_KEY>" \
+  --set "server.remoteWrite[0].sigv4.secret_key=<SECRET_KEY>" \
   -f https://raw.githubusercontent.com/opencost/opencost/develop/kubernetes/prometheus/extraScrapeConfigs.yaml
 ```
 
