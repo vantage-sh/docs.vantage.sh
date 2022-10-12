@@ -1,6 +1,6 @@
 # Setup Datadog
 
-![Snowflake Cost Reports](/img/datadog_cost_report.png)
+![Datadog Cost Reports](/img/datadog_cost_report.png)
 
 ## Connecting Your Datadog Account
 
