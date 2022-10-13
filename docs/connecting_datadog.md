@@ -10,10 +10,6 @@ This token is used to pull data from the [usage metering endpoint](https://docs.
 
 For documentation about Vantage from Datadog, please refer to the [Vantage Integration page](https://docs.datadoghq.com/integrations/vantage/) in Datadog's documentation.
 
-### EU Customers
-
-OAuth is currently not available if you are a Datadog EU customer. You can still create a Datadog integration by emailing support@vantage.sh for instructins.
-
 ## Cost Data Ingestion
 
 Vantage will ingest six months of historical Datadog costs upon connection. Each day at 2 AM UTC this data is refreshed, but delays up to 72 hours may occur.
