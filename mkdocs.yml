@@ -55,7 +55,6 @@ nav:
   - "Kubernetes":
       - "Connecting": "connecting_kubernetes.md"
       - "OpenCost": "opencost.md"
-      - "Container Insights": "kubernetes_container_insights.md"
 
   - "Datadog":
       - "Connecting": "connecting_datadog.md"
