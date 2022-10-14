@@ -26,7 +26,5 @@ In the event you already have Container Insights enabled, no action is necessary
 
 ### Enabling a Prometheus Connection
 
-Vantage supports seeing Kubernetes costs via a direct Prometheus integration.
+Vantage supports seeing Kubernetes costs via a Prometheus integration. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
 
-!!! contribute "You'll need to contact Vantage support to get this up and running."
-Because of the bespoke setup that various organizations have around Prometheus, we recommend contacting either support@vantage.sh or booking a call with Sales to speak through how to get up and running with Prometheus.
