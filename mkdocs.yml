@@ -46,6 +46,8 @@ nav:
       - "Syncing Your Account": "syncing.md"
       - "Supported AWS Services": "supported_services.md"
       - "Security": "security.md"
+  - "Azure":
+      - "Connecting": "connecting_azure.md"
 
   - "Google Cloud":
       - "Connecting": "connecting_gcp.md"
