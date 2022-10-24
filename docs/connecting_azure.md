@@ -2,11 +2,11 @@
 
 ## Connecting Your Azure Account
 
-Vantage integrates with your Azure account through the use of a Active Directory [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal). This principal is then assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions). Any subscriptions that are part of a resource group will be automatically imported.
+Vantage integrates with your Azure account through the use of a Active Directory [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal). This principal is then assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions). Any subscriptions that are part of a [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will be automatically imported.
 
 ## Read-Only by Default
 
-The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does not have permissions nor will ever attempt to make any changes to your infrastructure. 
+The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does **not** have permissions nor will it ever attempt to make any changes to your infrastructure. 
 
 ## Creating an Azure Service Principal
 
@@ -27,9 +27,9 @@ This will output the following:
 
 Record the appId, tenant and password as you will enter these into the Vantage console.
 
-## Granting the Service Prinipal Permissions
+## Granting the Service Principal Permissions
 
-Grant Permissions to the 'appId' from the service pricinpal created above. The scope can be a subscription or management group.
+Grant Permissions to the 'appId' from the service principal created above. The scope can be a subscription or management group.
 
 ```bash
 az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \ 
