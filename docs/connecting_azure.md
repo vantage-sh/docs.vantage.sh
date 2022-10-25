@@ -34,7 +34,7 @@ Grant Permissions to the 'appId' from the service principal created above. The s
 ```bash
 az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \ 
   --role Reader \ 
-  --scope "/providers/Microsoft.Management/managementGroups/<MANGEMENT_GROUP_NAME>"
+  --scope "/providers/Microsoft.Management/managementGroups/<MANGEMENT_GROUP_ID>"
 ```
 
 ## Save the Credentials in Vantage
