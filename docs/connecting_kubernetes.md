@@ -14,9 +14,5 @@ Vantage automatically profiles your clusters for all existing services, namespac
 
 ## Enabling Kubernetes Costs
 
-Vantage offers two different mechanisms for enabling Kubernetes costs: (1) AWS Container Insights and (2) Connecting to Prometheus instances directly.
-
-### Deploying Opencost
-
 Vantage supports seeing Kubernetes costs via Opencost and Prometheus. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
 
