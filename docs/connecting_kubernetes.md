@@ -16,15 +16,7 @@ Vantage automatically profiles your clusters for all existing services, namespac
 
 Vantage offers two different mechanisms for enabling Kubernetes costs: (1) AWS Container Insights and (2) Connecting to Prometheus instances directly.
 
-In order to enable Kubernetes costs, visit your Workspace settings page and click into [Integrations](https://console.vantage.sh/settings/integrations). From there you will see all of the EKS Clusters currently running in your account along with the status of the Integration. If additional permissions are required it will be indicated next to the cluster. In order to enable Kubernetes Costs, a [Cost and Usage integration](/connecting_aws/#aws-data-ingestion-delay) must be enabled.
+### Deploying Opencost
 
-### Enabling Container Insights
-
-Vantage supports seeing Kubernetes costs via AWS Container Insights. In order to enable Container Insights you must install the CloudWatch agent or the AWS Distro for OpenTelemetry on your EKS cluster. In order to do so follow [these instructions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/deploy-container-insights-EKS.html) from AWS.
-
-In the event you already have Container Insights enabled, no action is necessary and costs should be visualized automatically.
-
-### Enabling a Prometheus Connection
-
-Vantage supports seeing Kubernetes costs via a Prometheus integration. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
+Vantage supports seeing Kubernetes costs via Opencost and Prometheus. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
 
