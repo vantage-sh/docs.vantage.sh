@@ -73,6 +73,9 @@ helm install my-prometheus --repo https://prometheus-community.github.io/helm-ch
   --set "server.remoteWrite[0].sigv4.region=us-east-1" \
   --set "server.remoteWrite[0].sigv4.access_key=<ACCESS_KEY>" \
   --set "server.remoteWrite[0].sigv4.secret_key=<SECRET_KEY>" \
+  --set "server.remoteWrite[0].sigv4.write_relabel_configs[0].action=keep" \
+  --set "server.remoteWrite[0].sigv4.write_relabel_configs[0].regex=opencost" \
+  --set "server.remoteWrite[0].sigv4.write_relabel_configs[0].source_labels[0]=job" \
   -f https://raw.githubusercontent.com/opencost/opencost/develop/kubernetes/prometheus/extraScrapeConfigs.yaml
 ```
 
