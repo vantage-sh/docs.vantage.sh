@@ -1,6 +1,6 @@
 
 
-After you connect either your Google Cloud account or create an IAM Role for your AWS account, Vantage will automatically begin ingesting billing information for the respective account. Once that is complete, you'll be directed to the main console experience within Vantage. The default landing page in the Vantage console is the 'Overview' page, which you can see an example of above. 
+After you connect your Google Cloud account, create an IAM Role for your AWS account, or create a Service Principal for your Azure account Vantage will automatically begin ingesting billing information for the respective account. Once that is complete, you'll be directed to the main console experience within Vantage. The default landing page in the Vantage console is the 'Overview' page, which you can see an example of above. 
 
 The Overview is meant to be an executive level summary of the cost metrics that you care about most which currently creates high-level cost summaries for three things at the moment:
 
