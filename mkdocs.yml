@@ -48,7 +48,6 @@ nav:
       - "Security": "security.md"
   - "Azure":
       - "Connecting": "connecting_azure.md"
-
   - "Google Cloud":
       - "Connecting": "connecting_gcp.md"
       - "GCP Permissions": "permissions_gcp.md"
@@ -64,6 +63,9 @@ nav:
   - "Snowflake":
       - "Connecting": "connecting_snowflake.md"
       - "Cost By Query": "snowflake_cost_by_query.md"
+
+  - "Databricks":
+      - "Connecting": "connecting_databricks.md"
 
   - "Fastly":
       - "Connecting": "connecting_fastly.md"
