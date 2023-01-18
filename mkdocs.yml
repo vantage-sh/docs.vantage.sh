@@ -80,6 +80,7 @@ nav:
       - "Budgets": "budgets.md"
       - "Resource Inventory": "active_resources.md"
       - "Savings Planner": "savings_planner.md"
+      - "Segments": "segments.md"
       - "Cloudwatch Metrics": "metrics.md"
       - "Workspaces": "workspaces.md"
 
