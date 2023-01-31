@@ -10,7 +10,11 @@ Below is an example of what a Cost Report will look like after you have connecte
 
 ![Example Cost Filters](/img/cost_filters.png)
 
-Cost Reports allow you to see your costs grouped by AWS Service in descending order of accrued costs. By clicking AWS Service rows in the table below, the graph will update with just costs for that specific AWS Service. You may also click the AWS Service name link to see subcategory costs which is described in the next section.
+Cost Reports allow you to see your costs grouped by provider service in descending order of accrued costs. For example, by clicking AWS Service rows in the table above, the graph will update with just costs for that specific AWS Service. You may also click the AWS Service name link to see subcategory costs which is described in the next section. This works for most other providers like Azure, GCP, Datadog, Snowflake, and more.
+
+## Saving Cost Reports
+
+When you have selected which filters to apply to the report you can save your changes and name the report. Select "Save As New" to create a new Cost Report with your changes or "Save Changes" to modify the current report. When you change the date range, date bucket (such as "Last 30 Days"), or Grouping you may also save those changes permanently. The new date range, date bucket, and grouping will persist to the [Overview](/overview) page. When saving a report which only includes changes to Filter Sets, the Overview page will show costs for the last 6 months.
 
 ## AWS Service Category and Subcategory Costs
 
