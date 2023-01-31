@@ -38,7 +38,7 @@ Vantage integrates with your Snowflake account through a secure, read-only user 
 
 ## Connecting Databricks
 
-Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis. Get started with Snowflake costs [here](/connecting_databricks).
+Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis. Get started with Databricks costs [here](/connecting_databricks).
 
 ## Connecting Fastly
 
