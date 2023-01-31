@@ -2,7 +2,7 @@
 
 To get started using Vantage to explore your cloud infrastructure costs, you'll want to create a data integration between at least one of your providers and Vantage.
 
-![Connecting providers](/img/connecting-providers.png)
+![Connecting providers](/img/connecting-providers-2.png)
 
 ## Connecting Amazon Web Services (AWS)
 
@@ -35,6 +35,10 @@ Vantage integrates with your Datadog account through a read only Datadog OAuth t
 ## Connecting Snowflake
 
 Vantage integrates with your Snowflake account through a secure, read-only user that has access to Snowflake usage tables. Optionally, we have a recommendation for creating a dedicated schema which Vantage can pull from. Get started with Snowflake costs [here](/connecting_snowflake).
+
+## Connecting Databricks
+
+Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis. Get started with Snowflake costs [here](/connecting_databricks).
 
 ## Connecting Fastly
 
