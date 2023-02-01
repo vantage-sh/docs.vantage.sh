@@ -2,6 +2,8 @@
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Databricks costs.
 
+![Databricks cost report](/img/databricks-cost-report.png)
+
 ## Connecting Your Databricks Account
 
 Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis.
