@@ -60,6 +60,9 @@ nav:
   - "Datadog":
       - "Connecting": "connecting_datadog.md"
 
+  - "MongoDB Atlas":
+      - "Connecting": "connecting_mongodb-atlas.md"
+
   - "Snowflake":
       - "Connecting": "connecting_snowflake.md"
       - "Cost By Query": "snowflake_cost_by_query.md"
