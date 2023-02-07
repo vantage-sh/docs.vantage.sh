@@ -22,6 +22,7 @@ plugins:
   - redirects:
       redirect_maps:
         "kubernetes.md": "connecting_kubernetes.md"
+        "connecting_mongo.md": "connecting_mongodb-atlas.md"
 
 markdown_extensions:
   - attr_list

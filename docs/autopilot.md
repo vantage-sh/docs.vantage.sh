@@ -1,6 +1,12 @@
-Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. You can further control what actions Autopilot takes with [Autopilot Controls](#autopilot-controls).
+# Autopilot
 
-Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60%.
+![Autopilot screens](/img/autopilot-docs-header.png)
+
+Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
+
+In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. You can further control what actions Autopilot takes with [Autopilot Controls](#autopilot-controls).
+
+Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60% and make recommendations on RDS, ElastiCache, Redshift, and OpenSearch which reduce your costs by up to 72%.
 
 ## Autopilot Pricing
 
@@ -8,9 +14,10 @@ Autopilot only charges 5% of the _savings found_. This means that in the event t
 
 As example in the event that your EC2 bill is $10,000 per month and Autopilot buys you enough reserved instances to save you $3,000 per month, the corresponding Autopilot fee will be $150 so your net savings is $2,850 per month. 
 
-
 !!! contribute "Don't worry: You won't be charged for existing Reserved Instances or Savings Plans."
      Autopilot will respect your existing Savings Plans and Reserved Instances and you won't pay any Autopilot fees for existing commitments. 
+
+For RDS, ElastiCache, Redshift and OpenSearch Autopilot uses an approval-based workflow which calculates how many reserved instances to buy and links you to the AWS console to make the purchase. There is **no fee** for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
 
 
 ## What Permissions does Autopilot need?
