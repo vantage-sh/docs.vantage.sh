@@ -12,7 +12,7 @@ After defining your segments, a cost report will automatically be created repres
 
 ![Example Cost Filters](/img/view-segments.png)
 
-As a very basic explanation, a segment is a set of filters that representing a portion of costs for your oganziation. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
+As a very basic explanation, a segment is a set of filters that representing a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
 
 Segments can be found by navigating to "Cost Reporting” and then “Segments”. If you have Segments present in your account, you can see a full list of top-level Segments sorted alphabetically.
 
@@ -20,7 +20,7 @@ Within the Segment, for example "OPEX", you can click on the "OPEX" report to pu
 
 ### The Unallocated Segment
 
-Unallocated costs are costs which are captured by the filters that belong to a Segment but are not allocated to any child Segments. For example, if you have two Semgnets defined for "Opex" and "R&D", any costs that do not match the logic of these filters will fall into an "Unallocated" Segment that's provided to you. 
+Unallocated costs are costs which are captured by the filters that belong to a Segment but are not allocated to any child Segments. For example, if you have two Segments defined for "Opex" and "R&D", any costs that do not match the logic of these filters will fall into an "Unallocated" Segment that's provided to you. 
 
 ## Creating Segments
 
@@ -35,7 +35,7 @@ Within "Segments" in the "Cost Reporting" tab you can click "New Segment" to add
 
 ### Priority
 
-The Priority option dictates the order of the cost allocation priority with 0 being the highest priority. Once a cost is allocated to a segment it will not appear in a segment with a higher priority number. In practive, you likely will not need to worry about priority unless you organization has deep scrutiny on cost allocation collision that may be occuring. 
+The Priority option dictates the order of the cost allocation priority with 0 being the highest priority. Once a cost is allocated to a segment it will not appear in a segment with a higher priority number. In practice, you likely will not need to worry about priority unless you organization has deep scrutiny on cost allocation collision that may be occurring. 
 
 ## Segments in Overview
 
