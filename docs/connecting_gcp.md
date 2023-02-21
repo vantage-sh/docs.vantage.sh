@@ -1,4 +1,4 @@
-# Setup
+# Setup Google Cloud
 
 ## Connecting Your GCP Billing Account
 

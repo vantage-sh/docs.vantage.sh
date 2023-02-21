@@ -1,3 +1,5 @@
+# Setup Kubernetes
+
 Vantage supports breaking down the cost to run a Kubernetes cluster by service, namespace and label. Vantage supports any type of Kubernetes deployment. This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications.
 
 Vantage recommends [OpenCost](/opencost) as the preferred integration point for Kubernetes costs.

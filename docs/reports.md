@@ -1,3 +1,5 @@
+# Cost Report Notifications
+
 Vantage has the concept of [Cost Report Notifications](https://console.vantage.sh/report_notifications) which allow you to receive either daily, weekly or monthly reports for one or more Cost Reports delivered either. Customers may choose either a Slack integration or a Microsoft Teams integration but not both. Below are the currently supported methods for receiving a Cost Report Notification:
 
 - **E-Mail**: You can deliver a notification to one or more email addresses.

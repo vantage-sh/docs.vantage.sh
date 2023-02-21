@@ -1,3 +1,5 @@
+# Budgets
+
 Vantage users can create and assign a Budget to a Cost Report. Once a budget is assigned, it is easy to see how costs are trending for a particular service, business unit or team compared to their prescribed budget.
 
 ![Example Budget](/img/budgets.png)

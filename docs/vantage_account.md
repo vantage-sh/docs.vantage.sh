@@ -1,3 +1,5 @@
+# Vantage Account
+
 Your account on [the Vantage console](https://console.vantage.sh/) is used to control your personal settings and API tokens. With the right [permissions](https://www.vantage.sh/features/team-management) you can also control the people and workspaces in your Vantage account.
 
 ## Reset your password

@@ -1,3 +1,5 @@
+# Kubernetes (OpenCost)
+
 [OpenCost](https://www.opencost.io) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Vantage can ingest costs via OpenCost and Prometheus Remote Write and display them in the console. Any environments supported by OpenCost, including AWS, GCP, Azure, and on-prem, are supported by Vantage.
 
 OpenCost is the recommended way to integrate Kubernetes cost reporting into Vantage.

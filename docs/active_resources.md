@@ -1,3 +1,5 @@
+# Active Resources
+
 Whenever you connect a Cross Account IAM Role for AWS integrations, Vantage will begin profiling via List/Describe service APIs for active resources within your AWS account. This will provide you with an "active resource" inventory that allows you to see all running resources within your AWS account, their run-rates and accrued costs. Below is a list of what a full inventory page looks like for Active Resources:
 
 ![Example Active Resource Inventory](/img/active_resources_inventory.png)

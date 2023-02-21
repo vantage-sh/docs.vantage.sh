@@ -1,3 +1,4 @@
+# Workspaces
 
 Vantage allows you to connect multiple cloud infrastructure provider accounts to the same Vantage account. This allows you to see all of your costs within a single cloud provider, like AWS, or across multiple cloud providers (e.g. GCP + Azure).
 

@@ -1,3 +1,5 @@
+# Forecasting 
+
 For every Cost Report, Vantage will product a forecasts of where your costs are expected to be by the end of the current month. These forecasts are based off of your account's actual cost data and produced from a Vantage-developed machine learning model that is trained anonymously from all Vantage customers to be as accurate as possible. 
 
 Vantage gives a range of an upper-expected-band and a lower-expected-band with a median forecast that is the middle of these two ranges. This forecast is updated daily as new cost data arrives. 

@@ -1,4 +1,4 @@
-# Kubernetes Costs via a Container Insights Cross Account Integration
+# Kubernetes (Container Insights)
 
 Vantage follows the official [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-common-scenarios.html#CloudWatch-Agent-send-to-different-AWS-account) on securely sending CloudWatch logs to another AWS account to ingest Kubernetes costs through Container Insights. The steps below are for users who choose to use Container Insights, instead of the recommended [OpenCost](/opencost) integration.
 

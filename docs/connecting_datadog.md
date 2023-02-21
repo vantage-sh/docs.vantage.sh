@@ -1,4 +1,4 @@
-# Setup Datadog
+# Datadog
 
 ![Datadog Cost Reports](/img/datadog_cost_report.png)
 

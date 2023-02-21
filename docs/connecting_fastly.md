@@ -1,4 +1,4 @@
-# Setup Fastly
+# Fastly
 
 ## Connecting Your Fastly Account
 

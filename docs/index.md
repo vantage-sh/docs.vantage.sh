@@ -1,4 +1,4 @@
-# Overview
+# Introduction
 
 Despite being a hosted Software-as-a-Service, we devote a portion of our site to documentation to explain how certain features and systems work. If you believe something is missing, please contact us at support@vantage.sh and we are happy to update this site. 
 
