@@ -86,6 +86,15 @@ const config = {
             position: 'left',
             label: 'Documentation',
           },
+          {
+            to: "https://vantage.sh/pricing",
+            label: 'Pricing',
+          },
+          {
+            to: 'https://console.vantage.sh/signup',
+            label: 'Sign Up',
+            position: 'right'
+          },
         ],
       },
       footer: {
@@ -105,19 +114,19 @@ const config = {
             items: [
               {
                 label: 'Slack',
-                href: 'https://join.slack.com/t/vantagecommunity/shared_invite/zt-oey52myv-gq4AWRKkX25kjp1UGziPTw',
+                to: 'https://join.slack.com/t/vantagecommunity/shared_invite/zt-oey52myv-gq4AWRKkX25kjp1UGziPTw',
               },
               {
                 label: 'Cloud Costs Handbook',
-                href: 'https://discordapp.com/invite/docusaurus',
+                to: 'https://discordapp.com/invite/docusaurus',
               },
               {
                 label: 'AWS Instances Pricing',
-                href: 'https://instances.vantage.sh/',
+                to: 'https://instances.vantage.sh/',
               },
               {
                 label: 'Azure VM Pricing Comparison',
-                href: 'https://instances.vantage.sh/azure',
+                to: 'https://instances.vantage.sh/azure',
               },
             ],
           },
@@ -130,7 +139,7 @@ const config = {
               },
               {
                 label: 'GitHub',
-                href: 'https://github.com/vantage-sh',
+                to: 'https://github.com/vantage-sh',
               },
             ],
           },

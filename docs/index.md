@@ -6,7 +6,11 @@ Despite being a hosted Software-as-a-Service, we devote a portion of our site to
 
 [Vantage](https://www.vantage.sh/) is a cloud cost transparency platform. Vantage aggregates cloud infrastructure costs across all cloud providers to deliver a centralized view into total cloud spend. 
 
-It is free to get started. Follow the getting started instructions [here](/getting_started/). 
+It is free to get started. Navigate to the [Sign Up page](https://console.vantage.sh/signup) and choose an authentication method.
+
+![Vantage signup](/img/signup.png)
+
+Next, connect your providers by following the [getting started instructions](/getting_started/). 
 
 Optionally, you can upgrade to a paid plan to unlock additional features and track higher amounts cloud infrastructure costs. View all of our features and pricing [here](https://www.vantage.sh/pricing). If you have a monthly bill of greater than $2,500 USD per month, you will be required to utilize a paid plan. All paid plans have an option to trial the service before committing to a subscription.
 
