@@ -45,6 +45,11 @@
   border-color: #CFCFD6 !important;
 }
 
+.aa-DetachedSearchButton:focus {
+  box-shadow: 0 0 0 3px #F1C9FF !important;
+  border-color: #9C25C7 !important;
+}
+
 .aa-DetachedSearchButtonIcon {
   fill: #CFCFD6 !important;
   color: #CFCFD6 !important;
@@ -62,4 +67,34 @@
 
 .navbar__link:hover {
   color: #9C25C7 !important;
+}
+
+.aa-DetachedFormContainer .aa-Form {
+  border-color: #E3E3E9 !important;
+  border-radius: 6px !important;
+}
+
+.aa-DetachedFormContainer .aa-Form:hover {
+  color: #9C25C7 !important;
+}
+
+.aa-DetachedFormContainer .aa-Form:focus-within, .aa-Form[focus-within] {
+  box-shadow: 0 0 0 3px #F1C9FF !important;
+  border-color: #9C25C7 !important;
+}
+
+
+.aa-DetachedFormContainer .aa-SubmitButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.aa-DetachedFormContainer .aa-DetachedCancelButton {
+  border-radius: 6px !important;
+}
+
+.aa-Label svg, .aa-LoadingIndicator svg {
+  fill: #CFCFD6 !important;
+  color: #CFCFD6 !important;
 }
