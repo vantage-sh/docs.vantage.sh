@@ -6,13 +6,13 @@
 
 /* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
+  --ifm-color-primary: #9C25C7;
+  --ifm-color-primary-dark: #5A0A76;
+  --ifm-color-primary-darker: #3F0354;
+  --ifm-color-primary-darkest: #240130;
+  --ifm-color-primary-light: #9C25C7;
+  --ifm-color-primary-lighter: #C055E6;
+  --ifm-color-primary-lightest: #E59DFF;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
 }
@@ -27,4 +27,39 @@
   --ifm-color-primary-lighter: #32d8b4;
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+.footer {
+  background-color: #5A0A76;
+}
+
+.aa-DetachedSearchButton {
+  border: 1px solid #E3E3E9 !important;
+  border-radius: 6px !important;
+  min-width: 150px !important;
+  justify-content: space-between;
+  padding: 0 8px 0 12px !important;
+}
+
+.aa-DetachedSearchButton:hover {
+  border-color: #CFCFD6 !important;
+}
+
+.aa-DetachedSearchButtonIcon {
+  fill: #CFCFD6 !important;
+  color: #CFCFD6 !important;
+  order: 2;
+}
+
+.aa-DetachedSearchButtonPlaceholder {
+  order: 1;
+  color: #CFCFD6;
+}
+
+.navbar__link, .navbar__link--active {
+  color: #5A5A5F !important;
+}
+
+.navbar__link:hover {
+  color: #9C25C7 !important;
 }
