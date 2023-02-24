@@ -74,6 +74,12 @@ const config = {
         ],
       },
     ],
+    [
+      require.resolve('@docusaurus/plugin-google-analytics'),
+      {
+        trackingID: 'UA-166045679-1',
+      },
+    ],
   ],
 
   themeConfig:
