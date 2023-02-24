@@ -125,7 +125,19 @@ const config = {
             items: [
               {
                 label: 'Introduction',
+                to: '/',
+              },
+              {
+                label: 'Integrations',
                 to: '/getting_started',
+              },
+              {
+                label: 'Cost Reports',
+                to: '/cost_reports',
+              },
+              {
+                label: 'Autopilot',
+                to: '/autopilot',
               },
             ],
           },
