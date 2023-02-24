@@ -56,8 +56,22 @@ const config = {
     [
       require.resolve("@cmfcmf/docusaurus-search-local"),
       {
-        // Options here
         indexBlog: false,
+      },
+    ],
+    [
+      require.resolve('@docusaurus/plugin-client-redirects'),
+      {
+        redirects: [
+          {
+            from: '/kubernetes',
+            to: '/connecting_kubernetes',
+          },
+          {
+            from: '/connecting_mongo',
+            to: '/connecting_mongodb-atlas',
+          },
+        ],
       },
     ],
   ],
