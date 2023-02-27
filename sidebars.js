@@ -42,6 +42,7 @@ module.exports = {
           items: ['connecting_kubernetes', 'opencost', 'kubernetes_container_insights'],
         },
         'connecting_datadog',
+        'connecting_new_relic',
         'connecting_mongodb-atlas',
         {
           type: 'category',

@@ -32,6 +32,10 @@ Get started by [creating a Vantage account](https://console.vantage.sh/signup) a
 
 Vantage integrates with your Datadog account through a read only Datadog OAuth token. The user which completes this OAuth flow will need access to the **usage_read** scope to complete the connection. Get started with Datadog costs [here](/connecting_datadog).
 
+## Connecting New Relic
+
+Vantage integrates with your New Relic account through the use of [New Relic Usage Data](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-pricing-billing/usage-queries-alerts/) via the New Relic GraphQL API. Get started with New Relic costs [here](/connecting_new_relic).
+
 ## Connecting MongoDB Atlas
 
 Vantage integrates with your MongoDB account through read-only use of the [Invoices API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Invoices). To see [Active Resources](/active_resources) for your MongoDB Atlas account, Vantage uses the [Clusters API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Clusters) and the [Projects API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Projects). Get started with MongoDB Atlas costs [here](/connecting_mongodb-atlas).
