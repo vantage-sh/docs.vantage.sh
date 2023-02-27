@@ -1,6 +1,10 @@
 # Datadog
 
-![Datadog Cost Reports](/img/datadog_cost_report.png)
+[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Datadog costs.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Datadog Cost Reports" width="60%" src="/img/datadog_cost_report.png" />
+</div>
 
 ## Connecting Your Datadog Account
 

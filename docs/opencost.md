@@ -20,4 +20,6 @@ If you already have a hosted Prometheus solution (such as Grafana) you can conta
 
 Once the integration is deployed you can check the Kubernetes [integration page](https://console.vantage.sh/settings/integrations) in the Vantage console to see if data is flowing. If you see the cluster names listed on this page then data is being ingested and your Kuberentes cost data through OpenCost will be available within a day or two.
 
-![OpenCost is working](/img/opencost_working.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="OpenCost is working" width="60%" src="/img/opencost_working.png" />
+</div>

@@ -2,7 +2,9 @@
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Databricks costs.
 
-![Databricks cost report](/img/databricks-cost-report.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Databricks Cost Reports" width="60%" src="/img/databricks-cost-report.png" />
+</div>
 
 ## Connecting Your Databricks Account
 

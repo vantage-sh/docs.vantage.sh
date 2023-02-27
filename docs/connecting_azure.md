@@ -2,7 +2,9 @@
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Azure costs.
 
-![Azure Cost Report](/img/azure-cost-report.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Azure Cost Reports" width="60%" src="/img/azure-cost-report.png" />
+</div>
 
 ## Connecting Your Azure Account
 

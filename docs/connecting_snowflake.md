@@ -1,6 +1,10 @@
 # Setup Snowflake
 
-![Snowflake Cost Reports](/img/snowflake_cost_report.png)
+[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Snowflake costs.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Snowflake Cost Reports" width="60%" src="/img/snowflake_cost_report.png" />
+</div>
 
 ## Connecting Your Snowflake Account
 
