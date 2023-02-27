@@ -4,8 +4,6 @@
 
 OpenCost is the recommended way to integrate Kubernetes cost reporting into Vantage.
 
-
-
 # Overview
 
 When deploying an Opencost integration in Vantage the follow steps occur:
@@ -17,3 +15,9 @@ When deploying an Opencost integration in Vantage the follow steps occur:
 To get started with this integration visit the [integrations](https://console.vantage.sh/settings/integrations) page and select the AWS account you would like to get started with. Deploying a Managed Prometheus per account is optional. You can use the single Managed Prometheus Workspace across all regions across all accounts.
 
 If you already have a hosted Prometheus solution (such as Grafana) you can contact support@vantage.sh to integrate directly.
+
+## Check that OpenCost data is being ingested
+
+Once the integration is deployed you can check the Kubernetes [integration page](https://console.vantage.sh/settings/integrations) in the Vantage console to see if data is flowing. If you see the cluster names listed on this page then data is being ingested and your Kuberentes cost data through OpenCost will be available within a day or two.
+
+![OpenCost is working](/img/opencost_working.png)

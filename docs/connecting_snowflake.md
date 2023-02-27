@@ -22,6 +22,39 @@ Vantage requires read-only access to the following tables:
 
 ## Snowflake Schema for Vantage
 
-A best practice is to create a schema specifically for the Vantage user. After creating the schema you can add only the needed views to that schema and grant the vantage user access to the schema. You can follow [these](https://community.snowflake.com/s/article/Solution-Grant-access-to-specific-views-in-SNOWFLAKE-ACCOUNT-USAGE-to-custom-roles) instructions from Snowflake on how to do this.
+A best practice is to create a schema specifically for the Vantage user. Note that this is optional. After creating the schema you can add only the needed views to that schema and grant the vantage user access to the schema. Below are a set of commands to accomplish this modified from the Snowflake instructions [here](https://community.snowflake.com/s/article/Solution-Grant-access-to-specific-views-in-SNOWFLAKE-ACCOUNT-USAGE-to-custom-roles).
+
+To start create a user `vantage`, a role `vantage` and a warehouse `vantage` and grant necessary permissions.
+
+```sql
+use role accountadmin;
+create database vantage;
+create role vantage;
+create user vantage;
+grant role vantage to user vantage;
+grant role vantage to role accountadmin;
+create warehouse vantage;
+grant all on warehouse vantage to role vantage;
+alter user vantage set DEFAULT_WAREHOUSE=vantage, DEFAULT_ROLE=vantage;
+alter user vantage set password=“<A STRONG PASSWORD>”;
+```
+
+Next, setup the Vantage specific schema to read billing and usage data from your account.
+
+```sql
+use warehouse vantage;
+create view VANTAGE.PUBLIC.QUERY_HISTORY as select * from SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY;
+create view VANTAGE.PUBLIC.WAREHOUSE_METERING_HISTORY as select * from SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY;
+create view VANTAGE.PUBLIC.USAGE_IN_CURRENCY_DAILY as select * from SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY;
+grant usage on schema vantage.public to role vantage;
+grant select on all views in schema VANTAGE.PUBLIC to role vantage;
+```
+
+Lastly, test your setup.
+
+```sql
+use role vantage;
+select * from vantage.public.query_history limit 1;
+```
 
 After creating the user and granting access you can visit the [integrations](https://console.vantage.sh/settings/integrations) page and click "Add" on the Snowflake section.
