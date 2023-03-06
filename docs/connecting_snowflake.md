@@ -40,7 +40,7 @@ grant role vantage to role accountadmin;
 create warehouse vantage;
 grant all on warehouse vantage to role vantage;
 alter user vantage set DEFAULT_WAREHOUSE=vantage, DEFAULT_ROLE=vantage;
-alter user vantage set password=“<A STRONG PASSWORD>”;
+alter user vantage set password='<A STRONG PASSWORD>';
 ```
 
 Next, setup the Vantage specific schema to read billing and usage data from your account.
@@ -51,6 +51,7 @@ create view VANTAGE.PUBLIC.QUERY_HISTORY as select * from SNOWFLAKE.ACCOUNT_USAG
 create view VANTAGE.PUBLIC.WAREHOUSE_METERING_HISTORY as select * from SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY;
 create view VANTAGE.PUBLIC.USAGE_IN_CURRENCY_DAILY as select * from SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY;
 grant usage on schema vantage.public to role vantage;
+grant usage on database vantage to role vantage;
 grant select on all views in schema VANTAGE.PUBLIC to role vantage;
 ```
 
