@@ -1,5 +1,68 @@
 # Per Unit Costs
 
-Unit Costs are a visualization on Cost Reports which display cloud infrastructure costs on a per-unit basis. A unit can be any metric that your business tracks such as users, requests, transactions, customers, vendors, and so on. By importing these Business Metrics into Vantage, you can add them to Cost Reports to track things like cost per daily active user, COGS per customer, cost per million API requests, and more.
+Unit Costs are a visualization on Cost Reports which display cloud infrastructure costs on a per-unit basis. A unit can be any metric that your business tracks such as users, requests, transactions, customers, vendors, and so on. Unit costs are synonymous with cost of goods sold (COGS). By importing these Business Metrics into Vantage, you can add them to Cost Reports to track things like cost per daily active user, COGS per customer, cost per million API requests, and more.
 
 ![Per-Unit Costs](/img/per-unit-costs.jpg)
+
+Business Metrics refer to the units of data from your business that are aggregated and combined with costs to produce Per Unit Costs on Cost Reports.
+
+To get started with Per Unit Costs, head to [Business Metrics](https://console.vantage.sh/financial_planning/business_metrics) in the Financial Planning section of the Vantage console.
+
+## Importing Business Metrics
+
+Business Metrics can be imported from other systems directly into Vantage and analyzed alongside cost data. You can create automatic import integrations with CloudWatch and manually import these metrics via a CSV.
+
+##### Permissions
+
+You must be an owner in order to import unit metrics. Anyone with Editor and above can assign them to a specific Cost Report.
+
+##### Aggregation
+
+There a different options for importing unit metrics. For each import you must specify the aggregation function to be used as these metrics will be aggregated to the day.
+
+### Importing from CloudWatch
+
+To import Business Metrics from CloudWatch you need a specific metric name and AWS account. If Vantage does not have a Cross Account IAM Role for this account one will have to be created.
+
+![Import from CloudWatch](/img/import-cloudwatch.png)
+
+Next, fill out the Region, Namespace, Metric Name, and Dimensions to import.
+
+With automated imports the metrics will be imported for the last 6 months.
+
+### Importing from a CSV
+
+You can upload a CSV in a specific two column format which can either replace existing data on upload or be used to import new data. You may supply up to 6 months worth of metrics.
+
+The format for CSV upload is:
+
+```
+date,amount
+2023-01-09,295
+2023-01-16,909
+2023-01-23,934
+2023-01-30,772
+2023-02-06,770
+2023-02-13,170
+2023-02-20,819
+2023-02-27,307
+...
+```
+
+The date column must be in the format YYYY-MM-DD. The amount column must be a number.
+
+## Assign Business Metrics to Cost Reports
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Snowflake Cost Reports" width="60%" src="/img/assign-metrics-cost-report.png" />
+</div>
+
+Once your import is complete you can assign metrics to [Cost Reports](/cost_reports). In order to utilize the same Cost Report data across multiple business metrics you can assign as many unit metrics to the same Cost Report as you like. You can also assign the same metric to multiple reports.
+
+When adding a Business Metric to a Cost Report you will select the scale. A unit scale can be Per Unit, Per Hundred, Per Thousand, Per Million and Per Billion. The scale is used to divide the business metric prior to calculating the cost per unit. This allows you to create a Per Unit cost such as “Cost per Thousand Requests.” If you select Per Unit no division will take place and the base metric number will be used.
+
+## View Per Unit Costs on Cost Reports
+
+![Per Unit Costs on a Cost Report](/img/per-unit-costs-cost-report.png)
+
+To inspect your unit costs, navigate to the Cost Reports you assigned them to. The average unit cost for the date range selected will appear on the right. By mousing over any particular data point you can see the cost per unit for that day, week, or month. If you have added multiple business metrics to the same Cost Report you will see these displayed as multiple lines.
