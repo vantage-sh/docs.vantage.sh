@@ -81,9 +81,9 @@ module.exports = {
             "cost_reports",
             "forecasting",
             "segments",
+            "per_unit_costs",
             "cost_anomaly_alerts",
             "budgets",
-            "per_unit_costs",
           ],
         },
         {

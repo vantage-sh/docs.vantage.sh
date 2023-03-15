@@ -54,7 +54,7 @@ The date column must be in the format YYYY-MM-DD. The amount column must be a nu
 ## Assign Business Metrics to Cost Reports
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Snowflake Cost Reports" width="60%" src="/img/assign-metrics-cost-report.png" />
+    <img alt="Assign metric to cost report" width="60%" src="/img/assign-metrics-cost-report.png" />
 </div>
 
 Once your import is complete you can assign metrics to [Cost Reports](/cost_reports). In order to utilize the same Cost Report data across multiple business metrics you can assign as many unit metrics to the same Cost Report as you like. You can also assign the same metric to multiple reports.
@@ -63,6 +63,8 @@ When adding a Business Metric to a Cost Report you will select the scale. A unit
 
 ## View Per Unit Costs on Cost Reports
 
-![Per Unit Costs on a Cost Report](/img/per-unit-costs-cost-report.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Per Unit Costs displayed on a Cost Report" width="60%" src="/img/per-unit-costs-cost-report.png" />
+</div>
 
-To inspect your unit costs, navigate to the Cost Reports you assigned them to. The average unit cost for the date range selected will appear on the right. By mousing over any particular data point you can see the cost per unit for that day, week, or month. If you have added multiple business metrics to the same Cost Report you will see these displayed as multiple lines.
+To inspect your unit costs, navigate to the Cost Reports you assigned them to. The average unit cost for the date range selected will appear on the right. You must be viewing a daily, weekly or monthly view in order to see the cost per unit line. By mousing over any particular data point you can see the cost per unit for that day, week, or month. If you have added multiple business metrics to the same Cost Report you will see these displayed as multiple lines.
