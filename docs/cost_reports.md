@@ -91,7 +91,9 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-The “Export Data” on each Cost Report will trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. Customers will be able to choose any combination of groupings from the following list: Provider, Service, Category, Sub Category, Account and Resource. 
+The “Export Data” on each Cost Report will trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. Customers will be able to choose any combination of groupings from the following list: Provider, Service, Category, Sub Category, Account and Resource.
+
+Regarding Date Bins, when you select Week the week in the export will begin on Monday UTC. When you select Month the month in the export will begin on the first of the month UTC.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="60%" src="/img/custom-csv-export.png" />
