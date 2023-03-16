@@ -91,7 +91,7 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-The “Export Data” on each Cost Report will trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. Customers will be able to choose any combination of groupings from the following list: 
+After clicking the "..." button, select “Export Data” to trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. You will be able to choose any combination of groupings from the following list: 
 
 - Provider (AWS, GCP, New Relic, etc)
 - Service (EC2, EBS, etc)
