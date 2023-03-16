@@ -91,7 +91,14 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-The “Export Data” on each Cost Report will trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. Customers will be able to choose any combination of groupings from the following list: Provider, Service, Category, Sub Category, Account and Resource.
+The “Export Data” on each Cost Report will trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. Customers will be able to choose any combination of groupings from the following list: 
+
+- Provider (AWS, GCP, New Relic, etc)
+- Service (EC2, EBS, etc)
+- Service category (Storage, Compute, etc..)
+- Service subcategory (m5.large, StandardTier, etc..)
+- Account (AWS member account, GCP project, etc)
+- Resource (S3 Bucket ARN, EC2 Instance ID, MongoDB Atlas Cluster name, etc..)
 
 Regarding Date Bins, when you select Week the week in the export will begin on Monday UTC. When you select Month the month in the export will begin on the first of the month UTC.
 
@@ -99,4 +106,4 @@ Regarding Date Bins, when you select Week the week in the export will begin on M
     <img alt="Cost Report Exports" width="60%" src="/img/custom-csv-export.png" />
 </div>
 
-When the Export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An export with groupings of "Service category" and "Service subcategory" would look like the image above in a spreadsheet tool. 
+When the Export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An example export in a spreadsheet tool with groupings of "Service category" and "Service subcategory" is shown above.
