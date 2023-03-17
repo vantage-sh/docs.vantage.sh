@@ -14,7 +14,7 @@ After defining your segments, a cost report will automatically be created repres
 
 As a very basic explanation, a segment is a set of filters that representing a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
 
-Segments can be found by navigating to "Cost Reporting” and then “Segments”. If you have Segments present in your account, you can see a full list of top-level Segments sorted alphabetically.
+Segments can be found by navigating to "Cost Reporting" and then "Segments". If you have Segments present in your account, you can see a full list of top-level Segments sorted alphabetically.
 
 Within the Segment, for example "OPEX", you can click on the "OPEX" report to pull up a Cost Report which shows costs only associated with that Segment. In that Cost Report you can select "Group By: Segment" to view costs broken out by the child segments within that Segment. For example, you could view costs grouped by "Customers", "OPS", and "Production" within the "OPEX" segment.
 
@@ -43,6 +43,6 @@ A Segment widget will be available for each top-level segment and will appear in
 
 ## Cost Reports and Segments
 
-When you click into a [Cost Report](/cost_reports/), you’ll be able to “Group By” Segment. If you group by Segment and click into costs for that Segment you will be taken to the corresponding Cost Report for that Segment. The rest of the Cost Report experience is the same. You will be able to view Cost by Service, Category and Resource.
+When you click into a [Cost Report](/cost_reports/), you’ll be able to "Group By" Segment. If you group by Segment and click into costs for that Segment you will be taken to the corresponding Cost Report for that Segment. The rest of the Cost Report experience is the same. You will be able to view Cost by Service, Category and Resource.
 
 If you would like to transition existing Cost Report filters to Segments you must manually recreate them. If you would like assistance from our customer success team, please reach out to us at [support@vantage.sh](mailto:support@vantage.sh).

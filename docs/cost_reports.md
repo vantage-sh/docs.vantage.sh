@@ -64,7 +64,7 @@ It can be useful to showback shared resources like support costs or multi-tenant
 To use Percentage Based Allocation, you can do the following:
 
 - Head to any Cost Report
-- Click “Filters”
+- Click "Filters"
 - Configure filters to see a subset of costs. For example, see the costs just for RDS.
 - Click the new "Add Cost Allocation" option on that filter set and set a value of 1-100%.
 - Save the report.
@@ -77,7 +77,7 @@ When percent based cost allocation is set as a filter, forecasts will be produce
     <img alt="Cost Report Folders" width="80%" src="/img/folders-nobg.png" />
 </div>
 
-Cost Report folders give you an easy way to organize Cost Reports. You can quickly create and name folders, move Cost Reports to these folders and nest folders within each other to create complex organizational structures. There is also a global search feature to quickly find either Cost Reports or folders. For a quick reference to your most important reports, you can “star” Cost Reports or folders. Navigate to the [reporting page](https://console.vantage.sh/reporting) in the console to make use of folders.
+Cost Report folders give you an easy way to organize Cost Reports. You can quickly create and name folders, move Cost Reports to these folders and nest folders within each other to create complex organizational structures. There is also a global search feature to quickly find either Cost Reports or folders. For a quick reference to your most important reports, you can "star" Cost Reports or folders. Navigate to the [reporting page](https://console.vantage.sh/reporting) in the console to make use of folders.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="60%" src="/img/move-folder-2.gif" />
@@ -91,7 +91,7 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-After clicking the "..." button, select “Export Data” to trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. You will be able to choose any combination of groupings from the following list: 
+After clicking the "..." button, select "Export Data" to trigger a modal. There are two modes of exporting a report: Basic and Advanced. A Basic Export only allows you to modify the date range of a report. An Advanced Export allows you to arbitrarily choose the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list: 
 
 - Provider (AWS, GCP, New Relic, etc)
 - Service (EC2, EBS, etc)
@@ -101,6 +101,8 @@ After clicking the "..." button, select “Export Data” to trigger a modal to 
 - Resource (S3 Bucket ARN, EC2 Instance ID, MongoDB Atlas Cluster name, etc..)
 
 Regarding Date Bins, when you select Week the week in the export will begin on Monday UTC. When you select Month the month in the export will begin on the first of the month UTC.
+
+You can add other recipients to receive the report download link when it is ready. These recipients must be users in your organization.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="60%" src="/img/custom-csv-export.png" />
