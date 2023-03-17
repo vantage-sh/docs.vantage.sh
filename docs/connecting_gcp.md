@@ -44,7 +44,7 @@ Create a GCP data integration by logging into your Vantage account and going [he
 ### Assign Vantage Service Account Permission to Access BigQuery
 
 1. Open the [IAM Console](https://console.cloud.google.com/iam-admin/iam)
-2. Select the project hosting the BigQuery dataset containing your Billing Export data from the project drop-down in the main navigation bar at top. If you don’t see the project name right away, try the “ALL” tab or search for it
+2. Select the project hosting the BigQuery dataset containing your Billing Export data from the project drop-down in the main navigation bar at top. If you don’t see the project name right away, try the "ALL" tab or search for it
 3. Add a new permission to the project
    1. Click the **Add** button
    2. Under **New principals**, add your Vantage service account (found in the GCP onboarding workflow in the Vantage console)

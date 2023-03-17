@@ -64,7 +64,7 @@ It can be useful to showback shared resources like support costs or multi-tenant
 To use Percentage Based Allocation, you can do the following:
 
 - Head to any Cost Report
-- Click “Filters”
+- Click "Filters"
 - Configure filters to see a subset of costs. For example, see the costs just for RDS.
 - Click the new "Add Cost Allocation" option on that filter set and set a value of 1-100%.
 - Save the report.
@@ -77,7 +77,7 @@ When percent based cost allocation is set as a filter, forecasts will be produce
     <img alt="Cost Report Folders" width="80%" src="/img/folders-nobg.png" />
 </div>
 
-Cost Report folders give you an easy way to organize Cost Reports. You can quickly create and name folders, move Cost Reports to these folders and nest folders within each other to create complex organizational structures. There is also a global search feature to quickly find either Cost Reports or folders. For a quick reference to your most important reports, you can “star” Cost Reports or folders. Navigate to the [reporting page](https://console.vantage.sh/reporting) in the console to make use of folders.
+Cost Report folders give you an easy way to organize Cost Reports. You can quickly create and name folders, move Cost Reports to these folders and nest folders within each other to create complex organizational structures. There is also a global search feature to quickly find either Cost Reports or folders. For a quick reference to your most important reports, you can "star" Cost Reports or folders. Navigate to the [reporting page](https://console.vantage.sh/reporting) in the console to make use of folders.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="60%" src="/img/move-folder-2.gif" />

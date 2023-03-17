@@ -59,7 +59,7 @@ The date column must be in the format YYYY-MM-DD. The amount column must be a nu
 
 Once your import is complete you can assign metrics to [Cost Reports](/cost_reports). In order to utilize the same Cost Report data across multiple business metrics you can assign as many unit metrics to the same Cost Report as you like. You can also assign the same metric to multiple reports.
 
-When adding a Business Metric to a Cost Report you will select the scale. A unit scale can be Per Unit, Per Hundred, Per Thousand, Per Million and Per Billion. The scale is used to divide the business metric prior to calculating the cost per unit. This allows you to create a Per Unit cost such as “Cost per Thousand Requests.” If you select Per Unit no division will take place and the base metric number will be used.
+When adding a Business Metric to a Cost Report you will select the scale. A unit scale can be Per Unit, Per Hundred, Per Thousand, Per Million and Per Billion. The scale is used to divide the business metric prior to calculating the cost per unit. This allows you to create a Per Unit cost such as "Cost per Thousand Requests." If you select Per Unit no division will take place and the base metric number will be used.
 
 ## View Per Unit Costs on Cost Reports
 
