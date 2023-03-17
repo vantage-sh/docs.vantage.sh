@@ -91,7 +91,7 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-After clicking the "..." button, select “Export Data” to trigger a modal to allow you to arbitrarily choose which format they would like to group data by, a date range and a date bin. You will be able to choose any combination of groupings from the following list: 
+After clicking the "..." button, select "Export Data" to trigger a modal. There are two modes of exporting a report: Basic and Advanced. A Basic Export only allows you to modify the date range of a report. An Advanced Export allows you to arbitrarily choose the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list: 
 
 - Provider (AWS, GCP, New Relic, etc)
 - Service (EC2, EBS, etc)
@@ -101,6 +101,8 @@ After clicking the "..." button, select “Export Data” to trigger a modal to 
 - Resource (S3 Bucket ARN, EC2 Instance ID, MongoDB Atlas Cluster name, etc..)
 
 Regarding Date Bins, when you select Week the week in the export will begin on Monday UTC. When you select Month the month in the export will begin on the first of the month UTC.
+
+You can add other recipients to receive the report download link when it is ready. These recipients must be users in your organization.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="60%" src="/img/custom-csv-export.png" />
