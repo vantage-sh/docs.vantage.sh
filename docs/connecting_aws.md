@@ -32,7 +32,20 @@ AWS maintains instructions for the latest way of enabling this which you can fin
 
 ### Connecting with Terraform
 
-If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the CloudFormation process, you can click on the terraform instructions which will give you the proper IAM Role creation snippets which can be dropped into your Terraform codebase. Once you create the roles you can enter the ARN of the IAM Role which was created to complete the connection process.
+If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the CloudFormation process, you can use the [Vantage Integrations Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) to link your AWS and Vantage accounts. Below is an example of adding a member account without CUR integration. Additonal documentation can be found on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
+
+```hcl
+provider "aws" {
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::123456789012:role/admin-role"
+  }
+}
+
+module "vantage-integration" {
+  source  = "vantage-sh/vantage-integration/aws"
+}
+```
 
 ### Connecting by Manually Creating an IAM Role
 
