@@ -26,7 +26,6 @@ There is a large set of filters available to you to help you see costs for the r
 
 In addition, each filter includes options for exact matching and fuzzy matching. In the image above, you can select "is", "is not", "contains", "does not contain", "starts with", and "ends with" on a Resource filter. This set of options can vary per filter selected.
 
-
 ## Saving Cost Reports
 
 When you have selected which filters to apply to the report you can save your changes and name the report. Select "Save As New" to create a new Cost Report with your changes or "Save Changes" to modify the current report. When you change the date range, date bucket (such as "Last 30 Days"), or Grouping you may also save those changes permanently. The new date range, date bucket, and grouping will persist to the [Overview](/overview) page. When saving a report which only includes changes to Filter Sets, the Overview page will show costs for the last 6 months.
@@ -36,7 +35,7 @@ When you have selected which filters to apply to the report you can save your ch
 Each AWS Service typically has multiple underlying category and subcategory costs. For example, in the main cost report table view you'll see all of your S3 Costs in aggregate. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example Subcategory Costs" width="60%" src="/img/category_costs.png" />
+    <img alt="Example Subcategory Costs" width="80%" src="/img/category_costs.png" />
 </div>
 
 ## Per Resource Costs
@@ -44,13 +43,13 @@ Each AWS Service typically has multiple underlying category and subcategory cost
 When supported in the list of [support services](/supported_services/), Vantage will also be able to show you each individual resource cost. For example, you can see not only the total cost of RDS instances in aggregate day by day but then if you click into "Costs by Resource" within a Cost Report, you can also see how much each individual resource costs. Below is an example of two RDS instances present in the account how much each one of them is driving in costs - this data can be seen without the need for you to do any additional tagging:
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of Per Resource Costs" width="60%" src="/img/per_resource_list.png" />
+    <img alt="Example of Per Resource Costs" width="80%" src="/img/per_resource_list.png" />
 </div>
 
 Additionally, you can click in to see the category and subcategory costs on a per-resource basis. So looking at the example above if you want to see a breakdown of costs for the RDS instance named "vantage-production-core-db" this is what that would look like:
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of a Single Resource Costs" width="60%" src="/img/per_resource_individual.png" />
+    <img alt="Example of a Single Resource Costs" width="80%" src="/img/per_resource_individual.png" />
 </div>
 
 ## Percent Based Cost Allocation
@@ -91,7 +90,7 @@ Cost Report folders include several additional features for sharing and quickly 
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
 
-After clicking the "..." button, select "Export Data" to trigger a modal. There are two modes of exporting a report: Basic and Advanced. A Basic Export only allows you to modify the date range of a report. An Advanced Export allows you to arbitrarily choose the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list: 
+After clicking the "..." button, select "Export Data" to trigger a modal. There are two modes of exporting a report: Basic and Advanced. A Basic Export only allows you to modify the date range of a report. An Advanced Export allows you to arbitrarily choose the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
 
 - Provider (AWS, GCP, New Relic, etc)
 - Service (EC2, EBS, etc)
