@@ -10,7 +10,7 @@ It is free to get started. Navigate to the [Sign Up page](https://console.vantag
 
 ![Vantage signup](/img/signup.png)
 
-Next, connect your providers by following the [getting started instructions](/getting_started/). 
+Next, connect your providers by following the [connect providers instructions](/getting_started/). 
 
 Optionally, you can upgrade to a paid plan to unlock additional features and track higher amounts cloud infrastructure costs. View all of our features and pricing [here](https://www.vantage.sh/pricing). If you have a monthly bill of greater than $2,500 USD per month, you will be required to utilize a paid plan. All paid plans have an option to trial the service before committing to a subscription.
 

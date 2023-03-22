@@ -1,4 +1,4 @@
-# Getting Started
+# Connect Providers
 
 To get started using Vantage to explore your cloud infrastructure costs, you'll want to create a data integration between at least one of your providers and Vantage.
 
