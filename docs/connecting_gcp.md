@@ -62,7 +62,3 @@ Create a GCP data integration by logging into your Vantage account and going [he
    5. Attach the role, `BigQuery Data Viewer`
    6. Click the **Save** button
 3. Return to the Vantage GCP onboarding workflow and click the **Next** button
-
-## Connecting with Terraform
-
-If you manage your infrastructure with Terraform it is very easy to connect to Vantage. During onboarding, instead of following the manual integration process, you can click on the terraform instructions which will give you the IAM Role creation snippets. This can be dropped into your Terraform codebase. Once this has been deployed you can complete the onboarding workflow.
