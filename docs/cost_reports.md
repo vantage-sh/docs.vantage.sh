@@ -26,6 +26,18 @@ There is a large set of filters available to you to help you see costs for the r
 
 In addition, each filter includes options for exact matching and fuzzy matching. In the image above, you can select "is", "is not", "contains", "does not contain", "starts with", and "ends with" on a Resource filter. This set of options can vary per filter selected.
 
+## Saved Filters
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Saved Filters" width="60%" src="/img/saved-filter-2.gif" />
+</div>
+
+Saved Filters give you the ability to save and reuse filter logic across multiple Cost Reports. A Saved Filter will have any filter logic you would like along with a name for that filter. Once created, the filter can be added to any number of reports.
+
+Head to the [Saved Filters](https://console.vantage.sh/saved_filters) page in Cost Reporting to create or update your filters. You must have editor permissions to update Saved Filters and add them to Cost Reports.
+
+When combining multiple Saved Filters on Cost Reports, "AND" logic will be used. This is in contrast to combining multiple normal filters where "OR" logic is used.
+
 ## Saving Cost Reports
 
 When you have selected which filters to apply to the report you can save your changes and name the report. Select "Save As New" to create a new Cost Report with your changes or "Save Changes" to modify the current report. When you change the date range, date bucket (such as "Last 30 Days"), or Grouping you may also save those changes permanently. The new date range, date bucket, and grouping will persist to the [Overview](/overview) page. When saving a report which only includes changes to Filter Sets, the Overview page will show costs for the last 6 months.
