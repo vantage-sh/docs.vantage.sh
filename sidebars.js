@@ -80,6 +80,7 @@ module.exports = {
         },
         "connecting_databricks",
         "connecting_fastly",
+        "connecting_open_ai"
       ],
     },
     {
