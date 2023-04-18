@@ -6,6 +6,8 @@ Vantage requests certain IAM permissions to interact with your AWS account. All 
 
 Below is a line-by-line description of each permission requested and what it is used for. In many cases, we have preemptively requested permissions that are not used but are reserved for future feature support so that we do not need you to update the permission list for each subsequent feature.
 
+These permissions are meant to work in a gracefully degraded fashion —- customers are able to modify these permissions and Vantage will work with the data to which it has access.
+
 | Permission                                                    | Description                                                                                                                                         |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
 | "a4b:List\*"                                                  | Not used                                                                                                                                            |
