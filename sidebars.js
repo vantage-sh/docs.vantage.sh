@@ -31,7 +31,8 @@ module.exports = {
             "hidden_costs",
           ],
         },
-        "vantage_account"
+        "vantage_account",
+        "self_service_sso",
       ],
     },
     {
