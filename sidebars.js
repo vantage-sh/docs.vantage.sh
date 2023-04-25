@@ -18,20 +18,16 @@ module.exports = {
 
     {
       "Get Started": [
-        "index", 
-        "getting_started", 
+        "index",
+        "getting_started",
         {
           type: "category",
           label: "Onboarding",
           collapsible: true,
-          collapsed: false,
-          items: [
-            "team_accountability",
-            "executive_reporting",
-            "hidden_costs",
-          ],
+          collapsed: true,
+          items: ["team_accountability", "executive_reporting", "hidden_costs"],
         },
-        "vantage_account"
+        "vantage_account",
       ],
     },
     {
@@ -80,7 +76,7 @@ module.exports = {
         },
         "connecting_databricks",
         "connecting_fastly",
-        "connecting_open_ai"
+        "connecting_open_ai",
       ],
     },
     {

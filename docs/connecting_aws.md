@@ -53,7 +53,7 @@ If you would like to create IAM Roles manually or use another tool to manage you
 
 ### AWS Data Ingestion Delay
 
-As of June 2022, Vantage now creates both an IAM Role as well as a cost and usage report integration through the same provided CloudFormation template and terraform file. While an IAM Role is created within a minute and historical data can be populated nearly immediately, it can take AWS around 6 or 7 hours to deliver the first cost and usage report to Vantage. As a result, only partial data will be present until this first cost and usage report is received.
+As of June 2022, Vantage now creates both an IAM Role as well as a [cost and usage report](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration through the same provided CloudFormation template and terraform file. While an IAM Role is created within a minute and historical data can be populated nearly immediately, it can take AWS around 6 or 7 hours to deliver the first cost and usage report to Vantage. As a result, only partial data will be present until this first cost and usage report is received.
 
 This will impact a few things in the Vantage console.
 
