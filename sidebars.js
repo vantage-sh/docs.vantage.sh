@@ -28,6 +28,7 @@ module.exports = {
           items: ["team_accountability", "executive_reporting", "hidden_costs"],
         },
         "vantage_account",
+        "self_service_sso",
       ],
     },
     {
