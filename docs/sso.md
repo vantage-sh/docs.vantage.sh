@@ -1,4 +1,4 @@
-# Self-service SSO
+# Self-Service SSO
 
 Self-service SSO allows customers to connect their SAML Identity Provider (IdP) to their Vantage account. This allows the use of existing credentials to authenticate and access your Vantage account. SSO (Single Sign-On) streamlines the login process, since users don't need to create a new account or remember another set of login credentials for Vantage.
 
