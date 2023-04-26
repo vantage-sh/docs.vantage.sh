@@ -37,7 +37,7 @@ Now that you have:
 2. The name of the project
 3. The name of the Big Query dataset
 
-Create a GCP data integration by logging into your Vantage account and going [here](https://console.vantage.sh/gcp_onboarding/overview). You will be asked to add these inputs into the onboarding flow.
+Create a GCP data integration by logging into your Vantage account and going [here](https://console.vantage.sh/settings/gcp). You will be asked to add these inputs into the onboarding flow.
 
 ## Connecting Manually
 
