@@ -1,3 +1,6 @@
+[![Deploy Docusaurus](https://github.com/vantage-sh/docs.vantage.sh/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/vantage-sh/docs.vantage.sh/actions/workflows/main.yml)
+
+
 # Website
 
 The Vantage documentation is built using [Docusaurus 2](https://docusaurus.io/).
