@@ -28,6 +28,14 @@ To import Business Metrics from CloudWatch you need a specific metric name and A
 
 Next, fill out the Region, Namespace, Metric Name, and Dimensions to import.
 
+#### Namespace
+
+A complete list of available namespaces can be found in the AWS documentation for [AWS services that publish CloudWatch Metrics](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/aws-services-cloudwatch-metrics.html). Namespaces start with `AWS/` followed by the service name.
+
+#### Metric Name
+
+Each AWS service that you use will have its own metrics that it [sends to CloudWatch](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/viewing_metrics_with_cloudwatch.html). Available metrics can be found in CloudWatch or in the AWS documentation. For example, here are the available [EC2 instance metrics](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/viewing_metrics_with_cloudwatch.html).
+
 With automated imports the metrics will be imported for the last 6 months.
 
 ### Importing from a CSV
