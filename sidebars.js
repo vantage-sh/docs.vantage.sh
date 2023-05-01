@@ -27,6 +27,7 @@ module.exports = {
           collapsed: true,
           items: ["team_accountability", "executive_reporting", "hidden_costs"],
         },
+        "terraform",
         "vantage_account",
         "sso",
       ],
