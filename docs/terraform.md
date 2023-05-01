@@ -5,7 +5,7 @@ If you manage your infrastructure with Terraform it is very easy to connect to V
 ## Setup and Connection
 
 :::info
-The Vantage Terraform provider is currently only available for AWS.
+The Vantage Terraform provider is currently only available for AWS IAM Role creation but is being expanded to other primitives listed below. 
 :::
 
 Use the [Vantage Integrations Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) to link your AWS and Vantage accounts. Below is an example of adding a member account without a CUR integration. Additional documentation can be found on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
@@ -26,7 +26,7 @@ module "vantage-integration" {
 
 ## Infrastructure Automation
 
-The terraform provider enables further cost automation using the [Vantage API](https://vantage.readme.io/reference/general). The IAM role creation shown above is supported today and we are currently expanded our Terraform Module to the following primitives:
+The Terraform provider enables further cost automation using the [Vantage API](https://vantage.readme.io/reference/general). The IAM role creation shown above is supported today and we are currently expanding our Terraform Module to the following primitives:
 
 - [Cost Reports](/cost_reports)
 - [Saved Filters](/cost_reports#saved-filters)
@@ -34,7 +34,7 @@ The terraform provider enables further cost automation using the [Vantage API](h
 - [Budgets](/budgets)
 - [Business Metrics](/per_unit_costs#importing-business-metrics)
 
-The capabilities help engineering teams **fully automate cost reporting** in Vantage through some of the following use cases:
+These capabilities help engineering teams **fully automate cost reporting** in Vantage through some of the following use cases:
 
 - Build cost reports for hundreds of teams
 - Integrate thousands of AWS accounts
