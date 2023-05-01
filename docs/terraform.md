@@ -1,12 +1,14 @@
 # Terraform
 
+If you manage your infrastructure with Terraform it is very easy to connect to Vantage and automate cost reporting.
+
+## Setup and Connection
+
 :::info
 The Vantage Terraform provider is currently only available for AWS.
 :::
 
-## Setup and Connection
-
-If you manage your infrastructure with Terraform it is very easy to connect to Vantage. Use the [Vantage Integrations Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) to link your AWS and Vantage accounts. Below is an example of adding a member account without a CUR integration. Additional documentation can be found on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
+Use the [Vantage Integrations Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) to link your AWS and Vantage accounts. Below is an example of adding a member account without a CUR integration. Additional documentation can be found on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
 
 ```hcl
 provider "aws" {
