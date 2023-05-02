@@ -1,6 +1,6 @@
 # Terraform
 
-If you manage your infrastructure with Terraform it is very easy to connect to Vantage and automate cost reporting.
+Vantage offers a Terraform provider for making it easy to get up and running with Vantage. The Vantage Terraform provider _currently_ allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report. That being said, we've been getting requests for expanding the suite of primitives the provider supports so that all aspects of Vantage (Cost Report creation, Budget creation, etc.) can be automated and managed via Terraform. 
 
 ## Setup and Connection
 
@@ -9,6 +9,8 @@ The Vantage Terraform provider is currently only available for AWS IAM Role crea
 :::
 
 Use the [Vantage Integrations Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) to link your AWS and Vantage accounts. Below is an example of adding a member account without a CUR integration. Additional documentation can be found on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
+
+This results in the creation of an IAM Role which Vantage can "assume" to ingest cost and resource metadata to display within the Vantage console. 
 
 ```hcl
 provider "aws" {
@@ -24,9 +26,9 @@ module "vantage-integration" {
 }
 ```
 
-## Infrastructure Automation
+## Future Primitive Support
 
-The Terraform provider enables further cost automation using the [Vantage API](https://vantage.readme.io/reference/general). The IAM role creation shown above is supported today and we are currently expanding our Terraform Module to the following primitives:
+Vantage is in process of exapnding the [Vantage API](https://vantage.readme.io/reference/general) which the Terraform provider ultimately is running through. Brokering an AWS IAM role creation is supported today and the list of primitives that the provider will ultimately support is as follows:
 
 - [Cost Reports](/cost_reports)
 - [Saved Filters](/cost_reports#saved-filters)
@@ -36,11 +38,9 @@ The Terraform provider enables further cost automation using the [Vantage API](h
 
 These capabilities help engineering teams **fully automate cost reporting** in Vantage through some of the following use cases:
 
-- Build cost reports for hundreds of teams
+- Build cost reports for hundreds of teams stored in another source of truth (database, Github, etc.)
 - Integrate thousands of AWS accounts
 - Push company metrics to Vantage
-- Make infrastructure changes without manually updating every report
-- Connect additional providers such as GCP and Azure
-- Configure and route Kubernetes metrics from systems such as Prometheus to Vantage
+- Sync and update budgets
 
 To request further features, please open an issue on [Github](https://github.com/vantage-sh/terraform-aws-vantage-integration) or us at support@vantage.sh.
