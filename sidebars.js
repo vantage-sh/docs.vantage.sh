@@ -28,8 +28,9 @@ module.exports = {
           items: ["team_accountability", "executive_reporting", "hidden_costs"],
         },
         "terraform",
-        "vantage_account",
         "sso",
+        "security",
+        "vantage_account",
       ],
     },
     {
@@ -46,7 +47,6 @@ module.exports = {
             "permissions_aws",
             "syncing",
             "supported_services",
-            "security",
           ],
         },
         "connecting_azure",

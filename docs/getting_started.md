@@ -52,6 +52,10 @@ Vantage integrates with your Databricks account through the use of [Billable Usa
 
 Vantage integrates with your Fastly account through a read-only API token. Fastly API Tokens are free for you to create. Adding them to the [Vantage console](https://console.vantage.sh/signup) only takes a few minutes. Step by step instructions to connect Fastly can be found [here](/connecting_fastly).
 
+## Connecting OpenAI
+
+Vantage integrates with your OpenAI account through an API token. OpenAI API Tokens are free for you to create. Adding them to the [Vantage console](https://console.vantage.sh/signup) only takes a few minutes. Step by step instructions to connect OpenAI can be found [here](/connecting_open_ai).
+
 ## Other Providers
 
 Vantage will be launching support for additional cloud infrastructure providers in the future. If you have a particular provider that you would like supported, please reach out to [support@vantage.sh](mailto:support@vantage.sh).
