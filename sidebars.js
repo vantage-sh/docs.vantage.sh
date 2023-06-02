@@ -88,11 +88,12 @@ module.exports = {
       label: "Features",
       items: [
         "overview",
+        "cost_reports",
+        "autopilot",
         {
           type: "category",
-          label: "Cost Reporting",
+          label: "Visibility",
           items: [
-            "cost_reports",
             "forecasting",
             "segments",
             "per_unit_costs",
@@ -103,12 +104,7 @@ module.exports = {
         {
           type: "category",
           label: "Optimization",
-          items: [
-            "autopilot",
-            "savings_planner",
-            "active_resources",
-            "metrics",
-          ],
+          items: ["savings_planner", "active_resources", "metrics"],
         },
         {
           type: "category",
