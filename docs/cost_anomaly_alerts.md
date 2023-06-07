@@ -1,4 +1,4 @@
-# Anomaly Detection and Alerts
+# Anomaly Detection
 
 ![Cost Anomaly Alert](/img/cost-alert.png)
 

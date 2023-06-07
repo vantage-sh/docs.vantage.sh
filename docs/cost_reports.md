@@ -82,6 +82,10 @@ To use Percentage Based Allocation, you can do the following:
 
 When percent based cost allocation is set as a filter, forecasts will be produced in aggregate for all the set conditions and the percentage allocation will be applied to that forecast.
 
+## Amortization
+
+By default, all Cost Reports show upfront fees, such as fees for Reserved Instances, Savings Plans, Marketplace purchases and Support, amortized day-by-day for the period of the fee. You can choose to toggle a Cost Report to not amortize upfront fees if you wish to view the upfront fees on the day they are incurred by going to "Settings" on any Cost Report.
+
 ## Folders
 
 <div style={{display:"flex", justifyContent:"center"}}>

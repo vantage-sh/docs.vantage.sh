@@ -64,12 +64,12 @@ const config = {
       {
         redirects: [
           {
-            from: "/kubernetes",
-            to: "/connecting_kubernetes",
-          },
-          {
             from: "/connecting_mongo",
             to: "/connecting_mongodb-atlas",
+          },
+          {
+            from: "/metrics",
+            to: "/active_resources",
           },
         ],
       },
