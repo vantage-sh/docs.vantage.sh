@@ -4,7 +4,7 @@ description: Resource Reports gives you the ability to view and filter resources
 
 # Resource Reports
 
-When you connect [AWS](/connect_aws), [Snowflake](/connect_snowflake), or [MongoDB](/connect_mongodb-atlas), Vantage will begin profiling active resources via List/Describe service APIs within your account. This will provide you with an "active resource" report that allows you to see all running resources within your account and the costs they are accruing while doing so. You can access these reports in the [Active Resource](https://console.vantage.sh/active_resource_reports) tab in the console.
+When you connect [AWS](/connecting_aws), [Snowflake](/connecting_snowflake), or [MongoDB](/connecting_mongodb-atlas), Vantage will begin profiling active resources via List/Describe service APIs within your account. This will provide you with an "active resource" report that allows you to see all running resources within your account and the costs they are accruing while doing so. You can access these reports in the [Active Resource](https://console.vantage.sh/active_resource_reports) tab in the console.
 
 This tab will display a list of all Resource Reports with the number of resources and total costs tracked in the report. You can create new reports and rename your reports from this page. Below is a view of the "All Resources Report":
 
@@ -14,7 +14,7 @@ This tab will display a list of all Resource Reports with the number of resource
 
 ### Available AWS Resources
 
-Vantage is only able to show you active resources for which there is an IAM Role created. Typically one point of confusion is that an organization with a root/management account will have an IAM Role but you may think that Vantage is missing resources from various member accounts. In order to see active resources from within each member account, you'll simply need to create an IAM role for each member account. As you create IAM Roles for each member account, the resources will automatically be populated from those member accounts in the active resource inventory. The Vantage setup process handles this automatically as described in our documentation on [connecting AWS](/connect_aws).
+Vantage is only able to show you active resources for which there is an IAM Role created. Typically one point of confusion is that an organization with a root/management account will have an IAM Role but you may think that Vantage is missing resources from various member accounts. In order to see active resources from within each member account, you'll simply need to create an IAM role for each member account. As you create IAM Roles for each member account, the resources will automatically be populated from those member accounts in the active resource inventory. The Vantage setup process handles this automatically as described in our documentation on [connecting AWS](/connecting_aws).
 
 Another point to be aware of is that not every AWS service is supported for resource level costs, albeit the vast majority of services which incur costs are. To see the full list of services for which there are resource level costs, please consult our documentation on [supported AWS services](/supported_services).
 
