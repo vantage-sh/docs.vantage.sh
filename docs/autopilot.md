@@ -1,6 +1,6 @@
 # Autopilot
 
-![Autopilot screens](/img/autopilot-docs-header.png)
+![Autopilot screens](/img/autopilot-autopilot-recs.png)
 
 Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
 
