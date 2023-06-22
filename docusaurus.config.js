@@ -150,7 +150,7 @@ const config = {
               },
               {
                 label: "Cloud Costs Handbook",
-                to: "https://discordapp.com/invite/docusaurus",
+                to: "https://handbook.vantage.sh/",
               },
               {
                 label: "AWS Instances Pricing",
