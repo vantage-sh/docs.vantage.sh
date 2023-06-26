@@ -12,17 +12,28 @@ Vantage integrates with your Snowflake account through a secure, read-only user 
 
 Vantage requires read-only access to the following tables:
 
-* [SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY](https://docs.snowflake.com/en/sql-reference/functions/warehouse_metering_history.html)
+- [SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY](https://docs.snowflake.com/en/sql-reference/functions/warehouse_metering_history.html)
 
-    Returns hourly credit usage for both virtual warehouse credit usage and cloud service credit usage per each warehouse for all warehouses in your account. Data retained for 1 year.
+  Returns hourly credit usage for both virtual warehouse credit usage and cloud service credit usage per each warehouse for all warehouses in your account. Data retained for 1 year.
 
-* [SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html)
+- [SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html)
 
-    Query history with various dimensions, including total elapsed time, warehouse used, data bytes scanned, etc. Data retained for 1 year.
+  Query history with various dimensions, including total elapsed time, warehouse used, data bytes scanned, etc. Data retained for 1 year.
 
-* [SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY](https://docs.snowflake.com/en/sql-reference/organization-usage/usage_in_currency_daily.html)
+- [SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY](https://docs.snowflake.com/en/sql-reference/organization-usage/usage_in_currency_daily.html)
 
-    Returns the daily credit usage and usage in currency for an organization.
+  Returns the daily credit usage and usage in currency for an organization.
+
+### Snowflake IP Whitelist
+
+If your Snowflake cluster uses IP whitelists for access control, you will need to add the following IPs to that whitelist:
+
+```
+54.87.66.45
+3.95.43.133
+54.162.3.72
+44.199.143.63
+```
 
 ## Snowflake Schema for Vantage
 
