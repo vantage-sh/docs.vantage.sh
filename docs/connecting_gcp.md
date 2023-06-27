@@ -62,3 +62,20 @@ Create a GCP data integration by logging into your Vantage account and going [he
    5. Attach the role, `BigQuery Data Viewer`
    6. Click the **Save** button
 3. Return to the Vantage GCP onboarding workflow and click the **Next** button
+
+## Feature Availability and Resource Costs
+
+Google Cloud costs are available inside [Cost Reports](/cost_reports), with resource level costs available for the following services:
+
+- Compute Engine
+- Cloud Functions
+- Cloud Run
+- Cloud SQL
+- Cloud Spanner
+- App Engine
+
+Google Cloud is not currently available as part of:
+
+- [Autopilot](/autopilot)
+- [Savings Planner](/savings_planner)
+- [Resource Reports](/active_resources)
