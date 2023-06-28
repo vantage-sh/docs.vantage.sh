@@ -32,12 +32,7 @@ module.exports = {
         {
           type: "category",
           label: "AWS",
-          items: [
-            "connecting_aws",
-            "permissions_aws",
-            "syncing",
-            "supported_services",
-          ],
+          items: ["connecting_aws", "permissions_aws", "supported_services"],
         },
         "connecting_azure",
         {
