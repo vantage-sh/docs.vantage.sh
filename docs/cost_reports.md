@@ -4,12 +4,12 @@ Cost Reports give you the ability to see all accrued costs that match certain co
 
 Below is an example of what a Cost Report will look like after you have connected your account.
 
-![Example Cost Report](/img/cost_reports.png)
+![Example Cost Report](/img/cost-report-connected.png)
 
 ## Filtering Cost Reports
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report Folders" width="60%" src="/img/cost_filters.png" />
+    <img alt="Filtering Cost Reports" width="60%" src="/img/cost_filters.png" />
 </div>
 
 Cost Reports allow you to see your costs grouped by provider service in descending order of accrued costs. For example, by clicking AWS Service rows in the table above, the graph will update with just costs for that specific AWS Service. You may also click the AWS Service name link to see subcategory costs which is described in the next section. This works for most other providers like Azure, GCP, Datadog, Snowflake, and more.
@@ -85,6 +85,29 @@ When percent based cost allocation is set as a filter, forecasts will be produce
 ## Amortization
 
 By default, all Cost Reports show upfront fees, such as fees for Reserved Instances, Savings Plans, Marketplace purchases and Support, amortized day-by-day for the period of the fee. You can choose to toggle a Cost Report to not amortize upfront fees if you wish to view the upfront fees on the day they are incurred by going to "Settings" on any Cost Report.
+
+## Multi-Dimensional Grouping
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Multi-dimensional Grouping" width="80%" src="/img/cost-report-grouping.png" />
+</div>
+
+The “Grouping” component on cost reports has been updated to allow for multi-selection format, allowing you to choose one or more dimensions to group by. Once selected, both the Cost Report table and graph will display the costs aggregated by the selected groupings. Once the report is saved the report’s corresponding overview widget will be updated as well.
+
+You can group by the following dimensions:
+
+- Account (i.e. member account on AWS, project on GCP, etc.)
+- Service (i.e. AWS S3, etc.)
+- Provider (i.e. AWS, GCP, Azure)
+- Region
+- Resource
+- Tag Key (only one)
+
+After a Cost Report has been grouped, each grouping will have its own column in the table below the graph. On the graph itself, the label will be displayed with dashes between the groupings, such as `grouping 1 - grouping 2 - 2023/06/01: $500`.
+
+To sort the table by multiple columns, Shift + Click on the column headers. You can also export grouped Cost Reports and the groupings will be respected in the downloaded CSV.
+
+**Limitations.** Costs by category and resource and forecasts are not currently supported when grouping by multiple dimensions. As costs can be duplicated across multiple tag keys, grouping by multiple tag keys is not supported.
 
 ## Folders
 
