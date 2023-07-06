@@ -6,7 +6,7 @@ Vantage recommends integrating with [OpenCost](/opencost) as the preferred metho
 
 ## How it Works
 
-Vantage looks at Pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each Pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vPCU, Memory, GPU, Storage, etc) to the Pod. The lifecycle of the EC2 instance is also automatically determined (on-demand, spot, reserved, savings plan, EDP, etc). This allows you to see costs by the following dimensions:
+Vantage looks at Pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each Pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vCPU, Memory, GPU, Storage, etc) to the Pod. The lifecycle of the EC2 instance is also automatically determined (on-demand, spot, reserved, savings plan, EDP, etc). This allows you to see costs by the following dimensions:
 
 - By container
 - By Kubernetes service
