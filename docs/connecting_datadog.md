@@ -41,6 +41,35 @@ Within [Cost Reports](/cost_reports/) Vantage will show cost data for at least t
 
 Data is available at the "Category" and "Sub-category" level as well so you may access information such as how much Datadog spend is covered by committed-use discounts or which individual Datadog container is contributing to overall Logging costs. Data can be filtered per organization or service.
 
+## Datadog Cost Tags (Usage Attribution Tags)
+
+:::info
+This feature is only available if you have a Datadog Enterprise plan with usage tags enabled.
+:::
+
+Datadog allows customers to have up to three tag keys per organization enabled for [usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/). Once enabled, Datadog begins breaking down the usage by any number of tag values for these keys. This allows you to see usage for specific services allocated to a specific key/value pair.
+
+The following Datadog services support Datadog cost tags:
+
+- APM
+- CI Pipeline
+- Fargate
+- Infrastructure Hosts
+- Lambda
+- Logs
+- NPM
+- Synthetic Tests
+- Time Series
+
+To use these tags within Vantage, open any [Cost Report](/cost_reports) and select Tag from the dropdown with Datadog as the provider. You can also Group By a specific tag key on a Datadog cost report. The following filtering operators are supported:
+
+- Tagged with key
+- Tagged with key where the value (is, is not, contains does not contain)
+- Not Tagged
+- Not Tagged with Key
+
+If you have just applied your first Datadog tag key and value it can take up to 48 hours for the tag to appear in Vantage. Tags are not applied retroactively.
+
 ## Feature Availability for Datadog
 
 The following Vantage features are not currently available for Datadog costs.
