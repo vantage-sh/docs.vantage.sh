@@ -24,9 +24,9 @@ Vantage requires read-only access to the following tables:
 
   Returns the daily credit usage and usage in currency for an organization.
 
-### Snowflake IP Whitelist
+### Snowflake IP Allowed List
 
-If your Snowflake cluster uses IP whitelists for access control, you will need to add the following IPs to that whitelist:
+If your Snowflake cluster uses IP allowed list for access control, you will need to add the following IPs to that allowed list:
 
 ```
 54.87.66.45
