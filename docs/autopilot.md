@@ -109,3 +109,11 @@ Compute categories can be saved prior to enabling Autopilot and adjusted after e
 Autopilot Controls can be changed as often as you’d like. That being said, we generally recommend to do one round of adjusting settings prior to enabling Autopilot and then adjusting things as you see fit.
 
 Once a setting is changed, the changes take effect between 24 and 48 hours. Autopilot purposefully will impose a minimum 24 hour delay before making any changes from Autopilot controls. Please note that because of a 30 day minimum holding period made by AWS with reserved instances, there may be certain cases where even adjusting controls could take some time to be applied.
+
+### Autopilot Controls Graphs
+
+The Y-axis for Autopilot controls graphs can represent different things depending on the service you're looking at. There are two classes of units represented on the Y-axis that are listed below with their corresponding explanations:
+
+* For **EC2** and **RDS**, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that EC2 and RDS have the benefit of flexible instance families where a reserved instance in the smallest possible unit can add up to have multiple cover a single larger unit in that family. As an example, if you have a single m5.large and an m5.2xlarge EC2 instance, a single reserved instance unit can cover one m5.large or two units can cover a m5.2large. In general, we recommend covering the category with the smallest unit possible so you as an organization have coverage from an RI perspective if you scale down in instance family size. Whereas if you bought a m5.2xlarge reserved instance unit, that wouldn't cover any corresponding smaller m5.large EC2 instances. So you have the benefit to scale down in your instance type sizes per family without the risk of losing coverage. 
+
+* For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed in number of instances. Unlike the above example, there isn't flexibility on these classes so this is a more straight-forward scenario where the units represented are the exact number of instances you should procure. 
