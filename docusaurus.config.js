@@ -173,6 +173,10 @@ const config = {
                 label: "GitHub",
                 to: "https://github.com/vantage-sh",
               },
+              {
+                label: "Vantage Status",
+                to: "https://status.vantage.sh/",
+              },
             ],
           },
         ],
