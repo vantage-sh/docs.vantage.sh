@@ -49,7 +49,7 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
 
-Efficiency metrics are available immediately after your OpenCost metrics are imported, generally once per day.
+Efficiency metrics are available immediately after your OpenCost metrics are imported, generally once per day. For more information on how container costs are allocated, please consult the [OpenCost specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md).
 
 ## Integration Methods
 
