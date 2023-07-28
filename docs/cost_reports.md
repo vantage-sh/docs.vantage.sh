@@ -1,6 +1,6 @@
 # Cost Reports
 
-Cost Reports give you the ability to see all accrued costs that match certain conditions. By default, Vantage provides you with a Cost Report named "All Resources" that will show you all costs across all AWS member accounts, regions, services and tags. You can create as many Cost Reports as you'd like to filter your costs by any of the aforementioned dimensions. As you create cost reports, they will show up in your [Overview](/overview/) and you'll have [forecasts](/forecasting/) generated automatically. For example, many customers typically setup one Cost Report per AWS tag that their team has defined to see costs for certain components of their application.
+Cost Reports give you the ability to see all accrued costs that match certain conditions. By default, Vantage provides you with a Cost Report named "All Resources" that will show you all costs across all your cloud service accounts, regions, services, resources and tags. You can create as many Cost Reports as you'd like to filter your costs by any of the aforementioned dimensions. As you create cost reports, they will show up in your [Overview](/overview/) and you'll have [forecasts](/forecasting/) generated automatically. For example, many customers typically setup one Cost Report per tag that their team has defined to see costs for certain components of their application.
 
 Below is an example of what a Cost Report will look like after you have connected your account.
 
@@ -12,7 +12,7 @@ Below is an example of what a Cost Report will look like after you have connecte
     <img alt="Filtering Cost Reports" width="60%" src="/img/cost_filters.png" />
 </div>
 
-Cost Reports allow you to see your costs grouped by provider service in descending order of accrued costs. For example, by clicking AWS Service rows in the table above, the graph will update with just costs for that specific AWS Service. You may also click the AWS Service name link to see subcategory costs which is described in the next section. This works for most other providers like Azure, GCP, Datadog, Snowflake, and more.
+Cost Reports allow you to see your costs grouped by provider service in descending order of accrued costs. For example, by clicking AWS Service rows in the table above, the graph will update with just costs for that specific service. You may also click the service name link to see subcategory costs which is described below. This works for most other providers like Azure, GCP, Datadog, Snowflake, and more.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Folders" width="60%" src="/img/filter-options.png" />
@@ -42,12 +42,18 @@ When combining multiple Saved Filters on Cost Reports, "AND" logic will be used.
 
 When you have selected which filters to apply to the report you can save your changes and name the report. Select "Save As New" to create a new Cost Report with your changes or "Save Changes" to modify the current report. When you change the date range, date bucket (such as "Last 30 Days"), or Grouping you may also save those changes permanently. The new date range, date bucket, and grouping will persist to the [Overview](/overview) page. When saving a report which only includes changes to Filter Sets, the Overview page will show costs for the last 6 months.
 
-## AWS Service Category and Subcategory Costs
+## Category and Subcategory Costs
 
-Each AWS Service typically has multiple underlying category and subcategory costs. For example, in the main cost report table view you'll see all of your S3 Costs in aggregate. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more.
+Each Service typically has multiple underlying category and subcategory costs. For example, if you have AWS connected you will see all of your S3 costs in aggregate in the "All Reources" report table. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example Subcategory Costs" width="80%" src="/img/category_costs.png" />
+    <img alt="Example AWS Subcategory Costs" width="80%" src="/img/category_costs.png" />
+</div>
+
+Azure and GCP also support category and subcategory costs on cost reports. In the filters below, we are selecting specific Azure VMs as part of filtering on the Virtual Machines service. In GCP, the labels you apply to resources will show up in as subcategories.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Example Azure Subcategory Costs" width="80%" src="/img/azure-subcategory.png" />
 </div>
 
 ## Per Resource Costs
@@ -97,7 +103,7 @@ The “Grouping” component on cost reports has been updated to allow for multi
 You can group by the following dimensions:
 
 - Account (i.e. member account on AWS, project on GCP, etc.)
-- Service (i.e. AWS S3, etc.)
+- Service (i.e. AWS S3, Azure VMs, etc.)
 - Provider (i.e. AWS, GCP, Azure)
 - Region
 - Resource
