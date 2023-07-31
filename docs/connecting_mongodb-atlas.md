@@ -32,7 +32,7 @@ Next, choose "Access Manager" in the pane on the left.
 
 ![MongoDB Atlas Connection Step](/img/mongodb-manage-access.png)
 
-Click "Create an API Key", give it a name like "Vantage Integration" and grant it **Organization Read Only** and **Organization Billing Viewer** permiss.
+Click "Create an API Key", give it a name like "Vantage Integration" and grant it **Organization Read Only** and **Organization Billing Viewer** permissions.
 
 ![MongoDB Atlas Connection Step](/img/mongodb-organization-read-only.png)
 
