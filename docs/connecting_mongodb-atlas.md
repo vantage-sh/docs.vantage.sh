@@ -1,4 +1,4 @@
-ons# MongoDB Atlas
+# MongoDB Atlas
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate MongoDB Atlas costs.
 
