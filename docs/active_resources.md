@@ -56,8 +56,20 @@ Each resource is linked to a page which further drills into its costs. You may c
     <img alt="Resource Report Drill Down" width="80%" src="/img/resource-report-click.png" />
 </div>
 
-## Cloudwatch Metrics
+## Rightsizing with CloudWatch Metrics
 
-Vantage attempts to give you high-fidelity charts for CloudWatch metrics on each resource page. On resources that support CloudWatch metrics there will be a tab entitled "Metrics" that you can click on and see metrics in-line on like below:
+Vantage attempts to give you high-fidelity charts for CloudWatch metrics for certain resources. On resources that support CloudWatch metrics there will be a tab entitled "CloudWatch Metrics" that you can click on and see metrics in-line like below. These metrics are useful for rightsizing servers and databases based on utilization.
 
-Cloudwatch metrics are configured automatically per resource when you connect an AWS account to Vantage.
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Resource Report Drill Down" width="80%" src="/img/cloudwatch-metrics.png" />
+</div>
+
+CloudWatch metrics are configured automatically per resource when you connect an AWS account to Vantage. The services that support Cloudwatch metrics are:
+
+- EC2
+- RDS
+- S3
+- ECS
+- Fargate
+
+To inquire about support for Cloudwatch Metrics for other services or for monitoring support for Azure and GCP please contact support@vantage.sh.
