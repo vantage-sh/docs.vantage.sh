@@ -153,3 +153,11 @@ You can add other recipients to receive the report download link when it is read
 </div>
 
 When the Export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An example export in a spreadsheet tool with groupings of "Service category" and "Service subcategory" is shown above.
+
+## Comparative Cost Reporting
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Comparative View" width="80%" src="/img/by-date-view.png" />
+</div>
+
+To compare costs day by day, week by week, or month by month on Cost Reports you can toggle the "By Date" selector above the cost table. This will show a view of costs at the same date binning as selected for the graphical display of costs on the Cost Report. To switch back to the previous, current, and percent change view, select "Cumulative".
