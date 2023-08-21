@@ -1,6 +1,8 @@
 # Anomaly Detection
 
-![Cost Anomaly Alert](/img/cost-alert.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Cost Anomaly Alert" width="80%" src="/img/cost-alert.png" />
+</div>
 
 Cost Anomaly Alerts notify teams of excess costs, and help engineers fix misconfigurations or other problems before they become very expensive. All costs present in a [Cost Report](/cost_reports/) will be analyzed for anomalies and all Cost Reports can be configured to send alerts. At the moment you cannot configure an alert for a specific [resource](/active_resources/). However, you can create a Cost Report filtered to a specific tag or label and configure an alert for this report.
 
@@ -14,9 +16,17 @@ Cost anomalies are detected automatically and populated in the Anomalies tab of 
 
 ## Configure Alerts
 
-![Create a Cost Anomaly Alert](/img/create_alert.png)
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Create a Cost Anomaly Alert" width="100%" src="/img/create_alert.png" />
+</div>
 
-You can configure a cost anomaly alert by visiting any Cost Report, switching to the Anomalies tab and creating an alert. From there you can configure which report is being monitored, where the alert is sent and an optional minimum threshold. When viewing anomalies for a cost report you will be prompted to create an alert for that report if one is not already configured.
+You can configure a cost anomaly alert by visiting any Cost Report, switching to the Anomalies tab and creating an alert. From there you can configure which report is being monitored, where the alert is sent and an optional minimum threshold in dollars. When viewing anomalies for a cost report you will be prompted to create an alert for that report if one is not already configured.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Alert Thresholds" width="60%" src="/img/anomaly-threshold.png" />
+</div>
+
+Alerts can be sent to Slack or Teams channels, as well as email.
 
 ## Taking Action on Alerts
 
