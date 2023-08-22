@@ -22,7 +22,7 @@ Autopilot will respect your existing Savings Plans and Reserved Instances and yo
 
 For RDS, ElastiCache, Redshift and OpenSearch Autopilot uses an approval-based workflow which calculates how many reserved instances to buy and links you to the AWS console to make the purchase. There is **no fee** for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
 
-## What Permissions does Autopilot need?
+## Autopilot Permissions
 
 The full set of IAM permissions for Autopilot are listed below. To summarize the scope of the permissions needed for Autopilot to run, we require the ability to purchase reserved instances for EC2, ElasticSearch, Redshift and RDS. We also require permission to view service quotas to understand what commitment levels we can make based off of the limits in your account.
 
@@ -59,7 +59,7 @@ Autopilot can not and will never attempt to augment production workloads, read f
 }
 ```
 
-## How Does Autopilot work?
+## How Autopilot Works
 
 Autopilot works by ingesting and analyzing Cost and Usage Report data. Vantage will structure your compute workloads by instance hour of each respective compute class. A compute class is defined as EC2 instance usage structured by instance type (i.e. t3.xlarge, r5.large, etc), region (us-east-1, us-west-2, etc) and platform (Linux, Windows, etc) tracked hourly.
 
@@ -67,26 +67,25 @@ After structuring compute data for each compute class, Autopilot will look at ex
 
 For each compute category, Autopilot is also looking at "peaks and valleys" of usage to ensure it avoids overcommitment. In some cases where there are very spikey workloads, a target coverage rates for reserved instances may be very low to achieve cost savings without the concern of overcommitment. For more normalized workloads, a target coverage rate will be on the higher side as there less concern over overcommitment.
 
-## I have existing AWS Savings Plans and Reserved Instances - will Autopilot account for these?
+### I have existing AWS Savings Plans and Reserved Instances - will Autopilot account for these?
 
 Yes. Autopilot will account for your existing AWS Savings Plans and Reserved Instances. You will not be charged for existing AWS Savings Plans or Reserved Instances. Even if you feel that you have good coverage with existing AWS Savings Plans and Reserved Instances, you should consider enabling Autopilot as an insurance policy in the event that they expire. Autopilot will automatically detect that your coverage is slipping if anything were to expire and purchase additional Reserved Instances to account for things accordingly.
 
-## How will Autopilot affect my AWS bill?
+### How will Autopilot affect my AWS bill?
 
 Because Autopilot purchases _only_ **no-upfront** commitments, there will not be any purchase or transaction that is reflected on your bill when the RIs are purchased. Additionally, no funds will be exchanged when Autopilot sells the commitments. This means that despite the AWS requirement to add a bank account for selling in the RI marketplace, no money is moving in and out of the account. The only net impact on your bill is a reduction in compute hourly rates, assuming Autopilot has found savings and purchased RIs.
 
-## How do I register as a seller in the AWS Reserved Instance Marketplace?
+### How do I register as a seller in the AWS Reserved Instance Marketplace?
 
 Autopilot requires that you register as a seller in the AWS reserved instance marketplace before any actions are taken. This is what enables Autopilot to sell reserved instances you are no longer using. You can follow these <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html#ri-market-seller-profile">instructions</a> to complete the seller registration process. As part of this process filling out tax information is optional, however Autopilot requires you complete this step in order to ensure your reserved instances can be sold in the marketplace.
 
-## Are there any timelines I need to be aware of?
+### Are there any timelines I need to be aware of?
 
 AWS imposes a minimum 30-day hold time for all Reserved Instances before you can list them for sale on the AWS EC2 Reserved Instance marketplace. As a result, you shouldn't enable Autopilot if you expect significant _downward_ changes in your infrastructure within the first 30 days of enabling Autopilot as they can't technically be listed for sale. If you expect _growth_, there are no concerns around this limitation.
 
-## Why did Autopilot purchase instance sizes that are different from what I am using?
+### Why did Autopilot purchase instance sizes that are different from what I am using?
 
-Autopilot purchases RIs in denormalized units that are applicable to any size of instance in the same family, which you can see if you reference the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html">AWS docs page</a> 
-In other words, if you change sizes within the same instance family, the reservations still apply!
+Autopilot purchases RIs in denormalized units that are applicable to any size of instance in the same family, which you can see if you reference the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html). In other words, if you change sizes within the same instance family, the reservations still apply!
 
 ## Autopilot Controls
 
@@ -119,6 +118,6 @@ Once a setting is changed, the changes take effect between 24 and 48 hours. Auto
 
 The Y-axis for Autopilot controls graphs can represent different things depending on the service you're looking at. There are two classes of units represented on the Y-axis that are listed below with their corresponding explanations:
 
-* For **EC2** and **RDS**, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that EC2 and RDS have the benefit of flexible instance families where a reserved instance in the smallest possible unit can add up to have multiple cover a single larger unit in that family. As an example, if you have a single m5.large and an m5.2xlarge EC2 instance, a single reserved instance unit can cover one m5.large or two units can cover a m5.2large. In general, we recommend covering the category with the smallest unit possible so you as an organization have coverage from an RI perspective if you scale down in instance family size. Whereas if you bought a m5.2xlarge reserved instance unit, that wouldn't cover any corresponding smaller m5.large EC2 instances. So you have the benefit to scale down in your instance type sizes per family without the risk of losing coverage. 
+- For **EC2** and **RDS**, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that EC2 and RDS have the benefit of flexible instance families where a reserved instance in the smallest possible unit can add up to have multiple cover a single larger unit in that family. As an example, if you have a single m5.large and an m5.2xlarge EC2 instance, a single reserved instance unit can cover one m5.large or two units can cover a m5.2large. In general, we recommend covering the category with the smallest unit possible so you as an organization have coverage from an RI perspective if you scale down in instance family size. Whereas if you bought a m5.2xlarge reserved instance unit, that wouldn't cover any corresponding smaller m5.large EC2 instances. So you have the benefit to scale down in your instance type sizes per family without the risk of losing coverage.
 
-* For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed in number of instances. Unlike the above example, there isn't flexibility on these classes so this is a more straight-forward scenario where the units represented are the exact number of instances you should procure. 
+- For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed in number of instances. Unlike the above example, there isn't flexibility on these classes so this is a more straight-forward scenario where the units represented are the exact number of instances you should procure.
