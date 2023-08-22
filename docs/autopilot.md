@@ -83,6 +83,11 @@ Autopilot requires that you register as a seller in the AWS reserved instance ma
 
 AWS imposes a minimum 30-day hold time for all Reserved Instances before you can list them for sale on the AWS EC2 Reserved Instance marketplace. As a result, you shouldn't enable Autopilot if you expect significant _downward_ changes in your infrastructure within the first 30 days of enabling Autopilot as they can't technically be listed for sale. If you expect _growth_, there are no concerns around this limitation.
 
+## Why did Autopilot purchase instance sizes that are different from what I am using?
+
+Autopilot purchases RIs in denormalized units that are applicable to any size of instance in the same family, which you can see if you reference the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html">AWS docs page</a> 
+In other words, if you change sizes within the same instance family, the reservations still apply!
+
 ## Autopilot Controls
 
 ![Autopilot Controls](/img/autopilot_controls.png)
