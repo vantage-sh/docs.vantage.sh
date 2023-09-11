@@ -12,7 +12,7 @@ After defining your segments, a cost report will automatically be created repres
 
 ![Example Cost Filters](/img/view-segments.png)
 
-As a very basic explanation, a segment is a set of filters that representing a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
+As a very basic explanation, a segment is a set of filters that represents a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
 
 Segments can be found by navigating to "Cost Reporting" and then "Segments". If you have Segments present in your account, you can see a full list of top-level Segments sorted alphabetically.
 
