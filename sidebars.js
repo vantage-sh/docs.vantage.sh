@@ -107,6 +107,7 @@ module.exports = {
         },
         "savings_planner",
         "workspaces",
+        "vql",
       ],
     },
   ],
