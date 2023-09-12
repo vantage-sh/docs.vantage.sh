@@ -94,6 +94,7 @@ module.exports = {
             "segments",
           ],
         },
+        "data_dictionary",
         "kubernetes",
         {
           type: "category",
