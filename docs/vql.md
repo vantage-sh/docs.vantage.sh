@@ -30,10 +30,10 @@ EOF
 
 VQL contains two namespaces representative of the filters which are available in the Vantage console.
 
-| Namespace | Field                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| costs     | provider<br/>allocation<br/>region<br/>account_id<br/>provider_account_id<br/>service<br/>category<br/>subcategory<br/>resource_id |
-| tags      | name<br/>value                                                                                                                     |
+| Namespace | Field                                                                                                                                              |
+| --------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| costs     | provider<br/>allocation<br/>region<br/>marketplace<br/>account_id<br/>provider_account_id<br/>service<br/>category<br/>subcategory<br/>resource_id |
+| tags      | name<br/>value                                                                                                                                     |
 
 Different providers have different fields available. For a full listing of available fields please consult the [data dictionary](/data_dictionary).
 
@@ -85,4 +85,10 @@ costs.resource_id IN 'production', 'staging'
 
 ```sql
 tags.name = 'environment' AND tags.value = 'production'
+```
+
+### Get Marketplace Transactions
+
+```sql
+costs.provider = 'aws' AND costs.marketplace = true
 ```
