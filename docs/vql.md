@@ -1,7 +1,7 @@
 # VQL (Vantage Query Language)
 
 :::info
-**Beta:** VQL and the Vantage Write API (API V2) is currently in Beta.
+**Beta:** VQL and the Vantage Write API (API V2) are currently in Beta.
 :::
 
 ## Introduction
