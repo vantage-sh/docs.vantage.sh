@@ -72,6 +72,7 @@ Each provider that Vantage integrates makes different fields available in their 
 | Snowflake    | Service         | service             |
 | Databricks   | Account         | account_id          |
 | Databricks   | Service         | service             |
+| Databricks   | Cluster         | resource_id         |
 | Databricks   | Tag             | tag_name            |
 | Databricks   | Tag Value       | tag_value           |
 | Databricks   | Not Tagged      | untagged            |

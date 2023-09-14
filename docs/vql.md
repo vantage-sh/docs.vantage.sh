@@ -1,5 +1,9 @@
 # VQL (Vantage Query Language)
 
+:::info
+**Beta:** VQL and the Vantage Write API (API V2) is currently in Beta.
+:::
+
 ## Introduction
 
 The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost data. It includes a normalized schema across cloud providers and basic filter syntax for creating complex filters.
@@ -11,13 +15,13 @@ For example, the following API call would create a [saved filter](/cost_reports#
 ```bash
 curl --request POST \
      --url https://api.vantage.sh/v2/saved_filters \
-     --header 'accept: application/json' \
      --header 'content-type: application/json' \
+     --header 'authorization: Bearer vntg_tkn_826f419b7b78c693f874e8c48719beb9398dck37' \
      --data @- <<EOF
 {
   "filter": "(costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service') OR costs.provider = 'kubernetes'",
   "title": "RDS and Kubernetes",
-  "workplace_token": "vntg_tkn_826f419b7b78c693f874e8c48719beb9398dck37"
+  "workspace_token": "wrkspc_abcde12345"
 }
 EOF
 ```
@@ -35,21 +39,25 @@ Different providers have different fields available. For a full listing of avail
 
 ## Keywords
 
-| Keyword | Description                     |
-| ------- | ------------------------------- |
-| AND     | Logical and for combining costs |
-| OR      | Logical and for combining costs |
-| IN      | Logical and for combining costs |
-| LIKE    | Logical and for combining costs |
-| NOT     | Logical and for combining costs |
+| Keyword | Description                |
+| ------- | -------------------------- |
+| AND     | Logical and                |
+| OR      | Logical or                 |
+| IN      | Compare against array list |
+| LIKE    | String comparison          |
+| NOT     | Negation                   |
 
 ## Syntax
 
 You can think of VQL in its current iteration as the `WHERE` clause of a SQL query. By combining the schema and keywords above with parentheses you can form complex filter operations such as:
 
 ```sql
-(costs.provider = 'mongo' AND costs.allocation = 1.0 AND (costs.service = 'REALM' AND costs.resource_id IN ('s3'))) OR (costs.provider = 'aws' AND costs.allocation = 1.0 AND costs.account_id IN ('123456798'))
+costs.provider = 'mongo' AND costs.allocation = 1.0 AND (costs.service = 'REALM' AND costs.resource_id IN ('s3')) OR (costs.provider = 'aws' AND costs.allocation = 1.0 AND costs.account_id IN ('123456798'))
 ```
+
+:::info
+**Beta:** Please contact support@vantage.sh or chat us with Intercom to request a list of values for filters in your account. We are currently working on a way to expose this information in the Vantage console.
+:::
 
 ## Examples
 
@@ -58,19 +66,23 @@ The following examples cover common use cases for VQL.
 ### Combining Providers
 
 ```sql
-(costs.provider = 'mongo' OR costs.provider = 'aws')
+costs.provider = 'mongo' OR costs.provider = 'aws'
 ```
 
 ### Cost Allocation
 
 ```sql
-(costs.allocation = 0.5)
+costs.allocation = 0.5
 ```
 
 ### Per Resource Costs
 
 ```sql
-costs.resource_id IN ('production', 'staging')
+costs.resource_id IN 'production', 'staging'
 ```
 
 ### Filtering by Tag
+
+```sql
+tags.name = 'environment' AND tags.value = 'production'
+```
