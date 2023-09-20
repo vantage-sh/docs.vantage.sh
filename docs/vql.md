@@ -77,14 +77,20 @@ costs.allocation = 0.5
 
 ### Per Resource Costs
 
+Resource costs require both `provider` and `service` in addition to the `resource_id`
+
 ```sql
-costs.resource_id IN 'production', 'staging'
+costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'
+```
+
+```sql
+costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id IN ('arn:aws:rds:us-east-1:123456789:db:primary-01', 'arn:aws:rds:us-east-1:123456789:db:primary-02')
 ```
 
 ### Filtering by Tag
 
 ```sql
-tags.name = 'environment' AND tags.value = 'production'
+costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'production'
 ```
 
 ### Get Marketplace Transactions
