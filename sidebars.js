@@ -92,6 +92,7 @@ module.exports = {
             "active_resources",
             "overview",
             "segments",
+            "annotations",
           ],
         },
         "data_dictionary",
