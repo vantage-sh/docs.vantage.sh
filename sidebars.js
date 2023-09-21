@@ -85,6 +85,7 @@ module.exports = {
           type: "category",
           label: "Cost Reporting",
           items: [
+            "annotations",
             "cost_reports",
             "budgets",
             "forecasting",
@@ -92,7 +93,6 @@ module.exports = {
             "active_resources",
             "overview",
             "segments",
-            "annotations",
           ],
         },
         "data_dictionary",
