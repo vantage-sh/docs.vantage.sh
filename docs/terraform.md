@@ -26,6 +26,10 @@ module "vantage-integration" {
 
 ## Vantage Resources
 
+:::info
+**Beta:** Provisioning Vantage resources through Terraform is currently in Beta.
+:::
+
 The Terraform provider allows the automation of Vantage resources such as cost reports via the [Vantage Write API](https://vantage.readme.io/v2.0/reference/createcostreport) which the Terraform provider ultimately is running through. Filters can be created and automated through the [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data.
 
 - [Cost Reports](/cost_reports)
