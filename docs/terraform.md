@@ -1,8 +1,8 @@
 # Terraform
 
-Vantage offers a Terraform provider for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report.
+Vantage offers a [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest) for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report.
 
-Using the Terraform provider it is also possible to fully automate and manage Vantage from within your existing Terraform codebase. This allows companies with Infrastructure as Code practices to setup, create, and sync their cloud with Vantage so that reports are automatically provisioned.
+Using the Terraform provider it is also possible to fully automate and manage Vantage from within your existing Terraform codebase. This allows companies with Infrastructure as Code practices to setup, create, and sync their cloud with Vantage so that cost reports and other Vantage resources such as saved filters are automatically provisioned.
 
 ## Setup and Connection
 
@@ -26,12 +26,12 @@ module "vantage-integration" {
 
 ## Vantage Resources
 
-The Terraform provider allows the automation of Vantage resources such as cost reports via the [Vantage Write API](https://vantage.readme.io/reference/general) which the Terraform provider ultimately is running through. Filters can be created and automated through the [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data.
+The Terraform provider allows the automation of Vantage resources such as cost reports via the [Vantage Write API](https://vantage.readme.io/v2.0/reference/createcostreport) which the Terraform provider ultimately is running through. Filters can be created and automated through the [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data.
 
 - [Cost Reports](/cost_reports)
-- Folders
+- [Folders](/cost_reports#folders)
 - [Saved Filters](/cost_reports#saved-filters)
-- Dashboards
+- [Dashboards](/cost_reports#dashboards)
 
 These capabilities help engineering teams automate cost reporting in Vantage through some of the following use cases:
 
@@ -50,7 +50,7 @@ resource "aws_db_instance" "rds" {
 }
 resource "vantage_saved_filter" "rds" {
   title  = "${var.environment}-rds-costs"
-  filter = "(costs.provider='aws' AND costs.resource_id = '${aws_db_instance.core-rds[0].arn}')"
+  filter = "costs.provider='aws' AND costs.resource_id = '${aws_db_instance.core-rds[0].arn}'"
 }
 ```
 
@@ -72,7 +72,7 @@ In this manner, initial setup, deployments, and infrastructure changes are synce
 
 ## Future Primitive Support
 
-Vantage is in process of expanding the API to support all resources within vantage. The list of primitives that the provider will ultimately support is as follows:
+Vantage is in process of expanding the [API](https://vantage.readme.io/v2.0/reference/createcostreport) to support all resources within vantage. The list of primitives that the provider will ultimately support is as follows:
 
 - [Segments](/segments)
 - [Budgets](/budgets)
