@@ -54,7 +54,7 @@ resource "aws_db_instance" "rds" {
 }
 resource "vantage_saved_filter" "rds" {
   title  = "${var.environment}-rds-costs"
-  filter = "costs.provider='aws' AND costs.resource_id = '${aws_db_instance.core-rds[0].arn}'"
+  filter = "costs.provider='aws' AND costs.resource_id = '${aws_db_instance.core-rds[0].arn}' AND costs.service = 'Amazon Relational Database Service'"
 }
 ```
 
