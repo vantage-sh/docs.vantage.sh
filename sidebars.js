@@ -89,6 +89,7 @@ module.exports = {
             "segments",
           ],
         },
+        "cost_recommendations",
         "data_dictionary",
         "kubernetes",
         {
