@@ -1,8 +1,32 @@
 # Terraform
 
-Vantage offers a [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest) for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report.
+Vantage offers a [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest) for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report. The example from the [Terraform Registry docs](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) shows how to create a [cost report](/cost_reports) for AWS from within Terraform.
 
-Using the Terraform provider it is also possible to fully automate and manage Vantage from within your existing Terraform codebase. This allows companies with Infrastructure as Code practices to setup, create, and sync their cloud with Vantage so that cost reports and other Vantage resources such as saved filters are automatically provisioned.
+```bash
+terraform {
+  required_providers {
+    vantage = {
+      source = "vantage-sh/vantage"
+    }
+  }
+}
+
+provider "vantage" {
+  api_token = var.api_token
+}
+
+resource "vantage_folder" "aws" {
+  title = "AWS Costs"
+}
+
+resource "vantage_cost_report" "aws" {
+  folder_token = vantage_folder.aws.token
+  filter       = "costs.provider = 'aws'"
+  title        = "AWS Costs"
+}
+```
+
+Using the Terraform provider like this makes it possible to fully automate and manage Vantage from within your existing Terraform codebase. This allows companies with Infrastructure as Code practices to setup, create, and sync their cloud with Vantage so that cost reports and other Vantage resources such as saved filters are automatically provisioned.
 
 ## Setup and Connection
 
