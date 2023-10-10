@@ -102,6 +102,7 @@ module.exports = {
             "terraform_cloud_integration",
           ],
         },
+        "rbac",
         "savings_planner",
         "workspaces",
         "vql",
