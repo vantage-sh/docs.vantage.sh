@@ -4,11 +4,7 @@ Advanced Access Controls enable enterprise-tiered accounts to manage access to s
 
 ## Teams
 
-Fill in section
-
-Define teams
-
-Make it clear restricting access to a cost report / folder / dashboard / etc requires revoking access to the “everyone” team. If they want to make sure only team X can access that thing, granting access to that team specifically. This will be the report visible only to users of team X and/or org owners. 
+A user has access both at the organizational level and within each team they are a member of. There is a team that every user in the organization is a part of called the “everyone” team. When that team has access to a resource the Organization level permissions are followed. To [manage access](/rbac#manage-cost-report-resource-access) to a Cost Report resource, such as a folder, so that only certain teams can access it you must revoke access to the “everyone” team and grant access to that team specifically.
 
 ## Setting Permissions
 
