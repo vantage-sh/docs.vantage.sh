@@ -4,7 +4,7 @@ Advanced Access Controls enable enterprise-tiered accounts to manage access to s
 
 ## Teams
 
-A user has access both at the organizational level and within each team they are a member of. There is a team that every user in the organization is a part of called the “everyone” team. When that team has access to a resource the Organization level permissions are followed. To [manage access](/rbac#manage-cost-report-resource-access) to a Cost Report resource, such as a folder, so that only certain teams can access it you must revoke access to the “everyone” team and grant access to that team specifically.
+A user has access both at the organizational level and within each team they are a member of. There is a team that every user in the organization is a part of called the "Everyone" team. When that team has access to a resource the Organization level permissions are followed. To [manage access](/rbac#manage-cost-report-resource-access) to a Cost Report resource, such as a folder, so that only certain teams can access it you must revoke access to the Everyone team and grant access to that team specifically.
 
 ## Setting Permissions
 
@@ -40,7 +40,7 @@ To manage a team click into it. From there you will be able to see additional in
 
 ### Cost Reporting  - Organization Permissions
 
-Organization permissions apply for resources in which “everyone” team access has not been revoked.
+Organization permissions apply for resources in which Everyone team access has not been revoked.
 
 | Role | Create | Update | Delete | Manage Access | View |
 | --- | --- | --- | --- | --- | --- |
@@ -50,7 +50,7 @@ Organization permissions apply for resources in which “everyone” team access
 
 ### Cost Reporting - Team Permissions Team-Only Access
 
-Team-only access permissions apply for resources in which “everyone” team access has been revoked and the members team has been granted access.
+Team-only access permissions apply for resources in which Everyone team access has been revoked and the members team has been granted access.
 
 | Role | Create | Update | Delete | Manage Access | View |
 | --- | --- | --- | --- | --- | --- |
