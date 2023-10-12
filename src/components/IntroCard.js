@@ -1,21 +1,21 @@
-// In Card.js
+// IntroCard.js
 import React from 'react';
-import '../css/card.css'; // Import the CSS file
+import '../css/card.css'; 
 
-const Card = ({ title, content, image, link, alt }) => (
+const IntroCard = ({ title, content, image, link, alt }) => (
   <div className="card">
-    <a href={link} className="card-link">
+    <a href={link} className="card-link" target="_blank" rel="noopener noreferrer">
       <div className="card-image">
         <img src={image} alt={alt} />
       </div>
         <div className="card-title">
           <h2>{title}</h2>
         </div>
-        <div className="card-body">
+        <div className="card-content">
           <p>{content}</p>
         </div>
       </a>
     </div>
 );
 
-export default Card;
+export default IntroCard;

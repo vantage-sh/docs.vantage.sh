@@ -1,14 +1,15 @@
-// CardGroup.js
+// IntroCardGroup.js
 import React from 'react';
-import Card from './Card';
+import IntroCard from './IntroCard';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
-function CardGroup({ cards, rows, columns }) {
+function IntroCardGroup({ cards, columns }) {
   const cardsPerRow = columns;
   const numRows = Math.ceil(cards.length / cardsPerRow);
 
   const cardRows = [];
+  for (let i = 0; i < numRows; i++) {
   for (let i = 0; i < numRows; i++) {
     const startIndex = i * cardsPerRow;
     const endIndex = startIndex + cardsPerRow;
@@ -19,7 +20,7 @@ function CardGroup({ cards, rows, columns }) {
     <Row xs={4} md={4} className="g-4 custom-card-row">
       {rowCards.map((card, index) => (
             <Col key={index} className="custom-card-col">
-                <Card title={card.title} content={card.content} image={card.image} link={card.link} alt={card.alt} />
+                <IntroCard title={card.title} content={card.content} image={card.image} link={card.link} alt={card.alt} />
             </Col>
             ))}
     </Row>
@@ -29,6 +30,6 @@ function CardGroup({ cards, rows, columns }) {
   }
 
   return <div className="card-group">{cardRows}</div>;
+ }
 }
-
-export default CardGroup;
+export default IntroCardGroup;
