@@ -8,9 +8,21 @@ Vantage integrates with your MongoDB account through the use of the [Invoices AP
 
 To create an API key for Vantage to ingest costs, you must be an **Organization Owner** inside the [MongoDB Atlas console](https://account.mongodb.com/account/login). To add the API key to relevant projects to use Active Resource Inventories inside Vantage, you must be a **Project Owner** in the MongoDB Atlas console.
 
+### Configure Your IP Allowed List
+
+If your Mongo cluster uses an IP allowed list for access control, you will need to add the following IPs to that allowed list:
+
+```
+54.87.66.45
+3.95.43.133
+54.162.3.72
+44.199.143.63
+```
+
 ## Connecting your MongoDB Atlas Account
 
 To connect your MongoDB Atlas account, open the [MongoDB Atlas Settings](https://console.vantage.sh/settings/mongo) page in the Vantage console. Follow the instructions which require performing the following operations in the [MongoDB Atlas console](https://account.mongodb.com/account/login). Begin by clicking  `Add API Key` in the Vantage console.
+
 
 ### Get your Organization ID 
 
