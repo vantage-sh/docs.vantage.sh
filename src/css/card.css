@@ -2,9 +2,9 @@
 
 .card {
     border: 1px solid #ddd;
-    border-radius: 8px;
+    border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px;
+    padding: 0px;
     margin: 10px;
     background-color: #fff;
     transition: transform 0.2s ease-in-out;
@@ -20,11 +20,13 @@
   
   .card .card-title h2 {
     font-size: 1.5rem;
-    margin-bottom: 10px;
+    margin-bottom: 1px;
+    padding: 20px;
     color: #9c25c7;
   }
   
   .card .card-content p {
+    padding: 0px 20px;
     font-size: 1rem;
   }
   
