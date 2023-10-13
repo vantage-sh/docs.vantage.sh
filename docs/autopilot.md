@@ -1,10 +1,10 @@
 # Autopilot
 
+![Autopilot screens](/img/autopilot-autopilot-recs.png)
+
 :::info Note for AISPL Customers
 If your account is registered with Amazon Internet Services Private Limited (AISPL), you will be unable to use Autopilot due to AWS Marketplace limitations. [Per AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html), "Amazon Internet Services Private Limited (AISPL) customers can't sell Reserved Instances in the Reserved Instance Marketplace even if they have a US bank account."
 :::
-
-![Autopilot screens](/img/autopilot-autopilot-recs.png)
 
 Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
 

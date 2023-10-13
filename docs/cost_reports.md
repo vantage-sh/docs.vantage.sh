@@ -96,7 +96,7 @@ day by day for the period of the fee.
 
 In addition, Vantage uses committed use attribution for linked accounts. By default, you will see fees for Reserved Instances and Savings Plans assigned to the AWS account that *benefited* from the discount — not the account that purchased the commitment. 
 
-For more information about this logic, see [the following Vantage blog post](https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution). 
+For more information about this logic, see <a href="https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution" target="_blank">the following Vantage blog post</a>. 
 
 :::note
 In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were actually realized.
