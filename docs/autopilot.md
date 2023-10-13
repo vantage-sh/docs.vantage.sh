@@ -1,5 +1,9 @@
 # Autopilot
 
+:::info Note for AISPL Customers
+If your account is registered with Amazon Internet Services Private Limited (AISPL), you will be unable to use Autopilot due to AWS Marketplace limitations. [Per AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html), "Amazon Internet Services Private Limited (AISPL) customers can't sell Reserved Instances in the Reserved Instance Marketplace even if they have a US bank account."
+:::
+
 ![Autopilot screens](/img/autopilot-autopilot-recs.png)
 
 Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
@@ -106,7 +110,7 @@ Each compute category has usage tracked hourly and grouped by the following comp
 - Existing customer usage covered by credits
 - On-demand usage
 
-Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately beging listing the reserved instances for sale.
+Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately begin listing the reserved instances for sale.
 
 Compute categories can be saved prior to enabling Autopilot and adjusted after enabling Autopilot as well. For example, you may decide initially that you do not want Autopilot to manage purchasing and selling RIs for a new service. After the service sees increasing usage, you may then decide to turn on Autopilot for it.
 

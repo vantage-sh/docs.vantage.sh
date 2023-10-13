@@ -44,7 +44,7 @@ When you have selected which filters to apply to the report you can save your ch
 
 ## Category and Subcategory Costs
 
-Each Service typically has multiple underlying category and subcategory costs. For example, if you have AWS connected you will see all of your S3 costs in aggregate in the "All Reources" report table. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more.
+Each Service typically has multiple underlying category and subcategory costs. For example, if you have AWS connected you will see all of your S3 costs in aggregate in the "All Resources" report table. However, S3 charges on a number of different subcategories like the amount of storage you've used, the amount of egress traffic for retrieving S3 Objects and for the actual HTTP requests you make to query for S3 Objects. By clicking an AWS service name from the main Cost Report table, you can see a full breakdown of all subcategory costs that comprise that main AWS service cost. Below is an example of subcategory costs for EC2-Other which includes subcategory costs for EBS Volumes, data transfer and more.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Example AWS Subcategory Costs" width="80%" src="/img/category_costs.png" />
@@ -72,7 +72,7 @@ Additionally, you can click in to see the category and subcategory costs on a pe
 
 ## Percent Based Cost Allocation
 
-It can be useful to showback shared resources like support costs or multi-tenant databases to the team or department utilizing them. As filters are set in a cost report, Vantage will query for costs that meet all of those conditions. In the event that a percentage is set by the customer on a Filter Set, that percentage will be applied to all of the matching costs and represented accordingly in the Cost Report.
+It can be useful to show back shared resources like support costs or multi-tenant databases to the team or department utilizing them. As filters are set in a cost report, Vantage will query for costs that meet all of those conditions. In the event that a percentage is set by the customer on a Filter Set, that percentage will be applied to all of the matching costs and represented accordingly in the Cost Report.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Example of using Cost Allocation Percents" width="80%" src="/img/showback_cost_allocation.png" />
@@ -90,7 +90,25 @@ When percent based cost allocation is set as a filter, forecasts will be produce
 
 ## Amortization
 
-By default, all Cost Reports show upfront fees, such as fees for Reserved Instances, Savings Plans, Marketplace purchases and Support, amortized day-by-day for the period of the fee. You can choose to toggle a Cost Report to not amortize upfront fees if you wish to view the upfront fees on the day they are incurred by going to "Settings" on any Cost Report.
+By default, all Cost Reports show upfront fees, such as fees for Reserved
+Instances, Savings Plans, Marketplace purchases, and Support, amortized
+day by day for the period of the fee.
+
+In addition, Vantage uses committed use attribution for linked accounts. By default, you will see fees for Reserved Instances and Savings Plans assigned to the AWS account that *benefited* from the discount — not the account that purchased the commitment. 
+
+For more information about this logic, see [the following Vantage blog post](https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution). 
+
+:::note
+In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were actually realized.
+:::
+
+### Disabling Amortization
+
+You can choose to toggle a Cost Report to not amortize upfront fees if you
+want to view the upfront fees on the day they were incurred.
+
+1. From the top of any Cost Report, click **Settings**.
+2. Under **Amortization**, uncheck **Enabled**.
 
 ## Multi-Dimensional Grouping
 
