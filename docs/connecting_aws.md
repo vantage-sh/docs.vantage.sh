@@ -66,7 +66,7 @@ The first CUR that's sent to Vantage contains only the current month's data. If 
 If you have _existing_ historical CUR files, add a copy of these files to the shared Vantage S3 bucket. Then, email [our Support team](mailto:support@vantage.sh) to ingest the backfilled CUR. By default, Vantage will automatically process CUR files for the current calendar month, but our Support team has the ability to manually process historical CUR when notified in a manual process.
 
 :::note File Format
-Ideally, this file should be a daily CSV; however, Vantage can also support hourly and/or Parquet formats. 
+Ideally, these files should be a daily CSV; however, Vantage can also support hourly and/or Parquet formats. 
 :::
   
 If you do not have this data available, you can contact AWS Support and open a ticket for them to backfill your CUR. Follow the steps below:
