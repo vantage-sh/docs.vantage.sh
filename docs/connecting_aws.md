@@ -63,7 +63,7 @@ Once Vantage receives its first CUR, this functionality will automatically be ma
 
 The first CUR that's sent to Vantage contains only the current month's data. If you want to see historical data in Vantage, you can backfill your CUR for reingestion into Vantage. 
 
-If you have an _existing_ backfilled CUR, add a copy of this file to the shared Vantage S3 bucket. Then, email [our Support team](mailto:support@vantage.sh) to ingest the backfilled CUR.
+If you have _existing_ historical CUR files, add a copy of these files to the shared Vantage S3 bucket. Then, email [our Support team](mailto:support@vantage.sh) to ingest the backfilled CUR. By default, Vantage will automatically process CUR files for the current calendar month, but our Support team has the ability to manually process historical CUR when notified in a manual process.
 
 :::note File Format
 Ideally, this file should be a daily CSV; however, Vantage can also support hourly and/or Parquet formats. 
