@@ -30,7 +30,7 @@ Unallocated costs are costs which are captured by the filters that belong to a S
 
 ![Example Cost Filters](/img/create-segment.png)
 
-Within "Segments" in the "Cost Reporting," tab you can click "New Segment" to add a Segment. A segment is a namespace of costs. It is comprised of the following attributes:
+Within "Segments" in the "Cost Reporting" tab, you can click "New Segment" to add a Segment. A segment is a namespace of costs. It is comprised of the following attributes:
 
 - Segment Name (Required, unique string)
 - Segment Description (Not Required, string)
