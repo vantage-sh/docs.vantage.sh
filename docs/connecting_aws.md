@@ -16,7 +16,7 @@ Vantage only collects metadata about your infrastructure and never attempts to r
 
 Vantage allows you to connect multiple AWS accounts; however, we strongly advise that you connect your **root or management** AWS account first. When you connect the root account, you can see all costs for the organization, including linked accounts.
 
-:::info If you only connect a linked or member account you will experience the following issues:
+:::info If you only connect a linked or member account, you will experience the following issues:
 
 - You will see only costs and costs by resource for that linked account rather than for your whole organization.
 - You will be unable to see costs for the other member accounts in your AWS organization.
@@ -49,12 +49,49 @@ If you want to create IAM roles manually or use another tool to manage your infr
 
 ## AWS Data Ingestion Delay
 
-As of June 2022, Vantage now creates both an IAM role as well as a [Cost and Usage Report](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration through the same provided CloudFormation template and Terraform file. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS around 6 or 7 hours to deliver the first Cost and Usage Report to Vantage. As a result, only partial data will be present until this first Cost and Usage Report is received.
+Vantage creates both an IAM role as well as a [Cost and Usage Report (CUR)](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration through the same provided CloudFormation template and Terraform file. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS up to 24 hours to deliver the first CUR to Vantage. As a result, only partial data will be present until this first CUR is received.
 
 This will impact a few features in the Vantage console:
 
-- [Active Resources](/active_resources) will initially show only hourly and monthly _rates_. When the first Cost and Usage Report is received, you can see actual accrued costs per resource, broken down by cost category and subcategory.
-- [Cost Reports](/cost_reports) will show line-item data per service initially but will not be able to show "costs by resource" until the first Cost and Usage Report report is received.
-- Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until this first Cost and Usage Report is received.
+- [Active Resources](/active_resources) will initially show only hourly and monthly _rates_. Once the first CUR is received, you can see actual accrued costs per resource, broken down by cost category and subcategory.
+- [Cost Reports](/cost_reports) will show line-item data per service initially but will not be able to show _costs by resource_ until the first CUR is received.
+- Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until the first CUR is received.
 
-Once Vantage receives its first Cost and Usage Report, this functionality will automatically be made available, and Vantage will alert you via email. Ultimately, this is a limitation imposed by AWS, and we need to wait for them to deliver this data.
+Once Vantage receives its first CUR, this functionality will automatically be made available, and Vantage will alert you via email. Ultimately, this is a limitation imposed by AWS, and we need to wait for them to deliver this data.
+
+## Backfilling AWS CUR for Previous Reporting Periods
+
+The first CUR that's sent to Vantage contains only the current month's data. If you want to see historical data in Vantage, you can backfill your CUR for reingestion into Vantage. 
+
+If you have _existing_ historical CUR files, add a copy of these files to the shared Vantage S3 bucket. Then, email [our Support team](mailto:support@vantage.sh) to ingest the backfilled CUR. By default, Vantage will automatically process CUR files for the current calendar month, but our Support team has the ability to manually process historical CUR when notified in a manual process.
+
+:::note File Format
+Ideally, these files should be a daily CSV; however, Vantage can also support hourly and/or Parquet formats. 
+:::
+  
+If you do not have this data available, you can contact AWS Support and open a ticket for them to backfill your CUR. Follow the steps below:
+
+1. From your AWS management account, navigate to the **AWS Billing Dashboard**.
+2. Select **AWS Cost and Usage Reports**.
+3. You should see the CUR that was created by Vantage when the integration was set up. Take note of the report name and S3 bucket name.
+4. Open a ticket with [AWS Support](https://docs.aws.amazon.com/cur/latest/userguide/billing-get-answers.html) to backfill the Vantage CUR. You can use the sample email template below when creating your request.
+   
+<details>
+<summary>AWS Support Request Template</summary>
+
+_Subject: Request for Backfilling AWS Cost and Usage Report_
+
+**[Insert your organization name]** needs help backfilling an AWS Cost and Usage Report per the below requirements:
+    
+- Please backfill the existing **[Insert Vantage CUR filename]** report from the **[Insert Vantage CUR S3 bucket name]** S3 bucket.
+- We need historical data for the following period: **[Insert start date]** to **[Insert end date]**.
+
+Once the historical data is successfully backfilled into the above CUR, please send us a notification or confirmation.
+    
+Thank you,
+    
+**[Insert your name]**
+
+</details>
+
+5. Once AWS Support completes your request, please email [support@vantage.sh](mailto:support@vantage.sh) to reingest the backfilled CUR.
