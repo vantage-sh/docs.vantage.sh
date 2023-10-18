@@ -16,7 +16,7 @@ For example, the following API call would create a [saved filter](/cost_reports#
 curl --request POST \
      --url https://api.vantage.sh/v2/saved_filters \
      --header 'content-type: application/json' \
-     --header 'authorization: Bearer vntg_tkn_826f419b7b78c693f874e8c48719beb9398dck37' \
+     --header 'authorization: Bearer <ACCESS_TOKEN>' \
      --data @- <<EOF
 {
   "filter": "(costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service') OR costs.provider = 'kubernetes'",
