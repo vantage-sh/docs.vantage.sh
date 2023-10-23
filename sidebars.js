@@ -49,6 +49,7 @@ module.exports = {
           label: "Kubernetes",
           items: [
             "connecting_kubernetes",
+            "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
           ],
