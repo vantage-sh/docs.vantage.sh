@@ -81,7 +81,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       title: 'Slack Community',
       content: "While the documentation here is meant to help answer any questions, you're also welcome to join our Slack community to add to the discussion and ask questions.",
       image: '../../img/docs-site-card-slack.png',
-      link: 'https://join.slack.com/t/vantagecommunity/shared_invite/zt-1szz6puz7-zRuJ8J4OJIiBFlcTobYZXA',
+      link: 'https://vantage.sh/slack',
       alt: 'Slack icon'
     },
     {

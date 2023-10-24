@@ -37,4 +37,4 @@ An example of what both Vantage Cost Recommendations and Vantage Costs look like
 
 ## Support
 
-Need support? Join us in the #support channel in the [Vantage Slack Community](https://join.slack.com/t/vantagecommunity/shared_invite/zt-1szz6puz7-zRuJ8J4OJIiBFlcTobYZXA) and we're happy to help. 
+Need support? Join us in the #support channel in the [Vantage Slack Community](https://vantage.sh/slack) and we're happy to help. 
