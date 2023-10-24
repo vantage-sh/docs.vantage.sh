@@ -16,7 +16,7 @@ Vantage only collects metadata about your infrastructure and never attempts to r
 
 Vantage allows you to connect multiple AWS accounts; however, we strongly advise that you connect your **root or management** AWS account first. When you connect the root account, you can see all costs for the organization, including linked accounts.
 
-:::info If you only connect a linked or member account, you will experience the following issues:
+:::caution If you only connect a linked or member account, you will experience the following issues:
 
 - You will see only costs and costs by resource for that linked account rather than for your whole organization.
 - You will be unable to see costs for the other member accounts in your AWS organization.
@@ -95,3 +95,12 @@ Thank you,
 </details>
 
 5. Once AWS Support completes your request, please email [support@vantage.sh](mailto:support@vantage.sh) to reingest the backfilled CUR.
+   
+## Update the Vantage AWS Integration
+
+Occasionally, Vantage will modify the permission sets it uses to access billing and resource data on AWS. When this happens you can update your integration. 
+
+1. Navigate to the [**Integrations** page](https://console.vantage.sh/settings/integrations) of the Vantage console. 
+2. From the **AWS** tile, click **Manage**.
+3. The **Account** list is displayed. Click **Manage** for the cloud account that you want to update. For AWS organizations with multiple accounts, this will usually be the Management account. 
+4. Click **Update Vantage via AWS Console** to perform the update. Or click **More Update Options** for command line and other deployment methods.
