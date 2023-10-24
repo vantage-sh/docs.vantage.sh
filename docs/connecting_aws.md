@@ -103,4 +103,4 @@ Occasionally, Vantage will modify the permission sets it uses to access billing 
 1. Navigate to the [**Integrations** page](https://console.vantage.sh/settings/integrations) of the Vantage console. 
 2. From the **AWS** tile, click **Manage**.
 3. The **Account** list is displayed. Click **Manage** for the cloud account that you want to update. For AWS organizations with multiple accounts, this will usually be the Management account. 
-4. Click **Update Vantage via AWS Console** to perform the update. Or click **More Update Options** for command line and other deployment methods.
+4. Click **Update Vantage via AWS Console** to perform the update, or click **More Update Options** for command line and other deployment methods.
