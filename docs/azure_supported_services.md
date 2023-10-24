@@ -44,7 +44,7 @@ Below is a list of currently supported Azure services for Active Resources. Vant
 | Power BI Embedded                                                 | Vantage supports Power BI Dedicated Capacity.                                                |
 | Private endpoint connections                                      | Vantage supports private endpoint connection resources.                                      |
 | Public IP address                                                | Vantage supports public IP address resources.                                               |
-| VPN Gateway                                                      | Vantage supports virtual network gateways.                                                   |
+| Virtual network gateway                                                      | Vantage supports virtual network gateways.                                                   |
 
 
 
