@@ -146,7 +146,7 @@ const config = {
             items: [
               {
                 label: "Slack",
-                to: "https://join.slack.com/t/vantagecommunity/shared_invite/zt-1szz6puz7-zRuJ8J4OJIiBFlcTobYZXA",
+                to: "https://vantage.sh/slack",
               },
               {
                 label: "Cloud Costs Handbook",

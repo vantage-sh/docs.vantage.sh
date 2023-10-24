@@ -98,3 +98,9 @@
   fill: #CFCFD6 !important;
   color: #CFCFD6 !important;
 }
+
+.text-gradient {
+  background: -webkit-linear-gradient(45deg, #7F0EEF, #17E0C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}

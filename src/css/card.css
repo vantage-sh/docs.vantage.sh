@@ -1,0 +1,53 @@
+/* Card.css */
+
+.card {
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 0px;
+    margin: 10px;
+    background-color: #fff;
+    transition: transform 0.2s ease-in-out;
+    display: flex; 
+    flex-direction: column; 
+    height: 100%; 
+  }
+  
+  .card .card-image img {
+    width: 100%; /* Make the image take up the full width of the card */
+    height: auto; /* Maintain the aspect ratio of the image */
+  }
+  
+  .card .card-title h2 {
+    font-size: 1.5rem;
+    margin-bottom: 1px;
+    padding: 20px;
+    color: #9c25c7;
+  }
+  
+  .card .card-content p {
+    padding: 0px 20px;
+    font-size: 1rem;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px); 
+  }
+  
+  .card:hover a {
+      color: inherit; 
+      text-decoration: none; 
+    }
+  
+  .card .card-link {
+      text-decoration: none; 
+      color: inherit; 
+  }
+  
+  .custom-card-col {
+      margin-bottom: 20px; /* Margin between columns */
+    }
+  
+  .custom-card-row {
+      margin-bottom: 20px; /* Margin between rows */
+    }
