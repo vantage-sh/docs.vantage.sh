@@ -14,22 +14,19 @@ Vantage will show 100% of your organization's accrued costs across all services.
 To request new service support on Vantage, please email [support@vantage.sh](mailto:support@vantage.sh) with the subject line "New Azure Service Support." Please include a detailed description about what information you'd like to see.
 :::
 
-Below is a list of currently supported Azure services for Active Resources:
+Below is a list of currently supported Azure services for Active Resources. Vantage only maintains read-only access to the Azure APIs for these resources:
 
 | Service                                                           | Description/Supported Resources                                                              |
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| ?? (App Service??)                                                | Domain Name                                                                                  |
-| ? (App Service???)                                                | Vantage supports private endpoint connections.                                               |
-| ?                                                                 | Public IP Address??                                                                          |
 | App Service                                                       | Vantage supports App Service plans.                                                          |
 | Application Gateway                                               | Vantage supports Application Gateway and its corresponding pricing.                          |
 | Azure Backup                                                      | Vantage supports Recovery Services vaults.                                                   |
 | Azure Cache for Redis                                             | Vantage supports Redis caches.                                                               |
-| Azure Compute                                                     | Vantage supports Compute snapshots.                                                          |
+| Azure Compute                                                     | Vantage supports compute snapshots.                                                          |
 | Azure Container Registry                                          | Vantage supports Container Registry and its corresponding pricing.                           |
 | Azure Cosmos DB                                                   | Vantage supports Cosmos database account resources.                                          |
 | Azure Databricks                                                  | Vantage supports Databricks workspaces.                                                      |
-| Azure Database for PostgreSQL                                     | Vantage supports PostgreSQL Single Server and Flexible Server.                               |
+| Azure Database for PostgreSQL                                     | Vantage supports PostgreSQL Single Server and Flexible Server.                               |
 | Azure ExpressRoute                                                | Vantage supports ExpressRoute circuits.                                                      |
 | Azure Firewall                                                    | Vantage supports Azure Firewall and its corresponding pricing.                               |
 | Azure Kubernetes Service (AKS)                                    | Vantage supports AKS managed clusters.                                                       |
@@ -38,14 +35,16 @@ Below is a list of currently supported Azure services for Active Resources:
 | Azure SQL                                                         | Vantage supports SQL databases, SQL managed instances, and Azure SQL Database elastic pools. |
 | Azure Storage                                                     | Vantage supports Storage accounts.                                                           |
 | Azure Synapse Analytics                                           | Vantage supports Synapse workspaces.                                                         |
-| Azure Virtual Machines??? (Does it support all, like Linux, etc.) | Vantage supports virtual machines. ???                                                       |
-| Azure Backup                                                      | Vantage supports Recovery Services vaults.                                                   |
-| Load Balancer                                                     | Vantage supports Load Balancer and its corresponding pricing.                                |
-| Logic Apps                                                        | Vantage supports Logic Apps workflows.                                                       |
+| Azure Virtual Machines                                            | Vantage supports virtual machine resources.                                                   |
+| Azure Virtual Network                                             | Vantage supports NAT gateways and Virtual Machine Scale Sets.                                |
+| Domain name                                                      | Vantage supports domain name resources.                                                      |
+| Load Balancer                                                    | Vantage supports Load Balancer and its corresponding pricing.                                |
+| Logic Apps                                                       | Vantage supports Logic Apps workflows.                                                       |
 | Microsoft Defender for Cloud                                      | Vantage supports security pricing configurations.                                            |
 | Power BI Embedded                                                 | Vantage supports Power BI Dedicated Capacity.                                                |
-| VPN Gateway???                                                    | Vantage supports virtual network gateways.                                                   |
-| Virtual Network                                                   | Vantage supports NAT gateways and Virtual Machine Scale Sets.                                |
+| Private endpoint connections                                      | Vantage supports private endpoint connection resources.                                      |
+| Public IP address                                                | Vantage supports public IP address resources.                                               |
+| VPN Gateway                                                      | Vantage supports virtual network gateways.                                                   |
 
 
 
