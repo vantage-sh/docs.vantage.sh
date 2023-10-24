@@ -34,7 +34,11 @@ module.exports = {
           label: "AWS",
           items: ["connecting_aws", "permissions_aws", "supported_services"],
         },
-        "connecting_azure",
+        {
+          type: "category",
+          label: "Azure",
+          items: ["connecting_azure", "azure_supported_services"],
+        },
         {
           type: "category",
           label: "Google Cloud",

@@ -1,26 +1,38 @@
 ---
-description: Resource Reports gives you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Snowflake, and MongoDB Atlas.
+id: active_resources
+title: Resource Reports
+description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, and MongoDB Atlas.
 ---
 
 # Resource Reports
 
-When you connect [AWS](/connecting_aws), [Snowflake](/connecting_snowflake), or [MongoDB](/connecting_mongodb-atlas), Vantage will begin profiling active resources via List/Describe service APIs within your account. This will provide you with an "active resource" report that allows you to see all running resources within your account and the costs they are accruing while doing so. You can access these reports in the [Active Resource](https://console.vantage.sh/active_resource_reports) tab in the console.
+When you connect [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), or [MongoDB](/connecting_mongodb-atlas), Vantage will begin profiling active resources via List/Describe service APIs within your account. This action will generate an Active Resource report, enabling you to gain visibility into all the currently operational resources within your account and the associated costs they are incurring. 
 
-This tab will display a list of all Resource Reports with the number of resources and total costs tracked in the report. You can create new reports and rename your reports from this page. Below is a view of the "All Resources Report":
+## Available AWS Resources
+
+Vantage is only able to show you active resources for which there is an IAM Role created. Typically, one point of confusion is that an organization with a root/management account will have an IAM Role but you may think that Vantage is missing resources from various member accounts. In order to see active resources from within each member account, create an IAM role for each member account. As you create IAM Roles for each member account, the resources will automatically be populated from those member accounts in the active resource inventory. The Vantage setup process handles this automatically as described in our documentation on [connecting AWS](/connecting_aws).
+
+Another point to be aware of is that not every AWS service is supported for resource-level costs; however most services that incur costs are supported. To see the full list of services for which there are resource-level costs, see the documentation on [supported AWS services](/supported_services).
+
+## Available Azure Resources
+
+To see the full list of services for which there are resource-level costs, see the documentation on [supported Azure services](/azure_supported_services).
+
+## Viewing Active Resources
+
+From the top of the console, select the [Active Resource](https://console.vantage.sh/services) tab. 
+
+The **Active Resources** navigation menu contains **Services** (resources by name and total number of active resources) and **Resource Reports** (view and create your own resource reports with total costs tracked).  
+
+Click **Resource Reports**. You can create new reports and rename your reports from this page. Below is a view of the **All Resources Report**, which is provided by default:
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Resource Reports" width="80%" src="/img/resource-report.png" />
 </div>
 
-### Available AWS Resources
-
-Vantage is only able to show you active resources for which there is an IAM Role created. Typically one point of confusion is that an organization with a root/management account will have an IAM Role but you may think that Vantage is missing resources from various member accounts. In order to see active resources from within each member account, you'll simply need to create an IAM role for each member account. As you create IAM Roles for each member account, the resources will automatically be populated from those member accounts in the active resource inventory. The Vantage setup process handles this automatically as described in our documentation on [connecting AWS](/connecting_aws).
-
-Another point to be aware of is that not every AWS service is supported for resource level costs, albeit the vast majority of services which incur costs are. To see the full list of services for which there are resource level costs, please consult our documentation on [supported AWS services](/supported_services).
-
 ## Filtering Resources
 
-Once you have selected "New Report" or started browsing the "All Resources Report", you will be able to filter the list of resources by various dimensions. You can use these filters to create reports including:
+Once you have selected **New Report** or started browsing the "All Resources Report", you will be able to filter the list of resources by various dimensions. You can use these filters to create reports including:
 
 - Resources across AWS services that match a certain AWS tag
 - Resources within a specific AWS member account
@@ -50,7 +62,7 @@ Active resources are synced for each Workspace at least once every 24 hours. Van
 
 ## Drilling into Resources
 
-Each resource is linked to a page which further drills into its costs. You may click into any resource to see a detailed view of its costs over time as well as metadata and get a link to open that resource in the AWS, Snowflake, or MongoDB Atlas console. The image below shows an AWS Lambda resource which has been drilled into from a Resource Report:
+Each resource is linked to a page which further drills into its costs. You may click into any resource to see a detailed view of its costs over time as well as metadata and get a link to open that resource in the AWS, Azure, Snowflake, or MongoDB Atlas console. The image below shows an AWS Lambda resource which has been drilled into from a Resource Report:
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Resource Report Drill Down" width="80%" src="/img/resource-report-click.png" />
@@ -72,4 +84,4 @@ CloudWatch metrics are configured automatically per resource when you connect an
 - ECS
 - Fargate
 
-To inquire about support for Cloudwatch Metrics for other services or for monitoring support for Azure and GCP please contact support@vantage.sh.
+To inquire about support for Cloudwatch Metrics for other services, or for monitoring support for GCP please contact support@vantage.sh.
