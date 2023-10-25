@@ -32,15 +32,6 @@ At this time, the agent does not support custom rates for on-premises servers. N
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
 
-## Collected Metrics
-
-The agent collects the following metrics:
-
-- Container
-- Kubernetes service
-- Kubernetes namespace
-
-
 ## Install Vantage Kubernetes Agent
 
 ### Prerequisites
@@ -58,7 +49,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 ## Create a Connection
 
 :::info
-The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations.
+The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations.
 :::
 
 To set up a _new_ Kubernetes agent connection:
