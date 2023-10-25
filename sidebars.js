@@ -53,8 +53,10 @@ module.exports = {
           label: "Kubernetes",
           items: [
             "connecting_kubernetes",
+            "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
+            "kubernetes",
           ],
         },
         "connecting_datadog",
@@ -95,7 +97,6 @@ module.exports = {
         },
         "cost_recommendations",
         "data_dictionary",
-        "kubernetes",
         {
           type: "category",
           label: "Notifications",
