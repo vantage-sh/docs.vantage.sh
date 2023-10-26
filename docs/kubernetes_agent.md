@@ -72,7 +72,7 @@ To set up a _new_ Kubernetes agent connection:
    - ~1 CPU/1000 node
    - ~2 MB/node
    
-   For example, a 100-node cluster 200 MB and 100 mCPU. These amounts are estimates, which will vary based on node density, label usage, cluster activity, etc. The agent should reach an approximate steady state after about one hour of uptime and can be tuned accordingly after the fact.
+   For example, a 100-node cluster would be approximately 200 MB and 100 mCPU. These amounts are estimates, which will vary based on node density, label usage, cluster activity, etc. The agent should reach an approximate steady state after about one hour of uptime and can be tuned accordingly after the fact.
 
    To set these options, extend the `--set` flag. You can also include the values using one of the [many options Helm supports](https://helm.sh/docs/chart_template_guide/values_files/):
    ```
