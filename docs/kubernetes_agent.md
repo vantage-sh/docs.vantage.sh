@@ -69,11 +69,10 @@ To set up a _new_ Kubernetes agent connection:
    The limits provided within the Helm chart are set low to support small clusters (approximately 10 nodes) and should be considered the minimum values for deploying an agent.
 
    Estimates for later clusters are roughly:
-   - ~2 CPU/1000 node
-   - ~1 MB/node
-   - ~16 KB/container
+   - ~1 CPU/1000 node
+   - ~2 MB/node
    
-   For example, a 100-node cluster with 3000 containers (10 pods per node, 3 containers per pod) would be approximately 150 MB and 200 mCPU. These amounts are estimates, which will vary based on node density, label usage, cluster activity, etc. The agent should reach an approximate steady state after about one hour of uptime and can be tuned accordingly after the fact.
+   For example, a 100-node cluster 200 MB and 100 mCPU. These amounts are estimates, which will vary based on node density, label usage, cluster activity, etc. The agent should reach an approximate steady state after about one hour of uptime and can be tuned accordingly after the fact.
 
    To set these options, extend the `--set` flag. You can also include the values using one of the [many options Helm supports](https://helm.sh/docs/chart_template_guide/values_files/):
    ```
