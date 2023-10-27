@@ -2,6 +2,9 @@
 id: vantage_account
 name: Vantage Account Settings
 description: This walkthrough reviews personal and organizational configuration settings for your Vantage account.
+keywords:
+    - Vantage account
+    - Account settings
 ---
 
 # Vantage Account Settings
@@ -43,6 +46,10 @@ If you forget your password or would like to change your password, follow the be
 
 ## Organization Settings
 
+:::note
+Only Organization Owners can configure organization settings. See the [Role-Based Access Control (RBAC)](/rbac) documentation for details.
+:::
+
 From the top navigation bar of the Vantage console, click **Settings**. On the side navigation bar, review the options under **Organization Settings**.
 
 ### Manage Workspaces
@@ -65,6 +72,10 @@ From the **People** section, you can invite new users, view a user's role and te
 4. Click **Send Invitation**. The new user's name will appear in the **People** list with *Invite Pending* as well as a link to *Resend* the invite. 
 
 Click the ellipses (**...**) next to a user's name to edit or remove a user. 
+
+### Configure Teams
+
+See the [Role-Based Access Control (RBAC)](/rbac) documentation for details on team configuration.
 
 ### Configure Authentication
 
