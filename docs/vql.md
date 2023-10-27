@@ -1,9 +1,5 @@
 # VQL (Vantage Query Language)
 
-:::info
-**Beta:** VQL and the Vantage Write API (API V2) are currently in Beta.
-:::
-
 ## Introduction
 
 The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost data. It includes a normalized schema across cloud providers and basic filter syntax for creating complex filters.
@@ -54,10 +50,6 @@ You can think of VQL in its current iteration as the `WHERE` clause of a SQL que
 ```sql
 costs.provider = 'mongo' AND costs.allocation = 1.0 AND (costs.service = 'REALM' AND costs.resource_id IN ('s3')) OR (costs.provider = 'aws' AND costs.allocation = 1.0 AND costs.account_id IN ('123456798'))
 ```
-
-:::info
-**Beta:** Please contact support@vantage.sh or chat us with Intercom to request a list of values for filters in your account. We are currently working on a way to expose this information in the Vantage console.
-:::
 
 ## Examples
 

@@ -7,7 +7,7 @@ OpenCost is the recommended way to integrate Kubernetes cost reporting into Vant
 # Overview
 
 :::info
-To setup OpenCost in Azure or Google Cloud please contact us to be included in private beta support for Azure Monitor Managed Service for Prometheus or Google Cloud Managed Service for Prometheus.
+To setup OpenCost in Azure or Google Cloud please contact us to be included in private support for Azure Monitor Managed Service for Prometheus or Google Cloud Managed Service for Prometheus.
 :::
 
 Vantage makes it easy to deploy and integrate with OpenCost. Here are the steps for how this is done:
