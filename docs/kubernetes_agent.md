@@ -7,7 +7,7 @@ description: This page walks through how to connect the Vantage Kubernetes agent
 # Vantage Kubernetes Agent
 
 :::note Beta
-The Vantage Kubernetes agent is currently in Beta.
+The Vantage Kubernetes agent is currently in Early Access.
 :::
 
 The Vantage Kubernetes agent is the default, recommended configuration to ingest cost and usage data from Kubernetes clusters to Vantage. The agent is a Docker container that's run in your Kubernetes cluster. The agent collects metrics and uploads them to Vantage. 
