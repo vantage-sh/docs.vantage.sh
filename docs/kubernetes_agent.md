@@ -6,7 +6,7 @@ description: This page walks through how to connect the Vantage Kubernetes agent
 
 # Vantage Kubernetes Agent
 
-:::note Beta
+:::note Early Access
 The Vantage Kubernetes agent is currently in Early Access.
 :::
 
