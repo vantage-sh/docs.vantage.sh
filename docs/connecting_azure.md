@@ -1,4 +1,4 @@
-# Azure
+# Setup Azure
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Azure costs.
 
@@ -42,7 +42,7 @@ Grant Permissions to the 'appId' from the service principal created above. The s
 ```bash
 az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \
   --role Reader \
-  --scope "/providers/Microsoft.Management/managementGroups/<MANGEMENT_GROUP_ID>"
+  --scope "/providers/Microsoft.Management/managementGroups/<MANAGEMENT_GROUP_ID>"
 ```
 
 ### Save the Credentials in Vantage
@@ -59,7 +59,7 @@ Vantage currently supports cost recommendations for Compute Reserved Instances a
 
 ## Kubernetes and AKS
 
-Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage makes use of [OpenCost](/opencost), an open-source CNCF project, to monitor and ingest Kuberentes costs from Azure.
+Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage makes use of [OpenCost](/opencost), an open-source CNCF project, to monitor and ingest Kubernetes costs from Azure.
 
 ## Feature Availability for Azure
 
@@ -71,6 +71,6 @@ The following features support connected Azure accounts:
 - [Cost Reports](/cost_reports)
 - [Forecasting](/forecasting)
 - [Microsoft Teams](/microsoft_teams_integration)
-- [Resource Reports](/active_resources) (Coming Soon)
+- [Resource Reports](/active_resources)
 - [Savings Planner](/savings_planner)
 - [Unit Costs](/per_unit_costs)

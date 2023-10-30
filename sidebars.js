@@ -2,26 +2,49 @@
 
 module.exports = {
   someSidebar: [
+    "index",
     {
-      "Get Started": [
-        "index",
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "Get Started",
+      items: [
         "getting_started",
-        "terraform",
         {
           type: "category",
-          label: "Onboarding",
+          label: "User Workflows",
           collapsible: true,
           collapsed: true,
           items: [
-            "sso",
             "team_accountability",
             "executive_reporting",
             "hidden_costs",
-            "vantage_account",
-            "security",
           ],
         },
       ],
+    },
+    "security",
+    {
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "Account Administration",
+      items: [
+        "vantage_account",
+        "sso",
+      ],
+    },
+    {
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "API and Terraform",
+      items: [
+        "terraform",
+        "terraform_cloud_integration",
+        "vql",
+        "data_dictionary",
+      ],     
     },
     {
       type: "category",
@@ -34,7 +57,11 @@ module.exports = {
           label: "AWS",
           items: ["connecting_aws", "permissions_aws", "supported_services"],
         },
-        "connecting_azure",
+        {
+          type: "category",
+          label: "Azure",
+          items: ["connecting_azure", "azure_supported_services"],
+        },
         {
           type: "category",
           label: "Google Cloud",
@@ -49,8 +76,10 @@ module.exports = {
           label: "Kubernetes",
           items: [
             "connecting_kubernetes",
+            "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
+            "kubernetes",
           ],
         },
         "connecting_datadog",
@@ -90,8 +119,6 @@ module.exports = {
           ],
         },
         "cost_recommendations",
-        "data_dictionary",
-        "kubernetes",
         {
           type: "category",
           label: "Notifications",
@@ -99,13 +126,11 @@ module.exports = {
             "reports",
             "slack_integration",
             "microsoft_teams_integration",
-            "terraform_cloud_integration",
           ],
         },
         "rbac",
         "savings_planner",
         "workspaces",
-        "vql",
       ],
     },
   ],
