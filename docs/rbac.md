@@ -13,19 +13,19 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Checkmark from '@site/src/components/icons/Checkmark';
 
-:::note
+:::note Early Access
 This feature is currently in Early Access.
 :::
 
 Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access through two distinct levels: organization and team.
 
 - **Organization access**: This level determines a user's access to a given [workspace](/workspaces). Organization access also determines the team-level permissions assigned to a given user to interact with Settings-related functions, such as configuring provider integrations or creating teams, as well as Financial Planning functions, such as Autopilot and Budget Alerts.
-- **Team-based access**: Offering more detailed control, this level determines the specific Cost Reporting resources — such as Cost Reports, dashboards, or folders — that a user can view and/or edit. By default, all users are members of the "Everyone" team, which is granted access to all resources. You can update the access accordingly based on your organization's access control strategy. 
+- **Team-based access**: Offering more detailed control, this level determines the specific Cost Reporting resources — such as Cost Reports, dashboards, or folders — that a user can view and/or edit. By default, all users are members of the "Everyone" team. Org Owners have the ability to control what workspaces/resources the Everyone team can access. You can update the access accordingly based on your organization's access control strategy. 
 
 Both access types have three available roles – Owner, Editor, and Viewer – each with its own set of permissions. These permissions are distinct for account [Settings](/rbac#settings-permissions) functions, [Cost Reporting](/rbac#cost-reporting-resources-organization-permissions) functions, and [Financial Planning](/rbac#financial-planning-permissions) functions.
 
 :::note
-The RBAC feature is provided with Enterprise accounts. Accounts in non-Enterprise tiers have a single owner or member role that is global.
+The RBAC feature is provided with Enterprise accounts. Accounts in non-Enterprise tiers have a single owner, member, or viewer role that is global.
 :::
 
 ## Organization Access Control
@@ -123,7 +123,7 @@ The Team Owner, Team Editor, and Team Viewer roles are described below.
 
 | Role        | Description                                                                                                                      |
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Team Owner  | A Team Owner has full control over resources to which that team is granted access. They can also manage members of their team.   |
+| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.   |
 | Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team. |
 | Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                        |
 
@@ -238,7 +238,7 @@ Organization permissions apply for resources in which Everyone team access _has 
 | Role       | Create       | Update       | Delete       | Manage Access | View         |
 | ---------- | ------------ | ------------ | ------------ | ------------- | ------------ |
 | Org Owner  | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Editor | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
+| Org Editor | <Checkmark/> | <Checkmark/> | <Checkmark/> |               | <Checkmark/> |
 | Org Viewer |              |              |              |               | <Checkmark/> |
 
 :::tip
@@ -276,7 +276,7 @@ If a user is on multiple teams that have conflicting permissions, the higher lev
 
 - A user is on the Marketing team with **Team Owner** permissions. 
 - They are also on the Engineering team with **Team Viewer** permissions. 
-- Both teams have access to a Saved Filter. 
+- Both teams are granted access to a Saved Filter. 
 
 The user will be granted Owner-level permissions to that resource, in other words, they can view _and_ manage that resource.
 
@@ -284,8 +284,8 @@ The user will be granted Owner-level permissions to that resource, in other word
 <details>
 <summary>Multiple Roles Example</summary>
 
-- A user has and Org Viewer and Team Owner role for the Engineering team. 
-- The user can manage resources for the Engineering team.
+- A user has an Org Viewer and Team Owner role for the Engineering team. 
+- The user can manage resources granted to the Engineering team.
 - The user is unable to manage resources for the Marketing team, unless they are granted separate access. 
 
 The user will be granted Owner-level permissions to that resource, in other words, they can view _and_ manage that resource.
