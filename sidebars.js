@@ -2,26 +2,49 @@
 
 module.exports = {
   someSidebar: [
+    "index",
     {
-      "Get Started": [
-        "index",
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "Get Started",
+      items: [
         "getting_started",
-        "terraform",
         {
           type: "category",
-          label: "Onboarding",
+          label: "User Workflows",
           collapsible: true,
           collapsed: true,
           items: [
-            "sso",
             "team_accountability",
             "executive_reporting",
             "hidden_costs",
-            "vantage_account",
-            "security",
           ],
         },
       ],
+    },
+    "security",
+    {
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "Account Administration",
+      items: [
+        "vantage_account",
+        "sso",
+      ],
+    },
+    {
+      type: "category",
+      collapsible: true,
+      collapsed: true,
+      label: "API and Terraform",
+      items: [
+        "terraform",
+        "terraform_cloud_integration",
+        "vql",
+        "data_dictionary",
+      ],     
     },
     {
       type: "category",
@@ -96,7 +119,6 @@ module.exports = {
           ],
         },
         "cost_recommendations",
-        "data_dictionary",
         {
           type: "category",
           label: "Notifications",
@@ -104,12 +126,10 @@ module.exports = {
             "reports",
             "slack_integration",
             "microsoft_teams_integration",
-            "terraform_cloud_integration",
           ],
         },
         "savings_planner",
         "workspaces",
-        "vql",
       ],
     },
   ],
