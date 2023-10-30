@@ -3,6 +3,7 @@ title: Vantage Documentation
 description: Vantage documentation. Explore our integrations for cloud cost management as well as cost reporting and optimization features.
 hide_table_of_contents: true 
 pagination_next: null
+sidebar_label: Introduction
 ---
 
 import IntroCardGroup from '@site/src/components/IntroCardGroup';
