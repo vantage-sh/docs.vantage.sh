@@ -31,6 +31,7 @@ module.exports = {
       label: "Account Administration",
       items: [
         "vantage_account",
+        "rbac",
         "sso",
       ],
     },
@@ -128,7 +129,6 @@ module.exports = {
             "microsoft_teams_integration",
           ],
         },
-        "rbac",
         "savings_planner",
         "workspaces",
       ],
