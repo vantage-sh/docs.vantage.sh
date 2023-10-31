@@ -29,7 +29,7 @@ Configuring a budget alert consists of setting the following:
 
 ### Limitations of Alerts
 
-At this time only dynamic, percentage based, thresholds are supported. Budget Alerts can only be configured to alert off of actuals, not forecasted costs. A single cost increase will not necessarily trigger a budget alert. For this functionality, refer to [Anomaly Detection](/cost_anomaly_alerts).
+At this time only dynamic, percentage based, thresholds are supported. Budget Alerts can only be configured to alert off of actual, not forecasted costs. A single cost increase will not necessarily trigger a budget alert. For this functionality, refer to [Anomaly Detection](/cost_anomaly_alerts).
 
 Since a Budget is defined for a month, you can only be alerted based off of the budget amount for the entire month instead of month-to-date. You can use the time periods ("10 days from the start of the month") during Budget Alert configuration to mimic similar behavior by combining different percentage thresholds with time periods.
 
