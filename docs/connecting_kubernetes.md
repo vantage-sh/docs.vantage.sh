@@ -1,6 +1,6 @@
 # Setup Kubernetes
 
-Vantage allows you to see in-cluster costs for Kubernetes clusers including seeing costs by container, service, namespace and label. Vantage supports any type of Kubernetes deployment (EKS, GKE, self-managed, etc.). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
+Vantage allows you to see in-cluster costs for Kubernetes clusters including seeing costs by container, service, namespace and label. Vantage supports any type of Kubernetes deployment (EKS, GKE, self-managed, etc.). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
 
 Vantage recommends integrating with [OpenCost](/opencost) as the preferred method for ingesting and tracking Kubernetes costs.
 
@@ -17,4 +17,4 @@ Vantage automatically profiles your clusters for all existing services, namespac
 
 ## Enabling Kubernetes Costs
 
-Vantage supports seeing Kubernetes costs via Opencost and Prometheus. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
+Vantage supports seeing Kubernetes costs via OpenCost and Prometheus. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).

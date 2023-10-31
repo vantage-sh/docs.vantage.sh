@@ -4,7 +4,7 @@ description: Kubernetes cost reporting and efficiency metrics documentation for 
 
 # Kubernetes Costs
 
-Vantage has two sets of tools for viewing and optimizing Kubernetes costs. The first is Kubernetes costs reporting in [Cost Reports](/cost_reports). The second is Kubernetes efficiency metrics in the devoted [Kubernetes](https://console.vantage.sh/kubernetes) page in the console. Kuberentes Cost Reports are most useful to drill into costs by cluster, namespace, service, and label as well as combine Kubernetes costs with other providers such as a database or cache layer. Kubernetes Efficiency Metrics display the cost efficiency down to the pod level of a cluster and are useful for rightsizing and cost optimization.
+Vantage has two sets of tools for viewing and optimizing Kubernetes costs. The first is Kubernetes costs reporting in [Cost Reports](/cost_reports). The second is Kubernetes efficiency metrics in the devoted [Kubernetes](https://console.vantage.sh/kubernetes) page in the console. Kubernetes Cost Reports are most useful to drill into costs by cluster, namespace, service, and label as well as combine Kubernetes costs with other providers such as a database or cache layer. Kubernetes Efficiency Metrics display the cost efficiency down to the pod level of a cluster and are useful for rightsizing and cost optimization.
 
 ## Kubernetes Cost Reporting
 
@@ -12,7 +12,7 @@ Vantage has two sets of tools for viewing and optimizing Kubernetes costs. The f
     <img alt="Resource Reports" width="80%" src="/img/vantage-kubernetes-reporting.png" />
 </div>
 
-Kuberentes Cost Reports have cost visibility by Cluster, Label, Namespace, and Service. They include Kubernetes-specific filters and filter logic. This allows you to combine specific Kubernetes costs with other services. For example, a customer can see the costs of a specific service with corresponding RDS database costs.
+Kubernetes Cost Reports have cost visibility by Cluster, Label, Namespace, and Service. They include Kubernetes-specific filters and filter logic. This allows you to combine specific Kubernetes costs with other services. For example, a customer can see the costs of a specific service with corresponding RDS database costs.
 
 Cost reports also include forecasts which define Kubernetes specific filters will receive end-of-month forecasts. These forecasts are updated daily and give you confidence intervals of where your costs are likely to end up for the month.
 
