@@ -31,7 +31,6 @@ module.exports = {
       label: "Account Administration",
       items: [
         "vantage_account",
-        "rbac",
         "sso",
       ],
     },
