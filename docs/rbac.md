@@ -13,34 +13,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Checkmark from '@site/src/components/icons/Checkmark';
 
-Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access through two distinct levels: organization and team.
+Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources — such as Cost Reports, Dashboards, or Folders — that a user can view and/or edit. 
 
-- **Organization access**: This level determines a user's access to a given [workspace](/workspaces). Organization access also determines the team-level permissions assigned to a given user to interact with Settings-related functions, such as configuring provider integrations or creating teams, as well as Financial Planning functions, such as Autopilot and Budget Alerts.
-- **Team-based access**: Offering more detailed control, this level determines the specific Cost Reporting resources — such as Cost Reports, Dashboards, or Folders — that a user can view and/or edit. By default, all users are members of the "Everyone" team. Org Owners have the ability to control what workspaces/resources the Everyone team can access. You can update the access accordingly based on your organization's access control strategy. 
+By default, all users are members of the **Everyone** team. Owners have the ability to control which workspaces/resources the Everyone team can access. 
 
-Both access types have three available roles – Owner, Editor, and Viewer – each with its own set of permissions. These permissions are distinct for account [Settings](/rbac#settings-permissions) functions, [Cost Reporting](/rbac#cost-reporting-resources-organization-permissions) functions, and [Financial Planning](/rbac#financial-planning-permissions) functions.
+The Owner, Team Owner, Team Editor, and Team Viewer roles are described below.  
 
-:::note
-The RBAC feature is provided with Enterprise accounts. Accounts in non-Enterprise tiers have a single Owner, Member, or Viewer role that is global.
-:::
+| Role        | Description                                                                                                                      |
+| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Owner       | A global account owner who has full access to all items. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from an item, the Owner will still be able to manage that item. |
+| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.   |
+| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team. |
+| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                        |
 
-## Organization Access Control
+## Manage Account Access
 
-The Org Owner, Org Editor, and Org Viewer roles are described below.  
-
-| Role       | Role Description                                                                                                                                                                                                                                                                           |
-| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Org Owner  | An Org Owner has full access to all resources. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from a resource, the Owner will still be able to manage that resource.                                      |
-| Org Editor | An Org Editor can view and edit only resources their team(s) have access to. This role can manage budgets, savings models, and issues. This role cannot manage teams (see *Exception* below), integrations, or workspaces. If the Everyone team is removed from a resource, they will lose permissions to it. |
-| Org Viewer | An Org Viewer has read-only access. They can see a resource unless the Everyone team is removed from that resource.                                                                                                                                                                      |
-
-:::note Exception
-If a user holds the roles of Org Editor or Org Viewer and is additionally assigned the _Team Owner_ role, they gain extended privileges. With the Team Owner role, the user gains access to and manage Teams — but only the team for which they hold the Team Owner role. Org Owner is the only role that can create new teams. See [Team-Based Access Control](/rbac#team-based-access-control) for more information.
-:::
-
-### Manage Organization Access
-
-The Org Owner role has the highest access at the organization level. Org Owner is the only role that can add/remove users as well as change another user's Organization role. 
+Owner is the only role that can invite users to and remove users from Vantage as well as change another user's role. 
 
 <Tabs>
   <TabItem value="add-user" label="Add a New User" default>
@@ -52,7 +40,8 @@ The Org Owner role has the highest access at the organization level. Org Owner i
       <li>Click <strong>Send Invitation</strong>.</li>
       </ol> 
   </TabItem>
-  <TabItem value="change-user-org" label="Change a User's Organization Role">
+  <TabItem value="change-user-role" label="Change a User's Role">
+    <p>A user's role in the <strong>Organization Settings</strong> is their role on the Everyone team.</p>
     <ol>
       <li>From the top navigation, click <strong>Settings</strong>.</li>
       <li>From the left navigation, under <strong>Organization Settings</strong>, click <strong>People</strong>.</li>
@@ -65,67 +54,9 @@ The Org Owner role has the highest access at the organization level. Org Owner i
 
 ---
 
-### Settings Permissions
+## Manage Team Access
 
-The following permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. These Settings-related permissions are enforced at the Organization level.
-
-:::note Exception
-If a user holds the roles of Org Editor or Org Viewer and is additionally assigned the _Team Owner_ role, they gain extended privileges. With the Team Owner role, the user gains access to and can interact with the Teams UI — but only for the team for which they hold the Team Owner role.
-:::
-
-| Role       | Create       | Update       | Delete       | View         |
-| ---------- | ------------ | ------------ | ------------ | ------------ |
-| Org Owner  | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |
-| Org Editor |              |              |              |              |
-| Org Viewer |              |              |              |              |
-
-<details>
-<summary>Settings Permissions Examples</summary>
-
-- **Scenario 1**: You want to create new provider integration, such as a new Azure connection. An Org Owner will need to create the connection. An Org Editor and Org Viewer _will not_ be able to create, view, delete, or update the integration.
-- **Scenario 2**: You have the role of Org Editor. In addition, you are a Team Owner for the Engineering team. Because you are an Org Editor, you will _not_ be able to see or interact with Settings functions, such as Authentication, Billing & Plans, etc. You will, however, be able to interact with the Teams function, but only for the Engineering team where you are the Team Owner.
-
-</details>
-
-### Financial Planning Permissions
-
-The following permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage. These Financial Planning-related permissions are enforced at the Organization level.
-
-:::note Exception
-If an Org Viewer is assigned to an issue, they will have update permissions for that issue. 
-:::
-
-| Role       | Create       | Update       | Delete       | View         |
-| ---------- | ------------ | ------------ | ------------ | ------------ |
-| Org Owner  | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |
-| Org Editor | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |
-| Org Viewer |              |              |              | <Checkmark/> |
-
-<details>
-<summary>Financial Planning Permissions Examples</summary>
-
-- **Scenario 1**: You want to create new provider Budget Alert. An Org Owner or Org Editor will need to create and manage the alert. An Org Viewer will only be able to _view_ the alert.
-- **Scenario 2**: You are an Org Viewer. You can view all issues; however, you cannot edit or comment on the issues. Org Owners and Org Editors can create and manage issues. 
-  - You are assigned a new issue. You can now edit and comment on only this new issue.
-
-</details>
-
-
-## Team-Based Access Control
-
-A user has access both at the organization level and within each team they are a member of; however, **organization roles take precedence over team roles**. For example, if a user is an Org Owner, but they are only a Team Viewer on the Engineering team, they can still view and manage resources within the Engineering team — as well as all other teams — because their Org Owner role takes precedence over the Team Viewer role. 
-
-The Team Owner, Team Editor, and Team Viewer roles are described below.  
-
-| Role        | Description                                                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.   |
-| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team. |
-| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                        |
-
-### Manage Team Access
-
-#### Create or Delete Teams (Organization Owners Only)
+### Create or Delete Teams (Owners Only)
 
 :::note
 By default, all Vantage users are part of the Everyone team. Users _cannot_ be removed from this team.
@@ -137,11 +68,11 @@ By default, all Vantage users are part of the Everyone team. Users _cannot_ be r
 
 1. From the top navigation, click **Settings**.
 2. On the left navigation, under **Organization Settings**, click **Teams**. 
-3. On the Teams view, Org Owners can manage, add, or delete teams. 
+3. On the Teams view, Owners can manage, add, or delete teams. 
    - To add a team, click **+ New Team**. Add a **Name** and **Description**, then click **Create Team**.
    - To delete a team, hover over the team's name in the team list, then click **Delete**.
 
-#### Manage a Team (Organization Owners and Team Owners)
+### Manage a Team (Team Owners)
 To manage a team, select the team from the **Teams** list. Three tabs are displayed: General, Members, and Access. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
@@ -149,8 +80,8 @@ To manage a team, select the team from the **Teams** list. Three tabs are displa
 </div>
 
 - On the **General** tab, you can edit the team name and description.
-- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Org Owners will be able to perform these actions. Additionally, Team Owners, regardless of Organization role, can perform these actions for their respective team. 
-- On the **Access** tab, Org Owners and Team Owners can manage workspace access for the team as well as view resources with granted access. 
+- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective team. 
+- On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access. 
 
 <Tabs>
   <TabItem value="add-member" label="Add a Member" default>
@@ -180,22 +111,26 @@ To manage a team, select the team from the **Teams** list. Three tabs are displa
   </TabItem>
   <TabItem value="remove-granted" label="View Granted Access">
     <ol>
-    <li>From the <strong>Granted Access</strong> box, select a resource for which the team was granted access. You will be brought to the resource (e.g., a Cost Report).</li>
+    <li>From the <strong>Granted Access</strong> box, select a resource for which the team was granted access. You will be brought to the resource (for example, a Cost Report).</li>
     <li>You can then edit or remove granted access directly from the resource itself.</li>
     </ol>
   </TabItem>
 </Tabs>
 
 ---
-### Manage Resource Access
+## Manage Resource Access
 
-You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments.
+You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Manage access to a Cost Reporting dashboard" width="75%" src="/img/resource-access.png" />
 </div>
 
 You can manage resource-level access from the Cost Reporting navigation list or from directly within a resource.
+
+:::tip
+If you want to grant access on a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Permissions table](/rbac#cost-reporting-team-permissions-team-only-resource-access) below for more information.
+:::
 
 <Tabs>
   <TabItem value="from-list" label="Manage Access from Cost Reporting List" default>
@@ -227,41 +162,22 @@ You can manage resource-level access from the Cost Reporting navigation list or 
 
 ---
 
-### Cost Reporting Resources: Organization Permissions
+### Team-Only Resource Access
 
-Organization permissions apply for resources in which Everyone team access _has not_ been revoked.
+The permissions shown below apply for resources in which the Everyone team access has been revoked and the member's team has been granted access.
 
-| Role       | Create       | Update       | Delete       | Manage Access | View         |
-| ---------- | ------------ | ------------ | ------------ | ------------- | ------------ |
-| Org Owner  | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Editor | <Checkmark/> | <Checkmark/> | <Checkmark/> |               | <Checkmark/> |
-| Org Viewer |              |              |              |               | <Checkmark/> |
+| Team Access   | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
+| ------------- | --------- | -----------  | -----------  | -----------  | -----------  | -------------  |
+| No Access     | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| No Access     | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| No Access     | Viewer    |              |              |              | <Checkmark/> |                |
+| View Access   | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| View Access   | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| View Access   | Viewer    |              |              |              | <Checkmark/> |                |
+| Edit Access   | Owner     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| Edit Access   | Editor    | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| Edit Access   | Viewer    |              |              |              | <Checkmark/> |                |
 
-:::tip
-If you want to grant access on a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**.
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Remove Everyone team from resource" width="50%" src="/img/remove-everyone-team.png" />
-</div>
-:::
-
-### Cost Reporting: Team Permissions Team-Only Resource Access
-
-The team-only access permissions shown below apply for resources in which the Everyone team access has been revoked and the member's team has been granted access.
-
-| Role                        | Create       | Update       | Delete       | Manage Access | View         |
-| --------------------------- | ------------ | ------------ | ------------ | ------------- | ------------ |
-| Org Owner (No team access)  | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Editor (No team access) |              |              |              |               |              |
-| Org Viewer (No team access) |              |              |              |               |              |
-| Org Owner + Team Owner      | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Owner + Team Editor     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Owner + Team Viewer     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Editor + Team Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Editor + Team Editor    |              | <Checkmark/> | <Checkmark/> |               | <Checkmark/> |
-| Org Editor + Team Viewer    |              | <Checkmark/> | <Checkmark/> |               | <Checkmark/> |
-| Org Viewer + Team Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/>  | <Checkmark/> |
-| Org Viewer + Team Editor    |              | <Checkmark/> | <Checkmark/> |               | <Checkmark/> |
-| Org Viewer + Team Viewer    |              |              |              |               | <Checkmark/> |
 
 :::note
 If a user is on multiple teams that have conflicting permissions, the higher level of permissions will be granted. 
@@ -288,13 +204,36 @@ The user will be granted Owner-level permissions to that resource, in other word
 
 </details>
 
+## Settings Permissions
+
+Settings permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. Only Owners can manage Settings-related functions.
+
+:::note
+Team Owners can manage their team within the Teams UI — but only for the team for which they hold the Team Owner role.
+:::
+
 <details>
-<summary>Multiple Roles Scenario</summary>
+<summary>Settings Permissions Examples</summary>
 
-- A user has an **Org Viewer** and **Team Owner** role for the Management team. 
-- The user can manage resources granted to the Management team.
-- The user is unable to manage resources for the Marketing team, unless they are granted separate access. 
+- **Scenario 1**: You want to create new provider integration, such as a new Azure connection. An Owner will need to create the connection.
+- **Scenario 2**: You are a Team Owner for the Engineering team.You can interact with the Teams function, but only for the Engineering team where you are the Team Owner. You will not be able to manage other teams, like the Marketing team since you are not a Team Owner for that team.
 
-The user will be granted Owner-level permissions to that resource, in other words, they can view _and_ manage that resource.
+</details>
+
+## Financial Planning Permissions
+
+Financial planning permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage. 
+
+Users with the Editor or above role will be able to create resources in and manage the above functions.
+
+:::note
+Any user who is assigned to an issue will have update permissions for that issue. 
+:::
+
+<details>
+<summary>Financial Planning Permissions Examples</summary>
+
+- **Scenario 1**: You want to create new provider Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able ti *view* the alert.
+- **Scenario 2**: Editors and above can create and manage issues. You have a Viewer role and are assigned a new issue. You can now edit and comment on *only this new issue*.
 
 </details>
