@@ -164,7 +164,7 @@ If you want to grant access on a resource (for example, a Dashboard) to only a s
 
 ### Team-Only Resource Access
 
-The permissions shown below apply for resources in which the Everyone team access has been revoked and the member's team has been granted access.
+In the following table, the Everyone team's access to a resource (for example, a Cost Report) has been revoked. The member's team has been granted access to that specific resource.
 
 | Team Access   | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
 | ------------- | --------- | -----------  | -----------  | -----------  | -----------  | -------------  |

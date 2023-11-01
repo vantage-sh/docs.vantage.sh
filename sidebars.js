@@ -32,6 +32,7 @@ module.exports = {
       items: [
         "vantage_account",
         "sso",
+        "rbac",
       ],
     },
     {
