@@ -2,13 +2,13 @@
 
 module.exports = {
   someSidebar: [
-    "index",
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
+      collapsible: false,
+      collapsed: false,
       label: "Get Started",
       items: [
+        "index",
         "getting_started",
         {
           type: "category",
@@ -23,32 +23,20 @@ module.exports = {
         },
       ],
     },
-    "security",
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
-      label: "Account Administration",
+      collapsible: false,
+      collapsed: false,
+      label: "Security and Access",
       items: [
+        "security",
         "vantage_account",
         "sso",
       ],
     },
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
-      label: "API and Terraform",
-      items: [
-        "terraform",
-        "terraform_cloud_integration",
-        "vql",
-        "data_dictionary",
-      ],     
-    },
-    {
-      type: "category",
-      collapsible: true,
+      collapsible: false,
       collapsed: false,
       label: "Integrations",
       items: [
@@ -98,7 +86,7 @@ module.exports = {
     },
     {
       type: "category",
-      collapsible: true,
+      collapsible: false,
       collapsed: false,
       label: "Features",
       items: [
@@ -131,6 +119,18 @@ module.exports = {
         "savings_planner",
         "workspaces",
       ],
+    },
+    {
+      type: "category",
+      collapsible: false,
+      collapsed: false,
+      label: "Advanced Features",
+      items: [
+        "terraform",
+        "terraform_cloud_integration",
+        "vql",
+        "data_dictionary",
+      ],     
     },
   ],
 };
