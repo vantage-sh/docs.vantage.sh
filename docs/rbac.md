@@ -129,7 +129,7 @@ You can manage access for individual Cost Reporting resources, including Cost Re
 You can manage resource-level access from the Cost Reporting navigation list or from directly within a resource.
 
 :::tip
-If you want to grant access to a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Permissions table](/rbac#cost-reporting-team-permissions-team-only-resource-access) below for more information.
+If you want to grant access to a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Team-Only Resource Access](/rbac#team-only-resource-access) permissions table below.
 :::
 
 <Tabs>
