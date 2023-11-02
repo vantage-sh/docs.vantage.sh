@@ -17,9 +17,9 @@ function IntroCardGroup({ cards, columns }) {
 
     const row = (
 
-    <Row xs={4} md={4} className="g-4 custom-card-row">
+    <Row xs={4} md={4} className="g-4 intro-card-row">
       {rowCards.map((card, index) => (
-            <Col key={index} className="custom-card-col">
+            <Col key={index} className="intro-card-col">
                 <IntroCard title={card.title} content={card.content} image={card.image} link={card.link} alt={card.alt} />
             </Col>
             ))}
