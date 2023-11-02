@@ -32,6 +32,7 @@ module.exports = {
         "security",
         "vantage_account",
         "sso",
+        "rbac",
       ],
     },
     {
@@ -64,7 +65,6 @@ module.exports = {
           label: "Kubernetes",
           items: [
             "connecting_kubernetes",
-            "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
             "kubernetes",
