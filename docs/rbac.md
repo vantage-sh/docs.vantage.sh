@@ -129,7 +129,7 @@ You can manage access for individual Cost Reporting resources, including Cost Re
 You can manage resource-level access from the Cost Reporting navigation list or from directly within a resource.
 
 :::tip
-If you want to grant access on a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Permissions table](/rbac#cost-reporting-team-permissions-team-only-resource-access) below for more information.
+If you want to grant access to a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Permissions table](/rbac#cost-reporting-team-permissions-team-only-resource-access) below for more information.
 :::
 
 <Tabs>
@@ -209,14 +209,14 @@ The user will be granted Owner-level permissions to that resource, in other word
 Settings permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. Only Owners can manage Settings-related functions.
 
 :::note
-Team Owners can manage their team within the Teams UI — but only for the team for which they hold the Team Owner role.
+Team Owners can manage their team within the Teams UI — but only the team for which they hold the Team Owner role.
 :::
 
 <details>
 <summary>Settings Permissions Examples</summary>
 
-- **Scenario 1**: You want to create new provider integration, such as a new Azure connection. An Owner will need to create the connection.
-- **Scenario 2**: You are a Team Owner for the Engineering team.You can interact with the Teams function, but only for the Engineering team where you are the Team Owner. You will not be able to manage other teams, like the Marketing team since you are not a Team Owner for that team.
+- **Scenario 1**: You want to create a new provider integration, such as a new Azure connection. An Owner will need to create the connection.
+- **Scenario 2**: You are a Team Owner for the Engineering team. You can manage the Engineering team in the Teams UI. You will not be able to manage other teams.
 
 </details>
 
@@ -233,7 +233,7 @@ Any user who is assigned to an issue will have update permissions for that issue
 <details>
 <summary>Financial Planning Permissions Examples</summary>
 
-- **Scenario 1**: You want to create new provider Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able ti *view* the alert.
+- **Scenario 1**: You want to create a new Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able to *view* the alert.
 - **Scenario 2**: Editors and above can create and manage issues. You have a Viewer role and are assigned a new issue. You can now edit and comment on *only this new issue*.
 
 </details>
