@@ -1,13 +1,13 @@
 ---
 id: vantage_account
-name: Vantage Account Settings
+name: Account Settings
 description: This walkthrough reviews personal and organizational configuration settings for your Vantage account.
 keywords:
     - Vantage account
     - Account settings
 ---
 
-# Vantage Account Settings
+# Account Settings
 
 From the Vantage account [Settings page](https://console.vantage.sh/account/profile), you can edit your personal profile, create API access tokens, and configure organizational settings.
 
