@@ -104,49 +104,63 @@
   -webkit-text-fill-color: transparent;
 }
 
+/* Sidebar customizations */
+
+/* Adds margin to top level */
+
 li.theme-doc-sidebar-item-category-level-1 {
   .menu__list-item-collapsible {
     font-weight: 700;
-    &:hover > a:not([href]) {
-      background-color: transparent !important;
-    }
-
   }
 
   &:not(:first-of-type) .menu__list-item-collapsible {
-    margin-top: 25px;
+    margin-top: 15px;
   }
 }
 
-/* .theme-doc-sidebar-item-link-level-2 .theme-doc-sidebar-item-category-level-2 {
-  padding-left: 0;
-} */
+/* Removes hover from top level */
 
-/* li.theme-doc-sidebar-item-category-level-2 > .menu__list {
-  border-left: 1px solid var(--click-color-stroke);
+div:has(> a:not([href])) {
+  &:hover {
+    background: none !important;
+  }
 }
 
-.menu__list-item--collapsed .menu__link--sublist:after, .menu__list-item--collapsed .menu__caret:before {
-  padding-right: var(--doc-menu-caret-right-padding);
-} */
+/* Don't think we'll go past even L3, but add more styles if we go beyond 4 */
 
 li.theme-doc-sidebar-item-category-level-2 .menu__list-item-collapsible {
   font-weight: 500 !important;
   margin-top: 0 !important;
 }
 
-/* .sub-menu-link .menu__link--sublist {
-  font-weight: 700;
-} 
+li.theme-doc-sidebar-item-category-level-3 .menu__list-item-collapsible {
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+}
 
-not sure if this controls anything */
+li.theme-doc-sidebar-item-category-level-4 .menu__list-item-collapsible {
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+}
+
+/* Spacing for all items */
 
 .menu__link {
   padding-top: 4px;
   padding-bottom: 4px;
   padding-left: 8px;
+}
 
-  &--active {
-    font-weight: 700;
-  }
+/* Keeping second-level menus grey when active; adds bold when active */
+
+.menu__list-item-collapsible .menu__link--active{
+  background: none !important;
+  color: #606770;
+  font-weight: 700 !important;
+}
+
+/* Makes active page slightly bold; active item will be purple */
+
+.menu__link--active{
+  font-weight: 600 !important;
 }
