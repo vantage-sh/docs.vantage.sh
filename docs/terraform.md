@@ -1,4 +1,4 @@
-# Terraform
+# Terraform Provider
 
 Vantage offers a [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest) for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report. The example from the [Terraform Registry docs](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) shows how to create a [cost report](/cost_reports) for AWS from within Terraform.
 

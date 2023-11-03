@@ -1,4 +1,4 @@
-# Terraform Cloud
+# Terraform Cloud Integration
 
 Vantage is an official HashiCorp partner. Vantage integrates with Terraform Cloud through the [Run Tasks API](https://www.terraform.io/cloud-docs/workspaces/settings/run-tasks). This allows your team to get visibility on cloud costs as part of their existing workflows in two different ways:
 

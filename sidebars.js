@@ -2,17 +2,17 @@
 
 module.exports = {
   someSidebar: [
-    "index",
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
+      collapsible: false,
+      collapsed: false,
       label: "Get Started",
       items: [
+        "index",
         "getting_started",
         {
           type: "category",
-          label: "User Workflows",
+          label: "User Workflow Guides",
           collapsible: true,
           collapsed: true,
           items: [
@@ -23,22 +23,23 @@ module.exports = {
         },
       ],
     },
-    "security",
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
-      label: "Account Administration",
+      collapsible: false,
+      collapsed: false,
+      label: "Security and Access",
       items: [
+        "security",
         "vantage_account",
         "sso",
         "rbac",
+        "workspaces",
       ],
     },
     {
       type: "category",
-      collapsible: true,
-      collapsed: true,
+      collapsible: false,
+      collapsed: false,
       label: "API and Terraform",
       items: [
         "terraform",
@@ -49,19 +50,26 @@ module.exports = {
     },
     {
       type: "category",
-      collapsible: true,
+      collapsible: false,
       collapsed: false,
       label: "Integrations",
       items: [
         {
           type: "category",
           label: "AWS",
-          items: ["connecting_aws", "permissions_aws", "supported_services"],
+          items: [
+            "connecting_aws", 
+            "permissions_aws", 
+            "supported_services"
+          ],
         },
         {
           type: "category",
           label: "Azure",
-          items: ["connecting_azure", "azure_supported_services"],
+          items: [
+            "connecting_azure", 
+            "azure_supported_services"
+          ],
         },
         {
           type: "category",
@@ -88,7 +96,10 @@ module.exports = {
         {
           type: "category",
           label: "Snowflake",
-          items: ["connecting_snowflake", "snowflake_cost_by_query"],
+          items: [
+            "connecting_snowflake", 
+            "snowflake_cost_by_query"
+          ],
         },
         "connecting_databricks",
         "connecting_fastly",
@@ -98,27 +109,16 @@ module.exports = {
     },
     {
       type: "category",
-      collapsible: true,
+      collapsible: false,
       collapsed: false,
-      label: "Features",
+      label: "Cost Reporting Features",
       items: [
+        "overview",
+        "cost_reports",
+        "annotations",
+        "forecasting",
+        "segments",
         "cost_anomaly_alerts",
-        "autopilot",
-        {
-          type: "category",
-          label: "Cost Reporting",
-          items: [
-            "annotations",
-            "cost_reports",
-            "budgets",
-            "forecasting",
-            "per_unit_costs",
-            "active_resources",
-            "overview",
-            "segments",
-          ],
-        },
-        "cost_recommendations",
         {
           type: "category",
           label: "Notifications",
@@ -128,9 +128,21 @@ module.exports = {
             "microsoft_teams_integration",
           ],
         },
-        "savings_planner",
-        "workspaces",
       ],
     },
+    {
+      type: "category",
+      collapsible: false,
+      collapsed: false,
+      label: "Financial Planning Features",
+      items: [
+        "active_resources",
+        "autopilot",
+        "budgets",
+        "per_unit_costs",
+        "savings_planner",
+        "cost_recommendations",
+        ],
+        },  
   ],
 };
