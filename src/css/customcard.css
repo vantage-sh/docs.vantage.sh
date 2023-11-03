@@ -12,6 +12,10 @@
     padding: 20px;
 }
 
+.custom-card .card {
+  padding: -2px
+}
+
 .custom-card:hover {
   transform: none;
 }
