@@ -106,7 +106,7 @@
 
 /* Sidebar customizations */
 
-/* Adds margin to top level */
+/* Adds margin between categories; controls bold at top level */
 
 li.theme-doc-sidebar-item-category-level-1 {
   .menu__list-item-collapsible {
@@ -118,7 +118,7 @@ li.theme-doc-sidebar-item-category-level-1 {
   }
 }
 
-/* Removes hover from top level */
+/* Removes hover effect from top level */
 
 div:has(> a:not([href])) {
   &:hover {
