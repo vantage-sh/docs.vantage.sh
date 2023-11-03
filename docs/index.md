@@ -19,7 +19,7 @@ It's free to get started — navigate to the [Sign Up page](https://docs.vantage
 <IntroCardGroup
   cards={[
     {
-      title: 'Integrations',
+      title: 'Quickstart',
       content: 'Get started creating an integration with a number of cloud providers.',
       image: '/img/docs-site-card-integrations.png',
       link: './getting_started',

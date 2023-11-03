@@ -1,61 +1,134 @@
-# Connect Providers
+---
+id: getting_started
+title: Quickstart
+description: Learn how to use Vantage to connect multiple cloud providers and create cost reports as resources. 
+keywords:
+    - Quickstart
+    - Connect providers
+---
+import CustomCardGroup from '@site/src/components/CustomCardGroup';
+import CustomCard from '@site/src/components/CustomCard';
 
-To get started using Vantage to explore your cloud infrastructure costs, you'll want to create a data integration between at least one of your providers and Vantage.
+# Quickstart
 
-![Connecting providers](/img/connecting-providers-2.png)
+:::tip Get Started
+This quickstart guide will help you to set up your Vantage account, connect one or multiple providers, and start using Cost Reporting and Financial Planning features. 
+:::
 
-## Connecting Amazon Web Services (AWS)
+## Step 1: Create an Account
 
-Vantage integrates with AWS via a [cross-account IAM role](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_common-scenarios_third-party.html). This gives Vantage read-only access to an organization's cost data. Once the role has been created and given the correct set of permissions, Vantage will begin syncing an organization's cost data and resource metadata. After the initial sync is complete, users will be able to take advantage of all of the features of the Vantage platform to manage, inspect and model their AWS spend.
+- Get started by [creating a Vantage account](https://console.vantage.sh/signup). 
+- Optionally, you can upgrade to a paid plan to unlock additional features and track higher amounts of cloud infrastructure costs. View the [Vantage Pricing page](https://www.vantage.sh/pricing) for all pricing and plan details. All paid plans have an option to trial the service before committing to a subscription.
 
-Get started by [creating a Vantage account](https://console.vantage.sh/signup) and [connecting an AWS account](https://console.vantage.sh/setup). The onboarding flow will guide you through connecting your AWS account to Vantage. Full documentation on connecting an AWS account, can be found [here](/connecting_aws/).
+---
 
-## Connecting Microsoft Azure
+## Step 2: Connect Providers
 
-Vantage integrates with your Azure account through the use of a Active Directory [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal). This principal is then assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions). Any subscriptions that are part of a [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will be automatically imported.
+Next, create a data integration between at least one of your providers and Vantage. Detailed integration documentation is linked for each of the providers below. 
 
-Get started by [creating a Vantage account](https://console.vantage.sh/signup) and [connecting an Azure account](https://console.vantage.sh/setup). The onboarding flow will guide you through connecting your Azure account to Vantage. Full documentation on connecting an Azure account can be found [here](/connecting_azure/).
+<CustomCardGroup
+  cards={[
+    {
+      icon: '/img/logos/logo-icon-aws.svg',
+      iconAltText: 'AWS logo',
+      title: 'Amazon Web Services (AWS)',
+      content: "Vantage integrates with your AWS account through a Cross-Account IAM role, giving Vantage read-only access to an organization's cost data. After the initial sync, you will be able to take advantage of features in Vantage to manage, inspect, and model your AWS spend.",
+      link: "/connecting_aws",
+    },
+    {
+      icon: '/img/logos/logo-icon-azure.svg',
+      iconAltText: 'Azure logo',
+      title: 'Azure',
+      content: "Vantage integrates with your Azure account by using an Active Directory Service Principal, which can be assigned access to both management groups or individual subscriptions. Any subscriptions that are part of a resource group will be automatically imported.",
+      link: "/connecting_azure",
+    },
+    {
+      icon: '/img/logos/logo-icon-gcp.svg',
+      iconAltText: 'GCP logo',
+      title: 'Google Cloud Platform (GCP)',
+      content: "Vantage integrates with your GCP account through a service account, providing Vantage with read-only access to an organization's cost data. Following the creation of the role with the appropriate permissions, Vantage will initiate the synchronization of cost data and resource metadata.",
+      link: "/connecting_gcp",
+    },
+    {
+      icon: '/img/logos/logo-icon-kubernetes.svg',
+      iconAltText: 'Kubernetes logo',
+      title: 'Kubernetes',
+      content: 'Vantage recommends OpenCost as the preferred integration point for Kubernetes costs, but it can also ingest metrics through AWS Container Insights.',
+      link: "/connecting_kubernetes",
+    },
+    {
+      icon: '/img/logos/logo-icon-datadog.svg',
+      iconAltText: 'Datadog logo',
+      title: 'Datadog',
+      content: 'Vantage integrates with your Datadog account through a read-only Datadog OAuth token. After connecting, Vantage automatically receives read-only access to appropriate cost and usage APIs to begin ingesting Datadog cost data',
+      link: "/connecting_datadog",
+    },
+    {
+      icon: '/img/logos/logo-icon-new-relic.svg',
+      iconAltText: 'New Relic logo',
+      title: 'New Relic',
+      content: 'Vantage integrates with your New Relic account through the use of New Relic Usage Data via the New Relic GraphQL API.',
+      link: "/connecting_new_relic",
+    },
+    {
+      icon: '/img/logos/logo-icon-mongodb.svg',
+      iconAltText: 'MongoDB Atlas logo',
+      title: 'MongoDB Atlas',
+      content: 'Vantage integrates with MongoDB Atlas account through read-only use of the Invoices API. To see Active Resources for your MongoDB Atlas account, Vantage uses the Clusters API and the Projects API.',
+      link: "/connecting_mongodb-atlas",
+    },
+    {
+      icon: '/img/logos/logo-icon-snowflake.svg',
+      iconAltText: 'Snowflake logo',
+      title: 'Snowflake',
+      content: 'Vantage integrates with your Snowflake account through a secure, read-only user who has access to Snowflake usage tables. Optionally, Vantage can pull from a dedicated schema that you create.',
+      link: "/connecting_snowflake",
+    },
+    {
+      icon: '/img/logos/logo-icon-databricks.svg',
+      iconAltText: 'Databricks logo',
+      title: 'Databricks',
+      content: 'Vantage integrates with your Databricks account through the use of Billable Usage Logs. Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis.',
+      link: "/connecting_databricks",
+    },
+    {
+      icon: '/img/logos/logo-icon-fastly.svg',
+      iconAltText: 'Fastly logo',
+      title: 'Fastly',
+      content: 'Vantage integrates with your Fastly account through a read-only API token. Fastly API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.',
+      link: "/connecting_fastly",
+    },
+    {
+      icon: '/img/logos/logo-icon-openai.svg',
+      iconAltText: 'OpenAI logo',
+      title: 'OpenAI',
+      content: 'Vantage integrates with your OpenAI account through an API token. OpenAI API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.',
+      link: "/connecting_open_ai",
+    },
+    {
+      icon: '/img/logos/logo-icon-oracle.svg',
+      iconAltText: 'Oracle Cloud logo',
+      title: 'Oracle Cloud',
+      content: 'Vantage connects to Oracle Cloud using a read-only IAM user and API key to read from a Cost and Usage Reports object storage bucket.',
+      link: "/connecting_oracle",
+    },
+  ]}
+  columns={2}
+/>
+<br/>
 
-## Connecting Google Cloud Platform (GCP)
-
-Vantage integrates with GCP via a [service account](https://cloud.google.com/iam/docs/service-accounts). This gives Vantage read-only access to an organization's cost data. Once the role has been created and given the correct set of permissions, Vantage will begin syncing an organization's cost data and resource metadata. After the initial sync is complete, users will be able to take advantage of all of the features of the Vantage platform to manage, inspect and model their GCP spend.
-
-Get started by [creating a Vantage account](https://console.vantage.sh/signup) and [connecting a GCP billing account](https://console.vantage.sh/setup). The onboarding flow will guide you through connecting your GCP account to Vantage. Full documentation on connecting a GCP billing account can be found [here](/connecting_gcp/).
-
-## Connecting Kubernetes
-
-Vantage recommends [OpenCost](/opencost) as the preferred integration point for Kubernetes costs, but can also ingest metrics through AWS Container Insights.
-
-Get started by [creating a Vantage account](https://console.vantage.sh/signup) and [connecting a cloud provider account](https://console.vantage.sh/setup). The onboarding flow will guide you through creating the data integration to your cloud provider. Full documentation on getting started with Kubernetes can be found [here](/connecting_kubernetes/).
-
-## Connecting Datadog
-
-Vantage integrates with your Datadog account through a read only Datadog OAuth token. The user which completes this OAuth flow will need access to the **usage_read** scope to complete the connection. Get started with Datadog costs [here](/connecting_datadog).
-
-## Connecting New Relic
-
-Vantage integrates with your New Relic account through the use of [New Relic Usage Data](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-pricing-billing/usage-queries-alerts/) via the New Relic GraphQL API. Get started with New Relic costs [here](/connecting_new_relic).
-
-## Connecting MongoDB Atlas
-
-Vantage integrates with your MongoDB account through read-only use of the [Invoices API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Invoices). To see [Active Resources](/active_resources) for your MongoDB Atlas account, Vantage uses the [Clusters API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Clusters) and the [Projects API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Projects). Get started with MongoDB Atlas costs [here](/connecting_mongodb-atlas).
-
-## Connecting Snowflake
-
-Vantage integrates with your Snowflake account through a secure, read-only user that has access to Snowflake usage tables. Optionally, we have a recommendation for creating a dedicated schema which Vantage can pull from. Get started with Snowflake costs [here](/connecting_snowflake).
-
-## Connecting Databricks
-
-Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis. Get started with Databricks costs [here](/connecting_databricks).
-
-## Connecting Fastly
-
-Vantage integrates with your Fastly account through a read-only API token. Fastly API Tokens are free for you to create. Adding them to the [Vantage console](https://console.vantage.sh/signup) only takes a few minutes. Step by step instructions to connect Fastly can be found [here](/connecting_fastly).
-
-## Connecting OpenAI
-
-Vantage integrates with your OpenAI account through an API token. OpenAI API Tokens are free for you to create. Adding them to the [Vantage console](https://console.vantage.sh/signup) only takes a few minutes. Step by step instructions to connect OpenAI can be found [here](/connecting_open_ai).
-
-## Other Providers
-
+:::info Other Providers
 Vantage will be launching support for additional cloud infrastructure providers in the future. If you have a particular provider that you would like supported, please reach out to [support@vantage.sh](mailto:support@vantage.sh).
+:::
+
+---
+
+## Step 3: View Ingested Costs and Create Cost Reporting Resources
+
+Once you create some provider integrations, Vantage will automatically begin ingesting billing information for your account. The default landing page in the Vantage console is the [**Overview**](/overview) page. This page serves as an executive-level summary, providing a comprehensive snapshot of the cost metrics that matter most to you. 
+
+As you continue to set up your cost reporting infrastructure, you can use the below guides for some best practices in Vantage. 
+
+- [**Team Accountability**](/team_accountability): To ensure team accountability in cloud cost management, follow this guide. Create Cost Report Folders for specific teams, generate Cost Reports for various dimensions, implement Cost Report notifications, set team budgets, and continually monitor and optimize to minimize unnecessary expenses, thus guaranteeing efficient cloud spending.
+- [**Executive Reporting**](/executive_reporting): If you want to set up executive-level reporting, follow this guide. Use tools in Vantage to effortlessly gather and present comprehensive insights into your organization's cloud spending, enabling you to deliver actionable reports that facilitate informed decision-making at the executive level.
+- [**Find Hidden Costs**](/hidden_costs): If you want to uncover hidden costs and optimize spending, follow this guide. Vantage provides tools like Active Resources for listing cost-driving resources and Cost Anomaly Alerts to automatically detect and alert on unexpected expenses. 
