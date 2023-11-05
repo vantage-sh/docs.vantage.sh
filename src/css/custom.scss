@@ -83,7 +83,6 @@
   border-color: #9C25C7 !important;
 }
 
-
 .aa-DetachedFormContainer .aa-SubmitButton {
   display: flex;
   align-items: center;
@@ -97,4 +96,71 @@
 .aa-Label svg, .aa-LoadingIndicator svg {
   fill: #CFCFD6 !important;
   color: #CFCFD6 !important;
+}
+
+.text-gradient {
+  background: -webkit-linear-gradient(45deg, #7F0EEF, #17E0C8);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Sidebar customizations */
+
+/* Adds margin between categories; controls bold at top level */
+
+li.theme-doc-sidebar-item-category-level-1 {
+  .menu__list-item-collapsible {
+    font-weight: 700;
+  }
+
+  &:not(:first-of-type) .menu__list-item-collapsible {
+    margin-top: 15px;
+  }
+}
+
+/* Removes hover effect from top level */
+
+div:has(> a:not([href])) {
+  &:hover {
+    background: none !important;
+  }
+}
+
+/* Don't think we'll go past even L3, but add more styles if we go beyond 4 */
+
+li.theme-doc-sidebar-item-category-level-2 .menu__list-item-collapsible {
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+}
+
+li.theme-doc-sidebar-item-category-level-3 .menu__list-item-collapsible {
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+}
+
+li.theme-doc-sidebar-item-category-level-4 .menu__list-item-collapsible {
+  font-weight: 500 !important;
+  margin-top: 0 !important;
+}
+
+/* Spacing for all items */
+
+.menu__link {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+}
+
+/* Keeping second-level menus grey when active; adds bold when active */
+
+.menu__list-item-collapsible .menu__link--active{
+  background: none !important;
+  color: #606770;
+  font-weight: 700 !important;
+}
+
+/* Makes active page slightly bold; active item will be purple */
+
+.menu__link--active{
+  font-weight: 600 !important;
 }

@@ -12,7 +12,7 @@ The best way to get a quick snapshot of your cloud spend is to use the [Overview
 
 The Overview page will shows an executive level summary of the key facets of cloud spend. It lists every connected provider as well as the AWS Accounts, GCP Projects, and Azure subscriptions which are incurring charges. Furthermore, it displays information of the amount of committed spend discounts such as Savings Plans that are in use and how much coverage [Autopilot](/autopilot) is providing.
 
-Any of the widgets shown on the Overview screen can also be sent in Slack, Teams, or by email. See "Cost Report Notifcations" below.
+Any of the widgets shown on the Overview screen can also be sent in Slack, Teams, or by email. See "Cost Report Notifications" below.
 
 ## Segments
 

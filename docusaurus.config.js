@@ -46,7 +46,7 @@ const config = {
         },
         blog: false,
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: require.resolve("./src/css/custom.scss"),
         },
       }),
     ],
@@ -59,6 +59,7 @@ const config = {
         indexBlog: false,
       },
     ],
+    'docusaurus-plugin-sass',
     [
       require.resolve("@docusaurus/plugin-client-redirects"),
       {
@@ -131,9 +132,13 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "getting_started",
+            docId: "index",
             position: "left",
-            label: "Documentation",
+            label: "Docs",
+          },
+          {
+            to: "https://vantage.readme.io/reference/general",
+            label: "API",
           },
           {
             to: "https://vantage.sh/pricing",
@@ -175,7 +180,7 @@ const config = {
             items: [
               {
                 label: "Slack",
-                to: "https://join.slack.com/t/vantagecommunity/shared_invite/zt-1szz6puz7-zRuJ8J4OJIiBFlcTobYZXA",
+                to: "https://vantage.sh/slack",
               },
               {
                 label: "Cloud Costs Handbook",
@@ -194,6 +199,10 @@ const config = {
           {
             title: "More",
             items: [
+              {
+                label: "API Documentation",
+                to: "https://vantage.readme.io/reference/general",
+              },
               {
                 label: "Vantage Blog",
                 to: "https://vantage.sh/blog",

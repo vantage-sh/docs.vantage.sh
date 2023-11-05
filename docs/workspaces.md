@@ -16,7 +16,7 @@ When your Vantage account is created you are assigned a "Default" workspace. You
 
 * **Separate costs per team:** Organizations separate costs based on the team that utilizes the resources in an account. Separate workspaces per team, e.g., infrastructure, product, security, etc.
 
-* **Separate costs per product/service:** Organizations separate costs based on the product or service that utilizes the resouces in an account. Separate workspaces per product/service, e.g., payment, console, admin
+* **Separate costs per product/service:** Organizations separate costs based on the product or service that utilizes the resources in an account. Separate workspaces per product/service, e.g., payment, console, admin
 
 * **Separate costs per customer:** Organizations separate costs based on customers. Separate workspaces per customer, e.g., Customer A, Customer B, Customer C, etc.
 
