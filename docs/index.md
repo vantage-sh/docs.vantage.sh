@@ -23,6 +23,7 @@ It's free to get started — navigate to the [Sign Up page](https://docs.vantage
       content: 'Get started creating an integration with a number of cloud providers.',
       image: '/img/docs-site-card-integrations.png',
       link: './getting_started',
+      newTab: false,
       alt: 'Diagram of cloud providers integrating with Vantage'
     },
     {
@@ -30,6 +31,7 @@ It's free to get started — navigate to the [Sign Up page](https://docs.vantage
       content: 'Create your first Cost Report in the Vantage console. Create budgets, forecasts, and annotations all within your Cost Report.',
       image: '/img/docs-site-card-cost-report.png',
       link: './cost_reports',
+      newTab: false,
       alt: 'Cost Reports in the Vantage console'
     },
     {
@@ -37,6 +39,7 @@ It's free to get started — navigate to the [Sign Up page](https://docs.vantage
       content: "Use Vantage's Terraform provider to automate your Vantage cloud cost infrastructure.",
       image: '../../img/docs-site-card-terraform.png',
       link: './terraform',
+      newTab: false,
       alt: 'Terraform icon'
     },
   ]}
@@ -55,6 +58,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: 'The Vantage API makes it easy for you to programmatically access and read your cloud pricing data. Automate the management and creation of cost reporting resources as well as programmatically create reports and filters. View the API docs to get started.',
       image: '../../img/docs-site-card-api.png',
       link: 'https://vantage.readme.io/reference/general',
+      newTab: true,
       alt: 'API icon'
     },
     {
@@ -62,6 +66,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: 'Simplifies the complex task of pricing EC2 instances on AWS. With over a million pricing permutations due to instance types, regions, and availability zones, the site streamlines the process, enabling users to quickly find and compare the best resources for their needs.',
       image: '/img/docs-site-card-ec2.png',
       link: 'http://instances.vantage.sh/',
+      newTab: true,
       alt: 'Menu icon'
     },
     {
@@ -69,6 +74,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: 'A ranked list of AWS services that customers spend the most on. Vantage provides this anonymized and aggregated data to the community to shed light on cloud infrastructure costs.',
       image: '../../img/docs-site-card-leaderboard.png',
       link: 'https://leaderboard.vantage.sh/',
+      newTab: true,
       alt: 'Scoreboard icon'
     },
     {
@@ -76,6 +82,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: 'An open-source set of guides meant to help explain the complex pricing of public cloud infrastructure and service providers in easy-to-understand terms. This guide is hosted on GitHub and is open to anyone to contribute their knowledge to the community.',
       image: '../../img/docs-site-card-handbook.png',
       link: 'http://handbook.vantage.sh/',
+      newTab: true,
       alt: 'Handbook icon'
     },
     {
@@ -83,6 +90,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: "While the documentation here is meant to help answer any questions, you're also welcome to join our Slack community to add to the discussion and ask questions.",
       image: '../../img/docs-site-card-slack.png',
       link: 'https://vantage.sh/slack',
+      newTab: true,
       alt: 'Slack icon'
     },
     {
@@ -90,6 +98,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       content: 'Vantage uses anonymized data from thousands of connected accounts to snapshot industry spending patterns. View our quarterly Cloud Cost Reports to analyze trends over time.',
       image: '../../img/docs-site-card-cloud-cost-report.png',
       link: 'https://www.vantage.sh/cloud-cost-report',
+      newTab: true,
       alt: 'Report icon'
     },
   ]}
