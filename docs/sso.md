@@ -2,6 +2,9 @@
 id: sso
 title: Single Sign-On (SSO)
 description: This page walks through how to set up a self-service connection for SAML or another IdP with Vantage for logging in.
+keywords: 
+    - sso
+    - single sign-on
 toc_min_heading_level: 2
 toc_max_heading_level: 4 
 ---
