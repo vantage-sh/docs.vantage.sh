@@ -68,7 +68,7 @@ To set up a _new_ Kubernetes agent connection:
 
    The limits provided within the Helm chart are set low to support small clusters (approximately 10 nodes) and should be considered the minimum values for deploying an agent.
 
-   Estimates for later clusters are roughly:
+   Estimates for larger clusters are roughly:
    - ~1 CPU/1000 node
    - ~2 MB/node
    
