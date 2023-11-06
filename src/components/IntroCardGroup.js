@@ -20,7 +20,7 @@ function IntroCardGroup({ cards, columns }) {
     <Row xs={4} md={4} className="g-4 intro-card-row">
       {rowCards.map((card, index) => (
             <Col key={index} className="intro-card-col">
-                <IntroCard title={card.title} content={card.content} image={card.image} link={card.link} alt={card.alt} />
+                <IntroCard title={card.title} content={card.content} image={card.image} link={card.link} alt={card.alt} newTab={card.newTab} />
             </Col>
             ))}
     </Row>
