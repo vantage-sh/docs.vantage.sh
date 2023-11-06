@@ -1,5 +1,9 @@
 # Segments
 
+:::note 
+If you want to use Segments, please contact Support at [support@vantage.sh](mailto:support@vantage.sh) to enable the feature.
+:::
+
 ![Example Cost Report](/img/segments-overview.gif)
 
 Segments allow you to perform cost allocation and enforce cost governance for your organization. You have the optional ability to create nested hierarchies of costs which can map to teams, departments, apps, or services within your organization. Additionally, Segments ensure that costs are only allocated once and not duplicated in cases of showback/chargeback scenarios.
@@ -12,7 +16,7 @@ After defining your segments, a cost report will automatically be created repres
 
 ![Example Cost Filters](/img/view-segments.png)
 
-As a very basic explanation, a segment is a set of filters that represents a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into Opex vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
+As a very basic explanation, a segment is a set of filters that represents a portion of costs for your organization. You can think of segments as being a pivot table for all of your costs. For example, if you wanted to use Segments to break costs into OPEX vs R&D, you can segment your costs accordingly with filter logic to make this happen. Another use-case is if you wanted to have hierarchical drill-downs of costs for allocation purposes you can created nested Segments for representing organizational costs accordingly. 
 
 Segments can be found by navigating to "Cost Reporting" and then "Segments". If you have Segments present in your account, you can see a full list of top-level Segments sorted alphabetically.
 
@@ -20,13 +24,13 @@ Within the Segment, for example "OPEX", you can click on the "OPEX" report to pu
 
 ### The Unallocated Segment
 
-Unallocated costs are costs which are captured by the filters that belong to a Segment but are not allocated to any child Segments. For example, if you have two Segments defined for "Opex" and "R&D", any costs that do not match the logic of these filters will fall into an "Unallocated" Segment that's provided to you. 
+Unallocated costs are costs which are captured by the filters that belong to a Segment but are not allocated to any child Segments. For example, if you have two Segments defined for "OPEX" and "R&D", any costs that do not match the logic of these filters will fall into an "Unallocated" Segment that's provided to you. 
 
 ## Creating Segments
 
 ![Example Cost Filters](/img/create-segment.png)
 
-Within "Segments" in the "Cost Reporting" tab you can click "New Segment" to add a Segment. A segment is a namespace of costs. It is comprised of the following attributes:
+Within "Segments" in the "Cost Reporting" tab, you can click "New Segment" to add a Segment. A segment is a namespace of costs. It is comprised of the following attributes:
 
 - Segment Name (Required, unique string)
 - Segment Description (Not Required, string)
@@ -45,4 +49,4 @@ A Segment widget will be available for each top-level segment and will appear in
 
 When you click into a [Cost Report](/cost_reports/), you’ll be able to "Group By" Segment. If you group by Segment and click into costs for that Segment you will be taken to the corresponding Cost Report for that Segment. The rest of the Cost Report experience is the same. You will be able to view Cost by Service, Category and Resource.
 
-If you would like to transition existing Cost Report filters to Segments you must manually recreate them. If you would like assistance from our customer success team, please reach out to us at [support@vantage.sh](mailto:support@vantage.sh).
+If you would like to transition existing Cost Report filters to Segments you must manually recreate them. For assistance, please reach out to Support at [support@vantage.sh](mailto:support@vantage.sh).

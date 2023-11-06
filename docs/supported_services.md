@@ -26,7 +26,7 @@ Below is a list of currently supported AWS services for Active Resources:
 | Elasticsearch Service   | Vantage supports Elasticsearch and its corresponding pricing.           |
 | Fargate   | Vantage supports Fargate services and its corresponding pricing.           |
 | Glacier   | Vantage supports Glacier Vaults its corresponding pricing.           |
-| Global Accelerator   | Vantage supports Glacier Accelator its corresponding pricing.           |
+| Global Accelerator   | Vantage supports Glacier Accelerator and its corresponding pricing.           |
 | Glue      | Vantage supports view Glue Job costs.           | 
 | IAM   | Vantage supports IAM Groups, IAM Users and IAM Roles.           |
 | Lambda   | Vantage supports Lambda and is currently bolstering more formal support for it.           |

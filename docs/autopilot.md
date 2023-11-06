@@ -8,6 +8,10 @@ In the event that your compute workloads decrease, Autopilot will automatically 
 
 Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60% and make recommendations on RDS, ElastiCache, Redshift, and OpenSearch which reduce your costs by up to 72%.
 
+:::note AISPL Exclusion
+If your account is registered with Amazon Internet Services Private Limited (AISPL), you will be unable to use Autopilot due to AWS Marketplace limitations. [Per AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html), "Amazon Internet Services Private Limited (AISPL) customers can't sell Reserved Instances in the Reserved Instance Marketplace even if they have a US bank account."
+:::
+
 ## Autopilot Pricing
 
 Autopilot only charges 5% of the _savings found_. This means that in the event that Autopilot doesn't find you any savings, then its free to you to use.
@@ -106,7 +110,7 @@ Each compute category has usage tracked hourly and grouped by the following comp
 - Existing customer usage covered by credits
 - On-demand usage
 
-Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately beging listing the reserved instances for sale.
+Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately begin listing the reserved instances for sale.
 
 Compute categories can be saved prior to enabling Autopilot and adjusted after enabling Autopilot as well. For example, you may decide initially that you do not want Autopilot to manage purchasing and selling RIs for a new service. After the service sees increasing usage, you may then decide to turn on Autopilot for it.
 

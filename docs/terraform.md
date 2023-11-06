@@ -1,4 +1,4 @@
-# Terraform
+# Terraform Provider
 
 Vantage offers a [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest) for making it easy to get up and running with Vantage. The Vantage Terraform provider allows registered users across all Vantage tiers to create the primitives needed to broker a connection with AWS -- which is essentially creating a Cross Account IAM Role and the creation of a Cost and Usage Report. The example from the [Terraform Registry docs](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) shows how to create a [cost report](/cost_reports) for AWS from within Terraform.
 
@@ -49,10 +49,6 @@ module "vantage-integration" {
 ```
 
 ## Vantage Resources
-
-:::info
-**Beta:** Provisioning Vantage resources through Terraform is currently in Beta.
-:::
 
 The Terraform provider allows the automation of Vantage resources such as cost reports via the [Vantage Write API](https://vantage.readme.io/v2.0/reference/createcostreport) which the Terraform provider ultimately is running through. Filters can be created and automated through the [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data.
 

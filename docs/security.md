@@ -1,26 +1,32 @@
+---
+id: security
+title: Security 
+description: This page discusses Vantage app security and frequently asked security questions.
+---
+
 # Security
 
-As an infrastructure tool that requires access to your cloud provider we understand there may be questions, concerns and necessary clarification around our own infrastructure, processes and procedures. We as developers on Vantage are also customers of Vantage to more closely align our security concerns with those of our customers.
+As an infrastructure tool that requires access to your cloud provider, we understand there may be questions, concerns, and necessary clarification around our own infrastructure, processes, and procedures. We, as developers at Vantage, are also customers of Vantage, which more closely aligns our own security concerns with those of our customers.
 
-## Read-only Billing Access
+## Read-Only Billing Access
 
-Vantage uses read-only service accounts, service roles, API keys, and other read-only means to access billing data across all of the integrations we use. This means we don't store sensitive information like account access keys and access key secrets to use Vantage. Should you have any other questions please feel free to email us at security@vantage.sh.
+Vantage uses read-only service accounts, service roles, API keys, and other read-only means to access billing data across all the integrations we use. This means we don't store sensitive information, like account access keys and access key secrets, to use Vantage. Should you have any other questions, please feel free to email us at [security@vantage.sh](mailto:security@vantage.sh).
 
-### Cross Account IAM Roles on AWS
+## Cross-Account IAM Roles on AWS
 
-Vantage leverages something called Cross Account IAM Roles to sync information about your infrastructure resources. This method is the AWS recommended approach and is detailed in depth by AWS here for you to learn more. When you grant access to your AWS account to Vantage by running the provided CloudFormation stack, it creates a cross account role with in-line policies selected by Vantage. These policies are a trimmed down version of the policies in the AWS-managed "ReadOnlyAccess" policy but we've removed actions that would otherwise allow us to access sensitive information in databases, buckets and certain services. Our CloudFormation template is open source and hosted publicly here for transparency.
+Vantage uses a Cross-Account IAM Role to sync information about your infrastructure resources. This method is the [the AWS-recommended](https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/) approach. When you grant Vantage access to your account by running the provided CloudFormation stack, the stack creates a cross-account role with in-line policies selected by Vantage. These policies are a trimmed-down version of the policies in the AWS-managed `ReadOnlyAccess` policy, but we've removed actions that would otherwise allow us to access sensitive information in databases, buckets, and certain services. Our CloudFormation template is open source and [hosted publicly](https://vantage-public.s3.amazonaws.com/vantage-integration-latest.json) for transparency.
 
-## Customizing Cross Account Role Permissions
+### Customizing Cross-Account Role Permissions
 
-Vantage requests various in-line read-only permissions when creating the cross account role on your behalf. However, we understand this can be too broad of a permission set for certain use-cases. As a result, we do allow for creating Cross Account IAM roles with whatever permissions you're comfortable with. It is important to understand that as a result of narrowing the scope of the permissions Vantage has certain functionality that will be limited.
+Vantage requests various in-line read-only permissions when creating the cross-account role on your behalf; however, we understand this can be too broad of a permission set for certain use-cases. As a result, we do allow you to create Cross-Account IAM roles with whatever permissions you're comfortable with. However, keep in mind that narrowing the scope of the role's permissions will limit certain functionality in Vantage.
 
-If you email support@vantage.sh in advance of that we are happy to facilitate provisioning your account with a custom role prior to then. Please note that we will provide you with some custom attributes to associate with your Cross Account Role to prevent against the Confused Deputy problem so please contact Vantage support prior to creating your role.
+If you email [support@vantage.sh](mailto:support@vantage.sh) in advance, we can facilitate provisioning your account with a custom role. Please note that we will provide you with some custom attributes to associate with your Cross-Account IAM Role to prevent [the "confused deputy" problem](https://docs.aws.amazon.com/IAM/latest/UserGuide/confused-deputy.html). As a result, you will need to contact Vantage support _before_ you create the role.
 
 ## Data Revocation
 
-In your account settings page you have the ability to revoke the Cross Account IAM Role at any time. Automatically and nearly instantly, Vantage will delete all data associated with that Cross Account IAM Role. It doesn't remove your set of custom Vantage Views created - however all of those views will be empty as there are no resources.
+In the account **Settings** section, you have the ability to revoke the Cross-Account IAM Role at any time. Automatically and nearly instantly, Vantage will delete all data associated with that Cross-Account IAM Role. Note that the deletion doesn't remove the set of custom Vantage views you've created; however, these views will be empty, as there are no longer any resources.
 
-In your account settings page you also have the ability to delete your account. Upon deleting your account all data is deleted.
+In the account **Settings** section, you also have the ability to delete your account. Once you delete your account, all data is deleted as well.
 
 ## Data Sharing
 
@@ -28,45 +34,63 @@ We do not share any data externally. We do not sell or share any user data with 
 
 ## Frequently Asked Questions
 
-**Does Vantage perform penetration tests periodically?**
+<details><summary>Does Vantage periodically perform penetration tests?</summary>
 
-Yes. Vantage has outsourced pentetration tests to a third party that regularly performs these tests.
+Yes. Vantage has outsourced penetration tests to a third party that regularly performs these tests.
 
-**Does Vantage hold any security certifications such as SOC2, ISO27001?**
+</details>
 
-Yes. Vantage is SOC2 Type 2 certified. To request a copy of our report please visit the [Vantage Security Page](https://vantage.sh/security). We believe that we already roughly adhere to the standards set forth in ISO27001.
+<details><summary>Does Vantage hold any security certifications, such as SOC 2 or ISO 27001?</summary>
 
-**In terms of application security, How does Vantage deal with security reports received from security researchers? In other words, does Vantage have a bug bounty program or a straightforward process to report security issues to them?**
+Yes. Vantage is SOC 2 Type 2 certified. To request a copy of our report, visit the [Vantage Security Page](https://vantage.sh/security). We believe that we already roughly adhere to the standards set forth in ISO 27001.
 
-Vantage receives reports through an email address of security@vantage.sh. We review every single report that we receive. We do not have a formal bug bounty program but we do have a process and set of policies and standards we adhere to to process security requests.
+</details>
 
-**Does Vantage support 2FA, SSO, or any defensive options?**
+<details><summary>In terms of application security, how does Vantage deal with security reports received from security researchers? In other words, does Vantage have a bug bounty program or a straightforward process to report security issues?</summary>
 
-Yes. We support [SAML SSO](/sso) and 2FA is on the roadmap.
+Vantage receives reports via [security@vantage.sh](mailto:security@vantage.sh). We review every single report that we receive. We do not have a formal bug bounty program, but we do have a process as well as a set of policies and standards we adhere to in order to process security requests.
 
-**How is customers’ data protected and who has access to Vantage data?**
+</details>
 
-All data is encrypted in transit and at rest. Only a subset of senior employees have access to data on the Vantage side. Who on the Vantage team has access to customer data is regularly reviewed and revised by the team.
+<details><summary>Does Vantage support 2FA, SSO, or any defensive options?</summary>
 
-**Do you have a list of third parties that Vantage uses and explains what each third party is allowed to access and its purpose?**
+Yes. We support [SAML SSO](/sso), and 2FA is on the roadmap.
 
-We use a subset of third parties largely for analytics, support and payment processing. There is no PII sent to third parties and no cost data is shared with third parties. A list of third parties is listed below:
+</details>
 
-- Mixpanel - Customer analytics
-- Segment - Customer analytics
-- Customer.io - Customer communications
-- Hubspot - Sales management
-- Intercom - Support management
-- Stripe - Payment processing
+<details><summary>How is customers’ data protected, and who has access to Vantage data?</summary>
 
-**Do you have a security contact person in case of breaches?**
+All data is encrypted in transit and at rest. Only a subset of senior employees has access to data on the Vantage side. We regularly review and revise the list of individuals on the Vantage team with access to customer data.
 
-A team responds to messages at security [at] vantage.sh. Upon request a security employee can be temporarily assigned to your account as well.
+</details>
 
-**In terms of logging, Do you log access activities of Vantage’s employees who access to the data?**
+<details><summary>Do you have a list of third parties Vantage uses that explains what each third party is allowed to access and its purpose?</summary>
+
+We use a subset of third parties, largely for analytics, support, and payment processing. There is no PII sent to third parties, and no cost data is shared with third parties. A list of third parties is provided below:
+
+- Mixpanel: Customer analytics
+- Segment: Customer analytics
+- Customer.io: Customer communications
+- HubSpot: Sales management
+- Intercom: Support management
+- Stripe: Payment processing
+
+</details>
+
+<details><summary>Do you have a security contact person in case of breaches?</summary>
+
+A team responds to messages at [security@vantage.sh](mailto:security@vantage.sh). Upon request, a security employee can be temporarily assigned to your account as well.
+
+</details>
+
+<details><summary>Do you log access activities of Vantage’s employees who have access to the data?</summary>
 
 Yes.
 
-**Does Vantage store any information regarding cloud infrastructure in the database?**
+</details>
 
-Yes. We store basic metadata on cloud infrastructure in order to be able to show corresponding costs for associated resources. We do not have the ability to access any of the underlying resources.
+<details><summary>Does Vantage store any information regarding cloud infrastructure in the database?</summary>
+
+Yes. We store basic metadata on cloud infrastructure to be able to show corresponding costs for associated resources. We do not have the ability to access any of the underlying resources.
+
+</details>

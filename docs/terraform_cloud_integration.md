@@ -1,6 +1,6 @@
-# Terraform Cloud
+# Terraform Cloud Integration
 
-Vantage is an official HashiCorp partner. Vantage integrates with Terraform Cloud through the [Run Tasks API](https://www.terraform.io/cloud-docs/workspaces/settings/run-tasks). This allows your team to get visiblity on cloud costs as part of their existing workflows in two different ways:
+Vantage is an official HashiCorp partner. Vantage integrates with Terraform Cloud through the [Run Tasks API](https://www.terraform.io/cloud-docs/workspaces/settings/run-tasks). This allows your team to get visibility on cloud costs as part of their existing workflows in two different ways:
 
 * **Cost Saving Recommendations**: Vantage will post a current snapshot of cost savings that can be applied to help you save money. 
 * **Accrued Costs and Forecasts**: Vantage will post a current snapshot of your current accrued costs and your expected forecast for the current month. 
@@ -37,4 +37,4 @@ An example of what both Vantage Cost Recommendations and Vantage Costs look like
 
 ## Support
 
-Need support? Join us in the #support channel in the [Vantage Slack Community](https://join.slack.com/t/vantagecommunity/shared_invite/zt-1szz6puz7-zRuJ8J4OJIiBFlcTobYZXA) and we're happy to help. 
+Need support? Join us in the #support channel in the [Vantage Slack Community](https://vantage.sh/slack) and we're happy to help. 
