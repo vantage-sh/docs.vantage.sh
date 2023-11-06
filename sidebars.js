@@ -117,6 +117,7 @@ module.exports = {
         "cost_reports",
         "annotations",
         "forecasting",
+        "active_resources",
         "segments",
         "cost_anomaly_alerts",
         {
@@ -136,7 +137,6 @@ module.exports = {
       collapsed: false,
       label: "Financial Planning Features",
       items: [
-        "active_resources",
         "autopilot",
         "budgets",
         "per_unit_costs",
