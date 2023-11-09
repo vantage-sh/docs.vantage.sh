@@ -34,7 +34,7 @@ As long as the cost data for an underlying cluster instance is ingested into Van
 
 ## Install Vantage Kubernetes Agent
 
-### Prerequisites
+### Prerequisites {#prerequisites}
 
 The following prerequisites are required before you install the Vantage Kubernetes agent:
 
@@ -44,7 +44,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 
 - A running Kubernetes cluster
 
-- A [Vantage API token](/vantage_account#get-a-vantage-api-token) with READ and WRITE scopes enabled
+- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled
 
 ## Create a Connection
 

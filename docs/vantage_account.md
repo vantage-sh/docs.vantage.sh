@@ -18,7 +18,7 @@ From the top navigation bar of the Vantage console, click **Settings**. On the s
 
 In the **Profile** section, you can change your display name as well as your email address. Note that changing your email will log you out and require you to re-confirm.
 
-### Create a Vantage API Access Token
+### Create a Vantage API Access Token {#api-token}
 
 You can use the [Vantage API](https://vantage.readme.io/reference/general) to programmatically access cloud pricing data. 
 
