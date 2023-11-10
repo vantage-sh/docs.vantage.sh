@@ -1,20 +1,29 @@
+---
+id: connecting_kubernetes
+title: Setup Kubernetes
+description: This page walks through the options for how to integrate Vantage with your Kubernetes clusters.
+keywords:
+    - Kubernetes
+    - Connect Kubernetes
+---
+
 # Setup Kubernetes
 
-Vantage allows you to see in-cluster costs for Kubernetes clusters including seeing costs by container, service, namespace and label. Vantage supports any type of Kubernetes deployment (EKS, GKE, self-managed, etc.). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
+Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by Container, Service, Namespace and Label. Vantage supports any type of Kubernetes deployment (e.g., EKS, GKE, self-managed). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
 
-Vantage recommends integrating with [OpenCost](/opencost) as the preferred method for ingesting and tracking Kubernetes costs.
+The [Vantage Kubernetes Agent](/kubernetes_agent) is the recommended integration point for ingesting Kubernetes costs into Vantage.
 
-## How it Works
+## How the Integration Works
 
-Vantage looks at Pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each Pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vCPU, Memory, GPU, Storage, etc) to the Pod. The lifecycle of the EC2 instance is also automatically determined (on-demand, spot, reserved, savings plan, EDP, etc). This allows you to see costs by the following dimensions:
+Vantage looks at Pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vCPU, Memory, GPU, Storage, etc.) to the pod. The lifecycle of the EC2 instance is also automatically determined (On-Demand, Spot, Reserved, Savings Plans, EDP, etc.). This allows you to see costs by the following dimensions:
 
-- By container
-- By Kubernetes service
-- By Kubernetes namespace
-- By Kubernetes label
+- By Container
+- By Kubernetes Service
+- By Kubernetes Namespace
+- By Kubernetes Label
 
-Vantage automatically profiles your clusters for all existing services, namespaces and labels to make available for you in the Vantage console as dimensions for filtering and reporting. 
+Vantage automatically profiles your clusters for all existing Services, Namespaces, and Labels to be available for you in the Vantage console as dimensions for filtering and reporting. 
 
-## Enabling Kubernetes Costs
+## Enable Kubernetes Costs
 
-Vantage supports seeing Kubernetes costs via OpenCost and Prometheus. You can get started by following these [instructions](https://docs.vantage.sh/opencost/).
+To get started, follow the instructions for setting up the [Vantage Kubernetes Agent](/kubernetes_agent).
