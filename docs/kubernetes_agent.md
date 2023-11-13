@@ -92,9 +92,9 @@ Follow the steps below to validate the agent's installation.
 2. Logs should be free of `ERROR` messages:
    ```bash
    ➜  containers kubectl -n vantage logs -f vka-vantage-kubernetes-agent-0
-   {"time":"2023-10-23T22:01:12.065481528Z","level":"INFO","msg":"found nodes","nodes":2}
+   {"time":"2023-10-23T22:01:12.065481528Z","level":"INFO","msg":"found nodes","nodes":231}
    ...
-   {"time":"2023-10-23T22:01:12.471399742Z","level":"INFO","msg":"finished initializing"}
+   {"time":"2023-10-23T22:01:15.471399742Z","level":"INFO","msg":"finished initializing"}
    ```
 3. Agent reporting should occur once per hour at the start of the hour and should not generate an `ERROR` log line. It should also attempt a report soon after the initial start:
    ```bash
@@ -104,6 +104,17 @@ Follow the steps below to validate the agent's installation.
    ```
 
 Costs are exported from the cluster hourly and then made available nightly. It's important to note that these costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
+
+## Common Errors
+### DNS Lookup Error
+
+The agent uses the [node status addresses](https://kubernetes.io/docs/reference/node/node-status/#addresses) to determine what hostname to lookup for the node's stats endpoint. This can be configured with the `VANTAGE_NODE_ADDRESS_TYPES` environment variable which is controlled by the `agent.nodeAddressTypes` in the helm chart. By default the priority order is `Hostname,InternalDNS,InternalIP,ExternalDNS,ExternalIP`.
+
+To understand which type to use for your cluster, you can look at the available addresses for one of your nodes. The `type` corresponds to one of the configurable `nodeAddressTypes`.
+```bash
+➜  kubectl get nodes -o=jsonpath='{.items[0].status.addresses}'
+[{"address":"10.0.12.185","type":"InternalIP"},{"address":"ip-10-0-12-185.ec2.internal","type":"InternalDNS"},{"address":"ip-10-0-12-185.ec2.internal","type":"Hostname"}]
+```
 
 ## Migrate Costs from OpenCost to Vantage Kubernetes Agent
 
