@@ -9,7 +9,7 @@ keywords:
 
 # Confluent
 
-Vantage integrates with your Confluent account using a Confluent API key and secret to access the [Billing API](https://docs.confluent.io/cloud/current/billing/overview.html#retrieve-costs-for-a-range-of-dates). This endpoint provides structured cost data, broken down by product (for example, Kafka or Connect) and line-type (for example, Kafka Storage or Connect Capacity).
+Vantage integrates with your Confluent account using a Confluent API key and secret to access the [Billing API](https://docs.confluent.io/cloud/current/billing/overview.html#retrieve-costs-for-a-range-of-dates). This endpoint provides structured cost data, broken down by by category (e.g., Kafka or Connect), resource (e.g. Kafka Cluster), and subcategory (e.g., Kafka Storage or Connect Capacity).
 
 Vantage currently supports the following Confluent products:
 
@@ -49,12 +49,17 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 4. Click **Connect account**.
 5. On the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page, you will see your account listed with a **Status** of `Imported`. 
 
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report. 
+
 Confluent data refreshes daily in the Vantage console.
 
 ## Confluent Reporting Dimensions
 
 On Confluent [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
-- Category (e.g., line-type, like Kafka Storage)
-- Organization 
+- Organization
 - Service (e.g., Kafka)
+- Resource
+- Category (e.g., Kafka Storage)
+
+You can also view credits or discounts for Confluent costs in Cost Reports. At the top of any Confluent Cost Report, click **Settings**. Then toggle on/off **Credits** and/or **Discounts**.  

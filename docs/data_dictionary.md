@@ -89,3 +89,7 @@ Each provider that Vantage integrates makes different fields available in their 
 | Fastly       | Category        | category            |
 | Fastly       | Subcategory     | sub_category        |
 | Fastly       | Resource        | resource_id         |
+| Confluent    | Category        | category            |
+| Confluent    | Organization    | account_id          |
+| Confluent    | Service         | service             |
+| Confluent    | Resource        | resource_id         |
