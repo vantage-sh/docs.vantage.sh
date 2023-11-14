@@ -24,7 +24,7 @@ Kubernetes Cost Reports have cost visibility by Cluster, Label, Namespace, and S
 
 Cost Reports also include forecasts, which define Kubernetes-specific filters that will receive end-of-month forecasts. These forecasts are updated daily and give you confidence intervals of where your costs are likely to end up for the month.
 
-If you use an OpenCost integration, the costs displayed on these reports come from [OpenCost](/opencost). OpenCost calculates the cost of a running pod by looking at the CPU, RAM, GPU and storage usage and calculates the cost of each based on the cost of the underlying infrastructure. There is a formula for dividing the cost of a compute instance into CPU, RAM and GPU which then computes the cost per hour of each type of resource. OpenCost does all the cost allocation calculations locally to your cluster and makes this data available for querying.
+The costs displayed on these reports come from the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by looking at the CPU, RAM, GPU, and storage usage and calculates the cost of each based on the cost of the underlying infrastructure. There is a formula for dividing the cost of a compute instance into CPU, RAM and GPU which then computes the cost per hour of each type of resource. The agent does all the cost allocation calculations locally to your cluster and makes this data available for querying.
 
 Kubernetes costs are not included in monthly tracked infrastructure costs as they’re already captured from underlying EKS, GKE, or AKS costs.
 
@@ -57,7 +57,7 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
 
-Efficiency metrics are available immediately after your OpenCost metrics are imported, generally once per day. For more information on how container costs are allocated for OpenCost integrations, please consult the [OpenCost specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md).
+Efficiency metrics are available immediately after your OpenCost metrics are imported, generally once per day. For more information on how container costs are allocated for OpenCost integrations, see the [OpenCost specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md).
 
 ## Integration Methods
 
@@ -67,7 +67,7 @@ Vantage recommends integrating with the [Vantage Kubernetes Agent](/kubernetes_a
 
 For the Vantage Kubernetes Agent, costs are exported from the cluster hourly and then made available nightly. It's important to note that these costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
 
-For OpenCost integrations, while we work to upstream the efficiency metrics into the main OpenCost project, you can deploy the Vantage-maintained OpenCost branch at [quay.io/vantage-sh/opencost:efficiency](https://quay.io/vantage-sh/opencost:efficiency).
+For OpenCost integrations, while we work to upstream the efficiency metrics into the main OpenCost project, you can deploy the Vantage-maintained OpenCost branch via [the repository](https://quay.io/repository/vantage-sh/opencost?tab=tags&tag=latest).
 
 Efficiency metrics will be available up to 24 hours after updating your clusters. For OpenCost users, you can query the Amazon Managed Prometheus associated with your integration for `count(container_cpu_idle) by (cluster_id)` to verify the metrics are making it from your Kubernetes cluster to the Prometheus that Vantage will use to gather them periodically.
 
