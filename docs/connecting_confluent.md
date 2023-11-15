@@ -3,8 +3,8 @@ id: connecting_confluent
 title: Confluent
 description: This page walks through how to integrate Vantage with your Confluent account.
 keywords:
-    - Confluent
-    - Connect Confluent
+  - Confluent
+  - Connect Confluent
 ---
 
 # Confluent
@@ -28,7 +28,7 @@ Vantage currently supports the following Confluent products:
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to generate a Confluent API key.
 
 :::info
-Confluent requires an `OrganizationAdmin` role on the service account used in order to access the Billing API. See the [Confluent documentation](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/manage-role-bindings.html) for information on how to add the role to your service account. 
+Confluent requires an `OrganizationAdmin` role on the service account used in order to access the Billing API. See the [Confluent documentation](https://docs.confluent.io/cloud/current/access-management/access-control/rbac/manage-role-bindings.html) for information on how to add the role to your service account.
 
 The `OrganizationAdmin` role provides read/write access; however, Vantage will never perform write operations and will only read from the Billing API and Organizations API.
 :::
@@ -45,11 +45,11 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 
 1. From the Vantage console, navigate to the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page.
 2. At the top, select the **Connect** tab, then click **Add API Key**.
-3. Enter your newly created **API key** and **API secret**. 
+3. Enter your newly created **API key** and **API secret**.
 4. Click **Connect Account**.
-5. On the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page, you will see your account listed with a **Status** of `Imported`. 
+5. On the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page, you will see your account listed with a **Status** of `Imported`.
 
-Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report. 
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report.
 
 Confluent data refreshes daily in the Vantage console.
 
@@ -59,7 +59,14 @@ On Confluent [Cost Reports](/cost_reports/), you can filter costs across several
 
 - Organization
 - Service (e.g., Kafka)
-- Resource
 - Category (e.g., Kafka Storage)
+- Resource
 
-You can also view credits or discounts for Confluent costs in Cost Reports. At the top of any Confluent Cost Report, click **Settings**. Then toggle on/off **Credits** and/or **Discounts**.  
+You can also view credits or discounts for Confluent costs in Cost Reports.
+
+1. At the top of any Confluent Cost Report, click **Settings**. 
+2. Then, toggle on/off **Credits** and/or **Discounts**.
+
+## Active Resources
+
+Confluent Kafka Clusters are synced as active resources and available in [resource reports](/active_resources).
