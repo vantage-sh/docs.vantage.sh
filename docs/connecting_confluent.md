@@ -35,9 +35,9 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 
 1. Log in to the [Confluent Cloud console](https://confluent.cloud/login).
 2. From the top right of the console, click the hamburger menu.
-3. Click **ADMINISTRATION** > **Cloud API keys**.
-4. Click **Add Key**.
-5. For the scope, select the **Granular Access** tile.
+3. Under **ADMINISTRATION**, click **Cloud API keys**.
+4. Click **Create key**.
+5. For the scope, select the **Granular access** tile.
 6. Select an existing service account or create a new one.
 7. Copy the key and the secret to add to Vantage.
 
@@ -46,7 +46,7 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 1. From the Vantage console, navigate to the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page.
 2. At the top, select the **Connect** tab, then click **Add API Key**.
 3. Enter your newly created **API key** and **API secret**. 
-4. Click **Connect account**.
+4. Click **Connect Account**.
 5. On the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page, you will see your account listed with a **Status** of `Imported`. 
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report. 
