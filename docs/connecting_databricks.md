@@ -31,7 +31,7 @@ Vantage integrates with your Databricks account through the use of [Billable Usa
    :::
 4. Click **Connect Account**.
 5. On the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page, you will see your account listed with a **Status** of `Pending`. Click `Pending` to complete the connection.
-6. Follow the additional instructions provided on the **Finalize Your Databricks Account Setup** page. These instructions will walk you step-by-step through setting up your [Databricks Account API](https://docs.databricks.com/dev-tools/api/latest/account.html) authentication, creating a storage configuration, and creating a credential configuration to finalize the integration. 
+6. Follow the additional instructions provided on the **Finalize Your Databricks Account Setup** page. These instructions will walk you step-by-step through setting up your [Databricks Account API](https://docs.databricks.com/en/dev-tools/authentication-oauth.html#requirements) authentication, creating a storage configuration, and creating a credential configuration to finalize the integration. 
 
 After completing all the steps above, your Databricks integration status should automatically update from `Pending` to `Importing`. Once fully imported, the status will update to `Imported`. You can view your connection status on the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page. Databricks generally delivers usage logs once per day.
 
