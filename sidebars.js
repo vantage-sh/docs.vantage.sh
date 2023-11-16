@@ -106,6 +106,7 @@ module.exports = {
         "connecting_fastly",
         "connecting_open_ai",
         "connecting_oracle",
+        "connecting_confluent",
       ],
     },
     {

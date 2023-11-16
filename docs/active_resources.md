@@ -1,12 +1,15 @@
 ---
 id: active_resources
 title: Resource Reports
-description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, and MongoDB Atlas.
+description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, MongoDB Atlas, and Confluent.
+keywords:
+    - Active resources
+    - Resource reports
 ---
 
 # Resource Reports
 
-When you connect [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), or [MongoDB](/connecting_mongodb-atlas), Vantage will begin profiling active resources via List/Describe service APIs within your account. This action will generate an Active Resource report, enabling you to gain visibility into all the currently operational resources within your account and the associated costs they are incurring. 
+When you connect [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), or [Confluent](/connecting_confluent), Vantage will begin profiling active resources via List/Describe service APIs within your account. This action will generate an Active Resource report, enabling you to gain visibility into all the currently operational resources within your account and the associated costs they are incurring. 
 
 ## Available AWS Resources
 

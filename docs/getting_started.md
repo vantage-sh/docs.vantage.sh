@@ -112,6 +112,13 @@ Next, create a data integration between at least one of your providers and Vanta
       content: 'Vantage connects to Oracle Cloud using a read-only IAM user and API key to read from a Cost and Usage Reports object storage bucket.',
       link: "/connecting_oracle",
     },
+    {
+      icon: '/img/logos/logo-icon-confluent.svg',
+      iconAltText: 'Confluent logo',
+      title: 'Confluent',
+      content: 'Vantage integrates with your Confluent account through a revocable read/write API key and secret. Confluent API keys are free for you to create—and adding to the Vantage console only takes a few minutes.',
+      link: "/connecting_confluent",
+    },
   ]}
   columns={2}
 />
