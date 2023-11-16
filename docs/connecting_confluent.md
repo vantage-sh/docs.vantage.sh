@@ -9,14 +9,14 @@ keywords:
 
 # Confluent
 
-Vantage integrates with your Confluent account using a Confluent API key and secret to access the [Billing API](https://docs.confluent.io/cloud/current/billing/overview.html#retrieve-costs-for-a-range-of-dates). This endpoint provides structured cost data, broken down by by category (e.g., Kafka or Connect), resource (e.g. Kafka Cluster), and subcategory (e.g., Kafka Storage or Connect Capacity).
+Vantage integrates with your Confluent account using a Confluent API key and secret to access the [Billing API](https://docs.confluent.io/cloud/current/billing/overview.html#retrieve-costs-for-a-range-of-dates). This endpoint provides structured cost data, broken down by by category (e.g., Kafka or Connect), resource (e.g., Kafka Cluster), and subcategory (e.g., Kafka Storage or Connect Capacity).
 
 Vantage currently supports the following Confluent products:
 
 - Kafka
 - Connect
 - KSQL
-- Audit logs
+- Audit Logs
 - Cluster Links
 - Custom Connect
 - Support Cloud
@@ -51,7 +51,9 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report.
 
+:::note
 Confluent data refreshes daily in the Vantage console.
+:::
 
 ## Confluent Reporting Dimensions
 
