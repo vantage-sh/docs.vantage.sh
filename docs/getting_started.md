@@ -99,13 +99,6 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_fastly",
     },
     {
-      icon: '/img/logos/logo-icon-openai.svg',
-      iconAltText: 'OpenAI logo',
-      title: 'OpenAI',
-      content: 'Vantage integrates with your OpenAI account through an API token. OpenAI API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.',
-      link: "/connecting_open_ai",
-    },
-    {
       icon: '/img/logos/logo-icon-oracle.svg',
       iconAltText: 'Oracle Cloud logo',
       title: 'Oracle Cloud',
