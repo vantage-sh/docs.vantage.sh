@@ -105,6 +105,10 @@ Follow the steps below to validate the agent's installation.
 
 Costs are exported from the cluster hourly and then made available nightly. It's important to note that these costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
 
+:::tip
+You can view and manage your Kubernetes integration on [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes) in the console. Hover over the integration in the list, and click **Manage**.
+:::
+
 ## Common Errors
 ### DNS Lookup Error
 
