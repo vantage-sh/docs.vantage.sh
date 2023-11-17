@@ -72,7 +72,3 @@ For OpenCost integrations, while we work to upstream the efficiency metrics into
 Efficiency metrics will be available up to 24 hours after updating your clusters. For OpenCost users, you can query the Amazon Managed Prometheus associated with your integration for `count(container_cpu_idle) by (cluster_id)` to verify the metrics are making it from your Kubernetes cluster to the Prometheus that Vantage will use to gather them periodically.
 
 In most cases, Prometheus running on a Kubernetes cluster will not be exposed with a public endpoint. To get around this a second centralized Prometheus instance is deployed into your account to be used as an aggregation point which Vantage has both network and IAM access to query. Vantage can integrate with any publicly accessible Prometheus endpoint—including Grafana cloud.
-
-:::info
-For Google Cloud, Azure, and on-premises support for Kubernetes efficiency metrics, please contact us at [support@vantage.sh](mailto:support@vantage.sh).
-:::
