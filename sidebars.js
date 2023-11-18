@@ -76,7 +76,6 @@ module.exports = {
           label: "Google Cloud",
           items: [
             "connecting_gcp",
-            "permissions_gcp",
             "enabling_gcp_billing_export",
           ],
         },
