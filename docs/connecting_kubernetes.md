@@ -1,13 +1,13 @@
 ---
 id: connecting_kubernetes
-title: Setup Kubernetes
+title: Set Up Kubernetes
 description: This page walks through the options for how to integrate Vantage with your Kubernetes clusters.
 keywords:
     - Kubernetes
     - Connect Kubernetes
 ---
 
-# Setup Kubernetes
+# Set Up Kubernetes
 
 Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by Container, Service, Namespace and Label. Vantage supports any type of Kubernetes deployment (e.g., EKS, GKE, self-managed). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
 
