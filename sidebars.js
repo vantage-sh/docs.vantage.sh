@@ -85,6 +85,7 @@ module.exports = {
           label: "Kubernetes",
           items: [
             "connecting_kubernetes",
+            "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
             "kubernetes",
@@ -103,8 +104,8 @@ module.exports = {
         },
         "connecting_databricks",
         "connecting_fastly",
-        "connecting_open_ai",
         "connecting_oracle",
+        "connecting_confluent",
       ],
     },
     {
@@ -117,6 +118,7 @@ module.exports = {
         "cost_reports",
         "annotations",
         "forecasting",
+        "active_resources",
         "segments",
         "cost_anomaly_alerts",
         {
@@ -136,7 +138,6 @@ module.exports = {
       collapsed: false,
       label: "Financial Planning Features",
       items: [
-        "active_resources",
         "autopilot",
         "budgets",
         "per_unit_costs",

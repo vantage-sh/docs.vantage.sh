@@ -1,4 +1,14 @@
+---
+id: connecting_open_ai
+title: OpenAI
+unlisted: true
+---
+
 # OpenAI
+
+:::caution Important
+New OpenAI integrations are currently unavailable due to API issues. 
+:::
 
 Vantage has the ability to visualize, filter on and forecast your OpenAI costs. All you'll need to do is generate an OpenAI API Key and Vantage will ingest your cost and usage data from OpenAI accordingly. Before getting started, [ensure you have a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate OpenAI costs.
 

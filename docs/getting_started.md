@@ -53,7 +53,7 @@ Next, create a data integration between at least one of your providers and Vanta
       icon: '/img/logos/logo-icon-kubernetes.svg',
       iconAltText: 'Kubernetes logo',
       title: 'Kubernetes',
-      content: 'Vantage recommends OpenCost as the preferred integration point for Kubernetes costs, but it can also ingest metrics through AWS Container Insights.',
+      content: 'Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by container, service, namespace and label. The Vantage Kubernetes Agent is the recommended integration point for ingesting Kubernetes costs into Vantage.',
       link: "/connecting_kubernetes",
     },
     {
@@ -99,18 +99,18 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_fastly",
     },
     {
-      icon: '/img/logos/logo-icon-openai.svg',
-      iconAltText: 'OpenAI logo',
-      title: 'OpenAI',
-      content: 'Vantage integrates with your OpenAI account through an API token. OpenAI API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.',
-      link: "/connecting_open_ai",
-    },
-    {
       icon: '/img/logos/logo-icon-oracle.svg',
       iconAltText: 'Oracle Cloud logo',
       title: 'Oracle Cloud',
       content: 'Vantage connects to Oracle Cloud using a read-only IAM user and API key to read from a Cost and Usage Reports object storage bucket.',
       link: "/connecting_oracle",
+    },
+    {
+      icon: '/img/logos/logo-icon-confluent.svg',
+      iconAltText: 'Confluent logo',
+      title: 'Confluent',
+      content: 'Vantage integrates with your Confluent account through a revocable read/write API key and secret. Confluent API keys are free for you to create—and adding to the Vantage console only takes a few minutes.',
+      link: "/connecting_confluent",
     },
   ]}
   columns={2}

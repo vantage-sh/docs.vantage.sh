@@ -1,49 +1,214 @@
-# Self-Service SSO
+---
+id: sso
+title: Single Sign-On (SSO)
+description: This page walks through how to set up a self-service connection for SAML or another IdP with Vantage for logging in.
+keywords: 
+    - sso
+    - single sign-on
+toc_min_heading_level: 2
+toc_max_heading_level: 4 
+---
 
-Self-service SSO allows customers to connect their SAML Identity Provider (IdP) to their Vantage account. This allows the use of existing credentials to authenticate and access your Vantage account. SSO (Single Sign-On) streamlines the login process, since users don't need to create a new account or remember another set of login credentials for Vantage.
+# Single Sign-On (SSO)
 
-### Prerequisites
+Vantage supports single sign-on (SSO) via self-service single sign-on as well as a number of other supported IdPs. You can use self-service SSO to connect your SAML (Security Assertion Markup Language) Identity Provider (IdP) to your Vantage account. With self-service SSO, you can use your existing credentials to authenticate and access your Vantage account. SSO streamlines the login process, since users don't need to create a new account or remember another set of login credentials for Vantage.
 
-Before you can connect your IdP to our app, you will need the following:
+## Self-Service SSO via SAML
 
-- A valid account with a SAML Identity Provider (IdP)
-- Owner access to Vantage
-- Your IdP's signing certificate and sign-on url
+:::note
+Currently, Vantage supports self-service connection for SAML. If you'd like to connect one of the other supported IdPs (e.g., Google Workspace or Windows Active Directory), view the instructions below. If you do not see your IdP listed, contact [Vantage Support](mailto:support@vantage.sh). 
+:::
 
-### Getting Started
+### What Is SAML SSO?
 
-To get started, navigate to Vantage's [Authentication Page](https://console.vantage.sh/settings/account_identity_providers) and click on the "New Connection" button. You will then be prompted to select an SSO Connection type. Currently, we only support self-service connection for SAML. If you'd like to to connect one of the other supported IdP's (e.g. AzureAD, Google Workspace, or Windows Active Directory), you will need to contact support for instructions.
+SAML is an XML-based open standard for exchanging authentication and authorization data between parties. It enables secure and standardized communication between identity providers, service providers, and users. SAML allows for seamless and secure access to web applications and services.
 
-### Connecting Your SAML IdP
 
-You will be prompted to copy Vantage's Single Sign-On URL and Audience URL into your your IdP's application creation process. See an example below from a popular IdP. If you'd like to add a logo to your connection's thumbnail, you can grab it from here: [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg). Once you create the Vantage application within your IdP, you'll need to provide us your SAML Sign On URL the Signing Certificate. Before clicking the Configure Connection button make sure you validate your credentials. You'll be redirected back to the [Authentication Page](https://console.vantage.sh/settings/account_identity_providers), where you will be able to see your connection and enable it.
+Before you can connect your IdP to Vantage, you will need the following:
 
-For security reasons Vantage does not support IdP-initiated sessions. You will follow the regular Vantage login flow as opposed to clicking Login to Vantage in your IdP Portal.
+- A valid account with a SAML IdP
+- Owner role access to Vantage
+- Your IdP's signing certificate and sign-on URL
 
-### Enable Connection
+### Connect Your SAML IdP
 
-From the [Authentication Page](https://console.vantage.sh/settings/account_identity_providers) you can switch the Active toggle **on** to enable the connection. Please note that you will remain logged in to Vantage, but the next time you attempt to login you will be redirected to your IdP's login page.
+1. From the Vantage console, navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers). 
+2. Click **New Connection**. 
+3. Select the **SAML** connection type. 
+    <details><summary>Expand to view example image</summary>
+    <div> 
+    <img alt="Create SSO integration in Vantage console" width="80%" src="/img/sso-configure.png"/> </div>
+    </details>
+4. Copy the **Single Sign-On URL** and **Audience URL** that are provided on screen. You will need both of these URLs for your IdP's configuration. 
+    <details><summary>Expand to view example image</summary>
+    <div> 
+    <img alt="Configuration for SAML SSO integration in Vantage console" width="80%" src="/img/saml-sso-configure.png"/> </div>
+    </details>
+5. To add a logo to your connection's thumbnail, use the provided [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg). 
+6. Once you create the Vantage application within your IdP, copy the following information:
+   - Copy the SAML Sign-On URL provided by your IdP, then paste it into the **SAML 2.0 Endpoint** field of the Vantage SAML page. 
+   - Copy the Signing Certificate provided by your IdP, then paste it into the **Public certificate** field of the Vantage SAML page. 
+7. Ensure you've entered the correct credentials, then click **Create Connection**. You'll be redirected back to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers), where you will be able to see your connection.
+8. To enable the connection, switch the Active toggle to **on**. You will remain logged in to Vantage, but the next time you attempt to log in, you will be redirected to your IdP's sign-on page.
+
+:::caution Important
+For security reasons, Vantage does not recommend IdP-initiated sessions. For Okta, our recommended best practice is to create a tile called "Vantage" that is a link to `https://console.vantage.sh/login`. For more information, see the [Create a Bookmark App](https://support.okta.com/help/s/article/How-do-you-create-a-bookmark-app) instructions, on the Okta documentation site.
+
+If you want to use an IdP-initiated session configuration, please contact [Vantage Support](mailto:support@vantage.sh).
+:::
+
+#### Example: Create a SAML SSO Connection with Okta
+
+:::info
+For detailed instructions, see the [Okta support documentation](https://help.okta.com/oie/en-us/content/topics/apps/apps_app_integration_wizard_saml.htm).
+:::
+
+1. Create an app integration on Okta.
+2. For **Sign-in method**, select **SAML 2.0**. Click **Next**.
+    <details><summary>Expand to view example image</summary>
+    <div> 
+    <img alt="Create a new Okta app integration" width="80%" src="/img/saml_okta_new.png"/> </div>
+    </details>
+3. For **App Name**, enter _Vantage_. 
+4. For **App Logo**, upload the [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg), then click **Next**.
+    <details><summary>Expand to view example image</summary>
+    <div> 
+    <img alt="Okta app settings" width="80%" src="/img/saml_okta_app_name.png"/> </div>
+    </details>
+5. Enter the requested **Single sign on URL** (`https://auth.vantage.sh/login/callback`) and **Audience URI (SP Entity ID)** (for example, `urn:auth0:vantage-production:acme-com`), provided on the Vantage Authentication setup page. 
+    <details><summary>Expand to view example image</summary>
+    <div>
+    <img alt="Okta SAML settings" width="80%" src="/img/saml_okta_settings.png"/> </div>
+    </details>
+6. Set the **Application username** to **Email**.
+7. Once the app integration is set up, copy the Okta-provided **Identity Provider Single Sign On URL** and **X.509 Certificate** back into Vantage. 
+
+### Test Your SSO Configuration
 
 The recommended steps for testing your SSO configuration are as follows:
 
-- Enable the connection for your account
-- Do not close or log out of your current session
-- Open a private browser and visit https://console.vantage.sh
-- If your SSO connection is configured correctly you will be redirected to your IdP upon entering your email address
-- If you are able to complete the login, this means your configuration is correct
+1. Once your connection is enabled, do not close or log out of your current Vantage application session.
+2. Open a private browser or incognito window, and visit [https://console.vantage.sh](https://console.vantage.sh).
+3. Enter your email address. If your SSO connection is configured correctly, you will be redirected to your IdP. 
+4. Enter your login credentials. If you are able to complete the login, your configuration is correct.
 
-If you experience any issues logging in after enabling your connection, you can contact support.
+If you experience any issues with logging in after you've enabled your connection, [contact Vantage Support](mailto:support@vantage.sh).
 
-### Disconnecting Your IdP
+### Disconnect Your IdP
 
-If you ever need to disconnect your IdP from Vantage, you can perform that operation from the [Authentication Page](https://console.vantage.sh/settings/account_identity_providers). You can disable your connection with the Active toggle, or permanently remove your IdP by clicking the Delete button. After disabling/removing the connection, you will be able to log back into the app with your original Vantage password.
+If you ever need to disconnect your IdP from Vantage: 
 
-### SAML Connection Example: Rippling
+1. Navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers). 
+2. To _disable_ your connection, switch the **Active** toggle off. To _permanently remove_ your IdP, click the **Delete** button. 
 
-Vantage is available in the [Rippling App Shop](https://www.rippling.com/app-shop/app/vntg-inc-vantage) where you can find instructions for connecting your Vantage account to Rippling.
+After disabling/removing the connection, you will be able to log back in to the app with your original Vantage login credentials.
 
-### SAML Connection Example: Okta
+## Set Up Other IdPs
 
-![New Connection - Okta](/img/saml_okta_new.png)
-![App Name Settings - Okta](/img/saml_okta_app_name.png)
-![App Connection Settings - Okta](/img/saml_okta_settings.png)
+:::note
+If you do not see your IdP listed, please contact [Vantage Support](mailto:support@vantage.sh).
+:::
+
+### Authenticate with Azure AD
+
+:::info
+The following instructions are based on the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app). 
+:::
+
+#### Step 1: Register an Application with Azure AD 
+
+<details><summary>Expand to view example image</summary>
+<div> 
+<img alt="Configuration for Azure app registration" width="80%" src="/img/azure-configure-1.png"/></div> <p><i>Source: Microsoft </i></p>
+</details>
+
+- From the Azure portal, navigate to **App registrations**, then click **New registration**.
+- Enter a name for your app (e.g., _Vantage_).
+- Set the **Supported account types** option to the appropriate setting for your organization. 
+- For **Redirect URI**, select **Web** and enter `https://auth.vantage.sh/login/callback`.
+- Click **Register**. 
+- Once the app registration is complete, copy the **Application (client) ID** displayed on the app's **Overview** page to send to Vantage. 
+
+#### Step 2: Generate a Client Secret
+
+<details><summary>Expand to view example image</summary>
+<div> 
+<img alt="Configuration for Azure client secret" width="80%" src="/img/azure-configure-2.png"/></div> <p><i>Source: Microsoft </i></p>
+</details>
+
+- On the left navigation, select **Certificates & secrets**. 
+- Under the **Client secrets** tab, click **New client secret**. 
+- Enter a description and select an expiration for the secret. 
+:::caution 
+If this secret expires, you will need to supply Vantage with a new secret _before_ the expiration date.
+:::
+- Click **Add**. 
+- Copy the secret's **Value**.
+
+#### Step 3: Add API Permissions
+<details><summary>Expand to view example image</summary>
+<div> 
+<img alt="Configuration for Azure app API permissions" width="80%" src="/img/azure-configure-3.png"/></div> <p><i>Source: Microsoft </i></p>
+</details>
+
+- On the left navigation, select **API permissions**. 
+- Select **Add a permission**.
+- Under the **Microsoft APIs** tab, find and select the appropriate permissions required by Vantage (e.g., `Directory.Read.All`, `User.Read`).
+- At the bottom, click **Add permissions**. 
+
+#### Step 4: Grant Admin Consent (If Required)
+
+<details><summary>Expand to view example image</summary>
+<div> 
+<img alt="Configuration for Azure app admin consent" width="80%" src="/img/azure-configure-4.png"/></div> <p><i>Source: Microsoft </i></p>
+</details>
+
+- Still under **API permissions**, you may see a section for **Grant admin consent for {your domain}**.
+- Click **Grant admin consent**, and follow the prompts.
+
+#### Step 5: Contact Vantage Support
+
+Contact [Vantage Support](mailto:support@vantage.sh) for information on how to send the following items to finish the connection with the Vantage app:
+
+  - Application (client) ID
+  - Client secret
+  - Azure AD Domain 
+
+:::note
+You can obtain your Azure AD Domain name on the **Overview** page of Azure Active Directory.
+:::
+
+### Authenticate with Google Workspace
+
+:::info 
+The following instructions are based on the [Google documentation](https://support.google.com/googleapi/answer/6158849).
+:::
+
+#### Step 1: Register an OAuth Application with Google
+
+- From the [Google API Console](https://console.developers.google.com/), select an existing project or click **CREATE PROJECT**.
+- From the left navigation menu, click **Credentials**.
+- At the top, click **CREATE CREDENTIALS** > **OAuth client ID**. 
+:::note
+If this is your first time working with this Google project, you will have to configure your consent screen. Follow the Google documentation linked above. 
+:::
+- For **Application type**, select **Web application**. 
+- Enter a **Name** for your application (e.g., _Vantage_).
+- For **Authorized JavaScript origins**, click **ADD URI** and enter `https://auth.vantage.sh`.
+- For **Authorized redirect URIs**, click **ADD URI** and enter `https://auth.vantage.sh/login/callback`.
+- Click **CREATE**.
+
+<details>
+    <summary>Click to view example image</summary>
+    <div> 
+    <img alt="Google Workspace app setup" width="80%" src="/img/set-up-google-workspace.png"/> </div>
+</details>
+
+#### Step 2: Obtain Application Credentials and Contact Vantage Support
+
+- Copy your app's **CLIENT ID** and **CLIENT SECRET**.
+- Contact [Vantage Support](mailto:support@vantage.sh) for information on how to send these credentials to finish connecting with the Vantage app. 
+
+### Authenticate with Rippling
+
+Vantage is available in the [Rippling App Shop](https://www.rippling.com/app-shop/app/vntg-inc-vantage), where you can find instructions for connecting your Vantage account to Rippling.
