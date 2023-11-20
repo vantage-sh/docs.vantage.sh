@@ -1,59 +1,100 @@
-# GCP Billing Exports
+---
+id: enabling_gcp_billing_export
+title: Configure GCP Billing Exports
+description: This page walks through how to enable GCP Billing exports, which are a prerequisite to connecting GCP with your Vantage account.
+keywords:
+  - GCP
+  - Google Cloud Platform
+  - GCP Billing Exports
+---
 
-**This is streamlined version of [Google Cloud's official documentation](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup)**
+# Configure GCP Billing Exports
 
-## Requirements
+:::info
+This below documentation is a streamlined version of [Google Cloud Platform's official documentation](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup).
+:::
+
+## Prerequisites
+
+Before you begin, ensure you have the following permissions configured. See the [Google Cloud Platform documentation](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup#required_permissions) for information on how to configure these permissions.
 
 - User with permissions to create a project
 - User with permissions to create a BigQuery dataset
 - User with permissions to modify Billing settings
 
-## Select or Create a project
+## Create a Billing Export
 
-Before you enable Cloud Billing data export, you will need a project to store the data.
+### Step 1: Select or Create a Project
 
-The project needs to be linked to the same Cloud Billing account that you plan to enable Cloud Billing data export on. If you need help assigning a project to a Cloud Billing account, you can follow the instructions [here](https://cloud.google.com/billing/docs/how-to/modify-project#confirm_billing_is_enabled_on_a_project).
+Before you enable Cloud Billing data exports, you will need to create a project to store the data. If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing exports, individually, on each account.
 
-**Recommendation:** We recommend that you create a dedicated project to store all Cloud Billing data rather than using an existing project.
+:::tip Recommendation
+We recommend that you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
+:::
 
-_Note: If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing Export on each one individually._
+The project needs to be linked to the same Cloud Billing account that you plan to enable the Cloud Billing data export on. If you need help assigning a project to a Cloud Billing account, follow the  [Cloud Billing documentation](https://cloud.google.com/billing/docs/how-to/modify-project#confirm_billing_is_enabled_on_a_project).
 
-## Create a BigQuery dataset
+### Step 2: Create a BigQuery Dataset
 
-1. Sign in to the Google Cloud Console and go to the [BigQuery page](https://console.cloud.google.com/bigquery)
+In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigquery), and follow the steps below to create a BigQuery dataset.
 
-2. In the **Project** drop-down list at the top of the console, select the project you set up to contain your Cloud Billing data
+1. From the **Project** dropdown list at the top of the BigQuery console, select the project you set up for your Cloud Billing data export.
 
-3. In the **Explorer** panel, click the **three vertical dots** button next to your project ID
+2. In the **Explorer** panel, click the **three vertical dots** (next to your project ID).
+3. Click **Create dataset**.
+<details><summary>Expand to view example image</summary>
+<div>
+<img alt="Create BigQuery dataset menu" width="80%" src="/img/connect-gcp/gcp-project-create-dataset.png"/> </div>
+</details>
+4. Configure your dataset:
 
-4. Click the **Create dataset** button
+   - Enter a **Dataset ID**. We recommend an ID that spans projects, such as _all_billing_data_, rather than a project-specific ID.
 
-   1. Enter a **Dataset ID**. We recommend an ID that spans projects, such as "all_billing_data", rather than a project-specific ID
+   - For **Location type**, select either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**. One of these two options is required to enable detailed usage cost data.
 
-   2. Select a **Data location**. Choose either `us (multiple regions in United States)` or `eu (multiple regions in European Union)`. One of these two options is required for enabling detailed usage cost data
+   - Leave the **Enable table expiration** checkbox unchecked to ensure that data never expires.
 
-   3. Leave the **Enable table expiration** checkbox **unchecked** to ensure that data never expires.
+   - Click **Advanced options**. Set **Encryption** to **Google-managed encryption key**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Create BigQuery dataset" width="80%" src="/img/connect-gcp/gcp-create-dataset.png"/> </div>
+   </details>
 
-   4. Set the **Encryption option** to Google-managed key. Note: Customer-managed key encryption is not supported for exporting Cloud Billing data records to BigQuery
+   :::note
+   Customer-managed key encryption is not supported for exporting Cloud Billing data records to BigQuery.
+   :::
 
-   5. To save, click the **Create dataset** button
+5. Click the **CREATE DATASET**. You should see the dataset displayed in the **Explorer** panel, under your project.
 
-## Enable Cloud Billing export to the BigQuery dataset
+### Step 3: Enable Cloud Billing Export to the BigQuery Dataset
 
-1. Open the console **Navigation menu**, and then select **Billing**
+1. Still in BigQuery, click the hamburger menu (three horizontal lines) at the top left of the console, and select **Billing**.
 
-2. In the **Billing navigation menu**, select **Billing export**
+2. In left the **Billing navigation menu**, select **Billing export**. (You can also search for and navigate to **Billing export** from the main search bar at the top of the GCP console.)
 
-3. Select the BigQuery export tab (this tab is selected by default)
+3. Ensure you are on the **BIGQUERY EXPORT** tab. (This tab should be selected by default).
+<details><summary>Expand to view example image</summary>
+<div>
+<img alt="Create GCP Billing Export" width="80%" src="/img/connect-gcp/gcp-billing-export.png"/> </div>
+</details>
 
-4. Under **Detailed usage cost**, click the **Edit settings** button
+4. Under **Detailed usage cost**, click **EDIT SETTINGS**.
+5. Configure the following settings:
 
-   1. From the **Projects** list, select the project you set up to contain your billing data
+   - From the **Projects** list, select the project you set up to contain your billing data.
 
-   2. From the **Dataset ID** field, select the dataset that you set up to contain your exported Cloud Billing data
+   - For **Dataset**, select the dataset that you set up to contain your exported Cloud Billing data (e.g., **all_billing_data**).
+<details><summary>Expand to view example image</summary>
+<div>
+<img alt="GCP detailed usage cost configuration" width="80%" src="/img/connect-gcp/gcp-detailed-usage-cost.png"/> </div>
+</details>
 
-   3. Click the **Save** button
+1. Click the **SAVE**.
 
-Congrats! Your Cloud Billing data will now begin stored in the BigQuery dataset you created. To continue connecting your GCP account to Vantage, return to the instructions [here](/connecting_gcp/#creating-a-gcp-data-integration).
+## Next Steps: Complete Your Vantage-GCP Integration
 
-_Note: It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24-48 hours to fully propagate._
+Your Cloud Billing data will start to be stored in the BigQuery dataset you created. To continue connecting your GCP account to Vantage, complete the [Create a GCP Connection](/connecting_gcp/#create-a-connection) instructions.
+
+:::caution Important
+It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
+:::
