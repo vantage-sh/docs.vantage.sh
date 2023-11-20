@@ -23,9 +23,9 @@ See the [GCP Cloud Billing export](/enabling_gcp_billing_export/) instructions f
 
 **If you have a pre-existing Cloud Billing export** set up, ensure your configuration adheres to the requirements below before moving further.
 
-- Your project is linked to the same Cloud Billing account that Cloud Billing export is enabled on.
+- Your project is linked to the same Cloud Billing account that the Cloud Billing export is enabled on.
   :::tip Recommendation
-  We recommend that you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
+  We recommend you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
   :::
 - Detailed Billing Export is enabled, _not_ Standard Billing Export.
 - The BigQuery dataset and table is deployed to either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**.
@@ -50,7 +50,7 @@ Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-
    <div>
    <img alt="GCP project permissions menu" width="80%" src="/img/connect-gcp/gcp-project-permissions-menu.png"/> </div>
    </details>
-   - In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This service account is the value displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
+   - In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
    - In the **Role** field, under **Assign roles**, search for and select **BigQuery Job User**.
    <details><summary>Expand to view example image</summary>
    <div>

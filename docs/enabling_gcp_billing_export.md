@@ -29,7 +29,7 @@ Before you begin, ensure you have the following permissions configured. See the 
 Before you enable Cloud Billing data exports, you will need to create a project to store the data. If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing exports, individually, on each account.
 
 :::tip Recommendation
-We recommend that you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
+We recommend you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
 :::
 
 The project needs to be linked to the same Cloud Billing account that you plan to enable the Cloud Billing data export on. If you need help assigning a project to a Cloud Billing account, follow the  [Cloud Billing documentation](https://cloud.google.com/billing/docs/how-to/modify-project#confirm_billing_is_enabled_on_a_project).
@@ -70,16 +70,15 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 
 1. Still in BigQuery, click the hamburger menu (three horizontal lines) at the top left of the console, and select **Billing**.
 
-2. In left the **Billing navigation menu**, select **Billing export**. (You can also search for and navigate to **Billing export** from the main search bar at the top of the GCP console.)
+2. In the left **Billing navigation menu**, select **Billing export**. (You can also search for and navigate to **Billing export** from the main search bar at the top of the GCP console.)
 
-3. Ensure you are on the **BIGQUERY EXPORT** tab. (This tab should be selected by default).
+3. Ensure you are on the **BIGQUERY EXPORT** tab. (This tab should be selected by default). Then, under **Detailed usage cost**, click **EDIT SETTINGS**.
 <details><summary>Expand to view example image</summary>
 <div>
 <img alt="Create GCP Billing Export" width="80%" src="/img/connect-gcp/gcp-billing-export.png"/> </div>
 </details>
 
-4. Under **Detailed usage cost**, click **EDIT SETTINGS**.
-5. Configure the following settings:
+4. Configure the following settings:
 
    - From the **Projects** list, select the project you set up to contain your billing data.
 
@@ -89,7 +88,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 <img alt="GCP detailed usage cost configuration" width="80%" src="/img/connect-gcp/gcp-detailed-usage-cost.png"/> </div>
 </details>
 
-1. Click the **SAVE**.
+5. Click the **SAVE**.
 
 ## Next Steps: Complete Your Vantage-GCP Integration
 
