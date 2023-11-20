@@ -53,12 +53,13 @@ const config = {
   ],
 
   plugins: [
-    [
-      require.resolve("@cmfcmf/docusaurus-search-local"),
-      {
-        indexBlog: false,
-      },
-    ],
+    // Un-comment to use local search in the event Algolia ever goes down
+    // [
+    //   require.resolve("@cmfcmf/docusaurus-search-local"),
+    //   {
+    //     indexBlog: false,
+    //   },
+    // ],
     'docusaurus-plugin-sass',
     [
       require.resolve("@docusaurus/plugin-client-redirects"),
@@ -119,8 +120,6 @@ const config = {
   
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
-  
-        //... other Algolia params
       },
       navbar: {
         logo: {
