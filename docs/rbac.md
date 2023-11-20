@@ -56,7 +56,7 @@ Owner is the only role that can invite users to and remove users from Vantage as
 
 ## Manage Team Access
 
-### Create or Delete Teams (Owners Only)
+### Create or Delete Teams (Owners Only) {#create-team}
 
 :::note
 By default, all Vantage users are part of the Everyone team. Users _cannot_ be removed from this team.
@@ -71,6 +71,10 @@ By default, all Vantage users are part of the Everyone team. Users _cannot_ be r
 3. On the Teams view, Owners can manage, add, or delete teams. 
    - To add a team, click **+ New Team**. Add a **Name** and **Description**, then click **Create Team**.
    - To delete a team, hover over the team's name in the team list, then click **Delete**.
+
+### Map Team to SSO Group (Owners Only)
+
+Account Owners can map SSO groups to teams within Vantage. The matching teams first need to be created following the steps above. Then, follow the [Set Up SSO Group Mapping for Teams](/sso#set-up-sso-group-mappings) instructions for information on how to map teams. 
 
 ### Manage a Team (Team Owners)
 To manage a team, select the team from the **Teams** list. Three tabs are displayed: General, Members, and Access. 
