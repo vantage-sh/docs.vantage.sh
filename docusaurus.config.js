@@ -72,6 +72,10 @@ const config = {
             from: "/metrics",
             to: "/active_resources",
           },
+          {
+            from: "/permissions_gcp",
+            to: "/connecting_gcp",
+          },
         ],
       },
     ],

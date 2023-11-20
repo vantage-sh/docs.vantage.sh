@@ -1,4 +1,4 @@
-# Setup Snowflake
+# Set Up Snowflake
 
 [Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Snowflake costs.
 

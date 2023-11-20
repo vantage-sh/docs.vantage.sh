@@ -1,4 +1,4 @@
-# Setup AWS
+# Set Up AWS
 
 ## Connecting Your AWS Account
 

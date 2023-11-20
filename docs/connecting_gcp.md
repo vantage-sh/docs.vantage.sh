@@ -1,71 +1,121 @@
-# Setup Google Cloud
+---
+id: connecting_gcp
+title: Set Up Google Cloud
+description: This page walks through how to connect your GCP account to Vantage.
+keywords:
+  - GCP
+  - Google Cloud Platform
+---
 
-## Connecting Your GCP Billing Account
+# Set Up Google Cloud
 
-Vantage integrates with your GCP account through the use of a [service account](https://cloud.google.com/iam/docs/service-accounts). A service account is generated on a per customer basis and is only granted permissions to read from the specific Big Query table in your account.
-
-## Read-Only by Default
-
-The service account is read-only by default. It does not have permissions nor will ever attempt to make any changes to your infrastructure.
+Vantage uses a [service account](https://cloud.google.com/iam/docs/service-accounts) to integrate with your GCP account. The service account is generated on a per-customer basis. Vantage requests extremely basic and limited permissions for GCP. During the integration process, you will grant the service account access _only_ to the specific BigQuery dataset that contains your billing data.
 
 ## Prerequisites
 
-Before you begin, you will need to:
+Before you start the integration process, you will need to complete the following prerequisites:
 
-1. Enable Billing Export
-2. Create a project to store your Billing Export data
-3. Create a BigQuery dataset to store your Billing Export data
+- Create a project to store your Cloud Billing export data.
+- Create a BigQuery dataset to store your Cloud Billing export data.
+- Enable Cloud Billing export.
 
-If you have a pre-existing Billing Export, double-check the requirements below then skip to the [next section](/connecting_gcp/#creating-a-gcp-data-integration). If you need help setting up Billing Export, you can follow the instruction [here](/enabling_gcp_billing_export/).
+See the [GCP Cloud Billing export](/enabling_gcp_billing_export/) instructions for details on how to complete the above steps. Then, return to this page to complete the rest of the integration process.
 
-**Billing Export Requirements:**
+**If you have a pre-existing Cloud Billing export** set up, ensure your configuration adheres to the requirements below before moving further.
 
-- Project is linked to the same Cloud Billing account that Billing Export is enabled on
-- Detailed Billing Export is enabled, not Standard Billing Export
-- The BigQuery dataset and table is deployed to either `us (multiple regions in United States)` or `eu (multiple regions in European Union)`
-- _Note: If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing Export on each one individually._
+- Your project is linked to the same Cloud Billing account that the Cloud Billing export is enabled on.
+  :::tip Recommendation
+  We recommend you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
+  :::
+- Detailed Billing Export is enabled, _not_ Standard Billing Export.
+- The BigQuery dataset and table is deployed to either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**.
+- If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing exports on each account.
 
-**Recommendation:** We recommend that you create a dedicated project to store all Cloud Billing data rather than using an existing project.
+:::note
+If your GCP billing data is typically displayed in a currency other than USD, Vantage will convert it to USD using the `currency_conversion_rate` field in the Cloud Billing export data.
+:::
 
-**Note on Currency:** If your GCP billing data is normally displayed in a currency other than USD, we will convert it to USD using the `currency_conversion_rate` field in the Billing Export data.
+## Create a Connection {#create-a-connection}
 
-## Creating a GCP Data Integration
+Open a new browser tab, and navigate to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp). At the top, select the **Connect** tab. You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
 
-Now that you have:
+### Step 1: Grant the Vantage Service Account Permission to Access BigQuery {#service-account-permissions}
 
-1. The Billing account ID
-2. The name of the project
-3. The name of the Big Query dataset
+Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery.
 
-Create a GCP data integration by logging into your Vantage account and going [here](https://console.vantage.sh/settings/gcp). You will be asked to add these inputs into the onboarding flow.
+1. At the top of the IAM console, select the project that hosts the BigQuery dataset with your Cloud Billing export data.
+2. Configure the following permission:
+   - In the center of the page, under **Permissions for project "My Project ABCD"**, click **+ GRANT ACCESS**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="GCP project permissions menu" width="80%" src="/img/connect-gcp/gcp-project-permissions-menu.png"/> </div>
+   </details>
+   - In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
+   - In the **Role** field, under **Assign roles**, search for and select **BigQuery Job User**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Grant GCP project access" width="80%" src="/img/connect-gcp/gcp-grant-project-access.png"/> </div>
+   </details>
+3. Click **SAVE**.
 
-## Connecting Manually
+### Step 2: Grant the Vantage Service Account Permission to Access the BigQuery Dataset {#bigquery-permissions}
 
-### Assign Vantage Service Account Permission to Access BigQuery
+Go back to [BigQuery](https://console.cloud.google.com/bigquery), and complete the steps below to grant the Vantage service account permission to access the BigQuery dataset.
 
-1. Open the [IAM Console](https://console.cloud.google.com/iam-admin/iam)
-2. Select the project hosting the BigQuery dataset containing your Billing Export data from the project drop-down in the main navigation bar at top. If you don’t see the project name right away, try the "ALL" tab or search for it
-3. Add a new permission to the project
-   1. Click the **Add** button
-   2. Under **New principals**, add your Vantage service account (found in the GCP onboarding workflow in the Vantage console)
-   3. Attach the role `BigQuery Job User`
-   4. Click the **Save** button
+1. At the top of the BigQuery console, ensure the project that you set up to contain your billing data is selected.
+2. In the **Explorer** panel  , select your project to expand it.
+3. Select the **three vertical dots** next to the dataset name, then click **Open**. The **Dataset info** will be displayed on the right. _Keep this screen open to later obtain your project ID and dataset name._
+4. Select the three vertical dots next to the dataset name again, then click **Share**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="BigQuery share dataset menu" width="80%" src="/img/connect-gcp/gcp-share-dataset.png"/> </div>
+   <p>In this example, <strong>project-id-123456</strong> is the project and <strong>all_billing_data</strong> is the dataset.</p>
+   </details>
+5. On the **Share permissions** panel that appears on the right, click **+ ADD PRINCIPAL**.
+6. In the **New principals** field, under **Add principals**, search for and select the Vantage service account.
+   :::tip
+   Copy the full name of your service account from the Vantage console into the search field to search for it.
+   :::
+7. In the **Role** field, under **Assign roles**, search for and select **BigQuery Data Viewer**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Grant BigQuery dataset access" width="80%" src="/img/connect-gcp/gcp-grant-dataset-access.png"/> </div>
+   </details>
+8. Click **SAVE**.
 
-### Assign Vantage Service Account Permission to Access BigQuery Dataset
+### Step 3: Add Your GCP Configuration Information to the Vantage Console {#gcp-config-info}
 
-1. In the hamburger menu, navigate to **BigQuery** under **ANALYTICS** and select **SQL Workspace**
-2. Grant Vantage service account access to the BigQuery dataset:
-   1. Select the project name
-   2. Select the dataset by clicking the **three vertical dots** button and selecting **Open**
-   3. Click the **Share** button and select **Permissions**
-   4. Under New principals, add your Vantage service account
-   5. Attach the role, `BigQuery Data Viewer`
-   6. Click the **Save** button
-3. Return to the Vantage GCP onboarding workflow and click the **Next** button
+Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) to complete the integration process.
+
+1. At the bottom of the Vantage GCP Integration page, click **Add Project Info**. A pop-up is displayed, which requires your Billing account ID, the project ID for the project that hosts the BigQuery dataset, and the BigQuery dataset name.
+2. To obtain your **Billing Account ID**:
+   - Go to [**GCP Billing**](https://console.cloud.google.com/billing).
+   - Copy the value for your billing account, displayed in the **Billing account ID** column. It will look something like `1234AB-123456-7ABC12`.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="GCP Billing account ID screen" width="80%" src="/img/connect-gcp/gcp-billing-account-id.png"/> </div>
+   </details>
+3. To obtain your **Project ID hosting BigQuery dataset** and **BigQuery Dataset Name**:
+   - In the **Dataset info** screen of BigQuery (previously opened in step 3 of the last section), observe the value on the **Dataset ID** line.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="BigQuery dataset details" width="80%" src="/img/connect-gcp/gcp-dataset-id.png"/> </div>
+   </details>
+   - Copy everything before the period. For example, in **project-id-123456.all_billing_data**, copy only **project-id-123456**. Paste this in the **Project ID hosting BigQuery dataset** field in Vantage.
+   - Copy everything after the period and paste it in the **BigQuery Dataset Name** field in Vantage. (For example, in **project-id-123456.all_billing_data**, copy **all_billing_data**.)
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Vantage console configuration" width="80%" src="/img/connect-gcp/gcp-vantage-console.png"/> </div>
+   </details>
+4. Click **Connect Account**.
+
+:::caution Important
+It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
+:::
 
 ## Feature Availability and Resource Costs
 
-Google Cloud costs are available inside [Cost Reports](/cost_reports), with resource level costs available for the following services:
+The following GCP services are available with resource-level costs in [Cost Reports](/cost_reports):
 
 - Compute Engine
 - Cloud Functions
@@ -74,7 +124,7 @@ Google Cloud costs are available inside [Cost Reports](/cost_reports), with reso
 - Cloud Spanner
 - App Engine
 
-Google Cloud is not currently available as part of:
+Google Cloud is not currently available in the following features:
 
 - [Autopilot](/autopilot)
 - [Savings Planner](/savings_planner)
