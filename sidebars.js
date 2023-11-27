@@ -42,6 +42,7 @@ module.exports = {
       collapsed: false,
       label: "API and Terraform",
       items: [
+        "api",
         "terraform",
         "terraform_cloud_integration",
         "vql",
