@@ -43,7 +43,6 @@ module.exports = {
       label: "API and Terraform",
       items: [
         "terraform",
-        "terraform_cloud_integration",
         "vql",
         "data_dictionary",
       ],     
