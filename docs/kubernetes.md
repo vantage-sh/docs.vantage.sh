@@ -62,10 +62,10 @@ Efficiency metrics are available immediately after your OpenCost metrics are imp
 ## Integration Methods
 
 :::tip
-Vantage recommends integrating with the [Vantage Kubernetes Agent](/kubernetes_agent) to utilize the most granular reporting features and the cost-efficiency metrics. 
+Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_agent) to utilize the most granular reporting features and the cost-efficiency metrics. 
 :::
 
-For the Vantage Kubernetes Agent, costs are exported from the cluster hourly and then made available nightly. It's important to note that these costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
+For the Vantage Kubernetes agent, costs are exported from the cluster hourly and then made available nightly. It's important to note that these costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
 
 For OpenCost integrations, while we work to upstream the efficiency metrics into the main OpenCost project, you can deploy the Vantage-maintained OpenCost branch via [the repository](https://quay.io/repository/vantage-sh/opencost?tab=tags&tag=latest).
 

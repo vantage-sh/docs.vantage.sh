@@ -12,7 +12,7 @@ keywords:
 Vantage follows the official [AWS documentation](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-common-scenarios.html#CloudWatch-Agent-send-to-different-AWS-account) on securely sending CloudWatch logs to another AWS account to ingest Kubernetes costs through Container Insights.
 
 :::note
-The steps below are for users who choose to use Container Insights instead of the recommended [Vantage Kubernetes Agent](/kubernetes_agent) integration.
+The steps below are for users who choose to use Container Insights instead of the recommended [Vantage Kubernetes agent](/kubernetes_agent) integration.
 :::
 
 ## Deploy CloudWatch Agent with Cross-Account ARN

@@ -59,7 +59,7 @@ Vantage currently supports cost recommendations for Compute Reserved Instances a
 
 ## Kubernetes and AKS
 
-Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage recommends using the [Vantage Kubernetes Agent](/kubernetes_agent) to monitor and ingest Kubernetes costs from Azure.
+Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage recommends using the [Vantage Kubernetes agent](/kubernetes_agent) to monitor and ingest Kubernetes costs from Azure.
 
 ## Feature Availability for Azure
 

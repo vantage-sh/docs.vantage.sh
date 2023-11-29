@@ -53,7 +53,7 @@ Next, create a data integration between at least one of your providers and Vanta
       icon: '/img/logos/logo-icon-kubernetes.svg',
       iconAltText: 'Kubernetes logo',
       title: 'Kubernetes',
-      content: 'Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by container, service, namespace and label. The Vantage Kubernetes Agent is the recommended integration point for ingesting Kubernetes costs into Vantage.',
+      content: 'Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by container, service, namespace and label. The Vantage Kubernetes agent is the recommended integration point for ingesting Kubernetes costs into Vantage.',
       link: "/connecting_kubernetes",
     },
     {

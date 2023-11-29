@@ -14,7 +14,7 @@ The Vantage Kubernetes agent is the default, recommended configuration to ingest
 
 ## Agent Functionality 
 
-The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole, included in the Vantage [Kubernetes Agent Helm chart](https://github.com/vantage-sh/helm-charts). 
+The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole, included in the Vantage Kubernetes agent [Helm chart](https://github.com/vantage-sh/helm-charts). 
 
 Data is periodically collected and stored for aggregation, then sent directly to the Vantage service through an API, with your Vantage API token for authentication. This process avoids extra storage costs incurred by the OpenCost integration. The agent's architecture eliminates the need for deploying OpenCost-specific Prometheus pods, which makes scaling easier. 
 
