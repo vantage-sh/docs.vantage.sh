@@ -18,6 +18,10 @@ The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-api
 
 Data is periodically collected and stored for aggregation, then sent directly to the Vantage service through an API, with your Vantage API token for authentication. This process avoids extra storage costs incurred by the OpenCost integration. The agent's architecture eliminates the need for deploying OpenCost-specific Prometheus pods, which makes scaling easier. 
 
+<div style={{ display: "flex", justifyContent: "center", borderRadius: 10, boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}>
+    <img alt="Vantage Kubernetes agent architecture diagram" width="60%" src="https://assets.vantage.sh/blog/announcing-the-official-kubernetes-integration/vantage-kubernetes-agent-architecture.png" style={{ borderRadius: 10 }} />
+</div>
+
 ## Service Compatibility
 
 The Vantage Kubernetes agent is compatible with the following services: 
@@ -65,6 +69,14 @@ To set up a _new_ Kubernetes agent connection:
    ```bash
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
+
+### (Optional) Enable Collection of Annotations and Namespace Labels
+
+You can optionally enable the collection of Annotations and Namespace labels.
+
+- **Annotations.** The agent accepts a comma-separated list of annotation keys, called `VANTAGE_ALLOWED_ANNOTATIONS`, as an environment variable at startup. To enable collection of Annotations, configure the `agent.allowedAnnotations` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with a list of Annotations to be sent to Vantage. Note there is a max of 10 annotations, and values are truncated after 100 characters.
+- **Namespace labels.** The agent accepts `VANTAGE_COLLECT_NAMESPACE_LABELS` as an environment variable at startup. To enable collection of Namespace labels, configure the `agent.collectNamespaceLabels` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L34).
+  
 ### Resource Usage {#resource-usage}
 
 The limits provided within the Helm chart are set low to support small clusters (approximately 10 nodes) and should be considered the minimum values for deploying an agent.
@@ -124,7 +136,7 @@ To understand which type to use for your cluster, you can look at the available 
 
 ## Migrate Costs from OpenCost to Vantage Kubernetes Agent
 
-If you are moving from an OpenCost integration to the agent-based integration, you can contact [support@vantage.sh](mailto:support@vantage.sh) to have your previous integration data maintained.
+If you are moving from an OpenCost integration to the agent-based integration, you can contact [support@vantage.sh](mailto:support@vantage.sh) to have your previous integration data maintained. Any overlapping data will be removed from the agent data by the Vantage team.
 
 ### Maintaining OpenCost Filters
 
