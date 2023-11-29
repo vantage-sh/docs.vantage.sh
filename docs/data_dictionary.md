@@ -12,7 +12,13 @@ keywords:
 
 Each provider that Vantage integrates with makes different fields available in their billing data. This data is normalized into the the fields below. These fields are queryable via the [Vantage API](https://vantage.readme.io/reference/general) and used when constructing [VQL](/vql) statements.
 
-:::tip
+Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`. 
+- The Filter is the friendly name that is displayed on Cost Report filters within the Vantage console. 
+- The API Field Name is the normalized version of the filter name. 
+- The Data Type indicates that type of data that is accepted for that field. 
+- `namespace.field` is how that field is referenced in a VQL query (e.g., `costs.provider = 'aws'`, where `costs` is the namespace and `provider` is the field).
+
+:::info
 See the [list of VQL examples](/vql#examples) for information on how to use these fields.
 :::
 
