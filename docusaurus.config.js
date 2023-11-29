@@ -76,6 +76,10 @@ const config = {
             from: "/permissions_gcp",
             to: "/connecting_gcp",
           },
+          {
+            from: "/terraform_cloud_integration",
+            to: "/terraform",
+          },
         ],
       },
     ],
