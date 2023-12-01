@@ -44,7 +44,6 @@ module.exports = {
       items: [
         "api",
         "terraform",
-        "terraform_cloud_integration",
         "vql",
         "data_dictionary",
       ],     

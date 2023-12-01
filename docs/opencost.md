@@ -12,7 +12,7 @@ keywords:
 [OpenCost](https://www.opencost.io) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Once OpenCost is deployed on your Kubernetes cluster, Vantage can ingest costs by leveraging the Prometheus remote write functionality to retrieve and ingest cluster costs accordingly to make available in the Vantage console. All Kubernetes environments are supported by OpenCost, including AWS, GCP, Azure, and on-premises, are supported by Vantage.
 
 :::note
-The steps below are for integrations that use OpenCost instead of the recommended [Vantage Kubernetes Agent](/kubernetes_agent) integration.
+The steps below are for integrations that use OpenCost instead of the recommended [Vantage Kubernetes agent](/kubernetes_agent) integration.
 :::
 
 ## Deploy and Integrate with OpenCost
