@@ -141,7 +141,7 @@ const config = {
                 to: "/",
               },
               {
-                label: "Integrations",
+                label: "Integrations Quickstart",
                 to: "/getting_started",
               },
               {
@@ -193,6 +193,27 @@ const config = {
               {
                 label: "Vantage Status",
                 to: "https://status.vantage.sh/",
+              },
+            ],
+          },
+          {
+            title: "Company",
+            items: [
+              {
+                label: "About",
+                to: "https://www.vantage.sh/about/",
+              },
+              {
+                label: "Privacy Policy",
+                to: "https://www.vantage.sh/privacy-policy",
+              },
+              {
+                label: "Terms of Service",
+                to: "https://www.vantage.sh/terms-of-service",
+              },
+              {
+                label: "Authorized Sub-Processors",
+                to: "https://www.vantage.sh/subprocessors",
               },
             ],
           },
