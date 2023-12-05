@@ -116,7 +116,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 
 ## Google Cloud {#google-cloud-platform}
 
-| Filter          | API Field Name        | Data Types | `namespace.field`           |
+| Filter          | API Field Name        | Data Type | `namespace.field`           |
 | --------------- | --------------------- | ---------- | --------------------------- |
 | Project         | `account_id`          | string     | `costs.account_id`          |
 | Billing Account | `provider_account_id` | string     | `costs.provider_account_id` |
