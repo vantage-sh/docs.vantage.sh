@@ -120,6 +120,9 @@ const config = {
   
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
+
+        // disables personalization such as favorites and recent searches
+        disableUserPersonalization: true,
       },
       navbar: {
         logo: {
