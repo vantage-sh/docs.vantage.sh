@@ -18,9 +18,8 @@ A Segment is a set of filters that represents a portion of costs for your organi
 
 You can leverage Segments for a number of use cases, including the below examples.
 
-- If you want to use Segments to break costs into OPEX vs. R&D, you can segment your costs accordingly using the appropriate filter logic.
-- If you want to have hierarchical drill downs of costs for allocation purposes, you can created nested Segments that represent organizational costs accordingly.
-- Unallocated costs are costs that are captured by a Segments filters but are not allocated to any child Segments. For example, if you have two Segments defined for **OPEX** and **R&D**, any costs that do not match the logic associated with either these filters will fall into an **Unallocated** Segment. The Unallocated Segment is automatically displayed at the root segment level.
+- **Map costs to business units.** You can use nested hierarchies for cost allocation. For example, you can see costs grouped by an “Infrastructure Engineering” team, then drill down into all the various sub-teams, like "Infrastructure Engineering Team 1” and “Infrastructure Engineering Team 2." Team 1 and Team 2 costs together comprise the total cost allocation line-item for Infrastructure Engineering.
+- **Maintain tag governance.** You can create a Segment for a particular tag key you want to enforce across your organization. Whenever there are costs in the “Unallocated” portion of the report, you can go and identify resources to assign to the proper team or service. Unallocated costs are costs that are captured by a Segment's filters but are not allocated to any child Segments. For example, if you have two Segments defined for **OPEX** and **R&D**, any costs that do not match the logic associated with either of these filters will fall into an _Unallocated Segment_. The Unallocated Segment is automatically displayed at the root Segment level.
 
 ## Create a Segment
 
@@ -29,15 +28,15 @@ Follow the steps below to create a Segment.
 1. From the top navigation, click **Cost Reporting**.
 2. On the left navigation, select **Segments**. If you have Segments present in your account, a full list of top-level Segments is displayed in the view on the right, sorted alphabetically.
 3. To create a new Segment, click **New Segment**.
-4. Set the following parameters for the new segment:
-   - For **Name**, enter a unique string (e.g., **OPEX**). This field is required.
-   - For **Description**, optionally enter a text description of the Segment.
+4. Set the following parameters for the new Segment:
+   - For **Name**, enter a unique string (e.g., _OPEX_). This field is required.
+   - For **Description**, optionally enter a text description for the Segment.
    - If you want to optionally track unallocated costs, click the toggle next to **Track unallocated**. _This option is displayed only for the root or parent segment._
-   - For **Priority**, enter a numeric value (e.g., _100_). Costs are allocated in order of priority, with 0 as the highest priority. This field is required if Filters are specified (as described in the next step). If you do not specify filters, this field is optional.
+   - For **Priority**, enter a numeric value (e.g., _100_). Costs are allocated in order of priority, with 0 as the highest priority. This field is required if filters are specified (as described in the next step). If you do not specify filters, this field is optional.
      :::note
-     Once a cost is allocated to a segment, it will not appear in a segment with a higher priority; however you likely will not need to worry about priority unless your organization has deep scrutiny on cost allocation collision.
+     Once a cost is allocated to a Segment, it will not appear in a Segment with a higher priority; however, you likely will not need to worry about priority unless your organization has deep scrutiny on cost allocation collision.
      :::
-5. Filters allocate costs to the Segment and are optional. To create a Filter click **+ Add a Filter** and configure the following values:
+5. Filters allocate costs to the Segment and are optional. To create a filter, click **+ Add a Filter** and configure the following values:
    - Select a **Provider**.
    - Click **New Rule** to add additional logic, such as **Region** or **Category** filters. Segment filters are like filters in Cost Reports. See [Filter Cost Reports](/cost_reports#filtering-cost-reports) for a more detailed explanation of filters.
     <details><summary>Click to view example image</summary>
@@ -46,14 +45,14 @@ Follow the steps below to create a Segment.
     <img alt="Create Cost Filters for Segment" width="80%" src="/img/create-segment.png" />
     </div>
    </details>
-6. At the bottom, click **Save**. You will see a message indicating **"A Segment Report will appear here when the segment is finished refreshing"** while the Cost Report for the Segment is generated. Depending on the filter's complexity, it can take some time for the Segment report to create (up to 24 hours).
+6. At the bottom, click **Save**. You will see a message indicating **"A Segment Report will appear here when the segment is finished refreshing"** while the Cost Report for the Segment is generated. Depending on the filter's complexity, it can take some time for the Segment report to generate (up to 24 hours).
 
 ### Edit a Segment
 
 :::note
-If you make additional changes to filter or segment title, it can take up to 24 hr. to see those changes reflected.
+If you make additional changes to filter or Segment title, it can take up to 24 hours to see those changes reflected in the console.
 :::
-You can edit a Segment's title and description, priority, and filters. To edit this criteria, click the pencil icon next to the Segment name. Then, update and save the new criteria.
+You can edit a Segment's title and description, priority, and filters. To edit these criteria, click the pencil icon next to the Segment name. Then, update and save the new criteria.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Multi-dimensional Grouping" width="90%" src="/img/edit-segment.png" />
@@ -63,20 +62,20 @@ You can edit a Segment's title and description, priority, and filters. To edit t
 
 On the `/segments` endpoint in the Vantage API, you can update the `parent_segment_token` parameter to move a child Segment to a new parent Segment. This feature is _only available_ in the API. See the API documentation for more information. 
 
-### View Segments
+### View and Create Child Segments
 
-You can create child Segments and nest Segments within one another. Costs associated with nested Segments/filters will be rolled up to any parent segments. To add a a child Segment to a parent Segment, navigate to the parent Segment, and click **+ New Segment**. The image below shows and example of a group of nested Segments.
+You can create child Segments and nest Segments within one another. Costs associated with nested Segments/filters will be rolled up to any parent Segments. To add a child Segment to a parent Segment, navigate to the parent Segment, and click **+ New Segment**. The image below shows an example of a group of nested Segments.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Multi-dimensional Grouping" width="80%" src="/img/view-segments.png" />
 </div>
 
-- In the above example, **Vantage** is the top-level segment.
-- The **Vantage** Cost Report is displayed at the bottom of the list.
-- In this example, we selected the option to show **Unallocated costs** when creating this parent Segment.
+- In the above example, **Vantage** is the top-level Segment (as displayed in the breadcrumbs at the top of the screen).
+- The **Vantage** Segment Cost Report is displayed at the bottom of the list.
+- In this example, we selected the option to show **Unallocated costs** when creating this parent Segment. The corresponding **Unallocated** Segment Cost Report is displayed in the list. 
 - The **Vantage** parent Segment has two child Segments: **OPEX** and **R&D**.
 
-Select a child Segment. You will see additional third-level child Segments as well as the associated child Segment Cost Report. In the below image, the **R&D** child Segment Cost Report is displayed. R&D contains no additional child Segments.
+Select a child Segment. You will see additional third-level child Segments as well as the associated child Segment Cost Report. In the below image, the **R&D** child Segment Cost Report is displayed. R&D contains no additional child Segments. Observe the breadcrumbs at the top, which also indicate **R&D** is a child Segment of **Vantage**. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Create Cost Filters for Segment" width="80%" src="/img/child-segment.png" />
@@ -86,11 +85,11 @@ Select a child Segment. You will see additional third-level child Segments as we
 
 Select a Segment report to view the associated costs. On the report, costs are displayed for all associated child Segments.
 
-- The report is filtered to **Group By: Segment** to show costs broken out by the child segments within that Segment. In the below example, costs are grouped by **Customers**, **OPS**, and **Production** within the **OPEX** segment.
-- Change the filter to view by other grouping, such as **Account**.
-- From the resource list at the bottom, you can isolate costs displayed within the chart. 
-- To the right of the chart, you can change the date range and date bin (e.g., daily, weekly, monthly).
-- Like in Cost Reports, options to [Export](/cost_reports#exporting-cost-reports), create a [report notification](/reports), and assign to [budgets](/budgets) are also available. 
+- The report is filtered to **Group By: Segment** to show costs broken out by the child Segments within that Segment. In the below visual example, costs are grouped by **Customers**, **OPS**, and **Production** within the **OPEX** Segment. This is because **Customers**, **OPS**, and **Production** are all third-level child Segments for **OPEX**. 
+- Change the filter to view the data by another grouping, such as **Account**.
+- From the resource list at the bottom, click the icons next to each resource to isolate costs displayed within the chart. 
+- At the top right of the chart, you can change the date range and date bin (e.g., daily, weekly, monthly).
+- Like Cost Reports, options to [Export](/cost_reports#exporting-cost-reports), create a [report notification](/reports), and assign to [Budgets](/budgets) are also available. 
 
 <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
     <div style={{ position: "relative", zIndex: 1 }}>
@@ -118,5 +117,5 @@ Select a Segment report to view the associated costs. On the report, costs are d
 
 ## Segments in Overview
 
-A Segment widget is displayed for each top-level Segment on the [Overview](/overview/) screen. The widget shows table of second-level Segments and a comparison of costs for this month vs. last. You can select any of these Segments to view the corresponding Cost Report.
+A Segment widget is displayed for each top-level Segment on the [Overview](/overview/) screen. This Segments widget shows a table of second-level Segments and a comparison of costs for this month vs. last. You can select any of these Segments to view the corresponding Cost Report.
 
