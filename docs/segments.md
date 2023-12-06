@@ -114,6 +114,9 @@ Select a Segment report to view the associated costs. On the report, costs are d
 </div>
 <br />
 
+:::note
+If you would like to transition existing Cost Report filters to Segments, you must manually re-create them. For assistance, contact Support at [support@vantage.sh](mailto:support@vantage.sh).
+:::
 
 ## Segments in Overview
 
