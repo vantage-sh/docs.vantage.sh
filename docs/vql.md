@@ -157,7 +157,7 @@ VQL includes a set of keywords to create complex filter conditions. These keywor
 | `AND`   | Logical AND operator                  | `costs.provider = 'aws' AND costs.service = 'EC2'`                                  | This example filters AWS costs for the EC2 service, where both conditions must be true.                                                                                                                                                                                                                                                                                                                                                                                          |
 | `OR`    | Logical OR operator                   | `costs.provider = 'azure' OR costs.provider = 'aws'`                                | This example retrieves costs from either Azure or AWS. At least one condition must be true.                                                                                                                                                                                                                                                                                                                                                                                      |
 | `IN`    | Used to compare against an array list | `costs.provider = 'azure' AND costs.account_id IN ('account-1', 'account-2')`       | This example filters based on a list of account IDs, returning data for the specified accounts.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`.                                                                                                                                                                                                                                                                                                                                                                                           |
+| `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`. <br /> Note that at this time, `LIKE` is not compatible with `costs.account_id`, `costs.provider_account_id`, `costs.region`, and `costs.service`.                                                                                                                                                                                                                                               |
 | `NOT`   | Represents negation                   | `costs.provider = 'aws' AND costs.region NOT IN ('us-east-1', 'us-east-2')`         | This example filters out data from both specified regions, providing all AWS costs _not_ in these regions. Use `NOT IN` to specify a list of single or multiple values. <br/><br/> You can also use the `!=` or `<>` operators for "is not." <br/><br/> `costs.provider = 'aws' AND costs.region != 'us-east-1'`<br/><br/>You can use `NOT LIKE` to perform string comparisons:<br/><br/>`costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value NOT LIKE '%prod%'` |
 
 With these keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
@@ -320,6 +320,7 @@ If you are receiving an error when trying to complete a query, check the followi
   :::
 - Category and subcategory costs also require provider and service.
   :::tip These work
+
   ```
   "filter": "costs.provider = 'fastly' AND costs.service = 'CDN' AND costs.category = 'Data Transfer'"
   ```
@@ -327,8 +328,10 @@ If you are receiving an error when trying to complete a query, check the followi
   ```
   "filter": "costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'"
   ```
+
   :::
   :::danger These do not work
+
   ```
   "filter": "costs.provider = 'fastly' AND costs.category = 'Data Transfer'"
   ```
@@ -336,5 +339,5 @@ If you are receiving an error when trying to complete a query, check the followi
   ```
   "filter": "costs.provider = 'aws' AND costs.subcategory = 'USE1-PaidPrivateCA'"
   ```
-  :::
 
+  :::
