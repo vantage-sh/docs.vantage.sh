@@ -53,12 +53,13 @@ const config = {
   ],
 
   plugins: [
-    [
-      require.resolve("@cmfcmf/docusaurus-search-local"),
-      {
-        indexBlog: false,
-      },
-    ],
+    // Un-comment to use local search in the event Algolia ever goes down
+    // [
+    //   require.resolve("@cmfcmf/docusaurus-search-local"),
+    //   {
+    //     indexBlog: false,
+    //   },
+    // ],
     'docusaurus-plugin-sass',
     [
       require.resolve("@docusaurus/plugin-client-redirects"),
@@ -100,6 +101,36 @@ const config = {
         defaultMode: "light",
         disableSwitch: true,
         respectPrefersColorScheme: false,
+      },
+      algolia: {
+        // The application ID provided by Algolia
+        appId: 'FETJSHIQX2',
+  
+        // Public API key: it is safe to commit it
+        apiKey: 'db0617cc49d4d8f18b6358e96617261d',
+  
+        indexName: 'vantage',
+  
+        // Optional: see doc section below
+        contextualSearch: true,
+  
+        // Optional: Specify domains where the navigation should occur through window.location instead on history.push. Useful when our Algolia config crawls multiple documentation sites and we want to navigate with window.location.href to them.
+        // externalUrlRegex: 'external\\.com|domain\\.com',
+  
+        // Optional: Replace parts of the item URLs from Algolia. Useful when using the same search index for multiple deployments using a different baseUrl. You can use regexp or string in the `from` param. For example: localhost:3000 vs myCompany.com/docs
+        // replaceSearchResultPathname: {
+        //  from: '/docs/', // or as RegExp: /\/docs\//
+        //  to: '/',
+        //},
+  
+        // Optional: Algolia search parameters
+        searchParameters: {},
+  
+        // Optional: path for search page that enabled by default (`false` to disable it)
+        searchPagePath: 'search',
+
+        // disables personalization such as favorites and recent searches
+        disableUserPersonalization: true,
       },
       navbar: {
         logo: {
