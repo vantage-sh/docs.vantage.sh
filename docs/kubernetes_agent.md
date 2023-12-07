@@ -68,7 +68,7 @@ To set up a _new_ Kubernetes agent connection:
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
 
-### (Optional) Enable Collection of Annotations and Namespace Labels
+### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
 You can optionally enable the collection of Annotations and Namespace labels.
 
