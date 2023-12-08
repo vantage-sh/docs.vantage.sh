@@ -17,11 +17,11 @@
 }
 
 .custom-card:hover {
-  transform: none;
+  transform: none !important;
 }
 
 .custom-card:hover a {
-  color: #FFF;
+  color: #FFF !important;
   text-decoration: none;
 }
 

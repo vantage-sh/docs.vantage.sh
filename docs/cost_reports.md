@@ -6,7 +6,7 @@ Below is an example of what a Cost Report will look like after you have connecte
 
 ![Example Cost Report](/img/cost-report-connected.png)
 
-## Filtering Cost Reports
+## Filtering Cost Reports {#filtering-cost-reports}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Filtering Cost Reports" width="60%" src="/img/cost_filters.png" />
