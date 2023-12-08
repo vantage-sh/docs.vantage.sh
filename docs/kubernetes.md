@@ -40,9 +40,9 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 ### View Kubernetes Efficiency Metrics
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
-2. On the left navigation menu, select and option to view connected **Clusters**, **Namespaces**, or **Labels**. Each view contains a graph as well as a table with the following headings:
+2. On the left navigation menu, select an option to view connected **Clusters**, **Namespaces**, or **Labels**. Each view contains a graph as well as a table with the following headings:
    - **Name.** The name of the Cluster, Namespace, or Label you’re viewing.
-   - **Idle Costs.** A dollar value representation for the number of resources requested idle resources.
+   - **Idle Costs.** A dollar value representation of the number of resources requested that are idle.
    - **Total Costs.** A dollar value representation of the total cost of the resources.
    - **Cost Efficiency.** The percent ratio of idle costs to total costs.
 3. Filter a cluster's efficiency metrics by date or resource:
@@ -51,7 +51,7 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 
 ### Create Efficiency Reports
 
-With Kubernetes efficiency reports you can filter your Kubernetes cost data and create reports based on their filters. You have the option to filter for costs by Cluster, Namespace, or Label.
+With Kubernetes efficiency reports you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
 Labels include namespace labels, and if enabled in your Kubernetes agent integration, [annotations](/annotations). See the [Vantage Kubernetes agent documentation](/kubernetes#enable-annotations-namespace-labels) for information on how to enable these parameters.
@@ -62,7 +62,7 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
 3. From the top right of the screen, click **New Report**. Like the efficiency metrics view, a chart with idle costs is displayed. Below the chart, a table is displayed with the following columns: the resource's name, **Idle Costs**, **Total Costs**, and **Cost Efficiency**.
 4. To filter costs, click the **Filters** button at the top left of the chart:
    - The **Kubernetes costs where...** tile is displayed. Click **+ New Rule**.
-   - For **Category**, select wither **Cluster**, **Namespace**, or **Label**.
+   - For **Category**, select either **Cluster**, **Namespace**, or **Label**.
    - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the list.
    - Click **Save**.
    <details><summary>Click to view visual example</summary>
@@ -71,8 +71,8 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
    </div>
    </details>
 5. You can optionally edit your existing rule or add additional filter criteria:
-   - To edit the rule you just created, select the rule, make your changes, then, click **Save**.
-   - I you want to add a rule to filter multiple criteria, such as filter by certain Clusters and another rule to filter by certain Namespaces, click **+ New Rule**. Add the additional criteria and save.
+   - To edit the rule you just created, select the rule, make your changes, then click **Save**.
+   - If you want to add a rule to filter multiple criteria, such as filter by certain Clusters and another rule to filter by certain Namespaces, click **+ New Rule**. Add the additional criteria and save.
    - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or Kubernetes costs where...**.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
    <details><summary>Click to view visual example</summary>
@@ -88,9 +88,9 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
    - To change the date range, click the date picker at the top right of the graph and adjust the date range.
 8. To save the efficiency report, click **Save as New**. To edit the name, click the pencil icon next to the existing report name in the report breadcrumbs, then click **Save**.
 
-You can edit the filter criteria on a report at any time. Ensure you click **Save** once you are done making changes.
+You can edit the filter criteria on a report at any time. Remember to click **Save** once you are done making changes.
 
-### Add an Efficiency Report to Dashboard
+### Add an Efficiency Report to a Dashboard
 
 You can add your efficiency reports to [Dashboards](/cost_reports#dashboards). These reports wil be displayed on the dashboard, along with other cost and segment reports
 
@@ -116,8 +116,6 @@ Idle costs are defined as the difference between the cost of requested resources
 idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
-
-Efficiency metrics are available immediately after your OpenCost metrics are imported, generally once per day. For more information on how container costs are allocated for OpenCost integrations, see the [OpenCost specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md).
 
 ## Kubernetes Integration Methods
 
