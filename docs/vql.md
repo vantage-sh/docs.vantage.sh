@@ -136,7 +136,7 @@ VQL comprises two namespaces, `costs` and `tags`, which represent the available 
     <tr>
       <td rowspan="2" style={{ textAlign: 'center' }}><code>tags</code></td>
       <td><code>name</code></td>
-      <td rowspan="2"><a href="#tags">Tags name/value example</a></td>
+      <td rowspan="2"><ul><li><a href="#tags">Tags name/value example</a></li><li><a href="#untagged">Untagged example</a></li></ul></td>
     </tr>
     <tr>
       <td><code>value</code></td>
@@ -187,7 +187,7 @@ costs.provider = 'mongo' OR costs.provider = 'aws'
 Set cost allocation to `0.5`.
 
 ```sql
-costs.allocation = 0.5
+costs.provider = 'gcp' AND costs.allocation = 0.5
 ```
 
 ### Costs from a List of Regions {#region}
@@ -266,18 +266,12 @@ costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'productio
 costs.provider = 'azure' AND tags.name = 'environment' AND tags.value LIKE '%prod%'
 ```
 
-#### Filter for a List of Tags
+### Filter for Untagged Resources {#untagged}
+
+On providers that have a **Not Tagged**/**Not Labeled** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment. 
 
 ```sql
-costs.provider = 'aws' AND tags.name = 'team-name' AND tags.value IN ('ruby', 'blue', 'gold', 'edge', 'custom-dev')
-```
-
-#### Filter for Untagged Resources
-
-See untagged costs for a multi-cloud organization.
-
-```sql
-(costs.provider = 'aws' AND tags.name != '') OR (costs.provider = 'azure' AND tags.name != '') OR (costs.provider = 'gcp' AND tags.name != '')
+(costs.provider = 'aws' AND tags.name = NULL) OR (costs.provider = 'azure' AND tags.name = NULL) OR (costs.provider = 'gcp' AND tags.name = NULL)
 ```
 
 ## Troubleshooting
@@ -285,59 +279,87 @@ See untagged costs for a multi-cloud organization.
 If you are receiving an error when trying to complete a query, check the following troubleshooting tips below.
 
 - Each provider exposes certain names to the API. Those names are normalized within the schema. Check the [Data Dictionary](/data_dictionary) for normalized field names.
-- Query parameter values should be wrapped in single quotes:
+- Query parameter values should be wrapped in single quotes.
+  <details><summary>Click to view examples</summary>
+
   :::tip This works
-  ```
-  "filter": "costs.provider='aws'"
-  ```
-  :::
-  :::danger This does not work
-  ```
-  "filter": "costs.provider="aws""
+  ```sql
+  costs.provider='aws'
   ```
   :::
-- The `costs.provider` field is required on every call:
+  :::caution This does not work
+  ```sql
+  costs.provider="aws"
+  ```
+  :::
+
+  </details>
+- Currently, there is a limitation where `AND` and `OR` are not supported together in a single "query group."
+  <details><summary>Click to view examples</summary>
+
   :::tip This works
-  ```
-  "filter": "costs.provider = 'fastly' AND costs.service = 'CDN'"
-  ```
-  :::
-  :::danger This does not work
-  ```
-  "filter": "costs.service = 'CDN'"
+  ```sql
+  (costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'dev') OR (costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'prod')
   ```
   :::
+  :::caution This does not work
+  ```sql
+  costs.provider = 'aws' AND ((tags.name = 'environment' AND tags.value = 'dev') OR (tags.name = 'environment' AND tags.value = 'prod'))
+  ```
+  :::
+
+  </details>
+- The `costs.provider` field is required on every call.
+  <details><summary>Click to view examples</summary>
+
+  :::tip This works
+  ```sql
+  costs.provider = 'fastly' AND costs.service = 'CDN'
+  ```
+  :::
+  :::caution This does not work
+  ```sql
+  costs.service = 'CDN'
+  ```
+  :::
+
+  </details>
 - Resource costs require both provider and service in addition to the resource ID.
+  <details><summary>Click to view examples</summary>
+
   :::tip This works
-  ```
-  "filter": "costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'"
-  ```
-  :::
-  :::danger This does not work
-  ```
-  "filter": "costs.provider = 'aws' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'"
+  ```sql
+  costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'
   ```
   :::
+  :::caution This does not work
+  ```sql
+  costs.provider = 'aws' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'
+  ```
+  :::
+
+  </details>
 - Category and subcategory costs also require provider and service.
+  <details><summary>Click to view examples</summary>
+
   :::tip These work
-
-  ```
-  "filter": "costs.provider = 'fastly' AND costs.service = 'CDN' AND costs.category = 'Data Transfer'"
-  ```
-
-  ```
-  "filter": "costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'"
+  ```sql
+  costs.provider = 'fastly' AND costs.service = 'CDN' AND costs.category = 'Data Transfer'
   ```
 
+  ```sql
+  costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'
+  ```
   :::
-  :::danger These do not work
 
-  ```
-  "filter": "costs.provider = 'fastly' AND costs.category = 'Data Transfer'"
-  ```
-
-  ```
-  "filter": "costs.provider = 'aws' AND costs.subcategory = 'USE1-PaidPrivateCA'"
+  :::caution These do not work
+  ```sql
+  costs.provider = 'fastly' AND costs.category = 'Data Transfer'
   ```
 
+  ```sql
+  costs.provider = 'aws' AND costs.subcategory = 'USE1-PaidPrivateCA'
+  ```
   :::
+
+  </details>
