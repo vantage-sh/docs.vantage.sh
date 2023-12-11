@@ -54,7 +54,7 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 With Kubernetes efficiency reports, you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
-Labels include namespace labels, and if enabled in your Kubernetes agent integration, [annotations](/annotations). See the [Vantage Kubernetes agent documentation](/kubernetes#enable-annotations-namespace-labels) for information on how to enable these parameters.
+Labels include namespace labels, and if enabled in your Kubernetes agent integration, annotations. See the [Vantage Kubernetes agent documentation](/kubernetes#enable-annotations-namespace-labels) for information on how to enable these parameters.
 :::
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
