@@ -38,7 +38,7 @@ Head to the [Saved Filters](https://console.vantage.sh/saved_filters) page in Co
 
 When combining multiple Saved Filters on Cost Reports, "AND" logic will be used. This is in contrast to combining multiple normal filters where "OR" logic is used.
 
-## Saving Cost Reports
+## Saving Cost Reports {#saving-cost-reports}
 
 When you have selected which filters to apply to the report you can save your changes and name the report. Select "Save As New" to create a new Cost Report with your changes or "Save Changes" to modify the current report. When you change the date range, date bucket (such as "Last 30 Days"), or Grouping you may also save those changes permanently. The new date range, date bucket, and grouping will persist to the [Overview](/overview) page. When saving a report which only includes changes to Filter Sets, the Overview page will show costs for the last 6 months.
 
@@ -70,7 +70,7 @@ Additionally, you can click in to see the category and subcategory costs on a pe
     <img alt="Example of a Single Resource Costs" width="80%" src="/img/per_resource_individual.png" />
 </div>
 
-## Percent Based Cost Allocation
+## Percent Based Cost Allocation {#percent-based-cost-allocation}
 
 It can be useful to show back shared resources like support costs or multi-tenant databases to the team or department utilizing them. As filters are set in a cost report, Vantage will query for costs that meet all of those conditions. In the event that a percentage is set by the customer on a Filter Set, that percentage will be applied to all of the matching costs and represented accordingly in the Cost Report.
 
@@ -133,7 +133,7 @@ To sort the table by multiple columns, Shift + Click on the column headers. You 
 
 **Limitations.** Costs by category and resource and forecasts are not currently supported when grouping by multiple dimensions. As costs can be duplicated across multiple tag keys, grouping by multiple tag keys is not supported.
 
-## Folders
+## Folders {#cost-report-folders}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Folders" width="80%" src="/img/folders-nobg.png" />
@@ -147,7 +147,7 @@ Cost Report folders give you an easy way to organize Cost Reports. You can quick
 
 Cost Report folders include several additional features for sharing and quickly viewing costs. By pressing the new "View in Overview" button in the top right of any folder, you can see all of its reports summarized on the Overview page. From that page you can also share a link with teammates. For example, you can organize all the costs associated with one team or business unit in one folder then share the link with that team so they can view all their costs in one place.
 
-## Exporting Cost Reports
+## Exporting Cost Reports {#exporting-cost-reports}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
@@ -180,7 +180,7 @@ When the Export is finished generating, you’ll receive an email with a link to
 
 To compare costs day by day, week by week, or month by month on Cost Reports you can toggle the "By Date" selector above the cost table. This will show a view of costs at the same date binning as selected for the graphical display of costs on the Cost Report. To switch back to the previous, current, and percent change view, select "Cumulative".
 
-## Dashboards
+## Dashboards {#dashboards}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Dashboards" width="80%" src="/img/dashboards.png" />

@@ -11,7 +11,7 @@ keywords:
 
 With team accountability and executive reporting in place, there are usually opportunities to turn off or optimize resources that are unexpectedly driving costs. Vantage has numerous "cost debugging" features to help you drill down into where your spend is going.
 
-## Review Active Resources
+## Review Active Resources {#active-resources}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Snowflake Cost Reports" width="60%" src="/img/active-resource-drill-down.png" />

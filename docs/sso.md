@@ -29,7 +29,7 @@ Before you can connect your IdP to Vantage, you will need the following:
 - Owner role access to Vantage
 - Your IdP's signing certificate and sign-on URL
 
-### Connect Your SAML IdP
+### Connect Your SAML IdP {#enable-connection}
 
 1. From the Vantage console, navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers).
 2. Click **New Connection**.

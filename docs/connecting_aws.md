@@ -6,13 +6,13 @@ Vantage understands security concerns and aims to provide as secure of a connect
 
 This means that Vantage **never** needs access credentials, account logins, or passwords for AWS.
 
-### Read-Only by Default
+### Read-Only by Default {#read-only-by-default}
 
 When you create a Cross-Account IAM Role using the provided CloudFormation template or by running the Terraform below, you provide Vantage with various [permissions](https://docs.vantage.sh/permissions_aws/). All these permissions, by default, are read-only. We created this list of permissions based on the official [AWS ReadOnlyAccess policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html). In addition, we removed some of the permissions AWS includes in this list to prevent Vantage from seeing information like reading from S3 buckets and reading from databases.
 
 Vantage only collects metadata about your infrastructure and never attempts to read sensitive information from the underlying services. Our CloudFormation template is public, and you can [audit the template's list of permissions here](https://vantage-public.s3.amazonaws.com/vantage-integration-latest.json).
 
-## Connecting Multiple AWS Accounts
+## Connecting Multiple AWS Accounts {#connecting-multiple-aws-accounts}
 
 Vantage allows you to connect multiple AWS accounts; however, we strongly advise that you connect your **root or management** AWS account first. When you connect the root account, you can see all costs for the organization, including linked accounts.
 
@@ -47,7 +47,7 @@ During onboarding, instead of following the CloudFormation process, you can use 
 
 If you want to create IAM roles manually or use another tool to manage your infrastructure, you can create the necessary cross-account role. During onboarding, instead of following the CloudFormation process, select the **IAM Role** option. You will be presented with a Trust Relationship and an Inline Policy that is required for the role. After creating the role, return to the onboarding page and submit the [ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html) of the created role to complete the connection.
 
-## AWS Data Ingestion Delay
+## AWS Data Ingestion Delay {#aws-data-ingestion-delay}
 
 Vantage creates both an IAM role as well as a [Cost and Usage Report (CUR)](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration through the same provided CloudFormation template and Terraform file. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS up to 24 hours to deliver the first CUR to Vantage. As a result, only partial data will be present until this first CUR is received.
 

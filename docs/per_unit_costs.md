@@ -20,7 +20,7 @@ You must be an owner in order to import unit metrics. Anyone with Editor and abo
 
 There a different options for importing unit metrics. For each import you must specify the aggregation function to be used as these metrics will be aggregated to the day.
 
-### Importing from CloudWatch
+### Importing from CloudWatch {#importing-from-cloudwatch}
 
 To import Business Metrics from CloudWatch you need a specific metric name and AWS account. If Vantage does not have a Cross Account IAM Role for this account one will have to be created.
 
@@ -44,7 +44,7 @@ Each AWS service that you use will have its own metrics that it [sends to CloudW
 
 Metrics will be imported for the last 6 months. They will be automatically synced up on a daily basis along with cost data from other integrations. 
 
-### Importing from a CSV
+### Importing from a CSV {#importing-from-a-csv}
 
 You can upload a CSV in a specific two column format which can either replace existing data on upload or be used to import new data. You may supply up to 6 months worth of metrics.
 
