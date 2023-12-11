@@ -11,10 +11,6 @@ keywords:
 
 Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis. Databricks delivers cost-only data to the bucket, outlining the Databricks service used, usage in Databricks Units (DBU), and metadata related to workspace, cluster, and any related tags.
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Databricks Cost Reports" width="60%" src="/img/databricks-cost-report.png" />
-</div>
-
 ## Connect Your Databricks Account
 
 ### Prerequisites
@@ -66,7 +62,7 @@ Databricks generally delivers usage logs once per day.
 
 ## Databricks Reporting Dimensions
 
-Databricks [Cost Reports](/cost_reports/) enable you to filter Databricks costs across several dimensions:
+On Databricks [Cost Reports](/cost_reports/), you can filter across several dimensions:
 
 - Account
 - Category
