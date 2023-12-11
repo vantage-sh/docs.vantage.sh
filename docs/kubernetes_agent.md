@@ -32,7 +32,7 @@ At this time, the agent does not support custom rates for on-premises servers. N
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
 
-## Install Vantage Kubernetes Agent
+## Install Vantage Kubernetes Agent {#install-vantage-kubernetes-agent}
 
 ### Prerequisites {#prerequisites}
 
