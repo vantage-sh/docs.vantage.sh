@@ -18,18 +18,20 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to create a Fastly API token.
 
 1. Navigate and log in to the [Fastly console](https://www.fastly.com).
-2. On the [**Personal API tokens** page](https://manage.fastly.com/account/personal/tokens/new), click **+ Create Token**.
+2. On the [**API tokens** page](https://manage.fastly.com/account/personal/tokens/new), re-enter your password if prompted. Then, click **+ Create Token**.
 3. Enter the following token details:
    - For **Name**, enter something relevant, like _VantageReadOnlyToken_.
-   - For **Service Access**, select **All Services on YOUR_ORGANIZATION_NAME**.
-   - For **Scope**, select **Read-only access (`global:read`) — Read account information, configuration and stats**. Ensure all other options remain unchecked. Vantage will never attempt to make changes to your Fastly infrastructure.
+   - For **Type**, select **Automation token**.
+   - If the **Role** option is displayed, select **Billing**.
+   - For **Scope**, select **Read-only access (`global:read`) — Read account information configuration and stats**. Ensure all other options remain unchecked. Vantage will never attempt to make changes to your Fastly infrastructure.
+   - For **Access**, select **All Services on YOUR_ORGANIZATION_NAME**.
    - For **Expiration**, select **Never expire**.
    <details><summary>Click to view example token creation form</summary>
-   <div style={{ display: "flex", justifyContent: "center", borderRadius: 10, boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}>
-     <img alt="Vantage Kubernetes agent architecture diagram" width="100%" src="/img/VantageFastlyInstructions_1.png" style={{ borderRadius: 10 }} />
-   </div>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Fastly API token form" width="100%" src="/img/VantageFastlyInstructions_1.png" />
+    </div>
    </details>
-4. Click **Create Token**. Fastly will generate your API token. Copy this token for the next steps.
+4. Click **Create Token**, and re-enter your password if prompted. Fastly will generate your API token. Copy this token for the next steps.
 
 ### Create the Connection
 
