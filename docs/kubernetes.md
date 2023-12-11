@@ -20,7 +20,7 @@ Vantage has two sets of tools for viewing and optimizing Kubernetes costs: viewi
 Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, and Service. They include Kubernetes-specific filters and filter logic. You can combine specific Kubernetes costs with other services. In the below example, the filter includes the costs of a specific service with corresponding RDS database costs.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Resource Reports" width="60%" src="/img/vantage-kubernetes-reporting.png" />
+    <img alt="Kubernetes and AWS Cost Report filters" width="60%" src="/img/vantage-kubernetes-reporting.png" />
 </div>
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
@@ -51,16 +51,16 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 
 ### Create Efficiency Reports
 
-With Kubernetes efficiency reports you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
+With Kubernetes efficiency reports, you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
 Labels include namespace labels, and if enabled in your Kubernetes agent integration, [annotations](/annotations). See the [Vantage Kubernetes agent documentation](/kubernetes#enable-annotations-namespace-labels) for information on how to enable these parameters.
 :::
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
-2. On the left navigation menu, select **Efficiency Reports**. All existing Kubernetes efficiency reports will be listed, along with the creator and date when the report was created.
-3. From the top right of the screen, click **New Report**. Like the efficiency metrics view, a chart with idle costs is displayed. Below the chart, a table is displayed with the following columns: the resource's name, **Idle Costs**, **Total Costs**, and **Cost Efficiency**.
-4. To filter costs, click the **Filters** button at the top left of the chart:
+2. On the left navigation menu, select **Efficiency Reports**. All existing Kubernetes efficiency reports will be listed, along with who created the report as well as the date when the report was created.
+3. From the top right of the screen, click **New Report**. Like the efficiency metrics view, a chart/graph with idle costs is displayed. Below the chart, a table is displayed with the following columns: the resource's name, **Idle Costs**, **Total Costs**, and **Cost Efficiency**.
+4. To filter costs, click the **Filters** button on the top left of the chart:
    - The **Kubernetes costs where...** tile is displayed. Click **+ New Rule**.
    - For **Category**, select either **Cluster**, **Namespace**, or **Label**.
    - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the list.
@@ -86,13 +86,36 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
    - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, and specific **Label**.
    - To adjust date binning, select the menu at the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
    - To change the date range, click the date picker at the top right of the graph and adjust the date range.
-8. To save the efficiency report, click **Save as New**. To edit the name, click the pencil icon next to the existing report name in the report breadcrumbs, then click **Save**.
+   <details><summary>Click to view visual example</summary>
+      <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+         <div style={{ position: "relative", zIndex: 1}}>
+            <img
+               alt="Add additional filters to Kubernetes efficiency report"
+               style={{ width: "100%", clipPath: "inset(0 0 0 5px)", borderRadius: "10px" }}
+               src="/img/additional-filters.gif"
+            />
+      </div>
+      <div
+         style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            borderRadius: "10px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+            zIndex: 0,
+         }}
+      />
+      </div>
+   </details>
+8. To save the report, click **Save as New** and enter a name. Then click **Save**. (To edit this name, click the pencil icon above the chart, next to the report's name.)
 
 You can edit the filter criteria on a report at any time. Remember to click **Save** once you are done making changes.
 
 ### Add an Efficiency Report to a Dashboard
 
-You can add your efficiency reports to [Dashboards](/cost_reports#dashboards). These reports wil be displayed on the dashboard, along with other cost and segment reports
+You can add your efficiency reports to [Dashboards](/cost_reports#dashboards). These reports will be displayed on the dashboard, along with other cost and segment reports
 
 1. From the top navigation, click **Cost Reporting**.
 2. From the side navigation, click **Dashboards**.
