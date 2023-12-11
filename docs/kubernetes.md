@@ -76,9 +76,27 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
    - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or Kubernetes costs where...**.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
    <details><summary>Click to view visual example</summary>
-   <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="Add OR clause to Kubernetes Efficiency Report" width="100%" src="/img/add-or-clause.gif" />
-   </div>
+         <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
+         <div style={{ position: "relative", zIndex: 1}}>
+            <img
+               alt="Add OR clause to Kubernetes Efficiency Report"
+               style={{ width: "100%", clipPath: "inset(0 0 0 5px)", borderRadius: "10px" }}
+               src="/img/add-or-clause.gif"
+            />
+      </div>
+      <div
+         style={{
+            position: "absolute",
+            top: 0,
+            bottom: 0,
+            left: 0,
+            right: 0,
+            borderRadius: "10px",
+            boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",
+            zIndex: 0,
+         }}
+      />
+      </div>
    </details>
 6. Above the rule sets, click **Apply**. The graph will update with your existing filter criteria.
 7. You have the option to further drill down into your costs:
