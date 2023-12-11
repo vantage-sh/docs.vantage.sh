@@ -41,7 +41,7 @@ If the Cost Report you’re saving has budget alerts attached to it, we will ask
 
 If you have existing budgets in spreadsheets or another tool you can import them all at once by uploading a CSV file. Click the upload icon next to "New Budget" to get started.
 
-### Expected Format
+### Expected Format {#expected-format}
 
 An imported budget should be a CSV that contains a header row in which the first value is a unique string or identifier and all subsequent values are a month in the format of “YYYY-MM” (e.g. 2023-02 for February 2023). Every subsequent row in the CSV is the name of the budget and values expressed as decimals for every month there is a budget present for. An example format is shown below.
 

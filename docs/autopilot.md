@@ -91,7 +91,7 @@ AWS imposes a minimum 30-day hold time for all Reserved Instances before you can
 
 Autopilot purchases RIs in denormalized units that are applicable to any size of instance in the same family, which you can see if you reference the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html). In other words, if you change sizes within the same instance family, the reservations still apply!
 
-## Autopilot Controls
+## Autopilot Controls {#autopilot-controls}
 
 ![Autopilot Controls](/img/autopilot_controls.png)
 
@@ -118,7 +118,7 @@ Autopilot Controls can be changed as often as you’d like. That being said, we 
 
 Once a setting is changed, the changes take effect between 24 and 48 hours. Autopilot purposefully will impose a minimum 24 hour delay before making any changes from Autopilot controls. Please note that because of a 30 day minimum holding period made by AWS with reserved instances, there may be certain cases where even adjusting controls could take some time to be applied.
 
-### Autopilot Controls Graphs
+### Autopilot Controls Graphs {#autopilot-controls-graphs}
 
 The Y-axis for Autopilot controls graphs can represent different things depending on the service you're looking at. There are two classes of units represented on the Y-axis that are listed below with their corresponding explanations:
 

@@ -35,7 +35,7 @@ This will output the following:
 
 Record the appId, tenant and password as you will enter these into the Vantage console.
 
-### Grant the Service Principal Permissions
+### Grant the Service Principal Permissions {#granting-the-service-principal-permissions}
 
 Grant Permissions to the 'appId' from the service principal created above. The scope can be a subscription or management group.
 
