@@ -44,7 +44,7 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
    - **Name.** The name of the Cluster, Namespace, or Label you’re viewing.
    - **Idle Costs.** A dollar value representation of the number of resources requested that are idle.
    - **Total Costs.** A dollar value representation of the total cost of the resources.
-   - **Cost Efficiency.** The percent ratio of idle costs to total costs.
+   - **Cost Efficiency.** The ratio of idle costs and total costs.
 3. Filter a cluster's efficiency metrics by date or resource:
    - From the top right of the graph, change the date range to see how costs have changed over time.
    - From the resource list below each chart, click the icons next to each resource to view different aggregations. Click the **View on chart** button to isolate that specific resource on the chart.
@@ -54,26 +54,26 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 With Kubernetes efficiency reports, you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
-Labels include namespace labels, and if enabled in your Kubernetes agent integration, annotations. See the [Vantage Kubernetes agent documentation](/kubernetes#enable-annotations-namespace-labels) for information on how to enable these parameters.
+Labels include namespace labels, and if enabled in your Kubernetes agent integration, annotations. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#enable-annotations-namespace-labels) for information on how to enable these parameters.
 :::
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
 2. On the left navigation menu, select **Efficiency Reports**. All existing Kubernetes efficiency reports will be listed, along with who created the report as well as the date when the report was created.
 3. From the top right of the screen, click **New Report**. Like the efficiency metrics view, a chart/graph with idle costs is displayed. Below the chart, a table is displayed with the following columns: the resource's name, **Idle Costs**, **Total Costs**, and **Cost Efficiency**.
-4. To filter costs, click the **Filters** button on the top left of the chart:
+4. To filter costs, click the **Filters** button on the top left of the chart.
    - The **Kubernetes costs where...** tile is displayed. Click **+ New Rule**.
    - For **Category**, select either **Cluster**, **Namespace**, or **Label**.
-   - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the list.
+   - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the second dropdown menu.
    - Click **Save**.
    <details><summary>Click to view visual example</summary>
    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
     <img alt="Create Kubernetes Efficiency filters" width="100%" src="/img/create-filter.gif" />
    </div>
    </details>
-5. You can optionally edit your existing rule or add additional filter criteria:
+5. You can optionally edit your existing rule or add additional filter criteria.
    - To edit the rule you just created, select the rule, make your changes, then click **Save**.
    - If you want to add a rule to filter multiple criteria, such as filter by certain Clusters and another rule to filter by certain Namespaces, click **+ New Rule**. Add the additional criteria and save.
-   - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or Kubernetes costs where...**.
+   - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or Kubernetes costs where...** on the new tile.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
    <details><summary>Click to view visual example</summary>
          <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
@@ -98,12 +98,12 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
       />
       </div>
    </details>
-6. Above the rule sets, click **Apply**. The graph will update with your existing filter criteria.
-7. You have the option to further drill down into your costs:
+6. Above the rule set(s), click **Apply**. The graph will update with your existing filter criteria.
+7. You have the option to further drill down into your costs.
    - Above the graph, click the **Aggregate By** dropdown menu. Select either **Idle Costs** or **Total Costs**.
-   - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, and specific **Label**.
-   - To adjust date binning, select the menu at the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
-   - To change the date range, click the date picker at the top right of the graph and adjust the date range.
+   - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, **Label Key**, or **Label Value**.
+   - To adjust date binning, select the menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
+   - To change the date range, click the date picker menu on the top right of the graph and adjust the date range.
    <details><summary>Click to view visual example</summary>
       <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
          <div style={{ position: "relative", zIndex: 1}}>
@@ -127,23 +127,23 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
       />
       </div>
    </details>
-8. To save the report, click **Save as New** and enter a name. Then click **Save**. (To edit this name, click the pencil icon above the chart, next to the report's name.)
+8. To save the report, click **Save as New** and enter a report name. Then, click **Save**. (To edit this name, click the pencil icon in the breadcrumbs above the chart, next to the report's name.)
 
 You can edit the filter criteria on a report at any time. Remember to click **Save** once you are done making changes.
 
 ### Add an Efficiency Report to a Dashboard
 
-You can add your efficiency reports to [Dashboards](/cost_reports#dashboards). These reports will be displayed on the dashboard, along with other cost and segment reports
+You can add your efficiency reports to [dashboards](/cost_reports#dashboards). These reports will be displayed on the dashboard, along with other cost and segment reports.
 
 1. From the top navigation, click **Cost Reporting**.
 2. From the side navigation, click **Dashboards**.
 3. Select an existing dashboard, or click **+ New** to create a new dashboard.
    - If you are creating a new dashboard:
      - Enter a **Name**.
-     - Under **Add Reports**, find your efficiency report.
+     - Under **Add Reports**, find and select your Kubernetes efficiency report.
      - Click **Save**.
    - If you want to add the report to an existing dashboard:
-     - At the top right of the existing dashboard, click **Edit**.
+     - From the top right of the existing dashboard, click **Edit**.
      - Under **Add Reports**, find your efficiency report.
      - Click **Save**.
 
@@ -161,7 +161,7 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
 ## Kubernetes Integration Methods
 
 :::tip
-Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_agent) to utilize the most granular reporting features and the cost-efficiency metrics.
+Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_agent) to leverage the most granular reporting features and the cost-efficiency metrics.
 :::
 
 ### Vantage Kubernetes Agent
