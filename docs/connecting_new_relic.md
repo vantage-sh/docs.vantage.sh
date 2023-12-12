@@ -23,7 +23,7 @@ Vantage integrates with your New Relic account using [NerdGraph](https://docs.ne
 
 ### Create the Connection
 
-1. Navigate to the [New Relic Settings](https://console.vantage.sh/settings/new_relic) page in the Vantage console. At the top, select the **Connect** tab.
+1. Navigate to the [New Relic Settings](https://console.vantage.sh/settings/new_relic) page in the Vantage console. 
 2. Click **Add Connection**.
 3. Paste your **New Relic Account ID** and **New Relic API Key** you previously obtained into the provided fields.
 4. Complete the additional fields based on the specific pricing for your account. This can include the per-gigabyte ingestion rate, amount of free ingestion per month, core and full platform user pricing, and any free user seats. For more information on New Relic pricing, see the [New Relic documentation](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-pricing-billing/new-relic-one-pricing-billing/).

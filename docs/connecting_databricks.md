@@ -20,7 +20,7 @@ Vantage integrates with your Databricks account through the use of [Billable Usa
 ### Create the Connection
 
 1. From the Vantage console, navigate to the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
-2. At the top, select the **Connect** tab, then click **Setup Account**.
+2. Click **Setup Account**.
 3. Enter your **Databricks Account ID**.
    :::tip
    You can find your Databricks Account ID in the user profile dropdown of the [Databricks account console](https://accounts.cloud.databricks.com/login).
