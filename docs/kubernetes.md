@@ -29,7 +29,7 @@ Cost Reports also provide [forecasts](/forecasting). These forecasts are updated
 
 The costs displayed on these reports come from your integration with the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by analyzing the CPU, RAM, GPU, as well as storage usage and calculates the cost of each input based on the cost of the underlying infrastructure.
 
-The [agent uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost per hour for each type of resource. The agent does all the cost allocation calculations locally in your cluster and makes this data available for querying.
+[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost per hour for each type of resource. All the cost allocation calculations are done locally in your cluster and makes this data available for querying.
 
 :::note
 Kubernetes costs are not included in monthly tracked infrastructure costs as they’re already captured from underlying EKS, GKE, or AKS costs.
@@ -49,12 +49,12 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
    - From the top right of the graph, change the date range to see how costs have changed over time.
    - From the resource list below each chart, click the icons next to each resource to view different aggregations. Click the **View on chart** button to isolate that specific resource on the chart.
 
-### Create Efficiency Reports
+### Create Efficiency Reports {#efficiency-reports}
 
 With Kubernetes efficiency reports, you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
-Labels include namespace labels, and if enabled in your Kubernetes agent integration, annotations. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#enable-annotations-namespace-labels) for information on how to enable these parameters.
+Labels will include namespace labels and annotations, if enabled in your [Vantage Kubernetes agent integration](/kubernetes_agent#enable-annotations-namespace-labels).
 :::
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
@@ -104,7 +104,7 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
    :::tip
    Selecting one of these options will also make those costs the default sort for the table.
    :::
-   - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, **Label Key**, or **Label Value**.
+   - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, and specific **Label Key**/**Label Value**.
    - To adjust date binning, select the menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
    - To change the date range, click the date picker menu on the top right of the graph and adjust the date range.
    <details><summary>Click to view visual example</summary>
