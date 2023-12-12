@@ -101,6 +101,9 @@ Labels include namespace labels, and if enabled in your Kubernetes agent integra
 6. Above the rule set(s), click **Apply**. The graph will update with your existing filter criteria.
 7. You have the option to further drill down into your costs.
    - Above the graph, click the **Aggregate By** dropdown menu. Select either **Idle Costs** or **Total Costs**.
+   :::tip
+   Selecting one of these options will also make those costs the default sort for the table.
+   :::
    - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, **Label Key**, or **Label Value**.
    - To adjust date binning, select the menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
    - To change the date range, click the date picker menu on the top right of the graph and adjust the date range.
