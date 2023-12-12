@@ -169,7 +169,7 @@ Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_a
 
 ### Vantage Kubernetes Agent
 
-Costs are exported from the cluster hourly and then made available nightly. Costs are calculated once the costs from the cluster’s corresponding infrastructure are available, which often takes 48 hours. These costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay.
+Agent usage data is uploaded several times throughout the day and updated within the Vantage platform nightly. However, Kubernetes costs will not be calculated until the costs from the cluster’s corresponding infrastructure provider are available. These costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay. This often takes 48 hours to be complete.
 
 ### OpenCost Integrations
 
