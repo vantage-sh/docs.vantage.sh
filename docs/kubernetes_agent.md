@@ -32,7 +32,7 @@ At this time, the agent does not support custom rates for on-premises servers. N
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
 
-## Install Vantage Kubernetes Agent
+## Install Vantage Kubernetes Agent {#install-vantage-kubernetes-agent}
 
 ### Prerequisites {#prerequisites}
 
@@ -68,7 +68,7 @@ To set up a _new_ Kubernetes agent connection:
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
 
-### (Optional) Enable Collection of Annotations and Namespace Labels
+### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
 You can optionally enable the collection of Annotations and Namespace labels.
 
