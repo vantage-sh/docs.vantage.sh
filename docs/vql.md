@@ -156,8 +156,8 @@ VQL includes a set of keywords to create complex filter conditions. These keywor
 | ------- | ------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AND`   | Logical AND operator                  | `costs.provider = 'aws' AND costs.service = 'EC2'`                                  | This example filters AWS costs for the EC2 service, where both conditions must be true.                                                                                                                                                                                                                                                                                                                                                                                          |
 | `OR`    | Logical OR operator                   | `costs.provider = 'azure' OR costs.provider = 'aws'`                                | This example retrieves costs from either Azure or AWS. At least one condition must be true.                                                                                                                                                                                                                                                                                                                                                                                      |
-| `IN`    | Used to compare against an array list | `costs.provider = 'azure' AND costs.account_id IN ('account-1', 'account-2')`       | This example filters based on a list of account IDs, returning data for the specified accounts.                                                                                                                                                                                                                                                                                                                                                                                  |
-| `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`. <br /> Note that at this time, `LIKE` is not compatible with `costs.account_id`, `costs.provider_account_id`, `costs.region`, and `costs.service`.                                                                                                                                                                                                                                               |
+| `IN`    | Used to compare against an array list | `costs.provider = 'azure' AND costs.account_id IN ('account-1', 'account-2')`       | This example filters based on a list of account IDs, returning data for the specified accounts<br/><br/>You can also use `IN` along with a special syntax for filtering by multiple tags. See [Filter by Multiple Tags](/vql#multiple-tags) for details.                                                                                                                                                                                                                         |
+| `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`. <br /> Note that at this time, `LIKE` is not compatible with `costs.account_id`, `costs.provider_account_id`, `costs.region`, and `costs.service`.                                                                                                                                                                                                                                        |
 | `NOT`   | Represents negation                   | `costs.provider = 'aws' AND costs.region NOT IN ('us-east-1', 'us-east-2')`         | This example filters out data from both specified regions, providing all AWS costs _not_ in these regions. Use `NOT IN` to specify a list of single or multiple values. <br/><br/> You can also use the `!=` or `<>` operators for "is not." <br/><br/> `costs.provider = 'aws' AND costs.region != 'us-east-1'`<br/><br/>You can use `NOT LIKE` to perform string comparisons:<br/><br/>`costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value NOT LIKE '%prod%'` |
 
 With these keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
@@ -252,13 +252,29 @@ Filter costs by a specific service and subcategory. Subcategory costs require bo
 costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'
 ```
 
-### Filtering by Tag {#tags}
+### Filter by Tag {#tags}
+
+#### Filter by Single Tag
 
 Filter costs based on a specific tag, such as `environment`, with the value `production`, in AWS.
 
 ```sql
 costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'production'
 ```
+
+#### Filter by Multiple Tags {#multiple-tags}
+
+If you want to filter for resources that have more than one tag associated, you can use the syntax shown in the example below.
+
+```sql
+costs.provider = 'aws' AND (tags.name, tags.value) IN (('environment', 'staging'), ('team', 'engineering'))
+```
+
+This example filters for resources that are tagged with the `environment` tag with a value of `staging` as well as the `team` tag with a value of `engineering`. This filter is the same as creating the following manual filter in the console.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Filter by multiple tags in the console" width="80%" src="/img/multiple-tags-example.png" />
+</div>
 
 #### Filter for Matching Tags Using `LIKE`
 
@@ -268,7 +284,7 @@ costs.provider = 'azure' AND tags.name = 'environment' AND tags.value LIKE '%pro
 
 ### Filter for Untagged Resources {#untagged}
 
-On providers that have a **Not Tagged**/**Not Labeled** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment. 
+On providers that have a **Not Tagged**/**Not Labeled** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment.
 
 ```sql
 (costs.provider = 'aws' AND tags.name = NULL) OR (costs.provider = 'azure' AND tags.name = NULL) OR (costs.provider = 'gcp' AND tags.name = NULL)
@@ -283,66 +299,87 @@ If you are receiving an error when trying to complete a query, check the followi
   <details><summary>Click to view examples</summary>
 
   :::tip This works
+
   ```sql
   costs.provider='aws'
   ```
+
   :::
   :::caution This does not work
+
   ```sql
   costs.provider="aws"
   ```
+
   :::
 
   </details>
+
 - Currently, there is a limitation where `AND` and `OR` are not supported together in a single "query group."
   <details><summary>Click to view examples</summary>
 
   :::tip This works
+
   ```sql
   (costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'dev') OR (costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'prod')
   ```
+
   :::
   :::caution This does not work
+
   ```sql
   costs.provider = 'aws' AND ((tags.name = 'environment' AND tags.value = 'dev') OR (tags.name = 'environment' AND tags.value = 'prod'))
   ```
+
   :::
 
   </details>
+
 - The `costs.provider` field is required on every call.
   <details><summary>Click to view examples</summary>
 
   :::tip This works
+
   ```sql
   costs.provider = 'fastly' AND costs.service = 'CDN'
   ```
+
   :::
   :::caution This does not work
+
   ```sql
   costs.service = 'CDN'
   ```
+
   :::
 
   </details>
+
 - Resource costs require both provider and service in addition to the resource ID.
   <details><summary>Click to view examples</summary>
 
   :::tip This works
+
   ```sql
   costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'
   ```
+
   :::
   :::caution This does not work
+
   ```sql
   costs.provider = 'aws' AND costs.resource_id = 'arn:aws:rds:us-east-1:123456789:db:primary-01'
   ```
+
   :::
 
   </details>
+
 - Category and subcategory costs also require provider and service.
   <details><summary>Click to view examples</summary>
 
   :::tip These work
+
   ```sql
   costs.provider = 'fastly' AND costs.service = 'CDN' AND costs.category = 'Data Transfer'
   ```
@@ -350,9 +387,11 @@ If you are receiving an error when trying to complete a query, check the followi
   ```sql
   costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'
   ```
+
   :::
 
   :::caution These do not work
+
   ```sql
   costs.provider = 'fastly' AND costs.category = 'Data Transfer'
   ```
@@ -360,6 +399,7 @@ If you are receiving an error when trying to complete a query, check the followi
   ```sql
   costs.provider = 'aws' AND costs.subcategory = 'USE1-PaidPrivateCA'
   ```
+
   :::
 
   </details>

@@ -32,7 +32,7 @@ At this time, the agent does not support custom rates for on-premises servers. N
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
 
-## Install Vantage Kubernetes Agent
+## Install Vantage Kubernetes Agent {#install-vantage-kubernetes-agent}
 
 ### Prerequisites {#prerequisites}
 
@@ -68,7 +68,7 @@ To set up a _new_ Kubernetes agent connection:
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
 
-### (Optional) Enable Collection of Annotations and Namespace Labels
+### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
 You can optionally enable the collection of Annotations and Namespace labels.
 
@@ -131,6 +131,21 @@ To understand which type to use for your cluster, you can look at the available 
 ➜  kubectl get nodes -o=jsonpath='{.items[0].status.addresses}'
 [{"address":"10.0.12.185","type":"InternalIP"},{"address":"ip-10-0-12-185.ec2.internal","type":"InternalDNS"},{"address":"ip-10-0-12-185.ec2.internal","type":"Hostname"}]
 ```
+
+### EOF Error When Starting
+
+The agent uses local files for recovering from crashes or restarts. If this backup file becomes corrupted, most commonly due to [OOMKill](/kubernetes_agent#resource-usage), the most straightforward approach to get the agent running again is to perform a fresh install or remove the `PersistentVolumeClaim`, `PersistentVolume`, and `Pod`.
+
+An example error log line might look like:
+```bash
+{"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to setup data store","err":"unexpected EOF"}
+```
+
+To uninstall the agent via `helm` run:
+```bash
+helm uninstall vka -n vantage
+```
+Then, follow the original installation steps outlined in the above sections.
 
 ## Migrate Costs from OpenCost to Vantage Kubernetes Agent
 
