@@ -132,6 +132,21 @@ To understand which type to use for your cluster, you can look at the available 
 [{"address":"10.0.12.185","type":"InternalIP"},{"address":"ip-10-0-12-185.ec2.internal","type":"InternalDNS"},{"address":"ip-10-0-12-185.ec2.internal","type":"Hostname"}]
 ```
 
+### EOF Error When Starting
+
+The agent uses local files for recovering from crashes or restarts. If this backup file becomes corrupted, most commonly due to [OOMKill](/kubernetes_agent#resource-usage), the most straightforward approach to get the agent running again is to perform a fresh install or remove the `PersistentVolumeClaim`, `PersistentVolume`, and `Pod`.
+
+An example error log line might look like:
+```bash
+{"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to setup data store","err":"unexpected EOF"}
+```
+
+To uninstall the agent via `helm` run:
+```bash
+helm uninstall vka -n vantage
+```
+Then, follow the original installation steps outlined in the above sections.
+
 ## Migrate Costs from OpenCost to Vantage Kubernetes Agent
 
 If you are moving from an OpenCost integration to the agent-based integration, you can contact [support@vantage.sh](mailto:support@vantage.sh) to have your previous integration data maintained. Any overlapping data will be removed from the agent data by the Vantage team.
