@@ -1,86 +1,144 @@
+---
+id: connecting_mongodb-atlas
+title: MongoDB Atlas
+description: This page walks through how to integrate Vantage with your MongoDB Atlas account.
+toc_min_heading_level: 2
+toc_max_heading_level: 4
+keywords:
+  - MongoDB Atlas
+  - Connect MongoDB Atlas
+---
+
 # MongoDB Atlas
 
-[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate MongoDB Atlas costs.
+Vantage integrates with your MongoDB account using the [Invoices API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Invoices). To see [Active Resources](/active_resources) for your MongoDB Atlas account, Vantage uses the [Clusters API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Clusters) and the [Projects API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Projects).
 
-## Prerequisites
+## Connect Your MongoDB Atlas Account
 
-Vantage integrates with your MongoDB account through the use of the [Invoices API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Invoices). To see [Active Resources](/active_resources) for your MongoDB Atlas account, Vantage uses the [Clusters API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Clusters) and the [Projects API](https://www.mongodb.com/docs/atlas/reference/api-resources-spec/#tag/Projects).
+### Prerequisites
 
-To create an API key for Vantage to ingest costs, you must be an **Organization Owner** inside the [MongoDB Atlas console](https://account.mongodb.com/account/login). To add the API key to relevant projects to use Active Resource Inventories inside Vantage, you must be a **Project Owner** in the MongoDB Atlas console.
+- To create an API key for Vantage to ingest costs, you must be an **Organization Owner** inside the MongoDB Atlas console.
+- To add the API key to relevant projects to use Active Resource inventories inside Vantage, you must be a **Project Owner** in the MongoDB Atlas console.
 
+  :::info
+  For more information on user roles in MongoDB Atlas, see the [MongoDB Atlas documentation](https://www.mongodb.com/docs/atlas/reference/user-roles/).
+  :::
 
-## Connecting your MongoDB Atlas Account
+[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate MongoDB Atlas costs.
 
-To connect your MongoDB Atlas account, open the [MongoDB Atlas Settings](https://console.vantage.sh/settings/mongo) page in the Vantage console. Follow the instructions which require performing the following operations in the [MongoDB Atlas console](https://account.mongodb.com/account/login). Begin by clicking  `Add API Key` in the Vantage console.
+### Step 1: Review Vantage Integration Page
 
+Navigate to the [MongoDB Atlas Settings](https://console.vantage.sh/settings/mongo) page in the Vantage console. Then, click **Add API Key**.
 
-### Get your Organization ID 
+You will need to add your **Organization ID**, **Public API key**, and **Private API key**. Detailed steps for obtaining each of these items are provided below. Leave this tab open to go back populate these fields as you obtain each value.
 
-In the MongoDB Atlas console, click the Gear icon to go to Organization Settings.
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="Add MongoDB information in the Vantage console" width="80%" src="/img/connect-mongo/mongodb-vantage-console.png"/> 
+</div>
 
-![MongoDB Atlas Connection Step](/img/mongodb-open-setttings.png)
+### Step 2: Obtain Organization ID
 
-Copy the Organization ID and supply this to Vantage under "Organization ID".
+- In a new browser tab, navigate to the [MongoDB Atlas console](https://account.mongodb.com/account/login).
+- At the top of the page, next to the **Organization** dropdown menu, click the **gear icon** to go to **Organization Settings**.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Open Organization Settings in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-open-settings.png"/> 
+    </div>
+  </details>
+- Your **Organization ID** will be displayed at the top. Copy the **Organization ID**. Then, go back to your Vantage browser tab and paste your ID into the **Organization ID** field.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Obtain Organization ID in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-get-organization-id.png"/> 
+    </div>
+  </details>
 
-![MongoDB Atlas Connection Step](/img/mongodb-get-organization-id.png)
+### Step 3: Create an Organization API Key
 
-This is the first required piece of information to supply to Vantage. Below you will create an API key and give it read-only permissions to your invoices and optionally to cluster-level cost data.
+Next, you'll create an API key and grant it read-only permissions to your invoices and, optionally, to cluster-level cost data.
 
-![Vantage console](/img/mongodb-vantage-console.png)
+- From the left navigation menu, click **Access Manager**.
+- At the top, click **Create API Key**.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="View Access Manager in MongoDB Atlas" width="100%" src="/img/connect-mongo/mongodb-manage-access.png"/> 
+    </div>
+  </details>
+- On the **Create API Key** screen, configure the following details:
 
-### Create an Organization API Key
+  - For **Description**, enter a name, like _Vantage Integration_.
+  - For **Organization Permissions**, select **Organization Billing Viewer** and **Organization Read Only**.
 
-Next, choose "Access Manager" in the pane on the left.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Edit API key permissions in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-organization-read-only.png"/> 
+    </div>
+  </details>
 
-![MongoDB Atlas Connection Step](/img/mongodb-manage-access.png)
+- Click **Next**. Your public and private keys are displayed. Copy the keys and paste them into the **Public API key** and **Private API key** fields in Vantage.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Copy API keys in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-copy-api-key-private.png"/> 
+    </div>
+  </details>
 
-Click "Create an API Key", give it a name like "Vantage Integration" and grant it **Organization Read Only** and **Organization Billing Viewer** permissions.
+  :::note
+  If your organization requires an IP Access List for access control, you will need to add each of the following IPs to the **API Access List** section. Add each IP address individually:
 
-![MongoDB Atlas Connection Step](/img/mongodb-organization-read-only.png)
+  ```
+  54.87.66.45
+  3.95.43.133
+  54.162.3.72
+  44.199.143.63
+  ```
 
-Copy the Public Key and the Private Key into the "Public API key" and "Private API key" fields in Vantage.
+  <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Copy API keys in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-api-access-list.png"/> 
+  </div>
+  :::
 
-![MongoDB Atlas Connection Step](/img/mongodb-copy-api-key-private.png)
+- At the bottom, click **Done**.
 
-If your API Key Access List uses an IP allowed list for access control, you will need to add the following IPs to that allowed list:
+If you want to have Vantage ingest per-cluster resource data from MongoDB Atlas, then proceed to the next steps. Otherwise, back in the Vantage console, click **Add Key**.
 
-```
-54.87.66.45
-3.95.43.133
-54.162.3.72
-44.199.143.63
-```
-Click `Add Key` to grant Vantage read-only access to the Invoices API or proceed with the next steps to have Vantage ingest per-cluster resource data from MongoDB Atlas.
+### Step 4: Grant Project Access for Active Resources
 
-### Grant Project Access for Active Resources
+- On the left navigation menu, select **Projects** to see your list of Atlas projects. Select your project from the list.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Open MongoDB Atlas projects" width="80%" src="/img/connect-mongo/mongodb-projects.png"/> 
+    </div>
+  </details>
+- At the top, select **Access Manager**, then select the project.
+- Click **Invite to Project**.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Invite to project in MongoDB Atlas" width="100%" src="/img/connect-mongo/mongodb-project-access.png"/> 
+    </div>
+  </details>
+- Search for and select the Vantage Integration API key to add it to the project.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Add Vantage key to MongoDB Atlas project" width="80%" src="/img/connect-mongo/mongodb-search-integration.png"/> 
+    </div>
+  </details>
+- Grant the Vantage Integration API key **Project Read Only** access. Then, click **Invite to Project**. Repeat this process for any other projects where you want to see resource-level costs.
+  <details><summary>Expand to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Grant API key read-only access to project" width="80%" src="/img/connect-mongo/mongodb-project-read-only.png"/> 
+    </div>
+  </details>
 
-Under "Organization" select "Projects" to see your list of Atlas projects.
-
-![MongoDB Atlas Connection Step](/img/mongodb-projects.png)
-
-Click on the Project and click on the Gear icon to go to Project Settings.
-
-![MongoDB Atlas Connection Step](/img/mongodb-project-access.png)
-
-Invite the Vantage Integration API key to this and any other projects for which you want to see resource level costs. You can search for the API Key in the box.
-
-![MongoDB Atlas Connection Step](/img/mongodb-search-integration.png)
-
-Select the Vantage Integration API key and grant it **Project Read Only** access.
-
-![MongoDB Atlas Connection Step](/img/mongodb-project-read-only.png)
-
-If successful, you will see the Vantage API key added to the project and your Active Resources will begin populating with cost data.
-
-![MongoDB Atlas Connection Step](/img/mongodb-project-successful.png)
-
-Back in the Vantage console, click `Add Key` and your MongoDB Atlas integration status should move from `Pending` to `Importing` automatically. MongoDB Atlas data is refreshed once a day. 
+Back in the Vantage console, click **Add Key**. Your MongoDB Atlas integration status should automatically move from `Pending` to `Importing`. MongoDB Atlas data is refreshed once a day. If you've successfully granted project access for active resources, your Active Resources view will begin populating with cost data.
 
 ## MongoDB Atlas Reporting Dimensions
 
-MongoDB Atlas [Cost Reports](/cost_reports/) enable you to filter MongoDB costs along several dimensions:
+On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-* Service
-* Region
-* Cost Category
-* Resource level costs such as Realm costs
+- Service
+- Region
+- Category
+- Resource (e.g., Realm costs)
+
+## Active Resources
+
+MongoDB Atlas clusters are synced as active resources and available in [resource reports](/active_resources).
