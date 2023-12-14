@@ -37,7 +37,7 @@ If your GCP billing data is typically displayed in a currency other than USD, Va
 
 ## Create a Connection {#create-a-connection}
 
-Open a new browser tab, and navigate to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp). At the top, select the **Connect** tab. You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
+Open a new browser tab, and navigate to the [Vantage GCP Settings page](https://console.vantage.sh/settings/gcp). You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
 
 ### Step 1: Grant the Vantage Service Account Permission to Access BigQuery {#service-account-permissions}
 

@@ -1,30 +1,42 @@
+---
+id: connecting_oracle
+title: Oracle Cloud
+description: This page walks through how to integrate Vantage with your Oracle Cloud account.
+keywords:
+  - Oracle Cloud
+  - Connect Oracle Cloud
+---
+
 # Oracle Cloud
 
-[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Oracle Cloud Infrastructure (OCI) costs.
+Vantage uses a read-only IAM user and API key to read from a [Cost and Usage Reports object storage bucket](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/usagereportsoverview.htm). When connecting to Oracle, you will be required to create a Vantage-specific IAM user and upload a generated RSA public key to that user. That user must then be granted access to read objects from the [Cost and Usage Report tenancy](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/usagereportsoverview.htm#policy).
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Oracle Cost Reports" width="80%" src="/img/oracle-cost-report.png" />
-</div>
+## Connect Your Oracle Cloud Account
 
-## Connecting Your Oracle Account
+### Prerequisites
 
-Vantage uses a read-only IAM user and API key to read from a [Cost and Usage Reports object storage bucket](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/usagereportsoverview.htm). When connecting Oracle you will be required to create a Vantage-specific IAM user and upload a generated RSA public key to that user. That user must then be granted access to read objects from the [Cost and Usage Report tenancy](https://docs.oracle.com/en-us/iaas/Content/Billing/Concepts/usagereportsoverview.htm#policy).
+- The integration process uses the [Oracle Cloud Infrastructure CLI](https://docs.oracle.com/en-us/iaas/Content/API/Concepts/cliconcepts.htm). Ensure you have access to the CLI before proceeding. 
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Oracle Cloud Infrastructure costs.
 
-## Integration Setup
+### Create the Connection
 
-To connect your Oracle account, open the [Oracle Settings](https://console.vantage.sh/settings/oracle/) page and click on the `Connect` tab and follow the instructions. You will be asked to run a series of commands to give Vantage permission to ingest cost and usage information from your Oracle Cloud account through an API key.
+1. Navigate to the [Oracle Settings](https://console.vantage.sh/settings/oracle/) page in the Vantage console.
+2. A set of instructions is displayed, which will walk you through how to create an IAM user and group, add an IAM policy, and obtain your Tenancy ID and User ID. This series of commands grants Vantage permission to ingest cost and usage information from your Oracle Cloud account through an API key. All commands need to be performed using the Oracle Cloud Infrastructure CLI.
+3. At the bottom of the setup screen, click **Add Connection**. Paste your **Tenancy** and Vantage **User ID**. Then, select your **Home Region**. 
+4. Click **Connect Account**. Costs will be ingested and processed as soon as you add the integration. It usually takes less than an hour to ingest Oracle costs.  
 
-After running these commands, you will have a Tenancy and User ID to input into Vantage as well as a home region to select. Once input, your Oracle integration status should move from `Pending` to `Importing` automatically. Oracle generally delivers usage logs once per day. The default timeframe for imports is 6 months of historical costs.
+:::note
+Oracle generally delivers usage logs once per day.
+:::
 
 ## Oracle Cloud Reporting Dimensions
 
-Oracle [Cost Reports](/cost_reports/) enable you to filter Oracle costs along several dimensions:
+On Oracle [Cost Reports](/cost_reports), you can filter across several dimensions:
 
 - Service
 - Tenancy
 - Region
 - Cost Category
 - Resource
-- Tag
-- Region
+- Tag/Not Tagged
 - Compartment

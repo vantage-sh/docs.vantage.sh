@@ -1,26 +1,44 @@
+---
+id: connecting_datadog
+title: Datadog
+description: This page walks through how to integrate Vantage with your Datadog account.
+keywords:
+  - Datadog
+  - Connect Datadog
+---
+
 # Datadog
 
-[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Datadog costs.
+Vantage uses a read-only (scoped to `usage_read`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API allows you to get hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers.
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Datadog Cost Reports" width="60%" src="/img/datadog_cost_report.png" />
-</div>
+:::note
+Usage is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+:::
 
-## Connecting Your Datadog Account
+For documentation about connecting to Vantage from Datadog, see the [Vantage Integration page](https://docs.datadoghq.com/integrations/vantage/) in Datadog's documentation.
 
-Vantage uses a read only (scoped to usage_read) Datadog OAuth token. When connecting your Datadog account your user will need access to the **usage_read** scope in order to complete the connection.
+## Connect Your Datadog Account
 
-This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API allows you to get hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers. Usage is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
+### Prerequisites
 
-For documentation about Vantage from Datadog, please refer to the [Vantage Integration page](https://docs.datadoghq.com/integrations/vantage/) in Datadog's documentation.
+- When connecting your Datadog account, your user will need access to the `usage_read` scope to complete the connection. See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Datadog costs.
 
-## Cost Data Ingestion
+### Create the Connection
 
-Vantage will ingest six months of historical Datadog costs upon connection. Each day at 2 AM UTC this data is refreshed, but delays up to 72 hours may occur.
+1. From the Vantage console, navigate to the [Integrations page](https://console.vantage.sh/settings/integrations).
+2. Select **Datadog** and add a connection.
+3. You will be brought to the Datadog login screen and guided through the Datadog OAUTH2 flow for adding your Datadog account.
 
-## Datadog Cost Reports
+After authorizing the connection with Vantage, you will see the status of your connection change to `Importing` within the Vantage console.
 
-Within [Cost Reports](/cost_reports/) Vantage will show cost data for at least the following services.
+:::note
+Upon connection, Vantage will ingest six months of historical Datadog costs. Each day, at 2 AM UTC, this data is refreshed, but delays up to 72 hours may occur.
+:::
+
+## Datadog Reporting Dimensions
+
+Within [Cost Reports](/cost_reports/), Vantage will show cost data for at least the following services.
 
 - APM
 - Application Security Monitoring
@@ -39,15 +57,23 @@ Within [Cost Reports](/cost_reports/) Vantage will show cost data for at least t
 - Synthetic Monitoring
 - Workload Security
 
-Data is available at the "Category" and "Sub-category" level as well so you may access information such as how much Datadog spend is covered by committed-use discounts or which individual Datadog container is contributing to overall Logging costs. Data can be filtered per organization or service.
+The following Cost Report filters are available for Datadog:
 
-## Datadog Cost Tags (Usage Attribution Tags)
+- Organization
+- Category
+- Tag/Not Tagged (see the section below)
+- Subcategory
+- Service
+
+At the Category and Subcategory levels, you can access information such as how much Datadog spend is covered by committed-use discounts or which individual Datadog container is contributing to overall Logging costs.
+
+### Datadog Cost Tags (Usage Attribution Tags)
 
 :::info
 This feature is only available if you have a Datadog Enterprise plan with usage tags enabled.
 :::
 
-Datadog allows customers to have up to three tag keys per organization enabled for [usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/). Once enabled, Datadog begins breaking down the usage by any number of tag values for these keys. This allows you to see usage for specific services allocated to a specific key/value pair.
+You can have up to three tag keys per organization enabled for [usage attribution](https://docs.datadoghq.com/account_management/billing/usage_attribution/) in Datadog. Once enabled, Datadog begins breaking down the usage by any number of tag values for these keys. This allows you to see usage for specific services allocated to a specific key/value pair.
 
 The following Datadog services support Datadog cost tags:
 
@@ -61,19 +87,17 @@ The following Datadog services support Datadog cost tags:
 - Synthetic Tests
 - Time Series
 
-To use these tags within Vantage, open any [Cost Report](/cost_reports) and select Tag from the dropdown with Datadog as the provider. You can also Group By a specific tag key on a Datadog cost report. The following filtering operators are supported:
+To use these tags within Vantage:
+
+1. Open any [Cost Report](/cost_reports).
+2. Click **Filters**, and select **Datadog** for the provider.
+3. Click **New Rule** > **Tag**.
+
+You can also **Group By** a specific tag key on a Datadog Cost Report. The following filter operators are supported:
 
 - Tagged with key
-- Tagged with key where the value (is, is not, contains does not contain)
+- Tagged with Key where the value: is, is not, contains, does not contain
 - Not Tagged
 - Not Tagged with Key
 
-If you have just applied your first Datadog tag key and value it can take up to 48 hours for the tag to appear in Vantage. Tags are not applied retroactively.
-
-## Feature Availability for Datadog
-
-The following Vantage features are not currently available for Datadog costs.
-
-- [Active Resources](/active_resources/)
-- [Savings Planner](/savings_planner/)
-- [Autopilot](/autopilot/)
+If you just applied your first Datadog tag key and value, it can take up to 48 hours for the tag to appear in Vantage. Tags are not applied retroactively.

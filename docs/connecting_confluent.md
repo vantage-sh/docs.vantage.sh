@@ -44,7 +44,7 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 ### Create the Connection
 
 1. From the Vantage console, navigate to the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page.
-2. At the top, select the **Connect** tab, then click **Add API Key**.
+2. Click **Add API Key**.
 3. Enter your newly created **API key** and **API secret**.
 4. Click **Connect Account**.
 5. On the [Confluent Settings](https://console.vantage.sh/settings/confluent/) page, you will see your account listed with a **Status** of `Imported`.

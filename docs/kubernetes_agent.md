@@ -141,7 +141,7 @@ An example error log line might look like:
 {"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to setup data store","err":"unexpected EOF"}
 ```
 
-To uninstall the agent via `helm` run:
+To uninstall the agent via `helm`, run:
 ```bash
 helm uninstall vka -n vantage
 ```
