@@ -35,7 +35,7 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 
 ### Create the Connection
 
-1. From the Vantage console, navigate to the [Fastly Settings page](https://console.vantage.sh/settings/integrations).
+1. From the Vantage console, navigate to the [Fastly Settings page](https://console.vantage.sh/settings/fastly).
 2. Click **Add API Token**, then paste the API token you just generated.
 3. Click **Connect account**. Vantage will automatically begin ingesting and visualizing your costs within the Vantage console. It should take about an hour for cost data to populate.
 
