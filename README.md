@@ -64,7 +64,7 @@ If you encounter any problems or have suggestions for improvement, please open a
 
 ## Search
 
-Search is provided by [docusaurus-search-local](https://github.com/cmfcmf/docusaurus-search-local). To view search results locally, create a local build of the docs.
+Search is provided by [Algolia DocSearch](https://docsearch.algolia.com/). DocSearch runs a reindex every Thursday at 12 UTC. This reindex can also be run manually, on request, by anyone who has credentials to the Algolia Crawler.
 
 ## CI/CD
 
