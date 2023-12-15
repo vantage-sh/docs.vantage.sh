@@ -1,28 +1,41 @@
+---
+id: connecting_azure
+title: Set Up Azure
+description: This page walks through how to connect your GCP account to Vantage.
+keywords:
+  - Azure
+  - Connect Azure
+---
+
 # Set Up Azure
 
-[Create a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate Azure costs.
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Azure Cost Reports" width="100%" src="/img/azure-cost-report.png" />
-</div>
-
-## Connecting Your Azure Account
-
-Vantage integrates with your Azure account through the use of a Active Directory [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal). This principal is then assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
+Vantage integrates with your Azure account using an Active Directory [Service Principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal). This principal is then assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
 
 You can connect hundreds of Azure subscriptions to Vantage through the management group method. Any subscriptions that are part of a [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will be automatically imported.
 
-:::info
-The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does **not** have permissions nor will it ever attempt to make any changes to your infrastructure.
+:::note
+The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does **not** have permissions—nor will it ever attempt—to make any changes to your infrastructure.
 :::
 
-### Create an Azure Service Principal
+## Connect Your Azure Account
+
+### Prerequisites
+
+- The below commands are run via the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
+
+### Step 1: Create an Azure Service Principal
+
+Create a service principal using the following command: 
 
 ```bash
 az ad sp create-for-rbac -n "vantage"
 ```
 
-This will output the following:
+You should see output similar to the below output:
 
 ```bash
 {
@@ -33,44 +46,59 @@ This will output the following:
 }
 ```
 
-Record the appId, tenant and password as you will enter these into the Vantage console.
+Record the `appId`, `tenant`, and `password` as you will enter these credentials into the Vantage console.
 
-### Grant the Service Principal Permissions {#granting-the-service-principal-permissions}
+### Step 2: Grant the Service Principal Permissions {#granting-the-service-principal-permissions}
 
-Grant Permissions to the 'appId' from the service principal created above. The scope can be a subscription or management group.
+Grant permissions to the `appId` from the service principal created above. The scope can be a subscription or management group.
 
-```bash
-az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \
+:::note
+Vantage recommends assigning permissions to a management group that aggregates your subscriptions. By following this recommendation, you do not have to manually assign each subscription.
+:::
+
+<Tabs>
+  <TabItem value="management-group" label="Management Group" default>
+
+  ```bash
+  az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \
+    --role Reader \
+    --scope "/providers/Microsoft.Management/managementGroups/<MANAGEMENT_GROUP_ID>"
+  ```
+  </TabItem>
+  <TabItem value="subscription" label="Subscription">
+
+  ```bash
+  az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \
   --role Reader \
-  --scope "/providers/Microsoft.Management/managementGroups/<MANAGEMENT_GROUP_ID>"
-```
+  --scope "/subscriptions/<SUBSCRIPTION_ID>"
+  ```
 
-### Save the Credentials in Vantage
+  </TabItem>
+</Tabs>
 
-Visit the [integrations page](https://console.vantage.sh/settings/integrations) and add an Azure Integration.
+### Step 3: Save the Credentials in Vantage
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Azure Connection" width="60%" src="/img/azure_connection.png" />
-</div>
+1. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure integration.
+2. On the Azure integration page, click **Add Credentials**. 
+3. Add the **Azure AD Tenant ID**, **Service Principal App ID**, and **Service Principal Password** you previously obtained, then click **Connect Account**. Vantage will begin importing your Azure costs. 
 
 ## Azure Cost and Rightsizing Recommendations
 
-Vantage currently supports cost recommendations for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (Disks which have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value which is not something that is shown in Azure Advisor. Savings estimates are displayed in USD.
+Vantage currently supports cost recommendations for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
 
 ## Kubernetes and AKS
 
 Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage recommends using the [Vantage Kubernetes agent](/kubernetes_agent) to monitor and ingest Kubernetes costs from Azure.
 
-## Feature Availability for Azure
+## Azure Reporting Dimensions
 
-The following features support connected Azure accounts:
+On Azure [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- [Active Directory](/sso)
-- [Anomaly Detection](/cost_anomaly_alerts)
-- [Budgets](/budgets)
-- [Cost Reports](/cost_reports)
-- [Forecasting](/forecasting)
-- [Microsoft Teams](/microsoft_teams_integration)
-- [Resource Reports](/active_resources)
-- [Savings Planner](/savings_planner)
-- [Unit Costs](/per_unit_costs)
+- Resource Group
+- Category
+- Tagged/Not Tagged
+- Subcategory
+- Resource
+- Region
+- Subscription
+- Service
