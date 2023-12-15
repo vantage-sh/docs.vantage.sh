@@ -87,11 +87,13 @@ The below commands are based on the Snowflake [documentation](https://community.
 
 4. Navigate to the [Snowflake Settings page](https://console.vantage.sh/settings/snowflake) in the Vantage console to add a new Snowflake connection. Then, click **Add Connection**. 
 5. Add the following information to the form:
-   - **Server URL**: In the format `<account_identifier>.<region>.snowflakecomputing.com`. Your Server URL is typically available if you hover over your username in the bottom-left corner of the Snowflake console. 
+   - **Server URL**: In the format `<account_identifier>.<region>.snowflakecomputing.com`. 
    - **Database**: The name of the database the usage views are in (e.g., `vantage`).
    - **Schema**: The name of the schema the usage views are in (e.g., `public`).
    - **Username** and **Password** set for the `vantage` user. 
-6. Click **Connect Account**. The status of your account will change to `Importing`. Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. Vantage will refresh at least once daily for Snowflake. 
+6. Click **Connect Account**. The status of your account will change to `Importing`. 
+
+Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. Vantage will refresh at least once daily for Snowflake. 
 
 
 ### Troubleshooting
