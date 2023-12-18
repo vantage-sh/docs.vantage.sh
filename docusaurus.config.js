@@ -81,6 +81,11 @@ const config = {
             from: "/terraform_cloud_integration",
             to: "/terraform",
           },
+          {
+            from:"/supported_services",
+            to:"/aws_supported_services",
+
+          },
         ],
       },
     ],

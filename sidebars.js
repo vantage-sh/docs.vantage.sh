@@ -60,7 +60,7 @@ module.exports = {
           items: [
             "connecting_aws", 
             "permissions_aws", 
-            "supported_services"
+            "aws_supported_services"
           ],
         },
         {
