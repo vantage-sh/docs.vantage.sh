@@ -14,7 +14,7 @@ Vantage is an official HashiCorp partner and offers a Terraform _module_ for get
 - **Vantage Terraform provider**: The [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) comprises a number of Vantage resources you can create, such as Cost Reports, Dashboards, etc. The Terraform provider makes it possible to fully automate and manage Vantage from within your existing Terraform codebase. Companies with IaC practices can set up, create, and sync their cost reporting structure with Vantage.
 
 
-## Vantage Terraform Integrations Module for AWS
+## Vantage Terraform Integrations Module for AWS {#integrations-module}
 
 Use the Vantage Integrations module to link your AWS and Vantage accounts. Organizations can leverage the module to integrate thousands of AWS accounts with Vantage. To get set up with this module, see the additional documentation on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
 

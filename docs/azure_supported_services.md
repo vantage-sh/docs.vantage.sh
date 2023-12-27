@@ -12,10 +12,6 @@ keywords:
 
 Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing for the following services using custom logic to query APIs for each individual Azure service. While we support per-resource pricing for the most popular services, we do not offer support for all Azure services by default.
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Azure Active Resources" width="80%" src="/img/azure-active-resources.png" />
-</div>
-
 :::note
 To request new service support on Vantage, please email [support@vantage.sh](mailto:support@vantage.sh) with the subject line "New Azure Service Support." Please include a detailed description about what information you'd like to see.
 :::
@@ -54,92 +50,4 @@ Below is a list of currently supported Azure services for Active Resources. Vant
 
 ## Supported Regions
 
-Vantage supports the following Azure regions. In the event your region isn't listed, and you'd like it added, please contact [Vantage Support](mailto:support@vantage.sh), and we are happy to help.
-
-| Region              | Region Name              |
-| ------------------- | ------------------------ |
-| eastus              | East US                  |
-| eastus2             | East US 2                |
-| southcentralus      | South Central US         |
-| westus2             | West US 2                |
-| westus3             | West US 3                |
-| australiaeast       | Australia East           |
-| southeastasia       | Southeast Asia           |
-| northeurope         | North Europe             |
-| swedencentral       | Sweden Central           |
-| uksouth             | UK South                 |
-| westeurope          | West Europe              |
-| centralus           | Central US               |
-| southafricanorth    | South Africa North       |
-| centralindia        | Central India            |
-| eastasia            | East Asia                |
-| japaneast           | Japan East               |
-| koreacentral        | Korea Central            |
-| canadacentral       | Canada Central           |
-| francecentral       | France Central           |
-| germanywestcentral  | Germany West Central     |
-| norwayeast          | Norway East              |
-| polandcentral       | Poland Central           |
-| switzerlandnorth    | Switzerland North        |
-| uaenorth            | UAE North                |
-| brazilsouth         | Brazil South             |
-| centraluseuap       | Central US EUAP          |
-| qatarcentral        | Qatar Central            |
-| centralusstage      | Central US (Stage)       |
-| eastusstage         | East US (Stage)          |
-| eastus2stage        | East US 2 (Stage)        |
-| northcentralusstage | North Central US (Stage) |
-| southcentralusstage | South Central US (Stage) |
-| westusstage         | West US (Stage)          |
-| westus2stage        | West US 2 (Stage)        |
-| asia                | Asia                     |
-| asiapacific         | Asia Pacific             |
-| australia           | Australia                |
-| brazil              | Brazil                   |
-| canada              | Canada                   |
-| europe              | Europe                   |
-| france              | France                   |
-| germany             | Germany                  |
-| global              | Global                   |
-| india               | India                    |
-| japan               | Japan                    |
-| korea               | Korea                    |
-| norway              | Norway                   |
-| singapore           | Singapore                |
-| southafrica         | South Africa             |
-| switzerland         | Switzerland              |
-| uae                 | United Arab Emirates     |
-| uk                  | United Kingdom           |
-| unitedstates        | United States            |
-| unitedstateseuap    | United States EUAP       |
-| eastasiastage       | East Asia (Stage)        |
-| southeastasiastage  | South East Asia (Stage)  |
-| brazilus            | Brazil US                |
-| eastusstg           | East US STG              |
-| northcentralus      | North Central US         |
-| westus              | West US                  |
-| jioindiawest        | Jio India West           |
-| eastus2euap         | East US 2 EUAP           |
-| southcentralusstg   | South Central US STG     |
-| westcentralus       | West Central US          |
-| southafricawest     | South Africa West        |
-| australiacentral    | Australia Central        |
-| australiacentral2   | Australia Central 2      |
-| australiasoutheast  | Australia Southeast      |
-| japanwest           | Japan West               |
-| jioindiacentral     | Jio India Central        |
-| koreasouth          | Korea South              |
-| southindia          | South India              |
-| westindia           | West India               |
-| canadaeast          | Canada East              |
-| francesouth         | France South             |
-| germanynorth        | Germany North            |
-| norwaywest          | Norway West              |
-| switzerlandwest     | Switzerland West         |
-| ukwest              | UK West                  |
-| uaecentral          | UAE Central              |
-| brazilsoutheast     | Brazil Southeast         |
-| usgovvirginia       | USGov Virginia           |
-| usgovarizona        | USGov Arizona            |
-| usgovtexas          | USGov Texas              |
-| italynorth          | Italy North              |
+Vantage can sync resources from all Azure regions with external connectivity.
