@@ -12,7 +12,7 @@ keywords:
 
 ## Supported Services
 
-Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing for the following services by using custom logic to query APIs for each individual AWS service. While we support per-resource pricing for the most popular services, we do not offer support for all AWS services, by default. That being said, if you have an AWS service you'd like to be supported, we can typically add support for most AWS services in under a week.
+Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing for the following services using custom logic to query APIs for each individual AWS service. While we support per-resource pricing for the most popular services, we do not offer support for all AWS services, by default. If you have an AWS service you'd like to be supported, we can typically add support for most AWS services in under a week.
 
 :::info
 To request new service support on Vantage, please email [support@vantage.sh](mailto:support@vantage.sh) with the subject line of _New AWS Service Support_. Include as much information as you can about the data you'd like to see.

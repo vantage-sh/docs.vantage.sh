@@ -10,13 +10,13 @@ keywords:
 
 # AWS Permissions
 
-Vantage requests certain IAM permissions to interact with your AWS account. All permissions are `ReadOnly` by default. The list of permissions was generated based on the `ReadOnlyAccess` AWS-managed IAM policy, with a number of permissions then removed from that original policy list. The list of permissions can be viewed on our [provided CloudFormation Stack file](https://vantage-public.s3.amazonaws.com/vantage-integration-latest.json).
+Vantage requests certain IAM permissions to interact with your AWS account. All permissions are `ReadOnly` by default. The list of permissions was generated based on the `ReadOnlyAccess` AWS-managed IAM policy, with a number of permissions then removed that were on the original policy list. The list of permissions can be viewed on our [provided CloudFormation Stack file](https://vantage-public.s3.amazonaws.com/vantage-integration-latest.json).
 
 ## Permission Descriptions
 
-Below is a line-by-line description of each permission requested and what it is used for. In many cases, we have preemptively requested permissions that are not used but are reserved for future feature support so that we do not need you to update the permission list for each subsequent feature.
+Below is a line-by-line description of each permission requested and what it is used for. In many cases, we have preemptively requested permissions that are not used but are reserved for future feature support, so that we do not need you to update the permission list for each subsequent feature.
 
-These permissions work in a gracefully degraded fashion, in which you can modify these permissions as desired, and Vantage will work with the data to which it has access.
+You can modify these permissions as desired, and Vantage will work only with the data to which it has access.
 
 | Permission                                                    | Description                                                                                                                                         |
 | ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
