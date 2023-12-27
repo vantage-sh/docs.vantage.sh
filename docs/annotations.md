@@ -11,16 +11,16 @@ import TabItem from '@theme/TabItem';
 
 # Annotations
 
-Annotations add context to events or data points within [Cost Reports](/cost_reports). The annotation consists of a date and a comment. Annotations are particularly useful for describing the infrastructure or cost event that occurred on a particular date.
+Annotations add context to events or data points within [Cost Reports](/cost_reports) or [Segment Reports](/segments). The annotation consists of a date and a comment. Annotations are particularly useful for describing the infrastructure or cost event that occurred on a particular date.
 
 ## Add an Annotation
 
-You can add annotations directly from the chart on a Cost Report or from the **Annotations** sidebar.
+You can add annotations directly from the chart on a report or from the **Annotations** sidebar.
 
 <Tabs>
   <TabItem value="add-graph" label="Add from a Cost Report Chart" default>
     <ol>
-    <li>From any Cost Report chart or graph, hover over the chart's bars or line and select any date point you want to annotate.</li>
+    <li>From any report chart or graph, hover over the chart's bars or line and select any date point you want to annotate.</li>
     <li>The <strong>Annotations</strong> sidebar is displayed on the right side of the screen. Your username is displayed as well as the date that corresponds with the selected date point on the chart. Enter a comment for the annotation.</li>
     <li>To save the annotation, click the arrow icon on the bottom right of the comment box.</li>
     </ol>
@@ -30,7 +30,7 @@ You can add annotations directly from the chart on a Cost Report or from the **A
     </TabItem>
   <TabItem value="add-sidebar" label="Add from the Annotation Sidebar" default>
     <ol>
-    <li>From the top-right of any Cost Report, click the <strong>Annotation</strong> icon (looks like a word bubble).</li>
+    <li>From the top-right of any report, click the <strong>Annotation</strong> icon (looks like a word bubble).</li>
     <li>The <strong>Annotations</strong> sidebar is displayed. Click <strong>New</strong>.</li>
     <li>Select the appropriate date from the date picker, and enter a comment.</li>
     <li>To save the annotation, click the arrow icon on the bottom right of the comment box.</li>
@@ -82,7 +82,7 @@ By default, Cost Reports are filtered to hide resolved annotations from the anno
 
 ## View Corresponding Issues {#issue}
 
-When an annotation is created, a corresponding [issue](https://www.vantage.sh/features/issues) is also automatically created. 
+When an annotation is created, a corresponding [issue](/issues) is also automatically created. 
 
 1. To open the corresponding issue, click the ellipses (...) on the top right of the annotation. 
 2. Then, select **Go to Issue**.
