@@ -231,7 +231,7 @@ Financial planning permissions are relevant to specific screens in the console, 
 Users with the Editor or above role will be able to create resources in and manage the above functions.
 
 :::note
-Any user who is assigned to an issue will have update permissions for that issue. 
+Any user who is assigned to an [issue](/issues) will have update permissions for that issue. 
 :::
 
 <details>

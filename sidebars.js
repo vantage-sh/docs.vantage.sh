@@ -140,6 +140,7 @@ module.exports = {
         "autopilot",
         "budgets",
         "per_unit_costs",
+        "issues",
         "savings_planner",
         "cost_recommendations",
         ],
