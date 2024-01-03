@@ -147,6 +147,42 @@ helm uninstall vka -n vantage
 ```
 Then, follow the original installation steps outlined in the above sections.
 
+## (Optional) Use S3 for Data Persistence
+
+The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. The default deployment option uses a Persistent Volume and works for clusters ranging from tens to thousands of nodes; however, if Persistent Volumes are not supported with your cluster, an alternative configuration, using S3, is available for agents deployed in AWS. If you require persistence to a different object store, you can contact [support@vantage.sh](mailto:support@vantage.sh).
+
+### Configure Agent for S3 Persistence
+
+The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
+
+Below are the expected associated permissions for the IAM role:
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:GetObject",
+                "s3:PutObject",
+                "s3:ListBucket",
+                "s3:AbortMultipartUpload",
+                "s3:ListMultipartUploadParts",
+                "s3:DeleteObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::example-bucket-name/*",
+                "arn:aws:s3:::example-bucket-name"
+            ]
+        }
+    ]
+}
+```
+
+Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persist_s3=example-bucket-name` values.
+
+The agent will write persisted data to the `$CLUSTER_ID/` prefix within the bucket. Multiple agents can use the same bucket as long as they do not have overlapping `CLUSTER_ID` values. An optional prefix can be prepended with `VANTAGE_PERSIST_S3_PREFIX` resulting in `$VANTAGE_PERSIST_S3_PREFIX/$CLUSTER_ID/` being the prefix used by the agent for all objects uploaded.
+
 ## Migrate Costs from OpenCost to Vantage Kubernetes Agent
 
 If you are moving from an OpenCost integration to the agent-based integration, you can contact [support@vantage.sh](mailto:support@vantage.sh) to have your previous integration data maintained. Any overlapping data will be removed from the agent data by the Vantage team.
