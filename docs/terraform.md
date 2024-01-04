@@ -51,9 +51,9 @@ With the [Terraform provider](https://registry.terraform.io/providers/vantage-sh
 | Folder       | `vantage_folder`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/folder)       |
 | Saved Filter | `vantage_saved_filter`  | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/saved_filter) |
 
-:::important Important
-The ability to create, edit and destroy resources is keyed to the permissions of the user associated with the API token. For enterprise customers, role-based access controls also affect
-these actions. Please consult the documentation on [RBAC for further information](/rbac).
+:::caution Important
+The ability to create, edit, and destroy resources is keyed to the permissions of the user associated with the API token. For Enterprise customers, role-based access controls also affect
+these actions. Review the documentation on [RBAC for further information](/rbac).
 :::
 
 
