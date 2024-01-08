@@ -13,6 +13,8 @@ toc_max_heading_level: 4
 
 Vantage supports single sign-on (SSO) via self-service single sign-on as well as a number of other supported IdPs. You can use self-service SSO to connect your SAML (Security Assertion Markup Language) Identity Provider (IdP) to your Vantage account. With self-service SSO, you can use your existing credentials to authenticate and access your Vantage account. SSO streamlines the login process, since users don't need to create a new account or remember another set of login credentials for Vantage.
 
+Vantage uses Just-in-Time (JIT) provisioning for user provisioning. As long as a user is granted access in your IdP, the user will be provisioned an account in Vantage when they first log in.
+
 ## Self-Service SSO via SAML
 
 :::note
@@ -231,26 +233,26 @@ To use the SSO Team Assignment feature, you will need to have teams already set 
 1.  From the top menu of the Vantage console, click **Settings**.
 2.  On the left navigation menu, select **Authentication**. You will see your SSO connection listed.
 3.  In the **SSO Team Assignment** section of the connection, click the toggle button to enable the feature.
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="SSO team assignment toggle in the console" width="80%" src="/img/sso-team-assignment.png" />
-    </div>
-   Vantage will match SSO groups to Vantage teams based on the case-sensitive name of the SSO group. If a team name in Vantage matches an SSO group name, the user will be placed into that team in Vantage. Users will be mapped into the appropriate teams during their next login.
-  
-  :::caution Important
-  After the SSO Team Assignment setting is enabled, users will be removed from Vantage teams that are not present in the SSO groups. If you want to modify this behavior, contact [support@vantage.sh](mailto:support@vantage.sh). The Everyone team will remain unchanged.
-  :::
+ <div style={{display:"flex", justifyContent:"center"}}>
+ <img alt="SSO team assignment toggle in the console" width="80%" src="/img/sso-team-assignment.png" />
+ </div>
+Vantage will match SSO groups to Vantage teams based on the case-sensitive name of the SSO group. If a team name in Vantage matches an SSO group name, the user will be placed into that team in Vantage. Users will be mapped into the appropriate teams during their next login.
 
-### Create Custom Mappings 
+:::caution Important
+After the SSO Team Assignment setting is enabled, users will be removed from Vantage teams that are not present in the SSO groups. If you want to modify this behavior, contact [support@vantage.sh](mailto:support@vantage.sh). The Everyone team will remain unchanged.
+:::
+
+### Create Custom Mappings
 
 If your team names in Vantage _do not match_ your identity provider, or you want multiple groups to be added to the same team, you can create **custom mappings**.
 
 1. To create custom mappings, click the **Show** dropdown menu next to **Custom Mappings**.
 2. In the **SSO Group Name** column, enter the group names from your SSO provider. The SSO Group Name you enter should match the corresponding name in your identity provider. Note that the mapping is case-sensitive.
 3. From the **Vantage Team** dropdown, select the corresponding Vantage team.
-4. Click **Add** to add additional mappings. 
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="SSO group mapping in the console" width="60%" src="/img/sso-group-mapping.png" />
-    </div>
+4. Click **Add** to add additional mappings.
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="SSO group mapping in the console" width="60%" src="/img/sso-group-mapping.png" />
+</div>
 5. When you are finished, click **Save**.
 
 :::note
@@ -267,11 +269,11 @@ To enable group mapping in Okta:
 2. Edit your **SAML Settings**.
 3. For **Name**, enter `groups`.
 4. If you would like to pass through all groups, set the **Filter** to **Matches regex** with a value of `.*`.
-  <details>
-      <summary>Click to view example image</summary>
-      <div> 
-      <img alt="Okta group attribute settings" width="80%" src="/img/okta-group-attribute.png"/> </div>
-  </details>
+<details>
+    <summary>Click to view example image</summary>
+    <div> 
+    <img alt="Okta group attribute settings" width="80%" src="/img/okta-group-attribute.png"/> </div>
+</details>
 
 :::info
 If you need help with your specific identity provider, contact [support@vantage.sh](mailto:support@vantage.sh).
