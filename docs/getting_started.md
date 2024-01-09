@@ -112,6 +112,13 @@ Next, create a data integration between at least one of your providers and Vanta
       content: 'Vantage integrates with your Confluent account through a revocable read/write API key and secret. Confluent API keys are free for you to create—and adding to the Vantage console only takes a few minutes.',
       link: "/connecting_confluent",
     },
+    {
+      icon: '/img/logos/logo-icon-planetscale.svg',
+      iconAltText: 'PlanetScale logo',
+      title: 'PlanetScale',
+      content: 'Vantage integrates with your PlanetScale account through the PlanetScale Costs API using an OAuth workflow.',
+      link: "/connecting_planetscale",
+    },
   ]}
   columns={2}
 />
