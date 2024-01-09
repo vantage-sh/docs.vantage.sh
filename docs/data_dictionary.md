@@ -39,6 +39,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | MongoDB Atlas | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas) |
 | New Relic     | `newrelic`     | [View New Relic Fields](#new-relic)         |
 | Oracle Cloud  | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)   |
+| PlanetScale   | `planetscale`  | [View PlanetScale Fields](#planetscale)     |
 | Snowflake     | `snowflake`    | [View Snowflake Fields](#snowflake)         |
 
 ## AWS {#aws}
@@ -170,6 +171,16 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Provider    | `provider`            | string    | `costs.provider`            |
 | Category    | `category`            | string    | `costs.category`            |
 | Resource    | `resource_id`         | string    | `costs.resource_id`         |
+
+## PlanetScale {#planetscale}
+
+| Filter       | API Field Name | Data Type | `namespace.field `  |
+| ------------ | -------------- | --------- | ------------------- |
+| Category     | `category`     | string    | `costs.category`    |
+| Subcategory  | `subcategory`  | string    | `costs.subcategory` |
+| Organization | `account_id`   | string    | `costs.account_id`  |
+| Service      | `service`      | string    | `costs.service`     |
+| Resource     | `resource_id`  | string    | `costs.resource_id` |
 
 ## Snowflake {#snowflake}
 
