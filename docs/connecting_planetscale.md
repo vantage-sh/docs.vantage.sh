@@ -9,9 +9,9 @@ keywords:
 
 # PlanetScale
 
-Vantage integrates with PlanetScale billing data via the PlanetScale Costs API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added.
+Vantage integrates with PlanetScale billing data via the PlanetScale Invoices API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added.
 
-Vantage supports the following services for databases and branches:
+Vantage supports Databases and the following services for Branches:
 
 - PS-10
 - PS-20
@@ -59,4 +59,4 @@ You can also view credits or discounts for PlanetScale costs in Cost Reports.
 
 ## Active Resources
 
-PlanetScale databases and branches are synced as active resources and available in [resource reports](/active_resources).
+PlanetScale databases are synced as active resources and available in [resource reports](/active_resources).

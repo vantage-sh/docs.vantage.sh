@@ -30,7 +30,7 @@ The following active resources are available for the providers below.
 | Snowflake     | Snowflake queries are synced as active resources                      |
 | MongoDB Atlas | MongoDB Atlas clusters are synced as active resources.                |
 | Confluent     | Confluent Kafka Clusters are synced as active resources.              |
-| PlanetScale   | PlanetScale databases and branches are available as active resources. |
+| PlanetScale   | PlanetScale databases are available as active resources.              |
 
 ## Viewing Active Resources
 
