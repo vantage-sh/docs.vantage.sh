@@ -58,7 +58,7 @@ Azure and GCP also support category and subcategory costs on cost reports. In th
 
 ## Per Resource Costs
 
-When supported in the list of [support services](/supported_services/), Vantage will also be able to show you each individual resource cost. For example, you can see not only the total cost of RDS instances in aggregate day by day but then if you click into "Costs by Resource" within a Cost Report, you can also see how much each individual resource costs. Below is an example of two RDS instances present in the account how much each one of them is driving in costs - this data can be seen without the need for you to do any additional tagging:
+When supported in the list of [supported services](/aws_supported_services/), Vantage will also be able to show you each individual resource cost. For example, you can see not only the total cost of RDS instances in aggregate day by day but then if you click into "Costs by Resource" within a Cost Report, you can also see how much each individual resource costs. Below is an example of two RDS instances present in the account how much each one of them is driving in costs - this data can be seen without the need for you to do any additional tagging:
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Example of Per Resource Costs" width="80%" src="/img/per_resource_list.png" />
