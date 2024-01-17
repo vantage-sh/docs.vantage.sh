@@ -9,9 +9,22 @@ keywords:
 
 # PlanetScale
 
-Vantage integrates with PlanetScale billing data via the PlanetScale Invoices API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added.
+Vantage integrates with PlanetScale billing data via the PlanetScale Invoices API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added. After authorizing Vantage access to your PlanetScale organizations, Vantage will begin to ingest data using the Organizations, Invoice, and Database endpoints.
 
-Vantage supports Databases and the following services for Branches:
+The required scopes to connect are:
+
+- User access
+    - read_organizations
+- Organization access
+    - read_organization
+    - read_invoices
+    - read_databases
+
+No access is granted to the actual databases themselves. Vantage can see only metadata related to the databases.
+
+The Invoice endpoint provides structured cost data, broken down by service (e.g., Database or Support), category (e.g., PS_10, PS_20), and resource (e.g., the specific database). All credentials are encrypted.
+
+Vantage supports Databases and Support services as well as the following services for Branches:
 
 - PS-10
 - PS-20
@@ -47,10 +60,9 @@ PlanetScale data refreshes daily in Vantage.
 On PlanetScale [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
 - Organization
-- Service (e.g., PS-10)
-- Category (e.g., Database)
-- Subcategory (e.g., the name of the Database)
-- Resource
+- Service (e.g., Database or Support)
+- Category (e.g., PS_10, PS_20)
+- Resource (e.g., database name)
 
 You can also view credits or discounts for PlanetScale costs in Cost Reports.
 

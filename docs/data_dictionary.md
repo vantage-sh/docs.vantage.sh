@@ -177,7 +177,6 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Filter       | API Field Name | Data Type | `namespace.field `  |
 | ------------ | -------------- | --------- | ------------------- |
 | Category     | `category`     | string    | `costs.category`    |
-| Subcategory  | `subcategory`  | string    | `costs.subcategory` |
 | Organization | `account_id`   | string    | `costs.account_id`  |
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
