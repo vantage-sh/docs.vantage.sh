@@ -115,6 +115,9 @@ module.exports = {
       items: [
         "overview",
         "cost_reports",
+        "dashboards",
+        "folders",
+        "saved_filters",
         "annotations",
         "forecasting",
         "active_resources",
