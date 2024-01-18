@@ -15,6 +15,7 @@
   --ifm-color-primary-lightest: #E59DFF;
   --ifm-code-font-size: 95%;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+  --ifm-menu-color: #303037;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -155,7 +156,7 @@ li.theme-doc-sidebar-item-category-level-4 .menu__list-item-collapsible {
 
 .menu__list-item-collapsible .menu__link--active{
   background: none !important;
-  color: #606770;
+  color: #303037;
   font-weight: 700 !important;
 }
 
