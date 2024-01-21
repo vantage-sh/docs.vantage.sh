@@ -115,9 +115,15 @@ module.exports = {
       items: [
         "overview",
         "cost_reports",
-        "dashboards",
-        "folders",
-        "saved_filters",
+        {
+          type: "category",
+          label: "Cost Report Management",
+          items: [
+            "saved_filters",
+            "folders",
+            "dashboards",
+          ],
+        },
         "annotations",
         "forecasting",
         "active_resources",

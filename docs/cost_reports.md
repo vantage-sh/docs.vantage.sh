@@ -14,38 +14,38 @@ You can create as many Cost Reports as you'd like and filter your costs across a
 
 ## Create a Cost Report
 
-This section walks you through how to create a Cost Report, add a basic filter, and save a Cost Report. 
+This section walks you through how to create a Cost Report, add a basic filter, and save a Cost Report.
 
 1. From the top navigation, select **Cost Reporting**.
 2. On the side navigation, select **Cost Reports**.
 3. On the top right, click **+ New**. A new, unfiltered Cost Report is displayed.
-4. From the top left of the graph, click **Filters**. Then, click **+ Add a Filter**. Select your desired filter criteria. 
-5. From the top right of the graph, use the date picker to select the date range for the report. 
+4. From the top left of the graph, click **Filters**. Then, click **+ Add a Filter**. Select your desired filter criteria.
+5. From the top right of the graph, use the date picker to select the date range for the report.
 6. Select one of the following date bins:
-    - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
-    - **Daily, Weekly, or Monthly:** Displayed as a bar chart, with each date range organized into bins within the bar chart
+   - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
+   - **Daily, Weekly, or Monthly:** Displayed as a bar chart, with each date range organized into bins within the bar chart
 
 You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
 
-- [Filter a cost report](#filtering-cost-reports) 
+- [Filter a cost report](#filtering-cost-reports)
 - [Configure report groups](#configure-report-groups)
-- [Configure Credits, Discounts, Refunds, Taxes](#credits-discounts) 
-- [Enable/disable amortization](#amortization) 
+- [Configure Credits, Discounts, Refunds, Taxes](#credits-discounts)
+- [Enable/disable amortization](#amortization)
 - [Perform comparative cost reporting](#comparative-cost-reporting)
 
 ### Save a Cost Report {#saving-cost-reports}
 
-After you apply all desired filters to the report, you can save your changes and name the report. 
+After you apply all desired filters to the report, you can save your changes and name the report.
 
-1. From the top right of the graph, click **Save As New** to create a new Cost Report with your changes, or **Save Changes** to modify the current report. 
+1. From the top right of the graph, click **Save As New** to create a new Cost Report with your changes, or **Save Changes** to modify the current report.
 2. Enter a name, then click **Save**.
-    :::note
-    If you update the date range, date bin (e.g., **Last 30 Days**), or grouping, you can also permanently save these changes. Once saved, the new date range, date bucket, and grouping will persist to the [Overview](/overview) page. If you save a report that includes only changes to filter sets, the report will be displayed on the Overview page with the last six months of costs.
-    :::
+   :::note
+   If you update the date range, date bin (e.g., **Last 30 Days**), or grouping, you can also permanently save these changes. Once saved, the new date range, date bucket, and grouping will persist to the [Overview](/overview) page. If you save a report that includes only changes to filter sets, the report will be displayed on the Overview page with the last six months of costs.
+   :::
 
 ### Dashboards and Cost Report Folders
 
-You organize your Cost Reports in folders and add Cost Reports to dashboards. See the [Folders](/folders) and [Dashboards](/dashboards) documentation for more information. 
+You organize your Cost Reports in folders and add Cost Reports to dashboards. See the [Folders](/folders) and [Dashboards](/dashboards) documentation for more information.
 
 ## Filter Cost Reports {#filtering-cost-reports}
 
@@ -56,7 +56,7 @@ On the **Filters** menu, click **Select a provider**, and choose from any of you
 </div>
 <br/>
 
-To view available filter options, click **New Rule**. A list of filter options is displayed (e.g., Account, Resource). Filter options vary per provider. 
+To view available filter options, click **New Rule**. A list of filter options is displayed (e.g., Account, Resource). Filter options vary per provider.
 
 Each filter includes options for exact matching and fuzzy matching. For example, in the image below, you can select **is**, **is not**, **contains**, **does not contain**, **starts with**, and **ends with** for the **Resource** filter. This set of options can vary per selected filter. Select a matching option, then select a filter value (e.g., <code>where <strong>Service</strong> is <strong>Amazon Relational Database Service</strong> + <strong>Amazon Elastic Cloud - Compute</strong></code>)
 
@@ -64,24 +64,24 @@ Each filter includes options for exact matching and fuzzy matching. For example,
     <img alt="Selecting matching criteria for a filter in a Cost Report" width="80%" src="/img/resource-filter-options.png" />
 </div>
 
-To continue filtering the report, you can perform any of the following actions: 
-- To add another value for that filter, click the **+** icon next to the first value. 
+To continue filtering the report, you can perform any of the following actions:
+
+- To add another value for that filter, click the **+** icon next to the first value.
 - To remove a selected filter value, click the trashcan icon.
-- To add more filter criteria, click **New Rule**. The graph is updated to display costs that match the first filter criteria and the second filter criteria. 
-- To add a separate filter set, click **+ Add a Filter**. You can use this option to also add costs from another provider. The graph is updated to display costs that match the first filter set **OR** the second filter set. 
+- To add more filter criteria, click **New Rule**. The graph is updated to display costs that match the first filter criteria and the second filter criteria.
+- To add a separate filter set, click **+ Add a Filter**. You can use this option to also add costs from another provider. The graph is updated to display costs that match the first filter set **OR** the second filter set.
 - To remove a filter set, click the three dots (**...**) on the top right of the filter set, then click **Delete**.
 
 ### Category and Subcategory Cost Filters
 
-Each service typically has multiple underlying category and subcategory costs. For example, if you have AWS connected, you can filter by a number of different subcategories, like the amount of storage you've used or for the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects. 
+Each service typically has multiple underlying category and subcategory costs. For example, if you have AWS connected, you can filter by a number of different subcategories, like the amount of storage you've used or for the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects.
 
 Similarly, Azure and GCP also support category and subcategory costs on Cost Reports. For example, with Azure, if you filter by **Subcategory** for the **Service** of **Virtual Machines**, you can then filter for individual Azure VMs. In GCP, the labels you apply to resources will be displayed as subcategories.
 
 You can drill down in the costs table to view **Category** costs:
 
-1. Add a filter for a provider, like AWS. The table below the graph is updated to show costs grouped by service. 
-2. Next to each listed service, you should see a few icons. Click the **Costs by Category** icon (looks like a set of squares). A full breakdown of all subcategory costs that comprise the main AWS service cost is displayed. 
-
+1. Add a filter for a provider, like AWS. The table below the graph is updated to show costs grouped by service.
+2. Next to each listed service, you should see a few icons. Click the **Costs by Category** icon (looks like a set of squares). A full breakdown of all subcategory costs that comprise the main AWS service cost is displayed.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
     <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/category-costs.gif"/>
@@ -90,10 +90,10 @@ You can drill down in the costs table to view **Category** costs:
 
 ### Per-Resource Cost Filters
 
-For certain providers, like AWS, you can view individual resource cost. 
+For certain providers, like AWS, you can view individual resource cost.
 
-1. Add a filter for a provider, like AWS. The table below the graph contains costs grouped by service. 
-2. Next to each listed service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that comprise that main AWS service cost is displayed. 
+1. Add a filter for a provider, like AWS. The table below the graph contains costs grouped by service.
+2. Next to each listed service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that comprise that main AWS service cost is displayed.
 
 In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
 
@@ -109,20 +109,21 @@ You can also view the **Category** and **Subcategory** costs on a per-resource b
 
 ### Percent-Based Cost Allocation {#percent-based-cost-allocation}
 
-With percent-based cost allocation, you can filter Cost Reports to show back shared resources like support costs or multi-tenant databases to the team or department that uses them. As filters are set in a Cost Report, Vantage will query for costs that meet all those conditions. 
+With percent-based cost allocation, you can filter Cost Reports to show back shared resources like support costs or multi-tenant databases to the team or department that uses them. As filters are set in a Cost Report, Vantage will query for costs that meet all those conditions.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost allocation of 50% is added to a filter set on a Kubernetes Cost Report" width="80%" src="/img/showback-cost-allocation.png" />
 </div>
 
 To set percent-based cost allocation:
- 
+
 1. From the **Filters** menu, select your desired filter criteria, for example, select the **AWS** provider option and filter by **Service** to only RDS costs.
 2. Select the **Add Cost Allocation** option for the filter set, then enter a value between 1 and 100%. The set percentage will be applied to all the matching costs and represented accordingly in the Cost Report.
 
 When percent-based cost allocation is set as a filter, forecasts will be produced in aggregate for all set conditions, and the percentage allocation will be applied to that forecast.
 
 ### Saved Filters
+
 You can create and use **Saved Filters** to apply commonly used filters across multiple reports. Review the [Saved Filters documentation](/saved_filters) for more information.
 
 ## Configure Report Groups {#configure-report-groups}
@@ -138,7 +139,7 @@ You can group by the following dimensions:
 - Resource
 - Provider (e.g., AWS, GCP, Azure)
 - Category
-- Subcategory 
+- Subcategory
 - Charge Type
 - Tag Key
 
@@ -153,23 +154,23 @@ After a Cost Report has been grouped, each grouping is displayed as its own colu
 </div>
 
 :::tip
-To sort the table by multiple columns, press **Shift + Click** on the column headers. 
+To sort the table by multiple columns, press **Shift + Click** on the column headers.
 :::
 
 ## Configure Report Settings
 
-### Credits, Discounts, Refunds, and Taxes {#credits-discounts} 
+### Credits, Discounts, Refunds, and Taxes {#credits-discounts}
 
 By default, all Cost Reports include discounts and taxes. You can optionally enable credits and discounts, too.
 
 - **Credits:** Credits are often promotional codes redeemed for services or trials on your account.
 - **Discounts:** Discounts can include programs like the AWS Enterprise Discount program. Discounts are often negotiated with the cloud provider and based on usage. You might see discounts reflected as negative values in the Cost Report table. You can follow the below best practices for analyzing Cost Reports with discounts:
-  - If you remove the **Discount** setting, you can view usage and costs *before* the discount was applied. 
-  - Group the Cost Report by **Charge Type**. This grouping displays costs separated by items like usage, discounts, EDP discounts, and taxes. 
+  - If you remove the **Discount** setting, you can view usage and costs _before_ the discount was applied.
+  - Group the Cost Report by **Charge Type**. This grouping displays costs separated by items like usage, discounts, EDP discounts, and taxes.
 - **Refunds:** Any associated refunds.
-- **Taxes:** Any associated taxes. 
+- **Taxes:** Any associated taxes.
 
-To configure these options: 
+To configure these options:
 
 1. Above the Cost Report graph, click **Settings**.
 2. Select an option to toggle on/off any of the included costs (e.g., discounts, etc.).
@@ -180,7 +181,7 @@ By default, all Cost Reports show upfront fees, such as fees for Reserved Instan
 
 In addition, Vantage uses committed use attribution for linked accounts. By default, you will see fees for Reserved Instances and Savings Plans assigned to the AWS account that _benefited_ from the discount—not the account that purchased the commitment.
 
-For more information about this logic, see <a href="https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution" target="_blank">the following Vantage blog post</a>.
+For more information about this logic, see the following [Vantage blog post](https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution).
 
 :::note
 In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were actually realized.
@@ -202,7 +203,7 @@ If you notice your costs in Vantage differ from what you see in Cost Explorer, t
 - **Amortization logic:** As noted above, Vantage uses a different amortization logic from Cost Explorer.
 - **EC2-Other:** In Cost Explorer, this cost category comprises a number of subcategories (e.g., Data Transfer). In Vantage, EC2-Other is reallocated into direct line items. For example, if you filter for NAT gateway expenditures, the charges initially categorized under transit or egress in EC2-Other are assigned to the individual resource that created the charge.
 
-For more tips on reviewing your cost data against Cost Explorer, see the following blog post.  
+For more tips on reviewing your cost data against Cost Explorer, see [the following blog post](https://www.vantage.sh/blog/analyze-aws-cost-data).
 
 ## Comparative Cost Reporting {#comparative-cost-reporting}
 
@@ -216,7 +217,7 @@ To compare costs day by day, week by week, or month by month on Cost Reports, cl
 
 You can select from two modes when you export a report: Basic or Advanced.
 
-- With a Basic export, you can modify only the date range of a report. 
+- With a Basic export, you can modify only the date range of a report.
 - With an Advanced export, you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
   - Provider (e.g., AWS, GCP, New Relic)
   - Service (e.g., EC2, EBS)
@@ -245,7 +246,7 @@ For the **Date Bin** export option, when you select **Week**, the week in the ex
 
 When the Export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An example export in a spreadsheet tool with groupings of **Service Category** and **Service Subcategory** is shown above. You can also export grouped Cost Reports and the groupings will be respected in the downloaded CSV.
 
-## Example Starter Cost Reports 
+## Example Starter Cost Reports
 
 Below are some example report filters you can use as your start to explore your cloud cost data.
 

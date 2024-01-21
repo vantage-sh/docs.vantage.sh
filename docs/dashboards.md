@@ -9,10 +9,40 @@ keywords:
 
 # Dashboards
 
+Dashboards comprise a group of [Cost Reports](/cost_reports). You can apply date range and period filters (e.g., display costs by day) to all reports on the dashboard. Using a consistent date across all reports helps with cost comparison between different reports. You can assign any number of reports to a dashboard regardless of which folder the report is in. Once a dashboard is created, you can modify the name, date settings, and add/remove reports from it.
+
+## Create a Dashboard
+
+1. From the top navigation, click **Cost Reporting**.
+2. On the left navigation, click **Dashboards**. All existing dashboards are displayed within this view.
+3. Click **+ New**.
+4. Enter a **Name**.
+5. Under **Add Reports**, the reports you want displayed on the dashboard.
+   :::note
+    At this time, you cannot add widgets from the Overview page, such as **Provider Summary**.
+   :::
+6. Click **Save**. Reports are displayed on the dashboard in alphabetical order, by report name.
+
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Dashboards" width="80%" src="/img/dashboards.png" />
+    <img alt="A dashboard in the console displayed with four different reports" width="70%" src="https://assets.vantage.sh/blog/dashboards/dashboards-2.png" />
 </div>
 
-Users can now create [dashboards](https://console.vantage.sh/dashboards) and apply date range and period filters to all reports present on them. The period can be Cumulative, Monthly, Weekly or Daily. You can add cost reports and cost allocation reports to dashboards by clicking "Edit". Reports are displayed on the dashboard in alphabetical order. At this time you cannot add widgets from the overview page such as Provider Summary.
+For each displayed report, you can click **View Report** to open that report outside of the dashboard. 
 
-You can star dashboards so that they appear in "Starred by me". Dashboards will also show up in "Recently Viewed". You can save dashboards or save new dashboards with the "Save" button in the top right. If you are viewing all the reports in a folder as a dashboard, you can save this dashboard by choosing "Save as New".
+To save a dashboard to your favorites, navigate to the [Dashboards](https://console.vantage.sh/dashboards) page, then click the star icon to the right of the **Created On** column. You can access starred dashboard from the **Starred By Me** screen in the left navigation. Dashboards you create are also displayed in the **Created By Me** screen.
+
+To delete a dashboard, navigate to the [Dashboards](https://console.vantage.sh/dashboards) page, then click the ellipses to the right of the **Created On** column. Click **Delete**.
+
+## Customize a Dashboard
+
+On the dashboard, you can apply the following customizations:
+
+- To change the date range of all displayed cost reports, click **Customize**. Select a date range and click **Apply**. Click **Save** to persist keep these settings. Click **Clear Filters** to remove filter updates.
+- To change the date grouping, click the **Choose Period** menu. Select either **Cumulative**, **Monthly**, **Weekly**, or **Daily**. Click **Save** to keep these settings. Click **Clear Filters** to remove filter updates.
+- To create a new dashboard based on an existing dashboard, click the down arrow next to **Save**. Then, click **Save as New**. You can then enter a new dashboard name and add additional reports. 
+- To reset each cost report back to its original settings, click **Reset**. 
+- To add more reports to the dashboard or change the dashboard's name, click **Edit**.
+
+## Share a Dashboard
+
+From the top of any dashboard, click **Share**. A link is added to your clipboard where you can share the dashboard with any Vantage user in your organization who has access to view the dashboard. Each report on the dashboard also has a share option, with a unique link. 
