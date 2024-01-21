@@ -18,7 +18,7 @@ Use saved filters to reuse filter logic across multiple Cost Reports. If you upd
 2. On the left navigation, select **Saved Filters**. All existing saved filters are displayed.
 3. Click **New Filter**.
 4. Enter a **Filter Name**. 
-5. If you want to add a filter to a [folder](/folder), select the **Folders** tab. Then select the any applicable folders.The saved filter will be added to any existing Cost Reports within that folder as well as any new Cost Reports you create within that folder. The saved filter will also apply to any sub-folders within that folder. For individual Cost Reports, saved filters can only be assigned from within that Cost Report.
+5. If you want to add a filter to a [folder](/folders), select the **Folders** tab. Then select the any applicable folders.The saved filter will be added to any existing Cost Reports within that folder as well as any new Cost Reports you create within that folder. The saved filter will also apply to any sub-folders within that folder. For individual Cost Reports, saved filters can only be assigned from within that Cost Report.
 6. Under **Filters**, click **+ Add a Filter**. Select your filter criteria. For more information about creating filters and filter options, see the [Cost Reports documentation](/cost_reports#filtering-cost-reports). 
 7. At the top, click **Save**.
 
