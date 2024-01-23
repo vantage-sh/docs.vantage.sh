@@ -1,13 +1,13 @@
 ---
 id: connecting_aws
-title: Set Up AWS
+title: AWS
 description: This page walks through how to integrate Vantage with your AWS account.
 keywords:
   - AWS
   - Connect AWS
 ---
 
-# Set Up AWS
+# AWS
 
 Vantage has a number of options to connect to AWS, including via CloudFormation, via the AWS CLI, via a Terraform module, and via the AWS IAM Console. All options are described below. 
 

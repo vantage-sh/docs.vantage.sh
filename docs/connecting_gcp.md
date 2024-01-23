@@ -1,13 +1,13 @@
 ---
 id: connecting_gcp
-title: Set Up Google Cloud
+title: Google Cloud
 description: This page walks through how to connect your GCP account to Vantage.
 keywords:
   - GCP
   - Google Cloud Platform
 ---
 
-# Set Up Google Cloud
+# Google Cloud
 
 Vantage uses a [service account](https://cloud.google.com/iam/docs/service-accounts) to integrate with your GCP account. The service account is generated on a per-customer basis. Vantage requests extremely basic and limited permissions for GCP. During the integration process, you will grant the service account access _only_ to the specific BigQuery dataset that contains your billing data.
 

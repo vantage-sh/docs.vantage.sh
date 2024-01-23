@@ -1,13 +1,13 @@
 ---
 id: connecting_azure
-title: Set Up Azure
+title: Azure
 description: This page walks through how to connect your GCP account to Vantage.
 keywords:
   - Azure
   - Connect Azure
 ---
 
-# Set Up Azure
+# Azure
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
