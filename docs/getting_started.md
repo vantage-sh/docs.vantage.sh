@@ -116,7 +116,7 @@ Next, create a data integration between at least one of your providers and Vanta
       icon: '/img/logos/logo-icon-planetscale.svg',
       iconAltText: 'PlanetScale logo',
       title: 'PlanetScale',
-      content: 'Vantage integrates with your PlanetScale account through the PlanetScale Costs API using an OAuth workflow.',
+      content: 'Vantage integrates with your PlanetScale account via the PlanetScale Invoices API using an OAuth workflow.',
       link: "/connecting_planetscale",
     },
   ]}

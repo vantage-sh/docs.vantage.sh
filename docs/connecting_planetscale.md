@@ -9,22 +9,22 @@ keywords:
 
 # PlanetScale
 
-Vantage integrates with PlanetScale billing data via the PlanetScale Invoices API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added. After authorizing Vantage access to your PlanetScale organizations, Vantage will begin to ingest data using the Organizations, Invoice, and Database endpoints.
+Vantage integrates with PlanetScale billing data via the PlanetScale Invoices API. Vantage connects to PlanetScale organizations through an OAuth flow, handled within the PlanetScale app. Vantage supports multiple PlanetScale organization integrations. All organizations are ingested after you connect via the OAuth flow and do not need to be individually added. After authorizing Vantage access to your PlanetScale organizations, Vantage will begin to ingest data using the PlanetScale Organizations, Invoices, and Databases endpoints.
 
-The required scopes to connect are:
+The required PlanetScale scopes to connect are:
 
 - User access
-    - read_organizations
+  - `read_organizations`
 - Organization access
-    - read_organization
-    - read_invoices
-    - read_databases
+  - `read_organization`
+  - `read_invoices`
+  - `read_databases`
 
 No access is granted to the actual databases themselves. Vantage can see only metadata related to the databases.
 
-The Invoice endpoint provides structured cost data, broken down by service (e.g., Database or Support), category (e.g., PS_10, PS_20), and resource (e.g., the specific database). All credentials are encrypted.
+The Invoices endpoint provides structured cost data, broken down by service (e.g., Database or Support), category (e.g., PS-10, PS-20), and resource (e.g., the specific database). All credentials are encrypted.
 
-Vantage supports Databases and Support services as well as the following services for Branches:
+Vantage supports Databases and Support services, as well as the following services for Branches:
 
 - PS-10
 - PS-20
@@ -45,11 +45,11 @@ Vantage supports Databases and Support services as well as the following service
 
 1. From the Vantage console, navigate to the [Integrations page](https://console.vantage.sh/settings/integrations).
 2. Select **PlanetScale**, then click **Connect PlanetScale Account**.
-3. You will be brought to the PlanetScale login screen. Log in to your account, then select the organizations you want to connect.
-4. Click **Authorize access**. 
+3. You will be brought to the PlanetScale login screen. Log in to your account and select the organizations you want to connect with.
+4. Click **Authorize access**.
 5. After you authorize a connection, on the [PlanetScale Settings](https://console.vantage.sh/settings/planetscale/) page, you will see the status of your connection change to `Importing`.
 
-Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest PlanetScale costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report.
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest PlanetScale costs. Once costs are processed, they will be available on your **All Resources** Cost Report.
 
 :::note
 PlanetScale data refreshes daily in Vantage.
@@ -61,7 +61,7 @@ On PlanetScale [Cost Reports](/cost_reports/), you can filter costs across sever
 
 - Organization
 - Service (e.g., Database or Support)
-- Category (e.g., PS_10, PS_20)
+- Category (e.g., PS-10, PS-20)
 - Resource (e.g., database name)
 
 You can also view credits or discounts for PlanetScale costs in Cost Reports.
