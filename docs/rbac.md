@@ -172,7 +172,7 @@ In the following table, the Everyone team's access to a resource (for example, a
 
 | Team Access   | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
 | ------------- | --------- | -----------  | -----------  | -----------  | -----------  | -------------  |
-| No Access     | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| No Access     | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
 | No Access     | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
 | No Access     | Viewer    |              |              |              | <Checkmark/> |                |
 | View Access   | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
