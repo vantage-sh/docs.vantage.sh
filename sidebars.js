@@ -149,9 +149,12 @@ module.exports = {
         "cost_anomaly_alerts",
         {
           type: "category",
-          label: "Notifications",
+          label: "Cost Report Notifications",
+          link: {
+            type: 'doc',
+            id: "reports",
+          },
           items: [
-            "reports",
             "slack_integration",
             "microsoft_teams_integration",
           ],
