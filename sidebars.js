@@ -120,6 +120,7 @@ module.exports = {
         "connecting_fastly",
         "connecting_oracle",
         "connecting_confluent",
+        "connecting_planetscale",
       ],
     },
     {

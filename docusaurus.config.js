@@ -244,8 +244,12 @@ const config = {
                 to: "https://www.vantage.sh/privacy-policy",
               },
               {
-                label: "Terms of Service",
-                to: "https://www.vantage.sh/terms-of-service",
+                label: "Website Terms of Use",
+                to: "https://www.vantage.sh/website-terms-of-use",
+              },
+              {
+                label: "VNTG Service Agreement",
+                to: "https://www.vantage.sh/service-agreement",
               },
               {
                 label: "Authorized Sub-Processors",

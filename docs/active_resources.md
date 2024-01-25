@@ -1,15 +1,15 @@
 ---
 id: active_resources
 title: Resource Reports
-description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, MongoDB Atlas, and Confluent.
+description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, MongoDB Atlas, Confluent, and PlanetScale.
 keywords:
-    - Active resources
-    - Resource reports
+  - Active resources
+  - Resource reports
 ---
 
 # Resource Reports
 
-When you connect [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), or [Confluent](/connecting_confluent), Vantage will begin profiling active resources via List/Describe service APIs within your account. This action will generate an Active Resource report, enabling you to gain visibility into all the currently operational resources within your account and the associated costs they are incurring. 
+When you connect [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), or [PlanetScale](/connecting_planetscale), Vantage will begin profiling active resources via List/Describe service APIs within your account. This action will generate an Active Resource report, enabling you to gain visibility into all the currently operational resources within your account and the associated costs they are incurring.
 
 ## Available AWS Resources
 
@@ -21,11 +21,22 @@ Another point to be aware of is that not every AWS service is supported for reso
 
 To see the full list of services for which there are resource-level costs, see the documentation on [supported Azure services](/azure_supported_services).
 
+## Other Available Active Resources
+
+The following active resources are available for the providers below.
+
+| Provider      | Active Resources                                                      |
+| ------------- | --------------------------------------------------------------------- |
+| Snowflake     | Snowflake queries are synced as active resources                      |
+| MongoDB Atlas | MongoDB Atlas clusters are synced as active resources.                |
+| Confluent     | Confluent Kafka Clusters are synced as active resources.              |
+| PlanetScale   | PlanetScale databases are available as active resources.              |
+
 ## Viewing Active Resources
 
-From the top of the console, select the [Active Resource](https://console.vantage.sh/services) tab. 
+From the top of the console, select the [Active Resource](https://console.vantage.sh/services) tab.
 
-The **Active Resources** navigation menu contains **Services** (resources by name and total number of active resources) and **Resource Reports** (view and create your own resource reports with total costs tracked).  
+The **Active Resources** navigation menu contains **Services** (resources by name and total number of active resources) and **Resource Reports** (view and create your own resource reports with total costs tracked).
 
 Click **Resource Reports**. You can create new reports and rename your reports from this page. Below is a view of the **All Resources Report**, which is provided by default:
 
