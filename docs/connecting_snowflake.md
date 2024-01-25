@@ -1,13 +1,13 @@
 ---
 id: connecting_snowflake
-title: Set Up Snowflake
+title: Snowflake
 description: This page walks through how to integrate Vantage with your Snowflake account.
 keywords:
   - Snowflake
   - Connect Snowflake
 ---
 
-# Set Up Snowflake
+# Snowflake
 
 Vantage integrates with your Snowflake account through a secure, read-only user that has access to Snowflake usage tables. Optionally, you can create a [specific schema](/connecting_snowflake#vantage-schema) for the Vantage user.
 

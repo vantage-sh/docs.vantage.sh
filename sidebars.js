@@ -57,8 +57,11 @@ module.exports = {
         {
           type: "category",
           label: "AWS",
+          link: {
+            type: 'doc',
+            id: "connecting_aws",
+          },
           items: [
-            "connecting_aws", 
             "permissions_aws", 
             "aws_supported_services"
           ],
@@ -66,24 +69,33 @@ module.exports = {
         {
           type: "category",
           label: "Azure",
+          link: {
+            type: 'doc',
+            id: "connecting_azure",
+          },
           items: [
-            "connecting_azure", 
             "azure_supported_services"
           ],
         },
         {
           type: "category",
           label: "Google Cloud",
+          link: {
+            type: 'doc',
+            id: "connecting_gcp",
+          },
           items: [
-            "connecting_gcp",
             "enabling_gcp_billing_export",
           ],
         },
         {
           type: "category",
           label: "Kubernetes",
+          link: {
+            type: 'doc',
+            id: "connecting_kubernetes",
+          },
           items: [
-            "connecting_kubernetes",
             "kubernetes_agent",
             "opencost",
             "kubernetes_container_insights",
@@ -96,8 +108,11 @@ module.exports = {
         {
           type: "category",
           label: "Snowflake",
+          link: {
+            type: 'doc',
+            id: "connecting_snowflake",
+          },
           items: [
-            "connecting_snowflake", 
             "snowflake_cost_by_query"
           ],
         },
@@ -115,7 +130,19 @@ module.exports = {
       label: "Cost Reporting Features",
       items: [
         "overview",
-        "cost_reports",
+        {
+          type: "category",
+          label: "Cost Reports",
+          link: {
+            type: 'doc',
+            id: 'cost_reports',
+          },
+          items: [
+            "saved_filters",
+            "folders",
+            "dashboards",
+          ],
+        },
         "annotations",
         "forecasting",
         "active_resources",
@@ -123,9 +150,12 @@ module.exports = {
         "cost_anomaly_alerts",
         {
           type: "category",
-          label: "Notifications",
+          label: "Cost Report Notifications",
+          link: {
+            type: 'doc',
+            id: "reports",
+          },
           items: [
-            "reports",
             "slack_integration",
             "microsoft_teams_integration",
           ],
