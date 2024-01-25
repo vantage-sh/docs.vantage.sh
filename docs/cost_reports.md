@@ -248,9 +248,10 @@ You can select from two modes when you export a report: Basic or Advanced.
   - Region (e.g., us-east-1)
   - Service category (e.g., Storage, Compute)
   - Service subcategory (e.g., m5.large, StandardTier)
-  - Account (e.g., AWS member account, GCP project)
   - Charge Type (e.g., Usage)
-  - Resource (e.g., S3 bucket ARN, EC2 instance ID, MongoDB Atlas cluster name)
+  - Account (e.g., AWS member account, GCP project)
+  - Billing Account (e.g., billing account name)
+  - Resource ID (e.g., S3 bucket ARN, MongoDB Atlas cluster name)
 - The Advanced export also has the option to select a specific Tag key. Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
 
 <div style={{display:"flex", justifyContent:"center"}}>
