@@ -13,7 +13,7 @@ import IntroCard from '@site/src/components/IntroCard';
 
 Vantage is a cloud cost transparency platform that aggregates cloud infrastructure costs across providers to deliver a centralized view into total cloud spend. Vantage includes multiple tools for optimizing cloud spend and provides enterprises with advanced FinOps workflows and cost governance.
 
-It's free to get started — navigate to the [Sign Up page](https://docs.vantage.sh/signup) and choose an authentication method.
+It's free to get started — navigate to the [Sign Up page](https://console.vantage.sh/signup) and choose an authentication method.
 
 
 <IntroCardGroup
