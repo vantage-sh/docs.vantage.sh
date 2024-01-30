@@ -15,7 +15,7 @@ import Checkmark from '@site/src/components/icons/Checkmark';
 
 Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources — such as Cost Reports, Dashboards, or Folders — that a user can view and/or edit. 
 
-By default, all users are members of the **Everyone** team. Owners have the ability to control which workspaces/resources the Everyone team can access. 
+By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access. 
 
 The Owner, Team Owner, Team Editor, and Team Viewer roles are described below.  
 
@@ -34,17 +34,17 @@ Owner is the only role that can invite users to and remove users from Vantage as
   <TabItem value="add-user" label="Add a New User" default>
     <ol>
       <li>From the top navigation, click <strong>Settings</strong>.</li>
-      <li>From the left navigation, under <strong>Organization Settings</strong>, click <strong>People</strong>.</li>
-      <li>On the right, click <strong>+ Invite</strong>.</li> 
+      <li>From the left navigation, under <strong>General Settings</strong>, click <strong>People</strong>.</li>
+      <li>On the right, click <strong>Invite People</strong>.</li> 
       <li>Enter the new user's email, then select their <strong>Role</strong> and any <strong>Teams</strong>.</li>
       <li>Click <strong>Send Invitation</strong>.</li>
       </ol> 
   </TabItem>
   <TabItem value="change-user-role" label="Change a User's Role">
-    <p>A user's role in the <strong>Organization Settings</strong> is their role on the Everyone team.</p>
+    <p>A user's role in the <strong>General Settings</strong> is their role on the Everyone team.</p>
     <ol>
       <li>From the top navigation, click <strong>Settings</strong>.</li>
-      <li>From the left navigation, under <strong>Organization Settings</strong>, click <strong>People</strong>.</li>
+      <li>From the left navigation, under <strong>General Settings</strong>, click <strong>People</strong>.</li>
       <li>Hover over the user's row in the <strong>People</strong> list, then click the ellipses (<strong>...</strong>).</li> 
       <li>Click <strong>Edit</strong>, then select the new user <strong>Role</strong>.</li>
       <li>Click <strong>Save Changes</strong>.</li>
@@ -67,10 +67,10 @@ By default, all Vantage users are part of the Everyone team. Users _cannot_ be r
 </div>
 
 1. From the top navigation, click **Settings**.
-2. On the left navigation, under **Organization Settings**, click **Teams**. 
+2. On the left navigation, under **General Settings**, click **Teams**. 
 3. On the Teams view, Owners can manage, add, or delete teams. 
-   - To add a team, click **+ New Team**. Add a **Name** and **Description**, then click **Create Team**.
-   - To delete a team, hover over the team's name in the team list, then click **Delete**.
+   - To add a team, click **Create a Team**. Add a **Name** and **Description**, then click **Create Team**.
+   - To delete a team, hover over the team's name in the team list, then click the trashcan icon.
 
 ### Map Team to SSO Group (Owners Only)
 
@@ -84,13 +84,13 @@ To manage a team, select the team from the **Teams** list. Three tabs are displa
 </div>
 
 - On the **General** tab, you can edit the team name and description.
-- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective team. 
+- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective teams. 
 - On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access. 
 
 <Tabs>
   <TabItem value="add-member" label="Add a Member" default>
     <ol>
-    <li>From the <strong>Members</strong> tab, click <strong>+ Add Members</strong>.</li>
+    <li>From the <strong>Members</strong> tab, click <strong>Add Members</strong>.</li>
     <li>Select member(s) from the list.</li>
     <li>Click <strong>Add People</strong>.</li>
     </ol> 
@@ -115,7 +115,7 @@ To manage a team, select the team from the **Teams** list. Three tabs are displa
   </TabItem>
   <TabItem value="remove-granted" label="View Granted Access">
     <ol>
-    <li>From the <strong>Granted Access</strong> box, select a resource for which the team was granted access. You will be brought to the resource (for example, a Cost Report).</li>
+    <li>On the <strong>Access</strong> tab, in the <strong>Granted Access</strong> box, select a resource for which the team was granted access. You will be brought to the resource (for example, a Cost Report).</li>
     <li>You can then edit or remove granted access directly from the resource itself.</li>
     </ol>
   </TabItem>
@@ -228,7 +228,7 @@ Team Owners can manage their team within the Teams UI — but only the team for 
 
 Financial planning permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage. 
 
-Users with the Editor or above role will be able to create resources in and manage the above functions.
+Users with the Editor or above role will be able to create resources and manage the above functions.
 
 :::note
 Any user who is assigned to an [issue](/issues) will have update permissions for that issue. 
