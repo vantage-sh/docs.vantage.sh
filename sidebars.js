@@ -176,5 +176,14 @@ module.exports = {
         "cost_recommendations",
         ],
         },  
+        {
+          type: "category",
+          collapsible: false,
+          collapsed: false,
+          label: "Product Changelog",
+          items: [
+            "changelog",
+            ],
+            },  
   ],
 };

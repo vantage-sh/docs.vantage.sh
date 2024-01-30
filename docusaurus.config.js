@@ -152,6 +152,11 @@ const config = {
             label: "Docs",
           },
           {
+            type: "doc",
+            docId: "changelog",
+            label: "Changelog",
+          },
+          {
             to: "https://vantage.readme.io/reference/general",
             label: "API",
           },
