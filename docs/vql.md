@@ -93,7 +93,7 @@ VQL comprises two namespaces, `costs` and `tags`, which represent the available 
   </thead>
   <tbody>
     <tr>
-      <td rowspan="10" style={{ textAlign: 'center' }}><code>costs</code></td>
+      <td rowspan="11" style={{ textAlign: 'center' }}><code>costs</code></td>
       <td><code>provider</code></td>
       <td><a href="#providers">Providers example</a></td>
     </tr>
@@ -132,6 +132,10 @@ VQL comprises two namespaces, `costs` and `tags`, which represent the available 
     <tr>
       <td><code>resource_id</code></td>
       <td><a href="#resource">Resource example</a></td>
+    </tr>
+    <tr>
+      <td><code>charge_type</code></td>
+      <td><a href="#charge-type">Charge Type example</a></td>
     </tr>
     <tr>
       <td rowspan="2" style={{ textAlign: 'center' }}><code>tags</code></td>
@@ -250,6 +254,14 @@ Filter costs by a specific service and subcategory. Subcategory costs require bo
 
 ```sql
 costs.provider = 'aws' AND costs.service = 'AWS Certificate Manager' AND costs.subcategory = 'USE1-PaidPrivateCA'
+```
+
+### Cost by Charge Type {#charge-type}
+
+Filter costs by a specific charge type.
+
+```sql
+costs.provider = 'aws' AND costs.charge_type = 'Usage'
 ```
 
 ### Filter by Tag {#tags}
