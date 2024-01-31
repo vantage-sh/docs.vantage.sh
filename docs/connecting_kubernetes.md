@@ -11,7 +11,7 @@ keywords:
 
 Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by Container, Service, Namespace and Label. Vantage supports any type of Kubernetes deployment (e.g., EKS, GKE, self-managed). This allows teams to easily understand how their shared clusters are being utilized and how to account for cluster costs across teams and applications. 
 
-The [Vantage Kubernetes agent](/kubernetes_agent) is the recommended integration point for ingesting Kubernetes costs into Vantage.
+The [Vantage Kubernetes agent](/kubernetes_agent) is the recommended integration point for ingesting Kubernetes costs into Vantage. Note that a primary provider (e.g., AWS, Azure, or GCP) is required to connect Kubernetes costs.
 
 ## How the Integration Works
 
