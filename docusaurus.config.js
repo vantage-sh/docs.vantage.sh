@@ -193,6 +193,10 @@ const config = {
                 label: "Autopilot",
                 to: "/autopilot",
               },
+              {
+                label: "Product Changelog",
+                to: "/changelog",
+              },
             ],
           },
           {
