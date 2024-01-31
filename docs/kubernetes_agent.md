@@ -48,6 +48,8 @@ The following prerequisites are required before you install the Vantage Kubernet
 
 - A running Kubernetes cluster
 
+- An already connected primary provider (e.g., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
+
 - A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled
 
 - **If you do not already have an integration enabled**, navigate to the [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes?connect=true) in the Vantage console, and click the **Enable Kubernetes Agent** button (you won't need to do this for subsequent integrations)
