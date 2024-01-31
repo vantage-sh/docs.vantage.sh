@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on January 30, 2024, with product updates for January 2024._
+_This page was last updated on January 31, 2024, with product updates for January 2024._
 
 ## January 2024
 
@@ -27,9 +27,6 @@ _This page was last updated on January 30, 2024, with product updates for Januar
 - **"Other" grouping expanded**: The [**Other** grouping](/cost_reports/#expand-other-grouping-category) is expanded on Cost Reports so you can display additional costs, beyond what's already displayed, in the table and graph.
 - **Cost Reports line and area charts**: When grouping by specific criteria, you can now adjust the Cost Report graph to be displayed as an area chart or [line chart](/cost_reports/#configure-report-groups), with a line for each group.
 - **Searchable Business Metrics Report dropdown**: The **Report** dropdown menu on the [Business Metrics](/per_unit_costs#assign-business-metrics-to-cost-reports) screen is now searchable.
-<!-- - **Ability to group by multiple tags**: You can now group by multiple tags in the console.  -->
-<!-- - **EC2 rightsizing recommendations**: New [recommendations](/cost_recommendations) are added for rightsizing EC2 instances. -->
-<!-- Add default report settings to Top Level Segment -->
 
 ### API Updates
 
@@ -41,14 +38,13 @@ _This page was last updated on January 30, 2024, with product updates for Januar
 
 ### Product Updates
 
-- **Charge Type grouping option**: The Charge Type option is added to the Group By menu on [Cost Reports](/cost_reports). Group costs by the type of charge, like EDP discounts, usage, etc.
-- **Expanded recommendations**: [Cost recommendations](/cost_recommendations) have been expanded for Azure and EC2 rightsizing.
+- **Expanded recommendations**: [Cost recommendations](/cost_recommendations) have been expanded for Azure.
 - **Kubernetes efficiency reports**: [Kubernetes efficiency reports](/kubernetes) allow teams to quickly identify which Kubernetes pods are running inefficiently. These reports are a customized view of Kubernetes idle and total costs based on Cluster, Namespace, and Label.
 - **Official Kubernetes integration**: The [Vantage Kubernetes agent](/kubernetes_agent) provides a single in-cluster deployment that handles both metrics collection and upload to Vantage—without any intermediary requirements.
 
 ### API Updates
 
-- **Cost allocations segment API**: Script both the creation and modification of cost allocation segments via new [API endpoints](/api).
+- **Cost allocations segment API**: Script both the creation and modification of cost allocation segments via new [API endpoints](https://vantage.readme.io/reference/createsegment).
 
 ## November 2023
 
@@ -56,7 +52,7 @@ _This page was last updated on January 30, 2024, with product updates for Januar
 
 - **Automatic team assignment for SSO**: Automatically assign users to teams in Vantage based on your organization's [existing SSO groups](/sso).
 - **Confluent support**: [Confluent](/connecting_confluent) is now supported as a provider in Vantage.
-- **Team-based access controls**: Enterprise customers can now use [Role-based access control](/rbac) to create fine-grained permissions for teams across your organizations.
+- **Team-based access controls**: Enterprise customers can now use [role-based access control](/rbac) to create fine-grained permissions for teams across their organizations.
 
 ## October 2023
 
@@ -109,10 +105,9 @@ _This page was last updated on January 30, 2024, with product updates for Januar
 
 ### Product Updates
 
-- **Self-service SAML**: Vantage user can now [configure SAML-based SSO](/sso) for their account without contacting Vantage support.
-- **OpenAI support**: OpenAI is now supported as a provider in Vantage.
+- **Self-service SAML**: Users can now [configure SAML-based SSO](/sso) for their account without contacting Vantage support.
 - **Saved filters**: [Saved filters](/cost_reports#saved-filters) are available to save and reuse filter logic across multiple Cost Reports.
-- **Azure cost recommendations**: Azure [/cost_recommendations] are now supported.
+- **Azure cost recommendations**: Azure [cost recommendations](/cost_recommendations) are now supported.
 
 ## March 2023
 
