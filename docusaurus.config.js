@@ -101,11 +101,16 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "https://assets.vantage.sh/blog/vntg-social-preview.png",
+      image: "/img/index-cards/docs-social-card.jpg",
       colorMode: {
         defaultMode: "light",
         disableSwitch: true,
         respectPrefersColorScheme: false,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
       algolia: {
         // The application ID provided by Algolia
