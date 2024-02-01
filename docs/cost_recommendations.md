@@ -51,12 +51,12 @@ The recommendations that are available for AWS, Azure, and Datadog in Vantage ar
 | Stranded resources            | Vantage will look for stranded resources, such as EBS volumes, IP addresses, and more, to ensure you've cleaned up everything you're not using.                                                           |
 | Storage optimizations         | Vantage will look at EBS volumes you're using to provide optimization recommendations as well as S3 object type usage to recommend actions, like changing EBS volumes or enabling S3 Intelligent-Tiering. |
 | Networking optimizations      | Vantage will look for networking optimizations especially for CloudFront and S3.                                                                                                                          |
-| Lifecycle policies            | Vantage will look for services that can auto-delete data to reduce costs will be profiled and expected savings found.                                                                                     |
-| EC2 rightsizing opportunities | Vantage identify rightsizing opportunities and provide specific reasons to rightsize EC2 instances, such as over-provisioned CPU. See more information below.                                             |
+| Lifecycle policies            | Vantage will profile for services that can auto-delete data to reduce costs and expected savings noted.                                                                                     |
+| EC2 rightsizing opportunities | Vantage will identify rightsizing opportunities and provide specific reasons to rightsize EC2 instances, such as over-provisioned CPU. See more information below.                                             |
 
 #### EC2 Rightsizing Recommendations
 
-If have EC2 instances that are over-allocated in terms of vCPU and GB of RAM, you may be paying more than needed per instance. Rightsizing recommendations can help you save significantly, by identifying rightsizing opportunities and providing specific reasons to rightsize, such as over-provisioned CPU.
+If you have EC2 instances that are over-allocated in terms of vCPU and GB of RAM, you may be paying more than needed per instance. Rightsizing recommendations can help you save significantly, by identifying rightsizing opportunities and providing specific reasons to rightsize, such as over-provisioned CPU.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="An EC2 rightsizing recommendation with a button to compare instance sizes in the console" width="90%" src="https://assets.vantage.sh/blog/vantage-launches-ec2-rightsizing-recommendations/rightsizing-recommendation.png" />
@@ -78,7 +78,7 @@ Each recommendation includes potential savings as well as the number of instance
 | Recommendation Type                   | Description                                                                                                     |
 | ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
 | Compute reserved instances            | Suggestions for instances with on-demand usage that could be converted to reserved instances for better savings |
-| Compute Unattached Virtual Hard Disks | Disks that have not been attached to a VM in the last 30 days                                                   |
+| Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days                                                   |
 
 ### Datadog Recommendations
 
