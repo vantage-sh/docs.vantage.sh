@@ -117,6 +117,7 @@ If you do not have this data available, you can contact AWS Support and open a t
         
     - Please backfill the existing **[Insert Vantage CUR report name]** report from the **[Insert CUR's S3 bucket name]** S3 bucket.
     - We need historical data for the following period: **[Insert start date]** to **[Insert end date]**.
+    - This should be a daily CSV file.
 
     Once the historical data is successfully backfilled into the above CUR, please send us a notification or confirmation.
         

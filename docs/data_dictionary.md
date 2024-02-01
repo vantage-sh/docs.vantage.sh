@@ -12,10 +12,11 @@ keywords:
 
 Each provider that Vantage integrates with makes different fields available in their billing data. This data is normalized into the the fields below. These fields are queryable via the [Vantage API](https://vantage.readme.io/reference/general) and used when constructing [VQL](/vql) statements.
 
-Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`. 
-- The Filter is the friendly name that is displayed on Cost Report filters within the Vantage console. 
-- The API Field Name is the normalized version of the filter name. 
-- The Data Type indicates that type of data that is accepted for that field. 
+Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`.
+
+- The Filter is the friendly name that is displayed on Cost Report filters within the Vantage console.
+- The API Field Name is the normalized version of the filter name.
+- The Data Type indicates that type of data that is accepted for that field.
 - `namespace.field` is how that field is referenced in a VQL query (e.g., `costs.provider = 'aws'`, where `costs` is the namespace and `provider` is the field).
 
 :::info
@@ -57,6 +58,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Subcategory     | `subcategory`         | string    | `costs.subcategory`         |
 | Marketplace     | `marketplace`         | boolean   | `costs.marketplace`         |
 | Resource        | `resource_id`         | string    | `costs.resource_id`         |
+| Charge Type     | `charge_type`         | string    | `costs.charge_type`         |
 
 ## Azure {#azure}
 
@@ -72,6 +74,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Category       | `category`            | string    | `costs.category`            |
 | Subcategory    | `subcategory`         | string    | `costs.subcategory`         |
 | Resource       | `resource_id`         | string    | `costs.resource_id `        |
+| Charge Type    | `charge_type`         | string    | `costs.charge_type`         |
 
 ## Confluent {#confluent}
 
@@ -81,27 +84,30 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Organization | `account_id`   | string    | `costs.account_id`  |
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 
 ## Databricks {#databricks}
 
-| Filter    | API Field Name | Data Type | `namespace.field  ` |
-| --------- | -------------- | --------- | ------------------- |
-| Account   | `account_id`   | string    | `costs.account_id`  |
-| Service   | `service`      | string    | `costs.service`     |
-| Cluster   | `resource_id`  | string    | `costs.resource_id` |
-| Tag       | `name`         | string    | `tags.name`         |
-| Tag Value | `value`        | string    | `tags.value`        |
-| Category  | `category`     | string    | `costs.category`    |
+| Filter      | API Field Name | Data Type | `namespace.field  ` |
+| ----------- | -------------- | --------- | ------------------- |
+| Account     | `account_id`   | string    | `costs.account_id`  |
+| Service     | `service`      | string    | `costs.service`     |
+| Cluster     | `resource_id`  | string    | `costs.resource_id` |
+| Tag         | `name`         | string    | `tags.name`         |
+| Tag Value   | `value`        | string    | `tags.value`        |
+| Category    | `category`     | string    | `costs.category`    |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
 
 ## Datadog {#datadog}
 
-| Filter       | API Field Name | Data Type | `namespace.field`  |
-| ------------ | -------------- | --------- | ------------------ |
-| Organization | `account_id`   | string    | `costs.account_id` |
-| Service      | `service`      | string    | `costs.service`    |
-| Provider     | `provider`     | string    | `costs.provider`   |
-| Tag          | `name`         | string    | `tags.name`        |
-| Tag Value    | `value`        | string    | `tags.value`       |
+| Filter       | API Field Name | Data Type | `namespace.field`   |
+| ------------ | -------------- | --------- | ------------------- |
+| Organization | `account_id`   | string    | `costs.account_id`  |
+| Service      | `service`      | string    | `costs.service`     |
+| Provider     | `provider`     | string    | `costs.provider`    |
+| Tag          | `name`         | string    | `tags.name`         |
+| Tag Value    | `value`        | string    | `tags.value`        |
+| Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 
 ## Fastly {#fastly}
 
@@ -114,31 +120,34 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Category    | `category`     | string    | `costs.category`    |
 | Subcategory | `subcategory`  | string    | `costs.subcategory` |
 | Resource    | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
 
 ## Google Cloud {#google-cloud-platform}
 
 | Filter          | API Field Name        | Data Type | `namespace.field`           |
-| --------------- | --------------------- | ---------- | --------------------------- |
-| Project         | `account_id`          | string     | `costs.account_id`          |
-| Billing Account | `provider_account_id` | string     | `costs.provider_account_id` |
-| Label           | `name`                | string     | `tags.name`                 |
-| Label Value     | `value`               | string     | `tags.value`                |
-| Service         | `service`             | string     | `costs.service`             |
-| Region          | `region`              | string     | `costs.region`              |
-| Provider        | `provider`            | string     | `costs.provider`            |
-| Category        | `category`            | string     | `costs.category`            |
-| Resource        | `resource_id`         | string     | `costs.resource_id`         |
+| --------------- | --------------------- | --------- | --------------------------- |
+| Project         | `account_id`          | string    | `costs.account_id`          |
+| Billing Account | `provider_account_id` | string    | `costs.provider_account_id` |
+| Label           | `name`                | string    | `tags.name`                 |
+| Label Value     | `value`               | string    | `tags.value`                |
+| Service         | `service`             | string    | `costs.service`             |
+| Region          | `region`              | string    | `costs.region`              |
+| Provider        | `provider`            | string    | `costs.provider`            |
+| Category        | `category`            | string    | `costs.category`            |
+| Resource        | `resource_id`         | string    | `costs.resource_id`         |
+| Charge Type     | `charge_type`         | string    | `costs.charge_type`         |
 
 ## Kubernetes {#kubernetes}
 
-| Filter         | API Field Name | Data Type | `namespace.field`  |
-| -------------- | -------------- | --------- | ------------------ |
-| Account        | `account_id`   | string    | `costs.account_id` |
-| Grouping       | `name`         | string    | `tags.name`        |
-| Grouping Value | `value`        | string    | `tags.value`       |
-| Cluster        | `service`      | string    | `costs.service`    |
-| Region         | `region`       | string    | `costs.region`     |
-| Provider       | `provider`     | string    | `costs.provider`   |
+| Filter         | API Field Name | Data Type | `namespace.field`   |
+| -------------- | -------------- | --------- | ------------------- |
+| Account        | `account_id`   | string    | `costs.account_id`  |
+| Grouping       | `name`         | string    | `tags.name`         |
+| Grouping Value | `value`        | string    | `tags.value`        |
+| Cluster        | `service`      | string    | `costs.service`     |
+| Region         | `region`       | string    | `costs.region`      |
+| Provider       | `provider`     | string    | `costs.provider`    |
+| Charge Type    | `charge_type`  | string    | `costs.charge_type` |
 
 ## MongoDB Atlas {#mongodb-atlas}
 
@@ -149,14 +158,16 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Service      | `service`             | string    | `costs.service`             |
 | Category     | `category`            | string    | `costs.category`            |
 | Resource     | `resource_id`         | string    | `costs.resource_id`         |
+| Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
 
 ## New Relic {#new-relic}
 
-| Filter   | API Field Name | Data Type | `namespace.field`  |
-| -------- | -------------- | --------- | ------------------ |
-| Account  | `account_id`   | string    | `costs.account_id` |
-| Service  | `service`      | string    | `costs.service`    |
-| Category | `category`     | string    | `costs.category`   |
+| Filter      | API Field Name | Data Type | `namespace.field`   |
+| ----------- | -------------- | --------- | ------------------- |
+| Account     | `account_id`   | string    | `costs.account_id`  |
+| Service     | `service`      | string    | `costs.service`     |
+| Category    | `category`     | string    | `costs.category`    |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
 
 ## Oracle Cloud {#oracle-cloud}
 
@@ -171,6 +182,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Provider    | `provider`            | string    | `costs.provider`            |
 | Category    | `category`            | string    | `costs.category`            |
 | Resource    | `resource_id`         | string    | `costs.resource_id`         |
+| Charge Type | `charge_type`         | string    | `costs.charge_type`         |
 
 ## PlanetScale {#planetscale}
 
@@ -180,6 +192,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Organization | `account_id`   | string    | `costs.account_id`  |
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 
 ## Snowflake {#snowflake}
 
@@ -193,3 +206,4 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Metadata       | `name`                | string    | `tags.name`                 |
 | Metadata Value | `value`               | string    | `tags.value`                |
 | Service        | `service`             | string    | `costs.service`             |
+| Charge Type    | `charge_type`         | string    | `costs.charge_type`         |

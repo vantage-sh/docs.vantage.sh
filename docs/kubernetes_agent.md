@@ -6,7 +6,11 @@ description: This page walks through how to connect the Vantage Kubernetes agent
 
 # Vantage Kubernetes Agent
 
-The Vantage Kubernetes agent is the default, recommended configuration to ingest cost and usage data from Kubernetes clusters to Vantage. The agent is a Docker container that's run in your Kubernetes cluster. The agent collects metrics and uploads them to Vantage. 
+The Vantage Kubernetes agent is the default, recommended configuration to ingest cost and usage data from Kubernetes clusters to Vantage. The agent is a Docker container that runs in your Kubernetes cluster. The agent collects metrics and uploads them to Vantage. 
+
+:::note
+A primary provider (e.g., AWS, Azure, or GCP) is required to connect Kubernetes costs.
+:::
 
 ## Agent Functionality 
 
@@ -43,6 +47,8 @@ The following prerequisites are required before you install the Vantage Kubernet
 - `kubectl`
 
 - A running Kubernetes cluster
+
+- An already connected primary provider (e.g., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
 
 - A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled
 
