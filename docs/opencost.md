@@ -9,7 +9,7 @@ keywords:
 
 # Kubernetes (OpenCost)
 
-[OpenCost](https://www.opencost.io) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Once OpenCost is deployed on your Kubernetes cluster, Vantage can ingest costs by leveraging the Prometheus remote write functionality to retrieve and ingest cluster costs accordingly to make available in the Vantage console. All Kubernetes environments are supported by OpenCost, including AWS, GCP, Azure, and on-premises, are supported by Vantage.
+[OpenCost](https://www.opencost.io) is an emerging [specification](https://github.com/opencost/opencost/blob/develop/spec/opencost-specv01.md) for Kubernetes costs. Once OpenCost is deployed on your Kubernetes cluster, Vantage can ingest costs by leveraging the Prometheus remote write functionality to retrieve and ingest cluster costs accordingly to make available in the Vantage console. All Kubernetes environments that are supported by OpenCost, including AWS, GCP, Azure, and on-premises, are supported by Vantage.
 
 :::note
 The steps below are for integrations that use OpenCost instead of the recommended [Vantage Kubernetes agent](/kubernetes_agent) integration.
@@ -24,7 +24,7 @@ To set up OpenCost in Azure or Google Cloud, please contact us at [support@vanta
 Vantage makes it easy to deploy and integrate with OpenCost. Here are the steps for how the integration is done:
 
 1. An AWS Managed Prometheus Workspace will be provisioned into your AWS account in _us-east-1_—which the Vantage Cross-Account IAM role will query directly to ingest OpenCost data.
-2. An IAM user is created with permissions to write to this newly created workspace.
+2. An IAM user is created with permission to write to this newly created workspace.
 3. OpenCost and Prometheus are deployed to your Kubernetes cluster and configured to `remote_write` to the AWS Managed Prometheus. The created IAM user credentials are used for authentication.
 4. Vantage will regularly query the AWS Managed Prometheus Workspace to keep your Kubernetes cost information up to date.
 

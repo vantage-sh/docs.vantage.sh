@@ -17,7 +17,7 @@ This quickstart guide will help you to set up your Vantage account, connect one 
 
 ## Step 1: Create an Account
 
-- Get started by [creating a Vantage account](https://console.vantage.sh/signup). 
+- To get started, [create a Vantage account](https://console.vantage.sh/signup). 
 - Optionally, you can upgrade to a paid plan to unlock additional features and track higher amounts of cloud infrastructure costs. View the [Vantage Pricing page](https://www.vantage.sh/pricing) for all pricing and plan details. All paid plans have an option to trial the service before committing to a subscription.
 
 ---

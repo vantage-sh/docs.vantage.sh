@@ -9,19 +9,16 @@ sidebar_label: Introduction
 import IntroCardGroup from '@site/src/components/IntroCardGroup';
 import IntroCard from '@site/src/components/IntroCard';
 
-# Vantage <span class="text-gradient">Documentation</span>
+# Vantage Documentation
 
-Vantage is a cloud cost transparency platform that aggregates cloud infrastructure costs across providers to deliver a centralized view into total cloud spend. Vantage includes multiple tools for optimizing cloud spend and provides enterprises with advanced FinOps workflows and cost governance.
-
-It's free to get started — navigate to the [Sign Up page](https://console.vantage.sh/signup) and choose an authentication method.
-
+Vantage is a cloud observability and optimization platform that aggregates cloud infrastructure costs across providers to deliver a centralized view into total cloud spend. Vantage has multiple tools for optimizing cloud spend and provides organizations with advanced FinOps workflows and cost governance.
 
 <IntroCardGroup
   cards={[
     {
       title: 'Quickstart',
-      content: 'Get started creating an integration with a number of cloud providers.',
-      image: '/img/docs-site-card-integrations.png',
+      content: 'Get started creating an integration with a number of cloud  and cloud service providers.',
+      image: '/img/index-cards/docs-site-card-integrations.jpg',
       link: './getting_started',
       newTab: false,
       alt: 'Diagram of cloud providers integrating with Vantage'
@@ -29,15 +26,15 @@ It's free to get started — navigate to the [Sign Up page](https://console.vant
     {
       title: 'Cost Reports',
       content: 'Create your first Cost Report in the Vantage console. Create budgets, forecasts, and annotations all within your Cost Report.',
-      image: '/img/docs-site-card-cost-report.png',
+      image: '/img/index-cards/docs-site-card-cost-report.jpg',
       link: './cost_reports',
       newTab: false,
       alt: 'Cost Reports in the Vantage console'
     },
     {
       title: 'Terraform Provider',
-      content: "Use Vantage's Terraform provider to automate your Vantage cloud cost infrastructure.",
-      image: '../../img/docs-site-card-terraform.png',
+      content: "Use the Vantage Terraform provider and modules to automate your cloud cost monitoring infrastructure.",
+      image: '/img/index-cards/docs-site-card-terraform.jpg',
       link: './terraform',
       newTab: false,
       alt: 'Terraform icon'
@@ -49,14 +46,14 @@ It's free to get started — navigate to the [Sign Up page](https://console.vant
 
 ## Additional and Community Resources
 
-Vantage maintains a variety of resources to help make the lives of cloud practitioners easier. All the resources below are free to use and open source when possible.
+Vantage maintains a variety of resources to help make the lives of cloud practitioners easier. All resources below are free to use and open source, when possible.
 
 <IntroCardGroup
   cards={[
     {
       title: 'API Documentation',
-      content: 'The Vantage API makes it easy for you to programmatically access and read your cloud pricing data. Automate the management and creation of cost reporting resources as well as programmatically create reports and filters. View the API docs to get started.',
-      image: '../../img/docs-site-card-api.png',
+      content: 'The Vantage API makes it easy for you to programmatically access and read your cloud pricing data. Automate the management and creation of cost reporting resources, as well as programmatically create reports and filters. View the API docs to get started.',
+      image: '/img/index-cards/docs-site-card-api.jpg',
       link: 'https://vantage.readme.io/reference/general',
       newTab: true,
       alt: 'API icon'
@@ -64,7 +61,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
     {
       title: 'EC2Instances.info',
       content: 'Simplifies the complex task of pricing EC2 instances on AWS. With over a million pricing permutations due to instance types, regions, and availability zones, the site streamlines the process, enabling users to quickly find and compare the best resources for their needs.',
-      image: '/img/docs-site-card-ec2.png',
+      image: '/img/index-cards/docs-site-card-ec2.jpg',
       link: 'http://instances.vantage.sh/',
       newTab: true,
       alt: 'Menu icon'
@@ -72,7 +69,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
     {
       title: 'AWS Cost Leaderboard',
       content: 'A ranked list of AWS services that customers spend the most on. Vantage provides this anonymized and aggregated data to the community to shed light on cloud infrastructure costs.',
-      image: '../../img/docs-site-card-leaderboard.png',
+      image: '/img/index-cards/docs-site-card-leaderboard.jpg',
       link: 'https://leaderboard.vantage.sh/',
       newTab: true,
       alt: 'Scoreboard icon'
@@ -80,7 +77,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
     {
       title: 'Cloud Cost Handbook',
       content: 'An open-source set of guides meant to help explain the complex pricing of public cloud infrastructure and service providers in easy-to-understand terms. This guide is hosted on GitHub and is open to anyone to contribute their knowledge to the community.',
-      image: '../../img/docs-site-card-handbook.png',
+      image: '/img/index-cards/docs-site-card-handbook.jpg',
       link: 'http://handbook.vantage.sh/',
       newTab: true,
       alt: 'Handbook icon'
@@ -88,7 +85,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
     {
       title: 'Slack Community',
       content: "While the documentation here is meant to help answer any questions, you're also welcome to join our Slack community to add to the discussion and ask questions.",
-      image: '../../img/docs-site-card-slack.png',
+      image: '/img/index-cards/docs-site-card-slack.jpg',
       link: 'https://vantage.sh/slack',
       newTab: true,
       alt: 'Slack icon'
@@ -96,7 +93,7 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
     {
       title: 'Cloud Cost Reports',
       content: 'Vantage uses anonymized data from thousands of connected accounts to snapshot industry spending patterns. View our quarterly Cloud Cost Reports to analyze trends over time.',
-      image: '../../img/docs-site-card-cloud-cost-report.png',
+      image: '/img/index-cards/docs-site-card-cloud-cost-report.jpg',
       link: 'https://www.vantage.sh/cloud-cost-report',
       newTab: true,
       alt: 'Report icon'

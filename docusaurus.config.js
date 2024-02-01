@@ -101,11 +101,16 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "https://assets.vantage.sh/blog/vntg-social-preview.png",
+      image: "/img/index-cards/docs-social-card.jpg",
       colorMode: {
         defaultMode: "light",
         disableSwitch: true,
         respectPrefersColorScheme: false,
+      },
+      docs: {
+        sidebar: {
+          hideable: true,
+        },
       },
       algolia: {
         // The application ID provided by Algolia
@@ -173,6 +178,9 @@ const config = {
       },
       footer: {
         style: "dark",
+        logo:
+          {alt: 'Vantage',
+          src: '/img/vantage-footer-logo.svg'},
         links: [
           {
             title: "Docs",
@@ -204,19 +212,19 @@ const config = {
             items: [
               {
                 label: "Slack",
-                to: "https://vantage.sh/slack",
+                href: "https://vantage.sh/slack",
               },
               {
                 label: "Cloud Costs Handbook",
-                to: "https://handbook.vantage.sh/",
+                href: "https://handbook.vantage.sh/",
               },
               {
                 label: "AWS Instances Pricing",
-                to: "https://instances.vantage.sh/",
+                href: "https://instances.vantage.sh/",
               },
               {
                 label: "Azure VM Pricing Comparison",
-                to: "https://instances.vantage.sh/azure",
+                href: "https://instances.vantage.sh/azure",
               },
             ],
           },
@@ -225,19 +233,19 @@ const config = {
             items: [
               {
                 label: "API Documentation",
-                to: "https://vantage.readme.io/reference/general",
+                href: "https://vantage.readme.io/reference/general",
               },
               {
                 label: "Vantage Blog",
-                to: "https://vantage.sh/blog",
+                href: "https://vantage.sh/blog",
               },
               {
                 label: "GitHub",
-                to: "https://github.com/vantage-sh",
+                href: "https://github.com/vantage-sh",
               },
               {
                 label: "Vantage Status",
-                to: "https://status.vantage.sh/",
+                href: "https://status.vantage.sh/",
               },
             ],
           },
@@ -246,23 +254,23 @@ const config = {
             items: [
               {
                 label: "About",
-                to: "https://www.vantage.sh/about/",
+                href: "https://www.vantage.sh/about/",
               },
               {
                 label: "Privacy Policy",
-                to: "https://www.vantage.sh/privacy-policy",
+                href: "https://www.vantage.sh/privacy-policy",
               },
               {
                 label: "Website Terms of Use",
-                to: "https://www.vantage.sh/website-terms-of-use",
+                href: "https://www.vantage.sh/website-terms-of-use",
               },
               {
                 label: "VNTG Service Agreement",
-                to: "https://www.vantage.sh/service-agreement",
+                href: "https://www.vantage.sh/service-agreement",
               },
               {
                 label: "Authorized Sub-Processors",
-                to: "https://www.vantage.sh/subprocessors",
+                href: "https://www.vantage.sh/subprocessors",
               },
             ],
           },
