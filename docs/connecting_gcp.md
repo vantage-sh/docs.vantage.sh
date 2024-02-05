@@ -21,14 +21,18 @@ Before you start the integration process, you will need to complete the followin
 
 See the [GCP Cloud Billing export](/enabling_gcp_billing_export/) instructions for details on how to complete the above steps. Then, return to this page to complete the rest of the integration process.
 
+:::note
+If your organization enforces domain restrictions in organization policies, you can add the following organization ID to allow Vantage access: `421856710303`.
+:::
+
 **If you have a pre-existing Cloud Billing export** set up, ensure your configuration adheres to the requirements below before moving further.
 
 - Your project is linked to the same Cloud Billing account that the Cloud Billing export is enabled on.
-  :::tip Recommendation
+  :::tip
   We recommend you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
   :::
 - Detailed Billing Export is enabled, _not_ Standard Billing Export.
-- The BigQuery dataset and table is deployed to either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**.
+- The BigQuery dataset and table are deployed to either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**.
 - If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing exports on each account.
 
 :::note
@@ -63,7 +67,7 @@ Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-
 Go back to [BigQuery](https://console.cloud.google.com/bigquery), and complete the steps below to grant the Vantage service account permission to access the BigQuery dataset.
 
 1. At the top of the BigQuery console, ensure the project that you set up to contain your billing data is selected.
-2. In the **Explorer** panel  , select your project to expand it.
+2. In the **Explorer** panel, select your project to expand it.
 3. Select the **three vertical dots** next to the dataset name, then click **Open**. The **Dataset info** will be displayed on the right. _Keep this screen open to later obtain your project ID and dataset name._
 4. Select the three vertical dots next to the dataset name again, then click **Share**.
    <details><summary>Expand to view example image</summary>
