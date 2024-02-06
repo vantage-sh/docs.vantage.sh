@@ -22,7 +22,7 @@ Before you start the integration process, you will need to complete the followin
 See the [GCP Cloud Billing export](/enabling_gcp_billing_export/) instructions for details on how to complete the above steps. Then, return to this page to complete the rest of the integration process.
 
 :::note
-If your organization enforces domain restrictions in organization policies, you can add the following organization ID to allow Vantage access: `421856710303`.
+If your organization enforces domain restrictions, you can add the following Google Cloud organization ID to allow Vantage access: `421856710303`. If you instead need the customer ID, use `C03l99qsz`.
 :::
 
 **If you have a pre-existing Cloud Billing export** set up, ensure your configuration adheres to the requirements below before moving further.
