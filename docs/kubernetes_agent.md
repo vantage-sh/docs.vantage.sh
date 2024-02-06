@@ -14,7 +14,7 @@ A primary provider (e.g., AWS, Azure, or GCP) is required to connect Kubernetes 
 
 ## Agent Functionality 
 
-The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole, included in the Vantage Kubernetes agent [Helm chart](https://github.com/vantage-sh/helm-charts). 
+The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole included in the Vantage Kubernetes agent [Helm chart](https://github.com/vantage-sh/helm-charts). 
 
 Data is periodically collected and stored for aggregation, then sent directly to the Vantage service through an API, with your Vantage API token for authentication. This process avoids extra storage costs incurred by the OpenCost integration. The agent's architecture eliminates the need for deploying OpenCost-specific Prometheus pods, which makes scaling easier. 
 
@@ -57,7 +57,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 ## Create a Connection
 
 :::info
-The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations.
+The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations. If you would like to use a manifest-based deployment option instead, see the [section below](/kubernetes_agent#manifest-deploy)
 :::
 
 To set up a _new_ Kubernetes agent connection:
@@ -80,6 +80,14 @@ You can optionally enable the collection of annotations and namespace labels.
 
 - **Annotations:** The agent accepts a comma-separated list of annotation keys, called `VANTAGE_ALLOWED_ANNOTATIONS`, as an environment variable at startup. To enable the collection of annotations, configure the `agent.allowedAnnotations` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with a list of annotations to be sent to Vantage. Note there is a max of 10 annotations, and values are truncated after 100 characters.
 - **Namespace labels:** The agent accepts `VANTAGE_COLLECT_NAMESPACE_LABELS` as an environment variable at startup. To enable the collection of namespace labels, configure the `agent.collectNamespaceLabels` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L34).
+
+### Manifest-Based Deployment Option {#manifest-deploy}
+
+If you want to install the agent with a manifest-based deployment option instead, use the following command:
+
+```bash
+helm template -n vantage vka vantage/vantage-kubernetes-agent --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --set resources.limits.memory=70Mi,resources.requests.memory=70Mi
+```
   
 ### Resource Usage {#resource-usage}
 
