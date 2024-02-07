@@ -57,7 +57,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 ## Create a Connection
 
 :::info
-The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations. If you would like to use a manifest-based deployment option instead, see the [section below](/kubernetes_agent#manifest-deploy)
+The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations. If you would like to use a manifest-based option instead, see the [section below](/kubernetes_agent#manifest-deploy)
 :::
 
 To set up a _new_ Kubernetes agent connection:
@@ -83,11 +83,20 @@ You can optionally enable the collection of annotations and namespace labels.
 
 ### Manifest-Based Deployment Option {#manifest-deploy}
 
-If you want to install the agent with a manifest-based deployment option instead, use the following command:
+You can use `helm template` to generate a static manifest via the existing repo. This option generates files (YAML) so that you can then decide to deploy them however you want. 
 
-```bash
-helm template -n vantage vka vantage/vantage-kubernetes-agent --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --set resources.limits.memory=70Mi,resources.requests.memory=70Mi
-```
+
+1. Add the repository for the Vantage Kubernetes agent Helm chart. 
+   
+   ```bash
+   helm repo add vantage https://vantage-sh.github.io/helm-charts
+   ```
+
+2. Generate the static manifest.
+
+    ```bash
+    helm template -n vantage vka vantage/vantage-kubernetes-agent --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID
+    ```
   
 ### Resource Usage {#resource-usage}
 
