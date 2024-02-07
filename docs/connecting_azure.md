@@ -1,7 +1,7 @@
 ---
 id: connecting_azure
 title: Azure
-description: This page walks through how to connect your GCP account to Vantage.
+description: This page walks through how to connect your Azure account to Vantage.
 keywords:
   - Azure
   - Connect Azure
