@@ -137,7 +137,7 @@ You can create and use **Saved Filters** to apply commonly used filters across m
 
 ## Configure Report Groups {#configure-report-groups}
 
-With the **Group By** option, you can select one or more dimensions to group by. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
+With the **Group By** option, you can select one or more dimensions to group by. You can group by up to three dimensions. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
 
 You can group by the following dimensions:
 
@@ -150,11 +150,7 @@ You can group by the following dimensions:
 - Category
 - Subcategory
 - Charge Type
-- Tag Key
-
-:::note
-As costs can be duplicated across multiple tag keys, grouping by multiple tag keys is not currently supported.
-:::
+- Tag
 
 After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
 
