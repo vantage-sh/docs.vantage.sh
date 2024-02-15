@@ -8,20 +8,39 @@ keywords:
 
 # Terraform Provider
 
-Vantage is an official HashiCorp partner and offers a Terraform _module_ for getting up and running with Vantage using Infrastructure as Code (IaC). Vantage also offers a Terraform _provider_ with a number of _resources_.
+Vantage is an official HashiCorp partner and offers a Terraform _module_ for getting up and running with Vantage using Infrastructure as Code (IaC). Vantage also offers a Terraform _provider_ with several _resources_.
 
 - **Vantage Terraform Integrations module for AWS**: The Vantage [Terraform Integrations module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) is available for registered users, across all Vantage tiers, to create the primitives needed to broker a connection with AWS. With the module, you can create a Cross-Account IAM Role as well as a Cost and Usage Report (CUR).
-- **Vantage Terraform provider**: The [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) comprises a number of Vantage resources you can create, such as Cost Reports, Dashboards, etc. The Terraform provider makes it possible to fully automate and manage Vantage from within your existing Terraform codebase. Companies with IaC practices can set up, create, and sync their cost reporting structure with Vantage.
+- **Vantage Terraform provider**: The [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) comprises several Vantage resources you can create, such as Cost Reports, Dashboards, etc. The Terraform provider makes it possible to fully automate and manage Vantage from within your existing Terraform codebase. Companies with IaC practices can set up, create, and sync their cost reporting structure with Vantage.
 
 ## Vantage Terraform Integrations Module for AWS {#integrations-module}
 
 Use the Vantage Integrations module to link your AWS and Vantage accounts. Organizations can leverage the module to integrate thousands of AWS accounts with Vantage. To get set up with this module, see the additional documentation on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
 
 :::note
-For root AWS accounts, you will need to provision a CUR bucket using the `cur_bucket_name` variable. For subaccounts, you will need to link access, but you won't need to configure the CUR bucket.
+For root AWS accounts, you will need to provision a CUR bucket using the `cur_bucket_name` variable. For sub-accounts, you will need to link access, but you won't need to configure the CUR bucket.
 :::
 
-The below example shows how to add a member account _without_ a CUR integration. As a result, an IAM Role is created, which Vantage can assume to ingest the cost and resource metadata that's displayed within the Vantage console. See the [Terraform documentation](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) for more details.
+The below example shows how to add the management (root) AWS account integration where CUR and an S3 bucket are provisioned:
+
+```bash
+provider "aws" {
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::123456789012:role/admin-role"
+  }
+}
+
+module "vantage-integration" {
+  source  = "vantage-sh/vantage-integration/aws"
+
+  # Bucket names must be globally unique. It is provisioned with private acl's
+  # and only accessed by Vantage via the provisioned cross account role.
+  cur_bucket_name = "my-company-cur-vantage"
+}
+```
+
+The below example shows how to add a member account _without_ a CUR integration. As a result, an IAM Role is created, which Vantage can assume to ingest the cost and resource metadata that are displayed within the Vantage console. See the [Terraform documentation](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) for more details.
 
 ```bash
 provider "aws" {
@@ -43,12 +62,16 @@ Using the Terraform provider, you can automate Vantage resources, such as Cost R
 
 With the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs), you can create the following resources:
 
-| Resource     | Terraform Resource Name | Documentation                                                                                                       |
-| ------------ | ----------------------- | ------------------------------------------------------------------------------------------------------------------- |
-| Cost Report  | `vantage_cost_report`   | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report)  |
-| Dashboard    | `vantage_dashboard`     | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard)    |
-| Folder       | `vantage_folder`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/folder)       |
-| Saved Filter | `vantage_saved_filter`  | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/saved_filter) |
+| Resource            | Terraform Resource Name       | Documentation                                                                                                              |
+| ------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| Access Grant        | `vantage_access_grant`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/access_grant)        |
+| Cost Report         | `vantage_cost_report`         | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report)         |
+| Dashboard           | `vantage_dashboard`           | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard)           |
+| Folder              | `vantage_folder`              | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/folder)              |
+| Report Notification | `vantage_report_notification` | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification) |
+| Saved Filter        | `vantage_saved_filter`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/saved_filter)        |
+| Segment             | `vantage_segment`             | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/segment)             |
+| Team                | `vantage_team`                | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/team)                |
 
 :::caution Important
 The ability to create, edit, and destroy resources is keyed to the permissions of the user associated with the API token. For Enterprise customers, role-based access controls also affect these actions. Review the documentation on [RBAC for further information](/rbac).
@@ -59,12 +82,30 @@ By using these Terraform resources, engineering teams automate cost reporting in
 - Build Cost Reports for hundreds of teams stored in another source of truth (e.g., database or GitHub)
 - Update filters as resource names or tags change
 - Add new reports to team dashboards when new services are deployed
+- Create teams and access grants based on teams within an identity provider (IdP)
+
+## Data Sources 
+
+The provider also includes the following data sources you can use to pull data from the Vantage console:
+
+- `vantage_access_grants`
+- `vantage_aws_provider_info`
+- `vantage_cost_reports`
+- `vantage_dashboards`
+- `vantage_folders`
+- `vantage_saved_filters`
+- `vantage_segments`
+- `vantage_teams`
+- `vantage_users`
+- `vantage_workspaces`
 
 ## Terraform Examples
 
+Before you begin, ensure you have a valid [Write API token](/vantage_account#api-token).
+
 ### Create a Cost Report
 
-The following example shows how to create a Cost Report for AWS using Terraform.
+The following example describes how to create a Cost Report for AWS using Terraform.
 
 1. First, declare the Vantage provider.
 
@@ -81,6 +122,8 @@ The following example shows how to create a Cost Report for AWS using Terraform.
      api_token = var.api_token
    }
    ```
+   :::tip
+   You can optionally save your API token as an environment variable and remove the `provider "vantage"{...}` block. Export your token with: `export VANTAGE_API_TOKEN=<YOUR_API_TOKEN>`.
 
 2. Create the `vantage_folder` resource, with "AWS Costs" as the title.
 
@@ -90,13 +133,17 @@ The following example shows how to create a Cost Report for AWS using Terraform.
    }
    ```
 
-3. Create the `vantage_cost_report` resource using the token output from the `vantage_folder` resource. The Cost Report will be stored in the newly created AWS folder. The Cost Report's title is "AWS Costs." In addition, the `vantage_saved_filter` resource includes a `filter` parameter that uses [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data. Here, the filter is set to show only AWS costs.
+3. Create the `vantage_cost_report` resource using the token output from the `vantage_folder` resource. The Cost Report will be stored in the newly created AWS folder. The Cost Report's title is "AWS Costs." In addition, the `vantage_saved_filter` resource includes a `filter` parameter that uses [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data. Here, the filter is set to show only AWS costs. Set the `groupings` parameter to have the report grouped by region and service.
+:::tip
+Valid groupings include: `account_id`, `billing_account_id`, `charge_type`, `cost_category`, `cost_subcategory`, `provider`, `region`, `resource_id`, `service`, `tag:<tag_value>`. Enter multiple groupings as comma-separated values: `groupings=provider,service,region`.
+:::
 
    ```bash
    resource "vantage_cost_report" "aws" {
      folder_token = vantage_folder.aws.token
      filter       = "costs.provider = 'aws'"
      title        = "AWS Costs"
+     groupings    = "region,service"
    }
    ```
 
@@ -144,9 +191,8 @@ In this manner, initial setup, deployments, and infrastructure changes are synce
 
 ## Future Primitive Support
 
-Vantage is in process of expanding the API to support all resources within Vantage. Some future primitives the Terraform provider will support include:
+Vantage is in the process of expanding the API to support all resources within Vantage. Some future primitives the Terraform provider will support include:
 
-- [Segments](/segments)
 - [Budgets](/budgets)
 - [Business Metrics](/per_unit_costs#importing-business-metrics)
 
