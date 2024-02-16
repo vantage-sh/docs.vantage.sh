@@ -84,7 +84,18 @@ const config = {
           {
             from:"/supported_services",
             to:"/aws_supported_services",
-
+          },
+          {
+            from: "/reports",
+            to: "/report_notifications",
+          },
+          {
+            from: "/slack_integration",
+            to: "/report_notifications",
+          },
+          {
+            from: "/microsoft_teams_integration",
+            to: "/report_notifications",
           },
         ],
       },
