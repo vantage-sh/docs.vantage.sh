@@ -23,11 +23,11 @@ Before any notification is sent, Vantage ensures it has the most up-to-date repr
 
 ## Cost Report Notifications vs. Cost Anomaly Alerts
 
-Vantage also has a separate feature called _cost anomaly alerts_ to alert you on excess costs. Cost Report notifications provide a digest of individual reports and are sent on a scheduled basis. Cost anomaly alerts are sent when costs exceed a predetermined alert threshold. They are sent as a summary, once per day, if there are new anomalies for that day. See the [cost anomaly alerts documentation](/cost_anomaly_alerts) for more information.
+Vantage also has a separate feature called _cost anomaly alerts_ to alert you on excess costs. Cost Report notifications provide a digest of individual reports and are sent on a scheduled basis. Cost anomaly alerts are sent when costs exceed a predetermined alert threshold. They are sent as a summary, once per day, if there are new anomalies for that day. See the [Cost Anomaly Alerts documentation](/cost_anomaly_alerts) for more information.
 
 ## Set Up Slack Integration {#slack}
 
-Vantage users can add Vantage to their team's Slack account in a specific channel. All Cost Report notifications are delivered at 11:30 AM EST (4:30 PM UTC). To complete the integration, ensure you have permission to add integrations to your team's Slack account.
+Vantage users can add Vantage to their team's Slack account in a specific channel. To complete the integration, ensure you have permission to add integrations to your team's Slack account.
 
 1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
 2. Click **Setup Slack Integration**. Enter your workspace's Slack URL. A Slack page that describes the requested permissions for Vantage is displayed. The Vantage integration has permission to list and join channels as well as post messages to those channels.
@@ -38,7 +38,7 @@ Vantage users can add Vantage to their team's Slack account in a specific channe
 
 <details><summary>Expand to view example Slack notifications</summary>
   <div>
-    <img alt="Example Cost Report notification in Slack message" width="60%" src="/img/slack.png"/>
+    <img alt="Example Cost Report notification in Slack message" width="80%" src="/img/slack-notification.png"/>
   </div>
 </details>
 
@@ -46,7 +46,7 @@ To add the integration to a private channel, add the Vantage app with `/invite @
 
 ## Set Up Microsoft Teams Integration {#ms-teams}
 
-Vantage also integrates with Microsoft Teams. You can adjust cost report notifications to be delivered to a specific public or private channel in Microsoft Teams. All Cost Report notifications are delivered at 11:30 AM EST (4:30 PM UTC). To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
+Vantage also integrates with Microsoft Teams. You can adjust cost report notifications to be delivered to a specific public or private channel in Microsoft Teams. To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
 
 1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
 2. Click **Setup Microsoft Teams Integration**.
@@ -71,7 +71,7 @@ If you instead want to create an email notification, the email report will conta
 
 <details><summary>Expand to view example email notification</summary>
   <div>
-    <img alt="Example Cost Report notification in an email" width="60%" src="/img/email-notification.png"/>
+    <img alt="Example Cost Report notification in an email" width="100%" src="/img/email-notification.png"/>
   </div>
 </details>
 
@@ -81,8 +81,8 @@ If you instead want to create an email notification, the email report will conta
    :::
 2. Click **New Report Notification**.
 3. Enter a **Title** for the report.
-4. If you want to send the report as an email select the emails for any current Vantage users you want to receive the report.
-5. Depending on which integration you've enabled, a **Slack Channels** or **Microsoft Teams Channels** field is displayed. Select the channels you want to send the notification to. You can add as many channels as you like and they will all receive the notification.
+4. If you want to send the report as an email, select the emails for any current Vantage users you want to receive the report.
+5. Depending on which integration you've enabled, a **Slack Channels** or **Microsoft Teams Channels** field is displayed. Select the channels you want to send the notification to. You can add as many channels as you want, and they will all receive the notification.
 6. Select a report from the dropdown list, then select a **Frequency** (e.g., daily, weekly, or monthly).
    :::note
    Monthly notifications will be sent on the second of the month. Weekly notifications will be sent on Mondays.
