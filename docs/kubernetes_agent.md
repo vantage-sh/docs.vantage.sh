@@ -172,14 +172,16 @@ Then, follow the original installation steps outlined in the above sections.
 
 ### TLS Verify Error When Scraping Nodes
 
-The agent connects to each node to collect usage metrics from the `/metrics/resources` endpoint. This access is managed via Kubernetes RBAC but in some cases the node's TLS certificate may not be valid and will result in TLS errors when attempting this connection. This most often affects clusters in AKS. To skip TLS verify within the Kubernetes client users can set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the helm chart. This does not effect requests outside of the cluster itself such as to the Vantage API or S3.
+The agent connects to each node to collect usage metrics from the `/metrics/resources` endpoint. This access is managed via Kubernetes RBAC, but in some cases, the node's TLS certificate may not be valid and will result in TLS errors when attempting this connection. This most often affects clusters in AKS. To skip TLS verify within the Kubernetes client, you can set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the Helm chart. This does not affect requests outside of the cluster itself, such as to the Vantage API or S3.
 
 An example error log line might look like:
+
 ```bash
 {"time":"2024-02-10T12:00:00.000000000Z","level":"ERROR","msg":"failed to scrape node","err":"Get \"https://10.100.20.20:10250/metrics/resource\": tls: failed to verify certificate: x509: cannot validate certificate for 10.100.20.20 because it doesn't contain any IP SANs","node":"aks-nodepool9ids-1234567-vm0000001"}
 ```
 
-Once changed, users can validate the change by looking for the scraping summary log line as well as ensuring no more `ERROR` level messages appear:
+Once changed, you can validate the change by looking for the scraping summary log line and ensuring no more `ERROR` level messages appear:
+
 ```bash
 {"time":"2024-02-10T12:00:00.000000000Z","level":"INFO","msg":"finished scraping metrics from nodes","success":25,"failure":0,"duration_ms":102}
 ```
