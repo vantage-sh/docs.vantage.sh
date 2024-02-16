@@ -1,41 +1,69 @@
+---
+id: cost_anomaly_alerts
+title: Anomaly Detection
+description: Create cost anomaly alerts so that you are aware of any issues or changes in your costs.
+keywords:
+  - Anomaly detection
+  - Cost anomaly alerts
+---
+
 # Anomaly Detection
 
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Anomaly Alert" width="80%" src="/img/cost-alert.png" />
+Cost anomalies notify teams of excess costs and help engineers fix misconfigurations or other problems before they become very expensive. All costs present in a [Cost Report](/cost_reports/) will be analyzed for anomalies, and all Cost Reports can be configured to send alerts. You can also configure alerts to be sent for detected anomalies.
+
+Alerts can be sent to any number of email addresses. You can select any of your team members with a Vantage account, and add their email to the alert. You can also send alerts via Slack or Microsoft Team channels. If there are new anomalies for that day, they will be sent as a summary once per day.
+
+:::note
+At this time, you cannot configure an alert for a specific [resource](/active_resources/); however, you can create a Cost Report filtered to a specific tag or label and configure an alert for that report.
+:::
+
+## How Anomaly Detection Works
+
+A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside of the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise.
+
+## View Cost Anomalies
+
+To view cost anomalies, navigate to any Cost Report and select the **Anomalies** tab.
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+    <img alt="GIF of a Cost Report with the Anomalies tab opened" width="100%" src="/img/cost-anomaly-alerts.gif"/>
+</div>
+<br/>
+
+:::tip
+Anomalies are considered **Active** if they have occurred in the past seven days. Once this time window passes, they move to an **Archived** state.
+:::
+
+Anomaly alerts are sent only for the first time they are detected. If an anomaly persists for multiple days in a row, Vantage will not send alerts after the first day. Historical anomalies are available to view for a Cost Report, and the **Anomaly Detected** date will be the first day the anomaly occurred.
+
+## Take Action on Anomalies
+
+1. To view more information about a specific alert, select the link in the **Category** column.
+2. The alert is displayed on the corresponding Cost Report. The specific day where the alert was surfaced is highlighted. At the top right of the graph, click **Manage Anomaly**.
+3. Select one of the following actions:
+   - **Create an Issue**: Select this option to create an [issue](/issues). A new tab is displayed with a new issue. The issue description will contain a link to the Cost Report where the anomaly was detected. This issue can be assigned to yourself or another teammate to resolve later. See the visual example below for how to create an issue. 
+   - **Mark as Archived**: The anomaly will be displayed as **Archived** in the anomalies list.
+   - **Ignore**: The anomaly will be removed from the anomalies list. The **Ignore Anomaly** pop-up is displayed where you can provide feedback to Vantage on why you are ignoring the anomaly.
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+    <img alt="GIF of a creating an issue for an Anomaly" width="100%" src="/img/anomaly-issue.gif"/>
 </div>
 
-Cost Anomaly Alerts notify teams of excess costs, and help engineers fix misconfigurations or other problems before they become very expensive. All costs present in a [Cost Report](/cost_reports/) will be analyzed for anomalies and all Cost Reports can be configured to send alerts. At the moment you cannot configure an alert for a specific [resource](/active_resources/). However, you can create a Cost Report filtered to a specific tag or label and configure an alert for this report.
+## Configure Cost Anomaly Alerts
 
-Alerts can be sent to any number of email addresses as well as a set of Slack or Microsoft Team channels. You can choose any of your invited team members and add their email to the alert.
+:::note
+You can configure alerts to be sent via email, Slack, or Microsoft Teams. If you want to use Slack or Teams, you will need to configure the corresponding integration with Vantage. See the [Slack](/report_notifications#slack) or [Microsoft Teams](/report_notifications#ms-teams) integration documentation for Cost Report notifications. Once you have completed the integration steps, complete the below instructions to configure anomaly alerts.
+:::
 
-Anomalies will be sent as a summary once per day if there are new anomalies for that day.
+To receive alerts for any detected cost anomalies:
 
-## Anomalies vs. Alerts
+1. From the top of the anomalies list, click **Configure Alert**.
+2. Select any email recipients you want to send the alert to. If you have Slack or Microsoft Teams configured, the **Slack channels** or **Microsoft Teams channels** fields are displayed.
+3. Enter an **Alert Threshold**. You'll receive an alert only if this threshold is reached.
+4. Click **Save**.
 
-Cost anomalies are detected automatically and populated in the Anomalies tab of a Cost Report. Just because an anomaly is detected does not mean an alert is sent. You must choose "Create Alert" in the Anomalies tab and select a destination for the alert (Slack, Teams, or Email).
-
-## Configure Alerts
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Create a Cost Anomaly Alert" width="100%" src="/img/create_alert.png" />
-</div>
-
-You can configure a cost anomaly alert by visiting any Cost Report, switching to the Anomalies tab and creating an alert. From there you can configure which report is being monitored, where the alert is sent and an optional minimum threshold in dollars. When viewing anomalies for a cost report you will be prompted to create an alert for that report if one is not already configured.
+To add or remove recipients or change the threshold, click **Configure Alert** and make those updates.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Alert Thresholds" width="60%" src="/img/anomaly-threshold.png" />
 </div>
-
-Alerts can be sent to Slack or Teams channels, as well as email.
-
-## Taking Action on Alerts
-
-From the Anomalies list on a Cost Report you have two options to take action on the alert. You may click into the alert through the Category column to see it displayed on the overall Cost Report where the specific day which triggered the alert will be highlighted. From here you can choose "Manage Anomaly" and create an issue or ignore the anomaly. The same two actions are available in the More Options menu in the anomalies list. Anomalies have three states: Active, Archived, and Ignored.
-
-If you create a [Vantage Issue](/issues) you can link to the Cost Report that is causing the problem. This issue can be assigned to yourself or another teammate to resolve later. The assignee will be able to check the Notifications page to see the alert and any other past Cost Alerts.
-
-## How Anomaly Detection Works
-
-A machine learning model is trained on every cost category for every service of a cost report. If a cost for a specific date falls outside of the expected bounds it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise.
-
-Anomalies are active if they have occurred in the past 7 days. Once this window passes they move to archived. Anomalies will only alert the first time they are detected. If an anomaly persists for multiple days in a row Vantage will not send alerts after the first day. However, anomalies will be available to be viewed historically for a cost report and the date will be marked as the first day the anomaly occurred.
