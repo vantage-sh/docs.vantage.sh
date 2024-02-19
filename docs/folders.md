@@ -21,10 +21,12 @@ If your organization has many Cost Reports, you can create folders to separate C
 6. The new folder is displayed in the Cost Report list. Select the folder to open it.
 7. At the top of the folder, click the down arrow next to **+ New**. You can create a new Cost Report inside the folder or a sub-folder within that folder.
 
-## Add Existing Cost Reports to a Folder
+## Move Cost Reports and Folders
 
-1. From the Cost Reports screen, click the ellipses (**...**) next to any Cost Report.
-2. Select **Move to...**.
+To move one or more folders or Cost Reports from the All Cost Reports screen:
+
+1. From the All Cost Reports screen, select the checkbox next to one or more Cost Reports or folders.
+2. Above the list, click **Move**.
 3. Select any listed folder, then click **Move Here**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
@@ -32,11 +34,15 @@ If your organization has many Cost Reports, you can create folders to separate C
 </div>
 <br/>
 
-To move a Cost Report out of a folder and back to the main Cost Reports view:
+:::note
+When you move a folder into another folder, it becomes a subfolder. Consequently, any reports or folders contained within the moved folder will move along with it.
+:::
 
-1. From the Cost Reports screen, click the ellipses (**...**) next to any Cost Report.
-2. Select **Move to...**.
-3. At the top of the **Move Report** modal, click **< Back** until **All Reports (current)** is displayed at the top.
+To move one or more Cost Reports or subfolders out of a folder and back to the main All Cost Reports screen:
+
+1. From a folder, select the checkbox next to one or more Cost Reports or folders.
+2. Above the list, click **Move**.
+3. At the top of the **Moving** modal, click **< Back** until **All Reports (currently selected)** is displayed at the top.
 4. Click **Move Here**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
@@ -50,4 +56,8 @@ You can create a [dashboard](/dashboards) made up of all the reports within a fo
 
 1. Navigate to any folder.
 2. At the top, click **Dashboard**. A dashboard containing all included reports is displayed.
-3. If you want to save the dashboard, click **Save As New**. This saved dashboard will be shareable and available within the main **Dashboards** view.
+3. If you want to save the dashboard, click **Save As New**. This saved dashboard will be shareable and available within the main **Dashboards** screen.
+
+## Starred By Me
+
+If you want to save your favorite Cost Reports to a convenient location, you can _star_ specific reports. See the [Starred By Me](/cost_reports#starred) documentation for details. 
