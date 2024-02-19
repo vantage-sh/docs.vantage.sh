@@ -26,7 +26,7 @@ If your organization has many Cost Reports, you can create folders to separate C
 To move one or more folders or Cost Reports from the All Cost Reports screen:
 
 1. From the All Cost Reports screen, select the checkbox next to one or more Cost Reports or folders.
-2. Above the list, click **Move**.
+2. At the top of the report list, click **Move**.
 3. Select any listed folder, then click **Move Here**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
@@ -40,15 +40,10 @@ When you move a folder into another folder, it becomes a subfolder. Consequently
 
 To move one or more Cost Reports or subfolders out of a folder and back to the main All Cost Reports screen:
 
-1. From a folder, select the checkbox next to one or more Cost Reports or folders.
-2. Above the list, click **Move**.
-3. At the top of the **Moving** modal, click **< Back** until **All Reports (currently selected)** is displayed at the top.
+1. From the current folder, select the checkbox next to one or more Cost Reports or folders.
+2. At the top of the report list, click **Move**.
+3. The **Moving...** modal is displayed. Click **< Back** until **All Reports (currently selected)** is displayed at the top.
 4. Click **Move Here**.
-
-<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of moving a Cost Report out of a specific folder and back to the main Cost Reports screen" width="100%" src="/img/move-to-all-resources.gif"/>
-</div>
-<br/>
 
 ## Create a Dashboard from a Folder
 
@@ -60,4 +55,4 @@ You can create a [dashboard](/dashboards) made up of all the reports within a fo
 
 ## Starred By Me
 
-If you want to save your favorite Cost Reports to a convenient location, you can _star_ specific reports. See the [Starred By Me](/cost_reports#starred) documentation for details. 
+If you want to save your favorite Cost Reports to a convenient location, you can _star_ specific reports. See the [Starred By Me](/cost_reports#starred) documentation for details.

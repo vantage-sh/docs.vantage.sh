@@ -273,6 +273,6 @@ When the export is finished generating, you’ll receive an email with a link to
 
 If you want to save your favorite Cost Reports or [folders](/folders) to a convenient location, you can _star_ specific resources. 
 
-1. From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the check box next to one or more Cost Reports. 
+1. From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the checkbox next to one or more Cost Reports. 
 2. Above the list, click **Star**. A star icon will be displayed next to the report. 
 3. To access all starred reports, navigate to the [**Starred By Me**](https://console.vantage.sh/reporting?starred=true) screen, also accessible from the left Cost Reporting navigation pane. 
