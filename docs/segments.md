@@ -12,14 +12,20 @@ keywords:
 To enable the segments feature in your account, please contact Support at [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
-A segment is a set of filters that represents a portion of costs for your organization. You can think of segments like a pivot table for all your costs—or, in other words, a namespace of costs. With segments, you can perform cost allocation and enforce cost governance for your organization. Optionally, you can create nested hierarchies of costs that can map to teams, departments, apps, or services within your organization. Segments ensure that costs are allocated only once and not duplicated in cases of showback/chargeback scenarios.
+A segment is a set of filters that represents a portion of costs for your organization (e.g., costs allocated to a business unit or team). With segments, you can perform cost allocation and enforce cost governance for your organization. You can create nested hierarchies of costs that can map to teams, departments, apps, or services within your organization. Segments ensure that costs are allocated only once and not duplicated in cases of showback/chargeback scenarios. 
+
+The below diagram shows an example segment hierarchy. All child and grandchild segment costs roll up to the top-level organization segment. Any costs not assigned to a segment are considered _unallocated costs_. By analyzing your segments, you can identify and burn down these unallocated costs to improve financial accountability and resource management.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Tree diagram of segments with an Organization at the top, three child business unit segments, and two grandchild segments per child segment that represent teams. Each child and grandchild segment has an arrow that points up to the organization segment at the top." width="80%" src="/img/segment-tree.png" />
+</div>
 
 ## Segments Use Cases
 
 You can leverage segments for many use cases, including the below examples.
 
-- **Map costs to business units.** You can use nested hierarchies for cost allocation. For example, you can see costs grouped by an “Infrastructure Engineering” team, then drill down into all the various sub-teams, like "Infrastructure Engineering Team 1” and “Infrastructure Engineering Team 2." The costs for Team 1 and Team 2 together comprise the total cost allocation line-item for Infrastructure Engineering.
-- **Maintain tag governance.** You can create a segment for a particular tag key you want to enforce across your organization. Whenever there are costs in the “Unallocated” portion of the report, you can go and identify resources to assign to the proper team or service. Unallocated costs are costs that are captured by a segment's filters but are not allocated to any child segments. For example, if you have two segments defined for **OPEX** and **R&D**, any costs that do not match the logic associated with either of these filters will fall into an _Unallocated Segment_. The Unallocated Segment report is automatically displayed at the root or parent segment level.
+- **Map costs to business units.** You can use nested hierarchies for cost allocation. For example, you can see costs grouped by an “Infrastructure Engineering” team, then drill down into all the various sub-teams, like "Infrastructure Engineering Team 1” and “Infrastructure Engineering Team 2." The costs for Team 1 and Team 2 together comprise the total cost allocation line item for Infrastructure Engineering.
+- **Maintain tag governance.** You can create a segment for a particular tag key you want to enforce across your organization. Whenever there are costs in the “Unallocated” portion of the report, you can go and identify resources to assign to the proper team or service. Unallocated costs are costs that are captured by a segment's filters but are not allocated to any child segments. For example, if you have two segments defined for **OPEX** and **R&D**, any costs that do not match the logic associated with either of these filters will fall into the unallocated segment. The unallocated segment report is automatically displayed at the root or parent segment level.
 
 ## Create a Segment
 
