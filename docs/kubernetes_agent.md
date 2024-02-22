@@ -79,7 +79,7 @@ To set up a _new_ Kubernetes agent connection:
 If you are creating an AKS connection, you will need to configure the following parameters to avoid AKS-specific errors:
 
 - Set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the Helm chart. For details, see the [TLS verify error](/kubernetes_agent#tls-verify-error-when-scraping-nodes) section.
-- Configure the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. For configuration details, see the [DNS lookup error](/kubernetes_agent#dns-lookup-error) section.
+- Configure the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. In this case, the type to use for your cluster will most likely be `InternalIP`. For configuration details, see the [DNS lookup error](/kubernetes_agent#dns-lookup-error) section.
 
 ### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
