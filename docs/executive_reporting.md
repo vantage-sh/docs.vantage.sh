@@ -34,7 +34,7 @@ Any of the widgets shown on the Overview page can also be sent in Slack, Teams, 
 
 ## Create Cost Report Notifications
 
-Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel on a monthly basis. For more information on setting up Cost Report Notifications, see the [Cost Report Notifications](/reports) documentation.
+Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel on a monthly basis. For more information on setting up Cost Report Notifications, see the [Cost Report Notifications](/report_notifications) documentation.
 
 ## Export Cost Reports
 
