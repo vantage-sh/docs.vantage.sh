@@ -74,7 +74,7 @@ To set up a _new_ Kubernetes agent connection:
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
 
-### Azure Kubernetes Service (AKS) Connections
+### Azure Kubernetes Service (AKS) Connections {#aks}
 
 If you are creating an AKS connection, you will need to configure the following parameters to avoid AKS-specific errors:
 
