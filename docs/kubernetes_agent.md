@@ -6,17 +6,17 @@ description: This page walks through how to connect the Vantage Kubernetes agent
 
 # Vantage Kubernetes Agent
 
-The Vantage Kubernetes agent is the default, recommended configuration to ingest cost and usage data from Kubernetes clusters to Vantage. The agent is a Docker container that runs in your Kubernetes cluster. The agent collects metrics and uploads them to Vantage. 
+The Vantage Kubernetes agent is the default, recommended configuration to ingest cost and usage data from Kubernetes clusters to Vantage. The agent is a Docker container that runs in your Kubernetes cluster. The agent collects metrics and uploads them to Vantage.
 
 :::note
 A primary provider (e.g., AWS, Azure, or GCP) is required to connect Kubernetes costs.
 :::
 
-## Agent Functionality 
+## Agent Functionality
 
-The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole included in the Vantage Kubernetes agent [Helm chart](https://github.com/vantage-sh/helm-charts). 
+The Vantage Kubernetes agent relies on native Kubernetes APIs, such as `kube-apiserver` for metadata and `kubelet` for container data. Access to these APIs is controlled via Kubernetes RBAC using a Service Account and ClusterRole included in the Vantage Kubernetes agent [Helm chart](https://github.com/vantage-sh/helm-charts).
 
-Data is periodically collected and stored for aggregation, then sent directly to the Vantage service through an API, with your Vantage API token for authentication. This process avoids extra storage costs incurred by the OpenCost integration. The agent's architecture eliminates the need for deploying OpenCost-specific Prometheus pods, which makes scaling easier. 
+Data is periodically collected and stored for aggregation, then sent directly to the Vantage service through an API, with your Vantage API token for authentication. This process avoids extra storage costs incurred by the OpenCost integration. The agent's architecture eliminates the need for deploying OpenCost-specific Prometheus pods, which makes scaling easier.
 
 <div style={{ display: "flex", justifyContent: "center", borderRadius: 10, boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)" }}>
     <img alt="Vantage Kubernetes agent architecture diagram" width="60%" src="https://assets.vantage.sh/blog/announcing-the-official-kubernetes-integration/vantage-kubernetes-agent-architecture.png" style={{ borderRadius: 10 }} />
@@ -24,7 +24,7 @@ Data is periodically collected and stored for aggregation, then sent directly to
 
 ## Service Compatibility
 
-The Vantage Kubernetes agent is compatible with the following services: 
+The Vantage Kubernetes agent is compatible with the following services:
 
 - Amazon Elastic Kubernetes Service (EKS)
 - Azure Kubernetes Service (AKS)
@@ -42,7 +42,7 @@ As long as the cost data for an underlying cluster instance is ingested into Van
 
 The following prerequisites are required before you install the Vantage Kubernetes agent:
 
-- The [Helm package manager](https://helm.sh/) for Kubernetes 
+- The [Helm package manager](https://helm.sh/) for Kubernetes
 
 - `kubectl`
 
@@ -62,17 +62,24 @@ The following steps are also provided in the Vantage Kubernetes agent Helm chart
 
 To set up a _new_ Kubernetes agent connection:
 
-1. Add the repository for the Vantage Kubernetes agent Helm chart. 
-   
+1. Add the repository for the Vantage Kubernetes agent Helm chart.
+
    ```bash
    helm repo add vantage https://vantage-sh.github.io/helm-charts
    ```
 
 2. Install the `vantage-kubernetes-agent` Helm chart. Ensure you update the values for `VANTAGE_API_TOKEN` (obtained in the [Prerequisites](/kubernetes_agent#prerequisites) above) and `CLUSTER_ID` (the unique value for your cluster).
-   
+
    ```bash
    helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --install --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID --create-namespace
    ```
+
+### Azure Kubernetes Service (AKS) Connections {#aks}
+
+If you are creating an AKS connection, you will need to configure the following parameters to avoid AKS-specific errors:
+
+- Set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the Helm chart. For details, see the [TLS verify error](/kubernetes_agent#tls-verify-error-when-scraping-nodes) section.
+- Configure the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. In this case, the type to use for your cluster will most likely be `InternalIP`. For configuration details, see the [DNS lookup error](/kubernetes_agent#dns-lookup-error) section.
 
 ### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
@@ -83,39 +90,40 @@ You can optionally enable the collection of annotations and namespace labels.
 
 ### Manifest-Based Deployment Option {#manifest-deploy}
 
-You can use `helm template` to generate a static manifest via the existing repo. This option generates files (YAML) so that you can then decide to deploy them however you want. 
+You can use `helm template` to generate a static manifest via the existing repo. This option generates files (YAML) so that you can then decide to deploy them however you want.
 
+1. Add the repository for the Vantage Kubernetes agent Helm chart.
 
-1. Add the repository for the Vantage Kubernetes agent Helm chart. 
-   
    ```bash
    helm repo add vantage https://vantage-sh.github.io/helm-charts
    ```
 
 2. Generate the static manifest.
 
-    ```bash
-    helm template -n vantage vka vantage/vantage-kubernetes-agent --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID
-    ```
-  
+   ```bash
+   helm template -n vantage vka vantage/vantage-kubernetes-agent --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID
+   ```
+
 ### Resource Usage {#resource-usage}
 
 The limits provided within the Helm chart are set low to support small clusters (approximately 10 nodes) and should be considered the minimum values for deploying an agent.
 
 Estimates for larger clusters are roughly:
+
 - ~1 CPU/1000 node
 - ~5 MB/node
 
 For example, a 100-node cluster would be approximately 500 MB and 100 mCPU. These amounts are estimates, which will vary based on pod density per node, label usage, cluster activity, etc. The agent should reach an approximate steady state after about one hour of uptime and can be tuned accordingly after the fact.
 
 To set these options, extend the `--set` flag. You can also include the values using one of the [many options Helm supports](https://helm.sh/docs/chart_template_guide/values_files/):
+
 ```
 --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID,resources.limits.memory=100Mi,resources.requests.memory=100Mi
 ```
 
 ### Validate Installation
 
-Follow the steps below to validate the agent's installation. 
+Follow the steps below to validate the agent's installation.
 
 1. Once installed, the agent's pod should become `READY`:
    ```bash
@@ -144,7 +152,8 @@ You can view and manage your Kubernetes integration on the [Kubernetes Integrati
 :::
 
 ## Common Errors
-### DNS Lookup Error
+
+### DNS Lookup Error {#dns-lookup-error}
 
 The agent uses the [node status addresses](https://kubernetes.io/docs/reference/node/node-status/#addresses) to determine what hostname to look up for the node's stats, which are available via the `/metrics/resource` endpoint. This can be configured with the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. By default, the priority order is `Hostname,InternalDNS,InternalIP,ExternalDNS,ExternalIP`.
 
@@ -155,22 +164,25 @@ To understand which type to use for your cluster, you can look at the available 
 [{"address":"10.0.12.185","type":"InternalIP"},{"address":"ip-10-0-12-185.ec2.internal","type":"InternalDNS"},{"address":"ip-10-0-12-185.ec2.internal","type":"Hostname"}]
 ```
 
-### EOF Error When Starting
+### EOF Error When Starting {#eof-error-when-starting}
 
 The agent uses local files for recovering from crashes or restarts. If this backup file becomes corrupted, most commonly due to [OOMKill](/kubernetes_agent#resource-usage), the most straightforward approach to get the agent running again is to perform a fresh install or remove the `PersistentVolumeClaim`, `PersistentVolume`, and `Pod`.
 
 An example error log line might look like:
+
 ```bash
 {"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to setup data store","err":"unexpected EOF"}
 ```
 
 To uninstall the agent via `helm`, run:
+
 ```bash
 helm uninstall vka -n vantage
 ```
+
 Then, follow the original installation steps outlined in the above sections.
 
-### TLS Verify Error When Scraping Nodes
+### TLS Verify Error When Scraping Nodes {#tls-verify-error-when-scraping-nodes}
 
 The agent connects to each node to collect usage metrics from the `/metrics/resources` endpoint. This access is managed via Kubernetes RBAC, but in some cases, the node's TLS certificate may not be valid and will result in TLS errors when attempting this connection. This most often affects clusters in AKS. To skip TLS verify within the Kubernetes client, you can set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the Helm chart. This does not affect requests outside of the cluster itself, such as to the Vantage API or S3.
 
@@ -195,26 +207,27 @@ The agent requires a persistent store for periodic backups of time-series data a
 The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
 
 Below are the expected associated permissions for the IAM role:
+
 ```json
 {
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Effect": "Allow",
-            "Action": [
-                "s3:GetObject",
-                "s3:PutObject",
-                "s3:ListBucket",
-                "s3:AbortMultipartUpload",
-                "s3:ListMultipartUploadParts",
-                "s3:DeleteObject"
-            ],
-            "Resource": [
-                "arn:aws:s3:::example-bucket-name/*",
-                "arn:aws:s3:::example-bucket-name"
-            ]
-        }
-    ]
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:AbortMultipartUpload",
+        "s3:ListMultipartUploadParts",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::example-bucket-name/*",
+        "arn:aws:s3:::example-bucket-name"
+      ]
+    }
+  ]
 }
 ```
 
