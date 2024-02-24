@@ -8,7 +8,7 @@ To create a budget, head to the [Budgets](https://console.vantage.sh/financial_p
 
 ## Budget Alerts
 
-Budget Alerts are automated alerts based on configurable budget thresholds. From the [Budget Alerts page](https://console.vantage.sh/financial_planning/budgets/budget_alerts), you can add thresholds to one or more Budgets by clicking “Configure Alert”. Alerts can be configured to send to [Slack](/slack_integration) channels, Email, or [Teams](/microsoft_teams_integration) channels given a percentage of budget exceeded for a specific time period. Time periods can be set before or after a number of days into the month (e.g. “10 days from the start of the month”).
+Budget Alerts are automated alerts based on configurable budget thresholds. From the [Budget Alerts page](https://console.vantage.sh/financial_planning/budgets/budget_alerts), you can add thresholds to one or more Budgets by clicking “Configure Alert”. Alerts can be configured to send to [Slack](/report_notifications#slack) channels, Email, or [Teams](/report_notifications#ms-teams) channels given a percentage of budget exceeded for a specific time period. Time periods can be set before or after a number of days into the month (e.g. “10 days from the start of the month”).
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Email budget alert" width="60%" src="/img/email-budget-alert.png" />
