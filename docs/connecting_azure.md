@@ -1,10 +1,11 @@
 ---
 id: connecting_azure
 title: Azure
-description: This page walks through how to connect your GCP account to Vantage.
+description: This page walks through how to connect your Azure account to Vantage.
 keywords:
   - Azure
   - Connect Azure
+toc_max_heading_level: 4
 ---
 
 # Azure
@@ -20,14 +21,20 @@ You can connect hundreds of Azure subscriptions to Vantage through the managemen
 The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does **not** have permissions—nor will it ever attempt—to make any changes to your infrastructure.
 :::
 
-## Connect Your Azure Account
+## Connect Your Azure Account 
 
-### Prerequisites
+:::tip
+Instructions are provided below for you to connect via the [Azure CLI](/connecting_azure#azure-cli) or the [Azure portal](/connecting_azure#azure-portal).
+:::
 
-- The below commands are run via the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest).
+### Connect via the Azure CLI {#azure-cli}
+
+#### Prerequisites
+
+- The below commands are run via the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). Ensure you have access to Azure CLI and can create service principals and manage their permissions. 
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
 
-### Step 1: Create an Azure Service Principal
+#### Step 1: Create an Azure Service Principal
 
 Create a service principal using the following command: 
 
@@ -46,15 +53,15 @@ You should see output similar to the below output:
 }
 ```
 
-Record the `appId`, `tenant`, and `password` as you will enter these credentials into the Vantage console.
+Record the `appId`, `password`, and `tenant` as you will enter these credentials into the Vantage console.
 
-### Step 2: Grant the Service Principal Permissions {#granting-the-service-principal-permissions}
-
-Grant permissions to the `appId` from the service principal created above. The scope can be a subscription or management group.
+#### Step 2: Grant the Service Principal Permissions {#granting-the-service-principal-permissions}
 
 :::note
 Vantage recommends assigning permissions to a management group that aggregates your subscriptions. By following this recommendation, you do not have to manually assign each subscription.
 :::
+
+Grant permissions to the `appId` from the service principal created above. The scope can be a subscription or management group. Ensure you replace `<SERVICE_PRINCIPAL_APP_ID>` with the `appId`. Replace `<MANAGEMENT_GROUP_ID>` (or `<SUBSCRIPTION_ID>`) with your management group ID (or subscription ID). 
 
 <Tabs>
   <TabItem value="management-group" label="Management Group" default>
@@ -69,14 +76,91 @@ Vantage recommends assigning permissions to a management group that aggregates y
 
   ```bash
   az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \
-  --role Reader \
-  --scope "/subscriptions/<SUBSCRIPTION_ID>"
+    --role Reader \
+    --scope "/subscriptions/<SUBSCRIPTION_ID>"
   ```
 
   </TabItem>
 </Tabs>
 
-### Step 3: Save the Credentials in Vantage
+Skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials) section for the steps to complete the connection with Vantage.
+
+
+### Connect via the Azure Portal {#azure-portal}
+
+#### Prerequisites
+
+- The below instructions are for connecting using the Azure portal. If you already completed the steps via the Azure CLI, skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials) section. You should have access to set up service principals and grant those service principals permissions. 
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
+
+#### Step 1: Create a New Application Registration
+
+ 1. From the main page of the Azure portal, search for and navigate to **Microsoft Entra ID**. 
+ 2. In the left navigation, under **Manage**, select **App registrations**.
+ 3. Click **+ New registration**. 
+  <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with App Registration menu option selected" width="100%" src="/img/connect-azure/azure-new-app-registration.png"/> </div>
+   </details>
+ 4. The **Register an application** screen is displayed. For **Name**, enter _vantage_.
+ 5. Leave all other settings as their defaults and click **Register**. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="/img/connect-azure/azure-register-app.png"/> </div>
+   </details>
+ 6. The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="/img/connect-azure/azure-app-ids.png"/> </div>
+   </details>
+
+#### Step 2: Generate a Client Secret
+
+1. On the same page, next to the **Client credentials** field, click **Add a certificate or secret**. (You can also access the **Certificates and secrets** screen from the left navigation menu.)
+2. Click **+ New client secret**. 
+3. The **Add a client secret** pane is displayed. For **Description**, enter a description, such as _vantage-secret_. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="/img/connect-azure/azure-client-secret.png"/> </div>
+   </details>
+4. For **Expires**, select an expiration option for the secret.
+  :::caution
+  If this secret expires, you will need to supply Vantage with a new secret _before_ the expiration date.
+  :::
+1. Click **Add**.
+2. The newly created secret is displayed. Copy the secret's **Value** to add to the Vantage console later. This value will be displayed only one time.
+
+#### Step 3: Grant the Service Principal Permissions 
+
+:::note
+Vantage recommends assigning permissions to a management group that aggregates your subscriptions. By following this recommendation, you do not have to manually assign each subscription.
+:::
+
+1. From the top navigation, search for and navigate to **Management groups**. (If you want to assign permissions to a subscription, navigate to **Subscriptions**.)
+2. Open the management group for which you will be assigning permissions.  
+3. On the left navigation, click **Access control (IAM)**. 
+4. Click **Add role assignment**. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with management group window open. The Access control tab is highlighted." width="100%" src="/img/connect-azure/azure-add-role-assign.png"/> </div>
+   </details>
+5. On the **Add role assignment** screen, select **Reader**. Then, click **Next**. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with Reader role highlighted" width="100%" src="/img/connect-azure/azure-add-reader-role.png"/> </div>
+   </details>
+6. For **Assign access to**, select **User, group, or service principal**.
+7. Click **+ Select members**. The **Select members** tab is displayed on the right. Search for the _vantage_ app you created before. Select the listed app, then click **Select**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Azure portal with Add role assignment window displayed" width="100%" src="/img/connect-azure/azure-add-role-assignment.png"/> </div>
+   </details>
+8. Click **Next** > **Review + assign**. 
+
+
+### Save the Credentials in Vantage {#save-credentials}
+
+After you complete the steps for connecting via the Azure CLI or Azure portal, follow the steps below to add the Azure tenant ID, service principal App ID, and service principal password/secret in Vantage. 
 
 1. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure integration.
 2. On the Azure integration page, click **Add Credentials**. 

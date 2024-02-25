@@ -137,7 +137,7 @@ You can create and use **Saved Filters** to apply commonly used filters across m
 
 ## Configure Report Groups {#configure-report-groups}
 
-With the **Group By** option, you can select one or more dimensions to group by. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
+With the **Group By** option, you can select one or more dimensions to group by. You can group by up to three dimensions. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
 
 You can group by the following dimensions:
 
@@ -150,11 +150,7 @@ You can group by the following dimensions:
 - Category
 - Subcategory
 - Charge Type
-- Tag Key
-
-:::note
-As costs can be duplicated across multiple tag keys, grouping by multiple tag keys is not currently supported.
-:::
+- Tag
 
 After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
 
@@ -205,7 +201,7 @@ In addition, Vantage uses committed use attribution for linked accounts. By defa
 For more information about this logic, see the following [Vantage blog post](https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution).
 
 :::note
-In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were actually realized.
+In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were realized.
 :::
 
 #### Disabling Amortization
@@ -272,3 +268,11 @@ For the **Date Bin** export option, when you select **Week**, the week in the ex
 </div>
 
 When the export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An example export, with groupings of **Service Category** and **Service Subcategory**, is shown above. You can also export grouped Cost Reports and the groupings will be respected in the downloaded CSV.
+
+## Starred by Me {#starred}
+
+If you want to save your favorite Cost Reports or [folders](/folders) to a convenient location, you can _star_ specific resources. 
+
+1. From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the checkbox next to one or more Cost Reports. 
+2. Above the list, click **Star**. A star icon will be displayed next to the report. 
+3. To access all starred reports, navigate to the [**Starred By Me**](https://console.vantage.sh/reporting?starred=true) screen, also accessible from the left Cost Reporting navigation pane. 

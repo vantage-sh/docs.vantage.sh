@@ -15,7 +15,8 @@ Vantage integrates with your Databricks account through the use of [Billable Usa
 
 ### Prerequisites
 
-[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Databricks costs.
+- You need [account admin](https://docs.databricks.com/en/administration-guide/index.html) privileges in Databricks. 
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Databricks costs.
 
 ### Create the Connection
 

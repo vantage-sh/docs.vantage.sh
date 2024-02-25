@@ -11,9 +11,9 @@ toc_max_heading_level: 4
 
 # Single Sign-On (SSO)
 
-Vantage supports single sign-on (SSO) via self-service single sign-on as well as a number of other supported IdPs. You can use self-service SSO to connect your SAML (Security Assertion Markup Language) Identity Provider (IdP) to your Vantage account. With self-service SSO, you can use your existing credentials to authenticate and access your Vantage account. SSO streamlines the login process, since users don't need to create a new account or remember another set of login credentials for Vantage.
+Vantage supports single sign-on (SSO) via self-service single sign-on as well as several other supported IdPs. You can use self-service SSO to connect your SAML (Security Assertion Markup Language) Identity Provider (IdP) to your Vantage account. With self-service SSO, you can use your existing credentials to authenticate and access your Vantage account. SSO streamlines the login process since users don't need to create a new account or remember another set of login credentials for Vantage.
 
-Vantage uses Just-in-Time (JIT) provisioning for user provisioning. As long as a user is granted access in your IdP, the user will be provisioned an account in Vantage when they first log in.
+Vantage uses Just-in-Time (JIT) provisioning for user provisioning. As long as a user is granted access to your IdP, the user will be provisioned an account in Vantage when they first log in.
 
 ## Self-Service SSO via SAML
 
@@ -54,7 +54,7 @@ Before you can connect your IdP to Vantage, you will need the following:
 9. **Optional:** If you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
 
 :::caution Important
-For security reasons, Vantage does not recommend IdP-initiated sessions. For Okta, our recommended best practice is to create a tile called "Vantage" that is a link to `https://console.vantage.sh/login`. For more information, see the [Create a Bookmark App](https://support.okta.com/help/s/article/How-do-you-create-a-bookmark-app) instructions, on the Okta documentation site.
+For security reasons, Vantage does not recommend IdP-initiated sessions. For Okta, our recommended best practice is to create a tile called _Vantage_ with a link to `https://console.vantage.sh/login`. For more information, see the [Create a Bookmark App](https://support.okta.com/help/s/article/How-do-you-create-a-bookmark-app) instructions, on the Okta documentation site.
 
 If you want to use an IdP-initiated session configuration, please contact [Vantage Support](mailto:support@vantage.sh).
 :::
@@ -92,7 +92,7 @@ The recommended steps for testing your SSO configuration are as follows:
 1. Once your connection is enabled, do not close or log out of your current Vantage application session.
 2. Open a private browser or incognito window, and visit [https://console.vantage.sh](https://console.vantage.sh).
 3. Enter your email address. If your SSO connection is configured correctly, you will be redirected to your IdP.
-4. Enter your login credentials. If you are able to complete the login, your configuration is correct.
+4. Enter your login credentials. If you can complete the login, your configuration is correct.
 
 If you experience any issues with logging in after you've enabled your connection, [contact Vantage Support](mailto:support@vantage.sh).
 
@@ -103,7 +103,7 @@ If you ever need to disconnect your IdP from Vantage:
 1. Navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers).
 2. To _disable_ your connection, switch the **Active** toggle off. To _permanently remove_ your IdP, click the **Delete** button.
 
-After disabling/removing the connection, you will be able to log back in to the app with your original Vantage login credentials.
+After disabling/removing the connection, you will be able to log in to the app with your original Vantage login credentials.
 
 ## Set Up Other IdPs
 

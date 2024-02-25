@@ -24,7 +24,7 @@ const config = {
   projectName: "docs.vantage.sh", // Usually your repo name.
 
   onBrokenLinks: "throw",
-  onBrokenMarkdownLinks: "warn",
+  onBrokenMarkdownLinks: "throw",
 
   // Even if you don't use internalization, you can use this field to set useful
   // metadata like html lang. For example, if your site is Chinese, you may want
@@ -94,7 +94,18 @@ const config = {
           {
             from:"/supported_services",
             to:"/aws_supported_services",
-
+          },
+          {
+            from: "/reports",
+            to: "/report_notifications",
+          },
+          {
+            from: "/slack_integration",
+            to: "/report_notifications",
+          },
+          {
+            from: "/microsoft_teams_integration",
+            to: "/report_notifications",
           },
         ],
       },
@@ -145,6 +156,9 @@ const config = {
   
         // Optional: Algolia search parameters
         searchParameters: {},
+        
+        // Enables analytics 
+        insights: true,
   
         // Optional: path for search page that enabled by default (`false` to disable it)
         searchPagePath: 'search',
