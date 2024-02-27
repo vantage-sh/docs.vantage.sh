@@ -41,7 +41,7 @@ The following data is included in the table:
 
 | Metric                   | Description                                                                                                                                                               |
 | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Raw Compute Spend        | The raw compute cost your account uses before any Savings Plans or Reserved Instances are applied. Raw compute comprises spend for EC2, Lambda, and Fargate ECS services. |
+| Raw Compute Spend        | The raw compute cost your account uses before any Savings Plans or Reserved Instances are applied. Raw compute comprises spend for EC2, Lambda, ECS for Kubernetes, SageMaker, and Fargate ECS services. |
 | On-demand Spend          | The amount of on-demand costs that your account has incurred.                                                                                                             |
 | Savings Plan Commitments | The amount of Savings Plan costs that your account has incurred.                                                                                                          |
 | Savings Plan Savings     | The amount saved by using the Savings Plan.                                                                                                                               |
@@ -69,7 +69,7 @@ In the **Savings Plans** table, you can add potential future Savings Plans. All 
 The latest savings rate for the plan is calculated by looking at the last full month of usage. You can click the top of any column to sort the table by that column.
 
 :::info
-For more information about Savings Plans and factors such as term and prepayment, see this [Vantage blog article](https://www.vantage.sh/blog/what-is-an-aws-savings-plan).
+For more information about Savings Plans and factors such as term, prepayment, and EC2 vs. Compute plans, see this [Vantage blog article](https://www.vantage.sh/blog/what-is-an-aws-savings-plan).
 :::
 
 1. To add a new Savings Plan, click **Add potential savings plan**.
