@@ -77,13 +77,14 @@ For detailed instructions, see the [Okta support documentation](https://help.okt
 <div> 
 <img alt="Okta app settings" width="80%" src="/img/saml_okta_app_name.png"/> </div>
 </details>
-5. Enter the requested **Single sign on URL** (`https://auth.vantage.sh/login/callback`) and **Audience URI (SP Entity ID)** (for example, `urn:auth0:vantage-production:acme-com`), provided on the Vantage Authentication setup page.
+5. Enter the requested **Single sign on URL** (for example, `https://auth.vantage.sh/login/callback?connection=company-com`) and **Audience URI (SP Entity ID)** (for example, `urn:auth0:vantage-production:company-com`), provided on the Vantage Authentication setup page.
 <details><summary>Expand to view example image</summary>
 <div>
 <img alt="Okta SAML settings" width="80%" src="/img/saml_okta_settings.png"/> </div>
 </details>
 6. Set the **Application username** to **Email**.
 7. Once the app integration is set up, copy the Okta-provided **Identity Provider Single Sign On URL** and **X.509 Certificate** back into Vantage.
+8. To enable the connection, switch the Active toggle to on. You will remain logged in to Vantage, but the next time you attempt to log in, you will be redirected to the Okta sign-on page.
 
 ### Test Your SSO Configuration
 
