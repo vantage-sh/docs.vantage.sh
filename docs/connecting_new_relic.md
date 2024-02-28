@@ -40,3 +40,7 @@ On New Relic [Cost Reports](/cost_reports), you can filter across several dimens
 - Account
 - Service
 - Category (e.g., New Relic Users - CoreUsers)
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

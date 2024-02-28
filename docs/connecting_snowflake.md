@@ -114,3 +114,7 @@ On Snowflake [Cost Reports](/cost_reports), you can filter across several dimens
 ## Active Resources 
 
 Snowflake queries are synced as active resources and available in [resource reports](/active_resources).
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

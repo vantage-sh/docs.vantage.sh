@@ -53,3 +53,7 @@ On Fastly [Cost Reports](/cost_reports), you can filter across several dimension
 - Resource
 - Region
 - Service
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
