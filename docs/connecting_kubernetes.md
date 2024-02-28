@@ -28,3 +28,7 @@ Vantage automatically profiles your clusters for all existing Services, Namespac
 ## Enable Kubernetes Costs
 
 To get started, follow the instructions for setting up the [Vantage Kubernetes agent](/kubernetes_agent).
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

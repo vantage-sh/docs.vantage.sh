@@ -133,3 +133,7 @@ Google Cloud is not currently available in the following features:
 - [Autopilot](/autopilot)
 - [Savings Planner](/savings_planner)
 - [Resource Reports](/active_resources)
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

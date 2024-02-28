@@ -72,3 +72,7 @@ You can also view credits or discounts for PlanetScale costs in Cost Reports.
 ## Active Resources
 
 PlanetScale databases are synced as active resources and available in [resource reports](/active_resources).
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

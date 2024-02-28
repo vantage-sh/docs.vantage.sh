@@ -101,3 +101,7 @@ You can also **Group By** a specific tag key on a Datadog Cost Report. The follo
 - Not Tagged with Key
 
 If you just applied your first Datadog tag key and value, it can take up to 48 hours for the tag to appear in Vantage. Tags are not applied retroactively.
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
