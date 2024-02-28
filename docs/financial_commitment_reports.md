@@ -74,6 +74,11 @@ Before you create a report, you can view a list of all your active (and expired)
      :::
    - Two additional dropdown menus are displayed. Select **is**, **is not**, **contains**, or **does not contain** based on your desired filter criteria, then select one or more corresponding values from the second dropdown menu. For Tag, the Tag Key dropdown is displayed before the operator dropdown.
    - Click **Save**.
+   <details><summary>Click to view a visual example</summary>
+   <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+     <img alt="GIF of filtering a commitment report for AWS category costs that are not usage" width="100%" src="/img/filter-fcr.gif"/>
+   </div>
+   </details>
 4. You can optionally edit your existing rules or add additional filter criteria.
    - To edit the rule you just created, select the rule, make your changes, and then click **Save**.
    - If you want to add a rule to filter multiple criteria, such as filter by certain services and another rule to filter by certain regions, click **+ New Rule**. Add the additional criteria and save.
@@ -89,6 +94,9 @@ You can edit the filter criteria on a report at any time. Remember to click **Sa
 You have the option to further drill down into your costs:
 
 - Above the graph, click the **Group By** dropdown menu. Select one or more grouping options. You can group by charge type, commitment type, service, account, billing account, region, category, subcategory, instance type, and tag.
+  <details><summary>Click to view a visual example</summary>
+    <img alt="Filtering a commitment report for AWS category costs that are not usage" width="100%" src="/img/fcr-group.png"/>
+  </details>
 
 - To adjust the date binning, click the data bin menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
 - To change the date range, click the date menu on the top right of the graph and adjust the date range.
@@ -116,12 +124,16 @@ You can also adjust the report to include only costs that are eligible for Reser
 By default, financial commitment reports are grouped by Charge Type (e.g., Savings Plan Covered Spend, Spot Usage). Groupings are represented by each colored section of the bar chart. Hover over any bar to get a breakdown of costs. The breakdown is also provided in the table below the chart.
 
 :::note
-Costs in the graph are unblended.
+Costs in the graph are [unblended](https://www.vantage.sh/blog/analyze-aws-cost-data#decoding-blended-unblended-and-amortized-costs).
 :::
 
 You can sort the table by any of the date or grouping columns.
 
 The chart contains two axes: the left axis measures costs, and the right axis measures the coverage and effective savings rate. The cost axis shows positive and negative values (i.e., discounts are represented as negative dollar values).
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A view of a full financial commitment report" width="100%" src="/img/fcr-full-report.png" />
+</div>
 
 Trend lines are displayed to illustrate the change in coverage and effective savings rate over time. Hover over any line to get a point-in-time view of each metric and associated costs.
 
