@@ -102,6 +102,18 @@ You can also **Group By** a specific tag key on a Datadog Cost Report. The follo
 
 If you just applied your first Datadog tag key and value, it can take up to 48 hours for the tag to appear in Vantage. Tags are not applied retroactively.
 
+## Datadog Pricing in Vantage
+
+For certain services, Datadog prices based on the 95th to 99th percentile (p95/p99) of usage rather than *daily* usage. For example, APM is billed on the [99th percentile](https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/#apm-hosts-with-dynamic-scaling-containers-fargate-and-no-indexed-spans) of the number of hosts you have running at any given time. In Vantage, Datadog costs are realized on the first day of the month. As the month progresses, you might notice that costs retroactively increase or decrease based on your usage.
+
+Because these costs are always realized on the first of the month, when you compare previous periods for services that price on the p95/p99 of usage, you’ll always have the same comparison dates. For services that do not price on p95/p99, Vantage shows costs realized per day, when the accompanying usage data is available.
+
+In the below visual example, a Cost Report is filtered to all Datadog costs. The date grouping is set to **Daily**. If you select a service row in the table, that service is isolated on the graph, and you can see how the service is priced. In this example, Log Management has accrual data and prices daily; whereas, Containers is priced based on the p95/p99 of usage, and costs are realized on the first of the month.
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+  <img alt="GIF selecting different Datadog services. When Log Management is selected, costs are displayed for the whole month. When Containers is selected, costs are displayed on the first of the month." width="100%" src="/img/datadog-costs.gif"/>
+</div>
+
 ## Manage Workspace Access
 
 See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
