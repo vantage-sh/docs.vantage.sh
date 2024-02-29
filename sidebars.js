@@ -161,6 +161,7 @@ module.exports = {
         "budgets",
         "per_unit_costs",
         "issues",
+        "financial_commitment_reports",
         "savings_planner",
         "cost_recommendations",
         ],
