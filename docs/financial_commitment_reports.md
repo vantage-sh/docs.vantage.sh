@@ -139,8 +139,7 @@ Trend lines are displayed to illustrate the change in coverage and effective sav
 
 Above the chart, the following values are displayed for the report’s lookback period:
 
-- **On-Demand Spend:** The total amount spent for On-Demand resources. This portion of spend is narrowed down to just the cost categories that can be covered by Savings Plans or Reserved Instances.
-- **Total Savings:** The total amount saved by using your financial commitments.
+- **Total Savings:** The total amount saved by using your financial commitments and other discounts.
 - **Effective Savings Rate:** The percentage discount across all usage. (See the [section above](/financial_commitment_reports#effective-savings-rate) for a more in-depth explanation of this metric.)
 - **Coverage:** The percentage of total spend that is covered by financial commitments. (See the [section above](/financial_commitment_reports#coverage) for a more in-depth explanation of this metric.)
 
