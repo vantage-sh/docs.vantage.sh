@@ -11,7 +11,28 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on January 31, 2024, with product updates for January 2024._
+_This page was last updated on February 29, 2024, with product updates for February 2024._
+
+## February 2024
+
+### Product Updates
+
+- **Ability to group by multiple tags**: You can now group by multiple tags in the console.
+- **EC2 rightsizing recommendations**: New [recommendations](/cost_recommendations) are added for rightsizing EC2 instances.
+- **Segment settings**: You can now edit the default report settings on a top-level [segment report](/segments#create-a-segment).
+- **Updated UI look and feel**: Visual updates were made to Financial Planning menus and screens.
+- **Financial Commitment Reports**: [Financial commitment reports](/financial_commitment_reports) are now available to help you understand how your organization is utilizing financial commitments.
+- **Bulk actions for folders and Cost Reports**: You can now [move and star](/folders#move-cost-reports-and-folders) folders and Cost Reports in bulk.
+- **Additional operators on resource reports**: The `is greater than` and `is less than` operators are both available for Metadata filters on [resource reports](/active_resources). For example: **where** Metadata CloudWatch Log Groups Retention in Days **is greater than** 5.
+
+### API Updates
+
+- **New notifications endpoint:** The `/report_notifications` [endpoint](https://vantage.readme.io/reference/createreportnotification) is now available. This endpoint also now has support via the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification).
+- **Multi-tag support**: The `groupings` parameter of the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts) has support for multiple tags.
+- **Data sources in Terraform**: [Data sources](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/access_grants) for multiple Vantage resources are now available in the Terraform provider.
+- **Segment costs**: You can now obtain costs for segment reports from the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts).
+- **Settings options on segments**: The `report_settings` object is now available on the `/segments` [endpoint](https://vantage.readme.io/reference/createsegment).
+- **Settings on Cost Reports**: The `settings` [object](https://vantage.readme.io/reference/createcostreport) is now available on the `/cost_reports` endpoint.
 
 ## January 2024
 
