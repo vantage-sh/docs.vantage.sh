@@ -74,3 +74,7 @@ On Databricks [Cost Reports](/cost_reports/), you can filter across several dime
 :::note
 The **Tag** filter contains values like `JobID`, which can be used to view costs for specific Databricks jobs.
 :::
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

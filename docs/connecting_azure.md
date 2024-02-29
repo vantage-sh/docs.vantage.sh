@@ -186,3 +186,7 @@ On Azure [Cost Reports](/cost_reports), you can filter across several dimensions
 - Region
 - Subscription
 - Service
+
+## Manage Workspace Access
+
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
