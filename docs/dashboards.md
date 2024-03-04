@@ -54,7 +54,7 @@ You can use [saved filters](/saved_filters) to apply consistent filter logic to 
 1. From the top right of any dashboard, click the **Saved Filters** dropdown menu.
 2. Select one or more saved filters. The filter logic is applied across all Cost Reports on the dashboard. 
   :::note
-  When you add a saved filter to a dashboard, if a preexisting filter on a Cost Report and the saved filter use the same provider (e.g., both use AWS), "AND" logic is used between each filter set (i.e., costs where Filter 1 AND Saved Filter are true). If the existing filter and saved filter use different providers, “OR” logic is used between each filter set. 
+  When you add a saved filter to a dashboard, if a preexisting filter on a Cost Report and the saved filter use the same provider (e.g., both use AWS), "AND" logic is used between each filter set (i.e., show costs where the preexisting filter AND saved filter are true). If the preexisting filter and saved filter use different providers, “OR” logic is used between each filter set.  
   :::
 
 ## Share a Dashboard
