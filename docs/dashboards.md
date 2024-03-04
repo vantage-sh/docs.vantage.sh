@@ -47,6 +47,16 @@ On the dashboard, you can apply the following customizations:
 - To reset each Cost Report back to its original settings, click **Reset**.
 - To add more reports to the dashboard or change the dashboard's name, click **Edit**.
 
+## Saved Filters on Dashboards
+
+You can use [saved filters](/saved_filters) to apply consistent filter logic to multiple Cost Reports on a dashboard. If you have a dashboard of high-level Cost Reports (e.g., filtered only to connected providers or services), and you want to further filter a dashboard to a team or specific category, you can use saved filters on dashboards to quickly apply this logic. Use dashboards to save and maintain filtering logic for teams, business units, or services. When updated, these filters automatically apply to all relevant Cost Reports on the dashboard.
+
+1. From the top right of any dashboard, click the **Saved Filters** dropdown menu.
+2. Select one or more saved filters. The filter logic is applied across all Cost Reports on the dashboard. 
+  :::note
+  When you add a saved filter to a dashboard, if a preexisting filter on a Cost Report and the saved filter use the same provider (e.g., both use AWS), "AND" logic is used between each filter set (i.e., costs where Filter 1 AND Saved Filter are true). If the existing filter and saved filter use different providers, “OR” logic is used between each filter set. 
+  :::
+
 ## Share a Dashboard
 
 From the top of any dashboard, click **Share**. A link is added to your clipboard where you can share the dashboard with any Vantage user in your organization who has access to view the dashboard. Each report on the dashboard also has a share option, with a unique link.
