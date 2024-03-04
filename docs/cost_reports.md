@@ -150,6 +150,7 @@ You can group by the following dimensions:
 - Category
 - Subcategory
 - Charge Type
+- Tagged (e.g., see whether resources are or are not tagged)
 - Tag
 
 After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
