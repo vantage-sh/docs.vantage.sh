@@ -151,6 +151,17 @@ Costs are exported from the cluster hourly and then made available nightly. It's
 You can view and manage your Kubernetes integration on the [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes) in the console. Hover over the integration in the list, and click **Manage**.
 :::
 
+### Monitoring
+
+The agent exposes a Prometheus metrics endpoint via the `/metrics` endpoint, exposed by default on port `9010`. This port can be changed via the Helm chart's `service.port` value.
+
+The metrics endpoint includes standard Golang process stats as well as agent-related metrics for node scrape results, node scrape duration, internal data persistence, and reporting.
+
+For users who want to monitor the agent:
+
+1. `vantage_last_node_scrape_count{result="fail"}` should be low (between 0 and 1% of total nodes). Some failures may occur as nodes come and go within the cluster, but consistent failures are not expected and should be investigated.
+2. `vantage_last_report_timestamp_seconds` is not older than 70 minutes. Reporting occurs once per hour, but there are about 5 minutes of splay at the top of the hour to avoid all agents simultaneously reporting. This value is 0/not present until the agent reports for the first time.
+
 ## Common Errors
 
 ### DNS Lookup Error {#dns-lookup-error}
