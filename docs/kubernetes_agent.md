@@ -153,7 +153,7 @@ You can view and manage your Kubernetes integration on the [Kubernetes Integrati
 
 ### Monitoring
 
-The vantage agent exposes a prometheus metrics endpoint via the `/metrics` endpoint, exposed by default on port `9010`. This port can be changed via the helm chart `service.port` value.
+The agent exposes a prometheus metrics endpoint via the `/metrics` endpoint, exposed by default on port `9010`. This port can be changed via the helm chart `service.port` value.
 
 The metrics endpoint includes standard Golang process stats as well as agent related metrics for node scrape results, node scrape duration, internal data persistence, and reporting.
 
