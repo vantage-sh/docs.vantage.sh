@@ -13,6 +13,10 @@ Use saved filters to reuse filter logic across multiple Cost Reports. If you upd
 
 For example, you may have multiple Cost Reports for a specific team, business unit, or environment. If any filter criteria changes, such as tag names or account numbers, you can update the saved filter for all affected reports, without having to individually update each report.
 
+:::tip
+You can also add saved filters to dashboards. See the [dashboards documentation](/dashboards) for more information.
+:::
+
 ## Create a Saved Filter
 
 1. From the top navigation bar, click **Cost Reporting**.
@@ -45,9 +49,7 @@ At the top of any saved filter, click the **Duplicate** icon (to the left of **S
 
 5. At the top, click **Save**.
    :::note
-   When you combine multiple saved filters on Cost Reports, "AND" logic is used between each filter. This is in contrast to combining multiple ad-hoc filter sets where "OR" logic is used.
-
-   For example, if you have one saved filter for "Production" and one saved filter for "Kubernetes," you could create a report with both saved filters and see results for "Production Kubernetes." The report will show costs that match the criteria for both "Production" _AND_ "Kubernetes."
+   When you combine multiple saved filters on Cost Reports that have the same provider (AWS, Azure, etc.) as an ad-hoc filter or another saved filter, "AND" logic is used between each filter set (i.e., costs where Saved Filter 1 _AND_ Saved Filter 2 are true). 
    :::
 
 ### Saved Filters within Folders
