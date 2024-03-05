@@ -160,7 +160,7 @@ The metrics endpoint includes standard Golang process stats as well as agent-rel
 For users who want to monitor the agent:
 
 1. `vantage_last_node_scrape_count{result="fail"}` should be low (between 0 and 1% of total nodes). Some failures may occur as nodes come and go within the cluster, but consistent failures are not expected and should be investigated.
-2. `vantage_last_report_timestamp_seconds` is not older than 70 minutes. Reporting occurs once per hour, but there are about 5 minutes of splay at the top of the hour to avoid all agents simultaneously reporting. This value is 0/not present until the agent reports for the first time.
+2. `rate(vantage_report_count{result="fail"}[5m])` should be 0. Reporting occurs within the first 5minutes of every hour and will retry roughly once per minute. Each failure increments this counter. If the agent is unable to report within the first 10 minutes of an hour some data may be lost from the previous window as only the previous ~70 datapoints are retained.
 
 ## Common Errors
 
