@@ -147,7 +147,7 @@ You can group by the following dimensions:
 - Service (e.g., Amazon S3, Azure VMs)
 - Resource
 - Provider (e.g., AWS, GCP, Azure)
-- Category
+- Category (see the [section below](/cost_reports#charge-type) for definitions)
 - Subcategory
 - Charge Type
 - Tag
@@ -166,7 +166,200 @@ You can adjust the graph to be displayed as either an area chart or a line chart
 
 <img src="/img/area-to-line.gif" alt="Toggling between area and line chart views on a Cost Report" style={{borderRadius: "10px", boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)"}}/>
 
-### Expand Other Grouping Category
+### Charge Type Grouping Category {#charge-type}
+
+The Charge Type grouping includes costs separated by items like usage, discounts, EDP discounts, and taxes. Expand the section below to view the associated providers and definitions for each charge type.
+
+<details><summary>Click to view Charge Types</summary>
+<table>
+  <thead>
+    <tr>
+      <th>Charge Type</th>
+      <th>Provider</th>
+      <th>Definition</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>adjustment</td>
+      <td>GCP</td>
+      <td>GCP adjustments due to reasons like goodwill or SLA violations</td>
+    </tr>
+    <tr>
+      <td>AllocatedAmortizedFee</td>
+      <td>AWS</td>
+      <td>Savings Plans and Reserved Instances that have been amortized and allocated to an account with usage</td>
+    </tr>
+    <tr>
+      <td>AmortizedFee</td>
+      <td>AWS</td>
+      <td>Amortized Savings Plan and Reserved Instance purchases</td>
+    </tr>
+    <tr>
+      <td>AmortizedTax</td>
+      <td>AWS</td>
+      <td>Tax related to amortized savings plan and reserved instance purchases</td>
+    </tr>
+    <tr>
+      <td>AWS Marketplace</td>
+      <td>AWS</td>
+      <td>AWS Marketplace fees</td>
+    </tr>
+    <tr>
+      <td>Bundled Discount</td>
+      <td>AWS</td>
+      <td>Discounted usage for one product/service based on the usage of another product/service</td>
+    </tr>
+    <tr>
+      <td>Credit</td>
+      <td>AWS</td>
+      <td>Any AWS credits that were applied to your bill</td>
+    </tr>
+    <tr>
+      <td>COMMITTED_USAGE_DISCOUNT</td>
+      <td>GCP</td>
+      <td>Compute Engine resource-based committed use discounts</td>
+    </tr>
+    <tr>
+      <td>COMMITTED_USAGE_DISCOUNT_DOLLAR_BASE</td>
+      <td>GCP</td>
+      <td>Spend-based committed use discounts</td>
+    </tr>
+    <tr>
+      <td>DISCOUNT</td>
+      <td>Any provider</td>
+      <td>Discounts applied by a provider for your usage</td>
+    </tr>
+    <tr>
+      <td>DistributorDiscount</td>
+      <td>AWS</td>
+      <td>Discounts through the <a href="https://aws.amazon.com/partners/programs/distribution-resellers/">AWS Distribution Resellers Program</a></td>
+    </tr>
+    <tr>
+      <td>Enterprise Discount Program Discount</td>
+      <td>AWS</td>
+      <td>Discounts applied through the <a href="https://aws.amazon.com/pricing/enterprise/">AWS Enterprise Discount Program (EDP)</a></td>
+    </tr>
+    <tr>
+      <td>Fee</td>
+      <td>AWS</td>
+      <td>Upfront annual fees paid for subscriptions, such as the fee paid for All Upfront subscriptions</td>
+    </tr>
+    <tr>
+      <td>FeeTax</td>
+      <td>AWS</td>
+      <td>Tax related to “Fee” type</td>
+    </tr>
+    <tr>
+      <td>FREE_TIER</td>
+      <td>GCP</td>
+      <td>Credits applied related to GCP Free Tier usage</td>
+    </tr>
+    <tr>
+      <td>Monthly Minimum Fee</td>
+      <td>Fastly</td>
+      <td>Minimum fee for <a href="https://www.fastly.com/pricing">Fastly</a></td>
+    </tr>
+    <tr>
+      <td>Private Rate Discount</td>
+      <td>AWS</td>
+      <td>AWS discount based on private pricing rates</td>
+    </tr>
+    <tr>
+      <td>PROMOTION</td>
+      <td>GCP</td>
+      <td>GCP promotional credits related to items like marketing promotions</td>
+    </tr>
+    <tr>
+      <td>Purchase</td>
+      <td>Azure</td>
+      <td>RI and Savings Plans purchases in Azure</td>
+    </tr>
+    <tr>
+      <td>Refund</td>
+      <td>AWS</td>
+      <td>Negative charges, indicating money refunded by AWS</td>
+    </tr>
+    <tr>
+      <td>regular</td>
+      <td>GCP</td>
+      <td>GCP regular charges</td>
+    </tr>
+    <tr>
+      <td>RESELLER_MARGIN</td>
+      <td>GCP</td>
+      <td>Discounts for <a href="https://cloud.google.com/marketplace/docs/partners/resell/reseller-incentives">GCP Reseller Program</a></td>
+    </tr>
+    <tr>
+      <td>Reserved Instance Discounted Spend</td>
+      <td>AWS</td>
+      <td>The rate for instances benefiting from Reserved Instance (RI) benefits.</td>
+    </tr>
+    <tr>
+      <td>Reserved Instance Fee</td>
+      <td>AWS</td>
+      <td>Monthly recurring fees for Reserved Instance subscriptions</td>
+    </tr>
+    <tr>
+      <td>RiVolumeDiscount</td>
+      <td>AWS</td>
+      <td>Volume discounts for large Reserved Instance purchases</td>
+    </tr>
+    <tr>
+      <td>rounding_error</td>
+      <td>GCP</td>
+      <td>GCP cost type for rounding errors</td>
+    </tr>
+    <tr>
+      <td>Savings Plan Covered Spend</td>
+      <td>AWS</td>
+      <td>On-demand costs covered by your Savings Plan, offsetting corresponding Savings Plan negation items</td>
+    </tr>
+    <tr>
+      <td>Savings Plan Negation</td>
+      <td>AWS</td>
+      <td>Offset costs through your Savings Plan benefit associated with covered usage items</td>
+    </tr>
+    <tr>
+      <td>Savings Plan Recurring Fee</td>
+      <td>AWS</td>
+      <td>Hourly recurring charges associated with a No Upfront or Partial Upfront Savings Plan</td>
+    </tr>
+    <tr>
+      <td>Savings Plan Upfront Fee</td>
+      <td>AWS</td>
+      <td>One-time upfront fee from purchasing All Upfront or Partial Upfront Savings Plans</td>
+    </tr>
+    <tr>
+      <td>Solution Provider Program Discount</td>
+      <td>AWS</td>
+      <td>Discounts through the <a href="https://aws.amazon.com/partners/programs/solution-provider/">AWS Solution Provider Program</a></td>
+    </tr>
+    <tr>
+      <td>SUBSCRIPTION_BENEFIT</td>
+      <td>GCP</td>
+      <td>Credits earned after purchase of long-term subscriptions</td>
+    </tr>
+    <tr>
+      <td>SUSTAINED_USAGE_DISCOUNT</td>
+      <td>GCP</td>
+      <td>Credit for running certain Compute Engine resources for a large portion of the month</td>
+    </tr>
+    <tr>
+      <td>Tax/tax</td>
+      <td>AWS, GCP</td>
+      <td>Taxes applied, such as sales tax</td>
+    </tr>
+    <tr>
+      <td>Usage</td>
+      <td>Any provider (for GCP, see "regular")</td>
+      <td>Charges for usage at regular or on-demand rates</td>
+    </tr>
+  </tbody>
+</table>
+</details>
+
+### Other Grouping Category
 
 By default, the top five groups of costs by amount are displayed on the graph. In addition, the Other Costs category is displayed as an aggregation of all remaining costs. To add more costs to the graph and table, click the down arrow next to **Other Costs**. The number of other costs is displayed. Click **Show X More Items**, to add additional cost groups to the report.
 
@@ -271,8 +464,8 @@ When the export is finished generating, you’ll receive an email with a link to
 
 ## Starred by Me {#starred}
 
-If you want to save your favorite Cost Reports or [folders](/folders) to a convenient location, you can _star_ specific resources. 
+If you want to save your favorite Cost Reports or [folders](/folders) to a convenient location, you can _star_ specific resources.
 
-1. From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the checkbox next to one or more Cost Reports. 
-2. Above the list, click **Star**. A star icon will be displayed next to the report. 
-3. To access all starred reports, navigate to the [**Starred By Me**](https://console.vantage.sh/reporting?starred=true) screen, also accessible from the left Cost Reporting navigation pane. 
+1. From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the checkbox next to one or more Cost Reports.
+2. Above the list, click **Star**. A star icon will be displayed next to the report.
+3. To access all starred reports, navigate to the [**Starred By Me**](https://console.vantage.sh/reporting?starred=true) screen, also accessible from the left Cost Reporting navigation pane.
