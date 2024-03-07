@@ -97,7 +97,10 @@ You have the option to further drill down into your costs:
   <details><summary>Click to view a visual example</summary>
     <img alt="Filtering a commitment report for AWS category costs that are not usage" width="100%" src="/img/fcr-group.png"/>
   </details>
-
+  
+  :::tip
+  For a detailed breakdown of the **Charge Type** grouping, see the [Cost Reports](/cost_reports#charge-type) documentation.
+  :::
 - To adjust the date binning, click the data bin menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
 - To change the date range, click the date menu on the top right of the graph and adjust the date range.
   :::note
