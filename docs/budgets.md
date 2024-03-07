@@ -12,14 +12,12 @@ import TabItem from '@theme/TabItem';
 
 # Budgets
 
-You can create and assign a _budget_ to a Cost Report. Once a budget is assigned, it is easy to see how costs are trending for a particular service, business unit, or team compared to their prescribed budget.
-
-You can also create _budget alerts_ to alert you based on configurable thresholds.
+You can create and assign a _budget_ to a Cost Report. Once a budget is assigned, it's easy to see how costs are trending for a particular service, business unit, or team. You can also create _budget alerts_ to alert you based on configurable thresholds.
 
 ## Create a Budget
 
 :::tip
-The below instructions describe how to manually create a budget. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload).
+The below instructions describe how to manually create a budget. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload) for details.
 :::
 
 1. From the top navigation, click **Financial Planning**.
@@ -31,10 +29,9 @@ The below instructions describe how to manually create a budget. You can also up
 </details>
 3. From the top right of the screen, click **New Budget**.
 4. Enter a budget **Name** and click **Create Budget**.
-5. A budget details page is displayed. Under **Assign to Cost Report or Segment**, select the report you want the budget to be displayed on.
-6. You can create **Budget Alerts** to assign once your budget is created. Any associated alerts will also be listed here. See the section below for more details.
-7. For **Budget Periods**, click **New Budget Period**. Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
-   - Enter a start date in **YYYY-MM** format (i.e., 2024-03).
+5. A budget details page is displayed. Under **Assign to Cost Report or Segment**, select the report you want the budget to be displayed on. You can create **Budget Alerts** to assign once your budget is created. Any associated alerts will also be listed here. See the [section below](/budgets#create-alerts) for more details.
+6. For **Budget Periods**, click **New Budget Period**. Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
+   - Enter a start date in **YYYY-MM** format (e.g., 2024-03).
    - Enter an optional period end date.
    - Enter a total monthly budget amount in dollars.
    - Click **New Budget Period** to add additional budget periods.
@@ -43,8 +40,8 @@ The below instructions describe how to manually create a budget. You can also up
            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
        </div>
      </details>
-8. At the top right, click **Save**.
-9. Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed.
+7. At the top right, click **Save**.
+8. Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed.
 <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Performance of a budget across six periods with actual performance displayed for each month." width="100%" src="/img/budget-performance.png" />
@@ -57,7 +54,7 @@ Budgets are scoped to a report within a specific [workspace](/workspaces/), and 
 
 ## Upload a Budget {#upload}
 
-If you have existing budgets in spreadsheets or another tool you can import them all at once by uploading a CSV file.
+If you have existing budgets in spreadsheets or another tool, you can import them all at once by uploading a CSV file.
 
 ### Expected Format {#expected-format}
 
@@ -68,9 +65,7 @@ Budget import files must adhere to the following requirements:
   - The remaining values in the header row must be the budget period start date in `YYYY-MM` format (e.g., `2023-02` for February 2023).
 - Each additional row in the CSV must start with the name of the budget. Corresponding values must be expressed as decimals (e.g., `25000.00`) for every month where there is an associated budget. If there is no budget for a month, the value can be blank.
 
-The budget end date that is imported depends on the start dates provided in the column headers. The below example shows a readable view, CSV format, and Vantage import view of a budget.
-
-Team 3 does not have a budget for 3/2024, and therefore budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
+The below example shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Team 3 does not have a budget for 3/2024, and therefore, no budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
 
 <Tabs>
   <TabItem value="budget" label="Budget" default>
@@ -160,7 +155,7 @@ Use the following troubleshooting suggestions to check for errors in your CSV fi
 
 ## View Budgets on Cost Reports
 
-Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report with month-to-date performance is displayed at the top of the Cost Report. The budget reflects amortized costs throughout the month, indicating whether the spending is above or below the budget month-to-date (MTD).
+Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report with month-to-date performance is displayed at the top of the Cost Report. The budget reflects amortized costs throughout the month, indicating whether the spending is above or below the budget month to date.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A budget is displayed as a trend line on the Cost Report in the console" width="100%" src="/img/cost-report-budget.png" />
@@ -170,14 +165,13 @@ Budgets are displayed as a yellow line on the graph in the cumulative, daily, we
 
 :::note
 The following notes apply to budgets on Cost Reports:
-
 - If you select any **Group By** criteria on a Cost Report, the budget is no longer displayed.
 - If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
-  :::
+:::
 
-## Create Budget Alerts
+## Create Budget Alerts {#create-alerts}
 
-Budget Alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack channels, or Microsoft Teams channels. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”).
+Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, or Microsoft Teams channels. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”).
 
 :::note
 If you want to send alerts to Slack or Microsoft Teams, see the report notifications documentation for information on how to set up a [Slack](/report_notifications#slack) or [Microsoft Teams](/report_notifications#ms-teams) integration with Vantage. Once you've set up an integration, follow the steps below to set up a budget alert.
@@ -186,12 +180,12 @@ If you want to send alerts to Slack or Microsoft Teams, see the report notificat
 1. From the top navigation, click **Financial Planning**.
 2. On the left navigation, select **Budget Alerts**.
 3. At the top, click **Configure Alert**.
-4. The **New Budget Alert** pop-up window is displayed. Configure the following parameters:
-   - For **Budget**, select the budget the alert applies to.
+4. The **New Budget Alert** modal is displayed. Configure the following parameters:
+   - For **Budget**, select the budget for which the alert applies.
    - For **If Costs Exceed**, select a percentage threshold (e.g., 85% of the budget). You'll receive an alert only if the threshold is reached.
    - Optionally, enter a period of observation within the month (e.g., “10 days from the start of the month” or “5 days before the end of the month").
-   - For **Email recipients**, select recipients who are members of your team in Vantage you want to receive the alert.
-   - Optionally, select any Slack or Microsoft Teams channels, based on your configuration, you want to receive the alert.
+   - For **Email recipients**, select recipients, who are members of your team in Vantage, you want to receive the alert.
+   - Optionally, select any Slack or Microsoft Teams channels you want to receive the alert.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="A budget alert configured to send to one user and a Slack team 10 days before the end of the month." width="50%" src="/img/configure-budget-alert.png" />
@@ -203,20 +197,18 @@ If you want to send alerts to Slack or Microsoft Teams, see the report notificat
     <img alt="Email budget alert" width="60%" src="/img/email-budget-alert.png" />
 </div>
 
-Recipients will be notified immediately after a [Cost Report](/cost_reports) is updated with the latest data. Reports are updated with the latest data at least once per day. If your Budget exceeds the threshold for multiple alerts, we will only notify you of the most severe alert (the alert with the highest threshold).
+Recipients will be notified immediately after a Cost Report is updated with the latest data. Reports are updated with the latest data at least once per day. If your budget exceeds the threshold for multiple alerts, you'll be notified only about the most severe alert (the alert with the highest threshold).
 
 ### Budget Alert Limitations
 
-At this time only dynamic, percentage-based thresholds are supported. Budget alerts can be configured only to send alerts based on actual, not forecasted costs.
+At this time, only dynamic, percentage-based thresholds are supported. Budget alerts can be configured only to send alerts based on actual, not forecasted costs.
 
 :::note
-A single cost increase will not typically trigger a budget alert. If you are interested in this functionality, see the [Cost Anomaly Alerts](/cost_anomaly_alerts) documentation.
+A single cost increase will not typically trigger a budget alert. If you are interested in this feature, see the [Cost Anomaly Alerts](/cost_anomaly_alerts) documentation.
 :::
 
-Because a budget is defined for a month, you can only be alerted based on the budget amount for the _entire_ month instead of the month to date. As a workaround, configure the **Within** time period option on the alert (e.g., "10 days from the start of the month") to mimic this behavior.
+Because a budget is defined for a month, you can only be alerted based on the budget amount for the _entire_ month instead of the month to date. As a workaround, configure the **Within** option on the alert (e.g., "10 days from the start of the month") to mimic this behavior.
 
 ### Budget Alerts and Cost Reports
 
-If you update a Cost Report that is associated with a budget alert, the following message is displayed: _This report has budget alerts and may trigger a notification. Are you sure you want to save the report?_
-
-You must confirm before saving the report. If you update a budget alert, you will be notified which budgets will be triggered by pending changes.
+If you update a Cost Report that is associated with a budget alert, the following message is displayed: _This report has budget alerts and may trigger a notification. Are you sure you want to save the report?_ You must confirm before saving the report. 
