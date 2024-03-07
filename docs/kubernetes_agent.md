@@ -88,6 +88,14 @@ You can optionally enable the collection of annotations and namespace labels.
 - **Annotations:** The agent accepts a comma-separated list of annotation keys, called `VANTAGE_ALLOWED_ANNOTATIONS`, as an environment variable at startup. To enable the collection of annotations, configure the `agent.allowedAnnotations` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with a list of annotations to be sent to Vantage. Note there is a max of 10 annotations, and values are truncated after 100 characters.
 - **Namespace labels:** The agent accepts `VANTAGE_COLLECT_NAMESPACE_LABELS` as an environment variable at startup. To enable the collection of namespace labels, configure the `agent.collectNamespaceLabels` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L34).
 
+### Upgrade the Agent {#upgrade-agent}
+
+To upgrade the agent, use the following command:
+
+```bash
+helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --reuse-values
+```
+
 ### Manifest-Based Deployment Option {#manifest-deploy}
 
 You can use `helm template` to generate a static manifest via the existing repo. This option generates files (YAML) so that you can then decide to deploy them however you want.
