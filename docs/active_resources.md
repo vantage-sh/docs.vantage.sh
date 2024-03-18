@@ -32,7 +32,7 @@ The following active resources are available for the providers below.
 | Confluent     | Confluent Kafka Clusters are synced as active resources.              |
 | PlanetScale   | PlanetScale databases are available as active resources.              |
 
-## Viewing Active Resources
+## Viewing Active Resources {#viewing-active-resources}
 
 From the top of the console, select the [Active Resource](https://console.vantage.sh/services) tab.
 

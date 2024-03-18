@@ -27,7 +27,7 @@ Vantage only collects metadata about your infrastructure and never attempts to r
 
 ### AWS GovCloud Environments
 
-Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.amazon.com/govcloud-us/details/) environments. Note that at this time, we are unable to sync active resources from GovCloud regions; however, you will have access to all other Vantage functionality.
+Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.amazon.com/govcloud-us/details/) environments. Note that at this time, we are unable to sync active resources from GovCloud regions into the [Active Resources](/active_resources#viewing-active-resources) screen in Vantage; however, you can still view costs by resource in [Cost Reports](/cost_reports). You also have access to all other Vantage functionality. 
 
 ## Create a Connection
 
