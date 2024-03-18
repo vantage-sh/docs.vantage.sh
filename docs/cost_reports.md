@@ -163,7 +163,7 @@ After a Cost Report has been grouped, each grouping is displayed as a column in 
 To sort the table by multiple columns in the table, press **Shift + Click** on the column headers.
 :::
 
-You can adjust the graph to be displayed as either an area chart or a line chart that includes a line for each group. Toggle either option using the corresponding buttons on the top right of the chart.
+You can adjust the graph to be displayed as either an area chart, pie chart, or line chart (for cumulative graphs only). Toggle either option using the corresponding buttons on the top right of the chart.
 
 <img src="/img/area-to-line.gif" alt="Toggling between area and line chart views on a Cost Report" style={{borderRadius: "10px", boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)"}}/>
 

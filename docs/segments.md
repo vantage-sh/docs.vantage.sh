@@ -9,12 +9,12 @@ keywords:
 # Segments
 
 :::note
-To enable the segments feature in your account, please contact Support at [support@vantage.sh](mailto:support@vantage.sh).
+To enable segments in your account, contact Vantage Support at [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
 A segment is a set of filters that represents a portion of costs for your organization (e.g., costs allocated to a business unit or team). With segments, you can perform cost allocation and enforce cost governance for your organization. You can create nested hierarchies of costs that can map to teams, departments, apps, or services within your organization. Segments ensure that costs are allocated only once and not duplicated in cases of showback/chargeback scenarios. 
 
-The below diagram shows an example segment hierarchy. All child and grandchild segment costs roll up to the top-level organization segment. Any costs not assigned to a segment are considered _unallocated costs_. By analyzing your segments, you can identify and burn down these unallocated costs to improve financial accountability and resource management.
+The below diagram shows an example of a segment hierarchy. All child and grandchild segment costs roll up to the top-level organization segment. Any costs not assigned to a segment are considered _unallocated costs_. By analyzing your segments, you can identify and burn down these unallocated costs to improve financial accountability and resource management.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Tree diagram of segments with an Organization at the top, three child business unit segments, and two grandchild segments per child segment that represent teams. Each child and grandchild segment has an arrow that points up to the organization segment at the top." width="80%" src="/img/segment-tree.png" />
@@ -51,7 +51,7 @@ Follow the steps below to create a segment.
     <details><summary>Click to view example image</summary>
    <p>This example shows a root- or parent-level segment called "Management." Child segment parameters will be the same—except for the <strong>Track unallocated</strong> option, which is not displayed for child segments.</p>
    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Create Cost Filters for segment" width="80%" src="/img/create-segment.png" />
+    <img alt="The segment creation screen with all cost filters displayed for the segment." width="80%" src="/img/create-segment.png" />
     </div>
    </details>
 6. At the bottom, click **Save**. You will see a message indicating **"A Segment Report will appear here when the segment is finished refreshing"** while the report for the segment is generated. Depending on the filter's complexity, it can take some time for the segment report to generate (up to 24 hours).
@@ -59,20 +59,31 @@ Follow the steps below to create a segment.
 ### Edit a Segment
 
 :::note
-If you make additional changes to a filter or segment metadata, like title, it can take up to 24 hours to see those changes reflected in the console.
+If you make additional changes to a filter or segment metadata, like title, it can take up to 24 hours after you regenerate the segment to see those changes reflected in the console. 
 :::
-You can edit a segment's title, description, priority, and filters within the console. On parent-level segments, you can also edit the settings, such as discounts and taxes. To edit these criteria, click the pencil icon next to the segment name. Then, update and save the new criteria. Any changes to settings will be reflected once the segments are regenerated. This process may take up to 24 hours.
 
+You can edit a segment's title, description, priority, and filters within the console. On parent-level segments, you can also edit the settings, such as discounts and taxes. 
+
+1. To edit these criteria, click the pencil icon next to the segment name. 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="90%" src="/img/edit-segment.png" />
+    <img alt="The Segments screen with a list of segments. A box is displayed around the pencil icon where you can edit the segment's settings." width="100%" src="/img/edit-segment.png" />
+</div>
+2. Update and save the new criteria. 
+3. On the main **Segments** screen, the segment's **Status** column indicates if a segment needs to be regenerated. Click **Refresh Segment**. 
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The Segments screen is displayed with a list of segments. The Status of the first segment is displayed with the Refresh Segment icon." width="100%" src="/img/refresh-segment.png" />
+</div>
+4. The **Status** will be displayed as **Refreshing** while the segment is being updated. This process may take up to 24 hours.
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The Segments screen is displayed with a list of segments. The Status of the first segment is displayed with the Refreshing... icon." width="100%" src="/img/refreshing-segment.png" />
 </div>
 
 ### View and Create Child Segments
 
-You can create child segments and nest segments within one another. Costs associated with nested segments/filters will be rolled up to any parent segments. To add a child segment to a parent segment, navigate to the parent segment, and click **+ New Segment**. The image below shows an example of a group of nested segments.
+You can create child segments and nest segments within one another. Costs associated with nested segments/filters will be rolled up to any parent segments. To add a child segment to a parent segment, navigate to the parent segment, and click **New Segment Dimension**. The image below shows an example of a group of nested segments.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/view-segments.png" />
+    <img alt="A list of child segments is displayed. The status indicates they are in sync. It is a list of nested segments called OPEX and R&D. The Unallocated segment is also listed." width="100%" src="/img/view-segments.png" />
 </div>
 
 - In the above example, **Vantage** is the top-level segment (as displayed in the breadcrumbs at the top of the screen).
@@ -83,7 +94,7 @@ You can create child segments and nest segments within one another. Costs associ
 Select a child segment. You will see additional third-level child segments as well as the associated child segment report. In the below image, the **R&D** child segment report is displayed. R&D contains no additional child segments; however, you can add them if you want. Observe the breadcrumbs at the top, which also indicate **R&D** is a child segment of **Vantage**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Create Cost Filters for segment" width="80%" src="/img/child-segment.png" />
+<img alt="Create Cost Filters for segment" width="100%" src="/img/child-segment.png" />
 </div>
 
 ## View Segment Reports
