@@ -10,7 +10,7 @@ keywords:
 
 # Data Dictionary
 
-Each provider that Vantage integrates with makes different fields available in their billing data. This data is normalized into the the fields below. These fields are queryable via the [Vantage API](https://vantage.readme.io/reference/general) and used when constructing [VQL](/vql) statements.
+Each provider that Vantage integrates with makes different fields available in their billing data. This data is normalized into the fields below. These fields are queryable via the [Vantage API](https://vantage.readme.io/reference/general) and used when constructing [VQL](/vql) statements.
 
 Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`.
 
