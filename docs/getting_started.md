@@ -119,6 +119,13 @@ Next, create a data integration between at least one of your providers and Vanta
       content: 'Vantage integrates with your PlanetScale account via the PlanetScale Invoices API using an OAuth workflow.',
       link: "/connecting_planetscale",
     },
+    {
+      icon: '/img/logos/logo-icon-coralogix.svg',
+      iconAltText: 'Coralogix logo',
+      title: 'Coralogix',
+      content: 'Vantage integrates with your Coralogix account through a revocable read-only API key and your Coralogix domain.',
+      link: "/connecting_coralogix",
+    },
   ]}
   columns={2}
 />
