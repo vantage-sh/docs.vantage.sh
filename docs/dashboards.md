@@ -47,7 +47,7 @@ On the dashboard, you can apply the following customizations:
 - To reset each Cost Report back to its original settings, click **Reset**.
 - To add more reports to the dashboard or change the dashboard's name, click **Edit**.
 
-## Add a Saved Filter to a Dashboard
+## Add a Saved Filter to a Dashboard {#saved-filter}
 
 You can use [saved filters](/saved_filters) to apply consistent filter logic to multiple Cost Reports on a dashboard. If you have a dashboard of high-level Cost Reports (e.g., filtered only to connected providers or services), and you want to further filter a dashboard to a team or specific category, you can use saved filters on dashboards to quickly apply this logic. 
 
