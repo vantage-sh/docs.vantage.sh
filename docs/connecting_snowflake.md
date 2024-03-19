@@ -41,6 +41,7 @@ If your Snowflake cluster uses an IP allowed list for access control, you will n
 3.95.43.133
 54.162.3.72
 44.199.143.63
+3.218.103.23
 ```
 
 ### Snowflake Schema for Vantage {#vantage-schema}
