@@ -15,7 +15,7 @@ _This page was last updated on March 19, 2024, with product updates for March 20
 
 ## March 2024
 
-### Product Update
+### Product Updates
 
 - **Saved filters on dashboards**: You can now add a [saved filter](/dashboards/#saved-filter) to a dashboard to view all Cost Reports on the dashboard with consistent filters applied.
 - **Updated Overview page**: Associated budget and per unit costs are now displayed on Cost Report widgets on the [Overview](/overview) page.
