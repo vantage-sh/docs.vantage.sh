@@ -51,9 +51,10 @@ Vantage supports the Logs, Metrics, and Spans services, as well as the [applicat
 8. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in Vantage.
 9. Select **Coralogix** and select the **Connect** tab. 
 10. At the bottom of the page, click **Add API Key**.
-11. Enter your previously generated **API Key** and the **Domain** you copied. Optionally, add a **Description** for this connection. 
-12. Click **Connect Account**.
-13. After you authorize a connection, on the [Coralogix Settings](https://console.vantage.sh/settings/coralogix/) page, you will see the status of your connection change to `Importing`.
+11. Enter your previously generated **API Key** and the **Domain** you copied. 
+12. Enter a **Description** for this connection. The **Description** is your team name and is also available in your Coralogix domain URL (e.g., in `https://test-team.cx498.coralogix.com/`, use `test-team`). 
+13. Click **Connect Account**.
+14. After you authorize a connection, on the [Coralogix Settings](https://console.vantage.sh/settings/coralogix/) page, you will see the status of your connection change to `Importing`.
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Coralogix costs. Once costs are processed, they will be available on your **All Resources** Cost Report. 
 
