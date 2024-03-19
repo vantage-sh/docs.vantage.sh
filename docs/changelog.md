@@ -36,6 +36,14 @@ _This page was last updated on March 19, 2024, with product updates for March 20
   
 ### Kubernetes Agent Updates
 
+**Version 1.0.23** is now available. Updates include:
+
+- `app.kubernetes.io` labels are now allowed.
+- Agent scrape results are added to agent metadata. 
+- [Prometheus metrics](/kubernetes_agent/#monitoring) are added for tracking reporting successes/failures.
+- Dependencies are updated to the latest stable versions.
+- Additional controller metadata is included in agent reports for use in [Active Resources](/active_resources).
+
 ## February 2024
 
 ### Product Updates
