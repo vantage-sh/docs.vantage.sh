@@ -225,7 +225,7 @@ You can also upload data via a CSV. Send a `PUT` request to the `/business_metri
 curl --request PUT \
      --url https://api.vantage.sh/v2/business_metrics/bsnss_mtrc_ab12345cde67fg8/values.csv \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer <ACCESS_TOKEN> \
+     --header 'authorization: Bearer <AUTH_TOKEN>' \
      --form 'csv=@<PATH_TO_CSV>'
 ```
 
@@ -255,7 +255,7 @@ If you want to remove values for certain dates, you can pass an empty value as t
 curl --request PUT \
      --url https://api.vantage.sh/v2/business_metrics/bsnss_mtrc_ab12345cde67fg8 \
      --header 'accept: application/json' \
-     --header 'authorization: Bearer <ACCESS_TOKEN> \
+     --header 'authorization: Bearer <AUTH_TOKEN>' \
      --header 'content-type: application/json' \
      --data '
 {
