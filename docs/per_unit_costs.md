@@ -226,6 +226,7 @@ curl --request PUT \
      --url https://api.vantage.sh/v2/business_metrics/bsnss_mtrc_ab12345cde67fg8/values.csv \
      --header 'accept: application/json' \
      --header 'authorization: Bearer <AUTH_TOKEN>' \
+     --header 'content-type: multipart/form-data' \
      --form 'csv=@<PATH_TO_CSV>'
 ```
 
