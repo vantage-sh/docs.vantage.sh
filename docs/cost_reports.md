@@ -147,9 +147,9 @@ You can group by the following dimensions:
 - Service (e.g., Amazon S3, Azure VMs)
 - Resource
 - Provider (e.g., AWS, GCP, Azure)
-- Category (see the [section below](/cost_reports#charge-type) for definitions)
+- Category 
 - Subcategory
-- Charge Type
+- Charge Type (see the [section below](/cost_reports#charge-type) for definitions)
 - Tagged (e.g., see whether resources are or are not tagged)
 - Tag
 
