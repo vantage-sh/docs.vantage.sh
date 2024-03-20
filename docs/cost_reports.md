@@ -12,25 +12,14 @@ By default, Vantage provides you with a Cost Report, named **All Resources**, th
 
 You can create as many Cost Reports as you'd like and filter your costs across several dimensions. As you create Cost Reports, they will be displayed on the [Overview](/overview) page. Each report will automatically generate a [forecast](/forecasting).
 
-## Create a Cost Report {#create-report}
+## Create a Cost Report
 
 1. From the top navigation, click **Cost Reporting**.
 2. On the left menu, select **Cost Reports**.
 3. On the top right, click **+ New**. A new, unfiltered Cost Report is displayed.
 4. From the top left of the graph, click **Filters**.
 5. Click **+ Add a Filter** and select your desired filter criteria.
-6. From the top right of the graph, use the date picker to select the date range for the report. By default, the Cost Report compares the selected dates to the same previous period. For example, the default comparison date for March 12–March 18 is February 12–18. To select a custom comparison:
-   - Open the date picker menu. 
-   - In the **Forecast Periods** column, select **Custom**. 
-   - Under **Custom**, select the first date period field, then hover your mouse over the calendar to highlight and select a date range. (The current month is selected by default.)
-   - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period.
-   - Click **Apply**. 
-   <details><summary>Click to view example video</summary>
-   <p>In this example, the user makes a custom comparison to change the comparison from February and March to January and March.</p>
-   <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF that shows a user opening the date menu. The user selects a current time period and then selects the custom option to choose a custom comparison date period." width="100%" src="/img/date-comparison.gif"/>
-</div>
-   </details>
+6. From the top right of the graph, use the date picker to select the date range for the report.
 7. Select one of the following date bins:
    - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
    - **Daily, Weekly, or Monthly:** Displayed as a bar chart, with each date range organized into bins within the bar chart
