@@ -16,7 +16,7 @@ Each provider table contains four columns: Filter, API Field Name, Data Type, an
 
 - The Filter is the friendly name that is displayed on Cost Report filters within the Vantage console.
 - The API Field Name is the normalized version of the filter name.
-- The Data Type indicates that type of data that is accepted for that field.
+- The Data Type indicates the type of data that is accepted for that field.
 - `namespace.field` is how that field is referenced in a VQL query (e.g., `costs.provider = 'aws'`, where `costs` is the namespace and `provider` is the field).
 
 :::info
@@ -32,6 +32,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | AWS           | `aws`          | [View AWS Fields](#aws)                     |
 | Azure         | `azure`        | [View Azure Fields](#azure)                 |
 | Confluent     | `confluent`    | [View Confluent Fields](#confluent)         |
+| Coralogix     | `coralogix`    | [View Coralogix Fields](#coralogix)         |
 | Databricks    | `databricks`   | [View Databricks Fields](#databricks)       |
 | Datadog       | `datadog`      | [View Datadog Fields](#datadog)             |
 | Fastly        | `fastly`       | [View Fastly Fields](#fastly)               |
@@ -84,6 +85,15 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Organization | `account_id`   | string    | `costs.account_id`  |
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type  | `charge_type`  | string    | `costs.charge_type` |
+
+## Coralogix {#coralogix}
+
+| Filter       | API Field Name | Data Type | `namespace.field `  |
+| ------------ | -------------- | --------- | ------------------- |
+| Category     | `category`     | string    | `costs.category`    |
+| Subcategory  | `subcategory`  | string    | `costs.subcategory` |
+| Service      | `service`      | string    | `costs.service`     |
 | Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 
 ## Databricks {#databricks}
