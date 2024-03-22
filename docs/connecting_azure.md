@@ -168,7 +168,7 @@ After you complete the steps for connecting via the Azure CLI or Azure portal, f
 
 ## Azure Cost and Rightsizing Recommendations
 
-Vantage currently supports cost recommendations for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
+Vantage currently supports [cost recommendations](/cost_recommendations) for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
 
 ## Kubernetes and AKS
 
