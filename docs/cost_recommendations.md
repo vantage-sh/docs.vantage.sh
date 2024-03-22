@@ -31,6 +31,9 @@ Your available recommendations depend on what services and resources are running
 
 1. From the top navigation, click **Recommendations**.
 2. The following columns are displayed: **Service**, **Potential Savings**, and **Description**.
+   :::tip
+   To filter recommendations by provider, open the **Show All** menu at the top right of the table and select a provider.
+   :::
 3. In cases where actions are recommended for specific resources, such as adding lifecycle policies, the **View resources** button is displayed. Click this button to see a list of the affected resources.
 4. If you no longer want to view a recommendation, click the **Archive** icon (looks like an arrow pointing down). The recommendation will be moved to the **Archived** tab.
 
