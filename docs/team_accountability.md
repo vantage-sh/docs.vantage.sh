@@ -27,7 +27,7 @@ Within the Cost Report folder, create Cost Reports based on various dimensions f
 
 ## Step 3: Use Cost Report Notifications
 
-Once the report is created, use [Cost Report notifications](/report_notifications) to send daily, weekly, or monthly roll-up reports to a set email address or Slack channel for the appropriate team. You can also set up [Cost Anomaly alerts](/cost_anomaly_alerts) on the same report to go to a set email or channel for that team, which will identify unknown or unexpected increases in daily spend for a service.
+Once the report is created, use [Cost Report notifications](/report_notifications) to send daily, weekly, or monthly roll-up reports to a set email address or Slack channel for the appropriate team. You can also set up [Cost Anomaly alerts](/cost_anomaly_alerts) on the same report to go to a set email or channel for that team, which will identify unknown or unexpected increases in daily spending for a service.
 
 ## Step 4: Set a Team Budget Assigned to a Cost Report
 

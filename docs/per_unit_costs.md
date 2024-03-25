@@ -19,10 +19,6 @@ In the visual example below, the business metric **Per Requests per Second** is 
 
 ## Import Business Metrics
 
-:::note
-Any user with Editor permissions or above can import business metrics and assign them to a specific Cost Report. For more information about permissions, see the [Role-Based Access Control](/rbac) documentation.
-:::
-
 Business metrics can be imported from other systems directly into Vantage and analyzed alongside cost data. You can create automatic import integrations with Amazon CloudWatch, manually import these metrics from a CSV file, or automatically upload metrics via the Vantage API.
 
 :::note

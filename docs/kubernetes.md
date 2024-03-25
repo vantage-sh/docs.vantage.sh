@@ -71,7 +71,7 @@ Labels will include namespace labels and annotations, if enabled in your [Vantag
    </div>
    </details>
 5. You can optionally edit your existing rule or add additional filter criteria.
-   - To edit the rule you just created, select the rule, make your changes, then click **Save**.
+   - To edit the rule you just created, select the rule, make your changes, and click **Save**.
    - If you want to add a rule to filter multiple criteria, such as filter by certain Clusters and another rule to filter by certain Namespaces, click **+ New Rule**. Add the additional criteria and save.
    - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or Kubernetes costs where...** on the new tile.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
@@ -169,7 +169,7 @@ Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_a
 
 ### Vantage Kubernetes Agent
 
-Agent usage data is uploaded several times throughout the day and updated within the Vantage platform nightly. However, Kubernetes costs will not be calculated until the costs from the cluster’s corresponding infrastructure provider are available. These costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay. This often takes 48 hours to be complete.
+Agent usage data is uploaded several times throughout the day and updated within the Vantage platform nightly. However, Kubernetes costs will not be calculated until the costs from the cluster’s corresponding infrastructure provider are available. These costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay. This often takes 48 hours to complete.
 
 ### OpenCost Integrations
 
@@ -177,4 +177,4 @@ While Vantage works to upstream the efficiency metrics into the main OpenCost pr
 
 Efficiency metrics will be available up to 24 hours after updating your clusters. You can query the Amazon Managed Prometheus associated with your integration for `count(container_cpu_idle) by (cluster_id)` to verify the metrics are making it from your Kubernetes cluster to the Prometheus that Vantage will use to periodically gather the metrics.
 
-In most cases, Prometheus running on a Kubernetes cluster will not be exposed with a public endpoint. As a workaround, a second centralized Prometheus instance is deployed into your account. This instance is used as an aggregation point that Vantage has both network and IAM access to query. Vantage can integrate with any publicly accessible Prometheus endpoint, including Grafana Cloud.
+In most cases, Prometheus running on a Kubernetes cluster will not be exposed along with a public endpoint. As a workaround, a second centralized Prometheus instance is deployed into your account. This instance is used as an aggregation point that Vantage has both network and IAM access to query. Vantage can integrate with any publicly accessible Prometheus endpoint, including Grafana Cloud.

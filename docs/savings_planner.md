@@ -89,5 +89,5 @@ Observe any change in the metrics within the table at the top. You can continue 
 To remove a Savings Plan, click the **X** in the last column of the Savings Plans table.
 
 :::note
-Vantage won't actually purchase the plans you model within the tool. The Savings Planner is available only for modeling purposes.
+Vantage won't purchase the plans you model within the tool. The Savings Planner is available only for modeling purposes.
 :::

@@ -9,7 +9,7 @@ keywords:
 
 # Dashboards
 
-Dashboards contain a set of [Cost Reports](/cost_reports), [segment reports](/segments), or [financial commitment reports](/financial_commitment_reports). You can apply date range and period filters (e.g., display daily costs) to all reports on the dashboard. A consistent date range across all reports on the dashboard can help with cost comparison between different reports. You can assign any number of reports to a dashboard, regardless of which folder the report is in. Once a dashboard is created, you can modify the name, date settings, and add/remove reports from it.
+Dashboards contain a set of [Cost Reports](/cost_reports), [segment reports](/segments), or [financial commitment reports](/financial_commitment_reports). You can apply date range and period filters (e.g., display daily costs) to all reports on the dashboard. A consistent date range across all reports on the dashboard can help with cost comparison between different reports. You can assign any number of reports to a dashboard, regardless of which folder the report is in. Once a dashboard is created, you can modify the name and date settings as well as add/remove reports from the dashboard.
 
 ## Create a Dashboard
 

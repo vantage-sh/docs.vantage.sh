@@ -1,7 +1,7 @@
 ---
 id: api
 title: API
-description: This page provides and introduction to the Vantage API as well as associated API resources.
+description: This page provides an introduction to the Vantage API as well as associated API resources.
 keywords:
     - API
     - VQL

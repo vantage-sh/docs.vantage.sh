@@ -10,7 +10,7 @@ keywords:
 
 # Executive Reporting
 
-In many cases, company leadership has requirements to reduce cloud spend or develop strategic initiatives related to cost. Vantage provides a suite of tools, built for enterprises to understand where their cloud spend is going, how it is impacting their business, and how to report it for decision-making purposes.
+In many cases, company leadership has requirements to reduce cloud spend or develop strategic initiatives related to cost. Vantage provides a suite of tools, built for enterprises to understand where their cloud spending is going, how it is impacting their business, and how to report it for decision-making purposes.
 
 ## Review the Overview Page
 
@@ -34,11 +34,11 @@ Any of the widgets shown on the Overview page can also be sent in Slack, Teams, 
 
 ## Create Cost Report Notifications
 
-Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel on a monthly basis. For more information on setting up Cost Report Notifications, see the [Cost Report Notifications](/report_notifications) documentation.
+Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel every month. For more information on setting up Cost Report Notifications, see the [Cost Report Notifications](/report_notifications) documentation.
 
 ## Export Cost Reports
 
-Once you have integrated all your providers into Vantage and created some reports, you may have a need to export data from Vantage into another system or a spreadsheet for further reporting.
+Once you have integrated all your providers into Vantage and created some reports, you may need to export data from Vantage into another system or a spreadsheet for further reporting.
 
 For this scenario, Vantage has Cost Report Exports. With customizable controls for exporting data from Cost Reports, you can select which columns, date ranges, and date resolutions (weekly, monthly) to export to a CSV. For more details on the controls and formats, see the [Cost Report Exports](/cost_reports#exporting-cost-reports) documentation.
 
