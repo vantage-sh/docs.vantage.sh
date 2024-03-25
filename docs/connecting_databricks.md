@@ -61,6 +61,45 @@ After completing all the steps above, your Databricks integration status should 
 
 Databricks generally delivers usage logs once per day.
 
+## Custom Pricing in Databricks
+
+From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. 
+
+:::note
+The following Databricks SKU groups are supported:
+
+- All Purpose Compute Photon
+- DLT Advanced Compute
+- DLT Advanced Compute Photon
+- DLT Core Compute
+- DLT Core Compute Photon
+- DLT Pro Compute
+- Jobs Compute
+- Jobs Compute Light
+- Jobs Compute Photon
+- SQL Compute
+- SQL Pro Compute
+- Serverless Real-Time Inference
+:::
+
+To add custom pricing for SKU groups:
+
+1. From the top navigation, click **Settings**.
+2. From the side navigation, select **Integrations**.
+3. The **Connected Providers** page is displayed. Select the **Databricks** integration.
+4. On the **Manage** tab, select a connected account. 
+5. In the **Custom Discounts** section, click **+ Add a Discount**. 
+6. For **Service Name**, select a SKU group from the list. 
+7. For **Your Discount**, enter a discount in decimal format (e.g., for 25%, enter _0.25_).
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="A list of three different Databricks SKU discounts in the console. " width="80%" src="/img/databricks-skus.png" />
+   </div>
+   </details>
+8. To add another SKU group discount, click **+ Add a Discount**. When you are finished, click **Save**.
+
+Once the discounts are saved, Cost Reports will be automatically refreshed. The refresh process may take up to several minutes.
+
 ## Databricks Reporting Dimensions
 
 On Databricks [Cost Reports](/cost_reports/), you can filter across several dimensions:
