@@ -35,7 +35,7 @@ The following steps are for importing via CloudWatch or a CSV file. If you want 
 4. Enter a business metric **Title** and click **Create Business Metric**.
 5. The **Business Metrics** screen is displayed:
    - In the **Assigned Cost Reports** section, you can select one or more Cost Reports where the business metric will be displayed. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for details.
-   - In the **Import Business Metrics** section, you can import business metrics via a [CSV file](/per_unit_costs#importing-from-a-csv) or [Amazon CloudWatch](/per_unit_costs#importing-from-cloudwatch).
+   - In the **Import Business Metrics** section, you can import business metrics from a [CSV file](/per_unit_costs#importing-from-a-csv), [Amazon CloudWatch](/per_unit_costs#importing-from-cloudwatch), or [Datadog](/per_unit_costs#importing-from-datadog).
 
 ### Import from a CSV File {#importing-from-a-csv}
 
@@ -66,9 +66,9 @@ Click **Upload a CSV**. Select the CSV file and upload. After the file is import
 
 To add additional metrics or change the value of a metric, update your source CSV file. Then, click **Edit** and upload the edited file. The new or updated metric is displayed in the table. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
 
-### Import from CloudWatch {#importing-from-cloudwatch}
+### Import from Amazon CloudWatch {#importing-from-cloudwatch}
 
-To import business metrics from Amazon CloudWatch you need a specific metric name and AWS account, as described below.
+To import business metrics from Amazon CloudWatch, you need a specific metric name and AWS account, as described below. Ensure AWS is one of your [connected providers](/connecting_aws)
 
 :::note
 If Vantage does not have a Cross-Account IAM Role associated with your AWS account, you need to create one. See the [AWS integration](/connecting_aws) documentation for details.
@@ -88,6 +88,26 @@ If Vantage does not have a Cross-Account IAM Role associated with your AWS accou
 <details><summary>Click to view visual example</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The CloudWatch metrics import screen with data added to each field" width="100%" src="/img/import-cloudwatch.png" />
+</div>
+</details>
+
+Metrics are imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+
+### Import from Datadog {#importing-from-datadog}
+
+To import business metrics from Datadog, you need a specific metric value and a Datadog account, as described below. Ensure Datadog is one of your [connected providers](/connecting_datadog).
+
+1. From the **Import Business Metrics** section, click **Import via Datadog**.
+2. For **Aggregation**, select either **Sum**, **Average**, **Maximum**, or **Minimum**. The metric is aggregated to the day based on your selection.
+3. Enter a **Metric** (e.g., `system.cpu.user`). 
+  :::info
+  See the [Datadog documentation](https://docs.datadoghq.com/metrics/types/?tab=count) for more information on Datadog metrics.
+  :::
+4. For **Filters**, enter specific filter criteria for the metric, based on Datadog's filtering syntax. For example, if you want to search for a metric in a specific environment and not in certain AWS Regions, you can enter: `env:dev AND availability-zone NOT IN (us-east-2a, us-east-2b, us-east-2c)`. By default, the filter is set to `*`, or all. More details on how to filter for Datadog metrics are available in the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/). 
+5. Click **Import Data**.
+<details><summary>Click to view visual example</summary>
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The CloudWatch metrics import screen with data added to each field" width="100%" src="/img/import-datadog.png" />
 </div>
 </details>
 
@@ -280,7 +300,7 @@ curl --request DELETE \
 ```
 
 :::warning
-Keep in mind that the `DELETE` action is a permanent action, and you will no longer have access to that business metric or see it displayed on corresponding reports.
+Keep in mind that the `DELETE` action is permanent, and you will no longer have access to that business metric or see it displayed on corresponding reports.
 :::
 
 ## Assign Business Metrics to Cost Reports {#assign-metrics}
