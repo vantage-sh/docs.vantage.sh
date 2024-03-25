@@ -144,7 +144,7 @@ Above the chart, the following values are displayed for the report’s lookback 
 
 - **Total Savings:** The total amount saved by using your financial commitments and other discounts.
 - **Effective Savings Rate:** The percentage discount across all usage. (See the [section above](/financial_commitment_reports#effective-savings-rate) for a more in-depth explanation of this metric.)
-- **Coverage:** The percentage of total spend that is covered by financial commitments. (See the [section above](/financial_commitment_reports#coverage) for a more in-depth explanation of this metric.)
+- **Coverage:** The percentage of total spending that is covered by financial commitments. (See the [section above](/financial_commitment_reports#coverage) for a more in-depth explanation of this metric.)
 
 ## Add a Financial Commitment Report to a Dashboard
 

@@ -19,11 +19,11 @@ Vantage calculates a weighted cost per query by breaking down the use of Snowfla
 
 Snowflake Compute is billed only when a query is running, rounded up to the hour; however, if multiple queries are running simultaneously, the cost is still only reported for that hour. This shared credit pool makes it difficult to understand which individual queries are contributing the most to costs.
 
-On a daily basis, Vantage will ingest the compute credits used, and their equivalent cost, and assign a weighted cost to each query based on the total duration for which the query ran. For example, if you had 3 queries that ran for 1, 2, and 3 minutes respectively, and a total bill of $500, the query that ran for 3 minutes would be assigned a cost of $250 as it accounted for half of the overall query time.
+Each day, Vantage ingests the compute credits used, and their equivalent cost, and assigns a weighted cost to each query based on the total duration for which the query ran. For example, if you had 3 queries that ran for 1, 2, and 3 minutes respectively, and a total bill of $500, the query that ran for 3 minutes would be assigned a cost of $250 as it accounted for half of the overall query time.
 
 ## Grouping Queries
 
-Vantage groups queries based on the source and structure of a query, so users can easily identify it. To determine the source, Vantage looks at the warehouse in which the query was run as well as the user who ran the query. To determine the structure of a query, Vantage will strip all query values and ordering of columns and generate a normalized, unique fingerprint for the query.
+Vantage groups queries based on the source and structure of a query, so users can easily identify it. To determine the source, Vantage looks at the warehouse in which the query was run as well as the user who ran the query. To determine the structure of a query, Vantage will strip all query values and the order of columns and generate a normalized, unique fingerprint for the query.
 
 ## Viewing the Costs
 

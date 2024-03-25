@@ -9,7 +9,7 @@ keywords:
 
 # New Relic
 
-Vantage integrates with your New Relic account using [NerdGraph](https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/), New Relic's GraphQL API, and accesses the API via an API token.
+Vantage integrates with your New Relic account using [NerdGraph](https://docs.newrelic.com/docs/apis/nerdgraph/get-started/introduction-new-relic-nerdgraph/), New Relic's GraphQL API. It accesses the API using an API token.
 
 ## Connect Your New Relic Account
 

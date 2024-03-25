@@ -26,7 +26,7 @@ Vantage integrates with your MongoDB account using the [Invoices API](https://ww
 
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate MongoDB Atlas costs.
 
-### Step 1: Review Vantage Integration Page
+### Step 1: Review the Vantage Integration Page
 
 Navigate to the [MongoDB Atlas Settings](https://console.vantage.sh/settings/mongo) page in the Vantage console. Then, click **Add API Key**.
 

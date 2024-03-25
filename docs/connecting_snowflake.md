@@ -19,7 +19,7 @@ Vantage requires read-only access to the following tables:
 - [`SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html)
   - Query history with various dimensions, including total elapsed time, warehouse used, data bytes scanned, etc. Data is retained for one year.
 - [`SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY`](https://docs.snowflake.com/en/sql-reference/organization-usage/usage_in_currency_daily.html)
-  - Returns the daily credit usage and usage in currency for an organization.
+  - Returns the daily credit usage and usage in currency format for an organization.
 
 :::note
 As a best practice, it is suggested you create a schema specifically for the `vantage` user. Note, however, that this is optional. See the [steps below](/connecting_snowflake#vantage-schema) for details on how to create this schema.

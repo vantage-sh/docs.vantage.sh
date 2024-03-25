@@ -51,7 +51,7 @@ metadata:
 
 ## Adding Permissions for Node Roles
 
-Next, you will have to modify the IAM permissions of the Node Role that is used for your EKS Cluster roles. They step will require two changes:
+Next, you will have to modify the IAM permissions of the Node Role that is used for your EKS Cluster roles. This step will require two changes:
 
 - An inline policy that allows the role to `assumeRole` the IAM role on the Vantage side.
 - Attachment of an AWS Managed Policy called `CloudWatchAgentServerPolicy`, which allows the node to send CloudWatch metrics.

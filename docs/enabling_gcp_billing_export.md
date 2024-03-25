@@ -18,9 +18,9 @@ This below documentation is a streamlined version of [Google Cloud Platform's of
 
 Before you begin, ensure you have the following permissions configured. See the [Google Cloud Platform documentation](https://cloud.google.com/billing/docs/how-to/export-data-bigquery-setup#required_permissions) for information on how to configure these permissions.
 
-- User with permissions to create a project
-- User with permissions to create a BigQuery dataset
-- User with permissions to modify Billing settings
+- User with permission to create a project
+- User with permission to create a BigQuery dataset
+- User with permission to modify Billing settings
 
 ## Create a Billing Export
 
