@@ -19,7 +19,7 @@ At this time, you cannot configure an alert for a specific [resource](/active_re
 
 ## How Anomaly Detection Works
 
-A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside of the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise.
+A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside of the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise. Anomalies are detected for each service at the category level. For example, with Amazon EC2, anomalies are detected for _Data Transfer_ or _Compute Instance_.
 
 ## View Cost Anomalies
 
