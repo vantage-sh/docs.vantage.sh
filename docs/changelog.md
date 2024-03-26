@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on March 19, 2024, with product updates for March 2024._
+_This page was last updated on March 26, 2024, with product updates for March 2024._
 
 ## March 2024
 
@@ -23,16 +23,21 @@ _This page was last updated on March 19, 2024, with product updates for March 20
 - **Segments sync status**: Cost allocation [segments](/segments#edit-a-segment) are now updated to show segment sync status. The look and feel of this page have been visually updated as well.
 - **Filterable cost recommendations**: Recommendations are now filterable by provider on the [Cost Recommendations](/cost_recommendations) screen.
 - **Pie chart option**: You can now change the [graph view](/cost_reports#configure-report-groups) on Cost Reports to a pie chart.
+- **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-report) is updated to allow for custom period selections. 
 
 ### Kubernetes Agent Updates
 
-**Version 1.0.23** is now available. Updates include:
+The following versions were released this month. 
 
-- `app.kubernetes.io` labels are now allowed.
-- Agent scrape results are added to agent metadata. 
-- [Prometheus metrics](/kubernetes_agent/#monitoring) are added for tracking reporting successes/failures.
-- Dependencies are updated to the latest stable versions.
-- Additional controller metadata is included in agent reports for use in [Active Resources](/active_resources).
+- **Version 1.0.24** includes the following update: 
+  - Supports monitoring ArgoCD resources in the cluster.
+
+- **Version 1.0.23** includes the following updates:
+  - `app.kubernetes.io` labels are now allowed.
+  - Agent scrape results are added to agent metadata. 
+  - [Prometheus metrics](/kubernetes_agent/#monitoring) are added for tracking reporting successes/failures.
+  - Dependencies are updated to the latest stable versions.
+  - Additional controller metadata is included in agent reports for use in [Active Resources](/active_resources).
 
 ### API Updates
 - **New `tagged` option**: On the `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) in the API, and on the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) in the Terraform provider, `tagged` is a valid option for the `groupings` parameter.
@@ -43,6 +48,7 @@ _This page was last updated on March 19, 2024, with product updates for March 20
   - The `vantage_access_grant` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/access_grant) automates access grants via role-based access controls in Vantage. Create grants to allow or deny teams access to resources, like folders or Cost Reports.
   - The `vantage_report_notification` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification) automates the creation of Cost Report notifications. Create a notification for a specific Cost Report. Specify the notification’s frequency (e.g., daily) and change (e.g., in dollars).
 - **Terraform data sources**: [Data sources](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/access_grants) are now available to retrieve information outside your Terraform configuration. 
+- **Business metrics endpoint**: The `/business_metric` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is now available to create and update business metrics in the console. 
 
 ## February 2024
 
