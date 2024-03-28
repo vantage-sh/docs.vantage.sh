@@ -63,7 +63,7 @@ Databricks generally delivers usage logs once per day.
 
 ## Custom Pricing in Databricks
 
-From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
+From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
 
 The following Databricks SKU groups are supported:
 
@@ -84,7 +84,7 @@ At this time, the AWS Security and Compliance SKU group is not supported.
 To add custom pricing for SKU groups:
 
 1. From the top navigation, click **Settings**.
-2. From the side navigation, select **Integrations**.
+2. From the side navigation, click **Integrations**.
 3. The **Connected Providers** page is displayed. Select the **Databricks** integration.
 4. On the **Manage** tab, select a connected account. 
 5. In the **Custom Discounts** section, click **+ Add a Discount**. 
@@ -97,7 +97,7 @@ To add custom pricing for SKU groups:
    </details>
 8. To add another SKU group discount, click **+ Add a Discount**. When you are finished, click **Save**.
 
-Once the discounts are saved, Cost Reports will be automatically refreshed. The refresh process may take up to several minutes.
+Once the discounts are saved, all existing cost data for the integration is re-processed. The status of each billing period is displayed on the integration page. Once the data is processed, any corresponding reports are automatically refreshed. The refresh process may take up to an hour until they are displayed on all reports.
 
 ## Databricks Reporting Dimensions
 
