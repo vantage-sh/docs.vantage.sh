@@ -95,15 +95,13 @@ Metrics are imported for the last six months. The metrics will be automatically 
 
 ### Import from Datadog {#importing-from-datadog}
 
-To import business metrics from Datadog, you need a specific metric value and a Datadog account, as described below. Ensure Datadog is one of your [connected providers](/connecting_datadog).
+To import business metrics from Datadog, ensure Datadog is one of your [connected providers](/connecting_datadog). If you do not have Datadog as one of your connected providers, when you try to create your first Datadog business metric, you will be prompted to connect your Datadog account.
 
 1. From the **Import Business Metrics** section, click **Import via Datadog**.
-2. For **Aggregation**, select either **Sum**, **Average**, **Maximum**, or **Minimum**. The metric is aggregated to the day based on your selection.
-3. Enter a **Metric** (e.g., `system.cpu.user`). 
-  :::info
-  See the [Datadog documentation](https://docs.datadoghq.com/metrics/types/?tab=count) for more information on Datadog metrics.
-  :::
-4. For **Filters**, enter specific filter criteria for the metric, based on Datadog's filtering syntax. For example, if you want to search for a metric in a specific environment and not in certain AWS Regions, you can enter: `env:dev AND availability-zone NOT IN (us-east-2a, us-east-2b, us-east-2c)`. By default, the filter is set to `*`, or all. More details on how to filter for Datadog metrics are available in the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/). 
+2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and required scopes (i.e., `usage_read`, `metrics_read`, and `timeseries_query scopes`).
+3. For **Metric**, enter the metric along with any specific filter criteria for the metric, based on Datadog's [filtering syntax](https://docs.datadoghq.com/metrics/advanced-filtering/). For example, 
+<!-- Need to insert example.  -->
+4. For **Aggregation**, select either **Sum**, **Average**, **Maximum**, or **Minimum**. The metric is aggregated to the day based on your selection.
 5. Click **Import Data**.
 <details><summary>Click to view visual example</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
