@@ -9,7 +9,7 @@ keywords:
 
 # Datadog
 
-Vantage uses a read-only (scoped to `usage_read`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API allows you to get hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers.
+Vantage uses a read-only (scoped to `usage_read`, `metrics_read`, and `timeseries_query`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API allows you to get hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers.
 
 :::note
 Usage is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
@@ -21,7 +21,7 @@ For documentation about connecting to Vantage from Datadog, see the [Vantage Int
 
 ### Prerequisites
 
-- When connecting your Datadog account, your user will need access to the `usage_read` scope to complete the connection. See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
+- When connecting your Datadog account, your user will need access to the `usage_read`, `metrics_read`, and `timeseries_query` scopes. scope to complete the connection. See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Datadog costs.
 
 ### Create the Connection
