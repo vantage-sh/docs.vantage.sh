@@ -61,6 +61,44 @@ After completing all the steps above, your Databricks integration status should 
 
 Databricks generally delivers usage logs once per day.
 
+## Custom Pricing in Databricks
+
+From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
+
+The following Databricks SKU groups are supported:
+
+- AWS Jobs Compute
+- AWS Jobs Compute Photon
+- AWS All-Purpose Compute
+- AWS All-Purpose Compute Photon
+- AWS SQL Compute
+- AWS DLT Compute
+- AWS DLT Compute Photon
+- AWS Serverless SQL Compute
+- AWS Serverless Inference
+
+:::note
+At this time, the AWS Security and Compliance SKU group is not supported. 
+:::
+
+To add custom pricing for SKU groups:
+
+1. From the top navigation, click **Settings**.
+2. From the side navigation, click **Integrations**.
+3. The **Connected Providers** page is displayed. Select the **Databricks** integration.
+4. On the **Manage** tab, select a connected account. 
+5. In the **Custom Discounts** section, click **+ Add a Discount**. 
+6. For **Service Name**, select a SKU group from the list. 
+7. For **Your Discount**, enter a discount as a percentage.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="A list of three different Databricks SKU discounts in the console. " width="80%" src="/img/databricks-skus.png" />
+   </div>
+   </details>
+8. To add another SKU group discount, click **+ Add a Discount**. When you are finished, click **Save**.
+
+Once the discounts are saved, all existing cost data for the integration is re-processed. The status of each billing period is displayed on the integration page. Once the data is processed, any corresponding reports are automatically refreshed. The refresh process may take up to an hour until they are displayed on all reports.
+
 ## Databricks Reporting Dimensions
 
 On Databricks [Cost Reports](/cost_reports/), you can filter across several dimensions:
