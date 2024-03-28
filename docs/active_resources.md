@@ -138,7 +138,7 @@ You can view relationships between specific resources on the **Relationships** t
     <img alt="The Relationships tab with an example EBS volume displayed" width="100%" src="/img/resource-report-relationships.png" />
 </div>
 
-The following relationship views are available.
+Below are some examples of relationships you may see within your active resources.
 
 | Resource               | Relationship                                                                                                                                                                                                                                 |
 | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
