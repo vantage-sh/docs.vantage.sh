@@ -114,6 +114,10 @@ In the below visual example, a Cost Report is filtered to all Datadog costs. The
   <img alt="GIF selecting different Datadog services. When Log Management is selected, costs are displayed for the whole month. When Containers is selected, costs are displayed on the first of the month." width="100%" src="/img/datadog-costs.gif"/>
 </div>
 
+## View Datadog Metrics on Cost Reports
+
+You can import Datadog metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-datadog) documentation for more information.
+
 ## Manage Workspace Access
 
 See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
