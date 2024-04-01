@@ -61,7 +61,7 @@ After completing all the steps above, your Databricks integration status should 
 
 Databricks generally delivers usage logs once per day.
 
-## Custom Pricing in Databricks
+## Custom Pricing in Databricks {#custom-pricing}
 
 From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
 

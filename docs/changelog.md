@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on March 26, 2024, with product updates for March 2024._
+_This page was last updated on March 31, 2024, with product updates for March 2024._
 
 ## March 2024
 
@@ -24,6 +24,7 @@ _This page was last updated on March 26, 2024, with product updates for March 20
 - **Filterable cost recommendations**: Recommendations are now filterable by provider on the [Cost Recommendations](/cost_recommendations) screen.
 - **Pie chart option**: You can now change the [graph view](/cost_reports#configure-report-groups) on Cost Reports to a pie chart.
 - **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-report) is updated to allow for custom period selections. 
+- **Custom Databricks pricing**: Custom discounts are [now supported](/connecting_databricks#custom-pricing) for Databricks SKU groups. 
 
 ### Kubernetes Agent Updates
 
@@ -40,7 +41,7 @@ The following versions were released this month.
   - Additional controller metadata is included in agent reports for use in [Active Resources](/active_resources).
 
 ### API Updates
-- **New `tagged` option**: On the `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) in the API, and on the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) in the Terraform provider, `tagged` is a valid option for the `groupings` parameter.
+- **New `tagged` option**: On the `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) in the API, and the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) in the Terraform provider, `tagged` is a valid option for the `groupings` parameter.
 - **New dashboard parameter**: The `saved_filter_tokens` parameter is now available on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard). It is also available on the `vantage_dashboard` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard) in the Terraform provider.
 - **New Terraform resources**: Additional Terraform resources are now available:
   - The `vantage_segment` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/segment) automates the creation of cost allocation segments in Vantage. Large segment hierarchies can easily be automated with filters applied as needed.
