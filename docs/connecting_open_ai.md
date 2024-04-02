@@ -1,43 +1,89 @@
 ---
 id: connecting_open_ai
 title: OpenAI
-unlisted: true
+description: This page walks through how to integrate Vantage with your OpenAI account.
+keywords:
+  - OpenAI
+  - Connect OpenAI
 ---
 
 # OpenAI
 
-:::caution Important
-New OpenAI integrations are currently unavailable due to API issues. 
+Vantage integrates with your OpenAI account using the OpenAI Usage API endpoint and an API key.
+
+:::note
+The Usage endpoint is currently undocumented, but it provides structured cost data broken down by operation (e.g., Chat Completion or Embedding) and model (e.g., GPT-3.5-turbo).
 :::
 
-Vantage has the ability to visualize, filter on and forecast your OpenAI costs. All you'll need to do is generate an OpenAI API Key and Vantage will ingest your cost and usage data from OpenAI accordingly. Before getting started, [ensure you have a free Vantage account](https://console.vantage.sh/signup) then follow the steps below to integrate OpenAI costs.
+The following models are supported:
 
-## Technical overview
+- Language models: GPT-4, GPT-3.5
+- GPT-3 fine-tuning models: Ada, Babbage, Curie, and Davinci
+- Embedding models: Ada
+- Image models: DALL-E
+- Audio models: Whisper
+  
+All models of the following operations are supported:
 
-Vantage integrates with your OpenAI account through the use of the "Usage" API. This endpoint is not formally documented by OpenAI at the time of publishing this article. The ability for Vantage to know this API existed and how to make use of it was actually originally recommended by simply asking ChatGPT. 
+- Completions
+- Chat Completions
+- Edits
+- Images
+- Embeddings
+- Audio (Translations and Transcriptions)
+- Fine-tunes
+- Moderations
 
-## Select the default organization
+### Prerequisites
 
-Select the organization that will be used by default when connecting to OpenAI. This can be changed later in the [OpenAI API Keys](https://platform.openai.com/account/api-keys) page.
+[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to generate an OpenAI API key.
 
-![OpenAI Organization Step](/img/open-ai-organization.png)
+## Create a Connection
 
-## Connecting your OpenAI organization
+1. Navigate to the [API Keys](https://platform.openai.com/api-keys) page of the OpenAI console. 
+2. In the **Default organization** section, select the OpenAI organization you want Vantage to connect.
+    <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Default Organization section in OpenAI console" width="100%" src="/img/open-ai-organization.png" />
+    </div>
+    </details>
+3. Click **+ Create new secret key**.
+4. For **Name**, add an identifiable name, like _Vantage Integration_. For **Permissions**, select **All**.
+    :::note
+    Vantage will never attempt to write to any endpoints using your API key. Vantage only reads from the Usage endpoint.
+    :::
+    <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Create API key modal with a number 1 next to the Create new secret key button and number 2 next to the input field for the key name" width="100%" src="/img/open-ai-secret-key-name.png" />
+    </div>
+    </details>
+5. Click **Create secret key** and copy the generated API key.
+    <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A sample API key is displayed on the OpenAI API key console" width="80%" src="/img/open-ai-copy-key.png" />
+    </div>
+    </details>
+6. Navigate to the **Connect** tab of the [OpenAI Settings](https://console.vantage.sh/settings/open_ai?connect=true) page in the Vantage console. Then, click **Add API Token**.
+7. The **New OpenAI Account** modal is displayed. For **API key**, paste your previously generated API key. For **Description**, enter any descriptor to identify that you've added this integration, such as your name.
+    <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The API key account modal in the Vantage console with sample data added" width="80%" src="/img/open-ai-add-key.png" />
+    </div>
+    </details>
+8. Click **Connect Account**. Costs will be ingested and processed once you add the integration. It usually takes less than 15 minutes to ingest OpenAI costs. As soon as costs are processed, they will be available on your **All Resources** Cost Report.
 
-To connect your OpenAI organization, open the [OpenAI Settings](https://console.vantage.sh/settings/open_ai) page in the Vantage console. Follow the instructions which require performing the following operations in the [OpenAI API Keys page](https://platform.openai.com/account/api-keys). Begin by clicking  `Add API key` in the Vantage console.
+:::note
+OpenAI data refreshes daily in the Vantage console.
+:::
 
-### Create an API Key
+## OpenAI Reporting Dimensions
 
-Next, select the "+ Create new secret key" button.
+On OpenAI [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-![OpenAI Secret Key Step](/img/open-ai-secret-key.png)
+- Organization
+- Operation (e.g., Chat and Completions)
+- Model (e.g., GPT-3.5)
 
-Give it a name like "Vantage Integration". By default, all OpenAI API keys have both read and write access primarily because OpenAI hasn't yet launched more fine-grained permissions related to granting read versus write functionality. Despite this OpenAI platform restriction, Vantage will never attempt to write to any endpoints using your API key. Vantage will only read from the "Usage" endpoint.
+## Manage Workspace Access
 
-![OpenAI Secret Key Name Step](/img/open-ai-secret-key-name.png)
-
-Copy the key into the "API Key" field in Vantage and give it a description that helps identify yourself, such as your name.
-
-![OpenAI Add Key Step](/img/open-ai-add-key.png)
-
-Click `Connect Account` to grant Vantage access to the Usage API. Your OpenAI costs will be ingested automatically and you'll receive an email when the ingestion is complete to view within the Vantage console. 
+See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
