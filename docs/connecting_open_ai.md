@@ -64,7 +64,7 @@ All models of the following operations are supported:
     </div>
     </details>
 6. Navigate to the **Connect** tab of the [OpenAI Settings](https://console.vantage.sh/settings/open_ai?connect=true) page in the Vantage console. Then, click **Add API Token**.
-7. The **New OpenAI Account** modal is displayed. For **API key**, your previously generated API key. For **Description**, enter any descriptor to identify that you've added this integration, such as your name.
+7. The **New OpenAI Account** modal is displayed. For **API key**, paste your previously generated API key. For **Description**, enter any descriptor to identify that you've added this integration, such as your name.
     <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The API key account modal in the Vantage console with sample data added" width="80%" src="/img/open-ai-add-key.png" />
