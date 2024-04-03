@@ -142,6 +142,10 @@ Occasionally, Vantage will modify the permission sets it uses to access billing 
 3. The **Account** list is displayed. Click **Manage** for the cloud account that you want to update. (For AWS organizations with multiple accounts, this will usually be the Management account.)
 4. Click **Update Vantage via AWS Console** to perform the update, or click **More Update Options** for command-line and other deployment methods.
 
+## View Amazon CloudWatch Metrics on Cost Reports
+
+You can import Amazon CloudWatch metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-cloudwatch) documentation for more information.
+
 ## Manage Workspace Access
 
 See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
