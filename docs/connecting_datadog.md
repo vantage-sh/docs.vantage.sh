@@ -9,7 +9,7 @@ keywords:
 
 # Datadog
 
-Vantage uses a read-only (scoped to `usage_read`, `metrics_read`, and `timeseries_query`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API allows you to get hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers.
+Vantage uses a read-only (scoped to `usage_read`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API provides hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers. For [Datadog business metrics](/per_unit_costs#importing-from-datadog), Vantage also requires the `metrics_read` and `timeseries_query` scopes.
 
 :::note
 Usage is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
@@ -21,7 +21,7 @@ For documentation about connecting to Vantage from Datadog, see the [Vantage Int
 
 ### Prerequisites
 
-- When connecting your Datadog account, your user will need access to the `usage_read`, `metrics_read`, and `timeseries_query` scopes. scope to complete the connection. See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
+- When connecting your Datadog account, your user will need access to the `usage_read` scope to complete the connection. Vantage also requests the `metrics_read` and `timeseries_query` scopes for importing [Datadog business metrics](/per_unit_costs#importing-from-datadog). See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Datadog costs.
 
 ### Create the Connection
@@ -104,7 +104,7 @@ If you just applied your first Datadog tag key and value, it can take up to 48 h
 
 ## Datadog Pricing in Vantage
 
-For certain services, Datadog prices based on the 95th to 99th percentile (p95/p99) of usage rather than *daily* usage. For example, APM is billed on the [99th percentile](https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/#apm-hosts-with-dynamic-scaling-containers-fargate-and-no-indexed-spans) of the number of hosts you have running at any given time. In Vantage, Datadog costs are realized on the first day of the month. As the month progresses, you might notice that costs retroactively increase or decrease based on your usage.
+For certain services, Datadog prices based on the 95th to 99th percentile (p95/p99) of usage rather than _daily_ usage. For example, APM is billed on the [99th percentile](https://docs.datadoghq.com/account_management/billing/apm_tracing_profiler/#apm-hosts-with-dynamic-scaling-containers-fargate-and-no-indexed-spans) of the number of hosts you have running at any given time. In Vantage, Datadog costs are realized on the first day of the month. As the month progresses, you might notice that costs retroactively increase or decrease based on your usage.
 
 Because these costs are always realized on the first of the month, when you compare previous periods for services that price on the p95/p99 of usage, you’ll always have the same comparison dates. For services that do not price on p95/p99, Vantage shows costs realized per day, when the accompanying usage data is available.
 
