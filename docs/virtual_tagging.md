@@ -33,35 +33,46 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 
 1. From the top navigation, click **Settings**.
 2. From the side navigation, under **General Settings**, click **Virtual Tags**. 
-3. All existing virtual tags are displayed alphabetically. You can edit and delete any existing tags from this screen.
-4. To add a new virtual tag, click **Create a Virtual Tag**. 
-5. Enter a title for the **Tag Key**. 
-6. For **Billing Period Backfill**, select a billing period (e.g., **Apr 2024**) for which the tag should be backfilled. 
-7. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
-8. In the **Values** section, click **+Add a Value**:
-   - Enter a value title.
+3. All existing virtual tags are displayed alphabetically. You can edit and delete any existing tags from this screen. To add a new virtual tag, click **Create a Virtual Tag**. 
+4. Enter a title for the **Tag Key**. 
+5. For **Billing Period Backfill**, select a billing period (e.g., **Apr 2024**) for which the tag should be backfilled. 
+6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
+7. In the **Values** section, click **+Add a Value**:
+   - Enter a **Tag Value** title.
    - Click **+ Add a Filter** and specify the tag value’s filtering criteria. Virtual tag filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the [Cost Reports](/cost_reports#filtering-cost-reports) documentation. 
    :::note
-   You cannot use saved filters to define a virtual tag’s filters.
+   You cannot use saved filters to define a virtual tag value's filters.
    :::
-9. At the top, click **Save**.
+8. At the top, click **Save**.
     
-Processing the tag changes usually takes under an hour. At the top of the **Virtual Tags** page, the processing status is displayed. Processing times vary based on the number of tags and volume of data you have imported into Vantage.
+Processing tag changes usually takes under an hour. At the top of the **Virtual Tags** page, the processing status is displayed. Processing times vary based on the number of tags and volume of data you have imported into Vantage.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-tag-status.png" />
+    <img alt="The Virtual Tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="/img/virtual-tag-status.png" />
 </div>
 
 ### Virtual Tag Order 
 
-Tag values are arranged in priority order on the **Virtual Tag** screen. You can move tag values up and down in the UI to reorder them. 
+Tag values are arranged in priority order on the **Virtual Tags** screen. You can move tag values up and down in the UI to reorder them. 
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-     <img alt="GIF of filtering a commitment report for AWS category costs that are not usage" width="80%" src="/img/reorder-tags.gif"/>
+     <img alt="GIF of two tag values, staging and production, being reordered in the Tags UI" width="80%" src="/img/reorder-tags.gif"/>
 </div>
 <br/>
 
 When ingesting cost data into the Vantage platform, the first value that matches the corresponding filters will be applied to that line item. In cases where filters overlap, the order of tag values within each key determines the value that is applied.
+
+## Filter and Group by Virtual Tags
+
+You can filter by virtual tags in Cost Reports, cost allocation segments, and when creating saved filters. Virtual tags are visible along with your existing provider tags. Use the **Tag** (**Label** in GCP) filter and grouping option. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A Cost Report filter with two filters applied: one for AWS costs for the team/data tag and one for GCP costs with the same tag" width="80%" src="/img/virtual-tag-consolidate-report.png" />
+</div>
+
+## Virtual Tagging Examples 
+
+The following examples demonstrate how to use virtual tagging in a multi-provider organization. 
 
 ###  Virtual Tagging Example 1: Cross-Provider Tagging
 
@@ -70,7 +81,7 @@ You want to create a tag mapping for each of your teams that maps corresponding 
 You create a tag key called `Teams`. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-provider-tag-key.png" />
+    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
 </div>
 
 You add the corresponding set of virtual tag values and filters:
@@ -79,42 +90,36 @@ You add the corresponding set of virtual tag values and filters:
 - The `mobile` team tag value corresponds with a filter for its related GCP projects and AWS accounts.
 
 <div style={{display:"flex", overflow:"scroll"}}>
-    <img alt="Multi-dimensional Grouping" width="60%" src="/img/virtual-tag-provider-value-1.png" />
-    <img alt="Multi-dimensional Grouping" width="60%" src="/img/virtual-tag-provider-value-2.png" />
+    <img alt="A sample Tag Value field for a value of data with filter for Service of BigQuery and Amazon Redshift" width="60%" src="/img/virtual-tag-provider-value-1.png" />
+    <img alt="A sample Tag Value field for a value of data with a filter for GCP Project of mobile and AWS account of mobile" width="60%" src="/img/virtual-tag-provider-value-2.png" />
 </div>
 
 Within Cost Reports, you can easily filter and group by these tag options to easily see costs for an individual team.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-tag-provider-report.png" />
+    <img alt="A sample Cost Report grouped by Tag showing a mobile and data tag" width="80%" src="/img/virtual-tag-provider-report.png" />
 </div>
 
 ###  Virtual Tagging Example 2: Consolidate Existing Tags
 
-You have a tagging practice established at your organization, but teams oftentimes create tags that are spelled differently or create duplicate tags. For example, the `data` team has resources tagged with `data`, `Data`, and `data-prod`. This is an issue across many of your teams. You want to consolidate all these tags, across providers, into one `data` tag. 
+You have a tagging practice established at your organization, but teams often create tags that are spelled differently or create duplicate tags. For example, the `data` team has resources tagged with `data`, `Data`, and `data-prod`. This is an issue across many of your teams. You want to consolidate all these tags, across providers, into one `data` tag. 
 
 You create a tag key called `Teams` to override existing tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-provider-tag-key.png" />
+    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
 </div>
 
 You add the corresponding set of virtual tag values and filters. In this example, all permutations of the `data` team tag are combined into one virtual tag.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-tag-consolidate-value.png" />
+    <img alt="A sample Tag Value field for a value of AWS team tags equaling data, data-prod, and Data. Another value for a GCP team Label equaling data" width="80%" src="/img/virtual-tag-consolidate-value.png" />
 </div>
 
-Within Cost Reports, you can easily filter by this tag in Cost Reports to see all costs related to the `data` team. This saves you the work of having to always filter for all permutations of this tag. Now, you can filter by just one filter criteria.
-
-***Pic of Cost Report filtered to a team tag.***
-
-## Filter and Group by Virtual Tags
-
-You can filter by virtual tags in Cost Reports, cost allocation segments, and when creating saved filters. Virtual tags are visible along with your existing provider tags. Use the **Tag** (**Label** in GCP) filter and grouping option. 
+Within Cost Reports, you can easily filter by this tag in Cost Reports to see all costs related to the `data` team. This saves you the work of having to always filter for all permutations of this tag. Now, you can filter by just one filter criterion.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Multi-dimensional Grouping" width="80%" src="/img/virtual-tag-consolidate-report.png" />
+    <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="/img/virtual-tag-consolidate-report.png" />
 </div>
 
 ## Delete a Virtual Tag
