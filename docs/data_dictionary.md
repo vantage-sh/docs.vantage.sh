@@ -86,15 +86,23 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
 | Charge Type  | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*        | `name`         | string    | `tags.name`         |
+| Tag Value\*  | `value`        | string    | `tags.value`        |
+
+_\* Virtual tags associated with this provider_
 
 ## Coralogix {#coralogix}
 
-| Filter       | API Field Name | Data Type | `namespace.field `  |
-| ------------ | -------------- | --------- | ------------------- |
-| Category     | `category`     | string    | `costs.category`    |
-| Subcategory  | `subcategory`  | string    | `costs.subcategory` |
-| Service      | `service`      | string    | `costs.service`     |
-| Charge Type  | `charge_type`  | string    | `costs.charge_type` |
+| Filter      | API Field Name | Data Type | `namespace.field `  |
+| ----------- | -------------- | --------- | ------------------- |
+| Category    | `category`     | string    | `costs.category`    |
+| Subcategory | `subcategory`  | string    | `costs.subcategory` |
+| Service     | `service`      | string    | `costs.service`     |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*       | `name`         | string    | `tags.name`         |
+| Tag Value\* | `value`        | string    | `tags.value`        |
+
+_\* Virtual tags associated with this provider_
 
 ## Databricks {#databricks}
 
@@ -131,6 +139,10 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Subcategory | `subcategory`  | string    | `costs.subcategory` |
 | Resource    | `resource_id`  | string    | `costs.resource_id` |
 | Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*       | `name`         | string    | `tags.name`         |
+| Tag Value\* | `value`        | string    | `tags.value`        |
+
+_\* Virtual tags associated with this provider_
 
 ## Google Cloud {#google-cloud-platform}
 
@@ -169,6 +181,10 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Category     | `category`            | string    | `costs.category`            |
 | Resource     | `resource_id`         | string    | `costs.resource_id`         |
 | Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
+| Tag\*        | `name`                | string    | `tags.name`                 |
+| Tag Value\*  | `value`               | string    | `tags.value`                |
+
+_\* Virtual tags associated with this provider_
 
 ## New Relic {#new-relic}
 
@@ -178,6 +194,10 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Service     | `service`      | string    | `costs.service`     |
 | Category    | `category`     | string    | `costs.category`    |
 | Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*       | `name`         | string    | `tags.name`         |
+| Tag Value\* | `value`        | string    | `tags.value`        |
+
+_\* Virtual tags associated with this provider_
 
 ## Oracle Cloud {#oracle-cloud}
 
@@ -203,6 +223,10 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Service      | `service`      | string    | `costs.service`     |
 | Resource     | `resource_id`  | string    | `costs.resource_id` |
 | Charge Type  | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*        | `name`         | string    | `tags.name`         |
+| Tag Value\*  | `value`        | string    | `tags.value`        |
+
+_\* Virtual tags associated with this provider_
 
 ## Snowflake {#snowflake}
 

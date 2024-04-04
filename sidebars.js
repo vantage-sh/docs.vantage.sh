@@ -27,13 +27,14 @@ module.exports = {
       type: "category",
       collapsible: false,
       collapsed: false,
-      label: "Security and Access",
+      label: "Account and Security",
       items: [
         "security",
         "vantage_account",
         "sso",
         "rbac",
         "workspaces",
+        "virtual_tagging",
       ],
     },
     {
