@@ -14,7 +14,7 @@ For supported providers, Vantage profiles for _active resources_ within your acc
 You can create _resource reports_ to see filtered views of your active resources. These reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
 
 :::note
-Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
+Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
 :::
 
 ## AWS Active Resources
@@ -26,6 +26,16 @@ Not every AWS service is supported for resource-level costs; however, most servi
 ## Azure Active Resources
 
 To see the full list of supported Azure services, see the [Azure documentation](/azure_supported_services).
+
+## Kubernetes Active Resources
+
+A Kubernetes _managed workload_ is a higher-level abstraction than a pod that automatically manages pod objects on your behalf. Vantage currently supports Deployments, StatefulSets, DaemonSets, Jobs, CronJobs, and ArgoCD Rollouts and syncs these as active resources in your account. When available, pods will be grouped by controller, and you can see and filter on the following metadata:
+
+- Controller Name
+- Controller Type
+- Cluster
+- Namespace
+- Controller Labels
 
 ## Other Available Active Resources
 
@@ -174,6 +184,10 @@ See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguid
 ### EC2 Rightsizing Recommendations
 
 For EC2 instances where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations) documentation for details.
+
+### Kubernetes Rightsizing Recommendations
+
+For Kubernetes workloads where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view and use this information.
 
 ### CloudWatch Metrics
 
