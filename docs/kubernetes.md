@@ -163,7 +163,7 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
 
 ## Kubernetes Rightsizing Recommendations
 
-Vantage syncs Kubernetes managed workloads as [active resources](/active_resources) in your account. In cases where any of these workloads are identified to be overprovisioned, Vantage provides Kubernetes rightsizing recommendations. On the **Kubernetes Efficiency Reports** screen, a notification is displayed when rightsizing recommendations are available. Click **Review Recommendations** to view affected workloads.
+Vantage syncs Kubernetes managed workloads as [active resources](/active_resources) in your account. In cases where any of these workloads are identified to be overprovisioned, Vantage provides Kubernetes rightsizing recommendations. On the **Kubernetes Efficiency Reports** screen, a notification is displayed when rightsizing recommendations are available. Click **Review Recommendations** to view identified workloads.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Kubernetes notification for rightsizing recommendations" width="100%" src="/img/k8s-rightsize-notification.png" />

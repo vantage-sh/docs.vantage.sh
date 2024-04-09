@@ -170,7 +170,7 @@ To see which version of the Kubernetes agent you are running:
 2. On the side navigation, click **Integrations**. 
 3. A list of all your provider integrations is displayed. Select the **Kubernetes** integration. 
 4. On the **Manage** tab, click the settings button (looks like a cog wheel) next to a specific integration. 
-5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version as well as if the agent is out of date.
+5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and if the agent is out of date.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Settings Clusters section with two sample clusters displayed along with the most recent version" width="80%" src="/img/k8s-upgrade-agent.png" />
@@ -269,7 +269,7 @@ The agent will write persisted data to the `$CLUSTER_ID/` prefix within the buck
 ## Active Resources and Rightsizing Recommendations
 
 :::note
-Rightsizing recommendations require version 1.0.24 or later of the Vantage Kubernetes agent. See the [upgrading section](/kubernetes_agent#upgrade-agent) for information on how to upgrade the agent. Once the upgrade is complete, the agent will begin uploading the data needed to generate rightsizing recommendations. After the agent is upgraded or installed, recommendations will become available within 48 hours. This step is required to ensure there is enough data to make a valid recommendation. Historical data is not available before the agent upgrade, so it is recommended that you cyclical resource usage pattern, such as a weekly spike when first viewing recommendations.
+Rightsizing recommendations require version 1.0.24 or later of the Vantage Kubernetes agent. See the [upgrading section](/kubernetes_agent#upgrade-agent) for information on how to upgrade the agent. Once the upgrade is complete, the agent will begin uploading the data needed to generate rightsizing recommendations. After the agent is upgraded or installed, recommendations will become available within 48 hours. This step is required to ensure there is enough data to make a valid recommendation. Historical data is not available before the agent upgrade, so it is recommended that you observe cyclical resource usage patterns, such as a weekly spike when you first review recommendations.
 :::
 
 Vantage syncs Kubernetes managed workloads as [active resources](/active_resources) in your account. In cases where these workloads are identified to be overprovisioned, Vantage provides Kubernetes rightsizing recommendations. See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view rightsizing recommendations for Kubernetes workloads.
