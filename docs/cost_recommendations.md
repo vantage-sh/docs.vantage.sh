@@ -113,7 +113,7 @@ Rightsizing recommendations require version 1.0.24 or later of the Vantage Kuber
 3. Select the **Rightsizing** tab. A section for each container that’s identified for rightsizing is included. 
    - Each recommendation includes a high-fidelity graph of CPU and RAM used within the container in the past month, the average and maximum usage for mCPU and memory, and recommendations for how to rightsize your configuration. The chart includes a per-day average usage. The table provides a 30-day average and 30-day average max usage.
    :::note
-   mCPU refers to milliCPU which is a fractional representation of CPU, where 1 CPU is equal to 1000 milliCPU. **Current Configuration** comes from the currently configured requests for the pod template within the controller spec. This is collected by the Kubernetes agent hourly and updated when the cost data is imported, roughly once per 24 hours.
+   mCPU refers to milliCPU, which is a fractional representation of CPU, where 1 CPU is equal to 1000 milliCPU. **Current Configuration** comes from the currently configured requests for the pod template within the controller spec. This is collected by the Kubernetes agent hourly and updated when the cost data is imported, roughly once per 24 hours.
    :::
    - The **Potential Monthly Savings** are also provided to indicate your estimated savings once these recommendations are implemented on your Kubernetes resources.
 
@@ -129,9 +129,11 @@ Vantage takes the following steps to calculate Kubernetes rightsizing recommenda
     - Controllers running below an efficiency level of 80% over the last 30 days are identified.
     - Efficiency is calculated as the percentage of the average CPU or memory utilization divided by the amount allocated for that resource.
 2. _Determine the target amount for rightsizing._
-    - The target amount is calculated by dividing the average usage by the efficiency target of 80%. For example, if your average usage is 100, and the efficiency target is 80%, then Vantage determines the right size to be (100/.8) or 125.
+    - The target amount is calculated by dividing the average usage by the efficiency target of 80%. For example, if your average usage is 100, and the efficiency target is 80%, then Vantage determines the right size to be (100/.8), or 125.
     - This target amount might exceed the maximum observed usage, which is acceptable to provide room for potential spikes in resource usage. This also prevents containers from being terminated due to resource exhaustion.
 3. _Calculate the potential savings._
     - Savings is the difference between current configuration and target configuration multiplied by a standard hourly base rate.
     - For Deployments and StatefulSets, these savings are further multiplied by the number of replicas configured for each controller.
     - The calculated amount of savings must be at least $5 to be considered for rightsizing recommendations.
+
+If you make a configuration change to a pod, the Vantage Kubernetes agent will upload the new configuration for the pod within the hour that it is available. Vantage reruns recommendations once the next Kubernetes ingestion is processed, which is every 24 hours.
