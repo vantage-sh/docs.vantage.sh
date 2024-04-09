@@ -5,6 +5,7 @@ description: View cost recommendations in Vantage and find ways to save on your 
 keywords:
   - Cost recommendations
   - EC2 rightsizing recommendations
+toc_max_heading_level: 4
 ---
 
 # Cost Recommendations
@@ -43,9 +44,9 @@ If you are currently on a trial, the specific recommendations are blurred; howev
 
 ## Provider-Specific Recommendations
 
-The recommendations that are available for AWS, Azure, and Datadog in Vantage are based on the granularity of data exposed by each provider. Notes for all three providers are below.
+The recommendations that are available for [AWS](/cost_recommendations#aws), [Azure](/cost_recommendations#azure), [Datadog](/cost_recommendations#datadog), and [Kubernetes](/cost_recommendations#kubernetes-rightsizing) in Vantage are based on the granularity of data exposed by each provider. Notes for these providers are provided below.
 
-### AWS Recommendations
+### AWS Recommendations {#aws}
 
 | Recommendation Type           | Description                                                                                                                                                                                               |
 | ----------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -71,7 +72,7 @@ Each recommendation includes potential savings as well as the number of instance
 2. The **Rightsizing** tab on the [Active Resources](/active_resources) screen is displayed. The tab includes a recommended size for migration (e.g., “Migrate to m5.large”), a list of associated reasons (e.g., “CPU over-provisioned”), if available, and the potential monthly savings. 
 3. Click **Compare Pricing** to explore an instance pricing comparison via [ec2instances.info](https://instances.vantage.sh). This pricing comparison evaluates the current instance type used against the proposed instance type from the recommendation.
 
-### Azure Recommendations
+### Azure Recommendations {#azure}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A list of Azure-related recommendations in the console" width="70%" src="/img/azure-cost-recs.png" />
@@ -83,10 +84,54 @@ Each recommendation includes potential savings as well as the number of instance
 | Compute reserved instances            | Suggestions for instances with on-demand usage that could be converted to reserved instances for better savings |
 | Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days                                                   |
 
-### Datadog Recommendations
+### Datadog Recommendations {#datadog}
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A list of Datadog-related recommendations in the console" width="100%" src="/img/datadog-cost-recs.png" />
 </div>
 
 For Datadog, Vantage provides recommendations about making commitments for Datadog services where [committed use discounts](https://handbook.vantage.sh/datadog/committed-use-discounts/) are offered. These recommendations are based on your actual usage of Datadog services to assist with making the right commitment.
+
+### Kubernetes Rightsizing Recommendations {#kubernetes-rightsizing}
+
+Without proper resource allocation, Kubernetes clusters can become overprovisioned, leading to wasted resources and idle costs. Vantage provides Kubernetes rightsizing recommendations to help you identify affected resources. 
+
+These recommendations are focused on [managed workloads](https://kubernetes.io/docs/concepts/workloads/controllers/) within Kubernetes clusters and do not provide rightsizing recommendations for the Kubernetes nodes themselves.
+
+:::tip
+For a full guide on understanding rightsizing and how to rightsize Kubernetes resources, see the following article in the [Cloud Cost Handbook](https://handbook.vantage.sh/kubernetes/kubernetes-rightsizing/).
+:::
+
+#### View Kubernetes Rightsizing Recommendations
+
+:::note
+Rightsizing recommendations require version 1.0.24 or later of the Vantage Kubernetes agent. See the [Kubernetes agent documentation](/kubernetes_agent#upgrade-agent) for information on how to upgrade the agent. Once the upgrade is complete, the agent will begin uploading the data needed to generate rightsizing recommendations. After the agent is upgraded or installed, recommendations will become available within 48 hours. This step is required to ensure there is enough data to make a valid recommendation. Historical data is not available before the agent upgrade, so it is recommended that you recognize cyclical resource usage patterns, such as a weekly spike when you first review recommendations. 
+:::
+
+1. From the **Cost Recommendations** screen, click **View resources** to view each identified Kubernetes workload that is recommended for rightsizing.
+2. Select a workload from the list. The workload is displayed within the [Active Resources](/active_resources) screen.
+3. Select the **Rightsizing** tab. A section for each container that’s identified for rightsizing is included. 
+   - Each recommendation includes a high-fidelity graph of CPU and RAM used within the container in the past month, the average and maximum usage for mCPU and memory, and recommendations for how to rightsize your configuration. The chart includes a per-day average usage. The table provides a 30-day average and 30-day average max usage.
+   :::note
+   mCPU refers to milliCPU which is a fractional representation of CPU, where 1 CPU is equal to 1000 milliCPU. **Current Configuration** comes from the currently configured requests for the pod template within the controller spec. This is collected by the Kubernetes agent hourly and updated when the cost data is imported, roughly once per 24 hours.
+   :::
+   - The **Potential Monthly Savings** are also provided to indicate your estimated savings once these recommendations are implemented on your Kubernetes resources.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The Kubernetes Rightsizing UI with a sample recommendation displayed" width="80%" src="/img/k8s-rightsize.png" />
+</div>
+
+#### How Vantage Calculates Kubernetes Rightsizing Recommendations
+
+Vantage takes the following steps to calculate Kubernetes rightsizing recommendations.
+
+1. _Identify controllers with low efficiency._
+    - Controllers running below an efficiency level of 80% over the last 30 days are identified.
+    - Efficiency is calculated as the percentage of the average CPU or memory utilization divided by the amount allocated for that resource.
+2. _Determine the target amount for rightsizing._
+    - The target amount is calculated by dividing the average usage by the efficiency target of 80%. For example, if your average usage is 100, and the efficiency target is 80%, then Vantage determines the right size to be (100/.8) or 125.
+    - This target amount might exceed the maximum observed usage, which is acceptable to provide room for potential spikes in resource usage. This also prevents containers from being terminated due to resource exhaustion.
+3. _Calculate the potential savings._
+    - Savings is the difference between current configuration and target configuration multiplied by a standard hourly base rate.
+    - For Deployments and StatefulSets, these savings are further multiplied by the number of replicas configured for each controller.
+    - The calculated amount of savings must be at least $5 to be considered for rightsizing recommendations.
