@@ -11,7 +11,7 @@ keywords:
 Vantage is an official HashiCorp partner and offers a Terraform _module_ for getting up and running with Vantage using Infrastructure as Code (IaC). Vantage also offers a Terraform _provider_ with several _resources_.
 
 - **Vantage Terraform Integrations module for AWS**: The Vantage [Terraform Integrations module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) is available for registered users, across all Vantage tiers, to create the primitives needed to broker a connection with AWS. With the module, you can create a Cross-Account IAM Role as well as a Cost and Usage Report (CUR).
-- **Vantage Terraform provider**: The [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) comprises several Vantage resources you can create, such as Cost Reports, Dashboards, etc. The Terraform provider makes it possible to fully automate and manage Vantage from within your existing Terraform codebase. Companies with IaC practices can set up, create, and sync their cost reporting structure with Vantage.
+- **Vantage Terraform provider**: The [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) comprises several Vantage resources you can create, such as Cost Reports, dashboards, etc. Use the provider to automate and manage Vantage from within your existing Terraform codebase. Organizations with IaC practices can set up, create, and sync their cost reporting structure with Vantage.
 
 ## Vantage Terraform Integrations Module for AWS {#integrations-module}
 
@@ -56,48 +56,22 @@ module "vantage-integration" {
 }
 ```
 
-## Vantage Resources
+## Vantage Resources and Data Sources
 
 Using the Terraform provider, you can automate Vantage resources, such as Cost Reports, via the [Vantage Write API](https://vantage.readme.io/v2.0/reference/createcostreport)—or the backbone of the provider.
 
-With the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs), you can create the following resources:
+With the Terraform provider, you can create many [resources](https://developer.hashicorp.com/terraform/language/resources), like Cost Reports, report notifications, folders, dashboards, etc. The provider also includes many [data sources](https://developer.hashicorp.com/terraform/language/data-sources) you can use to pull data from the Vantage console. See the [documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) for details.
 
-| Resource            | Terraform Resource Name       | Documentation                                                                                                              |
-| ------------------- | ----------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| Access Grant        | `vantage_access_grant`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/access_grant)        |
-| Cost Report         | `vantage_cost_report`         | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report)         |
-| Dashboard           | `vantage_dashboard`           | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard)           |
-| Folder              | `vantage_folder`              | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/folder)              |
-| Report Notification | `vantage_report_notification` | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification) |
-| Saved Filter        | `vantage_saved_filter`        | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/saved_filter)        |
-| Segment             | `vantage_segment`             | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/segment)             |
-| Team                | `vantage_team`                | [View documentation](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/team)                |
-
-:::caution Important
-The ability to create, edit, and destroy resources is keyed to the permissions of the user associated with the API token. For Enterprise customers, role-based access controls also affect these actions. Review the documentation on [RBAC for further information](/rbac).
-:::
-
-By using these Terraform resources, engineering teams automate cost reporting in Vantage. Below are some example use cases:
+By using these Terraform resources, engineering teams automate cost reporting in Vantage. Below are some example use cases.
 
 - Build Cost Reports for hundreds of teams stored in another source of truth (e.g., database or GitHub)
 - Update filters as resource names or tags change
 - Add new reports to team dashboards when new services are deployed
 - Create teams and access grants based on teams within an identity provider (IdP)
 
-## Data Sources 
-
-The provider also includes the following data sources you can use to pull data from the Vantage console:
-
-- `vantage_access_grants`
-- `vantage_aws_provider_info`
-- `vantage_cost_reports`
-- `vantage_dashboards`
-- `vantage_folders`
-- `vantage_saved_filters`
-- `vantage_segments`
-- `vantage_teams`
-- `vantage_users`
-- `vantage_workspaces`
+:::caution Important
+The ability to create, edit, and destroy resources is keyed to the permissions of the user associated with the API token. For Enterprise customers, role-based access controls also affect these actions. Review the documentation on [RBAC for further information](/rbac).
+:::
 
 ## Terraform Examples
 
@@ -188,18 +162,6 @@ In the following example, we will create a filter, report, and folder to track d
    ```
 
 In this manner, initial setup, deployments, and infrastructure changes are synced to Vantage. Further examples can be found in the `terraform-provider-vantage` [GitHub repository](https://github.com/vantage-sh/terraform-provider-vantage/tree/main/examples).
-
-## Future Primitive Support
-
-Vantage is in the process of expanding the API to support all resources within Vantage. Some future primitives the Terraform provider will support include:
-
-- [Budgets](/budgets)
-- [Business Metrics](/per_unit_costs#importing-business-metrics)
-
-These capabilities will expand the automation capabilities of Vantage through some of the following use cases:
-
-- Push company metrics to Vantage
-- Sync and update budgets
 
 ## Feature Requests
 
