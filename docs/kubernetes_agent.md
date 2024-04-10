@@ -170,7 +170,7 @@ To see which version of the Kubernetes agent you are running:
 2. On the side navigation, click **Integrations**. 
 3. A list of all your provider integrations is displayed. Select the **Kubernetes** integration. 
 4. On the **Manage** tab, click the settings button (looks like a cog wheel) next to a specific integration. 
-5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and if the agent is out of date. If the agent is out of date, you will see a red _X_ in the **Out of Date** column. The **Version** column will indicate that your agent is below the recommended version. An example of a cluster that is up to date is provided below.
+5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and indicates if the agent is out of date. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Settings Clusters section with two sample clusters displayed along with the most recent version" width="80%" src="/img/k8s-upgrade-agent.png" />
@@ -181,6 +181,8 @@ To upgrade the agent, use the following command:
 ```bash
 helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --reuse-values
 ```
+
+The version noted in the console for your agent is updated when cost data is imported nightly. 
 
 ## Common Errors
 
