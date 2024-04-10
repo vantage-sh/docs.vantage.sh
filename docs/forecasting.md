@@ -8,19 +8,34 @@ keywords:
 
 # Forecasting
 
-For every [Cost Report](/cost_reports), Vantage will produce a forecast that shows where your costs are expected to be by the end of the current month. These forecasts are based on your account's actual cost data and produced from a Vantage-developed machine learning model. The model is trained anonymously on all Vantage data to be as accurate as possible.
+For every [Cost Report](/cost_reports), Vantage generates a forecast that projects where your costs are expected to be by the end of the current month. You can also view projected costs, several months ahead. Vantage uses a time-series model to generate these forecasts and will run through all available data ingested into the platform on a per-service basis (e.g., EC2, RDS). These costs are forecasted into the future, taking into account seasonality or one-off spikes.
 
 ## View a Forecast on a Cost Report
 
-To view a forecast on a Cost Report, create a new Cost Report and save it. If you want to see a forecast for a specific account, tag, or region, create a Cost Report with the dimensions you want, and a forecast will be generated accordingly. Forecasts will be visible when a line chart is set to view costs for the current month and in the cumulative view.
+To view a forecast on a Cost Report, create a new Cost Report and save it. After you create a new Cost Report, a message is displayed that indicates the forecast is generating. The processing time depends on the amount of data contained in the filtered report, but it usually takes less than 10 minutes.
 
-After you create a new Cost Report, a message is displayed that indicates the forecast is generating. Forecasts take some time to generate—typically, about 10 minutes.
+The forecast for the rest of the current month is displayed, by default, on the chart. Forecasts are available on cumulative line charts and bar charts.
 
 :::note
-The time to generate a forecast is dependent on the amount of data on the Cost Report. This process may take up to 15 minutes.
+At this time, forecasts are only available per service (e.g., EC2, RDS) and overall. When aggregating a report by other fields, the forecast will not be displayed.
 :::
 
-The forecast includes an upper-expected band and a lower-expected band, with a median forecast that is in the middle of these two ranges. This forecast is updated daily as new cost data arrives.
+The forecast includes an upper-expected band and a lower-expected band, with a median forecast that is in the middle of these two ranges. This forecast is updated daily as new cost data arrives. 
+
+To view a future forecast, open the date picker to the top right of the chart. 
+
+1. On the left, under **Forecast Periods**, select either **Next Month**, **Next 3 Months**, or **Next 6 Months**.  
+2. Click **Apply**. Change to either the bar or line chart view to see a forecast. Ensure the date bin is set to **Cumulative**. 
+
+### Bar Chart View
+
+In the below example image, bars for future months are visible. Error bars are present for future months to represent the upper and lower bounds of the forecast. Hover over any future date to see the forecasted min, max, and median. Total forecasted costs are displayed above the chart, next to currently accrued costs. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A Cost Report with a forecast for the next 6 months and the mouse hovering over a future date point" width="100%" src="/img/future-forecasts.png" />
+</div>
+
+### Line Chart View
 
 In the below example image, the light-purple area is the forecast range, with upper and lower bounds. The dark-purple dotted line represents the median forecast for that month. Hover over any future date to see the forecast median and the previous period's costs. Total forecasted costs are displayed above the chart, next to currently accrued costs. 
 
