@@ -28,7 +28,7 @@ You can create as many Cost Reports as you'd like and filter your costs across s
    - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period. 
    - Click **Apply**. 
    <details><summary>Click to view example video</summary>
-   <p>In this example, the user makes a custom comparison to change the comparison from February and March to January and March.</p>
+   <p>In this example, the user makes a custom comparison to change the comparison from March and April to February and April.</p>
     <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
     <img alt="GIF that shows a user opening the date menu. The user selects a current period and then selects the custom option to choose a custom comparison date period." width="100%" src="/img/date-comparison.gif"/>
     </div>
