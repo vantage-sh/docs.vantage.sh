@@ -35,7 +35,7 @@ You can create as many Cost Reports as you'd like and filter your costs across s
    </details>
 7. Select one of the following date bins:
    - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
-   - **Daily, Weekly, or Monthly:** Displayed as a bar chart, with each date range organized into bins within the bar chart
+   - **Daily, Weekly, or Monthly:** Displayed as a bar or line chart, with date ranges binned on the bottom axis and a forecast, if available
 
 You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
 

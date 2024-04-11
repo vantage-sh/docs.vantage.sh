@@ -14,7 +14,7 @@ For every [Cost Report](/cost_reports), Vantage generates a forecast that projec
 
 To view a forecast on a Cost Report, create a new Cost Report and save it. After you create a new Cost Report, a message is displayed that indicates the forecast is generating. The processing time depends on the amount of data contained in the filtered report, but it usually takes less than 10 minutes.
 
-The forecast for the rest of the current month is displayed, by default, on the chart. Forecasts are available on cumulative line charts and bar charts.
+The forecast for the rest of the current month is displayed, by default, on the chart. Forecasts are available on line charts and bar charts. On line charts, forecasts are available for all date binning options. For bar charts, you can view forecasts for day, week, and month date binnings.
 
 :::note
 At this time, forecasts are only available per service (e.g., EC2, RDS) and overall. When aggregating a report by other fields, the forecast will not be displayed.
@@ -25,7 +25,7 @@ The forecast includes an upper-expected band and a lower-expected band, with a m
 To view a future forecast, open the date picker to the top right of the chart. 
 
 1. On the left, under **Forecast Periods**, select either **Next Month**, **Next 3 Months**, or **Next 6 Months**.  
-2. Click **Apply**. Change to either the bar or line chart view to see a forecast. Ensure the date bin is set to **Cumulative**. 
+2. Click **Apply**. Change to either the bar or line chart view to see a forecast.
 
 ### Bar Chart View
 
