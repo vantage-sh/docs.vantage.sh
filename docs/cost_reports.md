@@ -19,21 +19,23 @@ You can create as many Cost Reports as you'd like and filter your costs across s
 3. On the top right, click **+ New**. A new, unfiltered Cost Report is displayed.
 4. From the top left of the graph, click **Filters**.
 5. Click **+ Add a Filter** and select your desired filter criteria.
-6. From the top right of the graph, use the date picker to select the date range for the report. By default, the Cost Report compares the selected dates to the same previous period. For example, the default comparison date for March 12–March 18 is February 12–18. To select a custom comparison:
+6. From the top right of the graph, use the date picker to select the date range for the report. You can select a date range that encompasses both previous and future dates, up to 6 months ahead. For more information on future forecast dates, see the [Forecasting](/forecasting) documentation. 
+
+  By default, the Cost Report compares the selected dates to the same previous period. For example, the default comparison date for March 12–March 18 is February 12–18. To select a **custom comparison**:
    - Open the date picker menu. 
    - In the left column, select **Custom**. 
-   - Under **Custom**, select the first date period field, then hover your mouse over the calendar to highlight and select a date range. (The current month is selected by default.)
-   - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period.
+   - On the calendar section, under **Custom**, select the first date period field, then hover your mouse over the calendar to highlight and select a date range. (The current month is selected by default.)
+   - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period. 
    - Click **Apply**. 
    <details><summary>Click to view example video</summary>
-   <p>In this example, the user makes a custom comparison to change the comparison from February and March to January and March.</p>
-   <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+   <p>In this example, the user makes a custom comparison to change the comparison from March and April to February and April.</p>
+    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
     <img alt="GIF that shows a user opening the date menu. The user selects a current period and then selects the custom option to choose a custom comparison date period." width="100%" src="/img/date-comparison.gif"/>
-</div>
+    </div>
    </details>
-1. Select one of the following date bins:
+7. Select one of the following date bins:
    - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
-   - **Daily, Weekly, or Monthly:** Displayed as a bar chart, with each date range organized into bins within the bar chart
+   - **Daily, Weekly, or Monthly:** Displayed as a bar or line chart, with date ranges binned on the bottom axis and a forecast, if available
 
 You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
 
