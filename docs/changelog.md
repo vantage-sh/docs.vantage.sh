@@ -11,7 +11,39 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on March 31, 2024, with product updates for March 2024._
+_This page was last updated on April 15, 2024, with product updates for April 2024._
+
+## April 2024
+
+### Product Updates
+
+- **Visual navigation improvements:** The top navigation bar now has a new **Create New** menu for quick actions.
+- **Datadog metrics:** Business metrics have been updated to directly ingest [Datadog metrics](/per_unit_costs#importing-from-datadog).
+- **New virtual tagging feature:** [Virtual tagging](/virtual_tagging) is available to consistently tag costs across providers in Vantage. This feature can help to increase tagging coverage across your cloud infrastructure. 
+- **New rightsizing recommendations:** Kubernetes [rightsizing recommendations](/cost_recommendations#kubernetes-rightsizing) are now available for rightsizing workloads in Kubernetes.
+- **Updates to active resources:** Kubernetes managed workloads are synced as [active resources](/active_resources) in Vantage.
+- **Expanded forecasts:** [Forecasts](/forecasting) have been expanded to include the upcoming month, the next three months, and six months ahead.
+- **Kubernetes agent version:** The [Clusters](/kubernetes_agent#upgrade-agent) section of the Kubernetes agent settings screen is updated to show cluster name, version, and if the cluster is out of date.
+
+### Kubernetes Agent Updates
+
+
+### API Updates
+
+- **New API endpoints:** The following endpoints have been added to the API:
+  - The [`ResourceReports`](https://vantage.readme.io/reference/getresourcereports) endpoint automates the retrieval of existing [resource reports](/active_resources).
+  - The [`FinancialCommitmentReports`](https://vantage.readme.io/reference/getfinancialcommitmentreports) endpoint automates the retrieval of [financial commitment reports](/financial_commitment_reports).
+  - The [`KubernetesEfficiencyReports`](https://vantage.readme.io/reference/getkubernetesefficiencyreports) endpoint automates the retrieval of [Kubernetes efficiency reports](/kubernetes).
+  - The [`AnomalyAlerts`](https://vantage.readme.io/reference/getanomalyalerts) endpoint allows you to retrieve and update [anomaly alerts](/cost_anomaly_alerts).
+  - The [`VirtualTags`](https://vantage.readme.io/reference/createvirtualtagconfig) endpoint automates the creation, retrieval, and update of [virtual tags](/virtual_tagging).
+- **New Terraform resources:** The following resources have been added to the Terraform provider:
+  - [`vantage_virtual_tag_config`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/virtual_tag_config) for creating virtual tags.
+- **New Terraform data sources:** The following data sources have been added to the Vantage provider:
+  - [`vantage_anomaly_notifications`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/anomaly_notifications)
+  - [`vantage_financial_commitment_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/financial_commitment_reports)
+  - [`vantage_kubernetes_efficiency_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/financial_commitment_reports)
+  - [`vantage_resource_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/resource_reports)
+  - [`vantage_virtual_tag_configs`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/virtual_tag_configs)
 
 ## March 2024
 
