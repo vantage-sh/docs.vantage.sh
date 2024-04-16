@@ -39,6 +39,9 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
 7. In the **Values** section, click **+Add a Value**:
    - Enter a **Tag Value** title.
+   :::note
+   Titles can contain only letters, numbers, and the following characters: _ - & + , . : / \
+   :::
    - Click **+ Add a Filter** and specify the tag value’s filter criteria. Virtual tag filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the [Cost Reports](/cost_reports#filtering-cost-reports) documentation. 
    :::note
    You cannot use saved filters to define a virtual tag value's filters.
