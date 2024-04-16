@@ -34,8 +34,8 @@ You can create as many Cost Reports as you'd like and filter your costs across s
     </div>
    </details>
 7. Select one of the following date bins:
-   - **Cumulative:** Displayed as a line chart on the graph, along with a forecast
-   - **Daily, Weekly, or Monthly:** Displayed as a bar or line chart, with date ranges binned on the bottom axis and a forecast, if available
+   - **Cumulative:** Displayed as a line, pie, or area chart on the graph, along with a forecast for line and area charts, if available
+   - **Daily, Weekly, or Monthly:** Displayed as a bar, line, or area chart, with date ranges binned on the bottom axis and a forecast, if available
 
 You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
 
@@ -148,6 +148,18 @@ When percent-based cost allocation is set as a filter, forecasts will be produce
 
 You can create and use **Saved Filters** to apply commonly used filters across multiple reports. Review the [Saved Filters documentation](/saved_filters) for more information.
 
+## Adjust Chart Visualization
+
+You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.
+
+:::tip
+For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, or Monthly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts" width="100%" src="/img/cost-report-visualizations.png" />
+</div>
+
 ## Configure Report Groups {#configure-report-groups}
 
 With the **Group By** option, you can select one or more dimensions to group by. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
@@ -175,10 +187,6 @@ After a Cost Report has been grouped, each grouping is displayed as a column in 
 :::tip
 To sort the table by multiple columns in the table, press **Shift + Click** on the column headers.
 :::
-
-You can adjust the graph to be displayed as either an area chart, pie chart, or line chart (for cumulative graphs only). Toggle either option using the corresponding buttons on the top right of the chart.
-
-<img src="/img/area-to-line.gif" alt="Toggling between area and line chart views on a Cost Report" style={{borderRadius: "10px", boxShadow: "2px 2px 10px rgba(0, 0, 0, 0.1)"}}/>
 
 ### Charge Type Grouping Category {#charge-type}
 
