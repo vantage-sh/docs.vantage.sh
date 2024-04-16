@@ -28,6 +28,8 @@ _This page was last updated on April 16, 2024, with product updates for April 20
 
 ### Kubernetes Agent Updates
 
+_See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent Kubernetes agent release._
+
 
 ### API Updates
 
