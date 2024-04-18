@@ -34,7 +34,7 @@ As a best practice, it is suggested you create a schema specifically for the `va
 
 ### Snowflake IP Allowed List
 
-If your Snowflake cluster uses an IP allowed list for access control, you will need to add the following IPs to that allowed list:
+If your Snowflake cluster uses an IP allow list for access control, you will need to add the following IPs to that allowed list:
 
 ```
 54.87.66.45
@@ -96,10 +96,29 @@ The below commands are based on the Snowflake [documentation](https://community.
 
 Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. Vantage will refresh at least once daily for Snowflake. 
 
+## Troubleshoot Snowflake Errors {#troubleshoot-snowflake-errors}
 
-### Troubleshooting
+Snowflake occasionally makes changes to the queries/tables that get used for cost and usage attribution, causing the views in Vantage to then be based on an old query. You may see an error in the Vantage console, similar to the below error:
 
-If you observe a `Vantage.Public.Query_History` error in the Vantage console, delete the views you created for the Vantage Snowflake schema and then re-create the views again following the steps above. Once you've re-created the views, contact [support@vantage.sh](mailto:support@vantage.sh) to reimport your Snowflake data.
+```bash
+View definition for 'VANTAGE.PUBLIC.QUERY_HISTORY' declared 66 column(s), but view query produces 77 column(s).
+```
+
+To fix the issue, replace the three `Vantage` views in Snowflake and ensure the `vantage` user is granted permission on those views. 
+
+:::note
+After you've completed the below steps, contact [support@vantage.sh](mailto:support@vantage.sh) to reimport your Snowflake data.
+:::
+
+```sql
+USE WAREHOUSE vantage;
+CREATE OR REPLACE VIEW VANTAGE.PUBLIC.QUERY_HISTORY as select * from SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY;
+CREATE OR REPLACE VIEW VANTAGE.PUBLIC.WAREHOUSE_METERING_HISTORY as select * from SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY;
+CREATE OR REPLACE VIEW VANTAGE.PUBLIC.USAGE_IN_CURRENCY_DAILY as select * from SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY;
+GRANT USAGE ON SCHEMA vantage.public TO ROLE vantage;
+GRANT USAGE ON DATABASE vantage TO ROLE vantage;
+GRANT SELECT ON ALL VIEWS IN SCHEMA vantage.public TO ROLE vantage;
+```
 
 ## Snowflake Reporting Dimensions
 
