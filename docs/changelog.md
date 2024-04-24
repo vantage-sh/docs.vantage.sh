@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on April 16, 2024, with product updates for April 2024._
+_This page was last updated on April 24, 2024, with product updates for April 2024._
 
 ## April 2024
 
@@ -39,14 +39,24 @@ _See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent
   - The [`/kubernetes_efficiency_reports`](https://vantage.readme.io/reference/getkubernetesefficiencyreports) endpoint automates the retrieval of [Kubernetes efficiency reports](/kubernetes).
   - The [`/anomaly_alerts`](https://vantage.readme.io/reference/getanomalyalerts) endpoint allows you to retrieve and update [anomaly alerts](/cost_anomaly_alerts).
   - The [`/virtual_tag_configs`](https://vantage.readme.io/reference/createvirtualtagconfig) endpoint automates the creation, retrieval, and update of [virtual tags](/virtual_tagging).
+  - The [`/anomaly_notifications`](https://vantage.readme.io/reference/createanomalynotification) endpoint automates the creation, retrieval, and update of anomaly notifications. 
+  - The [`/budgets`](https://vantage.readme.io/reference/createbudget) endpoint automates the creation, retrieval, and update of [budgets](/budgets). 
+  - The [`/budgets_alerts`](https://vantage.readme.io/reference/createbudgetalert) endpoint automates the creation, retrieval, and update of budgets alerts. 
 - **New Terraform resources:** The following resources have been added to the Terraform provider:
-  - [`vantage_virtual_tag_config`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/virtual_tag_config) for creating virtual tags.
+  - [`vantage_virtual_tag_config`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/virtual_tag_config)
+  - [`vantage_anomaly_notification`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/anomaly_notification)
+  - [`vantage_budget`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/budget)
+  - [`vantage_business_metric`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric)
+  - [`vantage_report_notification`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification)
 - **New Terraform data sources:** The following data sources have been added to the Vantage provider:
   - [`vantage_anomaly_notifications`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/anomaly_notifications)
   - [`vantage_financial_commitment_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/financial_commitment_reports)
   - [`vantage_kubernetes_efficiency_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/kubernetes_efficiency_reports)
   - [`vantage_resource_reports`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/resource_reports)
   - [`vantage_virtual_tag_configs`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/virtual_tag_configs)
+  - [`vantage_budgets`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/budgets)
+  - [`vantage_business_metrics`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/business_metrics)
+  - [`vantage_report_notifications`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/report_notifications)
 
 ## March 2024
 
