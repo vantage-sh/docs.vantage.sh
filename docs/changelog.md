@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on April 16, 2024, with product updates for April 2024._
+_This page was last updated on April 24, 2024, with product updates for April 2024._
 
 ## April 2024
 
