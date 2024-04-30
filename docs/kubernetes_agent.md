@@ -50,7 +50,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 
 - An already connected primary provider (e.g., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
 
-- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled
+- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled (it's recommended to use a [service token](/vantage_account#api-service-token) rather than a [personal access token](/vantage_account#api-personal-token).)
 
 - **If you do not already have an integration enabled**, navigate to the [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes?connect=true) in the Vantage console, and click the **Enable Kubernetes Agent** button (you won't need to do this for subsequent integrations)
 
@@ -167,10 +167,10 @@ For users who want to monitor the agent:
 To see which version of the Kubernetes agent you are running:
 
 1. From the top navigation, click **Settings**.
-2. On the side navigation, click **Integrations**. 
-3. A list of all your provider integrations is displayed. Select the **Kubernetes** integration. 
-4. On the **Manage** tab, click the settings button (looks like a cog wheel) next to a specific integration. 
-5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and indicates if the agent is out of date. 
+2. On the side navigation, click **Integrations**.
+3. A list of all your provider integrations is displayed. Select the **Kubernetes** integration.
+4. On the **Manage** tab, click the settings button (looks like a cog wheel) next to a specific integration.
+5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and indicates if the agent is out of date.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Settings Clusters section with two sample clusters displayed along with the most recent version" width="80%" src="/img/k8s-upgrade-agent.png" />
@@ -182,7 +182,7 @@ To upgrade the agent, use the following command:
 helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --reuse-values
 ```
 
-The version noted in the console for your agent is updated when cost data is imported nightly. 
+The version noted in the console for your agent is updated when cost data is imported nightly.
 
 ## Common Errors
 
@@ -235,7 +235,7 @@ Once changed, you can validate the change by looking for the scraping summary lo
 
 The most common cause for pod scheduling errors is the persistent volume not being provisioned. By default, the agent is deployed as a StatefulSet with a persistent volume for persisting internal state. The state allows the agent to recover from a restart without losing the historical data for the current reporting window. An example error for this case would be present in the events on the `vka-vantage-kubernetes-agent-0` pod and include an error that contains `unbound immediate PersistentVolumeClaims`.
 
-The resolution to this error is based on the cluster's configuration and the specific cloud provider. More information might be present on the persistent volume claim or persistent volume. For Kubernetes clusters on AWS, S3 can be used for data persistence, which is documented in the next section. 
+The resolution to this error is based on the cluster's configuration and the specific cloud provider. More information might be present on the persistent volume claim or persistent volume. For Kubernetes clusters on AWS, S3 can be used for data persistence, which is documented in the next section.
 
 Additional provider references are also listed here:
 

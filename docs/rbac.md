@@ -13,22 +13,22 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Checkmark from '@site/src/components/icons/Checkmark';
 
-Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources — such as Cost Reports, Dashboards, or Folders — that a user can view and/or edit. 
+Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources — such as Cost Reports, Dashboards, or Folders — that a user can view and/or edit.
 
-By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access. 
+By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access.
 
-The Owner, Team Owner, Team Editor, and Team Viewer roles are described below.  
+The Owner, Team Owner, Team Editor, and Team Viewer roles are described below.
 
-| Role        | Description                                                                                                                      |
-| ----------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Role        | Description                                                                                                                                                                                                                                    |
+| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Owner       | A global account owner who has full access to all items. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from an item, the Owner will still be able to manage that item. |
-| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.   |
-| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team. |
-| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                        |
+| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.                      |
+| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team.                                                                                                       |
+| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                                                                                                                                      |
 
 ## Manage Account Access
 
-Owner is the only role that can invite users to and remove users from Vantage as well as change another user's role. 
+Owner is the only role that can invite users to and remove users from Vantage as well as change another user's role.
 
 <Tabs>
   <TabItem value="add-user" label="Add a New User" default>
@@ -67,25 +67,27 @@ By default, all Vantage users are part of the Everyone team. Users _cannot_ be r
 </div>
 
 1. From the top navigation, click **Settings**.
-2. On the left navigation, under **General Settings**, click **Teams**. 
-3. On the Teams view, Owners can manage, add, or delete teams. 
+2. On the left navigation, under **General Settings**, click **Teams**.
+3. On the Teams view, Owners can manage, add, or delete teams.
    - To add a team, click **Create a Team**. Add a **Name** and **Description**, then click **Create Team**.
    - To delete a team, hover over the team's name in the team list, then click the trashcan icon.
 
 ### Map Team to SSO Group (Owners Only)
 
-Account Owners can map SSO groups to teams within Vantage. The matching teams first need to be created following the steps above. Then, follow the [Set Up SSO Group Mapping for Teams](/sso#set-up-sso-group-mappings) instructions for information on how to map teams. 
+Account Owners can map SSO groups to teams within Vantage. The matching teams first need to be created following the steps above. Then, follow the [Set Up SSO Group Mapping for Teams](/sso#set-up-sso-group-mappings) instructions for information on how to map teams.
 
 ### Manage a Team (Team Owners)
-To manage a team, select the team from the **Teams** list. Three tabs are displayed: General, Members, and Access. 
+
+To manage a team, select the team from the **Teams** list. Four tabs are displayed: General, Members, Access, and API Access Tokens.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Team management tabs and options" width="60%" src="/img/team-management-details.png" />
 </div>
 
 - On the **General** tab, you can edit the team name and description.
-- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective teams. 
-- On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access. 
+- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective teams.
+- On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access.
+- On the **API Access Tokens** tab, Owners and Team Owners can create [API service tokens](/vantage_account#api-service-token) at the account level that inherit permissions from the team.
 
 <Tabs>
   <TabItem value="add-member" label="Add a Member" default>
@@ -122,9 +124,10 @@ To manage a team, select the team from the **Teams** list. Three tabs are displa
 </Tabs>
 
 ---
+
 ## Manage Resource Access
 
-You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments. 
+You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Manage access to a Cost Reporting dashboard" width="75%" src="/img/resource-access.png" />
@@ -170,29 +173,28 @@ If you want to grant access to a resource (for example, a Dashboard) to only a s
 
 In the following table, the Everyone team's access to a resource (for example, a Cost Report) has been revoked. The member's team has been granted access to that specific resource.
 
-| Team Access   | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
-| ------------- | --------- | -----------  | -----------  | -----------  | -----------  | -------------  |
-| No Access     | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
-| No Access     | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
-| No Access     | Viewer    |              |              |              | <Checkmark/> |                |
-| View Access   | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
-| View Access   | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
-| View Access   | Viewer    |              |              |              | <Checkmark/> |                |
-| Edit Access   | Owner     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
-| Edit Access   | Editor    | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
-| Edit Access   | Viewer    |              |              |              | <Checkmark/> |                |
-
+| Team Access | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
+| ----------- | --------- | ------------ | ------------ | ------------ | ------------ | -------------- |
+| No Access   | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| No Access   | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| No Access   | Viewer    |              |              |              | <Checkmark/> |                |
+| View Access | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| View Access | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| View Access | Viewer    |              |              |              | <Checkmark/> |                |
+| Edit Access | Owner     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
+| Edit Access | Editor    | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
+| Edit Access | Viewer    |              |              |              | <Checkmark/> |                |
 
 :::note
-If a user is on multiple teams that have conflicting permissions, the higher level of permissions will be granted. 
+If a user is on multiple teams that have conflicting permissions, the higher level of permissions will be granted.
 :::
 
 <details>
 <summary>Multiple Teams Resource Scenario</summary>
 
-- A user is on the Marketing team with **Team Owner** permissions. 
-- They are also on the Engineering team with **Team Viewer** permissions. 
-- Both teams are granted access to a Saved Filter. 
+- A user is on the Marketing team with **Team Owner** permissions.
+- They are also on the Engineering team with **Team Viewer** permissions.
+- Both teams are granted access to a Saved Filter.
 
 The user will be granted Owner-level permissions to that resource, in other words, they can view _and_ manage that resource.
 
@@ -226,18 +228,18 @@ Team Owners can manage their team within the Teams UI — but only the team for 
 
 ## Financial Planning Permissions
 
-Financial planning permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage. 
+Financial planning permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage.
 
 Users with the Editor or above role will be able to create resources and manage the above functions.
 
 :::note
-Any user who is assigned to an [issue](/issues) will have update permissions for that issue. 
+Any user who is assigned to an [issue](/issues) will have update permissions for that issue.
 :::
 
 <details>
 <summary>Financial Planning Permissions Examples</summary>
 
-- **Scenario 1**: You want to create a new Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able to *view* the alert.
-- **Scenario 2**: Editors and above can create and manage issues. You have a Viewer role and are assigned a new issue. You can now edit and comment on *only this new issue*.
+- **Scenario 1**: You want to create a new Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able to _view_ the alert.
+- **Scenario 2**: Editors and above can create and manage issues. You have a Viewer role and are assigned a new issue. You can now edit and comment on _only this new issue_.
 
 </details>
