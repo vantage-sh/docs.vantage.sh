@@ -11,7 +11,7 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on April 24, 2024, with product updates for April 2024._
+_This page was last updated on May 1, 2024, with product updates for April 2024._
 
 ## April 2024
 
@@ -19,17 +19,17 @@ _This page was last updated on April 24, 2024, with product updates for April 20
 
 - **Visual navigation improvements:** A **Create New** menu for quick actions is available on the top navigation bar.
 - **Datadog metrics:** Business metrics have been updated with the option to directly ingest [Datadog metrics](/per_unit_costs#importing-from-datadog).
-- **New virtual tagging feature:** [Virtual tagging](/virtual_tagging) is available to consistently tag costs across providers in Vantage. This feature can help to increase tagging coverage across your cloud infrastructure. 
+- **New virtual tagging feature:** [Virtual tagging](/virtual_tagging) is available to consistently tag costs across providers in Vantage. This feature can help to increase tagging coverage across your cloud infrastructure.
 - **New rightsizing recommendations:** Kubernetes [rightsizing recommendations](/cost_recommendations#kubernetes-rightsizing) are now available for rightsizing managed workloads in Kubernetes.
 - **New to active resources:** Kubernetes managed workloads are synced as [active resources](/active_resources) in Vantage.
 - **Expanded forecasts:** [Forecasts](/forecasting) have been expanded to include the upcoming month, the next three months, and six months ahead.
 - **Kubernetes agent version:** The [Clusters](/kubernetes_agent#upgrade-agent) section of the Kubernetes agent settings screen is updated to show cluster name, version, and indicate if the cluster is out of date.
 - **Expanded chart options:** [Expanded chart options](/cost_reports#adjust-chart-visualization) are available for Cost Reports, including expanded date bin selections for area and line charts and multi-line charts for grouped data.
+- **API service tokens:** Users with owner-level permissions can now create [API service tokens](/vantage_account#api-token) for authenticating with the Vantage API at the account level, rather than being associated with a specific user.
 
 ### Kubernetes Agent Updates
 
 _See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent Kubernetes agent release._
-
 
 ### API Updates
 
@@ -39,9 +39,9 @@ _See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent
   - The [`/kubernetes_efficiency_reports`](https://vantage.readme.io/reference/getkubernetesefficiencyreports) endpoint automates the retrieval of [Kubernetes efficiency reports](/kubernetes).
   - The [`/anomaly_alerts`](https://vantage.readme.io/reference/getanomalyalerts) endpoint allows you to retrieve and update [anomaly alerts](/cost_anomaly_alerts).
   - The [`/virtual_tag_configs`](https://vantage.readme.io/reference/createvirtualtagconfig) endpoint automates the creation, retrieval, and update of [virtual tags](/virtual_tagging).
-  - The [`/anomaly_notifications`](https://vantage.readme.io/reference/createanomalynotification) endpoint automates the creation, retrieval, and update of anomaly notifications. 
-  - The [`/budgets`](https://vantage.readme.io/reference/createbudget) endpoint automates the creation, retrieval, and update of [budgets](/budgets). 
-  - The [`/budgets_alerts`](https://vantage.readme.io/reference/createbudgetalert) endpoint automates the creation, retrieval, and update of budgets alerts. 
+  - The [`/anomaly_notifications`](https://vantage.readme.io/reference/createanomalynotification) endpoint automates the creation, retrieval, and update of anomaly notifications.
+  - The [`/budgets`](https://vantage.readme.io/reference/createbudget) endpoint automates the creation, retrieval, and update of [budgets](/budgets).
+  - The [`/budgets_alerts`](https://vantage.readme.io/reference/createbudgetalert) endpoint automates the creation, retrieval, and update of budgets alerts.
 - **New Terraform resources:** The following resources have been added to the Terraform provider:
   - [`vantage_virtual_tag_config`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/virtual_tag_config)
   - [`vantage_anomaly_notification`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/anomaly_notification)
@@ -68,24 +68,26 @@ _See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent
 - **Segments sync status**: Cost allocation [segments](/segments#edit-a-segment) are now updated to show segment sync status. The look and feel of this page have been visually updated as well.
 - **Filterable cost recommendations**: Recommendations are now filterable by provider on the [Cost Recommendations](/cost_recommendations) screen.
 - **Pie chart option**: You can now change the [graph view](/cost_reports#configure-report-groups) on Cost Reports to a pie chart.
-- **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-report) is updated to allow for custom period selections. 
-- **Custom Databricks pricing**: Custom discounts are [now supported](/connecting_databricks#custom-pricing) for Databricks SKU groups. 
+- **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-report) is updated to allow for custom period selections.
+- **Custom Databricks pricing**: Custom discounts are [now supported](/connecting_databricks#custom-pricing) for Databricks SKU groups.
 
 ### Kubernetes Agent Updates
 
-The following versions were released this month. 
+The following versions were released this month.
 
-- **Version 1.0.24** includes the following update: 
+- **Version 1.0.24** includes the following update:
+
   - Supports monitoring ArgoCD resources in the cluster.
 
 - **Version 1.0.23** includes the following updates:
   - `app.kubernetes.io` labels are now allowed.
-  - Agent scrape results are added to agent metadata. 
+  - Agent scrape results are added to agent metadata.
   - [Prometheus metrics](/kubernetes_agent/#monitoring) are added for tracking reporting successes/failures.
   - Dependencies are updated to the latest stable versions.
   - Additional controller metadata is included in agent reports for use in [Active Resources](/active_resources).
 
 ### API Updates
+
 - **New `tagged` option**: On the `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) in the API, and the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) in the Terraform provider, `tagged` is a valid option for the `groupings` parameter.
 - **New dashboard parameter**: The `saved_filter_tokens` parameter is now available on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard). It is also available on the `vantage_dashboard` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard) in the Terraform provider.
 - **New Terraform resources**: Additional Terraform resources are now available:
@@ -93,8 +95,8 @@ The following versions were released this month.
   - The `vantage_team` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/segment) automates the creation of Vantage teams. Create a team and assign Vantage users, by email, to the team.
   - The `vantage_access_grant` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/access_grant) automates access grants via role-based access controls in Vantage. Create grants to allow or deny teams access to resources, like folders or Cost Reports.
   - The `vantage_report_notification` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/report_notification) automates the creation of Cost Report notifications. Create a notification for a specific Cost Report. Specify the notification’s frequency (e.g., daily) and change (e.g., in dollars).
-- **Terraform data sources**: [Data sources](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/access_grants) are now available to retrieve information outside your Terraform configuration. 
-- **Business metrics endpoint**: The `/business_metric` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is now available to create and update business metrics in the console. 
+- **Terraform data sources**: [Data sources](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/access_grants) are now available to retrieve information outside your Terraform configuration.
+- **Business metrics endpoint**: The `/business_metric` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is now available to create and update business metrics in the console.
 
 ## February 2024
 
