@@ -161,12 +161,11 @@ Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report wi
     <img alt="A budget is displayed as a trend line on the Cost Report in the console" width="100%" src="/img/cost-report-budget.png" />
 </div>
 
-Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report. The dotted portion of the line corresponds to the forecasted future budget, which you can track against your forecasted costs.
+Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report. The dotted portion of the line corresponds to the future budget, which you can track against your forecasted costs.
 
 :::note
-The following note applies to budgets on Cost Reports:
 
-- If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day
+If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
 
 :::
 
