@@ -40,11 +40,11 @@ The below instructions describe how to manually create a budget. You can also up
            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
        </div>
      </details>
-7. At the top right, click **Save**.
-8. Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed.
+7. At the top right, click **Save Changes**.
+8. Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform.
 <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Performance of a budget across six periods with actual performance displayed for each month." width="100%" src="/img/budget-performance.png" />
+        <img alt="Performance of a budget across six periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
     </div>
 </details>
 
@@ -161,12 +161,12 @@ Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report wi
     <img alt="A budget is displayed as a trend line on the Cost Report in the console" width="100%" src="/img/cost-report-budget.png" />
 </div>
 
-Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report.
+Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report. The dotted portion of the line corresponds to the future budget, which you can track against your forecasted costs.
 
 :::note
-The following notes apply to budgets on Cost Reports:
-- If you select any **Group By** criteria on a Cost Report, the budget is no longer displayed.
-- If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
+
+If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
+
 :::
 
 ## Create Budget Alerts {#create-alerts}
@@ -211,4 +211,4 @@ Because a budget is defined for a month, you can only be alerted based on the bu
 
 ### Budget Alerts and Cost Reports
 
-If you update a Cost Report that is associated with a budget alert, the following message is displayed: _This report has budget alerts and may trigger a notification. Are you sure you want to save the report?_ You must confirm before saving the report. 
+If you update a Cost Report that is associated with a budget alert, the following message is displayed: _This report has budget alerts and may trigger a notification. Are you sure you want to save the report?_ You must confirm before saving the report.
