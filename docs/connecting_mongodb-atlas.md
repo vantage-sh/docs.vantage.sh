@@ -141,6 +141,7 @@ On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several di
 - Region
 - Category
 - Resource (e.g., Realm costs)
+- Tag
 
 ## Active Resources
 
