@@ -137,8 +137,9 @@ Your MongoDB Atlas integration status should automatically update from `Pending`
 
 On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several dimensions:
 
+- Project
+- Organization
 - Service
-- Region
 - Category
 - Resource (e.g., Realm costs)
 - Tag
