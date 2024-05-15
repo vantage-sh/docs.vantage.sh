@@ -18,7 +18,7 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to create a Fastly API token.
 
 1. Navigate and log in to the [Fastly console](https://www.fastly.com).
-2. On the [**API tokens** page](https://manage.fastly.com/account/personal/tokens/new), re-enter your password if prompted. Then, click **+ Create Token**.
+2. On the [**API tokens** page](https://manage.fastly.com/account/personal/tokens), re-enter your password if prompted. Then, click **+ Create Token**.
 3. Enter the following token details:
    - For **Name**, enter something relevant, like _VantageReadOnlyToken_.
    - For **Type**, select **Automation token**.
