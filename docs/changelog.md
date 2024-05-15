@@ -21,7 +21,7 @@ _This page was last updated on May 15, 2024, with product updates for May 2024._
 - **Segments RBAC:** Users with the [editor role](/rbac) can now update [segments](/segments).
 - **MongoDB tags:** Tags are now available as a filtering dimension for [MongoDB](/connecting_mongodb-atlas) Cost Reports.
 - **Forecasted performance of a budget:** Future [budget periods](/budgets) are now displayed and compared to forecasts on Cost Reports.
-- **Reserved Instance recommendations:** Reserved Instance [recommendations](/cost_recommendations) now include a link to Autopilot with the split-out categories and usage.
+- **Reserved Instance recommendations:** Reserved Instance [recommendations](/cost_recommendations) now include a link to [Autopilot](/autopilot) with split-out categories and usage.
 
 ### Kubernetes Agent Updates
 
