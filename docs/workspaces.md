@@ -11,7 +11,7 @@ keywords:
 In Vantage, a _workspace_ is a way to separate your provider integrations into distinct cost views. Teams can use workspaces to create focused views of costs and even restrict access to costs within each workspace using [Role-Based Access Controls (RBAC)](/rbac) (Enterprise customers). You can specify which [integrations](/workspaces#integration-workspace) are available in which workspaces. Some use cases for workspaces are listed below.
 
 - You may have multiple accounts within the same cloud provider, such as Azure or AWS. You can use a single Vantage workspace to ingest costs for all these accounts into the same view. 
-- Create a distinct Vantage workspace for each of your environments, such as production, staging, and development. Then, specify which provider accounts are associated with which workspace. For example, a particular Datadog account may be associated with only your _Monitoring_ workspace.
+- Create a distinct Vantage workspace for each of your environments, such as _Production_, _Staging_, and _Development_. Then, specify which provider accounts are associated with which workspace. For example, a particular Datadog account may be associated with only your _Development_ workspace.
 - If you manage multiple customers, you can create individual workspaces for each customer account (Customer A, Customer B, etc.). This allows you to separate and manage cost data for each customer independently. Then, you can connect only the corresponding integrations to each customer's workspace, ensuring that they have access only to their data and reports.
   
 ## Navigate between Workspaces
