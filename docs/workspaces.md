@@ -47,7 +47,7 @@ Once you connect a cloud provider to Vantage, and costs are fully imported, you'
 2. From the left navigation, click **Integrations**.
 3. All your provider integrations are displayed. Click the settings icon (looks like a wheel) next to an integration (e.g., Fastly) in the list. 
 4. The provider's integration page is displayed. Click the settings icon next to a listed account.
-5. The **Manage Connection** page is displayed. Under **Workspace Access** select or deselect the checkbox next to a listed workspace to specify which workspaces the integration is associated with. 
+5. The **Manage Connection** page is displayed. Under **Workspace Access**, select or deselect the checkbox next to a listed workspace to specify which workspaces the integration is associated with. 
 
 In the below example, the Fastly integration is only available in the _Demo Accounts_ workspace. If you navigate to the _Management_ or _Marketing_ workspace, you'll be unable to view Fastly cost data in Cost Reports or other Vantage features.
 
