@@ -166,6 +166,10 @@ After you complete the steps for connecting via the Azure CLI or Azure portal, f
 2. On the Azure integration page, click **Add Credentials**. 
 3. Add the **Azure AD Tenant ID**, **Service Principal App ID**, and **Service Principal Password** you previously obtained, then click **Connect Account**. Vantage will begin importing your Azure costs. 
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Azure Cost and Rightsizing Recommendations
 
 Vantage currently supports [cost recommendations](/cost_recommendations) for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
@@ -186,7 +190,3 @@ On Azure [Cost Reports](/cost_reports), you can filter across several dimensions
 - Region
 - Subscription
 - Service
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

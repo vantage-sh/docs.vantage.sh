@@ -76,6 +76,10 @@ All models of the following operations are supported:
 OpenAI data refreshes daily in the Vantage console.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## OpenAI Reporting Dimensions
 
 On OpenAI [Cost Reports](/cost_reports), you can filter across several dimensions:
@@ -83,7 +87,3 @@ On OpenAI [Cost Reports](/cost_reports), you can filter across several dimension
 - Organization
 - Operation (e.g., Chat and Completions)
 - Model (e.g., GPT-3.5)
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

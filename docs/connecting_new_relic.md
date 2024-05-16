@@ -33,6 +33,10 @@ Vantage integrates with your New Relic account using [NerdGraph](https://docs.ne
 New Relic data refreshes daily in the Vantage console.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## New Relic Reporting Dimensions
 
 On New Relic [Cost Reports](/cost_reports), you can filter across several dimensions:
@@ -40,7 +44,3 @@ On New Relic [Cost Reports](/cost_reports), you can filter across several dimens
 - Account
 - Service
 - Category (e.g., New Relic Users - CoreUsers)
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

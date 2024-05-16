@@ -133,6 +133,10 @@ If you want to have Vantage ingest per-cluster resource data from MongoDB Atlas,
 
 Your MongoDB Atlas integration status should automatically update from `Pending` to `Importing`. MongoDB Atlas data is refreshed once a day. If you've successfully granted project access for active resources, your Active Resources view will begin populating with cost data.
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## MongoDB Atlas Reporting Dimensions
 
 On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several dimensions:
@@ -148,6 +152,3 @@ On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several di
 
 MongoDB Atlas clusters are synced as active resources and available in [resource reports](/active_resources).
 
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
