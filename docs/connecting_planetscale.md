@@ -55,6 +55,10 @@ Costs will be ingested and processed as soon as you add the integration. It usua
 PlanetScale data refreshes daily in Vantage.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## PlanetScale Reporting Dimensions
 
 On PlanetScale [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
@@ -72,7 +76,3 @@ You can also view credits or discounts for PlanetScale costs in Cost Reports.
 ## Active Resources
 
 PlanetScale databases are synced as active resources and available in [resource reports](/active_resources).
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

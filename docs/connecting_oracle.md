@@ -29,6 +29,10 @@ Vantage uses a read-only IAM user and API key to read from a [Cost and Usage Rep
 Oracle generally delivers usage logs once per day.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Oracle Cloud Reporting Dimensions
 
 On Oracle [Cost Reports](/cost_reports), you can filter across several dimensions:
@@ -40,7 +44,3 @@ On Oracle [Cost Reports](/cost_reports), you can filter across several dimension
 - Resource
 - Tag/Not Tagged
 - Compartment
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

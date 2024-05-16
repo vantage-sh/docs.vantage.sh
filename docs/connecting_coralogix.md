@@ -62,6 +62,10 @@ Costs will be ingested and processed as soon as you add the integration. It usua
 Based on limits imposed by Coralogix, the integration includes 90 days of historical Coralogix usage and cost data. Coralogix data refreshes daily in Vantage.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Coralogix Reporting Dimensions
 
 On Coralogix [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
@@ -73,7 +77,3 @@ On Coralogix [Cost Reports](/cost_reports/), you can filter costs across several
 :::note
 Because the Metrics service doesn’t have a subsystem or application name, costs for this service can't be filtered by category or subcategory.
 :::
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

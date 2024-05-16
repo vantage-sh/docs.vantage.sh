@@ -117,6 +117,10 @@ Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Inte
 It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Feature Availability and Resource Costs
 
 The following GCP services are available with resource-level costs in [Cost Reports](/cost_reports):
@@ -133,7 +137,3 @@ Google Cloud is not currently available in the following features:
 - [Autopilot](/autopilot)
 - [Savings Planner](/savings_planner)
 - [Resource Reports](/active_resources)
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

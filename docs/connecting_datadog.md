@@ -36,6 +36,10 @@ After authorizing the connection with Vantage, you will see the status of your c
 Once connected, Vantage will ingest six months of historical Datadog costs. The data is refreshed everyday at 2 AM UTC, but delays, up to 72 hours, may occur.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Datadog Reporting Dimensions
 
 Within [Cost Reports](/cost_reports/), Vantage will show cost data for at least the following services.
@@ -118,6 +122,3 @@ In the below visual example, a Cost Report is filtered to all Datadog costs. The
 
 You can import Datadog metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-datadog) documentation for more information.
 
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

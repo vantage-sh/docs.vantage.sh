@@ -96,6 +96,10 @@ The below commands are based on the Snowflake [documentation](https://community.
 
 Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. Vantage will refresh at least once daily for Snowflake. 
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Troubleshoot Snowflake Errors {#troubleshoot-snowflake-errors}
 
 Snowflake occasionally makes changes to the queries/tables that get used for cost and usage attribution, causing the views in Vantage to then be based on an old query. You may see an error in the Vantage console, similar to the below error:
@@ -135,6 +139,3 @@ On Snowflake [Cost Reports](/cost_reports), you can filter across several dimens
 
 Snowflake queries are synced as active resources and available in [resource reports](/active_resources).
 
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
