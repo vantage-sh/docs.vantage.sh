@@ -25,7 +25,9 @@ _This page was last updated on May 15, 2024, with product updates for May 2024._
 
 ### Kubernetes Agent Updates
 
-_See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent Kubernetes agent release._
+Version 1.0.25, Helm Chart [vantage-kubernetes-agent-1.0.33](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.33), includes the following update:
+
+The `report_http_proxy` flag is now available to supply during configuration. HTTP proxy is used for the HTTP client that calls Vantage and S3 during periodic reports. Overrides `HTTP_PROXY` in the event both are specified.
 
 ### API Updates
 
