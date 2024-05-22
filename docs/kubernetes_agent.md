@@ -184,6 +184,10 @@ helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent
 
 The version noted in the console for your agent is updated when cost data is imported nightly.
 
+:::note
+AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#aks) again when updating.
+:::
+
 ## Common Errors
 
 ### DNS Lookup Error {#dns-lookup-error}
