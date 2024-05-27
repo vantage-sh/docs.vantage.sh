@@ -29,7 +29,7 @@ Cost Reports also provide [forecasts](/forecasting). These forecasts are updated
 
 The costs displayed on these reports come from your integration with the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by analyzing the CPU, RAM, GPU, as well as storage usage and calculates the cost of each input based on the cost of the underlying infrastructure.
 
-[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost per hour for each type of resource. All the cost allocation calculations are done locally in your cluster and makes this data available for querying.
+[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost per hour for each type of resource. All the cost allocation calculations are done locally in your cluster and make this data available for querying.
 
 :::note
 Kubernetes costs are not included in monthly tracked infrastructure costs as they’re already captured from underlying EKS, GKE, or AKS costs.
@@ -41,10 +41,10 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
 2. On the left navigation menu, select an option to view connected **Clusters**, **Namespaces**, or **Labels**. Each view contains a graph as well as a table with the following headings:
-   - **Name.** The name of the Cluster, Namespace, or Label you’re viewing.
-   - **Idle Costs.** A dollar value representation of the number of resources requested that are idle.
-   - **Total Costs.** A dollar value representation of the total cost of the resources.
-   - **Cost Efficiency.** The ratio of idle costs and total costs.
+   - **Name:** The name of the Cluster, Namespace, or Label you’re viewing.
+   - **Idle Costs:** A dollar value representation of the number of resources requested that are idle.
+   - **Total Costs:** A dollar value representation of the total cost of the resources.
+   - **Cost Efficiency:** The ratio of idle costs and total costs.
 3. Filter a cluster's efficiency metrics by date or resource:
    - From the top right of the graph, change the date range to see how costs have changed over time.
    - From the resource list below each chart, click the icons next to each resource to view different aggregations. Click the **View on chart** button to isolate that specific resource on the chart.
@@ -54,7 +54,7 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 With Kubernetes efficiency reports, you can filter your Kubernetes cost data and create reports based on these filters. You have the option to filter for costs by Cluster, Namespace, or Label.
 
 :::note
-Labels will include namespace labels and annotations, if enabled in your [Vantage Kubernetes agent integration](/kubernetes_agent#enable-annotations-namespace-labels).
+Labels will include namespace labels and annotations if enabled in your [Vantage Kubernetes agent integration](/kubernetes_agent#enable-annotations-namespace-labels).
 :::
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
@@ -62,7 +62,10 @@ Labels will include namespace labels and annotations, if enabled in your [Vantag
 3. From the top right of the screen, click **New Report**. Like the efficiency metrics view, a chart/graph with idle costs is displayed. Below the chart, a table is displayed with the following columns: the resource's name, **Idle Costs**, **Total Costs**, and **Cost Efficiency**.
 4. To filter costs, click the **Filters** button on the top left of the chart.
    - The **Kubernetes costs where...** tile is displayed. Click **+ New Rule**.
-   - For **Category**, select either **Cluster**, **Namespace**, or **Label**.
+   - From the filter dropdown menu, select either **Cluster**, **Namespace**, **Category** (cpu, ram, or gpu) or **Label**.
+     :::note
+     See the [section below](/kubernetes#gpu) for information on how to enable GPU metrics.
+     :::
    - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the second dropdown menu.
    - Click **Save**.
    <details><summary>Click to view visual example</summary>
@@ -101,11 +104,11 @@ Labels will include namespace labels and annotations, if enabled in your [Vantag
 6. Above the rule set(s), click **Apply**. The graph will update with your existing filter criteria.
 7. You have the option to further drill down into your costs.
    - Above the graph, click the **Aggregate By** dropdown menu. Select either **Idle Costs** or **Total Costs**.
-   :::tip
-   Selecting one of these options will also make those costs the default sort for the table.
-   :::
+     :::tip
+     Selecting one of these options will also make those costs the default sort for the table.
+     :::
    - To adjust aggregation dimensions, above the graph, click the **Group By** dropdown menu. Select one or more of the following options: **Cluster**, **Namespace**, and specific **Label Key**/**Label Value**.
-   - To adjust date binning, select the menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
+   - To adjust the date binning, select the menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
    - To change the date range, click the date picker menu on the top right of the graph and adjust the date range.
    <details><summary>Click to view visual example</summary>
       <div style={{ display: "flex", justifyContent: "center", position: "relative" }}>
@@ -160,6 +163,36 @@ Idle costs are defined as the difference between the cost of requested resources
 idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
+
+## Kubernetes GPU Idle Costs {#gpu}
+
+For each Kubernetes pod, you can view the idle and total costs for GPU usage within a Kubernetes cluster. GPU memory usage is available on Kubernetes efficiency reports as an option for the **Category** filter and is included in the cost efficiency score per pod. 
+
+### How GPU Idle Costs Are Calculated
+
+When an instance includes GPUs, 95% of the cost of the node will be allocated to the memory of the GPU. The number of GPUs requested by the pod will dictate how much of the total memory is allocated to the pod. Idle costs for allocated GPUs are determined by calculating the difference between the total and the total used memory for the pod, down to the container level:
+
+```
+idle_memory = total_allocated_memory - used_memory
+```
+
+:::note
+GPU _utilization_ is not factored into the efficiency calculation, and only GPU memory is tracked. If you have a workload that requires tracking GPU utilization, contact [support@vantage.sh](mailto:support@vantage.sh).
+:::
+
+### Configure GPU Metrics
+
+The Vantage Kubernetes agent collects GPU usage information, automatically, via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
+
+To configure the collection of GPU metrics on your cluster:
+
+1. Ensure you have the Vantage Kubernetes agent, [version 1.0.26 or later](/kubernetes_agent#upgrade-agent), installed.
+2. Follow the steps provided in the [NVIDIA GPU Operator installation guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) to install the operator.
+3. Once the operator is installed, the agent will begin uploading the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
+
+:::tip
+To see the overall cluster idle for GPU memory, group the efficiency report by namespace. An `_idle_` namespace is displayed, which includes the idle GPU costs.
+:::
 
 ## Kubernetes Rightsizing Recommendations
 
