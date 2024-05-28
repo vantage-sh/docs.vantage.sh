@@ -13,6 +13,10 @@ You can create virtual tags to consistently tag costs across providers in Vantag
 
 Virtual tags are available for filtering and aggregating on all [Cost Reports](/cost_reports) and [cost allocation segments](/segments). They can also be used in filter criteria on [saved filters](/saved_filters). There is no limit to the number of tag keys or values you define.
 
+:::tip
+To get started with virtual tagging, you can also view a video demo on [Vantage University](/vantage_university_cost_allocation)  🎓.
+:::
+
 ## Virtual Tags vs. Saved Filters vs. Cost Allocation Segments
 
 Virtual tags can be considered foundational to the rest of the data within Vantage. They should remain fairly static, and changes should be considered delicate. These changes will flow across all data and apply to all workspaces. The most common tag keys will be items like team, cost center, and environment. 

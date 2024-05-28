@@ -12,6 +12,10 @@ In Vantage, you have the flexibility to link multiple cloud infrastructure provi
 
 A _Workspace_ is a way to separate costs from individual account(s) within a provider, or across providers, into individual dashboards. Teams can then create more focused views of costs and even restrict access to costs by using [Role-Based Access Controls (RBAC)](/rbac) if they are subscribers of the Vantage [Enterprise plan](https://www.vantage.sh/pricing).
 
+:::tip
+To get started with workspaces and workspace integrations, you can also view a video demo on [Vantage University](/vantage_university_account_management) 🎓.
+:::
+
 ## Workspace Use Cases
 
 | **Use Case**                                                              | **Description**                                                                                                                                                                                                                                                                                             |

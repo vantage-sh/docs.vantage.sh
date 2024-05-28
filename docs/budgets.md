@@ -14,9 +14,13 @@ import TabItem from '@theme/TabItem';
 
 You can create and assign a _budget_ to a Cost Report. Once a budget is assigned, it's easy to see how costs are trending for a particular service, business unit, or team. You can also create _budget alerts_ to alert you based on configurable thresholds.
 
+:::tip
+To get started with budgets, you can also view video demos on [Vantage University](/vantage_university_budgeting) 🎓.
+:::
+
 ## Create a Budget
 
-:::tip
+:::note
 The below instructions describe how to manually create a budget. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload) for details.
 :::
 

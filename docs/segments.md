@@ -20,6 +20,10 @@ The below diagram shows an example of a segment hierarchy. All child and grandch
     <img alt="Tree diagram of segments with an Organization at the top, three child business unit segments, and two grandchild segments per child segment that represent teams. Each child and grandchild segment has an arrow that points up to the organization segment at the top." width="80%" src="/img/segment-tree.png" />
 </div>
 
+:::tip
+To get started with cost allocation segments, you can also view a video demo on [Vantage University](/vantage_university_cost_allocation) 🎓.
+:::
+
 ## Segments Use Cases
 
 You can leverage segments for many use cases, including the below examples.

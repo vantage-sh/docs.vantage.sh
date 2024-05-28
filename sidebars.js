@@ -12,14 +12,31 @@ module.exports = {
         "getting_started",
         {
           type: "category",
-          label: "User Workflow Guides",
-          collapsible: true,
-          collapsed: true,
-          items: [
-            "team_accountability",
-            "executive_reporting",
-            "hidden_costs",
-          ],
+          label: "Vantage University",
+          link:            
+          { 
+            type: 'doc',
+            id: "vantage_university",
+          },
+        items: [
+          "vantage_university_account_management", 
+          "vantage_university_cost_reporting", 
+          "vantage_university_cost_allocation",
+          "vantage_university_observability",
+          "vantage_university_unit_costs",
+          "vantage_university_budgeting",
+          {
+            type: "category",
+            label: "Sample Workflow Guides",
+            collapsible: true,
+            collapsed: true,
+            items: [
+              "team_accountability",
+              "executive_reporting",
+              "hidden_costs",
+            ],
+          },
+        ],
         },
       ],
     },

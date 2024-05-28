@@ -18,6 +18,10 @@ Cost recommendations are currently available for AWS, Azure, and Datadog.
 
 ## Types of Recommendations
 
+:::tip
+To get started with cost recommendations, you can also view a video demo on [Vantage University](/vantage_university_observability) 🎓.
+:::
+
 Your available recommendations depend on what services and resources are running in your account. In general, there are three types of recommendations:
 
 - **Cloud-provider recommendations:** Gathered from your connected provider and further enriched in Vantage

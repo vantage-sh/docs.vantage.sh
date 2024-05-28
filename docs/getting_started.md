@@ -13,6 +13,8 @@ import CustomCard from '@site/src/components/CustomCard';
 
 :::tip Get Started
 This quickstart guide will help you to set up your Vantage account, connect one or multiple providers, and start using Cost Reporting and Financial Planning features. 
+
+For video tutorials, check out [Vantage University](/vantage_university) 🎓.
 :::
 
 ## Step 1: Create an Account

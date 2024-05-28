@@ -186,11 +186,17 @@ const config = {
             label: "Changelog",
           },
           {
+            type: "doc",
+            docId: "vantage_university",
+            label: "Vantage University",
+          },
+          {
             to: "https://vantage.readme.io/reference/general",
             label: "API",
           },
           {
             to: "https://vantage.sh/pricing",
+            position: "right",
             label: "Pricing",
           },
           {
@@ -228,6 +234,10 @@ const config = {
               {
                 label: "Product Changelog",
                 to: "/changelog",
+              },
+              {
+                label: "Vantage University",
+                to: "/vantage_university",
               },
             ],
           },

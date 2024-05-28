@@ -174,3 +174,10 @@ li.theme-doc-sidebar-item-category-level-4 .menu__list-item-collapsible {
     width: 250px
   }
 }
+
+/* Vantage University Landing */
+@media (min-width: 600px) {
+  .flex-container {
+    flex-direction: row;
+  }
+}
