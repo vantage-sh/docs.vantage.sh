@@ -28,7 +28,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
     </div>
     <div style={{ flex: 1, padding: '15px', minWidth: '300px' }}>
       <iframe
-        src="https://www.youtube.com/embed/Y9fJ1IPBleQ?si=Jqd7EkuqWczRhkg?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1"
+        src="https://www.youtube.com/embed/Y9fJ1IPBleQ?si=WvqYEGFJUc6nNnRQ?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1"
         allowFullScreen
         style={{ width: '100%', height: '350px', borderRadius: '10px', border: '8px solid #d3d3d3' }}
       ></iframe>
