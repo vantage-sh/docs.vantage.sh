@@ -2,6 +2,7 @@
 id: vantage_university_cost_allocation
 title: Vantage University Cost Allocation
 description: Learn about how to allocate costs with virtual tags and cost allocation segments in this Vantage University section.
+image: /img/vantage-university/cost-allocation.jpg
 sidebar_label: Cost Allocation
 keywords:
   - Vantage University

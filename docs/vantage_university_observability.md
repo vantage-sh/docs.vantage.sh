@@ -3,6 +3,7 @@ id: vantage_university_observability
 title: Vantage University Observability
 description: Learn about observability tools, like cost recommendations and anomaly alerts, in this Vantage University section.
 sidebar_label: Observability
+image: /img/vantage-university/observability.jpg
 keywords:
   - Vantage University
   - Observability

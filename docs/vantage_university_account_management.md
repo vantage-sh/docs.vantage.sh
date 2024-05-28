@@ -3,6 +3,7 @@ id: vantage_university_account_management
 title: Vantage University Account Management
 description: Learn about how to manage your account in this Vantage University section.
 sidebar_label: Account Management
+image: /img/vantage-university/account-management.jpg
 keywords:
   - Vantage University
   - Account Management
