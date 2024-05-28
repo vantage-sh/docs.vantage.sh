@@ -84,6 +84,11 @@ If you want to create IAM roles manually or use another tool to manage your infr
 2. You will be presented with a **Trust Relationship** and an **Inline Policy** that is required for the role. Follow the steps provided in the Vantage console to set up the role. Keep this tab open as you will need some submit the **[ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)** of the role to complete the connection.
 3. After creating the role in IAM, return to the onboarding page in Vantage and add the **ARN** of the created role to the **Cross account arn** field at the bottom of the connection workflow pop-up window. Then, click **Connect** to complete the connection.
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+
 ## AWS Data Ingestion Delay {#aws-data-ingestion-delay}
 
 Vantage creates both an IAM role and a [Cost and Usage Report (CUR)](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration when onboarding to AWS. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS up to 24 hours to deliver the first CUR to Vantage. As a result, only partial data will be present until this first CUR is received.
@@ -145,7 +150,3 @@ Occasionally, Vantage will modify the permission sets it uses to access billing 
 ## View Amazon CloudWatch Metrics on Cost Reports
 
 You can import Amazon CloudWatch metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-cloudwatch) documentation for more information.
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

@@ -31,4 +31,4 @@ To get started, follow the instructions for setting up the [Vantage Kubernetes a
 
 ## Manage Workspace Access
 
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.

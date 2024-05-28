@@ -11,7 +11,29 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on May 1, 2024, with product updates for April 2024._
+_This page was last updated on May 15, 2024, with product updates for May 2024._
+
+## May 2024
+
+### Product Updates
+
+- **Visual UI updates:** Visual updates have been made to the look and feel of the Budgets, Business Metrics, Active Resources, and Resource Reports screens.
+- **Segments RBAC:** Users with the [editor role](/rbac) can now update [segments](/segments).
+- **MongoDB tags:** Tags are now available as a filtering dimension for [MongoDB](/connecting_mongodb-atlas) Cost Reports.
+- **Forecasted performance of a budget:** Future [budget periods](/budgets) are now displayed and compared to forecasts on Cost Reports.
+- **Reserved Instance recommendations:** Reserved Instance [recommendations](/cost_recommendations) now include a link to [Autopilot](/autopilot) with split-out categories and usage.
+
+### Kubernetes Agent Updates
+
+Version 1.0.25, Helm Chart [vantage-kubernetes-agent-1.0.33](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.33), includes the following update:
+
+The `report_http_proxy` flag is now available to supply during configuration. HTTP proxy is used for the HTTP client that calls Vantage and S3 during periodic reports. Overrides `HTTP_PROXY` in the event both are specified.
+
+### API Updates
+
+- **Cost recommendations endpoint:** The `/recommendations` [endpoint](https://vantage.readme.io/reference/getrecommendations) automates the retrieval of cost recommendations. The endpoint includes filtering options for parameters like category and provider.
+- **Integrations endpoint:** The `/integrations` [endpoint](https://vantage.readme.io/reference/getintegrations) automates the retrieval of information about existing integrations.
+- **Segment tokens in budgets:** The `cost_report_token` parameter of the `/budgets` [endpoint](https://vantage.readme.io/reference/createbudget) now accepts segment tokens (in addition to Cost Report tokens).
 
 ## April 2024
 

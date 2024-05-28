@@ -181,10 +181,8 @@ _\* Virtual tags associated with this provider_
 | Category     | `category`            | string    | `costs.category`            |
 | Resource     | `resource_id`         | string    | `costs.resource_id`         |
 | Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
-| Tag\*        | `name`                | string    | `tags.name`                 |
-| Tag Value\*  | `value`               | string    | `tags.value`                |
-
-_\* Virtual tags associated with this provider_
+| Tag          | `name`                | string    | `tags.name`                 |
+| Tag Value    | `value`               | string    | `tags.value`                |
 
 ## New Relic {#new-relic}
 

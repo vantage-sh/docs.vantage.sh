@@ -184,6 +184,10 @@ helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent
 
 The version noted in the console for your agent is updated when cost data is imported nightly.
 
+:::note
+AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#aks) again when updating.
+:::
+
 ## Common Errors
 
 ### DNS Lookup Error {#dns-lookup-error}
@@ -276,7 +280,7 @@ Below are the expected associated permissions for the IAM role:
 }
 ```
 
-Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persist_s3=example-bucket-name` values.
+Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persistS3.bucket=example-bucket-name` values.
 
 The agent will write persisted data to the `$CLUSTER_ID/` prefix within the bucket. Multiple agents can use the same bucket as long as they do not have overlapping `CLUSTER_ID` values. An optional prefix can be prepended with `VANTAGE_PERSIST_S3_PREFIX` resulting in `$VANTAGE_PERSIST_S3_PREFIX/$CLUSTER_ID/` being the prefix used by the agent for all objects uploaded.
 

@@ -61,6 +61,10 @@ After completing all the steps above, your Databricks integration status should 
 
 Databricks generally delivers usage logs once per day.
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Custom Pricing in Databricks {#custom-pricing}
 
 From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
@@ -112,7 +116,3 @@ On Databricks [Cost Reports](/cost_reports/), you can filter across several dime
 :::note
 The **Tag** filter contains values like `JobID`, which can be used to view costs for specific Databricks jobs.
 :::
-
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.

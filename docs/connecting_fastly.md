@@ -18,7 +18,7 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to create a Fastly API token.
 
 1. Navigate and log in to the [Fastly console](https://www.fastly.com).
-2. On the [**API tokens** page](https://manage.fastly.com/account/personal/tokens/new), re-enter your password if prompted. Then, click **+ Create Token**.
+2. On the [**API tokens** page](https://manage.fastly.com/account/personal/tokens), re-enter your password if prompted. Then, click **+ Create Token**.
 3. Enter the following token details:
    - For **Name**, enter something relevant, like _VantageReadOnlyToken_.
    - For **Type**, select **Automation token**.
@@ -43,6 +43,10 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 Fastly data refreshes daily in the Vantage console.
 :::
 
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
 ## Fastly Reporting Dimensions
 
 On Fastly [Cost Reports](/cost_reports), you can filter across several dimensions:
@@ -54,6 +58,3 @@ On Fastly [Cost Reports](/cost_reports), you can filter across several dimension
 - Region
 - Service
 
-## Manage Workspace Access
-
-See the [Workspaces](/workspaces#integration-workspace) documentation for information on how to update workspace access for an integration.
