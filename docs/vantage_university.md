@@ -44,7 +44,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>Navigate through your workspaces</li></ul>
         ),
       image: '/img/vantage-university/account-management.jpg',
-      link: './vantage_university_account_management',
+      link: '/vantage_university_account_management',
       newTab: false,
       alt: 'Vantage University logo with Account Management as a title'
     },
@@ -54,7 +54,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>Create detailed Cost Report filters</li></ul>
         ),
       image: '/img/vantage-university/cost-reporting.jpg',
-      link: './vantage_university_cost_reporting',
+      link: '/vantage_university_cost_reporting',
       newTab: false,
       alt: 'Vantage University logo with Cost Reporting as a title'
     },
@@ -64,7 +64,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>Explore virtual tagging</li></ul>
         ),
       image: '/img/vantage-university/cost-allocation.jpg',
-      link: './vantage_university_cost_allocation',
+      link: '/vantage_university_cost_allocation',
       newTab: false,
       alt: 'Vantage University logo with Cost Allocation as a title'
     },
@@ -74,7 +74,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>Review and act on cost recommendations</li></ul>
         ),
       image: '/img/vantage-university/observability.jpg',
-      link: './vantage_university_observability',
+      link: '/vantage_university_observability',
       newTab: false,
       alt: 'Vantage University logo with Observability as a title'
     },
@@ -84,7 +84,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>View and analyze business metrics</li></ul>
         ),
       image: '/img/vantage-university/unit-costs.jpg',
-      link: './vantage_university_unit_costs',
+      link: '/vantage_university_unit_costs',
       newTab: false,
       alt: 'Vantage University logo with Unit Costs as a title'
     },
@@ -94,7 +94,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
         <li>Configure budget alerts</li></ul>
         ),
       image: '/img/vantage-university/budgeting.jpg',
-      link: './vantage_university_budgeting',
+      link: '/vantage_university_budgeting',
       newTab: false,
       alt: 'Vantage University logo with Budgeting as a title'
     },
