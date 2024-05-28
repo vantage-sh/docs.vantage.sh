@@ -166,29 +166,29 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
 
 ## Kubernetes GPU Idle Costs {#gpu}
 
-For each Kubernetes pod, you can view the idle and total costs for GPU usage within a Kubernetes cluster. GPU memory usage is available on Kubernetes efficiency reports as an option for the **Category** filter and is included in the cost efficiency score per pod. 
+For each Kubernetes pod, you can view the idle and total costs for NVIDIA GPU usage within a Kubernetes cluster. GPU memory usage is available on Kubernetes efficiency reports as an option for the **Category** filter and is included in the cost efficiency score per pod. 
 
 ### How GPU Idle Costs Are Calculated
 
-When an instance includes GPUs, 95% of the cost of the node will be allocated to the memory of the GPU. The number of GPUs requested by the pod will dictate how much of the total memory is allocated to the pod. Idle costs for allocated GPUs are determined by calculating the difference between the total and the total used memory for the pod, down to the container level:
+When an instance includes GPUs, 95% of the cost of the node will be allocated to the memory of the GPU. The number of GPUs requested by the pod will dictate how much of the total memory is allocated to the pod. Idle costs for allocated GPUs are determined by calculating the difference between the total allocated and the total used memory for the pod, down to the container level:
 
 ```
 idle_memory = total_allocated_memory - used_memory
 ```
 
 :::note
-GPU _utilization_ is not factored into the efficiency calculation, and only GPU memory is tracked. If you have a workload that requires tracking GPU utilization, contact [support@vantage.sh](mailto:support@vantage.sh).
+GPU _utilization_ is not factored into the efficiency calculation; only GPU memory is tracked. If you have a workload that requires tracking GPU utilization, contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
 ### Configure GPU Metrics
 
-The Vantage Kubernetes agent collects GPU usage information, automatically, via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
+The Vantage Kubernetes agent automatically collects GPU usage information via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can also be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. NVIDIA GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
 
 To configure the collection of GPU metrics on your cluster:
 
 1. Ensure you have the Vantage Kubernetes agent, [version 1.0.26 or later](/kubernetes_agent#upgrade-agent), installed.
-2. Follow the steps provided in the [NVIDIA GPU Operator installation guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) to install the operator.
-3. Once the operator is installed, the agent will begin uploading the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
+2. Follow the steps provided in the [NVIDIA GPU Operator installation guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html).
+3. Once the operator is installed, the Vantage Kubernetes agent will begin to upload the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
 
 :::tip
 To see the overall cluster idle for GPU memory, group the efficiency report by namespace. An `_idle_` namespace is displayed, which includes the idle GPU costs.
