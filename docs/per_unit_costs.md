@@ -1,13 +1,14 @@
 ---
 id: per_unit_costs
-title: Per Unit Costs
+title: Unit Costs
 description: Use business metrics to analyze per-unit costs and cost of goods sold.
 keywords:
   - Per unit costs
+  - Unit costs
   - Business Metrics
 ---
 
-# Per Unit Costs
+# Unit Costs
 
 A _unit_ is any metric that your business tracks, such as users, requests, transactions, customers, vendors, and so on. Unit costs can help you analyze the cost of goods sold (COGS). You can add unit costs as a visualization on [Cost Reports](/cost_reports) to visualize your cloud infrastructure costs on a per unit basis. _Business metrics_ are the units of data from your business that are aggregated and combined with costs to produce per unit costs on Cost Reports. By importing these business metrics into Vantage, you can track unit costs, like cost per daily active user, COGS per customer, cost per million API requests, etc.
 
@@ -18,6 +19,10 @@ In the visual example below, the business metric **Per Requests per Second** is 
 </div>
 
 ## Import Business Metrics
+
+:::tip
+To get started with business metrics and unit costs, you can also view a video demo on [Vantage University](/vantage_university_unit_costs) 🎓.
+:::
 
 Business metrics can be imported from other systems directly into Vantage and analyzed alongside cost data. You can create automatic import integrations with Amazon CloudWatch, manually import these metrics from a CSV file, or automatically upload metrics via the Vantage API.
 

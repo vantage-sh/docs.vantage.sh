@@ -12,6 +12,10 @@ By default, Vantage provides you with a Cost Report, named **All Resources**, th
 
 You can create as many Cost Reports as you'd like and filter your costs across several dimensions. As you create Cost Reports, they will be displayed on the [Overview](/overview) page. Each report will automatically generate a [forecast](/forecasting).
 
+:::tip
+To get started with Cost Reports, you can also watch these video demos on [Vantage University](/vantage_university_cost_reporting) 🎓.
+:::
+
 ## Create a Cost Report {#create-report}
 
 1. From the top navigation, click **Cost Reporting**.
