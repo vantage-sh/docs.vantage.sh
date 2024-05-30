@@ -323,13 +323,13 @@ Keep in mind that the `DELETE` action is permanent, and you will no longer have 
 ## Assign Business Metrics to Cost Reports {#assign-metrics}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Assign metric to cost report" width="80%" src="/img/assign-metrics-cost-report.png" />
+    <img alt="Assign metric to cost report" width="100%" src="/img/assign-metrics-cost-report.png" />
 </div>
 
 Once your import is complete you can assign metrics to one or more Cost Reports. You can also assign as many different business metrics to a Cost Report as you want.
 
-1. Under **Assigned Cost Reports**, click **+ Add a Report**.
-2. In the **Report** dropdown menu, search for and select a Cost Report.
+1. Under **Assigned Cost Reports**, click **Assign a Report**.
+2. The **Assign a Report** popup window is displayed.   In the **Report** dropdown menu, search for and select a Cost Report.
 3. For **Unit Scale**, select either **Per Unit**, **Per Hundred**, **Per Thousand**, **Per Million**, or **Per Billion**. The scale is used to divide the business metric before calculating the cost per unit. Use this scale to create a per-unit cost, such as _Cost per Thousand Requests_. If you select **Per Unit**, no division occurs, and the actual metric number will be used within the Cost Report.
 4. For **Label Filter**, select any labels that were imported with your data. 
    - Any selected labels will be aggregated and applied to the Cost Report to calculate the per unit costs. For example, if you select the labels `app1` and `app2`, the per unit cost calculation will be an aggregate of the corresponding values for those labels. If you select only `app1`, then the per unit cost calculation will only apply to values that correspond with the `app1` label. 
