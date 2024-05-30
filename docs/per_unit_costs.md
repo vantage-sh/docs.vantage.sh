@@ -45,6 +45,10 @@ You can upload a CSV file that uses the following three-column format. This CSV 
 
 The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number. The `label` column is optional. See the [section above](/per_unit_costs#labels) for more information about labels.
 
+:::note
+A label can be added once per date.
+:::
+
 ```
 date,amount,label
 2024-01-09,295,app1
