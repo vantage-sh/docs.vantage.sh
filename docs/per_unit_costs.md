@@ -18,6 +18,12 @@ In the visual example below, the business metric **Per Requests per Second** is 
     <img alt="Per Unit Costs displayed as a trend line on the graph in a Cost Report" width="100%" src="/img/per-unit-costs.png" />
 </div>
 
+## Labeled Business Metrics {#labels}
+
+You can optionally include a label for each uploaded metric. The label identifies the source of the metric—like an associated application or cost center. For example, a metric like _Monthly Active Users_ typically applies to more than one application. The ability to allocate these metrics is important for analyzing both overall user activity and individual application performance, enabling more informed decision-making at the application level. 
+
+In the above example, you can create labels like _Active Users App A_, _Active Users App B_, etc. When you assign this metric to a Cost Report, you can decide which labels to include on the Cost Report and in the per unit cost calculation. Any labels you decide to include will be aggregated in the per unit cost calculation. So, in this example, if you decide to include only data with the _Active Users App A_ label, then unit costs will be calculated only for that set of data. If you also include _Active Users App B_, then the per unit cost calculation will aggregate both sets of labeled data. 
+
 ## Import Business Metrics
 
 :::tip
@@ -40,20 +46,24 @@ The following steps are for importing via CloudWatch or a CSV file. If you want 
 
 ### Import from a CSV File {#importing-from-a-csv}
 
-You can upload a CSV file that uses the following two-column format. This CSV file can replace existing data or be used to import new data. You can supply up to six months of metrics.
+You can upload a CSV file that uses the following three-column format. This CSV file can replace existing data or be used to import new data. You can supply up to six months of metrics.
 
-The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number.
+The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number. The `label` column is optional. See the [section above](/per_unit_costs#labels) for more information about labels.
+
+:::note
+A label can be added once per date.
+:::
 
 ```
-date,amount
-2024-01-09,295
-2024-01-16,909
-2024-01-23,934
-2024-01-30,772
-2024-02-06,770
-2024-02-13,170
-2024-02-20,819
-2024-02-27,307
+date,amount,label
+2024-01-09,295,app1
+2024-01-16,909,app1
+2024-01-23,934,app1
+2024-01-30,772,app1
+2024-01-09,344,app2
+2024-01-16,789,app2
+2024-01-23,922,app2
+2024-01-30,768,app2
 ...
 ```
 
@@ -85,7 +95,8 @@ If Vantage does not have a Cross-Account IAM Role associated with your AWS accou
    :::
 6. For **Dimensions**, enter a **Name** and **Value**. [Dimensions](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension) are used to pull specific statistical data for a metric. For example, enter `InstanceId` with a value of `i-1234567890abcdef0`. Each CloudWatch metric has a set of dimensions you can select. Click **+ Add a Dimension** to add more than one dimension.
 7. For each import, you must specify the **Aggregation** function to be used because metrics will be aggregated to the day. Select either **Sum**, **Average**, **Maximum**, or **Minimum**.
-8. Click **Import Data**.
+8. Optionally, enter a [dimension **name**](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Dimension) for the **Label Dimension** field. 
+9. Click **Import Data**.
 <details><summary>Click to view visual example</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The CloudWatch metrics import screen with data added to each field" width="100%" src="/img/import-cloudwatch.png" />
@@ -113,7 +124,8 @@ To import business metrics from Datadog, ensure Datadog is one of your [connecte
     <img alt="The Datadog metrics import screen with data added to each field" width="100%" src="/img/import-datadog.png" />
 </div>
 </details>
-5. Click **Import Data**.
+5. Optionally, enter a [tag **name**](https://docs.datadoghq.com/getting_started/tagging/) for the **Label Tag** field. 
+6. Click **Import Data**.
 
 Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
 
@@ -151,15 +163,23 @@ curl --request POST \
   "values": [
     {
       "date": "2024-02-01",
-      "amount": 1512
+      "amount": 1512,
+      "label": "app1"
+    },
+    {
+      "date": "2024-02-01",
+      "amount": 1816,
+      "label": "app2"
     },
     {
       "date": "2024-02-02",
-      "amount": 1816
+      "amount": 1236,
+      "label": "app1"
     },
     {
-      "date": "2024-02-03",
-      "amount": 1236
+      "date": "2024-02-02",
+      "amount": 1711,
+      "label": "app2"
     }
   ]
 }
@@ -176,6 +196,7 @@ curl --request POST \
 - `values` is an array of objects that comprises the `date` and `amount` key/value pairs associated with each business metric data point.
   - `date` needs to be in `YYYY-MM-DD` format.
   - `amount` needs to be a number.
+  - `label` is an optional field. See the [section above](/per_unit_costs#labels) for details.
 
 The following JSON is returned in a successful `201` response, which includes the unique business metric `token`. Dates in the response are displayed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 
@@ -191,9 +212,10 @@ The following JSON is returned in a successful `201` response, which includes th
     }
   ],
   "values": [
-    { "date": "2024-02-01T00:00:00Z", "amount": "1512.0" },
-    { "date": "2024-02-02T00:00:00Z", "amount": "1816.0" },
-    { "date": "2024-02-03T00:00:00Z", "amount": "1236.0" }
+    { "date": "2024-02-01T00:00:00Z", "amount": "1512.0", "label": "app1", },
+    { "date": "2024-02-02T00:00:00Z", "amount": "1816.0", "label": "app2" },
+    { "date": "2024-02-03T00:00:00Z", "amount": "1236.0", "label": "app1" },
+    { "date": "2024-02-03T00:00:00Z", "amount": "1711.0", "label": "app2" },
   ]
 }
 ```
@@ -310,15 +332,18 @@ Keep in mind that the `DELETE` action is permanent, and you will no longer have 
 ## Assign Business Metrics to Cost Reports {#assign-metrics}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Assign metric to cost report" width="80%" src="/img/assign-metrics-cost-report.png" />
+    <img alt="Assign metric to cost report" width="100%" src="/img/assign-metrics-cost-report.png" />
 </div>
 
 Once your import is complete you can assign metrics to one or more Cost Reports. You can also assign as many different business metrics to a Cost Report as you want.
 
-1. Under **Assigned Cost Reports**, click **+ Add a Report**.
-2. In the **Report** dropdown menu, search for and select a Cost Report.
+1. Under **Assigned Cost Reports**, click **Assign a Report**.
+2. The **Assign a Report** popup window is displayed.   In the **Report** dropdown menu, search for and select a Cost Report.
 3. For **Unit Scale**, select either **Per Unit**, **Per Hundred**, **Per Thousand**, **Per Million**, or **Per Billion**. The scale is used to divide the business metric before calculating the cost per unit. Use this scale to create a per-unit cost, such as _Cost per Thousand Requests_. If you select **Per Unit**, no division occurs, and the actual metric number will be used within the Cost Report.
-4. Click **Save**. The metric is displayed on the corresponding Cost Report based on the selected scale.
+4. For **Label Filter**, select any labels that were imported with your data. 
+   - Any selected labels will be aggregated and applied to the Cost Report to calculate the per unit costs. For example, if you select the labels `app1` and `app2`, the per unit cost calculation will be an aggregate of the corresponding values for those labels. If you select only `app1`, then the per unit cost calculation will only apply to values that correspond with the `app1` label. 
+   - You can also select the **unlabeled** option, which includes any values that don't have a corresponding label.
+5. Click **Save**. The metric is displayed on the corresponding Cost Report based on the selected scale and optionally selected labels.
 
 ## View Per Unit Costs on Cost Reports
 
