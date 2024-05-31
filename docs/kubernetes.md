@@ -184,15 +184,40 @@ GPU _utilization_ is not factored into the efficiency calculation; only GPU memo
 
 The Vantage Kubernetes agent automatically collects GPU usage information via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can also be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. NVIDIA GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
 
-To configure the collection of GPU metrics on your cluster:
+#### Vantage Kubernetes Agent Configuration
 
-1. Ensure you have the Vantage Kubernetes agent, [version 1.0.26 or later](/kubernetes_agent#upgrade-agent), installed.
-2. Follow the steps provided in the [NVIDIA GPU Operator installation guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html).
-3. Once the operator is installed, the Vantage Kubernetes agent will begin to upload the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
+Install or upgrade to Vantage Kubernetes agent [version 1.0.26 or later](/kubernetes_agent#upgrade-agent). To collect GPU metrics, set the following parameter to `true` in the agent's [`values.yaml`](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml): `-set agent.gpu.usageMetrics=true`.
 
-:::tip
-To see the overall cluster idle for GPU memory, group the efficiency report by namespace. An `_idle_` namespace is displayed, which includes the idle GPU costs.
-:::
+The agent also provides some additional GPU configuration options. The defaults match the operator's defaults. Refer to the agent’s `values.yaml` for option configuration details.
+
+#### Configure the Operator
+
+For net-new installations:
+
+1. To configure the `dcgm-exporter` to collect custom metrics, retrieve the metrics file and save it as `dcgm-metrics.csv`:
+   ```bash
+   curl <https://raw.githubusercontent.com/NVIDIA/dcgm-exporter/main/etc/dcp-metrics-included.csv> > dcgm-metrics.csv
+   ```
+2. Add the `DCGM_FI_DEV_FB_TOTAL` memory metric to the metrics file:
+   ```bash
+   ....
+   # Memory usage
+   DCGM_FI_DEV_FB_FREE, gauge, Framebuffer memory free (in MiB).
+   DCGM_FI_DEV_FB_TOTAL, gauge, Framebuffer memory total (in MiB).
+   DCGM_FI_DEV_FB_USED, gauge, Framebuffer memory used (in MiB).
+   ...
+   ```
+3. Create a `gpu-operator` namespace:
+   ```bash
+   kubectl create namespace gpu-operator
+   ```
+4. Create a ConfigMap from the metrics file: 
+   ```bash
+   kubectl create configmap metrics-config -n gpu-operator --from-file=dcgm-metrics.csv
+   ```
+5. Follow the steps provided in the NVIDIA GPU Operator installation guide to install the operator. Set the following options on the operator: `--set dcgmExporter.config.name=metrics-config` and `--set dcgmExporter.env[0].name=DCGM_EXPORTER_COLLECTORS --set dcgmExporter.env[0].value=/etc/dcgm-exporter/dcgm-metrics.csv`.
+
+Once the operator is installed, the Vantage Kubernetes agent will begin to upload the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
 
 ## Kubernetes Rightsizing Recommendations
 
