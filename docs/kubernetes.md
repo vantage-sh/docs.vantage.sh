@@ -215,7 +215,9 @@ For net-new installations:
    ```bash
    kubectl create configmap metrics-config -n gpu-operator --from-file=dcgm-metrics.csv
    ```
-5. Follow the steps provided in the NVIDIA GPU Operator installation guide to install the operator. Set the following options on the operator: `--set dcgmExporter.config.name=metrics-config` and `--set dcgmExporter.env[0].name=DCGM_EXPORTER_COLLECTORS --set dcgmExporter.env[0].value=/etc/dcgm-exporter/dcgm-metrics.csv`.
+5. Follow the steps provided in the [NVIDIA GPU Operator installation guide](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/getting-started.html) to install the operator. Set the following options on the operator: 
+   - `--set dcgmExporter.config.name=metrics-config`
+   - `--set dcgmExporter.env[0].name=DCGM_EXPORTER_COLLECTORS --set dcgmExporter.env[0].value=/etc/dcgm-exporter/dcgm-metrics.csv`.
 
 Once the operator is installed, the Vantage Kubernetes agent will begin to upload the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
 
