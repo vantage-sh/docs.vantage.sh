@@ -15,13 +15,13 @@ The [Vantage Kubernetes agent](/kubernetes_agent) is the recommended integration
 
 ## How the Integration Works
 
-Vantage looks at Pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vCPU, Memory, GPU, Storage, etc.) to the pod. The lifecycle of the EC2 instance is also automatically determined (On-Demand, Spot, Reserved, Savings Plans, EDP, etc.). This allows you to see costs by the following dimensions:
+Vantage looks at pod lifecycle data and the underlying nodes that pods run on. By joining the lifecycle data of each pod (along with the greater of either the reserved or actual CPU/memory prescribed) with the specific rate information of the underlying node, Vantage allocates subcategories of the node (vCPU, memory, GPU, storage, etc.) to the pod. The lifecycle of the EC2 instance is also automatically determined (On-Demand, Spot, Reserved, Savings Plans, EDP, etc.). This allows you to see costs by the following dimensions:
 
-- By Container Name
-- By Pod Name
-- By Kubernetes Service
-- By Kubernetes Namespace
-- By Kubernetes Label
+- By container name
+- By pod name
+- By Kubernetes service
+- By Kubernetes namespace
+- By Kubernetes label
 
 Vantage automatically profiles your clusters for all existing Services, Namespaces, and Labels to be available for you in the Vantage console as dimensions for filtering and reporting. 
 
