@@ -186,9 +186,9 @@ The Vantage Kubernetes agent automatically collects GPU usage information via th
 
 #### Vantage Kubernetes Agent Configuration
 
-Install or upgrade to Vantage Kubernetes agent [version 1.0.26 or later](/kubernetes_agent#upgrade-agent). To collect GPU metrics, set the following parameter to `true` in the agent's [`values.yaml`](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml): `-set agent.gpu.usageMetrics=true`.
+Install or upgrade to Vantage Kubernetes [agent version 1.0.26 or later](https://www.notion.so/kubernetes_agent#upgrade-agent), available as part of Helm Chart version 1.0.34. To collect GPU metrics, set the following parameter to `true` in the agent's [`values.yaml`](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml): `-set agent.gpu.usageMetrics=true`.
 
-The agent also provides some additional GPU configuration options. The defaults match the operator's defaults. Refer to the agent’s `values.yaml` for option configuration details.
+The agent also provides some additional GPU configuration options. The defaults match the operator's defaults. Refer to the [agent’s `values.yaml`](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L47-L61) for option configuration details.
 
 #### Configure the Operator
 
