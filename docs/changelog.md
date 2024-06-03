@@ -11,29 +11,36 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on May 15, 2024, with product updates for May 2024._
+_This page was last updated on June 3, 2024, with product updates for May 2024._
 
 ## May 2024
 
 ### Product Updates
 
-- **Visual UI updates:** Visual updates have been made to the look and feel of the Budgets, Business Metrics, Active Resources, and Resource Reports screens.
+- **Visual UI updates:** Visual updates have been made to the look and feel of the Budgets, Business Metrics, Cost Recommendations, Active Resources, and Resource Reports screens.
 - **Segments RBAC:** Users with the [editor role](/rbac) can now update [segments](/segments).
 - **MongoDB tags:** Tags are now available as a filtering dimension for [MongoDB](/connecting_mongodb-atlas) Cost Reports.
 - **Forecasted performance of a budget:** Future [budget periods](/budgets) are now displayed and compared to forecasts on Cost Reports.
 - **Reserved Instance recommendations:** Reserved Instance [recommendations](/cost_recommendations) now include a link to [Autopilot](/autopilot) with split-out categories and usage.
+- **Negative cost axis:** The range of the cost axis on Cost Reports is updated to include negative values. This is visible in cases where costs may be negative due to things like credits. 
+- **Vantage University:** [Vantage University](/vantage_university) is available on the docs site and includes a set of videos for getting started with Vantage.
+- **Labeled business metrics:** [Labeled business metrics](/per_unit_costs#labels) are available to identify the source of a metric—like an associated application or cost center.
+- **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster. 
 
 ### Kubernetes Agent Updates
 
-Version 1.0.25, Helm Chart [vantage-kubernetes-agent-1.0.33](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.33), includes the following update:
-
-The `report_http_proxy` flag is now available to supply during configuration. HTTP proxy is used for the HTTP client that calls Vantage and S3 during periodic reports. Overrides `HTTP_PROXY` in the event both are specified.
+- Version 1.0.26, Helm Chart [vantage-kubernetes-agent-1.0.34](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.34), includes the following updates:
+  - Support is now available for NVIDIA GPU exporters.
+  - Fargate nodes are now ignored.
+- Version 1.0.25, Helm Chart [vantage-kubernetes-agent-1.0.33](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.33), includes the following update:
+  - The `report_http_proxy` flag is available to supply during configuration. HTTP proxy is used for the HTTP client that calls Vantage and S3 during periodic reports. Overrides `HTTP_PROXY` in the event both are specified.
 
 ### API Updates
 
 - **Cost recommendations endpoint:** The `/recommendations` [endpoint](https://vantage.readme.io/reference/getrecommendations) automates the retrieval of cost recommendations. The endpoint includes filtering options for parameters like category and provider.
-- **Integrations endpoint:** The `/integrations` [endpoint](https://vantage.readme.io/reference/getintegrations) automates the retrieval of information about existing integrations.
+- **Integrations endpoint:** The `/integrations` [endpoint](https://vantage.readme.io/reference/getintegrations) automates the retrieval of information about existing integrations. You can also send a `DELETE` call to delete existing integrations. 
 - **Segment tokens in budgets:** The `cost_report_token` parameter of the `/budgets` [endpoint](https://vantage.readme.io/reference/createbudget) now accepts segment tokens (in addition to Cost Report tokens).
+- **Business metrics endpoint updates:** With the release of labeled business metrics, the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is updated to include a `label` object as part of the `values` array of objects. 
 
 ## April 2024
 
