@@ -13,7 +13,11 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import Checkmark from '@site/src/components/icons/Checkmark';
 
-Advanced role-based access controls are available within Vantage for Enterprise tier accounts. These controls facilitate fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources—such as Cost Reports, dashboards, or folders—that a user can view and/or edit.
+:::note
+Advanced role-based access controls are available only for Enterprise tier accounts. 
+:::
+
+Role-based access control (RBAC) facilitates fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources—such as Cost Reports, dashboards, or folders—that a user can view and/or edit.
 
 By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access.
 
