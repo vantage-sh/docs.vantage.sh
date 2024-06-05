@@ -247,6 +247,10 @@ Additional provider references are also listed here:
 - [Azure: Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)](https://learn.microsoft.com/en-us/azure/aks/csi-storage-drivers)
 - [AWS: Amazon EBS CSI driver](https://docs.aws.amazon.com/eks/latest/userguide/ebs-csi.html)
 
+### Volume Support Error {#volume-support}
+
+If you see an error related to `binding volumes: context deadline exceeded`, this means you may not have volume support on your cluster. This error typically occurs when your cluster is unable to provision or attach persistent storage volumes required by your applications. Check your cluster's configuration and ensure the storage provider is properly set up.
+
 ## (Optional) Use S3 for Data Persistence
 
 The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. The default deployment option uses a Persistent Volume and works for clusters ranging from tens to thousands of nodes; however, if Persistent Volumes are not supported with your cluster, an alternative configuration, using S3, is available for agents deployed in AWS. If you require persistence to a different object store, you can contact [support@vantage.sh](mailto:support@vantage.sh).
