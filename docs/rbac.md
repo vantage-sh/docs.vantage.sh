@@ -177,7 +177,7 @@ If you want to grant access to a resource (for example, a Dashboard) to only a s
 
 In the following table, the Everyone team's access to a resource (for example, a Cost Report) has been revoked. The member's team has been granted access to that specific resource.
 
-| Team Access | Team Role | Create?      | Update?      | Delete?      | View?        | Manage Access? |
+| Team Access | Team Role | Create?      | Update?*      | Delete?      | View?        | Manage Access? |
 | ----------- | --------- | ------------ | ------------ | ------------ | ------------ | -------------- |
 | No Access   | Owner     |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
 | No Access   | Editor    |              | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
@@ -188,6 +188,7 @@ In the following table, the Everyone team's access to a resource (for example, a
 | Edit Access | Owner     | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/>   |
 | Edit Access | Editor    | <Checkmark/> | <Checkmark/> | <Checkmark/> | <Checkmark/> |                |
 | Edit Access | Viewer    |              |              |              | <Checkmark/> |                |
+_* Update refers to saving changes_
 
 :::note
 If a user is on multiple teams that have conflicting permissions, the higher level of permissions will be granted.
