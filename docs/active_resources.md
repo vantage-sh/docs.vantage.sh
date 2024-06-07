@@ -9,9 +9,9 @@ keywords:
 
 # Resource Reports
 
-For supported providers, Vantage profiles for _active resources_ within your account. This action generates an active resource report, which provides visibility into all the currently operational resources within your account and the associated costs incurred by each resource. Examples of active resources include items like Amazon S3 buckets, Azure Load Balancers, Snowflake queries, Confluent clusters, etc.
+For supported providers, Vantage profiles for _active resources_ within your account. An active resource is a resource, such as a virtual machine, that is currently generating costs within a cloud account. This is in contrast to resources that are included in billing but may no longer be live. Examples of active resources include items like Amazon S3 buckets, Azure Load Balancers, Snowflake queries, Confluent clusters, etc.
 
-You can create _resource reports_ to see filtered views of your active resources. These reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
+You can create _resource reports_ to see filtered views of your active resources. These reports provide visibility into all the currently operational resources within your account and the associated costs incurred by each resource. Reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
 
 :::note
 Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
