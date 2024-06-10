@@ -15,11 +15,64 @@ Savings Planner is a planning and forecasting tool you can use to view and model
 At this time, Savings Planner is available only for AWS.
 :::
 
-## How Does Savings Planner Calculate Savings Rates?
+## Savings Planner Calculations
 
 Vantage has ingested over two million different savings rate permutations that are possible across EC2, Lambda, and Fargate. As Vantage processes your Cost and Usage Reports (CUR), it will use your usage data to infer what compute you're running and what your specific savings rates would be for each potential savings plan you buy.
 
 This methodology for forecasting savings is as accurate as possible and is more accurate with each additional CUR that's processed. Vantage uses the most recent previous month for forecasting the potential savings rate. As your infrastructure changes each month, Vantage will automatically infer new savings rates.
+
+Savings model predictions are based on _raw compute spend_ and provide a _projected savings rate_. Descriptions and calculations are provided below.
+
+### Raw Compute Spend
+
+Raw compute spend is defined as any spend on AWS services that is coverable by a Savings Plan or Reserved Instance. This includes spending on services such as EC2, Lambda, ECS for Kubernetes, SageMaker, and Fargate ECS. 
+
+To calculate the raw compute spend, Vantage sums the costs of all coverable services before applying any discounts from Savings Plans. For a given period, this can be expressed as:
+
+$$
+{raw\_compute\_spend}=
+∑coverable\_services
+$$
+
+### Projected Savings Rate
+
+When calculating financial commitment discounts, Vantage uses the last full month of AWS Cost and Usage Reports to categorize the compute spend based on each AWS SKU. This allows Vantage to calculate the total cost (`cost_for_period`) for a given period per SKU. Vantage then uses the AWS API to obtain the hourly rate of the instance type (`hourly_rate`) and the discounted hourly rate (`discounted_rate`), dimensioned by type, term, and payment for the possible discounts.
+
+The following values are calculated for each EC2, Fargate, and Lambda SKU and all discount dimensions (type, term, payment) based on data available from the AWS API. Total hours and instances per hour are calculated as follows:
+
+$$
+total\_hours = \frac{cost\_for\_period}{sku\_hourly\_rate}
+$$
+
+$$
+instances\_per\_hour = \frac{total\_hours}{hours\_in\_period}
+$$
+
+Vantage then calculates the cost and discounted cost for the instances per hour:
+
+$$
+{cost} = {sku\_hourly\_rate} \times{instances\_per\_hour}
+$$
+
+$$
+{discounted\_cost} = {discounted\_rate} \times {instances\_per\_hour}
+$$
+
+These individual SKU costs are summed by type, term, and payment to get the total costs:
+
+$$
+{total\_cost} = \sum {cost}
+$$
+
+$$
+{total\_discounted\_cost} = \sum {discounted\_cost}
+$$
+
+Finally, the projected savings rate is calculated using the total cost and total discounted cost:
+
+$$
+{projected\_savings\_rate} = \frac{total\_cost - total\_discounted\_cost}{total\_cost}
+$$
 
 ## Create a Savings Model
 
