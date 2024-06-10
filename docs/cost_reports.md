@@ -150,7 +150,7 @@ When percent-based cost allocation is set as a filter, forecasts will be produce
 
 ### Amazon Elastic Container Service (ECS)-Managed Tags {#ecs}
 
-If you want to view Amazon Elastic Container Service (ECS) cluster tags, you see to enable ECS-Managed Tags. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html#managed-tags) for more information. 
+If you want to view Amazon Elastic Container Service (ECS) cluster tags, you need to enable ECS-Managed Tags. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html#managed-tags) for more information. 
 
 ### Saved Filters
 
