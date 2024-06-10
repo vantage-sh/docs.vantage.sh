@@ -148,6 +148,10 @@ To set percent-based cost allocation:
 
 When percent-based cost allocation is set as a filter, forecasts will be produced in aggregate for all set conditions, and the percentage allocation will be applied to that forecast.
 
+### Amazon Elastic Container Service (ECS)-Managed Tags {#ecs}
+
+If you want to view Amazon Elastic Container Service (ECS) cluster tags, you see to enable ECS-Managed Tags. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html#managed-tags) for more information. 
+
 ### Saved Filters
 
 You can create and use **Saved Filters** to apply commonly used filters across multiple reports. Review the [Saved Filters documentation](/saved_filters) for more information.
