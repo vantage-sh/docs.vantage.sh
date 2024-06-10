@@ -25,7 +25,7 @@ Savings model predictions are based on _raw compute spend_ and provide a _projec
 
 ### Raw Compute Spend
 
-Raw compute spend is defined as any spend on AWS services that is coverable by a Savings Plan or Reserved Instance. This includes spending on services such as EC2, Lambda, ECS for Kubernetes, SageMaker, and Fargate ECS. 
+Raw compute spend is defined as any spend on AWS services that is coverable by a Savings Plan. This includes spending on services such as EC2, Lambda, ECS for Kubernetes, SageMaker, and Fargate ECS. 
 
 To calculate the raw compute spend, Vantage sums the costs of all coverable services before applying any discounts from Savings Plans. For a given period, this can be expressed as:
 
@@ -36,7 +36,7 @@ $$
 
 ### Projected Savings Rate
 
-When calculating financial commitment discounts, Vantage uses the last full month of AWS Cost and Usage Reports to categorize the compute spend based on each AWS SKU. This allows Vantage to calculate the total cost (`cost_for_period`) for a given period per SKU. Vantage then uses the AWS API to obtain the hourly rate of the instance type (`hourly_rate`) and the discounted hourly rate (`discounted_rate`), dimensioned by type, term, and payment for the possible discounts.
+When calculating financial commitment discounts, Vantage uses the last full month of AWS Cost and Usage Reports to categorize the compute spend based on each AWS SKU. This allows Vantage to calculate the total cost (`cost_for_period`) for a given period per SKU. Vantage then uses the AWS API to obtain the hourly rate of the instance type (`sku_hourly_rate`) and the discounted hourly rate (`discounted_rate`), dimensioned by type, term, and payment for the possible discounts.
 
 The following values are calculated for each EC2, Fargate, and Lambda SKU and all discount dimensions (type, term, payment) based on data available from the AWS API. Total hours and instances per hour are calculated as follows:
 
