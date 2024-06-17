@@ -13,7 +13,7 @@ toc_max_heading_level: 4
 Vantage monitors your connected providers and shows cost recommendations as your infrastructure evolves and changes. You can implement these recommendations to lower your bill.
 
 :::note
-Cost recommendations are currently available for AWS, Azure, and Datadog.
+Cost recommendations are currently available for AWS, Azure, Datadog, and Kubernetes.
 :::
 
 ## Types of Recommendations
