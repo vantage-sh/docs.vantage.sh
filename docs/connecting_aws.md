@@ -150,3 +150,7 @@ Occasionally, Vantage will modify the permission sets it uses to access billing 
 ## View Amazon CloudWatch Metrics on Cost Reports
 
 You can import Amazon CloudWatch metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-cloudwatch) documentation for more information.
+
+## Network Flow Reports
+
+For any network-enabled resource, [Network Flow Reports](/network_flow_reports) provide visibility by source and destination to the flows within your network that are driving costs. See the documentation for information on how to enable these reports and view data transfer costs for AWS services.

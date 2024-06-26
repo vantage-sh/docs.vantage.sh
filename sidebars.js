@@ -165,6 +165,7 @@ module.exports = {
         "annotations",
         "forecasting",
         "active_resources",
+        "network_flow_reports",
         "segments",
         "cost_anomaly_alerts",
         "report_notifications"
