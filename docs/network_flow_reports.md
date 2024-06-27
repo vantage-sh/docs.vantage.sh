@@ -463,6 +463,14 @@ $$
 
 Vantage first identifies the different flows of data within your network. It uses information provided within the AWS Cost and Usage Reports (CUR) to determine the specific rate (cost per unit of data) that applies to each type of data flow (e.g., cross-AZ, public). Each rate for each data flow is multiplied by the amount of data transferred in that flow. The estimated cost is determined by the sum of these products.
 
+## Network Costs on Cost Reports
+
+On [Cost Reports](/cost_reports), for resources that generate network traffic costs (e.g., NAT Gateways), a **Network Costs** button is displayed in the Cost Report list. Click this button to view network flows filtered to that resource. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="Network Costs option on a Cost Report" width="80%" src="/img/nfr-cost-report.png" />
+</div>
+
 ## Network Flow Report Examples {#nfr-examples}
 
 The following examples demonstrate common scenarios for using Network Flow Reports. These examples are based on the three reports that Vantage provides by default.

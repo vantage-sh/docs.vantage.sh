@@ -185,10 +185,6 @@ See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguid
 
 For EC2 instances where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations) documentation for details.
 
-### Kubernetes Rightsizing Recommendations
-
-For Kubernetes workloads where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view and use this information.
-
 ### CloudWatch Metrics
 
 For certain resources, you can view high-fidelity charts for CloudWatch metrics. On resources that support CloudWatch metrics, the **CloudWatch Metrics** tab is displayed. These metrics are useful for rightsizing servers and databases based on utilization.
@@ -212,3 +208,11 @@ To inquire about support for Cloudwatch metrics for other services, or for monit
 ### VPC Flow Logs
 
 For active resources that generate network traffic costs, such as NAT Gateways and EC2 instances, the **VPC Flow Logs** tab is displayed. Select this tab to view peer resources and the associated traffic category (e.g., public). A Sankey diagram of each associated network flow is provided. See the [Network Flow Reports](/network_flow_reports) documentation for details on network flow reporting.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="Network Flow Report provider resource view" width="90%" src="/img/nfr-resource.png" />
+</div>
+
+### Kubernetes Rightsizing Recommendations
+
+For Kubernetes workloads where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view and use this information.
