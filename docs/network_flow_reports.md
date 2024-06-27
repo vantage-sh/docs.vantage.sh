@@ -93,6 +93,10 @@ If you add additional fields to your VPC Flow Log format in AWS, and you already
 
 ## Create a New Network Flow Report
 
+:::tip
+You are provided with three precreated reports. See the [Network Flow Report Examples section](/network_flow_reports#nfr-examples) section below for details on how to best use these reports and how to get started.
+:::
+
 Follow the steps below to create a new Network Flow Report:
 
 1. From the top navigation, click **Active Resources**.
@@ -394,7 +398,6 @@ To add additional columns to the table and diagram, expand the **Group By** menu
     <ReactPlayer 
         playing 
         muted 
-        controls
         loop
         url='/img/nfr-group.mp4'
         alt= "A report is grouped for traffic type" 
@@ -414,6 +417,25 @@ For certain grouping criteria, you can view additional details about resources. 
    - VPC ID/Peer VPC ID
    - UUID/Peer UUID
 2. Click within the table row for a resource. The **Flow Log Metadata** panel is displayed on the right of the screen. Data is provided for the **Peer** and **Peer Resource**. Click the link for any listed resource to see a provider resource report displayed.
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "80%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        loop
+        url='/img/nfr-metadata.mp4'
+        alt="A report is grouped by VPC ID. Then, a resource is selected and the metadata panel is displayed." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
 
 ## Estimated Cost Calculation for Flows {#estimated-cost}
 
@@ -443,11 +465,19 @@ The following examples demonstrate common scenarios for using Network Flow Repor
 
 This default **All Network Flow Logs** report shows all your network flows. The flow’s Resource UUID and Peer Resource UUID are provided as well as the traffic category (e.g., public). Review this report to get a high-level view of all your traffic flows.
 
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-start.png" />
+</div>
+
 ### Example 2: Identify Cross-AZ Traffic
 
 Cross-AZ data transfer within AWS incurs higher costs compared to intra-AZ data transfer. [According to AWS](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer), “For data transferred between a Local Zone and an Availability Zone within the same AWS Region, "in" to and "out" from Amazon EC2 in the Local Zone” data is charged at $0.01 for _both_ transfer in and out. Transferring data between AZs requires more network bandwidth compared to transferring data within the same AZ. This additional bandwidth consumption contributes to higher costs.
 
 In the provided cross-AZ report, you can view all cross-AZ traffic along with flow size and estimated cost. The **Destination Hostname/Address** columns show exactly where the traffic is flowing.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Sample Network Flow Report with all cross-AZ traffic" width="80%" src="/img/nfr-az.png" />
+</div>
 
 Review the highest costing flows and consider the following tips:
 
@@ -456,6 +486,12 @@ Review the highest costing flows and consider the following tips:
 
 ### Example 3: Examine Public Traffic
 
-When monitoring network costs, analyzing public traffic can reveal significant insights about where your traffic is going when it reaches the public internet. By analyzing destination details, you can ensure that traffic taking the correct path or is only going to trusted and necessary endpoints. In the pre-provided public traffic report, the **Destination Hostname** grouping/column provides a human-readable format of the destination, helping you quickly identify known destination services or endpoints. Vantage identifies hostnames using a reverse DNS lookup, or when vendors publish static IP address ranges, such as with Datadog, can associate these IPs with the name of the service. The **Destination Address** provides the exact IP address, which is useful for detailed analysis to ensure traffic is reaching the intended destinations.
+When monitoring network costs, analyzing public traffic can reveal significant insights about where your traffic is going when it reaches the public internet. By analyzing destination details, you can ensure that traffic taking the correct path or is only going to trusted and necessary endpoints. In the pre-provided public traffic report, the **Destination Hostname** grouping/column provides a human-readable format of the destination, helping you quickly identify known destination services or endpoints. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Sample Network Flow Report with all public traffic" width="80%" src="/img/nfr-public.png" />
+</div>
+
+Vantage identifies hostnames using a reverse DNS lookup, or when vendors publish static IP address ranges, such as with Datadog, can associate these IPs with the name of the service. The **Destination Address** provides the exact IP address, which is useful for detailed analysis to ensure traffic is reaching the intended destinations.
 
 Examine this report to understand which resources are generating public traffic and where that traffic is going. Consider whether you might use alternative services, like AWS [Direct Connect](https://aws.amazon.com/directconnect/), [CloudFront](https://aws.amazon.com/cloudfront/), or [PrivateLink](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-privatelink.html), to optimize data transfer and reduce costs.
