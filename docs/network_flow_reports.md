@@ -59,8 +59,8 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
     </div>
    </details>
 5. When you select the checkbox for a bucket, the **Sync All** toggle is automatically enabled. After the initial onboarding process, any new VPC Flow Logs added to that bucket will also be automatically synced each night. You can disable this option if you do not want the files to automatically sync.
-6. The right panel contains instructions on how to get set up using either the AWS CLI or the AWS Management Console. Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
-7. After you run the code in the AWS CLI or complete the steps in the AWS Management Console, click **Check Permissions**. A message is displayed that indicates whether the bucket permissions were successfully set up or if they are missing. A red **X** is displayed next to any buckets in the left panel that do not have sufficient permissions. Some log files may also be unsupported. See the [section below](/network_flow_reports#unsupported-logs) for details.
+6. The right panel contains instructions on how to get set up using the AWS CLI, AWS Management Console, or the [Vantage Terraform provider](/terraform). Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
+7. After you run the code in the AWS CLI, deploy your Terraform configuration, or complete the steps in the AWS Management Console, click **Check Permissions**. A message is displayed that indicates whether the bucket permissions were successfully set up or if they are missing. A red **X** is displayed next to any buckets in the left panel that do not have sufficient permissions. Some log files may also be unsupported. See the [section below](/network_flow_reports#unsupported-logs) for details.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Network Flow Report onboarding page with a bucket selected and showing a message that says Permissions are good" width="100%" src="/img/nfr-permissions.png" />
@@ -127,10 +127,11 @@ Follow the steps below to create a new Network Flow Report:
 
    - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links, or network flows, flow from the nodes to their traffic destination (in this example, cross-AZ or public). The width of each flow corresponds with the volume of traffic, and the color corresponds with the source of the node (e.g., yellow for _public_ in the example below).
    <div style={{display:"flex", justifyContent:"center"}}>
-   <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="8100%" src="/img/nfr-start.png" />
+   <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="/img/nfr-start.png" />
    </div>
    - In the table below the diagram, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by the **Estimated Cost** column. Click any column header to change the sort order. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost column is calculated.)
    - For each listed resource, a link to the [**Active Resources** screen](/active_resources) is provided. Click this link to view additional metadata about the resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
+   <details><summary>Click to view example image</summary>
    <div style={{ 
        display: "flex", 
        justifyContent: "center" 
@@ -153,6 +154,7 @@ Follow the steps below to create a new Network Flow Report:
        />
        </div>
    </div>
+   </details>
 
 5. You can update the criteria displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
@@ -491,7 +493,11 @@ The below Cost Report is grouped by **Service** and **Resource**.
 
 ## Network Flow Report Examples {#nfr-examples}
 
-The following examples demonstrate common scenarios for using Network Flow Reports. These examples are based on the three reports that Vantage provides by default: _All Network Flow Logs_, _Cross-AZ Traffic_, _Public Traffic Destinations_.
+The following examples demonstrate common scenarios for using Network Flow Reports. These examples are based on the three reports that Vantage provides by default: _All Network Flow Logs_, _Cross-AZ Traffic_, and _Public Traffic Destinations_.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-sample.png" />
+</div>
 
 ### Example 1: View All Network Traffic
 
