@@ -156,6 +156,8 @@ If you want to view Amazon Elastic Container Service (ECS) cluster tags, you nee
 
 For resources that generate network traffic costs (e.g., NAT Gateways), a **Network Costs** button is displayed in the Cost Report list. See the [Network Flow Reports documentation](/network_flow_reports) for details on network costs.
 
+In the below example, this Cost Report is grouped by **Service** and **Resource**. The **Network Costs** button is displayed next to NAT Gateway resources. 
+
 <div style={{display:"flex", justifyContent:"center"}}>
   <img alt="Network Costs option on a Cost Report" width="80%" src="/img/nfr-cost-report.png" />
 </div>

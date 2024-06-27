@@ -153,4 +153,4 @@ You can import Amazon CloudWatch metrics as business metrics to view alongside C
 
 ## VPC Flow Logs: Network Flow Reports
 
-For network-enabled resources, Network Flow Reports provide visibility by source and destination to the flows within your network that are driving costs. See the [documentation](/network_flow_reports) for information on how to enable these reports and view data transfer costs for AWS services.
+For network-enabled resources, Network Flow Reports provide visibility by source and destination to the flows within your network that are driving costs. See the [Network Flow Reports documentation](/network_flow_reports) for information on how to enable these reports and view data transfer costs for AWS services.
