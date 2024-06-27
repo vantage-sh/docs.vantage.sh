@@ -54,15 +54,21 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
    Click **Sync All** to import all existing VPC Flow Logs in the S3 bucket. After the initial onboarding process, any new VPC Flow Logs added to that bucket will also be automatically imported each night.
    :::
    <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Network Flow Reports onboarding page for getting started" width="100%" src="/img/nfr-onboarding.png" />
+    </div>
    </details>
-5. The right panel contains instructions on how to get set up using either the AWS Management Console or the AWS CLI. Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
-   <details><summary>Click to view example image</summary>
-   </details>
+5. The right panel contains instructions on how to get set up using either the AWS CLI or the AWS Management Console. Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
 6. After you run the code, click **Check Permissions**. A message is displayed that indicates whether the bucket permissions were successfully set up or if they are missing. A red X is displayed next to any buckets in the left panel that do not have sufficient permissions. Some log file types may also be unsupported. See the [section below](/network_flow_reports#unsupported-logs) for details.
+   <details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Network Flow Report onboarding page with a bucket selected and showing a message that says Permissions are good" width="100%" src="/img/nfr-permissions.png" />
+    </div>
+   </details>
 7. Once permissions are successfully set up, click **Connect**. A message is displayed indicating that your flow logs are importing. Click **Check Import Status** to review the status of your integration. A **Processing…** status is displayed until the import is complete.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Network Flow Report processing page for imports" width="80%" src="/img/nfr-processing.png" />
+    <img alt="Network Flow Report processing page for imports" width="100%" src="/img/nfr-processing.png" />
     </div>
    </details>
 
