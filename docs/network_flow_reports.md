@@ -122,6 +122,7 @@ Follow the steps below to create a new Network Flow Report:
             url='/img/provider-resource.mp4' 
             width="100%"
             height="100%"
+            alt="A resource is selected in the table, the active resource view is opened, and the relationships tab is displayed."
         />
         </div>
     </div>
@@ -134,6 +135,27 @@ Follow the steps below to create a new Network Flow Report:
      :::
    - You can move the columns in the table at the bottom to visualize different flows.
    <details><summary>Click to view example image</summary>
+       <div style={{ 
+        display: "flex", 
+        justifyContent: "center" 
+    }}>
+        <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+        }}>
+        <ReactPlayer 
+            playing 
+            muted 
+            loop
+            url='/img/move-column.mp4' 
+            width="100%"
+            height="100%"
+            alt="A column in the table is clicked and dragged to a new location"
+        />
+        </div>
+    </div>
    </details>
    - You can also filter and group/add more columns to the report. See the next section for details.
 6. To save the report, click **Save as New** and enter a report name. Then, click **Save**. (To edit this name, click the pencil icon in the breadcrumbs above the chart, next to the report's name.)
@@ -301,17 +323,39 @@ You can add additional fields via grouping and filtering criteria. To add a new 
      :::note
      If you are unable to see any values for a filter, this means that you are not capturing it in your VPC Flow Logs format, and therefore Vantage was unable to import this data.
      :::
-   - Click **Save**.
+   - Click **Add**.
    <details><summary>Click to view example image</summary>
+       <div style={{ 
+        display: "flex", 
+        justifyContent: "center" 
+    }}>
+        <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+        }}>
+        <ReactPlayer 
+            playing 
+            muted 
+            controls
+            loop
+            url='/img/filtering.mp4'
+            alt= "A report is filtered to public traffic" 
+            width="100%"
+            height="100%"
+        />
+        </div>
+    </div>
    </details>
 2. You can optionally edit your existing rule or add additional filter criteria.
    - To edit the rule you just created, select the rule, make your changes, and click **Save**.
    - If you want to add a rule to filter multiple criteria, such as filter by certain Regions and another rule to filter by certain Destination Hostnames, click **+ New Rule**. Add the additional criteria and save.
    - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or AWS costs where...** on the new tile.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
+   <details><summary>Click to view example image</summary>
+   </details>
 3. Above the rule set(s), click **Apply**. The diagram will update with your existing filter criteria.
-<details><summary>Click to view example image</summary>
-</details>
 
 ### Apply Grouping Criteria
 
