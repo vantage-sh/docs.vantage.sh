@@ -8,6 +8,8 @@ keywords:
   - VPC Flow Logs
 ---
 
+import ReactPlayer from 'react-player'
+
 # Network Flow Reports
 
 For any network-enabled resource, Network Flow Reports provide visibility by source and destination to the flows within your network that are driving costs. You can filter these reports to identify resources that are accruing network costs, generate detailed views of the sources and destinations of the network traffic, and investigate metadata on any resource in the flow. This feature makes it possible to correlate transfer charges with both external services, such as Datadog, or internal applications.
@@ -60,7 +62,7 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
 7. Once permissions are successfully set up, click **Connect**. A message is displayed indicating that your flow logs are importing. Click **Check Import Status** to review the status of your integration. A **Processing…** status is displayed until the import is complete.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Overview page" width="80%" src="/img/nfr-processing.png" />
+    <img alt="Network Flow Report processing page for imports" width="80%" src="/img/nfr-processing.png" />
     </div>
    </details>
 
@@ -75,7 +77,7 @@ When a particular log cannot be imported, Vantage displays either an `UNSUPPORTE
 - Unsupported log format means that your log may be missing some required columns. Hover over the `UNSUPPORTED LOG FORMAT` label to see a list of missing columns. Ensure your logs contain, at a minimum, the columns listed in the [Prerequisites](/network_flow_reports#prerequisites) section.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Overview page" width="60%" src="/img/nfr-unsupported.png" />
+    <img alt="Mouse hovers over an unsupported log format option" width="60%" src="/img/nfr-unsupported.png" />
 </div>
 
 ### Manage Existing Integrations
@@ -99,12 +101,31 @@ Follow the steps below to create a new Network Flow Report:
 4. A new Network Flow Report is displayed.
    - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links flow from the nodes to their traffic destination (in this example, public or cross-AZ). The flow link width corresponds with the volume of traffic, and the color corresponds with the source node (e.g., yellow for _public_ in the example below).
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Overview page" width="70%" src="/img/nfr-start.png" />
+    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-start.png" />
     </div>
    - In the table at the bottom, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by Estimated Cost. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost field is calculated.)
    - For each listed resource, a link to the **Active Resource** screen is provided. Click this link to view additional metadata about that resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
-    <details><summary>Click to view example image</summary>
-   </details>
+    <div style={{ 
+        display: "flex", 
+        justifyContent: "center" 
+    }}>
+        <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "80%",
+        overflow: "hidden" 
+        }}>
+        <ReactPlayer 
+            playing 
+            muted 
+            loop
+            url='/img/provider-resource.mp4' 
+            width="100%"
+            height="100%"
+        />
+        </div>
+    </div>
+
 5. You can update the criteria that is displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
    - From the top right of the diagram, update the date range that’s displayed. Click the calendar icon and select an option, such as **Last 7 Days**, **This Month**, etc.
