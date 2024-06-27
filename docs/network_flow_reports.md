@@ -99,33 +99,34 @@ Follow the steps below to create a new Network Flow Report:
 2. From the side navigation, select **Network Flow Reports**. All your existing Network Flow Reports are displayed, along with who created the report and the date it was created. Three reports are provided, by default, on this page: All Network Flow Logs, Cross-AZ Traffic, and Public Traffic Destinations. See the section below for tips on how to get started with these reports.
 3. To create a new report, click **New Network Flow Report**.
 4. A new Network Flow Report is displayed.
+
    - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links flow from the nodes to their traffic destination (in this example, public or cross-AZ). The flow link width corresponds with the volume of traffic, and the color corresponds with the source node (e.g., yellow for _public_ in the example below).
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-start.png" />
-    </div>
+   <div style={{display:"flex", justifyContent:"center"}}>
+   <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-start.png" />
+   </div>
    - In the table at the bottom, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by Estimated Cost. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost field is calculated.)
    - For each listed resource, a link to the **Active Resource** screen is provided. Click this link to view additional metadata about that resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
-    <div style={{ 
-        display: "flex", 
-        justifyContent: "center" 
-    }}>
-        <div style={{ 
-        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
-        borderRadius: "10px", 
-        width: "80%",
-        overflow: "hidden" 
-        }}>
-        <ReactPlayer 
-            playing 
-            muted 
-            loop
-            url='/img/provider-resource.mp4' 
-            width="100%"
-            height="100%"
-            alt="A resource is selected in the table, the active resource view is opened, and the relationships tab is displayed."
-        />
-        </div>
-    </div>
+   <div style={{ 
+       display: "flex", 
+       justifyContent: "center" 
+   }}>
+       <div style={{ 
+       boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+       borderRadius: "10px", 
+       width: "80%",
+       overflow: "hidden" 
+       }}>
+       <ReactPlayer 
+           playing 
+           muted 
+           loop
+           url='/img/nfr-provider-resource.mp4' 
+           width="100%"
+           height="100%"
+           alt="A resource is selected in the table, the active resource view is opened, and the relationships tab is displayed."
+       />
+       </div>
+   </div>
 
 5. You can update the criteria that is displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
@@ -149,7 +150,7 @@ Follow the steps below to create a new Network Flow Report:
             playing 
             muted 
             loop
-            url='/img/move-column.mp4' 
+            url='/img/nfr-move-column.mp4' 
             width="100%"
             height="100%"
             alt="A column in the table is clicked and dragged to a new location"
@@ -340,7 +341,7 @@ You can add additional fields via grouping and filtering criteria. To add a new 
             muted 
             controls
             loop
-            url='/img/filtering.mp4'
+            url='/img/nfr-filtering.mp4'
             alt= "A report is filtered to public traffic" 
             width="100%"
             height="100%"
@@ -354,6 +355,28 @@ You can add additional fields via grouping and filtering criteria. To add a new 
    - To add a separate rule set, click **+ New Filter**. This rule set will be displayed as **Or AWS costs where...** on the new tile.
    - To delete a rule set, click the trashcan icon on the top right of the rule set.
    <details><summary>Click to view example image</summary>
+       <div style={{ 
+        display: "flex", 
+        justifyContent: "center" 
+    }}>
+        <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+        }}>
+        <ReactPlayer 
+            playing 
+            muted 
+            controls
+            loop
+            url='/img/nfr-other-filters.mp4'
+            alt= "Additional filter options and filter sets are added to the report" 
+            width="100%"
+            height="100%"
+        />
+        </div>
+    </div>
    </details>
 3. Above the rule set(s), click **Apply**. The diagram will update with your existing filter criteria.
 
@@ -361,8 +384,25 @@ You can add additional fields via grouping and filtering criteria. To add a new 
 
 To add additional columns to the table and diagram, expand the **Group By** menu. Select or deselect grouping criteria. As you add grouping criteria, additional nodes and flows are displayed on the diagram. Additional columns are added to the table for any new grouping criteria.
 
-<details><summary>Click to view example image</summary>
-</details>
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "80%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        controls
+        loop
+        url='/img/nfr-group.mp4'
+        alt= "A report is grouped for traffic type" 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
 
 ## View Flow Log Metadata
 
