@@ -113,22 +113,22 @@ Ideally, these files should be a daily CSV; however, Vantage can also support ho
 
 If you do not have this data available, you can contact AWS Support and open a ticket for AWS to backfill your CUR. Follow the steps below.
 
-1. From your AWS root/management account, use the top search bar to search for and navigate to **Cost and Usage Reports**.
-2. A table of CURs is displayed. Observe the **Report Name** column. You should see the CUR that was created by Vantage when the integration was set up. Take note of the values in the **Report Name** and **S3 Bucket** columns.
-3. Open a ticket with [AWS Support](https://docs.aws.amazon.com/cur/latest/userguide/billing-get-answers.html) to backfill the Vantage CUR. You can use the sample email template below when creating your request.
+1. From your AWS root/management account, use the top search bar to search for and navigate to **Data Exports**.
+2. A table of data exports is displayed. Observe the **Export Name** column. You should see the legacy CUR export that was created by Vantage when the integration was set up. Take note of the values in the **Export Name** and **S3 Bucket** columns.
+3. Open a ticket with [AWS Support](https://docs.aws.amazon.com/cur/latest/userguide/billing-get-answers.html) to backfill the Vantage export. You can use the sample email template below when creating your request.
 
    <details>
    <summary>AWS Support Request Template</summary>
 
-   _Subject: Request for Backfilling AWS Cost and Usage Report_
+   _Subject: Request for Backfilling AWS Legacy CUR Data Export_
 
-   **[Insert your organization name]** needs help backfilling an AWS Cost and Usage Report per the below requirements:
+   **[Insert your organization name]** needs help backfilling a legacy CUR Data Export per the below requirements:
 
-   - Please backfill the existing **[Insert Vantage CUR report name]** report from the **[Insert CUR's S3 bucket name]** S3 bucket.
+   - Please backfill the existing **[Insert Vantage legacy CUR Data Export name]** report from the **[Insert export's S3 bucket name]** S3 bucket.
    - We need historical data for the following period: **[Insert start date]** to **[Insert end date]**.
    - This should be a daily CSV file.
 
-   Once the historical data is successfully backfilled into the above CUR, please send us a notification or confirmation.
+   Once the historical data is successfully backfilled into the above legacy CUR Data Export, please send us a notification or confirmation.
 
    Thank you,
 
@@ -136,7 +136,7 @@ If you do not have this data available, you can contact AWS Support and open a t
 
    </details>
 
-4. Once AWS Support completes your request, please email [support@vantage.sh](mailto:support@vantage.sh) to re-ingest the backfilled CUR.
+4. Once AWS Support completes your request, please email [support@vantage.sh](mailto:support@vantage.sh) to re-ingest the backfilled legacy CUR Data Export.
 
 ## Update the Vantage AWS Integration
 
