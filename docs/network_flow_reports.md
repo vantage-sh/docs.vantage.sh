@@ -145,6 +145,7 @@ Follow the steps below to create a new Network Flow Report:
        <ReactPlayer 
            playing 
            controls
+           playsinline
            muted 
            loop
            url='/img/nfr-provider-resource.mp4' 
@@ -178,6 +179,7 @@ Follow the steps below to create a new Network Flow Report:
             playing 
             muted 
             loop
+            playsinline
             url='/img/nfr-move-column.mp4' 
             width="100%"
             height="100%"
@@ -368,6 +370,7 @@ You can add additional fields via grouping and filtering criteria. To add a new 
             playing 
             muted 
             controls
+            playsinline
             loop
             url='/img/nfr-filtering.mp4'
             alt= "A report is filtered to public traffic" 
@@ -397,6 +400,7 @@ You can add additional fields via grouping and filtering criteria. To add a new 
             playing 
             muted 
             controls
+            playsinline
             loop
             url='/img/nfr-other-filters.mp4'
             alt= "Additional filter options and filter sets are added to the report" 
@@ -422,6 +426,7 @@ To add additional columns to the table and diagram, expand the **Group By** menu
     <ReactPlayer 
         playing 
         muted 
+        playsinline
         loop
         url='/img/nfr-group.mp4'
         alt= "A report is grouped for traffic type" 
@@ -452,6 +457,7 @@ For certain grouping criteria, you can view additional details about specific re
     <ReactPlayer 
         playing 
         muted 
+        playsinline
         loop
         url='/img/nfr-metadata.mp4'
         alt="A report is grouped by VPC ID. Then, a resource is selected and the metadata panel is displayed." 
