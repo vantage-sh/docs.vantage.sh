@@ -24,11 +24,11 @@ _This page was last updated on July 1, 2024, with product updates for June 2024.
 - **VPC Flow Logs active resources tab:** The **VPC Flow Logs** tab is available on the [Active Resources screen](/active_resources#flow-logs) for resources that generate network traffic. This tab shows network flows for related resources.
 - **Network costs:** A new **Network Costs** button is displayed on [Cost Reports](/cost_reports#network-costs) for resources that generate network costs, like NAT Gateways.
 
-## Kubernetes Agent Updates
+### Kubernetes Agent Updates
 
 _See [May's update](/changelog#may-k8s) for the most recent Kubernetes agent release._
 
-## API Updates
+### API Updates
 
 New `/integrations` [endpoints](https://vantage.readme.io/reference/createazureintegration) are available:
   - `GET` `/integrations`: retrieves all existing integrations
