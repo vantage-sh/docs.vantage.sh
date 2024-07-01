@@ -205,7 +205,7 @@ When you connect an AWS account to Vantage, CloudWatch metrics are configured au
 To inquire about support for Cloudwatch metrics for other services, or for monitoring support for GCP contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
-### VPC Flow Logs
+### VPC Flow Logs {#flow-logs}
 
 For active resources that generate network traffic costs, such as NAT Gateways and EC2 instances, the **VPC Flow Logs** tab is displayed. Select this tab to view peer resources and the associated traffic category (e.g., public). A Sankey diagram of each associated network flow is provided. See the [Network Flow Reports](/network_flow_reports) documentation for details on network flow reporting.
 

@@ -11,7 +11,32 @@ pagination_next: null
 
 # Changelog
 
-_This page was last updated on June 3, 2024, with product updates for May 2024._
+_This page was last updated on July 1, 2024, with product updates for June 2024._
+
+## June 2024
+
+### Product Updates
+
+- **Visual UI updates:** Visual updates have been made to the look and feel of the main navigation and related Active Resources screens.
+- **New dashboard widgets:** Resource Reports are a new widget option on [dashboards](/dashboards).
+- **Data transfer cost visibility:** [Network Flow Reports](/network_flow_reports) are available to provide visibility by source and destination to the flows within your network that are driving costs.
+- **New active resources:** VPC Flow Logs are now synced as [active resources](/active_resources).
+- **VPC Flow Logs active resources tab:** The **VPC Flow Logs** tab is available on the [Active Resources screen](/active_resources#flow-logs) for resources that generate network traffic. This tab shows network flows for related resources.
+- **Network costs:** A new **Network Costs** button is displayed on [Cost Reports](/cost_reports#network-costs) for resources that generate network costs, like NAT Gateways.
+
+## Kubernetes Agent Updates
+
+_See [May's update](/changelog#may-k8s) for the most recent Kubernetes agent release._
+
+## API Updates
+
+New `/integrations` [endpoints](https://vantage.readme.io/reference/createazureintegration) are available:
+  - `GET` `/integrations`: retrieves all existing integrations
+  - `POST` `/integrations/azure`: creates a new Azure integration
+  - `POST` `/integrations/gcp`: creates a new GCP integration
+  - `DELETE` `/integrations/{integration_token}`: deletes a specific integration
+  - `GET` `/integrations/{integration_token}`: gets information about an existing integration
+  - `PUT` `/integrations/{integration_token}`: updates workspace access for an existing integration
 
 ## May 2024
 
@@ -27,7 +52,7 @@ _This page was last updated on June 3, 2024, with product updates for May 2024._
 - **Labeled business metrics:** [Labeled business metrics](/per_unit_costs#labels) are available to identify the source of a metric—like an associated application or cost center.
 - **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster. 
 
-### Kubernetes Agent Updates
+### Kubernetes Agent Updates {#may-k8s}
 
 - Version 1.0.26, Helm Chart [vantage-kubernetes-agent-1.0.34](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.34), includes the following updates:
   - Support is now available for NVIDIA GPU exporters.
