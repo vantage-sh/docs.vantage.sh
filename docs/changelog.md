@@ -7,6 +7,7 @@ keywords:
   - Release notes
 pagination_prev: null
 pagination_next: null
+image: /img/product_changelog.jpg
 ---
 
 # Changelog
