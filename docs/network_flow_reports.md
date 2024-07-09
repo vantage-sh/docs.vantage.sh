@@ -517,7 +517,7 @@ The **All Network Flow Logs** report shows all your network flows. The flow’s 
 
 Cross-AZ data transfer within AWS incurs higher costs compared to intra-AZ data transfer. [According to AWS](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer), “For data transferred between a Local Zone and an Availability Zone within the same AWS Region, "in" to and "out" from Amazon EC2 in the Local Zone” data is charged at $0.01/GB for _both_ transfer in and transfer out. Transferring data between AZs requires more network bandwidth compared to transferring data within the same AZ. This additional bandwidth consumption contributes to higher costs.
 
-In the provided cross-AZ report, you can view all cross-AZ traffic along with flow size and estimated cost. The **Destination Address** column shows exactly where the traffic is flowing.
+In the provided cross-AZ report, you can view all cross-AZ traffic along with flow size and estimated cost. The **Peer Availability Zone ID** column shows exactly where the traffic is flowing. You can see both the source and peer AZs along with the associated source and peer resources.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Sample Network Flow Report with all cross-AZ traffic" width="100%" src="/img/nfr-az.png" />
