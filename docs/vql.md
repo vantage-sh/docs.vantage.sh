@@ -274,6 +274,14 @@ Filter costs based on a specific tag, such as `environment`, with the value `pro
 costs.provider = 'aws' AND tags.name = 'environment' AND tags.value = 'production'
 ```
 
+#### Filter for Multiple Values from a Single Tag Key
+
+If you want to filter for multiple tag values that are tied to one tag key (e.g., costs tagged with the `team` tag of `mobile` and `data`), use the below syntax.
+
+```sql
+costs.provider = 'aws' AND tags.name = 'team' AND tags.value IN ('mobile', 'data')
+```
+
 #### Filter by Multiple Tags {#multiple-tags}
 
 If you want to filter for resources that have more than one tag associated, you can use the syntax shown in the example below.
