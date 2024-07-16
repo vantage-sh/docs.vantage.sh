@@ -8,12 +8,12 @@ keywords:
 
 # Azure Services & Regions
 
-## Support Services
+## Supported Services
 
-Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing for the following services using custom logic to query APIs for each individual Azure service. While we support per-resource pricing for the most popular services, we do not offer support for all Azure services by default.
+Vantage will show 100% of your organization's accrued costs across all services. We also offer per-resource pricing for the following services using custom logic to query APIs for each individual Azure service. While we support per-resource pricing for the most popular services, we do not offer support for all Azure services by default. While we support per-resource pricing for many Azure services, we do not offer support for all Azure services, by default. If you have an Azure service you'd like to be supported, we can typically add support for most Azure services in under a week.
 
-:::note
-To request new service support on Vantage, please email [support@vantage.sh](mailto:support@vantage.sh) with the subject line "New Azure Service Support." Please include a detailed description about what information you'd like to see.
+:::info
+To request new service support on Vantage, please email [support@vantage.sh](mailto:support@vantage.sh) with the subject line of _New Azure Service Support_. Include as much information as you can about the data you'd like to see.
 :::
 
 Below is a list of currently supported Azure services for Active Resources. Vantage only maintains read-only access to the Azure APIs for these resources:
