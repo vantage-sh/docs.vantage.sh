@@ -125,7 +125,7 @@ Follow the steps below to create a new Network Flow Report:
 3. To create a new report, click **New Network Flow Report**.
 4. A new Network Flow Report is displayed.
 
-   - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links, or network flows, flow from the nodes to their traffic destination (in this example, cross-AZ or public). The width of each flow corresponds with the volume of traffic, and the color corresponds with the source of the node (e.g., yellow for _public_ in the example below).
+   - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links, or network flows, flow from the nodes to their traffic destination (in this example, cross-AZ or public). The width of each flow corresponds with the volume of traffic or estimated cost, based on your settings, and the color corresponds with the source of the node (e.g., yellow for _public_ in the example below).
    <div style={{display:"flex", justifyContent:"center"}}>
    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="/img/nfr-start.png" />
    </div>
@@ -227,7 +227,7 @@ You can filter and group by multiple criteria in Network Flow Reports. Expand th
         <tr>
             <td>Destination Hostname</td>
             <td>Domain name that corresponds with the IP address of the destination <i>(see note below table)</i></td>
-            <td>01234.broadband.com<br/><br/>OR<br/><br/>Datadog</td>
+            <td>01234.broadband.com<br/><br/>OR<br/><br/>Datadog<br/><br/>A <code>dsthostname:null</code> value means Vantage is unable to reverse DNS the <code>dst_address</code> IP address.</td>
         </tr>
         <tr>
             <td>Flow Direction</td>
@@ -312,7 +312,7 @@ You can filter and group by multiple criteria in Network Flow Reports. Expand th
         <tr>
             <td>Traffic Category</td>
             <td>The type of traffic</td>
-            <td>public, cross-AZ, cross-region, unknown<br/><br/>The unknown value means Vantage is unable to categorize the type of traffic based on the available metadata.</td>
+            <td>public, cross-AZ, cross-region, unknown<br/><br/>An <code>Unknown</code> value means Vantage is unable to categorize the type of traffic based on the available metadata.</td>
         </tr>
         <tr>
             <td>Traffic Path</td>
@@ -338,7 +338,7 @@ You can filter and group by multiple criteria in Network Flow Reports. Expand th
         </table>
 
 :::note
-To derive the hostname, Vantage checks against some hardcoded IP ranges, and then falls back to reverse DNS lookup for the IPs. If you have services with known IP ranges you want added, contact support@vantage.sh.
+To derive the hostname, Vantage checks against some hardcoded IP ranges, and then falls back to reverse DNS lookup for the IPs. If you have services with known IP ranges you want added, contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
 </details>
@@ -430,6 +430,30 @@ To add additional columns to the table and diagram, expand the **Group By** menu
         loop
         url='/img/nfr-group.mp4'
         alt= "A report is grouped for traffic type" 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+
+###  Adjust Flow Weight {#flow-weight}
+
+By default, the Sankey diagram is weighted by estimated cost. You can change this view to be weighted by bytes, or volume. Above the chart, click the **Flow Weight** menu and select **Costs** or **Bytes**. The Sankey diagram is updated accordingly. When you hover over a flow, the corresponding cost or volume in bytes is displayed in the tooltip.
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/nfr-flow.mp4'
+        alt="The Flow Direction menu is toggled to show options for Costs and Bytes." 
         width="100%"
         height="100%"
     />

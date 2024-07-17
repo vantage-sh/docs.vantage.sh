@@ -12,8 +12,31 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 1, 2024, with product updates for June 2024._
+_This page was last updated on July 17, 2024, with product updates for July 2024._
 
+## July 2024
+
+### Product Updates
+
+- **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#flow-weight).
+- **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-cost-reports), you can now click **Save as New** at the top to create a new report based on the current report's filters.
+- **Vantage for MSPs**: Vantage for MSPs is a new set of features for managed service providers. Learn more on the [Partners website](https://www.vantage.sh/partners). 
+
+### Kubernetes Agent Updates
+
+_See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release._
+
+### API Updates
+
+- **Costs endpoint updates:** The `/costs` [endpoint](https://vantage.readme.io/reference/getcosts) has been updated with the ability to specify settings parameters for returned costs, like credits, refunds, etc.
+- **Cost Report endpoint updates:** The `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) has been updated to include the following parameters for `POST` and `PUT`: 
+  - `previous_period_start_date`
+  - `previous_period_end_date`
+  - `start_date`
+  - `end_date`
+  - `date_interval`
+  - `chart_type`
+  
 ## June 2024
 
 ### Product Updates
@@ -27,7 +50,7 @@ _This page was last updated on July 1, 2024, with product updates for June 2024.
 
 ### Kubernetes Agent Updates
 
-_See [May's update](/changelog#may-k8s) for the most recent Kubernetes agent release._
+_See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release._
 
 ### API Updates
 
@@ -53,7 +76,7 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 - **Labeled business metrics:** [Labeled business metrics](/per_unit_costs#labels) are available to identify the source of a metric—like an associated application or cost center.
 - **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster. 
 
-### Kubernetes Agent Updates {#may-k8s}
+### Kubernetes Agent Updates {#may-24-k8s}
 
 - Version 1.0.26, Helm Chart [vantage-kubernetes-agent-1.0.34](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.34), includes the following updates:
   - Support is now available for NVIDIA GPU exporters.
