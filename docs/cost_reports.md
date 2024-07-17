@@ -59,6 +59,10 @@ After you apply all desired filters to the report, you can save your changes and
    If you update the date range, date bin (e.g., **Last 30 Days**), or grouping, you can also permanently save these changes. Once saved, the new date range, date bucket, and grouping will persist on the [Overview](/overview) page. If you save a report that includes only changes to filter sets, the report will be displayed on the Overview page with the last six months of costs.
    :::
 
+:::tip
+If you want to create a new report based on an existing report, open the existing report and click **Save as New** on the top right of the screen. You can then further refine your report criteria on the new report.
+:::
+
 ### Organize Cost Reports
 
 #### Cost Report Folders {#cost-report-folders}
