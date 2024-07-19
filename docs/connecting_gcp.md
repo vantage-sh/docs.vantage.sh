@@ -117,6 +117,19 @@ Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Inte
 It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
 :::
 
+### Add Support for Active Resources {#gcp-active-resources}
+
+To enable [active resources](/active_resources), you must grant the Viewer role to the Vantage GCP service account. This role allows read-only access to all resources in the project, enabling Vantage to gather data on active resources.
+
+1. Open the IAM Console.
+2. At the top, select the project where you want to enable active resources.
+3. In the center of the page, under **Permissions for project "Your Project Name"**, click **+ GRANT ACCESS**.
+4. Under **Add principals**, add the Vantage GCP service account displayed on the Vantage console integration page.
+5. Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Roles** list. 
+6. Click SAVE.
+
+Repeat these steps for each project where you want to enable active resources, and ensure the Vantage GCP service account is added to all relevant projects.
+
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.

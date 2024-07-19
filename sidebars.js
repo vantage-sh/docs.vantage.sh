@@ -104,6 +104,7 @@ module.exports = {
           },
           items: [
             "enabling_gcp_billing_export",
+            "gcp_supported_services",
           ],
         },
         {
