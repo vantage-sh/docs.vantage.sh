@@ -124,9 +124,17 @@ To enable [active resources](/active_resources), you must grant the Viewer role 
 1. Open the IAM Console.
 2. At the top, select the project where you want to enable active resources.
 3. In the center of the page, under **Permissions for project "Your Project Name"**, click **+ GRANT ACCESS**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Add permissions for project" width="80%" src="/img/connect-gcp/active-resources-1.png"/> </div>
+   </details>
 4. Under **Add principals**, add the Vantage GCP service account displayed on the Vantage console integration page.
 5. Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Roles** list. 
-6. Click SAVE.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Add viewer role for service account" width="80%" src="/img/connect-gcp/active-resources-2.png"/> </div>
+   </details>
+6. Click **SAVE**.
 
 Repeat these steps for each project where you want to enable active resources, and ensure the Vantage GCP service account is added to all relevant projects.
 

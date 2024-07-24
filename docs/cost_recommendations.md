@@ -105,7 +105,7 @@ Each recommendation includes potential savings as well as the number of instance
 If you have GCP Compute instances that are over-provisioined, rightsizing recommendations are available. Recommendations are also provided in the case of idle instances.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An EC2 rightsizing recommendation with a button to compare instance sizes in the console" width="90%" src="/img/gcp-rightsizing.png" />
+    <img alt="A set of GCP rightsizing recommendations in the console" width="90%" src="/img/gcp-rightsizing.png" />
 </div>
 
 Each recommendation includes potential savings as well as the number of instances identified for rightsizing. 
