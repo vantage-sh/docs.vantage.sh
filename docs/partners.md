@@ -32,7 +32,7 @@ The **Partner Settings** section in Vantage has two different sections: **Manage
   - Log in to a customer’s account
   - Add integrations on behalf of a customer’s account
   - Assign billing rules to a customer’s account
-- On the **Billing Rules** screen, you can create custom billing adjustments, one-time charges, re-rating, and MSP-level discounts. See the [Billing Rules](/partners#custom-billing) section for additional information.
+- On the **Billing Rules** screen, you can create custom billing adjustments, one-time charges, re-rating, and MSP-level discounts. See the [Billing Rules](/partners#billing-rules) section for additional information.
 
 ## Create a New Customer Account
 
@@ -139,7 +139,7 @@ To get started, ensure that you have connected a provider integration to your ma
     <img alt="The Integrations screen for a managed account" width="100%" src="/img/partners/managed-integrations.png" />
 </div>
 
-#### Customer Managed Account Integration View
+#### Customer Managed Account Integration View {#customer-managed-account-integration-view}
 
 When an MSP manages an integration in their MSP management account, a customer can view the managed integration’s status. The customer cannot remove this type of integration.
 
@@ -159,7 +159,7 @@ When you are logged in to a customer’s account, you can create Vantage resourc
     <img alt="Resource in a customer's account with the Manager User as the creator" width="100%" src="/img/partners/created-by.png" />
 </div>
 
-## Custom Billing {#custom-billing}
+## Billing Rules {#billing-rules}
 
 Custom billing rules can be created in the management account and optionally applied to any of your customer accounts. The following billing rules are available:
 
