@@ -91,7 +91,7 @@ Each recommendation includes potential savings as well as the number of instance
 ### GCP Recommendations {#gcp}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A list of GCP-related recommendations in the console" width="70%" src="/img/gcp-cost-recs.png" />
+    <img alt="A list of GCP-related recommendations in the console" width="100%" src="/img/gcp-cost-recs.png" />
 </div>
 <br/>
 
@@ -104,14 +104,14 @@ Each recommendation includes potential savings as well as the number of instance
 
 If you have GCP Compute instances that are over-provisioined, rightsizing recommendations are available. Recommendations are also provided in the case of idle instances.
 
-<!-- <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An EC2 rightsizing recommendation with a button to compare instance sizes in the console" width="90%" src="https://assets.vantage.sh/blog/vantage-launches-ec2-rightsizing-recommendations/rightsizing-recommendation.png" />
-</div> -->
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="An EC2 rightsizing recommendation with a button to compare instance sizes in the console" width="90%" src="/img/gcp-rightsizing.png" />
+</div>
 
 Each recommendation includes potential savings as well as the number of instances identified for rightsizing. 
 
-1. Click **View resources** to view each identified EC2 instance that is recommended for rightsizing. 
-2. The **Rightsizing** tab on the [Active Resources](/active_resources) screen is displayed. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small.). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1"). The potential monthly savings for taking action these recommendations are also displayed. 
+1. Click **View resources** to view each identified resource that is recommended for rightsizing. 
+2. The **Rightsizing** tab on the [Active Resources](/active_resources) screen is displayed. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed. 
 
 ### Datadog Recommendations {#datadog}
 

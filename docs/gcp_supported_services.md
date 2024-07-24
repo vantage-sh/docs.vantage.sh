@@ -18,17 +18,18 @@ To request new service support on Vantage, email [support@vantage.sh](mailto:sup
 
 Below is a list of currently supported GCP services for Active Resources. Vantage maintains read-only access to the GCP APIs for these resources:
 
-| Service        | Description/Supported Resources                                     |
-| -------------- | ------------------------------------------------------------------- |
-| Cloud BigQuery | Vantage supports showing costs for Cloud BigQuery instances.        |
-| Cloud Bigtable | Vantage supports showing costs for Cloud Bigtable instances.        |
-| Cloud Compute  | Vantage supports showing costs for Cloud Compute engines and disks. |
-| Cloud Dataflow | Vantage supports showing costs for Cloud Dataflow jobs.             |
-| Cloud Logging  | Vantage supports showing costs for Cloud Logging sinks.             |
-| Cloud Spanner  | Vantage supports showing costs for Cloud Spanner instances.         |
-| Cloud SQL      | Vantage supports showing costs for Cloud SQL instances.             |
-| Cloud Storage  | Vantage supports showing costs for Cloud Storage buckets.           |
-
+| Service          | Description/Supported Resources                                     |
+| ---------------- | ------------------------------------------------------------------- |
+| Cloud App Engine | Vantage supports showing costs for Cloud App Engine services.       |
+| Cloud BigQuery   | Vantage supports showing costs for Cloud BigQuery instances.        |
+| Cloud Bigtable   | Vantage supports showing costs for Cloud Bigtable instances.        |
+| Cloud Compute    | Vantage supports showing costs for Cloud Compute engines and disks. |
+| Cloud Dataflow   | Vantage supports showing costs for Cloud Dataflow jobs.             |
+| Cloud Firestore  | Vantage supports showing costs for Cloud Firestore databases.       |
+| Cloud Logging    | Vantage supports showing costs for Cloud Logging buckets.           |
+| Cloud Spanner    | Vantage supports showing costs for Cloud Spanner instances.         |
+| Cloud SQL        | Vantage supports showing costs for Cloud SQL instances.             |
+| Cloud Storage    | Vantage supports showing costs for Cloud Storage buckets.           |
 
 ## Supported Regions
 
