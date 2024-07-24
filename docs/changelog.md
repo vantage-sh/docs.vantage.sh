@@ -12,12 +12,13 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 17, 2024, with product updates for July 2024._
+_This page was last updated on July 24, 2024, with product updates for July 2024._
 
 ## July 2024
 
 ### Product Updates
 
+- **Grouped report forecasts:** You can now view [forecasts](/forecasting#bar-chart-view) for bar charts when they are grouped.
 - **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#flow-weight).
 - **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-cost-reports), you can now click **Save as New** at the top to create a new report based on the current report's filters.
 - **Vantage for MSPs**: Vantage for MSPs is a new set of features for managed service providers. Learn more on the [Partners website](https://www.vantage.sh/partners). 
@@ -36,6 +37,7 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
   - `end_date`
   - `date_interval`
   - `chart_type`
+  - `date_bin`
   
 ## June 2024
 
