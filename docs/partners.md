@@ -80,7 +80,7 @@ Once you are back in the management account, a confirmation message is displayed
 
 After a customer account is created, you can enable Single Sign-On (SSO) for each customer account. Enter the customer account and then follow the instructions provided in the [SSO documentation](/sso) to enable SSO directly within the customer's account. Customers can also enable SSO directly from their customer account. SSO is scoped to the customer’s account.
 
-## Add Integrations to Customer Account
+## Add Integrations to Customer Account {#add-integrations-to-customer-account}
 
 The way you add integrations to a customer account depends on how your MSP is set up. There are two available workflows:
 
@@ -212,7 +212,7 @@ To add new billing rules:
 
 ---
 
-### Add Rules to Customer Account
+### Assign Billing Rules to Customer Account {#assign-billing-rules}
 
 You can select which rules you want added to customer accounts.
 
