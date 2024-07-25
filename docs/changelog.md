@@ -12,12 +12,14 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 24, 2024, with product updates for July 2024._
+_This page was last updated on July 25, 2024, with product updates for July 2024._
 
 ## July 2024
 
 ### Product Updates
 
+- **GCP active resources:** [GCP active resources](/gcp_supported_services) are now synced and available to filter within Resource Reports.
+- **GCP cost recommendations:** [Recommendations](/cost_recommendations#gcp-compute-rightsizing-recommendations) are now available for GCP Compute rightsizing and commitments. 
 - **Grouped report forecasts:** You can now view [forecasts](/forecasting#bar-chart-view) for bar charts when they are grouped.
 - **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#flow-weight).
 - **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-cost-reports), you can now click **Save as New** at the top to create a new report based on the current report's filters.
@@ -38,6 +40,7 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
   - `date_interval`
   - `chart_type`
   - `date_bin`
+- The Terraform provider is updated to [v0.1.23](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.23). This update is based on the above API changes, including new parameters for the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) and the `vantage_cost_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/cost_reports).
   
 ## June 2024
 

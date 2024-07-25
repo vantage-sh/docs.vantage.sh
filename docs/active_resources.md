@@ -1,7 +1,7 @@
 ---
 id: active_resources
 title: Resource Reports
-description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, Snowflake, MongoDB Atlas, Confluent, and PlanetScale.
+description: This page discusses Resource Reports, which give you the ability to view and filter resources and see associated cost information for active resources across multiple services and providers, including AWS, Azure, GCP, Snowflake, MongoDB Atlas, Confluent, and PlanetScale.
 keywords:
   - Active resources
   - Resource reports
@@ -14,7 +14,7 @@ For supported providers, Vantage profiles for _active resources_ within your acc
 You can create _resource reports_ to see filtered views of your active resources. These reports provide visibility into all the currently operational resources within your account and the associated costs incurred by each resource. Reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
 
 :::note
-Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
+Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [GCP](/connecting_gcp), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
 :::
 
 ## AWS Active Resources
@@ -26,6 +26,10 @@ Not every AWS service is supported for resource-level costs; however, most servi
 ## Azure Active Resources
 
 To see the full list of supported Azure services, see the [Azure documentation](/azure_supported_services).
+
+## GCP Active Resources
+
+To see the full list of supported GCP services, see the [GCP documentation](/gcp_supported_services).
 
 ## Kubernetes Active Resources
 
@@ -70,16 +74,16 @@ The following active resources are available for the additional providers listed
 Active resources are synced for each [workspace](/workspaces) at least once every 24 hours. Vantage syncs all tags specific to a service.
 :::
 
-1. From the top navigation, click **Active Resources**. 
+1. From the top navigation, click **Active Resources**.
 2. The **Services** screen is displayed, which contains each resource by name (e.g., CloudFront Distributions, Azure Databricks Workspaces, etc.), the total number of active resources, and accrued costs for each resource. Select a resource from the parent list to see a list of all resources within that resource group. In the below example, the NAT Gateways resource is selected from the list.
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="/img/resource-report-parent.png" />
 </div>
-1. Select an individual resource from the filtered list.
+3. Select an individual resource from the filtered list.
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="/img/resource-report-child.png" />
 </div>
-1. The resource is displayed along with a detailed view of its costs over time. In the below image, the selected AWS NAT Gateway resource is displayed, with current and previous costs incurred. Costs for corresponding categories, like **Data Transfer**, are also provided per resource.
+4. The resource is displayed along with a detailed view of its costs over time. In the below image, the selected AWS NAT Gateway resource is displayed, with current and previous costs incurred. Costs for corresponding categories, like **Data Transfer**, are also provided per resource.
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Resource Report Drill Down" width="100%" src="/img/resource.png" />
 </div>
@@ -100,8 +104,8 @@ To create a resource report:
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A full list of active resources for an account. The resource's label, type, costs, provider, region, and account are listed." width="80%" src="/img/resource-report.png" />
 </div>
-1. From the top right of the page, click **New Report**.
-2. From the type right of the resource list, click **Filters**. The **Filters** panel is displayed.
+3. From the top right of the page, click **New Report**.
+4. From the type right of the resource list, click **Filters**. The **Filters** panel is displayed.
    - Select a **Provider** (e.g., AWS).
    - Click **New Rule**, then select a filter category, like **Region**. (See the section below for details on available filter options.)
    - Depending on the filter criteria, select an operator (e.g., is, is not, contains).
@@ -112,25 +116,25 @@ To create a resource report:
    <div style={{display:"flex", justifyContent:"center"}}>
        <img alt="A resource report filter with sample filter criteria for Snowflake and AWS" width="60%" src="/img/resource-report-filter.png" />
    </div>
-3. At the top of the report, click **Save**. The report name is displayed in the breadcrumbs above the report. To rename the report, click the pencil icon next to the default report name. Then, update the name and click **Save**.
+5. At the top of the report, click **Save**. The report name is displayed in the breadcrumbs above the report. To rename the report, click the pencil icon next to the default report name. Then, update the name and click **Save**.
 
 ### Resource Report Filters
 
 The following filters are available for resource reports.
 
-| Filter             | Provider      | Description                                                                                                                                                                                                                                        |
-| ------------------ | ------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account            | AWS           | AWS account name (e.g., production)                                                                                                                                                                                                                |
-| Billing Account    | AWS           | AWS billing account name                                                                                                                                                                                                                           |
-| Label              | All providers | The resource's label (i.e., name)                                                                                                                                                                                                                  |
-| Metadata           | All providers | Specific to each resource type (e.g., AWS S3 buckets object count; Azure Load Balancers provisioning state; Confluent Kafka cluster type; MongoDB Atlas cluster deployed region; PlanetScale database branches count; Snowflake query invocations; Kubernetes workload namespace) |
-| Not Tagged         | All providers | Filter to see resources not tagged with a specific tag key or any tag key                                                                                                                                                                          |
-| Region             | AWS, Azure    | us-east-1, ap-northeast-2, eastus                                                                                                                                                                                                                  |
-| Resource group     | Azure         | The Azure resource group name                                                                                                                                                                                                                      |
-| Resource type      | All providers | EC2 instances, S3 buckets, Confluent Kafka clusters, Snowflake queries, etc.                                                                                                                                                                       |
-| Subscription       | Azure         | The Azure subscription name                                                                                                                                                                                                                        |
-| Tag                | All providers | Filter to see resource by a specific tag key or tag key/value                                                                                                                                                                                      |
-| UUID (ARN for AWS) | All providers | The unique provider ID (i.e., ARN for AWS) for the resource                                                                                                                                                                                        |
+| Filter             | Provider        | Examples                                                                                                                                                                                                                                                                                                         |
+| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account            | AWS, GCP        | AWS or GCP account name (e.g., production)                                                                                                                                                                                                                                                                       |
+| Billing Account    | AWS             | AWS billing account name                                                                                                                                                                                                                                                                                         |
+| Label              | All providers   | The resource's label (i.e., name)                                                                                                                                                                                                                                                                                |
+| Metadata           | All providers   | Specific to each resource type (e.g., AWS S3 buckets object count; Azure Load Balancers provisioning state; GCP Dataflow Jobs create time; Confluent Kafka cluster type; MongoDB Atlas cluster deployed region; PlanetScale database branches count; Snowflake query invocations; Kubernetes workload namespace) |
+| Not Tagged         | All providers   | Filter to see resources not tagged with a specific tag key or any tag key                                                                                                                                                                                                                                        |
+| Region             | AWS, Azure, GCP | us-east-1, ap-northeast-2, eastus, us-east4                                                                                                                                                                                                                                                                      |
+| Resource group     | Azure           | The Azure resource group name                                                                                                                                                                                                                                                                                    |
+| Resource type      | All providers   | EC2 instances, S3 buckets, Confluent Kafka clusters, Snowflake queries, etc.                                                                                                                                                                                                                                     |
+| Subscription       | Azure           | The Azure subscription name                                                                                                                                                                                                                                                                                      |
+| Tag                | All providers   | Filter to see resource by a specific tag key or tag key/value                                                                                                                                                                                                                                                    |
+| UUID (ARN for AWS) | All providers   | The unique provider ID (i.e., ARN for AWS) for the resource                                                                                                                                                                                                                                                      |
 
 ## Export Resource Report
 
@@ -212,6 +216,10 @@ For active resources that generate network traffic costs, such as NAT Gateways a
 <div style={{display:"flex", justifyContent:"center"}}>
   <img alt="Network Flow Report provider resource view" width="90%" src="/img/nfr-resource.png" />
 </div>
+
+### GCP Compute Rightsizing Recommendations
+
+For GCP Compute resources where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations) documentation for details.
 
 ### Kubernetes Rightsizing Recommendations
 
