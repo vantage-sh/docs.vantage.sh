@@ -18,7 +18,7 @@ Vantage will show 100% of your organization's accrued costs across all services.
 To request new service support on Vantage, email [support@vantage.sh](mailto:support@vantage.sh) with the subject line of _New AWS Service Support_. Include as much information as you can about the data you want to see.
 :::
 
-Below is a list of currently supported AWS services for Active Resources:
+Below is a list of currently supported AWS services for [active resources](/active_resources). Vantage maintains read-only access to the AWS APIs for these resources.
 
 | Service                                                | Description                                                                                                                                                                                                                                                                                                                                                                   |
 | ------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

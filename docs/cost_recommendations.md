@@ -66,15 +66,16 @@ The recommendations that are available for [AWS](/cost_recommendations#aws), [Az
 
 If you have EC2 instances that are over-allocated in terms of vCPU and GB of RAM, you may be paying more than needed per instance. Rightsizing recommendations can help you save significantly, by identifying rightsizing opportunities and providing specific reasons to rightsize, such as over-provisioned CPU.
 
+Each recommendation includes potential savings as well as the number of instances identified for rightsizing.
+
+1. On the **Cost Recommendations** screen, click **View Resources** to view each identified EC2 instance that is recommended for rightsizing.
+2. Select a resource from the list.
+3. The [Active Resources](/active_resources) screen is displayed. Select the **Rightsizing** tab. The tab includes a recommended size for migration (e.g., “Migrate to m5.large”), a list of associated reasons (e.g., “CPU over-provisioned”), if available, and the potential monthly savings.
+4. Click **Compare Pricing** to explore an instance pricing comparison via [ec2instances.info](https://instances.vantage.sh). This pricing comparison evaluates the current instance type used against the proposed instance type from the recommendation.
+
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="An EC2 rightsizing recommendation with a button to compare instance sizes in the console" width="90%" src="https://assets.vantage.sh/blog/vantage-launches-ec2-rightsizing-recommendations/rightsizing-recommendation.png" />
 </div>
-
-Each recommendation includes potential savings as well as the number of instances identified for rightsizing.
-
-1. Click **View resources** to view each identified EC2 instance that is recommended for rightsizing.
-2. The **Rightsizing** tab on the [Active Resources](/active_resources) screen is displayed. The tab includes a recommended size for migration (e.g., “Migrate to m5.large”), a list of associated reasons (e.g., “CPU over-provisioned”), if available, and the potential monthly savings.
-3. Click **Compare Pricing** to explore an instance pricing comparison via [ec2instances.info](https://instances.vantage.sh). This pricing comparison evaluates the current instance type used against the proposed instance type from the recommendation.
 
 ### Azure Recommendations {#azure}
 
@@ -97,21 +98,22 @@ Each recommendation includes potential savings as well as the number of instance
 
 | Recommendation Type         | Description                                                                                                                                                                                                                                    |
 | --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Rightsizing recommendations | Show whether compute resources are not overprovisioned. For example, _We have identified 2 Compute instances for rightsizing that offer savings._ See the next section for details on viewing resource-specific rightsizing recommendations. |
-| Commitment recommendations  | Commitment-related recommendations for resource-based committed use discounts. For example, _We have found that your account could save by purchasing Compute Commitments._                                                                  |
+| Rightsizing recommendations | Show whether compute resources are overprovisioned. For example, _We have identified 2 Compute instances for rightsizing that offer savings._ See the next section for details on viewing resource-specific rightsizing recommendations. |
+| Commitment recommendations  | Commitment-related recommendations for resource-based commitment discounts. For example, _We have found that your account could save by purchasing Compute Commitments._                                                                  |
 
 #### GCP Compute Rightsizing Recommendations
 
-If you have GCP Compute instances that are over-provisioined, rightsizing recommendations are available. Recommendations are also provided in the case of idle instances.
+If you have GCP Compute instances that are overprovisioined, rightsizing recommendations are available. Recommendations are also provided in the case of idle instances.
+
+Each recommendation includes potential monthly savings as well as the number of instances identified for rightsizing. 
+
+1. On the **Cost Recommendations** screen, click **View Resources** to view each identified resource that is recommended for rightsizing.
+2. Select a resource from the list.
+3. The [Active Resources](/active_resources) screen is displayed. Select the **Rightsizing** tab. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A set of GCP rightsizing recommendations in the console" width="90%" src="/img/gcp-rightsizing.png" />
 </div>
-
-Each recommendation includes potential savings as well as the number of instances identified for rightsizing. 
-
-1. Click **View resources** to view each identified resource that is recommended for rightsizing. 
-2. The **Rightsizing** tab on the [Active Resources](/active_resources) screen is displayed. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed. 
 
 ### Datadog Recommendations {#datadog}
 
