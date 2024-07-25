@@ -19,10 +19,10 @@ This means that Vantage **never** needs access credentials, account logins, or p
 
 ### Read-Only by Default {#read-only-by-default}
 
-When you create a Cross-Account IAM Role using the provided CloudFormation template, or via Terraform, you provide Vantage with various [permissions](https://docs.vantage.sh/permissions_aws/). All these permissions, by default, are read-only. We created this list of permissions based on the official [AWS ReadOnlyAccess policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html). In addition, we removed some of the permissions AWS includes in this list to prevent Vantage from seeing certain information, like reading from S3 buckets and reading from databases.
+When you create a Cross-Account IAM Role using the provided CloudFormation template, or via Terraform, you provide Vantage with various permissions. All these permissions, by default, are read-only. We created this list of permissions based on the official [AWS ReadOnlyAccess policy](https://docs.aws.amazon.com/aws-managed-policy/latest/reference/ReadOnlyAccess.html). In addition, we removed some of the permissions AWS includes in this list to prevent Vantage from seeing certain information, like reading from S3 buckets and reading from databases.
 
 :::note
-Vantage only collects metadata about your infrastructure and never attempts to read sensitive information from the underlying services. Our CloudFormation template is public, and you can audit the template's [list of permissions](https://vantage-public.s3.amazonaws.com/vantage-integration-latest.json).
+Vantage only collects metadata about your infrastructure and never attempts to read sensitive information from the underlying services. Our CloudFormation template is public, and you can audit the template's [list of permissions](https://vantage-public.s3.amazonaws.com/vantage-integration-combined-latest.json).
 :::
 
 ### AWS GovCloud Environments

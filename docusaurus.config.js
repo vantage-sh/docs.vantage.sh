@@ -107,6 +107,10 @@ const config = {
             from: "/microsoft_teams_integration",
             to: "/report_notifications",
           },
+          {
+            from: "/permissions_aws",
+            to: "/connecting_aws",
+          },
         ],
       },
     ],
