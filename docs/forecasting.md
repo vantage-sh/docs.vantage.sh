@@ -16,10 +16,6 @@ To view a forecast on a Cost Report, create a new Cost Report and save it. After
 
 The forecast for the rest of the current month is displayed, by default, on the chart. Forecasts are available on line charts and bar charts. On line charts, forecasts are available for all date binning options. For bar charts, you can view forecasts for day, week, and month date binnings.
 
-:::note
-At this time, forecasts are only available per service (e.g., EC2, RDS) and overall. When aggregating a report by other fields, the forecast will not be displayed.
-:::
-
 The forecast includes an upper-expected band and a lower-expected band, with a median forecast that is in the middle of these two ranges. This forecast is updated daily as new cost data arrives. 
 
 To view a future forecast, open the date picker to the top right of the chart. 
@@ -33,6 +29,12 @@ In the below example image, bars for future months are visible. Error bars are p
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A Cost Report with a forecast for the next 6 months and the mouse hovering over a future date point" width="100%" src="/img/future-forecasts.png" />
+</div>
+
+Forecasts are also present in grouped bar charts.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A grouped Cost Report with a forecast for the next month" width="100%" src="/img/grouped-forecast.png" />
 </div>
 
 ### Line Chart View
