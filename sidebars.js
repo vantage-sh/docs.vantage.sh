@@ -80,8 +80,7 @@ module.exports = {
             id: "connecting_aws",
           },
           items: [
-            "permissions_aws", 
-            "aws_supported_services"
+            "aws_supported_services",
           ],
         },
         {
