@@ -231,7 +231,7 @@ In this example, since your infrastructure team is responsible for 50% of all AW
     <img alt="A sample Tag Value field for AWS Support Fee costs" width="70%" src="/img/virtual-tag-support-fee.png" />
 </div>
 
-Once the tag is created, create a new Cost Reports and add the following criteria:
+Once the tag is created, create a new Cost Report and add the following criteria:
 
 - Create a filter for AWS Support costs.
 - Add grouping criteria to group by your new cost-based dynamic allocation tag.
@@ -282,4 +282,15 @@ Select the Vantage costs that will be split based on the percentages calculated 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A sample Tag Value field for specific Kubernetes namespace costs" width="90%" src="/img/virtual-tag-metric.png" />
+</div>
+
+Once the tag is created, create a new Cost Report and add the following criteria:
+
+- Create a filter for the specific Namespace.
+- Add grouping criteria to group by your new business metrics-based dynamic allocation tag.
+
+The resulting report shows how much of the Namespace costs each team is allocated.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-metric-report.png" />
 </div>
