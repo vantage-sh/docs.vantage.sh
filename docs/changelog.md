@@ -19,7 +19,7 @@ _This page was last updated on July 31, 2024, with product updates for July 2024
 ### Product Updates
 
 - **Dynamic Cost Allocation:** Dynamic cost allocation, which is the process of allocating costs based on another existing cost or metric, is now available. See the [Virtual Tagging](/virtual_tagging) documentation for details.
--  **Workspace switching updates:** If you are granted access to a report in a workspace outside of your regularly accessed workspace via [RBAC](/rbac), when you access the link to that report you will have temporary access to the new workspace and can view the items that you were granted access to.
+-  **Workspace access updates:** If you are granted access via [RBAC](/rbac) to a report in a workspace outside of your regularly accessed workspace, when you access the link to the report, you will have temporary access to the new workspace and can view the items that you were granted access to.
 - **Share reports across workspaces:** You can now share report links across different [workspaces](/workspaces). For example, if you're in Workspace A and open a report link from Workspace B, you'll be automatically switched to Workspace B to view the report. Previously, a `404` error was displayed.
 - **GCP active resources:** [GCP active resources](/gcp_supported_services) are now synced and available to filter within Resource Reports.
 - **GCP cost recommendations:** [Recommendations](/cost_recommendations#gcp-compute-rightsizing-recommendations) are now available for GCP Compute rightsizing and commitments. 
