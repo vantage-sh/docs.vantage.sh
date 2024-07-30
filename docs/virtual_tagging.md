@@ -21,36 +21,6 @@ Virtual tags are available for filtering and aggregating on all [Cost Reports](/
 To get started with virtual tagging, you can also view a video demo on [Vantage University](/vantage_university_cost_allocation) 🎓.
 :::
 
-## Custom Tags
-
-With custom tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
-
-See the [following examples](/virtual_tagging#custom-values-example) below for details.
-
-## Dynamic Cost Allocation
-
-The cost-based and metric-based virtual tag types allow for _dynamic cost allocation_, which is the process of allocating costs based on another existing cost or metric. See the below video for an introduction to dynamic cost allocation.
-
-<div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: '0', overflow: 'hidden' }}>
-  <iframe 
-    src="https://www.youtube.com/embed/Ih8glSnDrdM?si=YGKCt9FIm305qK1H?rel=0&color=white&modestbranding=1&wmode=transparent&autoplay=1" 
-    allowFullScreen
-    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '10px' }}
-  ></iframe>
-</div>
-
-### Cost-Based Allocation Tags
-
-With cost-based allocation tags, you can create a dynamically allocated cost structure. Select a set of input costs (e.g., all AWS costs), an existing cost tag to use for allocation (e.g., a teams cost tag), and an output cost (e.g, a static cost like an AWS Support) that you want to be allocated the same way as your input cost.
-
-See the [following examples](/virtual_tagging#cost-based-allocation-example) below for details.
-
-## Business Metrics-Based Tags
-
-With metrics-based tags, you select an existing business metric (e.g., CPU use per product) and indicate your output cost (e.g., all GCP Compute costs) so that the allocation of the output cost mimics the percentage allocation of the existing business metric.
-
-See the [following examples](/virtual_tagging#metric-based-allocation-example) below for details.
-
 ## Virtual Tags vs. Saved Filters vs. Cost Allocation Segments
 
 Virtual tags can be considered foundational to the rest of the data within Vantage. They should remain fairly static, and changes should be considered delicate. These changes will flow across all data and apply to all workspaces. The most common tag keys will be items like team, cost center, and environment.
@@ -62,6 +32,36 @@ Saved filters can then be used in a more ad-hoc fashion to add lenses on top of 
 :::note
 If you want to transition any of your cost allocation segments to virtual tags, contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
+
+## Custom Value Tags
+
+With custom value tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
+
+See the [example section](/virtual_tagging#custom-values-example) below for details.
+
+## Cost-Based and Business Metrics-Based Allocation Tags
+
+The cost-based and business metrics-based allocation tag types allow for _dynamic cost allocation_, which is the process of allocating costs based on another existing cost or metric. See the below video for an introduction to dynamic cost allocation.
+
+<div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: '0', overflow: 'hidden' }}>
+  <iframe 
+    src="https://www.youtube.com/embed/67RbHPtfgEE?si=3J14Pjwos6ubUdSd?rel=0&color=white&modestbranding=1&wmode=transparent&autoplay=1" 
+    allowFullScreen
+    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '10px' }}
+  ></iframe>
+</div>
+
+### Cost-Based Allocation Tags
+
+With cost-based allocation tags, you can create a dynamically allocated cost structure. Select a set of input costs (e.g., all AWS costs), an existing cost tag to use for allocation (e.g., a teams cost tag), and an output cost (e.g, a static cost, like AWS Support) that you want to be allocated the same way as your input cost.
+
+See the [example section](/virtual_tagging#cost-based-allocation-example) below for details.
+
+### Business Metrics-Based Allocation Tags
+
+With business metrics-based allocation tags, you select an existing [business metric](/per_unit_costs) (e.g., CPU use per product) and indicate your output cost (e.g., all GCP Compute costs) so that the allocation of the output cost mimics the percentage allocation of the existing business metric.
+
+See the [example section](/virtual_tagging#metric-based-allocation-example) below for details.
 
 ## Create Virtual Tags
 
@@ -86,8 +86,8 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
    </TabItem>
    <TabItem value="business" label="Add Business Metric Value" default>
    <ol>
-   <li>Click <b>Connect a Business Metric</b>.</li>
-   <li>Select an existing business metric.</li>
+   <li>Click <strong>Connect a Business Metric</strong>.</li>
+   <li>Select an existing <a href="/per_unit_costs">business metric</a>.</li>
    <li>Select the <strong>Output Costs Filter</strong> that will be split among your tag values based on your business metric. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
    </ol>
    </TabItem>
@@ -138,81 +138,9 @@ To delete a virtual tag, navigate to the [Virtual Tags](https://console.vantage.
 
 The following examples demonstrate how to use virtual tagging in a multi-provider organization.
 
-### Cost-Based Allocation: Allocating AWS Support Costs to Different Teams {#cost-based-allocation-example}
+### Custom Value Examples {#custom-values-example}
 
-In a large organization, multiple teams often share resources such as RDS databases or EC2 instances, with each team consuming different percentages of these resources each month. The organization may also be charged a static support fee each month. You want to be able to allocate a portion of the support fee to each team based on their proportional use of AWS resources. You can create a cost-based virtual tag for allocating portions of the support fee to each respective team.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="60%" src="/img/cost-based-example.png" />
-</div>
-
-#### Prerequisites
-
-You should already have an existing provider (e.g., AWS) tag, such as a `team` tag, with example values of `infra`, `mobile`, and `data` set up that identifies the filters for each team. This tag will be used in step 2.
-
-#### Step 1: Create a New Cost-Based Allocation Tag
-
-- Navigate to **Settings > Virtual Tags**.
-- Create a new Virtual Tag and select the **Cost-Based** option for the tag value.
-
-#### Step 2: Select an Input Cost Filter
-
-For your input cost, you select **All AWS Costs**.
-
-#### Step 3: Select a Tag Key
-
-You select your existing `teams` tag key you have in AWS that will be used for allocating costs.
-
-#### Step 4: Select an Output Cost Filter
-
-In this example, if your infrastructure team is responsible for 50% of all AWS costs, the mobile team for 20%, and the data team for 30%, you can mimic this allocation across another static cost, or your output cost. Select the filters for the AWS Support Cost.
-
-Once the tag is created, you can filter for AWS Support costs on a Cost Report and group by your new cost-based dynamic allocation tag to see how much of the Support fee each team is allocated.
-
-<!-- <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="80%" src="/img/cost-based-example.png" />
-</div> -->
-
-### Business Metric-Based Allocation: Allocating Kubernetes Namespace CPU Utilization to Different Teams {#metric-based-allocation-example}
-
-You are working with your infrastructure team and want to ensure that the proportional cost of CPU time on a shared resource is allocated to the distinct cost centers that are consuming the CPU. In the below example, you want each team’s portion of CPU usage billed as a corresponding percentage of the overall Namespace CPU cost. So, if Team A uses 30% of the resource’s CPU, then they should be billed a proportional percentage of the total Namespace’s costs.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A flowchart that has a CPU icon in a block at the top and says Shared Resource CPU. CPU has two arrows pointing to two boxes with people icons that say Team A CPU Usage and Team B CPU Usage. These boxes point to a box that says Total Namespace Costs with the Kubernetes icon. This box has two arrows that point to two boxes that say Portion of Namespace Costs Allocated to Team Based on Portion of CPU Usage." width="60%" src="/img/metric-based-example.png" />
-</div>
-
-#### Prerequisite
-
-To determine the cost of CPU time to allocate to each respective team, you first create a [labeled business metric](/per_unit_costs/#labels) that includes the CPU time labeled by team. Vantage then calculates the respective percentage of CPU time for each team. The labeled business metric has the following format.
-
-```
-date,amount,label
-2024-01-09,825,teama
-2024-01-09,600,teamb
-2024-01-10,500,teama
-2024-01-10,200,teamb
-2024-01-11,723,teama
-2024-01-11,456,teamb
-```
-
-#### Step 1: Create a New Business Metrics-Based Allocation Tag
-
-You create a new metrics-based tag:
-
-- Navigate to **Settings > Virtual Tags**.
-- Create a new Virtual Tag and select the **Business Metric** option for the tag value.
-
-#### Step 2: Select the Labeled Business Metric
-
-Select the business metric you just created to use for allocation.
-
-#### Step 3: Select an Output Cost Filter
-
-Select the Vantage costs that will be split based on the percentages calculated in your business metric. In this case, you select a filter to show costs for the specific Namespace you want to be allocated.
-
-### Custom Values {#custom-values-example}
-
-#### Virtual Tagging Example 1: Cross-Provider Tagging
+#### Example 1: Cross-Provider Tagging
 
 You want to create a tag mapping for each of your teams that maps corresponding teams with certain services and provider accounts.
 
@@ -243,7 +171,7 @@ Within Cost Reports, you can easily filter and group by these tag options to eas
     <img alt="A sample Cost Report grouped by Tag showing a mobile and data tag" width="100%" src="/img/virtual-tag-provider-report.png" />
 </div>
 
-#### Virtual Tagging Example 2: Consolidate Existing Tags
+#### Example 2: Consolidate Existing Tags
 
 You have a tagging practice established at your organization, but teams often create tags with spelling variations, tags with typos, or they create duplicate tags. For example, the `data` team has resources tagged with `data`, `Data`, and `data-prod`. This is an issue across many of your teams. You want to consolidate all these tags, across providers, into one `data` tag.
 
@@ -267,4 +195,91 @@ Within Cost Reports, you can easily filter by this tag to see all costs related 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="/img/virtual-tag-consolidate-report.png" />
+</div>
+
+### Cost-Based Allocation Example {#cost-based-allocation-example}
+
+In your organization, teams share resources, such as RDS databases or EC2 instances, and each team consumes different percentages of these resources each month. Your organization is also charged a static support fee each month for AWS. As shown in the diagram below, you want to allocate a portion of the support fee to each team based on their proportional use of AWS resources. So in the below example, since the Infra team is responsible for 50% of all AWS costs, they should also be responsible for 50% of the support fee. You can create a cost-based allocation virtual tag for allocating portions of the support fee to each respective team.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="60%" src="/img/cost-based-example.png" />
+</div>
+
+#### Prerequisites
+
+You have an existing provider tag in AWS that identifies resources for your teams. This tag will be used in step 2.
+
+#### Step 1: Create a New Cost-Based Allocation Tag
+
+- Navigate to **Settings > Virtual Tags**.
+- Create a new virtual tag.
+- Select the **Cost-Based** option for the tag value.
+
+#### Step 2: Select an Input Cost Filter
+
+For your input cost, select **All AWS Costs**.
+
+#### Step 3: Select a Tag Key
+
+You select your existing **teams** tag key you have in AWS that will be used for allocating costs.
+
+#### Step 4: Select an Output Cost Filter
+
+In this example, since your infrastructure team is responsible for 50% of all AWS costs, the mobile team for 20%, and the data team for 30%, you can mimic this allocation across another static cost, or your output cost. Select the filters for the AWS support fee.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="70%" src="/img/virtual-tag-support-fee.png" />
+</div>
+
+Once the tag is created, create a new Cost Reports and add the following criteria:
+
+- Create a filter for AWS Support costs.
+- Add grouping criteria to group by your new cost-based dynamic allocation tag.
+
+The resulting report shows how much of the support fee each team is allocated.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-support-fee-report.png" />
+</div>
+
+### Business Metrics-Based Allocation Example {#metric-based-allocation-example}
+
+You are working with your infrastructure team and want to ensure that the proportional cost of CPU time on a shared resource is allocated to the distinct cost centers that are consuming the CPU. In the below example, you want each team’s portion of CPU usage billed as a corresponding percentage of the overall Namespace CPU cost. So, if Team A uses 30% of the resource’s CPU, then they should be billed a proportional percentage of the total Namespace’s costs.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A flowchart that has a CPU icon in a block at the top and says Shared Resource CPU. CPU has two arrows pointing to two boxes with people icons that say Team A CPU Usage and Team B CPU Usage. These boxes point to a box that says Total Namespace Costs with the Kubernetes icon. This box has two arrows that point to two boxes that say Portion of Namespace Costs Allocated to Team Based on Portion of CPU Usage." width="60%" src="/img/metric-based-example.png" />
+</div>
+
+#### Prerequisite
+
+To determine the cost of CPU time to allocate to each respective team, you first create a [labeled business metric](/per_unit_costs/#labels) that includes the CPU time labeled by team. Vantage then calculates the respective percentage of CPU time for each team. The labeled business metric has the following format.
+
+```
+date,amount,label
+2024-01-09,825,teama
+2024-01-09,600,teamb
+2024-01-10,500,teama
+2024-01-10,200,teamb
+2024-01-11,723,teama
+2024-01-11,456,teamb
+```
+
+#### Step 1: Create a New Business Metrics-Based Allocation Tag
+
+You create a new business metrics-based tag:
+
+- Navigate to **Settings > Virtual Tags**.
+- Create a new virtual tag.
+- Select the **Business Metric** option for the tag value.
+
+#### Step 2: Select the Labeled Business Metric
+
+Search for and select the labeled business metric you just created to use for allocation.
+
+#### Step 3: Select an Output Cost Filter
+
+Select the Vantage costs that will be split based on the percentages calculated in your business metric. In this case, you select a filter to show costs for the specific Namespace you want to be allocated.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A sample Tag Value field for specific Kubernetes namespace costs" width="90%" src="/img/virtual-tag-metric.png" />
 </div>
