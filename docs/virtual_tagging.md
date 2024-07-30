@@ -3,9 +3,13 @@ id: virtual_tagging
 name: Virtual Tagging
 description: Create virtual tags within Vantage to provide a consistent tagging schema across cloud providers.
 keywords:
-    - Virtual tagging
-    - Vantage tags
+  - Virtual tagging
+  - Vantage tags
 ---
+
+import ReactPlayer from 'react-player'
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Virtual Tagging
 
@@ -14,12 +18,42 @@ You can create virtual tags to consistently tag costs across providers in Vantag
 Virtual tags are available for filtering and aggregating on all [Cost Reports](/cost_reports) and [cost allocation segments](/segments). They can also be used in filter criteria on [saved filters](/saved_filters). There is no limit to the number of tag keys or values you define.
 
 :::tip
-To get started with virtual tagging, you can also view a video demo on [Vantage University](/vantage_university_cost_allocation)  🎓.
+To get started with virtual tagging, you can also view a video demo on [Vantage University](/vantage_university_cost_allocation) 🎓.
 :::
+
+## Custom Tags
+
+With custom tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
+
+See the [following examples](/virtual_tagging#custom-values-example) below for details.
+
+## Dynamic Cost Allocation
+
+The cost-based and metric-based virtual tag types allow for _dynamic cost allocation_, which is the process of allocating costs based on another existing cost or metric. See the below video for an introduction to dynamic cost allocation.
+
+<div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: '0', overflow: 'hidden' }}>
+  <iframe 
+    src="https://www.youtube.com/embed/Ih8glSnDrdM?si=YGKCt9FIm305qK1H?rel=0&color=white&modestbranding=1&wmode=transparent&autoplay=1" 
+    allowFullScreen
+    style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '10px' }}
+  ></iframe>
+</div>
+
+### Cost-Based Allocation Tags
+
+With cost-based allocation tags, you can create a dynamically allocated cost structure. Select a set of input costs (e.g., all AWS costs), an existing cost tag to use for allocation (e.g., a teams cost tag), and an output cost (e.g, a static cost like an AWS Support) that you want to be allocated the same way as your input cost.
+
+See the [following examples](/virtual_tagging#cost-based-allocation-example) below for details.
+
+## Business Metrics-Based Tags
+
+With metrics-based tags, you select an existing business metric (e.g., CPU use per product) and indicate your output cost (e.g., all GCP Compute costs) so that the allocation of the output cost mimics the percentage allocation of the existing business metric.
+
+See the [following examples](/virtual_tagging#metric-based-allocation-example) below for details.
 
 ## Virtual Tags vs. Saved Filters vs. Cost Allocation Segments
 
-Virtual tags can be considered foundational to the rest of the data within Vantage. They should remain fairly static, and changes should be considered delicate. These changes will flow across all data and apply to all workspaces. The most common tag keys will be items like team, cost center, and environment. 
+Virtual tags can be considered foundational to the rest of the data within Vantage. They should remain fairly static, and changes should be considered delicate. These changes will flow across all data and apply to all workspaces. The most common tag keys will be items like team, cost center, and environment.
 
 Segments can then be used to create different hierarchical views for tagged data. This feature is useful for breaking down the data by different perspectives, such as by cost center or by OPEX/CapEX.
 
@@ -36,31 +70,50 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 :::
 
 1. From the top navigation, click **Settings**.
-2. From the side navigation, under **General Settings**, click **Virtual Tags**. 
-3. All existing virtual tags are displayed alphabetically. You can edit and delete any existing tags from this screen. To add a new virtual tag, click **Create a Virtual Tag**. 
-4. Enter a title for the **Tag Key**. 
-5. For **Billing Period Backfill**, select a billing period (e.g., **Apr 2024**) for which the tag should be backfilled. 
+2. From the side navigation, under **General Settings**, click **Virtual Tags**.
+3. All existing virtual tags are displayed alphabetically. You can edit and delete any existing tags from this screen. To add a new virtual tag, click **Create a Virtual Tag**.
+4. Enter a title for the **Tag Key**.
+5. For **Billing Period Backfill**, select a billing period (e.g., **Apr 2024**) for which the tag should be backfilled.
 6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
-7. In the **Values** section, click **+Add a Value**:
-   - Enter a **Tag Value** title.
-   :::note
-   Titles can contain only letters, numbers, and the following characters: _ - & + , . : / \
-   :::
-   - Click **+ Add a Filter** and specify the tag value’s filter criteria. Virtual tag filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the [Cost Reports](/cost_reports#filtering-cost-reports) documentation. 
-   :::note
-   You cannot use saved filters to define a virtual tag value's filters.
-   :::
+7. In the **Values** section, click **+Add**. Select whether you want to create a **Custom Value**, **Business Metric**, or **Cost Based** value. Click through the tabs below for instructions on each value type.
+   <Tabs>
+   <TabItem value="custom" label="Add Custom Value" default>
+   <ol>
+   <li>Click <strong>Assign Custom Value</strong>.</li>
+   <li>Enter a <strong>Tag Value</strong> title. Titles can contain only letters, numbers, and the following characters: <code>\_ - & + , . : / \</code>. You cannot use saved filters to define a virtual tag value's filters.</li>
+   <li>Specify the tag value's filter criteria. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
+   </ol>
+   </TabItem>
+   <TabItem value="business" label="Add Business Metric Value" default>
+   <ol>
+   <li>Click <b>Connect a Business Metric</b>.</li>
+   <li>Select an existing business metric.</li>
+   <li>Select the <strong>Output Costs Filter</strong> that will be split among your tag values based on your business metric. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
+   </ol>
+   </TabItem>
+   <TabItem value="cost" label="Add Cost Based Value" default>
+   <ol>
+   <li>Select <strong>Cost Based</strong>.</li>
+   <li>Select an <strong>Input Costs Filter</strong> to specify which category of input costs to include in the allocation. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
+   <li>Select an existing cost <strong>Tag Key</strong>. This value is an existing tag you have in one of your cost providers, like AWS.</li>
+   <li>Select the <strong>Output Costs Filter</strong> to indicate the costs that will be split among your tag values based on your input cost filter.</li>
+   </ol>
+   </TabItem>
+   </Tabs>
+
+   ***
+
 8. At the top, click **Save**.
-    
+
 Processing tag changes usually takes under an hour. At the top of the **Virtual Tags** screen, the processing status is displayed. Processing times vary based on the number of tags and volume of data you have imported into Vantage.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Virtual Tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="/img/virtual-tag-status.png" />
 </div>
 
-### Virtual Tag Order 
+### Virtual Tag Order
 
-Tag values are arranged in priority order on the **Virtual Tags** screen. You can move tag values up and down in the UI to reorder them, as demonstrated in the visual example below. 
+Tag values are arranged in priority order on the **Virtual Tags** screen. You can move tag values up and down in the UI to reorder them, as demonstrated in the visual example below.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
      <img alt="GIF of two tag values, staging and production, being reordered in the Tags UI" width="80%" src="/img/reorder-tags.gif"/>
@@ -71,25 +124,107 @@ When cost data is ingested into Vantage, the first value that matches the corres
 
 ## Filter and Group by Virtual Tags
 
-You can filter by virtual tags in Cost Reports, cost allocation segments, and when creating saved filters. Virtual tags are visible along with your existing provider tags. Use the **Tag** (**Label** in GCP) filter and grouping option. 
+You can filter by virtual tags in Cost Reports, cost allocation segments, and when creating saved filters. Virtual tags are visible along with your existing provider tags. Use the **Tag** (**Label** in GCP) filter and grouping option.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A Cost Report filter with two filters applied: one for AWS costs for the team/data tag and one for GCP costs with the same tag" width="80%" src="/img/virtual-tag-consolidate-report.png" />
 </div>
 
-## Virtual Tagging Examples 
+## Delete a Virtual Tag
 
-The following examples demonstrate how to use virtual tagging in a multi-provider organization. 
+To delete a virtual tag, navigate to the [Virtual Tags](https://console.vantage.sh/settings/virtual_tags) page. All existing tag keys are displayed. Click the trashcan icon next to a tag key. Your data will be re-tagged, excluding the deleted virtual tag, going back to the deleted tag’s backfill bill period. Newly ingested data will no longer be tagged with the deleted tag.
 
-###  Virtual Tagging Example 1: Cross-Provider Tagging
+## Virtual Tagging Examples {#examples}
+
+The following examples demonstrate how to use virtual tagging in a multi-provider organization.
+
+### Cost-Based Allocation: Allocating AWS Support Costs to Different Teams {#cost-based-allocation-example}
+
+In a large organization, multiple teams often share resources such as RDS databases or EC2 instances, with each team consuming different percentages of these resources each month. The organization may also be charged a static support fee each month. You want to be able to allocate a portion of the support fee to each team based on their proportional use of AWS resources. You can create a cost-based virtual tag for allocating portions of the support fee to each respective team.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="60%" src="/img/cost-based-example.png" />
+</div>
+
+#### Prerequisites
+
+You should already have an existing provider (e.g., AWS) tag, such as a `team` tag, with example values of `infra`, `mobile`, and `data` set up that identifies the filters for each team. This tag will be used in step 2.
+
+#### Step 1: Create a New Cost-Based Allocation Tag
+
+- Navigate to **Settings > Virtual Tags**.
+- Create a new Virtual Tag and select the **Cost-Based** option for the tag value.
+
+#### Step 2: Select an Input Cost Filter
+
+For your input cost, you select **All AWS Costs**.
+
+#### Step 3: Select a Tag Key
+
+You select your existing `teams` tag key you have in AWS that will be used for allocating costs.
+
+#### Step 4: Select an Output Cost Filter
+
+In this example, if your infrastructure team is responsible for 50% of all AWS costs, the mobile team for 20%, and the data team for 30%, you can mimic this allocation across another static cost, or your output cost. Select the filters for the AWS Support Cost.
+
+Once the tag is created, you can filter for AWS Support costs on a Cost Report and group by your new cost-based dynamic allocation tag to see how much of the Support fee each team is allocated.
+
+<!-- <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="80%" src="/img/cost-based-example.png" />
+</div> -->
+
+### Business Metric-Based Allocation: Allocating Kubernetes Namespace CPU Utilization to Different Teams {#metric-based-allocation-example}
+
+You are working with your infrastructure team and want to ensure that the proportional cost of CPU time on a shared resource is allocated to the distinct cost centers that are consuming the CPU. In the below example, you want each team’s portion of CPU usage billed as a corresponding percentage of the overall Namespace CPU cost. So, if Team A uses 30% of the resource’s CPU, then they should be billed a proportional percentage of the total Namespace’s costs.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A flowchart that has a CPU icon in a block at the top and says Shared Resource CPU. CPU has two arrows pointing to two boxes with people icons that say Team A CPU Usage and Team B CPU Usage. These boxes point to a box that says Total Namespace Costs with the Kubernetes icon. This box has two arrows that point to two boxes that say Portion of Namespace Costs Allocated to Team Based on Portion of CPU Usage." width="60%" src="/img/metric-based-example.png" />
+</div>
+
+#### Prerequisite
+
+To determine the cost of CPU time to allocate to each respective team, you first create a [labeled business metric](/per_unit_costs/#labels) that includes the CPU time labeled by team. Vantage then calculates the respective percentage of CPU time for each team. The labeled business metric has the following format.
+
+```
+date,amount,label
+2024-01-09,825,teama
+2024-01-09,600,teamb
+2024-01-10,500,teama
+2024-01-10,200,teamb
+2024-01-11,723,teama
+2024-01-11,456,teamb
+```
+
+#### Step 1: Create a New Business Metrics-Based Allocation Tag
+
+You create a new metrics-based tag:
+
+- Navigate to **Settings > Virtual Tags**.
+- Create a new Virtual Tag and select the **Business Metric** option for the tag value.
+
+#### Step 2: Select the Labeled Business Metric
+
+Select the business metric you just created to use for allocation.
+
+#### Step 3: Select an Output Cost Filter
+
+Select the Vantage costs that will be split based on the percentages calculated in your business metric. In this case, you select a filter to show costs for the specific Namespace you want to be allocated.
+
+### Custom Values {#custom-values-example}
+
+#### Virtual Tagging Example 1: Cross-Provider Tagging
 
 You want to create a tag mapping for each of your teams that maps corresponding teams with certain services and provider accounts.
 
-You create a tag key called `Teams`. 
+##### Step 1: Create a New Tag
+
+You create a tag key called `Teams`.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
 </div>
+
+##### Step 2: Add Tag Values and Filters
 
 You add the corresponding set of virtual tag values and filters:
 
@@ -108,15 +243,19 @@ Within Cost Reports, you can easily filter and group by these tag options to eas
     <img alt="A sample Cost Report grouped by Tag showing a mobile and data tag" width="100%" src="/img/virtual-tag-provider-report.png" />
 </div>
 
-###  Virtual Tagging Example 2: Consolidate Existing Tags
+#### Virtual Tagging Example 2: Consolidate Existing Tags
 
-You have a tagging practice established at your organization, but teams often create tags with spelling variations, tags with typos, or they create duplicate tags. For example, the `data` team has resources tagged with `data`, `Data`, and `data-prod`. This is an issue across many of your teams. You want to consolidate all these tags, across providers, into one `data` tag. 
+You have a tagging practice established at your organization, but teams often create tags with spelling variations, tags with typos, or they create duplicate tags. For example, the `data` team has resources tagged with `data`, `Data`, and `data-prod`. This is an issue across many of your teams. You want to consolidate all these tags, across providers, into one `data` tag.
+
+##### Step 1: Create a New Tag
 
 You create a tag key called `Teams` to override existing tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
 </div>
+
+##### Step 2: Add Tag Values and Filters
 
 You add the corresponding set of virtual tag values and filters. In this example, all permutations of the `data` team tag are combined into one virtual tag.
 
@@ -129,7 +268,3 @@ Within Cost Reports, you can easily filter by this tag to see all costs related 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="/img/virtual-tag-consolidate-report.png" />
 </div>
-
-## Delete a Virtual Tag
-
-To delete a virtual tag, navigate to the [Virtual Tags](https://console.vantage.sh/settings/virtual_tags) page. All existing tag keys are displayed. Click the trashcan icon next to a tag key. Your data will be re-tagged, excluding the deleted virtual tag, going back to the deleted tag’s backfill bill period. Newly ingested data will no longer be tagged with the deleted tag.
