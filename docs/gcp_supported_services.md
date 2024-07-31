@@ -24,9 +24,11 @@ Below is a list of currently supported GCP services for [active resources](/acti
 | Cloud BigQuery   | Vantage supports showing costs for Cloud BigQuery instances.        |
 | Cloud Bigtable   | Vantage supports showing costs for Cloud Bigtable instances.        |
 | Cloud Compute    | Vantage supports showing costs for Cloud Compute engines and disks. |
+| Cloud Containers | Vantage supports showing costs for Cloud Containers clusters.       |
 | Cloud Dataflow   | Vantage supports showing costs for Cloud Dataflow jobs.             |
 | Cloud Firestore  | Vantage supports showing costs for Cloud Firestore databases.       |
 | Cloud Logging    | Vantage supports showing costs for Cloud Logging buckets.           |
+| Cloud Run        | Vantage supports showing costs for Cloud Run services.              |
 | Cloud Spanner    | Vantage supports showing costs for Cloud Spanner instances.         |
 | Cloud SQL        | Vantage supports showing costs for Cloud SQL instances.             |
 | Cloud Storage    | Vantage supports showing costs for Cloud Storage buckets.           |
