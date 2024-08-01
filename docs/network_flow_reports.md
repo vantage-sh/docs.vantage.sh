@@ -53,35 +53,16 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
    :::tip
    You can also click the down arrow to the right of any bucket name and select or deselect specific log files within that bucket.
    :::
-   <details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Network Flow Reports onboarding page for getting started" width="100%" src="/img/nfr-onboarding.png" />
-    </div>
-   </details>
 5. When you select the checkbox for a bucket, the **Sync All** toggle is automatically enabled. After the initial onboarding process, any new VPC Flow Logs added to that bucket will also be automatically synced each night. You can disable this option if you do not want the files to automatically sync.
 6. The right panel contains instructions on how to get set up using the AWS CLI, AWS Management Console, or the [Vantage Terraform provider](/terraform). Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
 7. After you run the code in the AWS CLI, deploy your Terraform configuration, or complete the steps in the AWS Management Console, click **Check Permissions**. A message is displayed that indicates whether the bucket permissions were successfully set up or if they are missing. A red **X** is displayed next to any buckets in the left panel that do not have sufficient permissions. Some log files may also be unsupported. See the [section below](/network_flow_reports#unsupported-logs) for details.
-   <details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Network Flow Report onboarding page with a bucket selected and showing a message that says Permissions are good" width="100%" src="/img/nfr-permissions.png" />
-    </div>
-   </details>
 8. Once permissions are successfully set up, click **Connect**. A message is displayed that indicates your flow logs are being imported. Click **Check Import Status** to review the status of your integration. A **Processing…** status is displayed until the import is complete.
-   <details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Network Flow Report processing page for imports" width="100%" src="/img/nfr-processing.png" />
-    </div>
-   </details>
 
 Data is usually available within 24 hours of initially enabling the integration. You will receive an email once the data import is complete. Vantage ingests your logs nightly.
 
 ### Unsupported Logs {#unsupported-logs}
 
 When a particular log cannot be imported, Vantage displays either an `UNSUPPORTED TRAFFIC`, `UNSUPPORTED DESTINATION`, or `UNSUPPORTED LOG FORMAT` label next to the log name in the **Manage VPC Flow Logs** window. Hover your mouse over this label to see additional information about the issue.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Mouse hovers over an unsupported log format option" width="60%" src="/img/nfr-unsupported.png" />
-</div>
 
 <table>
   <tr>
@@ -131,32 +112,6 @@ Follow the steps below to create a new Network Flow Report:
    </div>
    - In the table below the diagram, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by the **Estimated Cost** column. Click any column header to change the sort order. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost column is calculated.)
    - For each listed resource, a link to the [**Active Resources** screen](/active_resources) is provided. Click this link to view additional metadata about the resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
-   <details><summary>Click to view example image</summary>
-   <div style={{ 
-       display: "flex", 
-       justifyContent: "center" 
-   }}>
-       <div style={{ 
-       boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
-       borderRadius: "10px", 
-       width: "100%",
-       overflow: "hidden" 
-       }}>
-       <ReactPlayer 
-           playing 
-           controls
-           playsinline
-           muted 
-           loop
-           url='/img/nfr-provider-resource.mp4' 
-           width="100%"
-           height="100%"
-           alt="A resource is selected in the table, the active resource view is opened, and the relationships tab is displayed."
-       />
-       </div>
-   </div>
-   </details>
-
 5. You can update the criteria displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
    - From the top right of the diagram, update the date range that’s displayed. Click the calendar icon and select an option, such as **Last 7 Days**, **This Month**, etc.
