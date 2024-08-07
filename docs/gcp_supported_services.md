@@ -35,7 +35,7 @@ Below is a list of currently supported GCP services for [active resources](/acti
 | Cloud SQL             | Vantage supports showing costs for Cloud SQL instances.                            |
 | Cloud Storage         | Vantage supports showing costs for Cloud Storage buckets.                          |
 | Memorystore for Redis | Vantage supports showing costs for Memorystore for Redis instances.                |
-| Secrets Manager | Vantage supports showing costs for Secrets Manager secrets.                |
+| Secrets Manager       | Vantage supports showing costs for Secrets Manager secrets.                        |
 
 ## Supported Regions
 
