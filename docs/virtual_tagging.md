@@ -94,8 +94,8 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
    <TabItem value="cost" label="Add Cost Based Value" default>
    <ol>
    <li>Select <strong>Cost Based</strong>.</li>
-   <li>Select an <strong>Input Costs Filter</strong> to specify which category of input costs to include in the allocation. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
-   <li>Select an existing cost <strong>Tag Key</strong>. This value is an existing tag you have in one of your cost providers, like AWS.</li>
+   <li>Select an <strong>Input Costs Filter</strong> to specify which category of input costs to include in the allocation. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation. <br/><blockquote><i><b>Tip:</b> For most use cases, you should set a filter for <b>Charge Type = Usage</b> on the input filter to ensure you are matching on only usage-related costs and ignoring costs related to items like credits, taxes, fees, etc.</i></blockquote></li>
+   <li>Select an existing cost <strong>Tag Key</strong>. This value can be an existing tag you have in one of your cost providers, like AWS.</li>
    <li>Select the <strong>Output Costs Filter</strong> to indicate the costs that will be split among your tag values based on your input cost filter.</li>
    </ol>
    </TabItem>
@@ -217,7 +217,7 @@ You have an existing provider tag in AWS that identifies resources for your team
 
 #### Step 2: Select an Input Cost Filter
 
-For your input cost, select **All AWS Costs**.
+For your input cost, select **All AWS Costs**. Set an additional filter for the **Usage** charge type to filter on only usage-related costs. This filter will ignore costs related to items like credits, taxes, fees, etc.
 
 #### Step 3: Select a Tag Key
 
