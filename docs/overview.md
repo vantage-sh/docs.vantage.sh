@@ -14,6 +14,10 @@ import TabItem from '@theme/TabItem';
 
 Once you create some provider integrations, Vantage will automatically begin ingesting billing information for your account. The default landing page in the Vantage console is the **Overview** page. This page serves as an executive-level summary, providing a comprehensive snapshot of the cost metrics that matter most to you. Review widgets on the Overview page for high-level cost summaries.
 
+:::note
+When a user navigates to `console.vantage.sh`, the **Overview** page is displayed. An individual user or owner of a team can configure a default dashboard to be displayed instead of the **Overview** page. See the [Default Dashboards](/dashboards#default-dashboard) documentation for details.
+:::
+
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Overview page" width="80%" src="/img/executive-overview.png" />
 </div>

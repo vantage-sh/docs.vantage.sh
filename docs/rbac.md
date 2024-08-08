@@ -88,7 +88,10 @@ To manage a team, select the team from the **Teams** list. Four tabs are display
     <img alt="Team management tabs and options" width="60%" src="/img/team-management-details.png" />
 </div>
 
-- On the **General** tab, you can edit the team name and description.
+- On the **General** tab, you can edit the team name and description as well as set a default team [dashboard](/dashboards). 
+  :::note
+  If you set a default dashboard, members who belong to other teams with default dashboards or with a personal default dashboard already configured, may be directed to those dashboards instead.
+  :::
 - On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective teams.
 - On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access.
 - On the **API Access Tokens** tab, Owners and Team Owners can create [API service tokens](/vantage_account#api-service-token) at the account level that inherit permissions from the team.

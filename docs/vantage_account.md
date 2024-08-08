@@ -86,7 +86,7 @@ From the top navigation bar of the Vantage console, click **Settings**. On the s
 
 ### Update Your Profile
 
-In the **Profile** section, you can change your display name as well as your email address. Note that changing your email will log you out and require you to re-confirm.
+In the **Profile** section, you can change your display name as well as your email address. Note that changing your email will log you out and require you to re-confirm. You can also select a default dashboard that's displayed when you navigate to `console.vantage.sh`. See the [Default Dashboards](/dashboards#default-dashboard) documentation for details.
 
 ### Reset Your Password
 
