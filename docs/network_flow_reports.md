@@ -46,7 +46,7 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
 
 ### Enable the Integration
 
-1. From the top navigation bar, click **Active Resources.**
+1. From the top navigation bar, click **Active Resources**.
 2. From the side navigation bar, select **Network Flow Reports**.
 3. Click **Configure VPC Flow Logs**.
 4. All existing S3 buckets that contain flow logs are displayed in the left panel of the onboarding workflow. Click the checkbox next to any listed S3 bucket to select all log files within that bucket.
@@ -82,6 +82,14 @@ When a particular log cannot be imported, Vantage displays either an `UNSUPPORTE
     <td>Unsupported log format means that your log may be missing some required columns. Hover over the <code>UNSUPPORTED LOG FORMAT</code> label to see a list of missing columns. Ensure your logs contain the columns noted in the <a href="/network_flow_reports#prerequisites">Prerequisites</a> section.</td>
   </tr>
 </table>
+
+### Troubleshooting {#troubleshooting}
+
+When you click **Check Permissions** during the onboarding process, an error is displayed when you the correct permissions are not set up. Ensure that you add the correct permissions displayed in the onboarding workflow for _each_ account.
+
+#### KMS Encrypted Buckets
+
+An error is displayed for buckets that are encrypted with AWS Key Management Service (KMS). You will need to either remove encryption on these buckets or provide Vantage the necessary permissions to decrypt (i.e., `kms:Decrypt`).
 
 ### Manage Existing Integrations
 
