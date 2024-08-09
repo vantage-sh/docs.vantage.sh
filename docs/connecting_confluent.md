@@ -63,10 +63,12 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On Confluent [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
-- Organization
-- Service (e.g., Kafka)
 - Category (e.g., Kafka Storage)
-- Resource
+- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Resource (resource service ID)
+- Charge Type (e.g., Usage)
+- Organization (organization ID)
+- Service (e.g., Kafka)
 
 You can also view credits or discounts for Confluent costs in Cost Reports.
 

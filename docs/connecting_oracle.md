@@ -37,10 +37,11 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On Oracle [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Service
-- Tenancy
-- Region
-- Cost Category
-- Resource
-- Tag/Not Tagged
 - Compartment
+- Category (e.g., MYSQL - MySQL Database Service - Standard - AMD E4 - Memory)
+- Tag/Not Tagged (includes Oracle tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Resource (resource ID)
+- Region (e.g., Us Ashburn 1)
+- Charge Type (e.g., Usage)
+- Tenancy (tenancy OCID)
+- Service (e.g., MYSQL)

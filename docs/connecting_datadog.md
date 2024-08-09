@@ -118,6 +118,18 @@ In the below visual example, a Cost Report is filtered to all Datadog costs. The
   <img alt="GIF selecting different Datadog services. When Log Management is selected, costs are displayed for the whole month. When Containers is selected, costs are displayed on the first of the month." width="100%" src="/img/datadog-costs.gif"/>
 </div>
 
+## Reporting Dimensions
+
+On Datadog [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Organization (organization name)
+- Category (e.g., APM integrated spans)
+- Tag/Not Tagged (includes Datadog tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Subcategory (e.g., Virtual Network Standard IPv4 Static Public IP)
+- Charge Type (e.g., Usage)
+- Service (e.g., Database Monitoring)
+
+
 ## View Datadog Metrics on Cost Reports
 
 You can import Datadog metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-datadog) documentation for more information.

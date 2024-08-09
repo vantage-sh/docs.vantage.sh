@@ -147,6 +147,21 @@ Occasionally, Vantage will modify the permission sets it uses to access billing 
 3. The **Account** list is displayed. Click **Manage** for the cloud account that you want to update. (For AWS organizations with multiple accounts, this will usually be the Management account.)
 4. Click **Update Vantage via AWS Console** to perform the update, or click **More Update Options** for command-line and other deployment methods.
 
+## Reporting Dimensions
+
+On AWS [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Account (AWS account name)
+- Category (e.g., EC2 Data Transfer)
+- Tag/Not Tagged (includes AWS tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Subcategory (e.g., EC2 DataTransfer-In-Bytes)
+- Resource (specific resource IDs)
+- Region (e.g., US East (Ohio))
+- Charge Type (e.g., Usage)
+- Billing Account (AWS billing account name)
+- Marketplace (Toggle to show only Marketplace purchases or excluded)
+- Service (e.g., AWS CloudTrail)
+
 ## View Amazon CloudWatch Metrics on Cost Reports
 
 You can import Amazon CloudWatch metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-cloudwatch) documentation for more information.

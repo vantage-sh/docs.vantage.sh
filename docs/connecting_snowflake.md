@@ -128,12 +128,14 @@ GRANT SELECT ON ALL VIEWS IN SCHEMA vantage.public TO ROLE vantage;
 
 On Snowflake [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Account
-- Category 
-- Metadata
-- Region
-- Organization
-- Service
+- Account (account name)
+- Category (e.g., Data Cloud Data Transfer)
+- Metadata (e.g., `environment is staging`)
+- Region (e.g., AWS Eu West 1)
+- Organization (organization name)
+- Service (e.g., Data Cloud)
+- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Charge Type (e.g., Usage)
 
 ## Active Resources 
 

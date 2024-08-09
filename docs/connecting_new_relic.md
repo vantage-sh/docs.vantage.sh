@@ -41,6 +41,8 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On New Relic [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Account
-- Service
+- Account (account name)
 - Category (e.g., New Relic Users - CoreUsers)
+- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Charge Type (e.g., Usage)
+- Service (e.g., New Relic Ingestion)

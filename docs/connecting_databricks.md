@@ -107,11 +107,12 @@ Once the discounts are saved, all existing cost data for the integration is re-p
 
 On Databricks [Cost Reports](/cost_reports/), you can filter across several dimensions:
 
-- Account
-- Category
-- Tag
-- Not tagged
-- Service
+- Account (account name)
+- Category (e.g., Jobs Compute - Photon)
+- Tag/Not Tagged (includes Databricks tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Cluster (e.g., Jobs Computer - `<CLUSTER_ID>`)
+- Charge Type (e.g., Usage)
+- Service (e.g., All Purpose Compute)
 
 :::note
 The **Tag** filter contains values like `JobID`, which can be used to view costs for specific Databricks jobs.
