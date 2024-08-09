@@ -63,10 +63,12 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On PlanetScale [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
-- Organization
-- Service (e.g., Database or Support)
 - Category (e.g., PS-10, PS-20)
+- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
 - Resource (e.g., database name)
+- Charge Type (e.g., Usage)
+- Organization (organization ID)
+- Service (e.g., Database or Support)
 
 You can also view credits or discounts for PlanetScale costs in Cost Reports.
 

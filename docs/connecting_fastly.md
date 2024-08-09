@@ -51,10 +51,11 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On Fastly [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Account
+- Account (account name)
 - Category (e.g., CDN Data Transfer)
 - Subcategory (e.g., CDN Requests)
-- Resource
-- Region
-- Service
-
+- Resource (service resource ID)
+- Region (e.g., Usa)
+- Charge Type (e.g., Usage)
+- Service (e.g., CDN)
+- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)

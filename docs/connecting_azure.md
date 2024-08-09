@@ -182,11 +182,13 @@ Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clust
 
 On Azure [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Resource Group
-- Category
-- Tagged/Not Tagged
-- Subcategory
-- Resource
-- Region
-- Subscription
-- Service
+- Resource Group (resource group name)
+- Category (e.g., Virtual Network IP Addresses)
+- Tag/Not Tagged (includes Azure tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Subcategory (e.g., Virtual Network Standard IPv4 Static Public IP)
+- Resource (resource ID)
+- Region (e.g., Us East)
+- Charge Type (e.g., Usage)
+- Subscription (subscription name)
+- Marketplace (Toggle to show only Marketplace purchases or excluded) 
+- Service (e.g., Virtual Machines)

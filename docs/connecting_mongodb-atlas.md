@@ -141,12 +141,13 @@ Once your costs are imported, select which workspaces this integration is associ
 
 On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Project
-- Organization
-- Service
-- Category
-- Resource (e.g., Realm costs)
-- Tag
+- Project (project ID)
+- Category (Atlas Cluster - Atlas Instance M2)
+- Tag (includes MongoDB tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Resource (service resource ID)
+- Charge Type (e.g., Usage)
+- Organization (organization name)
+- Service (e.g., REALM)
 
 ## Active Resources
 

@@ -146,19 +146,16 @@ Repeat these steps for each project where you want to enable active resources, a
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
-## Feature Availability and Resource Costs
+## Reporting Dimensions
 
-The following GCP services are available with resource-level costs in [Cost Reports](/cost_reports):
+On GCP [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Compute Engine
-- Cloud Functions
-- Cloud Run
-- Cloud SQL
-- Cloud Spanner
-- App Engine
-
-Google Cloud is not currently available in the following features:
-
-- [Autopilot](/autopilot)
-- [Savings Planner](/savings_planner)
-- [Resource Reports](/active_resources)
+- Project (project name)
+- Category (e.g., Cloud Functions Invocations (2nd Gen))
+- Label/Not Labeled (includes GCP labels and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Resource (resource ID)
+- Region (e.g., Us East1)
+- Charge Type (e.g., Usage)
+- Billing Account (billing account ID)
+- Marketplace (Toggle to show only Marketplace purchases or excluded) 
+- Service (e.g., Cloud Build)

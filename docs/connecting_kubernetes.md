@@ -32,3 +32,13 @@ To get started, follow the instructions for setting up the [Vantage Kubernetes a
 ## Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Reporting Dimensions
+
+On Kubernetes [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Account (associated account name)
+- Grouping (includes Kubernetes grouping names and values and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Region (e.g., Westus2)
+- Charge Type (e.g., Usage)
+- Cluster (cluster name)
