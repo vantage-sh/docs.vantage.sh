@@ -88,7 +88,7 @@ To manage a team, select the team from the **Teams** list. Four tabs are display
     <img alt="Team management tabs and options" width="60%" src="/img/team-management-details.png" />
 </div>
 
-- On the **General** tab, you can edit the team name and description as well as set a default team [dashboard](/dashboards). 
+- On the **General** tab, you can edit the team name and description as well as set a default team [dashboard](/dashboards#default-dashboard). 
   :::note
   If you set a default dashboard, members who belong to other teams with default dashboards or with a personal default dashboard already configured, may be directed to those dashboards instead.
   :::

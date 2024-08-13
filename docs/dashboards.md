@@ -76,7 +76,7 @@ You can set a default dashboard that's displayed when a user logs in to Vantage 
     <ol>
       <li>From the top navigation, click <strong>Settings</strong>.</li>
       <li>From the left navigation, under <strong>General Settings</strong>, click <strong>Teams</strong>.</li>
-      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should displayed when a member of the team visits <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
+      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should be displayed when a member of the team visits <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
       <li>Click <strong>Save</strong>.</li>
       </ol> 
   </TabItem>
@@ -84,7 +84,7 @@ You can set a default dashboard that's displayed when a user logs in to Vantage 
     <ol>
       <li>From the top navigation, click <strong>Settings</strong>.</li>
       <li>From the left navigation, under <strong>Personal Settings</strong>, click <strong>Profile</strong>.</li>
-      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should displayed when you visit <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
+      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should be displayed when you visit <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
       <li>Click <strong>Save</strong>.</li>
       </ol> 
   </TabItem>
