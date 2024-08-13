@@ -111,6 +111,14 @@ const config = {
             from: "/permissions_aws",
             to: "/connecting_aws",
           },
+          {
+            from: "/opencost",
+            to: "/kubernetes_agent",
+          },
+          {
+            from: "/kubernetes_container_insights",
+            to: "/kubernetes_agent",
+          },
         ],
       },
     ],
