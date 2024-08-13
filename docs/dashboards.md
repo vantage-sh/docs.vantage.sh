@@ -7,6 +7,9 @@ keywords:
   - Dashboards
 ---
 
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
 # Dashboards
 
 Dashboards contain a set of [Cost Reports](/cost_reports), [segment reports](/segments), [resource reports](/active_resources), or [financial commitment reports](/financial_commitment_reports). You can apply date range and period filters (e.g., display daily costs) to all reports on the dashboard. A consistent date range across all reports on the dashboard can help with cost comparison between different reports. You can assign any number of reports to a dashboard, regardless of which folder the report is in. Once a dashboard is created, you can modify the name and date settings as well as add/remove reports from the dashboard.
@@ -56,6 +59,38 @@ You can use [saved filters](/saved_filters) to apply consistent filter logic to 
   :::note
   When you add a saved filter to a dashboard, if a preexisting filter on a Cost Report and the saved filter use the same provider (e.g., both use AWS), "AND" logic is used between each filter set (i.e., show costs where the preexisting filter _AND_ saved filter are true). If the preexisting filter and saved filter use different providers, “OR” logic is used between each filter set.  
   :::
+
+## Set a Default Dashboard {#default-dashboard}
+
+You can set a default dashboard that's displayed when a user logs in to Vantage and visits `console.vantage.sh`, instead of the [Overview](/overview) screen. This default dashboard can be set for a team or by an individual user. When the user logs in to Vantage, they will be redirected to that dashboard, and will be in the [workspace](/workspaces) that is associated with that dashboard.  
+
+:::note
+
+- If a user is a member of a team with a configured default dashboard and also has a personal dashboard configured, the personal dashboard is displayed. 
+- If a user is a member of two different teams with configured default dashboards, the user will see the default dashboard of the first team they were added to.
+:::
+
+<Tabs>
+  <TabItem value="team" label="Set Default Dashboard for Team" default>
+  <p>A user with <a href="/rbac">Owner-level</a> permissions can set a default dashboard for a team.</p>
+    <ol>
+      <li>From the top navigation, click <strong>Settings</strong>.</li>
+      <li>From the left navigation, under <strong>General Settings</strong>, click <strong>Teams</strong>.</li>
+      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should be displayed when a member of the team visits <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
+      <li>Click <strong>Save</strong>.</li>
+      </ol> 
+  </TabItem>
+  <TabItem value="user" label="Set Personal Default Dashboard">
+    <ol>
+      <li>From the top navigation, click <strong>Settings</strong>.</li>
+      <li>From the left navigation, under <strong>Personal Settings</strong>, click <strong>Profile</strong>.</li>
+      <li>Under <strong>Default Dashboard</strong>, select the dashboard that should be displayed when you visit <code>console.vantage.sh</code>. If you want to remove the default dashboard and display the Overview page instead, select <strong>None</strong>.</li> 
+      <li>Click <strong>Save</strong>.</li>
+      </ol> 
+  </TabItem>
+</Tabs>
+
+---
 
 ## Share a Dashboard
 
