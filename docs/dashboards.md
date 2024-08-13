@@ -92,6 +92,10 @@ You can set a default dashboard that's displayed when a user logs in to Vantage 
 
 ---
 
+:::tip
+A user can also select their personal default dashboard from any existing dashboard. At the top right of the dashboard, click the ellipses. Click **Set Default Dashboard** and confirm.
+:::
+
 ## Share a Dashboard
 
 From the top of any dashboard, click **Share**. A link is added to your clipboard where you can share the dashboard with any Vantage user in your organization who has access to view the dashboard. Each report on the dashboard also has a share option, with a unique link.
