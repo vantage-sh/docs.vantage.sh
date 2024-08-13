@@ -115,8 +115,6 @@ module.exports = {
           },
           items: [
             "kubernetes_agent",
-            "opencost",
-            "kubernetes_container_insights",
             "kubernetes",
           ],
         },
