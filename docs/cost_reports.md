@@ -470,6 +470,12 @@ To compare costs day by day, week by week, or month by month on Cost Reports, cl
     <img alt="Comparative View" width="80%" src="/img/by-date-view.png" />
 </div>
 
+When you view the **By Date** option, a **Total Costs** row is displayed at the top of the table. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Total Costs row displayed at the top of the Cost Report table when shown by date" width="80%" src="/img/total-costs.png" />
+</div>
+
 ## Export Cost Reports {#exporting-cost-reports}
 
 You can select from two modes when you export a report: Basic or Advanced.

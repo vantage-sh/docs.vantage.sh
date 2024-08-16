@@ -12,7 +12,28 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 31, 2024, with product updates for July 2024._
+_This page was last updated on August 16, 2024, with product updates for August 2024._
+
+## August 2024
+
+### Product Updates
+- **Account filter matching:** For cost providers, like AWS, that have human-readable account names, you can now wildcard-match on account names in [Cost Report filters](/cost_reports#filtering-cost-reports) (e.g., set a filter, like _Account **contains** dev_).
+- **Total costs by date:** On [Cost Reports](/cost_reports#comparative-cost-reporting), the **Total Costs** row is displayed when you change the table display to **By Date**. 
+- **Set default dashboard:** You can set the [default dashboard](/dashboards#default-dashboard) that's displayed for a team or individual users when they log in to Vantage.
+- **Additional GCP Active Resources:** The following [GCP services](/gcp_supported_services) were added and synced as active resources:
+  - Cloud AlloyDB clusters, instances, and backups
+  - Cloud Container clusters
+  - Cloud Functions functions
+  - Memorystore for Redis instances
+  - Secrets Manager secrets
+
+### Kubernetes Agent Updates
+
+_See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release._
+
+### API Updates
+
+No updates.
 
 ## July 2024
 
