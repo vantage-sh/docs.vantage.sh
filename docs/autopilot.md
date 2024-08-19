@@ -8,127 +8,244 @@ keywords:
   - Autopilot for AWS Savings Plans
 ---
 
+import ReactPlayer from 'react-player'
+
 # Autopilot for AWS Savings Plans
 
-Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
+Autopilot for AWS Savings Plans allows Vantage to purchase Compute Savings Plans commitments on your behalf, with manual and automated options. Autopilot continuously evaluates your compute workloads, and when enabled, can automatically purchase the most suitable Compute Savings Plans to maximize your savings. Compute Savings Plans provide broad coverage, applying to all instance types across any region, without the need to manage specific instance sizes or worry about region-specific commitments. Autopilot also provides savings recommendations for RDS, ElastiCache, Redshift, and OpenSearch Reserved Instances.
 
-In the event that your compute workloads decrease, Autopilot will automatically list to sell out of Reserved Instances on the EC2 Reserved Instance Marketplace to ensure that you're not overcommitted. Please note that there is a minimum 30 day hold time imposed by AWS for all reserved instances so you should only enable Autopilot if you don't expect material downward changes in your infrastructure within 30 days. You can further control what actions Autopilot takes with [Autopilot Controls](#autopilot-controls).
-
-Depending on your mix of EC2 instances used, Autopilot can reduce your compute costs by over 60% and make recommendations on RDS, ElastiCache, Redshift, and OpenSearch which reduce your costs by up to 72%.
-
-:::note AISPL Exclusion
-If your account is registered with Amazon Internet Services Private Limited (AISPL), you will be unable to use Autopilot due to AWS Marketplace limitations. [Per AWS](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html), "Amazon Internet Services Private Limited (AISPL) customers can't sell Reserved Instances in the Reserved Instance Marketplace even if they have a US bank account."
+:::note
+At the time, Autopilot supports only AWS; however, there are plans to expand this functionality to GCP and Azure.
 :::
-
-## Autopilot Pricing
-
-Autopilot only charges 5% of the _savings found_. This means that in the event that Autopilot doesn't find you any savings, then its free to you to use.
-
-As example in the event that your EC2 bill is $10,000 per month and Autopilot buys you enough reserved instances to save you $3,000 per month, the corresponding Autopilot fee will be $150 so your net savings is $2,850 per month.
-
-:::info
-You won't be charged for existing Reserved Instances or Savings Plans.
-
-Autopilot will respect your existing Savings Plans and Reserved Instances and you will not pay any Autopilot fees for existing commitments.
-:::
-
-For RDS, ElastiCache, Redshift and OpenSearch Autopilot uses an approval-based workflow which calculates how many reserved instances to buy and links you to the AWS console to make the purchase. There is **no fee** for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
-
-## Autopilot Permissions
-
-The full set of IAM permissions for Autopilot are listed below. To summarize the scope of the permissions needed for Autopilot to run, we require the ability to purchase reserved instances for EC2, ElasticSearch, Redshift and RDS. We also require permission to view service quotas to understand what commitment levels we can make based off of the limits in your account.
-
-Autopilot can not and will never attempt to augment production workloads, read from databases or access network data. Autopilot purely is making financial commitments on your behalf to help save you money.
-
-```
-{
-    "Version": "2012-10-17",
-    "Statement": [
-        {
-            "Action": [
-                "ec2:AcceptReservedInstancesExchangeQuote",
-                "ec2:CancelReservedInstancesListing",
-                "ec2:CreateReservedInstancesListing",
-                "ec2:DeleteQueuedReservedInstances",
-                "ec2:ModifyReservedInstances",
-                "ec2:PurchaseReservedInstancesOffering",
-                "rds:PurchaseReservedDBInstancesOffering",
-                "elasticache:PurchaseReservedCacheNodesOffering",
-                "es:PurchaseReservedInstanceOffering",
-                "redshift:PurchaseReservedNodeOffering",
-                "redshift:AcceptReservedNodeExchange",
-                "redshift:GetReservedNodeExchangeConfigurationOptions",
-                "redshift:GetReservedNodeExchangeOfferings",
-                "servicequotas:Get*",
-                "servicequotas:List*",
-                "servicequotas:RequestServiceQuotaIncrease",
-                "support:*"
-            ],
-            "Resource": "*",
-            "Effect": "Allow"
-        }
-    ]
-}
-```
 
 ## How Autopilot Works
 
-Autopilot works by ingesting and analyzing Cost and Usage Report data. Vantage will structure your compute workloads by instance hour of each respective compute class. A compute class is defined as EC2 instance usage structured by instance type (i.e. t3.xlarge, r5.large, etc), region (us-east-1, us-west-2, etc) and platform (Linux, Windows, etc) tracked hourly.
+Autopilot works along with the AWS APIs by ingesting and analyzing Cost and Usage Report data. Vantage will group your compute workloads on the dashboard by instance hour of each respective compute class. A compute class is defined as EC2 instance usage structured by instance type (e.g., t3.xlarge, r5.large), Region (e.g., us-east-1, us-west-2) and platform (e.g., Linux, Windows) tracked hourly.
 
-After structuring compute data for each compute class, Autopilot will look at existing coverage of existing AWS Savings Plans and Reserved Instances and determine what remaining on-demand compute usage is available to optimize on a per compute class basis. Where Autopilot believes it can find you savings, it will begin purchasing corresponding reserved instances. Where Autopilot sees that you're overcommitted on a particular compute class, it will look to sell out of corresponding reserved instances. Autopilot will only ever sell out of reserved instances Autopilot has purchased and will not attempt to sell out of reserved instances that you've already purchased in your account.
+### Coverage Determination
 
-For each compute category, Autopilot is also looking at "peaks and valleys" of usage to ensure it avoids overcommitment. In some cases where there are very spikey workloads, a target coverage rates for reserved instances may be very low to achieve cost savings without the concern of overcommitment. For more normalized workloads, a target coverage rate will be on the higher side as there less concern over overcommitment.
+Autopilot looks at historical compute usage (up to 3 months) to understand your average compute usage. This method is intended to help find a relatively steady-state compute footprint to base the coverage percentage on, avoiding accidentally purchasing too much coverage because of a temporary spike in compute usage. Compute Savings Plans provide flexibility by applying to EC2 as well as other services, including AWS Fargate and AWS Lambda
 
-### I have existing AWS Savings Plans and Reserved Instances - will Autopilot account for these?
+When Autopilot has reached an hourly commitment that maximizes the effective discount, Autopilot will immediately stop making purchases in this category. The category will be shown as overcommitted in on the Autopilot dashboard, and all overcommitted categories will be able to be viewed using the overcommitted filter at the top of the page. Owners of the Vantage account will receive an email when a category falls into the over commitment designation.
 
-Yes. Autopilot will account for your existing AWS Savings Plans and Reserved Instances. You will not be charged for existing AWS Savings Plans or Reserved Instances. Even if you feel that you have good coverage with existing AWS Savings Plans and Reserved Instances, you should consider enabling Autopilot as an insurance policy in the event that they expire. Autopilot will automatically detect that your coverage is slipping if anything were to expire and purchase additional Reserved Instances to account for things accordingly.
+### Configurable Lookback Period and Savings Plan Type
 
-### How will Autopilot affect my AWS bill?
+Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your compute usage to ensure the correct coverage level is purchased. Consider the following general suggestion for lookback periods:
 
-Because Autopilot purchases _only_ **no-upfront** commitments, there will not be any purchase or transaction that is reflected on your bill when the RIs are purchased. Additionally, no funds will be exchanged when Autopilot sells the commitments. This means that despite the AWS requirement to add a bank account for selling in the RI marketplace, no money is moving in and out of the account. The only net impact on your bill is a reduction in compute hourly rates, assuming Autopilot has found savings and purchased RIs.
+- Consider 7 days as a good selection for linearly increasing, steady-state workloads
+- Consider 60 days for workloads with higher peak to average variation.
 
-### How do I register as a seller in the AWS Reserved Instance Marketplace?
+You can configure your Savings Plans settings for Autopilot to use 1- or 3-year term lengths and All upfront, Partial upfront, or No upfront payment plans.
 
-Autopilot requires that you register as a seller in the AWS reserved instance marketplace before any actions are taken. This is what enables Autopilot to sell reserved instances you are no longer using. You can follow these <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html#ri-market-seller-profile">instructions</a> to complete the seller registration process. As part of this process filling out tax information is optional, however Autopilot requires you complete this step in order to ensure your reserved instances can be sold in the marketplace.
+### Existing Savings Plans
 
-### Are there any timelines I need to be aware of?
+Autopilot will account for your existing AWS Savings Plans and Reserved Instances. You will not be charged for existing AWS Savings Plans or Reserved Instances. Even if you feel that you have good coverage with existing AWS Savings Plans and Reserved Instances, you can consider enabling Autopilot as an insurance policy in the event that they expire or your usage footprint changes. Autopilot will automatically detect that your coverage level is reducing if anything were to expire and purchase additional Reserved Instances to account for things accordingly.
 
-AWS imposes a minimum 30-day hold time for all Reserved Instances before you can list them for sale on the AWS EC2 Reserved Instance marketplace. As a result, you shouldn't enable Autopilot if you expect significant _downward_ changes in your infrastructure within the first 30 days of enabling Autopilot as they can't technically be listed for sale. If you expect _growth_, there are no concerns around this limitation.
+## Legacy Autopilot (EC2 Reserved Instances)
 
-### Why did Autopilot purchase instance sizes that are different from what I am using?
+Because of changes to the underlying Reserved Instance (RI) market, the way Vantage Autopilot initially worked changed from supporting Reserved Instances to instead supporting Savings Plans. See the _Migrate from Autopilot (EC2 RIs) to Autopilot for AWS Savings Plans_ section below for details on how to get started. Consult the following resources for additional information:
 
-Autopilot purchases RIs in denormalized units that are applicable to any size of instance in the same family, which you can see if you reference the [AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/apply_ri.html). In other words, if you change sizes within the same instance family, the reservations still apply!
+- For more details on the AWS changes to RIs, see [this Vantage blog post](https://www.vantage.sh/blog/aws-reserved-instances-updates).
+- For information about the updates in Vantage, see the following Vantage blog.
+- For a primer on AWS Savings Plans, see the [following Vantage blog](https://www.vantage.sh/blog/what-is-an-aws-savings-plan).
 
-## Autopilot Controls {#autopilot-controls}
+## Autopilot Permissions {#permissions}
 
+Review the `VantageAutoPilot` policy on the public AWS CloudFormation template, where you can audit the template's [list of required permissions](https://vantage-public.s3.amazonaws.com/vantage-integration-combined-latest.json). This template is the same one that’s used when you configure your Vantage and AWS connection.
 
-You can see what actions Autopilot may take or is taking under [Settings](https://console.vantage.sh/financial_planning/autopilot/settings) in the Autopilot page in the console. Here, you can control Autopilot on a per-compute category basis, disabling it and enabling it as needed.
+:::note
+Autopilot cannot and will never change your underlying infrastructure
+:::
 
-A compute category is a Vantage primitive that is a representation of your normalized EC2 workloads that consists of the following:
+## Enable Autopilot (New Users)
 
-- An instance type family such as "m5a".
-- A region.
-- A platform (Windows, Linux, RHEL, Windows SQL Server, etc..)
+To use Autopilot, ensure that you’ve [connected AWS](https://docs.vantage.sh/connecting_aws) as a provider. Then, from the top navigation, select **Financial Planning** > **Autopilot**. If this is your first time using Autopilot, you will need to complete the onboarding workflow for Autopilot.
 
-Each compute category has usage tracked hourly and grouped by the following compute types. Note that Windows, SUSE and RedHat Reserved Instances are targeted at a specific instance type, e.g. m5.2xlarge, instead of the entire family.
+1. From the top right of the Autopilot dashboard, click the **Autopilot Enabled** toggle access the onboarding workflow.
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="The enable toggle on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-enabled.png" />
+</div>
+2. Click **Get Started**. Vantage performs a permissions check to ensure you have the right permissions configured for Autopilot. These permissions are used to view billing data, generate Savings Plans recommendations, and purchase them on your behalf. See the _Autopilot Permissions_ section above for details. If you fail the permissions check, click **Upgrade Integration** to configure the correct permissions.
+3. Click **Continue**.
+4. Review the provided Autopilot **Master Services Agreement** and click the checkbox to acknowledge that you accept the terms. Click **Accept and Continue.**
+5. Click **Go to Autopilot Dashboard** to begin reviewing your savings.
+
+Autopilot will automatically begin to analyze your compute trends and can apply savings within days. Typically, you can expect to wait about one week before you start to see material Autopilot savings on the Autopilot dashboard.
+
+You can also disable Autopilot at any time. To disable Autopilot, click the **Autopilot Enabled** toggle on the top right of the Autopilot dashboard.
+
+### Migrate from Autopilot (EC2 RIs) to Autopilot for AWS Savings Plans {#migrate}
+
+Autopilot no longer supports purchasing and selling Reserved Instances. If you are a customer that uses Autopilot to manage Reserved Instances, you have three options:
+
+- **Continue to use your Reserved Instances until they expire**: Vantage will continue to charge you for 5% of savings realized from the original purchase of these RIs.
+- **Opt in to Autopilot for AWS Savings Plans:** When you opt in, Vantage will list your Reserved Instances for sale on the Reserved Instance marketplace; however, there is no guarantee that these Reserved Instances will sell. In the event that they do sell, Autopilot will automatically backfill your Reserved Instances with new Savings Plans coverage.
+- **Contact your AWS account team to discuss a migration from Reserved Instances to Savings Plans**: It’s been noted that some customers could negotiate with AWS to replace Reserved Instances with Savings Plans, depending on the specifics of the request. Vantage does not have any details about what makes this more likely to succeed with AWS, and it does not seem to be a guarantee that AWS will perform a swap.
+
+If you have any questions, contact support@vantage.sh. If you are a current Autopilot customer, at the top of the Autopilot console, a message is displayed to migrate to Autopilot for AWS Savings Plans. Click **Get Started**, and the onboarding workflow described before will be displayed.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Migration banner on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-migrate.png" />
+</div>
+
+## Review Autopilot for AWS Savings Plans Dashboards
+
+From the Autopilot dashboard, you can toggle between the Compute (EC2), RDS, ElastiCache, Redshift, and OpenSearch tabs. This section describes the actions you can take on the **Compute** tab.
+
+### Configuration Screen {#configuration}
+
+After you onboard to Autopilot the Savings Plans **Compute Configuration** page is displayed. By default, Autopilot is configured to a 60-day lookback with 3-year No Upfront payment types. You can also access this page by selecting **Configuration** from the left menu of the **Compute** tab. On this page, you can configure the following options.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Configuration screen on the Autopilot dashboard providing options for lookback, payment type, and term" width="100%" src="/img/autopilot/autopilot-configure.png" />
+</div>
+
+#### Toggle Automatic Purchases {#toggle-automatic}
+
+Autopilot Savings Plans purchases are initially disabled. If you want to have Autopilot make Savings Plans purchases on your behalf, click the toggle and acknowledge the displayed confirmation message. You can leave this toggle disabled if you would rather manually approve or decline recommendations.
+
+#### Lookback Period {#lookback}
+
+Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your EC2 usage to ensure the correct coverage level is purchased.
+
+#### Savings Plan Purchase Configuration {#sp-config}
+
+Configure the length of time and payment option for your purchases. For **Term Length**, select either 1- or 3-year term lengths. For **Payment**, select either All upfront, Partial upfront, or No upfront payment plans.
+
+:::tip
+For more information about term lengths and payment options, see [this Vantage blog](https://www.vantage.sh/blog/what-is-an-aws-savings-plan) on Savings Plans.
+:::
+
+### Coverage Overview and Recommended Coverage
+
+Based on your configured inputs, Autopilot provides a recommended Compute Savings Plan for purchase to cover the remaining spend. You can view your commitments and recommended coverage to get a better idea of how you are currently committed along with Autopilot’s recommendations.
+
+:::note
+Autopilot also purchases Savings Plans in increments that are eligible for AWS’s 7-day return policy threshold, so if there's a mistake or a change in your plans, Vantage can request a return of the unneeded Savings Plans. To request a return, contact [support@vantage.sh](mailto:support@vantage.sh).
+:::
+
+#### Coverage Overview
+
+As Autopilot adjusts the commitment level, this tab includes a graph that displays your On-Demand, Savings Plans, and (if applicable) Reserved Instance usage. The graph shows daily usage, and you can use the date option above the graph to change the month that’s shown.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Coverage Overview screen on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-coverage-overview.png" />
+</div>
+
+Above the graph, your savings is displayed, along with the percentage decrease or increase between this and last month. Your **Coverage** is also displayed, which shows your coverage across all commitment types. Finally, your **All Time Savings** found by Autopilot are displayed. You can update the date that’s displayed.
+
+:::note
+This page includes all commitments, regardless of if they are covered by Autopilot.
+:::
+
+#### Recommended Coverage
+
+On the **Recommended Coverage** screen, a graph with On-Demand vs. Recommended Commitments is displayed. Above the chart, the **Projected On-Demand Cost** is displayed. This is remaining On-Demand cost that’s estimated to not be covered by the recommended Savings Plans, over the lookback period. On the graph, you can filter by the following options:
+
+- Service: Amazon EC2, ECS, Fargate (ECS or EKS), or Lambda
+- Category: A compute category that is a representation of your normalized compute workloads (e.g., _USE1-Fargate-GB-Hours_)
+- Region: AWS Region (e.g., us-east-1)
+
+The table displays the On-Demand Cost for each combination of service and category. Recommended coverage is displayed as a trendline you can toggle on and off, as shown in the visual example below. You can also change the date range displayed above the chart.
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/autopilot/autopilot-recommended.mp4'
+        alt="The Autopilot Recommended Coverage page is displayed along with the ability to toggle settings above the chart." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+
+#### Review Coverage Recommendations
+
+The per hour **Recommended Coverage** is also displayed in the section above the graph, along with projected savings. Click **Review the recommendation** to review currently active recommendations. The **Review Recommendation** panel is displayed on the right. From this panel, you can view the recommendation based on your term length, lookback, and payment configuration. Click **Approve Purchase** and Autopilot will make the purchase.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Coverage Overview screen on the Autopilot dashboard" width="60%" src="/img/autopilot/autopilot-recommendation.png" />
+</div>
+
+Note that Vantage generates recommendations daily. When Autopilot makes a purchase, there is a short window where Autopilot does not generate additional proposed recommendations in order for the recently accepted recommendation to take effect. Ensure that you have not already made a purchase made that would cover this recommendation.
+
+## RDS, ElastiCache, Redshift, and OpenSearch Autopilot Graphs {#autopilot-graphs}
+
+Autopilot also provides recommendations and the option to purchase Reserved Instances for RDS, ElastiCache, Redshift, and OpenSearch. A tab for each of these services is displayed on top of the Autopilot dashboard. 
+
+:::note
+The EC2 tab was previously displayed for legacy Autopilot for EC2 Reserved Instances customers. On this tab, you could control buying and selling of each compute category displayed. These controls are no longer available with Autopilot for AWS Savings Plans. Instead, you can use [Financial Commitment Reports](/financial_commitment_reports) to see a unified view of all your AWS financial commitments, with the ability to filter or create custom aggregations and groupings. Financial Commitment Reports track Savings Plans, Reserved Instances, Spot Instance usage, and EDP discounts for AWS costs.
+:::
+
+Recommendations are displayed for individual compute categories, which are a representation of your normalized workloads that consists of the following elements:
+
+- An instance type family, such as *m5a*
+- A region
+- A platform (Redis, PostgreSQL Community Edition, etc.)
+
+Each compute category has usage tracked hourly and grouped by the following compute types. 
 
 - Existing customer usage covered by existing Reserved Instances
-- Existing customer usage covered by existing Savings Plans
 - Existing customer usage covered by credits
 - On-demand usage
 
-Each compute category will have a target commitment level shown with the ability to disable the category completely. If you disable a compute category after Autopilot has already made purchases for it, Autopilot will immediately begin listing the reserved instances for sale.
+You can also view associated [active resources](/active_resources). Click the **Active Resources** link at the bottom of the graph.
 
-Compute categories can be saved prior to enabling Autopilot and adjusted after enabling Autopilot as well. For example, you may decide initially that you do not want Autopilot to manage purchasing and selling RIs for a new service. After the service sees increasing usage, you may then decide to turn on Autopilot for it.
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/autopilot/autopilot-rds.mp4'
+        alt="The Autopilot RDS recommendation screen and selecting the displayed active resource option." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
 
-Autopilot Controls can be changed as often as you’d like. That being said, we generally recommend to do one round of adjusting settings prior to enabling Autopilot and then adjusting things as you see fit.
+### RDS
 
-Once a setting is changed, the changes take effect between 24 and 48 hours. Autopilot purposefully will impose a minimum 24 hour delay before making any changes from Autopilot controls. Please note that because of a 30 day minimum holding period made by AWS with reserved instances, there may be certain cases where even adjusting controls could take some time to be applied.
+For RDS, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that RDS has the benefit of flexible instance families, where a Reserved Instance in the smallest possible unit can add up to have multiple cover a single larger unit in that family.
 
-### Autopilot Controls Graphs {#autopilot-controls-graphs}
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="RDS recommendations on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-rds.png" />
+</div>
 
-The Y-axis for Autopilot controls graphs can represent different things depending on the service you're looking at. There are two classes of units represented on the Y-axis that are listed below with their corresponding explanations:
+### Redshift, OpenSearch, and ElastiCache
 
-- For **EC2** and **RDS**, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that EC2 and RDS have the benefit of flexible instance families where a reserved instance in the smallest possible unit can add up to have multiple cover a single larger unit in that family. As an example, if you have a single m5.large and an m5.2xlarge EC2 instance, a single reserved instance unit can cover one m5.large or two units can cover a m5.2large. In general, we recommend covering the category with the smallest unit possible so you as an organization have coverage from an RI perspective if you scale down in instance family size. Whereas if you bought a m5.2xlarge reserved instance unit, that wouldn't cover any corresponding smaller m5.large EC2 instances. So you have the benefit to scale down in your instance type sizes per family without the risk of losing coverage.
+For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed in number of instances. Unlike the above example, there isn't flexibility for these classes so this is a more straightforward scenario where the units represented are the exact number of instances you should purchase.
 
-- For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed in number of instances. Unlike the above example, there isn't flexibility on these classes so this is a more straight-forward scenario where the units represented are the exact number of instances you should procure.
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="ElastiCache recommendations on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-elasticache.png" />
+</div>
+
+### Purchase a Recommendation
+
+For each service, you are provided with the option to view and make purchases for provided savings recommendations. 
+
+1. Above any of the graphs, click **View Savings Recommendations**. 
+2. The **Savings Recommendations** panel is displayed on the right. At the top of the panel, select the number of instances you want to purchase. A table of potential options is provided along with potential savings to help you decide on the best option.
+3. Click **Purchase via AWS Console** to make these purchases on AWS.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="ElastiCache recommendations on the Autopilot dashboard" width="60%" src="/img/autopilot/autopilot-rds-rec.png" />
+</div>
+
+Note that recommendations are generated weekly and indicate the date range for which Reserved Instance purchases are not included in the recommendation. Ensure you have not already made a purchase that would cover this recommendation.
