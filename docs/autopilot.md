@@ -1,6 +1,14 @@
-# Autopilot
+---
+id: autopilot
+title: Autopilot for AWS Savings Plans
+description: This page provides details on Autopilot for AWS Savings Plans and how to get started.
+keywords:
+  - AWS
+  - Autopilot
+  - Autopilot for AWS Savings Plans
+---
 
-![Autopilot screens](/img/autopilot-autopilot-recs.png)
+# Autopilot for AWS Savings Plans
 
 Autopilot is a managed service for AWS customers that automatically applies Reserved Instances on your behalf. It works by regularly evaluating your compute workloads and procuring **no upfront** Reserved Instances on your behalf to ensure that you're always maximizing your savings from a commitment perspective. Autopilot charges a fee of 5% of the savings found to align interests with you to maximize savings. There is no fee for Autopilot recommendations on RDS, ElastiCache, Redshift and OpenSearch.
 
@@ -93,7 +101,6 @@ Autopilot purchases RIs in denormalized units that are applicable to any size of
 
 ## Autopilot Controls {#autopilot-controls}
 
-![Autopilot Controls](/img/autopilot_controls.png)
 
 You can see what actions Autopilot may take or is taking under [Settings](https://console.vantage.sh/financial_planning/autopilot/settings) in the Autopilot page in the console. Here, you can control Autopilot on a per-compute category basis, disabling it and enabling it as needed.
 
