@@ -98,15 +98,15 @@ After you onboard to Autopilot, the **Compute Configuration** page is displayed.
 <img alt="Configuration screen on the Autopilot dashboard providing options for lookback, payment type, and term" width="100%" src="/img/autopilot/autopilot-configure.png" />
 </div>
 
-#### Toggle Automatic Purchases {#toggle-automatic}
+#### Toggle Automatic Purchases {#toggle-auto-purchases}
 
 Automatic Savings Plans purchases are initially disabled. If you want to have Autopilot make Savings Plans purchases on your behalf, click the toggle and acknowledge the displayed confirmation message. You can leave this toggle disabled if you would rather manually approve or decline recommendations. See the [_Review Coverage Recommendations_](/autopilot#review-coverage-recs) section below for details on how to manually approve purchases.
 
-#### Lookback Period {#lookback}
+#### Lookback Period {#lookback-period}
 
 Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your usage to ensure the correct coverage level is purchased.
 
-#### Savings Plan Purchase Configuration {#sp-config}
+#### Savings Plan Purchase Configuration {#sp-purchase-config}
 
 Configure the length of time and payment options for your purchases. For **Term Length**, select either 1- or 3-year term lengths. For **Payment**, select either All Upfront, Partial Upfront, or No Upfront payment plans.
 
