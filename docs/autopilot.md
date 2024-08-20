@@ -20,7 +20,7 @@ At this time, Autopilot supports only AWS; however, there are plans to expand th
 
 ## How Autopilot Works
 
-Autopilot works along with the AWS APIs by ingesting and analyzing Cost and Usage Report data. Vantage will group your compute workloads on the dashboard by instance hour for each respective compute class. A compute class is defined as compute instance usage structured by instance type (e.g., t3.xlarge, r5.large), Region (e.g., us-east-1, us-west-2), and platform (e.g., Linux, Windows), tracked hourly.
+Autopilot works along with the AWS APIs by ingesting and analyzing Cost and Usage Report data. Autopilot will group your compute workloads on the dashboard by instance hour for each respective compute class. A compute class is defined as compute instance usage structured by instance type (e.g., t3.xlarge, r5.large), Region (e.g., us-east-1, us-west-2), and platform (e.g., Linux, Windows), tracked hourly.
 
 ### Coverage Determination
 
@@ -28,7 +28,7 @@ Autopilot looks at historical compute usage (up to 3 months) to understand your 
 
 ### Configurable Lookback Period and Savings Plan Type
 
-Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your compute usage to ensure the correct coverage level is purchased. Consider the following general suggestion for lookback periods:
+Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your compute usage to ensure the correct coverage level is purchased. Consider the following general suggestions for lookback periods:
 
 - 7 days is a good selection for linearly increasing, steady-state workloads.
 - 60 days is a good selection for workloads with higher peak-to-average variation.
@@ -43,9 +43,9 @@ Autopilot will account for your existing AWS Savings Plans and Reserved Instance
 
 Because of changes to the underlying Reserved Instance (RI) market, the way Autopilot initially worked changed from supporting AWS Reserved Instances to instead supporting AWS Savings Plans. See the [_Migrate from Autopilot (EC2 RIs) to Autopilot for AWS Savings Plans_](/autopilot#migrate) section below for details on how to get started. Consult the following resources for additional information:
 
-- For more details on the AWS changes to RIs, see [this Vantage blog post](https://www.vantage.sh/blog/aws-reserved-instances-updates).
-- For information about the updates in Vantage, see the following Vantage blog.
-- For a primer on AWS Savings Plans, see the [following Vantage blog](https://www.vantage.sh/blog/what-is-an-aws-savings-plan).
+- For more details on AWS's changes to RIs, see [this Vantage blog post](https://www.vantage.sh/blog/aws-reserved-instances-updates).
+- For information about this recent Autopilot update, see the following Vantage blog post.
+- For a primer on AWS Savings Plans, see the [following Vantage blog post](https://www.vantage.sh/blog/what-is-an-aws-savings-plan).
 
 ## Autopilot Permissions {#permissions}
 
@@ -104,13 +104,13 @@ Automatic Savings Plans purchases are initially disabled. If you want to have Au
 
 #### Lookback Period {#lookback}
 
-Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your EC2 usage to ensure the correct coverage level is purchased.
+Autopilot allows customers to set a lookback period of either 7, 30, or 60 days, which will generate different effective discounts based on actual usage during that period. You can configure the lookback period that most accurately captures your usage to ensure the correct coverage level is purchased.
 
 #### Savings Plan Purchase Configuration {#sp-config}
 
 Configure the length of time and payment options for your purchases. For **Term Length**, select either 1- or 3-year term lengths. For **Payment**, select either All Upfront, Partial Upfront, or No Upfront payment plans.
 
-:::tip
+:::info
 For more information about term lengths and payment options, see [this Vantage blog](https://www.vantage.sh/blog/what-is-an-aws-savings-plan) on Savings Plans.
 :::
 
@@ -174,13 +174,17 @@ The **Approve Purchase** button will not be visible if automatic purchases are e
 <img alt="Coverage Overview screen on the Autopilot dashboard" width="60%" src="/img/autopilot/autopilot-recommendation.png" />
 </div>
 
+#### Purchase Window
+
 Note that Vantage generates recommendations daily. When Autopilot makes a purchase, there is a short window where Autopilot doesn’t generate additional proposed recommendations so that the recently accepted recommendation can take effect. Ensure that you have not already made a purchase that would cover this recommendation. Autopilot purchases Savings Plans in increments that are eligible for AWS’s 7-day return policy threshold, so if there's a mistake or a change in your plans, Vantage can request a return for the unneeded Savings Plans. Autopilot specifically follows [AWS’s policy](https://docs.aws.amazon.com/savingsplans/latest/userguide/sp-purchase.html#return-sp) regarding Savings Plan returns: 
 
->Any Savings Plan with an hourly commitment of $100 or less that has been purchased in the last seven days and in the same calendar month can be returned. Once the calendar month ends (UTC time), these purchased Savings Plans can no longer be returned.
+>*Any Savings Plan with an hourly commitment of $100 or less that has been purchased in the last seven days and in the same calendar month can be returned. Once the calendar month ends (UTC time), these purchased Savings Plans can no longer be returned.*
 
 In addition, Autopilot also purchases Savings Plans from AWS with a start date that’s 24 hours from the time it’s manually approved or automatically purchased in Autopilot. During the 24-hour window, the plan is queued. The plan can be deleted at any time within the 24-hour window without restriction. To request a return, contact [support@vantage.sh](mailto:support@vantage.sh).
 
+:::note
 When a purchase is made, either manually or via an automatic purchase, all account owners will receive an email notification indicating that a purchase was made and will be finalized in 24 hours.
+:::
 
 ## RDS, ElastiCache, Redshift, and OpenSearch Autopilot Graphs {#autopilot-graphs}
 
@@ -200,7 +204,7 @@ Each compute category has usage tracked hourly and grouped by the following comp
 
 - Existing customer usage covered by existing Reserved Instances
 - Existing customer usage covered by credits
-- On-demand usage
+- On-Demand usage
 
 You can also view associated [active resources](/active_resources). Click the **Active Resources** link at the bottom of the graph.
 
@@ -234,7 +238,7 @@ For RDS, the Y-axis unit is expressed in normalized instance units per hour for
 
 ### Redshift, OpenSearch, and ElastiCache
 
-For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed as the number of instances. Unlike the above example, there isn't flexibility for these classes so this is a more straightforward scenario where the units represented are the exact number of instances you should purchase.
+For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed as the number of instances. Unlike the above example, there isn't flexibility for these classes, so this is a more straightforward scenario where the units represented are the exact number of instances you should purchase.
 
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="ElastiCache recommendations on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-elasticache.png" />
