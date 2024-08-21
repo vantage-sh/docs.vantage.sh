@@ -13,6 +13,10 @@ import TabItem from '@theme/TabItem';
 
 # GitHub
 
+:::note
+The following documentation is provided for early access users.
+:::
+
 Vantage ingests GitHub costs via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise. With the Vantage–GitHub integration, you can track costs from the following GitHub services: GitHub Actions, Storage, Packages, Enterprise, and Copilot. In addition to these services, Vantage can also pull the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
 
 ## Connect Your GitHub Account
