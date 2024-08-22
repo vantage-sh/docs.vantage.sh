@@ -25,16 +25,10 @@ To view a future forecast, open the date picker to the top right of the chart.
 
 ### Bar Chart View
 
-In the below example image, bars for future months are visible. Error bars are present for future months to represent the upper and lower bounds of the forecast. Hover over any future date to see the forecasted min, max, and median. Total forecasted costs are displayed above the chart, next to currently accrued costs. 
+In the below example image, bars for future months are visible. Error bars are present for future months to represent the upper and lower bounds of the forecast. Hover over any future date to see the forecasted min, max, and median. Total forecasted costs are displayed above the chart, next to currently accrued costs. Forecasts are also present in grouped bar charts.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A Cost Report with a forecast for the next 6 months and the mouse hovering over a future date point" width="100%" src="/img/future-forecasts.png" />
-</div>
-
-Forecasts are also present in grouped bar charts.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A grouped Cost Report with a forecast for the next month" width="100%" src="/img/grouped-forecast.png" />
 </div>
 
 ### Line Chart View
