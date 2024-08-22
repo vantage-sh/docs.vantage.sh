@@ -46,10 +46,10 @@ Navigate to GitHub and obtain your Enterprise or Organization name.
 <Tabs groupId="instructions">
 <TabItem value="enterprise" label="Enterprise" default>
 
-   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub and copy the Enterprise name that’s displayed.</p>
+   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub and copy the Enterprise name that’s displayed to use in step 3.</p>
    </TabItem>
    <TabItem value="organization" label="Organization" default>
-   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub and copy the Organization name that’s displayed.</p>
+   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub and copy the Organization name that’s displayed to use in step 3.</p>
    </TabItem>
    </Tabs>
 
@@ -66,11 +66,23 @@ Create a personal access token for your Enterprise or Organization. These steps 
 5. For **Scopes**, select the following scopes based on whether you are an Organization or Enterprise:
    - For **Organizations**, select the `read:org` scope.
    - For **Enterprises**, select the `manage_billing:enterprise` scope.
-6. Click **Generate token** and copy the provided token to use in step 4.
+6. Click **Generate token** and copy the provided token to use in step 3.
 
 ---
 
-#### Step 3: Invite the Vantage Billing Manager to Your GitHub Account {#invite-user}
+#### Step 3: Add Your Account Information to Vantage
+
+Navigate to Vantage and follow the steps below to add the information you obtained in the previous steps.
+
+1. From the top navigation in Vantage click **Settings**.
+2. On the left navigation, select **Integrations**. The GitHub integrations page is displayed. Ensure you are on the **Connect** tab.
+3. Click **Add GitHub Account**.
+4. Add your Enterprise or Organization name and select your account type. For **API key**, add your previously generated personal access token.
+5. Click **Connect Account**.
+
+---
+
+#### Step 4: Invite the Vantage Billing Manager to Your GitHub Account {#invite-user}
 
 After you add your initial account information, add the billing manager to your account.
 
@@ -112,15 +124,6 @@ After you add your initial account information, add the billing manager to your 
 
    ***
 
-#### Step 4: Add Your Account Information to Vantage
-
-Navigate to Vantage and follow the steps below to add the information you obtained in the previous steps.
-
-1. From the top navigation in Vantage click **Settings**.
-2. On the left navigation, select **Integrations**. The GitHub integrations page is displayed. Ensure you are on the **Connect** tab.
-3. Click **Add GitHub Account**.
-4. Add your Enterprise or Organization name and select your account type. For **API key**, add your previously generated personal access token.
-5. Click **Connect Account**.
 
 An email will be sent to the Vantage-owned billing manager email address for Vantage to accept your Organization's or Enterprise's invitation. Note that it will take about 24 hours for your invitation to be accepted by Vantage. Once costs are imported, you'll receive an email, and they'll be available on your **All Resources** Cost Report.
 
@@ -128,7 +131,7 @@ An email will be sent to the Vantage-owned billing manager email address for Van
 GitHub data refreshes daily in Vantage.
 :::
 
-#### Next Steps: Manage Workspace Access
+### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
