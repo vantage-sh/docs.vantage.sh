@@ -11,6 +11,9 @@ keywords:
 import VantageUGroup from '@site/src/components/VantageUGroup';
 import VantageUCard from '@site/src/components/VantageUCard';
 
+import IntroCardGroup from '@site/src/components/IntroCardGroup';
+import IntroCard from '@site/src/components/IntroCard';
+
 # 🎓 Vantage University
 
   <div style={{ display: 'flex', flexWrap: 'wrap' }}>
@@ -35,14 +38,55 @@ import VantageUCard from '@site/src/components/VantageUCard';
     </div>
   </div>
 
+---
+
+<h2>User-Specific Learning Tracks</h2> 
+
+Follow these learning tracks to understand how to best use Vantage in your role.
+
+<IntroCardGroup
+  cards={[
+    {
+      title: 'FinOps Analyst',
+      content: 'Learn about how to use Vantage effectively as your organization’s FinOps power user, building a culture of cloud cost optimization. ',
+      image: '/img/vantage-university/finops-analyst.jpg',
+      link: '/vantage_university_finops_analyst',
+      newTab: false,
+      alt: 'FinOps Analyst lesson track logo'
+    },
+    {
+      title: 'Developer',
+      content: 'Learn about how you can best use Vantage to manage and optimize the cloud resources you are responsible for.',
+      image: '/img/vantage-university/developer.jpg',
+      link: '/vantage_university_developer',
+      newTab: false,
+      alt: 'Developer lesson track logo'
+    },
+    {
+      title: 'Finance Manager',
+      content: "Learn about how you can use Vantage to manage and analyze the total cost of your organization. ",
+      image: '/img/vantage-university/finance-manager.jpg',
+      link: '#',
+      newTab: false,
+      alt: 'Finance Manager lesson track logo'
+    },
+  ]}
+  columns={3} 
+/>
+
 --- 
+
+<h2>Video Lessons</h2> 
+
+Follow these sections to better understand how to use specific Vantage features.
+
 <VantageUGroup
   cards={[
     {
       content: (
         <ul><li>Create a new workspace</li>
         <li>Navigate through your workspaces</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/account-management.jpg',
       link: '/vantage_university_account_management',
       newTab: false,
@@ -50,9 +94,19 @@ import VantageUCard from '@site/src/components/VantageUCard';
     },
     {
       content: (
+        <ul><li>Create integrations</li>
+        <li>Add Custom Providers</li></ul>
+      ),
+      image: '/img/vantage-university/integrations.jpg',
+      link: '/vantage_university_budgeting',
+      newTab: false,
+      alt: 'Vantage University logo with Integrations as a title'
+    },
+    {
+      content: (
         <ul><li>Create and view Cost Reports</li>
         <li>Create detailed Cost Report filters</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/cost-reporting.jpg',
       link: '/vantage_university_cost_reporting',
       newTab: false,
@@ -62,7 +116,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
       content: (
         <ul><li>Create a segment hierarchy</li>
         <li>Explore virtual tagging</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/cost-allocation.jpg',
       link: '/vantage_university_cost_allocation',
       newTab: false,
@@ -72,7 +126,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
       content: (
         <ul><li>View and create anomaly alerts</li>
         <li>Review and act on cost recommendations</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/observability.jpg',
       link: '/vantage_university_observability',
       newTab: false,
@@ -82,7 +136,7 @@ import VantageUCard from '@site/src/components/VantageUCard';
       content: (
         <ul><li>Understand unit costs</li>
         <li>View and analyze business metrics</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/unit-costs.jpg',
       link: '/vantage_university_unit_costs',
       newTab: false,
@@ -92,12 +146,21 @@ import VantageUCard from '@site/src/components/VantageUCard';
       content: (
         <ul><li>Create a cost budget</li>
         <li>Configure budget alerts</li></ul>
-        ),
+      ),
       image: '/img/vantage-university/budgeting.jpg',
       link: '/vantage_university_budgeting',
       newTab: false,
       alt: 'Vantage University logo with Budgeting as a title'
     },
+    {
+      content: (
+        <ul><li>Monitor and manager per-resource costs</li>
+        <li>View network flows and costs</li></ul>
+      ),
+      image: '/img/vantage-university/per-resource-costs.jpg',
+      link: '/vantage_university_per_resource_costs',
+      newTab: false,
+      alt: 'Vantage University logo with Per Resource Costs as a title'
+    },
   ]}
-  columns={3} 
 />

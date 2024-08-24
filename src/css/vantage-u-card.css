@@ -1,0 +1,64 @@
+/* vantage-u-card.css */
+
+.vantage-card {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  padding: -2px;
+  margin: 10px;
+  background-color: #fff;
+  transition: transform 0.2s ease-in-out;
+  display: flex; 
+  flex-direction: column; 
+  height: 100%; 
+  overflow: hidden;
+}
+
+.vantage-card .vantage-card-image img {
+  width: 100%; 
+  height: auto; 
+}
+
+.vantage-card .vantage-card-content p {
+  padding: 0px 20px;
+  font-size: 1rem;
+}
+
+.vantage-card:hover {
+  transform: translateY(-5px); 
+}
+
+.vantage-card:hover a {
+    color: inherit; 
+    text-decoration: none; 
+  }
+
+.vantage-card .vantage-card-link {
+    text-decoration: none; 
+    color: inherit; 
+}
+
+.vantage-card-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .vantage-card-group .row {
+    width: 100%; 
+    justify-content: center; 
+  }
+    
+.vantage-card-col {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px; 
+}
+    
+.vantage-card-col .vantage-card {
+  width: 100%;
+  height: 100%;
+  max-width: 400px;
+}
+ 

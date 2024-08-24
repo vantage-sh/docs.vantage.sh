@@ -29,7 +29,7 @@ function IntroCardGroup({ cards, columns }) {
     cardRows.push(row);
   }
 
-  return <div className="card-group">{cardRows}</div>;
+  return <div className="intro-card-group">{cardRows}</div>;
  }
 }
 export default IntroCardGroup;

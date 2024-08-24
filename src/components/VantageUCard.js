@@ -1,14 +1,14 @@
-// IntroCard.js
+// VantageUCard.js
 import React from "react";
-import "../css/card.css";
+import "../css/vantage-u-card.css";
 
 const VantageUCard = ({ content, image, link, alt, newTab }) => (
-  <div className="card">
-    <a href={link} className="card-link" target={newTab ? "_blank" : "_self"} rel="noopener noreferrer">
-      <div className="card-image">
+  <div className="vantage-card">
+    <a href={link} className="vantage-card-link" target={newTab ? "_blank" : "_self"} rel="noopener noreferrer">
+      <div className="vantage-card-image">
         <img src={image} alt={alt} />
       </div>
-      <div className="card-content">
+      <div className="vantage-card-content">
         <p>{content}</p>
       </div>
     </a>

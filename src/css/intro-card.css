@@ -1,6 +1,6 @@
-/* Card.css */
+/* intro-card.css */
 
-.card {
+.intro-card {
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
@@ -13,32 +13,32 @@
     height: 100%; 
   }
   
-  .card .card-image img {
+  .intro-card .intro-card-image img {
     width: 100%; /* Make the image take up the full width of the card */
     height: auto; /* Maintain the aspect ratio of the image */
   }
   
-  .card .card-title h2 {
+  .intro-card .intro-card-title h2 {
     font-size: 1.5rem;
     margin-bottom: 1px;
     padding: 20px;
   }
   
-  .card .card-content p {
+  .intro-card .intro-card-content p {
     padding: 0px 20px;
     font-size: 1rem;
   }
   
-  .card:hover {
+  .intro-card:hover {
     transform: translateY(-5px); 
   }
   
-  .card:hover a {
+  .intro-card:hover a {
       color: inherit; 
       text-decoration: none; 
     }
   
-  .card .card-link {
+  .intro-card .intro-card-link {
       text-decoration: none; 
       color: inherit; 
   }
@@ -50,3 +50,4 @@
   .intro-card-row {
       margin-bottom: 20px; /* Margin between rows */
     }
+
