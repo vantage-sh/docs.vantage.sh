@@ -25,11 +25,12 @@ module.exports = {
             collapsible: true,
             collapsed: false,
             items: [
-              "vantage_university_developer",
               "vantage_university_finops_analyst",
+              "vantage_university_developer",
             ],
           },
           "vantage_university_account_management", 
+          "vantage_university_integrations",
           "vantage_university_cost_reporting", 
           "vantage_university_cost_allocation",
           "vantage_university_observability",

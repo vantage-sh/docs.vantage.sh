@@ -51,7 +51,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 ## 📚 Lesson 3: View Cost Report Forecasts
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/O0msR_yjfv4?si=IBO6HVXIhqSzS7Ef?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/O0msR_yjfv4?si=IBO6HVXIhqSzS7Ef?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
@@ -59,7 +59,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 ## 📚 Lesson 4: Create Cost Report Notifications
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/CN2bsFFQ8w0?si=YXWFl04JuFOAOc-3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/CN2bsFFQ8w0?si=YXWFl04JuFOAOc-3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
@@ -67,7 +67,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 ## 📚 Lesson 5: Add Annotations to Cost Reports
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/FLslrW5MykY?si=9JqbAtEERIuWhMK0?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/FLslrW5MykY?si=9JqbAtEERIuWhMK0?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
@@ -75,7 +75,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 ## 📚 Lesson 6: Create Vantage Issues
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/8uXySGPZslQ?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/8uXySGPZslQ?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ## 📖 Additional Resources

@@ -45,7 +45,7 @@ The cost-based and business metrics-based allocation tag types allow for _dynami
 
 <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: '0', overflow: 'hidden' }}>
   <iframe 
-    src="https://www.youtube.com/embed/67RbHPtfgEE?si=3J14Pjwos6ubUdSd?rel=0&color=white&modestbranding=1&wmode=transparent&autoplay=1" 
+    src="https://www.youtube.com/embed/67RbHPtfgEE?si=3J14Pjwos6ubUdSd?rel=0&color=white&modestbranding=1&wmode=transparent" 
     allowFullScreen
     style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '10px' }}
   ></iframe>

@@ -31,7 +31,7 @@ import IntroCard from '@site/src/components/IntroCard';
     </div>
     <div style={{ flex: 1, padding: '15px', minWidth: '300px' }}>
       <iframe
-        src="https://www.youtube.com/embed/Y9fJ1IPBleQ?si=WvqYEGFJUc6nNnRQ?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent&autoplay=1"
+        src="https://www.youtube.com/embed/Y9fJ1IPBleQ?si=WvqYEGFJUc6nNnRQ?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent"
         allowFullScreen
         style={{ width: '100%', height: '350px', borderRadius: '10px', border: '8px solid #d3d3d3' }}
       ></iframe>
@@ -98,14 +98,14 @@ Follow these sections to better understand how to use specific Vantage features.
         <li>Add Custom Providers</li></ul>
       ),
       image: '/img/vantage-university/integrations.jpg',
-      link: '/vantage_university_budgeting',
+      link: '/vantage_university_integrations',
       newTab: false,
       alt: 'Vantage University logo with Integrations as a title'
     },
     {
       content: (
         <ul><li>Create and view Cost Reports</li>
-        <li>Create detailed Cost Report filters</li></ul>
+        <li>Learn about additional Cost Reporting tools</li></ul>
       ),
       image: '/img/vantage-university/cost-reporting.jpg',
       link: '/vantage_university_cost_reporting',
@@ -154,8 +154,8 @@ Follow these sections to better understand how to use specific Vantage features.
     },
     {
       content: (
-        <ul><li>Monitor and manager per-resource costs</li>
-        <li>View network flows and costs</li></ul>
+        <ul><li>Monitor and manage per-resource costs</li>
+        <li>View network flows and associated costs</li></ul>
       ),
       image: '/img/vantage-university/per-resource-costs.jpg',
       link: '/vantage_university_per_resource_costs',
