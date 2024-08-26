@@ -27,6 +27,7 @@ module.exports = {
             items: [
               "vantage_university_finops_analyst",
               "vantage_university_developer",
+              "vantage_university_finance_manager",
             ],
           },
           "vantage_university_account_management", 

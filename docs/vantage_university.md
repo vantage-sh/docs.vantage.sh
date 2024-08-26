@@ -66,7 +66,7 @@ Follow these learning tracks to understand how to best use Vantage in your role.
       title: 'Finance Manager',
       content: "Learn about how you can use Vantage to manage and analyze the total cost of your organization. ",
       image: '/img/vantage-university/finance-manager.jpg',
-      link: '#',
+      link: '/vantage_university_finance_manager',
       newTab: false,
       alt: 'Finance Manager lesson track logo'
     },

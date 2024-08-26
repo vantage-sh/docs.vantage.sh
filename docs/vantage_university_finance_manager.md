@@ -1,29 +1,29 @@
 ---
-id: vantage_university_finops_analyst
-title: Vantage University FinOps Analyst
-description: The FinOps Analyst track on Vantage University focuses on the steps you can take to use Vantage as your organization's FinOps Analyst.
-sidebar_label: FinOps Analyst
-image: /img/vantage-university/finops-analyst.jpg
+id: vantage_university_finance_manager
+title: Vantage University Finance Manager
+description: The Finance Manager track on Vantage University focuses on the steps you can take to use Vantage as your organization's Finance Manager or CFO.
+sidebar_label: Finance Manager
+image: /img/vantage-university/finance-manager.jpg
 keywords:
   - Vantage University
-  - FinOps Analyst
+  - Finance Manager
 ---
 
-# FinOps Analyst
+# Finance Manager
 
-## Vantage University: FinOps Analyst Track
+## Vantage University: Finance Manager Track
 
-Welcome to the FinOps Analyst learning track on Vantage University!
+Welcome to the Finance Manager learning track on Vantage University!
 
-## 📚 Lesson 1: Introduction to the FinOps Analyst Track
+## 📚 Lesson 1: Introduction to the Finance Manager Track
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/8GGgN_-GLGU?si=elCBBF7CK2SSr03F?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/NESlMTU1hIc?si=qjXGV88iDpitlla3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
 
-## 📚 Lesson 2: Building Comprehensive Cloud Cost Visibility
+## 📚 Lesson 2: Set Up Budget Visibility
 
 See the following resources to help you get started with Cost Reports, saved filters, folders, and dashboards.
 
@@ -45,12 +45,12 @@ See the following resources to help you get started with Cost Reports, saved fil
   
 </details>
 
-## 📚 Lesson 3: Achieving 100% Cost Allocation
+## 📚 Lesson 3: Understanding the Cost of Your Business
 
 See the following resources to help you get started with Virtual Tags, dynamic cost allocation, untagged resources, and Cost Allocation Segments.
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/770vPBzM7VU?si=J81gg214qtw_ytt1?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/ynTHouWP44g?si=zmE6wCHLrfcF0L6B?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ### 📖 Additional Resources
@@ -65,12 +65,12 @@ See the following resources to help you get started with Virtual Tags, dynamic c
 
 </details>
 
-## 📚 Lesson 4: Detecting and Preventing Unusual Spending
+## 📚 Lesson 4: Viewing Report Forecasts
 
 See the following resources to help you get started anomalies, annotations, and issues in Vantage.
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/KkWw1jJ3PuI?si=_B5XVeKeOI3cX-FR?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/QfzEYvVPMzc?si=Yx0SwOFdptZKbAGl?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ### 📖 Additional Resources
@@ -78,8 +78,6 @@ See the following resources to help you get started anomalies, annotations, and 
 <details><summary>Click to view resources</summary>
 
 - [Vantage University Cost Reporting](/vantage_university_cost_reporting)
-- [Anomalies](/cost_anomaly_alerts)
-- [Annotations](/annotations)
-- [Issues](/issues)
+- [Forecasting in Vantage](/forecasting)
 
 </details>
