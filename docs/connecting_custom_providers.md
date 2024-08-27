@@ -237,7 +237,7 @@ If you upload a file with the same name as an existing import, your new file wil
 3. On the **Manage** tab, you can review all existing imported filenames. Ensure your new file has a different name. 
 4. Click the **Import Costs** tab. Import your new cost file. Review any errors and correct as needed. Once uploaded, your file will be displayed within the **Imports** section of the **Manage** tab.
 
-## Use the API to Add a Custom Provider {#*api}
+## Use the API to Add a Custom Provider {#api}
 
 You can also use the API to create and upload costs for a Custom Provider. 
 
@@ -268,6 +268,7 @@ You can also use the API to create and upload costs for a Custom Provider.
     "created_at": "2024-08-26T14:04:17Z"
     }
     ```
+    
 3. Use the `token` to upload a CSV file via the `/integrations/{integration_token}/costs.csv` endpoint.
 
     ```bash
