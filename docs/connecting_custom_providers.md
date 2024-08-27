@@ -14,11 +14,11 @@ keywords:
 The following documentation is provided for early access users.
 :::
 
-With the Custom Provider integration option in Vantage, you can upload costs from providers that don’t expose billing APIs, aren’t [yet supported](/getting_started) by Vantage, or originate from custom systems. You can import costs by providing any CSV that adheres to the FinOps FOCUS schema, or through the Custom Providers API. If Vantage eventually provides support for one of your Custom Providers, you will be able to set up the official provider integration alongside your Custom Provider. 
+With the Custom Provider integration option in Vantage, you can upload costs from providers that don’t expose billing APIs, aren’t [yet supported](/getting_started) by Vantage, or originate from custom systems. You can import costs by providing any CSV that adheres to the FinOps FOCUS schema, or through the [Custom Providers API](/connecting_custom_providers#api). If Vantage eventually provides support for one of your Custom Providers, you will be able to set up the official provider integration alongside your Custom Provider. 
 
 ## FinOps FOCUS Schema
 
-FOCUS is an [open-source schema](https://focus.finops.org/) that standardizes cost and usage billing data across different cloud providers. When you add a Custom Provider in Vantage, you use a CSV template format that is a  subset of the FOCUS schema. The fields in this template provide enough detail for Vantage to correctly render costs and perform cost allocation. With just the minimum required fields, Custom Providers costs are available with other Vantage features, such as anomaly alerts, report notifications, and forecasting.
+FOCUS is an [open-source schema](https://focus.finops.org/) that standardizes cost and usage billing data across different cloud providers. When you add a Custom Provider in Vantage, you use a CSV template format that is a subset of the FOCUS schema. The fields in this template provide enough detail for Vantage to correctly render costs and perform cost allocation. With just the minimum required fields, Custom Providers costs are available with other Vantage features, such as anomaly alerts, report notifications, and forecasting.
 
 ## Review CSV Format {#format}
 
@@ -35,6 +35,10 @@ Only the following fields are required:
 - `ChargePeriodStart`
 - `BilledCost`
 - `ServiceName`
+
+:::note
+If you want to upload amortized costs, then `ChargePeriodEnd` is also required.
+:::
 
 ### Data Format {#data-format}
 
@@ -141,10 +145,10 @@ All costs are considered to be in USD. Please reach out to [support@vantage.sh](
 
 ## Upload Custom Provider File {#upload}
 
-Custom Provider files can be uploaded at any time. The above schema adds a timestamp based on the `ChargePeriodStart` column, so Vantage can place the data in the correct relationship to other costs under a Custom Provider. 
+Custom Provider files can be uploaded at any time in the console. The above schema adds a timestamp based on the `ChargePeriodStart` column, so Vantage can place the data in the correct relationship to other costs under a Custom Provider. 
 
 :::note
-Users must have Owner permissions to upload Custom Provider files.
+Users must have Owner permissions to upload Custom Provider files. If you prefer to use the API rather than the Vantage console, see the [API](/connecting_custom_providers#api) section below.
 :::
 
 1. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in Vantage.
@@ -197,9 +201,14 @@ The first 25 rows are displayed. If you have an error in a row that’s not one 
       <td>Double-check the data in your CSV to ensure dates are in <code>YYYY-MM-DD</code> format, numbers are valid, and <code>ChargeCategory</code> values match the allowed case-sensitive options (e.g., <code>Usage</code>, <code>Credit</code>). See the <a href="connecting_custom_providers#data-format">Data Format</a> table for details.</td>
     </tr>
     <tr>
-      <td><code>Improper Vantage permissions</code></td>
+      <td>Improper Vantage permissions</td>
       <td>The user attempting the upload does not have the proper permissions.</td>
       <td>Ensure you have Owner permissions to upload Custom Provider files. See the <a href="/rbac">Role-Based Access Control</a> documentation for details.</td>
+    </tr>
+    <tr>
+      <td>Duplicate file names</td>
+      <td>You attempt to upload a new costs import file that has the same name as a previous costs upload file.</td>
+      <td>Ensure you need each CSV file that you upload something different (e.g., <code>cloudflare_costs_8_2024</code>, <code>cloudflare_costs_9_2024</code>).</td>
     </tr>
   </tbody>
 </table>
@@ -213,8 +222,72 @@ The first 25 rows are displayed. If you have an error in a row that’s not one 
 
 ## View Custom Provider Costs in Vantage
 
-Once you have uploaded Custom Provider costs, you can query these costs in other Vantage tools, like Cost Reports. Your Custom Provider will be included in the **Providers** list of Cost Reports, Segments Reports, and Saved Filters.
+Once you have uploaded Custom Provider costs, you can query these costs in other Vantage tools, like Cost Reports. Your Custom Provider will be included in the **Providers** list of [Cost Reports](/cost_reports), [Segments Reports](/segments), and [Saved Filters](/saved_filters). The Custom Provider is available in report filters. If you did not provide any information for a particular filter, 
 
 ## Add Additional Imports
 
-From the **Manage** integration screen, you can add additional imports. Note that if you reupload a file with the same name, you'll be overwriting the original file. 
+After the initial costs import, you can add additional cost imports. 
+
+:::caution Important
+If you upload a file with the same name as an existing import, your new file will overwrite the original file. Ensure you have different names for each file upload (e.g., `cloudflare_costs_8_2024`, `cloudflare_costs_9_2024`)
+::: 
+
+1. Navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). 
+2. Select your Custom Provider. 
+3. On the **Manage** tab, you can review all existing imported filenames. Ensure your new file has a different name. 
+4. Click the **Import Costs** tab. Import your new cost file. Review any errors and correct as needed. Once uploaded, your file will be displayed within the **Imports** section of the **Manage** tab.
+
+## Use the API to Add a Custom Provider {#*api}
+
+You can also use the API to create and upload costs for a Custom Provider. 
+
+1. Send a `POST` request to the `/integrations/custom_costs` endpoint to create the Custom Provider.
+
+    ```bash
+    curl --request POST \
+     --url https://api.vantage.sh/v2/integrations/custom_costs \
+     --header 'accept: application/json' \
+     --header 'authorization: Bearer AUTH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '
+    {
+      "name": "My Custom Provider",
+      "description": "Costs for this provider"
+    }
+    '
+    ```
+2. On a successful `200` response, a Custom Provider `token` is returned.
+
+    ```bash
+    {
+    "token": "<CUSTOM_PROVIDER_TOKEN>",
+    "provider": "custom_costs",
+    "account_identifier": "My Custom Provider from the API",
+    "status": "connected",
+    "workspace_tokens": [],
+    "created_at": "2024-08-26T14:04:17Z"
+    }
+    ```
+3. Use the `token` to upload a CSV file via the `/integrations/{integration_token}/costs.csv` endpoint.
+
+    ```bash
+    curl --request POST \
+      --url https://api.vantage.sh/v2/integrations/<CUSTOM_PROVIDER_TOKEN>/costs.csv \
+      --header 'accept: application/json' \
+      --header 'authorization: Bearer TOKEN' \
+      --header 'content-type: multipart/form-data' \
+      --form csv='@vendor_costs.csv'
+    ```
+
+4. If there are any errors, the following `422` response is returned. Fix the errors in your CSV, and upload a new file. 
+
+  ```bash
+  {
+    "errors": [
+      "Row 1: ChargeCategory must be one of the following: Credit, Discount, Fee, Refund, Tax, or Usage",
+      "Row 22: Tags must be a valid JSON object",
+      "Row 27: BilledCost must be a valid number",
+      "Row 31: ChargePeriodStart must be a valid date"
+    ]
+  }
+  ```
