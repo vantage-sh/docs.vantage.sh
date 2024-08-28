@@ -128,6 +128,13 @@ Next, create a data integration between at least one of your providers and Vanta
       content: 'Vantage integrates with your Coralogix account through a revocable read-only API key and your Coralogix domain.',
       link: "/connecting_coralogix",
     },
+    {
+      icon: '/img/logos/logo-icon-custom-providers.svg',
+      iconAltText: 'Custom Providers logo',
+      title: 'Custom Providers',
+      content: 'Vantage integrates any of your Custom Providers through a schema based on the FinOps FOCUS specification.',
+      link: "/connecting_custom_providers",
+    },
   ]}
   columns={2}
 />

@@ -180,6 +180,10 @@ The following examples cover common use cases for VQL.
 
 ### Combining Providers {#providers}
 
+:::note
+To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
+:::
+
 Filter for provider costs associated with either MongoDB Atlas or AWS.
 
 ```sql
