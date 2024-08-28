@@ -28,7 +28,7 @@ Welcome to the Finance Manager learning track on Vantage University!
 See the following resources to help you get started with Cost Reports, saved filters, folders, and dashboards.
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/qU7I1AweC8M?si=kCmJFfdBGK2rHCP9?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/-WpzFIPzR9Y?si=Mz-Lhiukl9Uiuhsl?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ### 📖 Additional Resources
@@ -50,7 +50,7 @@ See the following resources to help you get started with Cost Reports, saved fil
 See the following resources to help you get started with Virtual Tags, dynamic cost allocation, untagged resources, and Cost Allocation Segments.
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/ynTHouWP44g?si=zmE6wCHLrfcF0L6B?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/sVWTFR1ovYs?si=FP5y_wJIIRO675Hz?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ### 📖 Additional Resources
