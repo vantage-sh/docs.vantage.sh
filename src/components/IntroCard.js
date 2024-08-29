@@ -1,17 +1,17 @@
 // IntroCard.js
 import React from "react";
-import "../css/card.css";
+import "../css/intro-card.css";
 
 const IntroCard = ({ title, content, image, link, alt, newTab }) => (
-  <div className="card">
-    <a href={link} className="card-link" target={newTab ? "_blank" : "_self"} rel="noopener noreferrer">
-      <div className="card-image">
+  <div className="intro-card">
+    <a href={link} className="intro-card-link" target={newTab ? "_blank" : "_self"} rel="noopener noreferrer">
+      <div className="intro-card-image">
         <img src={image} alt={alt} />
       </div>
-      <div className="card-title">
+      <div className="intro-card-title">
         <h2>{title}</h2>
       </div>
-      <div className="card-content">
+      <div className="intro-card-content">
         <p>{content}</p>
       </div>
     </a>

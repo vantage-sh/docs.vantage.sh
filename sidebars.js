@@ -19,12 +19,25 @@ module.exports = {
             id: "vantage_university",
           },
         items: [
+          {
+            type: "category",
+            label: "User-Specific Learning Tracks",
+            collapsible: true,
+            collapsed: false,
+            items: [
+              "vantage_university_finops_analyst",
+              "vantage_university_developer",
+              "vantage_university_finance_manager",
+            ],
+          },
           "vantage_university_account_management", 
+          "vantage_university_integrations",
           "vantage_university_cost_reporting", 
           "vantage_university_cost_allocation",
           "vantage_university_observability",
           "vantage_university_unit_costs",
           "vantage_university_budgeting",
+          "vantage_university_per_resource_costs",
           {
             type: "category",
             label: "Sample Workflow Guides",

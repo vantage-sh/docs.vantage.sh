@@ -88,7 +88,7 @@ Active resources are synced for each [workspace](/workspaces) at least once ever
 <img alt="Resource Report Drill Down" width="100%" src="/img/resource.png" />
 </div>
 
-## Create a Resource Report
+## Create a Resource Report {#create-a-resource-report}
 
 Create a resource report to filter by specific resources or groups of resources. Create detailed reports, including reports that show:
 

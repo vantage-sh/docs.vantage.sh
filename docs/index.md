@@ -43,7 +43,6 @@ Vantage is a cloud observability and optimization platform that aggregates cloud
   columns={3} 
 />
 
-
 ## Additional and Community Resources
 
 Vantage maintains a variety of resources to help make the lives of cloud practitioners easier. All resources below are free to use and open source, when possible.

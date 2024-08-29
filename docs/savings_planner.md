@@ -15,7 +15,7 @@ Savings Planner is a planning and forecasting tool you can use to view and model
 At this time, Savings Planner is available only for AWS.
 :::
 
-## Savings Planner Calculations
+## Savings Planner Calculations {#savings-planner-calculations}
 
 Vantage has ingested over two million different savings rate permutations that are possible across EC2, Lambda, and Fargate. As Vantage processes your Cost and Usage Reports (CUR), it will use your usage data to infer what compute you're running and what your specific savings rates would be for each potential Savings Plan you buy.
 
@@ -74,7 +74,7 @@ $$
 {projected\_savings\_rate} = \frac{total\_cost - total\_discounted\_cost}{total\_cost}
 $$
 
-## Create a Savings Model
+## Create a Savings Model {#create-a-savings-model}
 
 1. From the top navigation, select **Financial Planning**.
 2. On the left navigation, select **Savings Models**. Any savings models you already created will be displayed on this screen.
