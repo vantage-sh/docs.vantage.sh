@@ -17,7 +17,7 @@ Vantage offers a number of native integrations to help you understand all your c
 
 ## 📝 Integrations Use Cases
 
-- As a **DevOps Engineer** you need to consolidate cost data from various cloud providers into a single platform for better visibility. You connect both AWS and GCP, which are your main cloud providers. You also want to view monitoring costs from **Datadog**, which you help to oversee, so you use the native Datadog integration in Vantage to view the total cost impact of your work.
+- As a **DevOps Engineer**, you need to consolidate cost data from various cloud providers into a single platform for better visibility. You connect both AWS and GCP, which are your main cloud providers. You also want to view monitoring costs from **Datadog**, which you help to oversee, so you use the native Datadog integration in Vantage to view the total cost impact of your work.
 - As a **FinOps Analyst**, you are very familiar with the FOCUS schema. You currently have a few of your major cloud providers connected to Vantage, but there are some other tools your organization uses that you would like to see displayed alongside those cloud providers. You convert cost and usage reports from these other providers to the schema that's used on Vantage, and based on FOCUS, and use the Custom Providers feature to see costs for your organization's entire tech stack.
 
 ---
