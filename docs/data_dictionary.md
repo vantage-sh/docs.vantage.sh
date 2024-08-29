@@ -27,22 +27,27 @@ See the [list of VQL examples](/vql#examples) for information on how to use thes
 
 Each cost provider also has a normalized name within the API. The `provider` field is part of the `costs` namespace.
 
-| Provider      | API Field Name | Link to Provider Fields                     |
-| ------------- | -------------- | ------------------------------------------- |
-| AWS           | `aws`          | [View AWS Fields](#aws)                     |
-| Azure         | `azure`        | [View Azure Fields](#azure)                 |
-| Confluent     | `confluent`    | [View Confluent Fields](#confluent)         |
-| Coralogix     | `coralogix`    | [View Coralogix Fields](#coralogix)         |
-| Databricks    | `databricks`   | [View Databricks Fields](#databricks)       |
-| Datadog       | `datadog`      | [View Datadog Fields](#datadog)             |
-| Fastly        | `fastly`       | [View Fastly Fields](#fastly)               |
-| Google Cloud  | `gcp`          | [View GCP Fields](#google-cloud-platform)   |
-| Kubernetes    | `kubernetes`   | [View Kubernetes Fields](#kubernetes)       |
-| MongoDB Atlas | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas) |
-| New Relic     | `newrelic`     | [View New Relic Fields](#new-relic)         |
-| Oracle Cloud  | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)   |
-| PlanetScale   | `planetscale`  | [View PlanetScale Fields](#planetscale)     |
-| Snowflake     | `snowflake`    | [View Snowflake Fields](#snowflake)         |
+| Provider         | API Field Name | Link to Provider Fields                          |
+| ---------------- | -------------- | ------------------------------------------------ |
+| AWS              | `aws`          | [View AWS Fields](#aws)                          |
+| Azure            | `azure`        | [View Azure Fields](#azure)                      |
+| Confluent        | `confluent`    | [View Confluent Fields](#confluent)              |
+| Coralogix        | `coralogix`    | [View Coralogix Fields](#coralogix)              |
+| Custom Providers | _See note_     | [View Custom Provider Fields](#custom_providers) |
+| Databricks       | `databricks`   | [View Databricks Fields](#databricks)            |
+| Datadog          | `datadog`      | [View Datadog Fields](#datadog)                  |
+| Fastly           | `fastly`       | [View Fastly Fields](#fastly)                    |
+| Google Cloud     | `gcp`          | [View GCP Fields](#google-cloud-platform)        |
+| Kubernetes       | `kubernetes`   | [View Kubernetes Fields](#kubernetes)            |
+| MongoDB Atlas    | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas)      |
+| New Relic        | `newrelic`     | [View New Relic Fields](#new-relic)              |
+| Oracle Cloud     | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)        |
+| PlanetScale      | `planetscale`  | [View PlanetScale Fields](#planetscale)          |
+| Snowflake        | `snowflake`    | [View Snowflake Fields](#snowflake)              |
+
+:::note
+To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
+:::
 
 ## AWS {#aws}
 
@@ -93,16 +98,34 @@ _\* Virtual tags associated with this provider_
 
 ## Coralogix {#coralogix}
 
-| Filter      | API Field Name | Data Type | `namespace.field `  |
-| ----------- | -------------- | --------- | ------------------- |
-| Category    | `category`     | string    | `costs.category`    |
-| Subcategory | `subcategory`  | string    | `costs.subcategory` |
-| Service     | `service`      | string    | `costs.service`     |
-| Charge Type | `charge_type`  | string    | `costs.charge_type` |
-| Tag\*       | `name`         | string    | `tags.name`         |
-| Tag Value\* | `value`        | string    | `tags.value`        |
+| Filter      | API Field Name | Data Type | `namespace.field `   |
+| ----------- | -------------- | --------- | -------------------- |
+| Category    | `category`     | string    | `costs.category`     |
+| Subcategory | `subcategory`  | string    | `costs.subcategory`  |
+| Service     | `service`      | string    | `costs.service`      |
+| Resource    | `resource_id`  | string    | `costs.resource_id ` |
+| Charge Type | `charge_type`  | string    | `costs.charge_type`  |
+| Tag\*       | `name`         | string    | `tags.name`          |
+| Tag Value\* | `value`        | string    | `tags.value`         |
 
 _\* Virtual tags associated with this provider_
+
+## Custom Providers {#custom_providers}
+
+Available fields are based on what you've uploaded for this Custom Provider. See the [Custom Providers](/connecting_custom_providers) documentation for details.
+
+| Filter      | API Field Name | Data Type | `namespace.field `   |
+| ----------- | -------------- | --------- | -------------------- |
+| Category    | `category`     | string    | `costs.category`     |
+| Subcategory | `subcategory`  | string    | `costs.subcategory`  |
+| Region      | `region`       | string    | `costs.region`       |
+| Resource    | `resource_id`  | string    | `costs.resource_id ` |
+| Service     | `service`      | string    | `costs.service`      |
+| Charge Type | `charge_type`  | string    | `costs.charge_type`  |
+| Tag\*       | `name`         | string    | `tags.name`          |
+| Tag Value\* | `value`        | string    | `tags.value`         |
+
+_\* Regular and virtual tags associated with this provider_
 
 ## Databricks {#databricks}
 
