@@ -43,12 +43,16 @@ If your GCP billing data is typically displayed in a currency other than USD, Va
 
 Open a new browser tab, and navigate to the [Vantage GCP Settings page](https://console.vantage.sh/settings/gcp). You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
 
-### Step 1: Grant the Vantage Service Account Permission to Access BigQuery {#service-account-permissions}
+### Step 1: Grant the Vantage Service Account Permission to Access BigQuery and Active Resources {#service-account-permissions}
 
-Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery.
+Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery. To enable [active resources](/active_resources), you must also grant the **Viewer** role to the Vantage GCP service account. This role allows read-only access to all resources in the project, enabling Vantage to gather data on active resources.
+
+:::info
+For a list of all supported GCP active resources, see the [GCP Supported Services](/gcp_supported_services) documentation.
+:::
 
 1. At the top of the IAM console, select the project that hosts the BigQuery dataset with your Cloud Billing export data.
-2. Configure the following permission:
+2. Configure the following permissions:
    - In the center of the page, under **Permissions for project "My Project ABCD"**, click **+ GRANT ACCESS**.
    <details><summary>Expand to view example image</summary>
    <div>
@@ -56,10 +60,13 @@ Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-
    </details>
    - In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
    - In the **Role** field, under **Assign roles**, search for and select **BigQuery Job User**.
+   - Click **+ ADD ANOTHER ROLE**.
+   - Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. This adds the role needed for active resources. 
    <details><summary>Expand to view example image</summary>
    <div>
    <img alt="Grant GCP project access" width="80%" src="/img/connect-gcp/gcp-grant-project-access.png"/> </div>
    </details>
+
 3. Click **SAVE**.
 
 ### Step 2: Grant the Vantage Service Account Permission to Access the BigQuery Dataset {#bigquery-permissions}
@@ -116,31 +123,6 @@ Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Inte
 :::caution Important
 It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
 :::
-
-### Step 4: Add Support for Active Resources {#gcp-active-resources}
-
-To enable [active resources](/active_resources), you must grant the Viewer role to the Vantage GCP service account. This role allows read-only access to all resources in the project, enabling Vantage to gather data on active resources.
-
-:::info
-For a list of all supported GCP active resources, see the [GCP Supported Services](/gcp_supported_services) documentation.
-:::
-
-1. Open the **IAM Console**.
-2. At the top, select the project where you want to enable active resources. You will need to enable active resources on a per-project basis.
-3. In the center of the page, under **Permissions for project "Your Project Name"**, click **+ GRANT ACCESS**.
-   <details><summary>Expand to view example image</summary>
-   <div>
-   <img alt="Add permissions for project" width="80%" src="/img/connect-gcp/active-resources-1.png"/> </div>
-   </details>
-4. Under **Add principals**, add the Vantage GCP service account displayed on the Vantage console integration page.
-5. Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. 
-   <details><summary>Expand to view example image</summary>
-   <div>
-   <img alt="Add viewer role for service account" width="80%" src="/img/connect-gcp/active-resources-2.png"/> </div>
-   </details>
-6. Click **SAVE**.
-
-Repeat these steps for each project where you want to enable active resources, and ensure the Vantage GCP service account is added to all relevant projects.
 
 ### Next Steps: Manage Workspace Access
 

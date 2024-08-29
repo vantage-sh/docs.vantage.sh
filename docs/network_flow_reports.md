@@ -40,6 +40,18 @@ See the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flo
 
 When you enable VPC Flow Logs, you incur both S3 storage costs and CloudWatch data ingestion costs on your AWS bill. These charges are represented in the costs for the S3 bucket where your flow logs are written to as well as an `S3-Egress` fee from CloudWatch. Unfortunately, there is no way around these costs being incurred. Vantage has contacted various AWS platform teams to attempt to remove this cost, but this is likely a limitation that AWS is unwilling to change or remove.
 
+These logs are considered [Vended Logs](https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs). You can create a [Cost Report](/cost_reports) that monitors these charges:
+
+- Set **Provider** to **AWS**.
+- Set **Subcategory** to **AmazonCloudWatch contains VendedLog**.
+
+Note that Vended Logs can include other cost sources besides VPC Flow Logs, but you can expect an increase in those costs after enabling them. The filters for this Cost Report are provided below.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Cost Report with filters for Vended Logs" width="80%" src="/img/vended-logs.png" />
+</div>
+<br/>
+
 :::info
 For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook article](https://handbook.vantage.sh/aws/services/vpc-flow-logs-pricing/).
 :::
@@ -49,6 +61,9 @@ For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook 
 1. From the top navigation bar, click **Active Resources**.
 2. From the side navigation bar, select **Network Flow Reports**.
 3. Click **Configure VPC Flow Logs**.
+   :::note
+   See the [Troubleshooting](/network_flow_reports#troubleshooting) section if you are running into issues with seeing some of your flow logs on the onboarding workflow.
+   :::
 4. All flow logs that have been synced as active resources in Vantage are displayed in the left panel of the onboarding workflow. Click the checkbox next to any listed flow log to select all log files. You can also click the down arrow to the right of any flow log and select or deselect specific log files listed.
    :::tip
    If you do not see specific flow log files, check whether they are [synced as active resources](https://console.vantage.sh/resources/new?filter={"||"%3A[{"^"%3A[{"%3D"%3A["provider_id"%2C1]}%2C{"||"%3A[{"%3D"%3A["type"%2C"ProviderResource%3A%3AAws%3A%3AVpcFlowLog"]}]}]}]}&resource_type=ProviderResource%3A%3AAws%3A%3AVpcFlowLog&title=VPC+Flow+Logs) in Vantage. Ensure that all accounts where there are flow logs have [active resources enabled](/active_resources/#aws-active-resources) in Vantage.
@@ -91,6 +106,18 @@ When you click **Check Permissions** during the onboarding process, an error is 
 
 An error is displayed for buckets that are encrypted with AWS Key Management Service (KMS). You will need to either remove encryption on these buckets or provide Vantage the necessary permissions to decrypt (i.e., `kms:Decrypt`).
 
+#### No Logs Displayed
+
+You may see a message indicating _No VPC flow logs with log destination found. If you have recently created these resources it may take up to 24 hours for Vantage to sync the metadata._ Wait at least 24 hours if you recently created new resources. This can also be an issue if you have not enabled active resource syncing. To enable syncing:
+
+1. Navigate to the [Workspaces](https://console.vantage.sh/settings/workspaces) section of the console.
+2. Select the workspace your AWS integration is set up.
+3. At the top, ensure **Active Resource Syncing** is turned on.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Active Resource Syncing in the Workspaces UI" width="80%" src="/img/active-resource-sync.png" />
+</div>
+
 ### Manage Existing Integrations
 
 You can view your integration status and add additional flow logs from the [VPC Flow Logs integration](https://console.vantage.sh/settings/aws?vpc_flow_logs=true) page. At the top of the **Manage Connected VPC Flow Logs** panel, click **Manage**. The **Manage Flow Logs** pop-up window is displayed. After the initial import, you can perform the following actions from this window:
@@ -120,6 +147,7 @@ Follow the steps below to create a new Network Flow Report:
    </div>
    - In the table below the diagram, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by the **Estimated Cost** column. Click any column header to change the sort order. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost column is calculated.)
    - For each listed resource, a link to the [**Active Resources** screen](/active_resources) is provided. Click this link to view additional metadata about the resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
+
 5. You can update the criteria displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
    - From the top right of the diagram, update the date range that’s displayed. Click the calendar icon and select an option, such as **Last 7 Days**, **This Month**, etc.
@@ -399,7 +427,7 @@ To add additional columns to the table and diagram, expand the **Group By** menu
     </div>
 </div>
 
-###  Adjust Flow Weight {#flow-weight}
+### Adjust Flow Weight {#flow-weight}
 
 By default, the Sankey diagram is weighted by estimated cost. You can change this view to be weighted by bytes, or volume. Above the chart, click the **Flow Weight** menu and select **Costs** or **Bytes**. The Sankey diagram is updated accordingly. When you hover over a flow, the corresponding cost or volume in bytes is displayed in the tooltip.
 

@@ -36,6 +36,14 @@ At this time, the agent does not support custom rates for on-premises servers. N
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
 
+### Google Kubernetes Engine (GKE) Autopilot {#gke-autopilot}
+
+For [GKE Autopilot](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) users, you don’t need to install the agent. These costs will already be present under **Cost By Resource** for the **Kubernetes Engine** service in a [Cost Report](/cost_reports).
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="GKE Autopilot filters on a Cost Report" width="80%" src="/img/gke-autopilot.png" />
+</div>
+
 ## Install Vantage Kubernetes Agent {#install-vantage-kubernetes-agent}
 
 ### Prerequisites {#prerequisites}
