@@ -42,7 +42,7 @@ Vantage users can add Vantage to their team's Slack account in a specific channe
   </div>
 </details>
 
-To add the integration to a private channel, add the Vantage app with `/invite @Vantage`. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
+To add the integration to a private channel, open the channel in Slack, create a new message in the channel, and type `/invite @Vantage`. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
 
 ## Set Up Microsoft Teams Integration {#ms-teams}
 
