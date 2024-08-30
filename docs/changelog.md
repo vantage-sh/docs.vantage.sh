@@ -12,11 +12,17 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on August 16, 2024, with product updates for August 2024._
+_This page was last updated on August 30, 2024, with product updates for August 2024._
 
 ## August 2024
 
 ### Product Updates
+
+- **Savings Planner visual updates:** Visual updates were made to [Savings Planner](/savings_planner) for navigability. 
+- **Custom Providers integration:** [Custom Providers](/connecting_custom_providers) are now available as an integration option, so you can connect any of your providers to Vantage using the FinOps FOCUS schema. 
+- **Cost Report and Dashboard header visual updates:** Visual updates were made to Cost Report and Dashboard headers for better organization and navigation. 
+- **Provider icons visual improvements:** On the main [Virtual Tags](https://console.vantage.sh/settings/virtual_tags) and [Cost Reporting](https://console.vantage.sh/reporting) screens, visual updates were made to include provider icons next to each report or virtual tag in the list. 
+- **Autopilot for AWS Savings Plans:** [Autopilot](/autopilot) for AWS Savings Plans is now available, which allows Vantage to purchase Compute Savings Plans commitments on your behalf, with manual and automated options.
 - **Account filter matching:** For cost providers, like AWS, that have human-readable account names, you can now wildcard-match on account names in [Cost Report filters](/cost_reports#filtering-cost-reports) (e.g., set a filter, like _Account **contains** dev_).
 - **Total costs by date:** On [Cost Reports](/cost_reports#comparative-cost-reporting), the **Total Costs** row is displayed when you change the table display to **By Date**. 
 - **Set default dashboard:** You can set the [default dashboard](/dashboards#default-dashboard) that's displayed for a team or individual users when they log in to Vantage.
@@ -33,7 +39,11 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
 
 ### API Updates
 
-No updates.
+- The following API endpoints were released along with the Custom Providers feature:
+  - `/integrations/custom_provider` [endpoint](https://vantage.readme.io/reference/createcustomproviderintegration) to create a Custom Provider
+  - `/integrations/{integration_token}/costs.csv` [endpoint](https://vantage.readme.io/reference/createusercostsuploadviacsv-1) to upload a Custom Provider CSV file
+  - `/integrations/{integration_token}/costs/{user_costs_upload_token}` [endpoint](https://vantage.readme.io/reference/deleteusercostsupload) to delete a Custom Provider CSV file
+  - `/integrations/{integration_token}/costs` [endpoint](https://vantage.readme.io/reference/getusercostsuploads) to list all uploaded CSV files for a Custom Provider
 
 ## July 2024
 
