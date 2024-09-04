@@ -17,7 +17,23 @@ import TabItem from '@theme/TabItem';
 The following documentation is provided for early access users.
 :::
 
-Vantage ingests GitHub costs via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise. With the Vantage–GitHub integration, you can track costs from the following GitHub services: GitHub Actions, Storage, Packages, Enterprise, and Copilot. In addition to these services, Vantage can also pull the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
+Vantage ingests GitHub costs via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise. The billing manager account _has no access_ to any source code. 
+
+
+With the Vantage–GitHub integration, you can track costs from the following GitHub services: GitHub Actions, Shared Storage, and Copilot. In addition to these services, Vantage can also pull the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
+
+## How Vantage Integrates with GitHub
+
+The GitHub integration is completed in the following steps. **Detailed integration steps are provided in the next section.**
+
+1. Grant Vantage `manage billing:enterprise` or `read:org` access to the GitHub API, allowing Vantage to query the API for billing data returned from the [`Get usage billing report for an enterprise`](https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) API endpoint.
+2. Invite an account-specific Vantage email address as a billing manager to either you GitHub Enterprise or Organization. 
+3. After the Vantage user is invited, Vantage will confirm the addition of the user to your account within 24 hours. 
+4. Add the integration in the Vantage console. 
+
+With this approach, Vantage can automatically pull a detailed usage report (CSV) from GitHub. With the information in the detailed usage report CSV, you can see granular usage breakdowns for GitHub Actions, such as build minutes by user, repository, and workflow, as well as the associated infrastructure used to perform the build. This is the most detailed method to provide the information that’s needed for this integration. 
+
+The Usage Report CSV contains metadata about every GitHub Actions build for the billing period, such as the user that initiated the build, the organization the user belongs to, the associated source code repository, the workflow name, the runner type, size, and operating system. With this additional metadata, Vantage can help you understand the users or repositories that are using the most minutes. This can help identify anomalies, build/test issues, and over-provisioned runners. Vantage customers can create filters for any of the metadata provided in the CSV.
 
 ## Connect Your GitHub Account
 
@@ -46,10 +62,10 @@ Navigate to GitHub and obtain your Enterprise or Organization name.
 <Tabs groupId="instructions">
 <TabItem value="enterprise" label="Enterprise" default>
 
-   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub and copy the Enterprise name that’s displayed to use in step 3.</p>
+   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub. Select your Enterprise. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/enterprises/mycompany</code>, copy <code>mycompany</code>—all lowercase, no spaces).</p>
    </TabItem>
    <TabItem value="organization" label="Organization" default>
-   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub and copy the Organization name that’s displayed to use in step 3.</p>
+   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub. Select your Organization. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/mycompany</code>, copy <code>mycompany</code>—all lowercase, no spaces).</p>
    </TabItem>
    </Tabs>
 
@@ -149,7 +165,7 @@ On GitHub [Cost Reports](/cost_reports/), you can filter costs across several di
 - Resource (e.g., Actions - specific Actions workflow)
 - Charge Type (e.g., Usage)
 - Organization (organization name)
-- Service (Actions, Storage, Packages, Enterprise, and Copilot)
+- Service (Actions, Storage, and Copilot)
 
 You can also view GitHub credits in Cost Reports.
 
