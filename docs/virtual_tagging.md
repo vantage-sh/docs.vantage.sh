@@ -294,3 +294,74 @@ The resulting report shows how much of the Namespace costs each team is allocate
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-metric-report.png" />
 </div>
+
+### Tagging Untaggable Resources in AWS Example {#untaggable-aws}
+
+While you can apply cost and metadata tags in AWS to many resources, there are many other resources that are untaggable in AWS. Therefore, it is hard, if not almost impossible, to achieve 100% allocation in AWS alone. One quick way to first get an inventory of all untagged resources in Vantage—regardless of if they are untaggable—is to create a [Cost Report](/cost_reports) with the following filters:
+
+- Provider is **AWS**
+- Where **Not Tagged** with **Any Key**
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Untagged cost filters" width="80%" src="/img/virtual-tag-not-tagged.png" />
+</div>
+
+Then, add grouping criteria for **Service** and **Category** to get a view of the types of resources that are currently untagged. If these resources are taggable in AWS, you can add cost allocation tags there and see those tags represented in Vantage when you filter or group by specific tag. 
+
+:::info
+See the [AWS documentation](https://docs.aws.amazon.com/ARG/latest/userguide/supported-resources.html) for more information on what you can tag directly in AWS.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Untagged cost filters" width="100%" src="/img/virtual-tag-category-tags.png" />
+</div>
+
+Many services and resource categories, however, cannot be tagged in AWS. You can use Virtual Tags to create tags in Vantage for these untaggable resources. In the table below, the _Vantage Resource Filters_ column represents the filters you can set as the **Output Cost Filters** in the Virtual Tag configuration. 
+
+For example, if you want to tag S3 Data Transfer for specific resources, you could use the following filter criteria. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Untagged cost filters" width="80%" src="/img/virtual-tag-data-transfer.png" />
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>AWS Resource</th>
+      <th>Description</th>
+      <th>Vantage Resource Filters</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Elastic IPs</td>
+      <td><a href="https://docs.aws.amazon.com/vpc/latest/userguide/vpc-eip-overview.html">According to AWS</a>, "You can tag an Elastic IP address that's allocated for use in a VPC, however, cost allocation tags are not supported."</td>
+      <td>Provider: AWS<br/><br/>Subcategory: Amazon Virtual Private Cloud contains <code>inuse</code></td>
+    </tr>
+    <tr>
+      <td>CloudWatch Metrics</td>
+      <td>CloudWatch Metrics involve performance data from AWS services, which are not taggable and are used for monitoring and alerting.</td>
+      <td>Provider: AWS<br/><br/>Category: AmazonCloudWatch is Metric<br/><br/>Further filter by resource ID</td>
+    </tr>
+    <tr>
+      <td>S3 Data Transfer</td>
+      <td>Data transferred in and out of S3 buckets, which is tracked but not taggable.</td>
+      <td>Provider: AWS<br/><br/>Category: Amazon Simple Storage Service is Data Transfer<br/><br/>Further filter by resource ID</td>
+    </tr>
+    <tr>
+      <td>QuickSight resources</td>
+      <td>Resources within Amazon QuickSight, such as dashboards and analyses, which do not support tagging.</td>
+      <td>Provider: AWS<br/><br/>Service: Amazon Quicksight<br/><br/>Optional detailed filters for Category (e.g., Business Analytics) or individual resource ID</td>
+    </tr>
+    <tr>
+      <td>CloudSearch resources</td>
+      <td>Amazon CloudSearch domains and their configurations, which are untaggable.</td>
+      <td>Provider: AWS<br/><br/>Service: Amazon CloudSearch<br/><br/>Optional detailed filters for Category (e.g., Data Transfer, Search Instance) or individual resource ID</td>
+    </tr>
+    <tr>
+      <td>EBS Snapshot Copy</td>
+      <td>Amazon EBS Snapshots that are copied between regions for Disaster Recovery or restore purposes</td>
+      <td>Provider: AWS<br/><br/>Service: Amazon Elastic Block Storage (EBS)<br/><br/>Category: Storage Snapshot<br/><br/>Further filter for resource ID</td>
+    </tr>
+  </tbody>
+</table>
