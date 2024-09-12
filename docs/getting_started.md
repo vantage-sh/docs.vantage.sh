@@ -129,6 +129,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_coralogix",
     },
     {
+      icon: '/img/logos/logo-icon-github.svg',
+      iconAltText: 'GitHub logo',
+      title: 'GitHub',
+      content: 'Vantage integrates with GitHub via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise.',
+      link: "/connecting_github",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',

@@ -151,6 +151,7 @@ module.exports = {
         "connecting_confluent",
         "connecting_planetscale",
         "connecting_coralogix",
+        "connecting_github",
         "connecting_custom_providers",
       ],
     },
