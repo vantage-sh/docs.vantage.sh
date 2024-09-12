@@ -34,6 +34,12 @@ Vantage offers a number of native integrations to help you understand all your c
     <iframe src="https://www.youtube.com/embed/bhSyaAG6_tU?si=BcjOEGLNB8Ic7j5Z?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
+## 📚 Lesson 3: Integration Example - GitHub
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/npyZQRlTuGY?si=AtCe7H23BvYFsZsB?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
+
 ## 📖 Additional Resources
 
 - [Integrations quickstart](/getting_started)

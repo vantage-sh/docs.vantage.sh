@@ -14,9 +14,9 @@ Each provider that Vantage integrates with makes different fields available in t
 
 Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`.
 
-- The Filter is the friendly name that is displayed on Cost Report filters within the Vantage console.
-- The API Field Name is the normalized version of the filter name.
-- The Data Type indicates the type of data that is accepted for that field.
+- The _Filter_ is the friendly name that is displayed on Cost Report filters within the Vantage console.
+- The _API Field Name_ is the normalized version of the filter name.
+- The _Data Type_ indicates the type of data that is accepted for that field.
 - `namespace.field` is how that field is referenced in a VQL query (e.g., `costs.provider = 'aws'`, where `costs` is the namespace and `provider` is the field).
 
 :::info
@@ -37,6 +37,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Databricks       | `databricks`   | [View Databricks Fields](#databricks)            |
 | Datadog          | `datadog`      | [View Datadog Fields](#datadog)                  |
 | Fastly           | `fastly`       | [View Fastly Fields](#fastly)                    |
+| GitHub           | `github`       | [View GitHub Fields](#github)                    |
 | Google Cloud     | `gcp`          | [View GCP Fields](#google-cloud-platform)        |
 | Kubernetes       | `kubernetes`   | [View Kubernetes Fields](#kubernetes)            |
 | MongoDB Atlas    | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas)      |
@@ -93,6 +94,7 @@ To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, n
 | Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 | Tag\*        | `name`         | string    | `tags.name`         |
 | Tag Value\*  | `value`        | string    | `tags.value`        |
+| Provider     | `provider`     | string    | `costs.provider`    |
 
 _\* Virtual tags associated with this provider_
 
@@ -107,6 +109,7 @@ _\* Virtual tags associated with this provider_
 | Charge Type | `charge_type`  | string    | `costs.charge_type`  |
 | Tag\*       | `name`         | string    | `tags.name`          |
 | Tag Value\* | `value`        | string    | `tags.value`         |
+| Provider    | `provider`     | string    | `costs.provider`     |
 
 _\* Virtual tags associated with this provider_
 
@@ -124,6 +127,7 @@ Available fields are based on what you've uploaded for this Custom Provider. See
 | Charge Type | `charge_type`  | string    | `costs.charge_type`  |
 | Tag\*       | `name`         | string    | `tags.name`          |
 | Tag Value\* | `value`        | string    | `tags.value`         |
+| Provider    | `provider`     | string    | `costs.provider`     |
 
 _\* Regular and virtual tags associated with this provider_
 
@@ -138,6 +142,7 @@ _\* Regular and virtual tags associated with this provider_
 | Tag Value   | `value`        | string    | `tags.value`        |
 | Category    | `category`     | string    | `costs.category`    |
 | Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Provider    | `provider`     | string    | `costs.provider`    |
 
 ## Datadog {#datadog}
 
@@ -166,6 +171,19 @@ _\* Regular and virtual tags associated with this provider_
 | Tag Value\* | `value`        | string    | `tags.value`        |
 
 _\* Virtual tags associated with this provider_
+
+## GitHub {#github}
+
+| Filter      | API Field Name | Data Type | `namespace.field`   |
+| ----------- | -------------- | --------- | ------------------- |
+| Service     | `service`      | string    | `costs.service`     |
+| Provider    | `provider`     | string    | `costs.provider`    |
+| Category    | `category`     | string    | `costs.category`    |
+| Subcategory | `subcategory`  | string    | `costs.subcategory` |
+| Resource    | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Tag         | `name`         | string    | `tags.name`         |
+| Tag Value   | `value`        | string    | `tags.value`        |
 
 ## Google Cloud {#google-cloud-platform}
 
@@ -206,6 +224,7 @@ _\* Virtual tags associated with this provider_
 | Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
 | Tag          | `name`                | string    | `tags.name`                 |
 | Tag Value    | `value`               | string    | `tags.value`                |
+| Provider     | `provider`            | string    | `costs.provider`            |
 
 ## New Relic {#new-relic}
 
@@ -217,6 +236,7 @@ _\* Virtual tags associated with this provider_
 | Charge Type | `charge_type`  | string    | `costs.charge_type` |
 | Tag\*       | `name`         | string    | `tags.name`         |
 | Tag Value\* | `value`        | string    | `tags.value`        |
+| Provider    | `provider`     | string    | `costs.provider`    |
 
 _\* Virtual tags associated with this provider_
 
@@ -246,6 +266,7 @@ _\* Virtual tags associated with this provider_
 | Charge Type  | `charge_type`  | string    | `costs.charge_type` |
 | Tag\*        | `name`         | string    | `tags.name`         |
 | Tag Value\*  | `value`        | string    | `tags.value`        |
+| Provider     | `provider`     | string    | `costs.provider`    |
 
 _\* Virtual tags associated with this provider_
 

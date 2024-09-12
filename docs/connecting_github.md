@@ -13,12 +13,7 @@ import TabItem from '@theme/TabItem';
 
 # GitHub
 
-:::note
-The following documentation is provided for early access users.
-:::
-
 Vantage ingests GitHub costs via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise. The billing manager account _has no access_ to any source code. 
-
 
 With the Vantage–GitHub integration, you can track costs from the following GitHub services: GitHub Actions, Shared Storage, and Copilot. In addition to these services, Vantage can also pull the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
 
@@ -171,3 +166,11 @@ You can also view GitHub credits in Cost Reports.
 
 1. At the top of any GitHub Cost Report, click **Settings**.
 2. Then, toggle on/off **Credits**.
+
+## GitHub Costs Demonstration
+
+The below video talks about how to get started with GitHub costs and how to use [Virtual Tags](/virtual_tagging) along with this integration.
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/npyZQRlTuGY?si=AtCe7H23BvYFsZsB?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
