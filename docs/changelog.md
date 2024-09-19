@@ -12,7 +12,28 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on August 30, 2024, with product updates for August 2024._
+_This page was last updated on September 19, 2024, with product updates for September 2024._
+
+## September 2024
+
+### Product Updates
+
+- **View as VQL:** On Cost Report filters, a new button is available to see the [VQL](/vql) representation of a Cost Report filter.
+- **GitHub integration:** Vantage now integrates with GitHub. See the [Connecting GitHub](/connecting_github) documentation for details on how to get started.
+- **New Autopilot banner:** A banner is now displayed at the top of the **Coverage Overview** page on [Autopilot](/autopilot) when a Savings Plan is purchased.
+- **Drill down on Cost Reports:** You can now [drill down](/cost_reports#category-and-subcategory-cost-filters) in the Cost Report table when the report is grouped by more than three options.
+- **Account search for Cost Recommendations:** Organizations with many accounts can now search for an account to filter by on the [Cost Recommendations](/cost_recommendations) screen.
+- **Faster Budget loads:** Performance improvements were made to the [Budgets](/budgets) page for faster page loads.  
+- **Cost Report link in Slack alerts:** A link to the corresponding Cost Report is now displayed on Slack budget alerts.
+- **AWS Organization tags:** You can now filter and group by [AWS Organization tags](/cost_reports#aws-organization-tags) on Cost Reports.
+
+### Kubernetes Agent Updates
+
+_See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release._
+
+### API Updates
+
+_No updates for this timeframe._
 
 ## August 2024
 
