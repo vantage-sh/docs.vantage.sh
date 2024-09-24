@@ -134,3 +134,6 @@ On Datadog [Cost Reports](/cost_reports), you can filter across several dimensio
 
 You can import Datadog metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-datadog) documentation for more information.
 
+## Datadog Host Costs
+
+For cloud resources that have the Datadog agent installed, Vantage can associate Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs. See the [Active Resources](/active_resources#datadog-host-costs) documentation for details on how to view these costs.
