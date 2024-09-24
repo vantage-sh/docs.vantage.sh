@@ -224,3 +224,41 @@ For GCP Compute resources where Vantage identifies rightsizing opportunities, th
 ### Kubernetes Rightsizing Recommendations
 
 For Kubernetes workloads where Vantage identifies rightsizing opportunities, the **Rightsizing** tab is displayed with recommendations. See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view and use this information.
+
+### Datadog Host Costs {#datadog-host-costs}
+
+For cloud resources that have the Datadog agent installed, Vantage can associate Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs. 
+
+:::note
+To view these costs and agent information, you need to have a [Datadog](/connecting_datadog) integration, along with either an [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp) integration. 
+:::
+
+On Active Resource views for resources, like EC2 instances or Virtual Machines, the **Associated Datadog Costs** section is displayed and provides a service breakdown of costs.
+
+ The following resources are supported:
+
+- Compute resources with the Datadog agent installed, such as virtual machines or container services
+- Databases that are monitored by Datadog’s DBM
+
+The following Datadog services are supported:
+
+- Infrastructure Monitoring
+- Database Monitoring
+- APM (Hosts)
+
+For eligible resources, the **Datadog Agent Installed** dimension, indicates whether the agent is installed. The below image shows an EC2 instance. On the right information panel, the **Datadog Agent Installed** dimension displays **True**. Observe associated Datadog costs for **Infrastructure Monitoring**.  
+
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="The Associated Datadog Costs section is displayed on an active resource" width="90%" src="/img/datadog-host-costs.png" />
+</div>
+
+You can also create a Resource Report that filters for resources where the Datadog agent is installed. In the below image, the filter looks for EC2 instances where the agent is installed. 
+
+1. Select the **Metadata** filter option.
+2. For **Resource Type**, select an eligible resource, like **EC2 Instances**. 
+3. For **Select a Key**, select **Datadog Agent Installed**.
+4. For **Value**, select **true**.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="Metadata filter for Datadog Agent costs" width="90%" src="/img/.png" />
+</div>
