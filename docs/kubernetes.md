@@ -37,6 +37,10 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 
 ## Kubernetes Efficiency Metrics and Reports
 
+:::note Discounts on Efficiency Reports
+CPU/memory rates are based on the underlying instances the pod is scheduled on. In Kubernetes Efficiency Reports, this is the undiscounted rate of the instance. Discounts are not reflected on these reports. You can view discounts on Kubernetes [Cost Reports](/cost_reports).
+:::
+
 ### View Kubernetes Efficiency Metrics
 
 1. Navigate to the [Kubernetes page](https://console.vantage.sh/kubernetes) in the Vantage console.
