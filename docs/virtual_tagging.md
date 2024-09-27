@@ -76,12 +76,15 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 5. For **Billing Period Backfill**, select a billing period (e.g., **Apr 2024**) for which the tag should be backfilled.
 6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
 7. In the **Values** section, click **+Add**. Select whether you want to create a **Custom Value**, **Business Metric**, or **Cost Based** value. Click through the tabs below for instructions on each value type.
+   :::note
+   You cannot use an existing Virtual Tag within the **Output Costs Filter** for any type of new Virtual Tag. You can, however, select an existing _provider tag_ (e.g., one that comes from AWS).
+   :::
    <Tabs>
    <TabItem value="custom" label="Add Custom Value" default>
    <ol>
    <li>Click <strong>Assign Custom Value</strong>.</li>
    <li>Enter a <strong>Tag Value</strong> title. Titles can contain only letters, numbers, and the following characters: <code>\_ - & + , . : / \</code>. You cannot use saved filters to define a virtual tag value's filters.</li>
-   <li>Specify the tag value's filter criteria. These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
+   <li>Specify the tag value's filter criteria (i.e., <b>Output Cost Filters</b>). These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
    </ol>
    </TabItem>
    <TabItem value="business" label="Add Business Metric Value" default>
