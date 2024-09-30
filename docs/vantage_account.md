@@ -19,6 +19,30 @@ Only Organization Owners can configure organization settings. See the [Role-Base
 
 From the top navigation bar of the Vantage console, click **Settings**. On the side navigation bar, review the options under **General Settings**.
 
+### Currency Conversion {#currency-conversion}
+
+:::note
+At this time, presentational currency conversion is available only on Vantage reports, such as Cost Reports, Kubernetes Efficiency Reports, Financial Commitment Reports, and Provider Resource Reports. Additional scopes will be added soon.
+:::
+
+By default, Vantage displays costs in US Dollars (USD). You can set a presentational currency, on a per-workspace basis, to visualize cost reporting data in a currency of your choice. When you configure currency for a workspace, you can choose between using the previous month’s closing exchange rate or the daily exchange rate.
+
+To enable currency conversion:
+
+1. From the top navigation, click **Settings**
+2. On the side navigation, click **Workspaces**. All your existing workspaces are displayed. Select the workspace where you want to enable currency conversion.
+3. At the top of the **Workspaces** page, under **Preferred Currency**, click the toggle to enable this setting. (You can click this toggle again to disable the setting.)
+4. Select your preferred currency from the list.
+5. For **Exchange Rate Dates**, select one of the following conversion date options. For the most accurate results, use the currency method in which you are billed:
+   - **Daily Rate:** Vantage maintains a daily snapshot of exchange rates to provide estimated currency conversions. With the **Daily Rate** option, the rate is calculated and updated daily.
+   - **End of Billing Period Rate:** The previous month’s closing exchange rate. Some providers use this method for displaying currency conversion, where the exchange rate for the next month is captured at the end of the billing period (e.g., [Azure](https://learn.microsoft.com/en-us/marketplace/currencies)).
+
+Your settings are automatically saved and available on your reports.
+
+:::note
+If you disable currency, your presentational currency will default back to USD.
+:::
+
 ### Manage Workspaces
 
 Provider integrations are organized into workspaces. From the **Workspaces** section, you can manage each of your workspaces as well as create a new one. See the [Workspaces](/workspaces) documentation for more information.
