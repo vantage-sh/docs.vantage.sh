@@ -34,8 +34,8 @@ To enable currency conversion:
 3. At the top of the **Workspaces** page, under **Preferred Currency**, click the toggle to enable this setting. (You can click this toggle again to disable the setting.)
 4. Select your preferred currency from the list.
 5. For **Exchange Rate Dates**, select one of the following conversion date options. For the most accurate results, use the currency method in which you are billed:
-   - **Daily Rate:** Vantage maintains a daily snapshot of exchange rates to provide estimated currency conversions. With the **Daily Rate** option, the rate is calculated and updated daily.
-   - **End of Billing Period Rate:** The previous month’s closing exchange rate. Some providers use this method for displaying currency conversion, where the exchange rate for the next month is captured at the end of the billing period (e.g., [Azure](https://learn.microsoft.com/en-us/marketplace/currencies)).
+   - **Daily Rate:** Vantage maintains a daily snapshot of exchange rates to provide estimated currency conversions. With the **Daily Rate** option, the costs' corresponding daily exchange rate will be used for the conversion.
+   - **End of Billing Period Rate:** Vantage matches each cost entry to the last date of the corresponding month in which the cost was incurred. 
 
 Your settings are automatically saved and available on your reports.
 
