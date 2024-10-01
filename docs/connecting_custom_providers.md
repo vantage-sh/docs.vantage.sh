@@ -60,6 +60,14 @@ The following table provides details for each field within the template, as well
     </tr>
   </thead>
   <tbody>
+      <tr>
+      <td><code>BillingCurrency</code></td>
+      <td>No</td>
+      <td>Billing currency costs are displayed in</td>
+      <td>A currency code, like <code>GBP</code>. <br/><br/>If you enter a currency code not available in Vantage, an error is displayed on validation. Check that currency conversion is also enabled. See the <a href="/vantage_account#currency-conversion">Currency Conversion</a> documentation for details. </td>
+      <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=currency#modal-column-14236">BillingCurrency</a></code></td>
+      <td><code>JPY</code>, <code>AUD</code>, <code>USD</code></td>
+    </tr>
     <tr>
       <td><code>ChargeCategory</code></td>
       <td>No</td>
