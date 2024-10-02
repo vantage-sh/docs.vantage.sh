@@ -25,11 +25,11 @@ Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, an
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
 
-### Cost Data Source
+### Cost Data Source {#cost-data-source}
 
 The costs displayed on these reports come from your integration with the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by analyzing the CPU, RAM, GPU, as well as storage usage and calculates the cost of each input based on the cost of the underlying infrastructure.
 
-[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost for each type of resource. The cost calculation reflects the exact runtime of each pod, down to the minute. This means if a pod runs for only 5 minutes within an hour, you will be charged only for those 5 minutes, rather than for the full hour. All the cost allocation calculations are done locally in your cluster and make this data available for querying.
+[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost for each type of resource. The cost calculation reflects the exact runtime of each pod, down to the minute. This means if a pod runs for only 5 minutes within an hour, Vantage recognizes only 5 minutes of spend, rather than the full hour. All the cost allocation calculations are done locally in your cluster and make this data available for querying.
 
 :::note
 Kubernetes costs are not included in monthly tracked infrastructure costs as they’re already captured from underlying EKS, GKE, or AKS costs.
