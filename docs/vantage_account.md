@@ -25,7 +25,7 @@ From the top navigation bar of the Vantage console, click **Settings**. On the s
 At this time, presentational currency conversion is available only on Vantage reports, such as Cost Reports, Kubernetes Efficiency Reports, Financial Commitment Reports, and Provider Resource Reports. Additional scopes will be added soon.
 :::
 
-By default, Vantage displays costs in US Dollars (USD). You can set a presentational currency, on a per-workspace basis, to visualize cost reporting data in a currency of your choice. When you configure currency for a workspace, you can choose between using the previous month’s closing exchange rate or the daily exchange rate.
+By default, Vantage displays costs in US Dollars (USD). You can set a presentational currency, on a per-workspace basis, to visualize cost reporting data in a currency of your choice. When you configure currency for a workspace, you can choose between using the previous month’s closing exchange rate or the daily exchange rate. Vantage calculates the exchange rate based on a [public API](https://exchangeratesapi.io/).
 
 To enable currency conversion:
 
