@@ -84,10 +84,18 @@ Each recommendation includes potential savings as well as the number of instance
 </div>
 <br/>
 
-| Recommendation Type                   | Description                                                                                                     |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| Compute reserved instances            | Suggestions for instances with on-demand usage that could be converted to reserved instances for better savings |
-| Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days                                                   |
+| Recommendation Type                   | Description                                                                                                                                                               |
+| ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Compute Reserved Instances            | Suggestions for instances with on-demand usage that could be converted to Reserved Instances for better savings.                                                           |
+| Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days.                                                                                                             |
+| Compute Savings Plans                 | Vantage will identify potential savings from purchasing Compute Savings Plans.                                                                                            |
+| Virtual Machine (VM) Rightsizing      | Vantage will suggest VM instances that can be rightsized to offer savings. Suggestions will be made available through the Active Resource page's Rightsizing tab as well. |
+| Blob Storage Reserved Instances       | Vantage will suggest purchasing Reserved Instances that can save on Blob v2 and Datalake storage Gen2 costs.                                                              |
+| SQL PaaS DB Reserved Instances        | Vantage will suggest purchasing Reserved Instances that can save on your pay-as-you-go costs.                                                                             |
+| Files Reserved Instances              | Vantage will suggest purchasing Reserved Instances that can save on your on-demand costs.                                                                                 |
+| SQL DB Reserved Instances             | Vantage will suggest purchasing Reserved Instances that provide a reduced rate.                                                                                           |
+| App Service Reserved Instances        | Vantage will suggest purchasing Reserved Instances that provide a reduced rate.                                                                                           |
+| Cosmos DB Reserved Instances          | Vantage will suggest purchasing Reserved Instances that provide a reduced rate.                                                                                           |
 
 ### GCP Recommendations {#gcp}
 
@@ -96,20 +104,20 @@ Each recommendation includes potential savings as well as the number of instance
 </div>
 <br/>
 
-| Recommendation Type         | Description                                                                                                                                                                                                                                    |
-| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Recommendation Type         | Description                                                                                                                                                                                                                              |
+| --------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Rightsizing recommendations | Show whether compute resources are overprovisioned. For example, _We have identified 2 Compute instances for rightsizing that offer savings._ See the next section for details on viewing resource-specific rightsizing recommendations. |
-| Commitment recommendations  | Commitment-related recommendations for resource-based commitment discounts. For example, _We have found that your account could save by purchasing Compute Commitments._                                                                  |
+| Commitment recommendations  | Commitment-related recommendations for resource-based commitment discounts. For example, _We have found that your account could save by purchasing Compute Commitments._                                                                 |
 
 #### GCP Compute Rightsizing Recommendations
 
 If you have GCP Compute instances that are overprovisioined, rightsizing recommendations are available. Recommendations are also provided in the case of idle instances.
 
-Each recommendation includes potential monthly savings as well as the number of instances identified for rightsizing. 
+Each recommendation includes potential monthly savings as well as the number of instances identified for rightsizing.
 
 1. On the **Cost Recommendations** screen, click **View Resources** to view each identified resource that is recommended for rightsizing.
 2. Select a resource from the list.
-3. The [Active Resources](/active_resources) screen is displayed. Select the **Rightsizing** tab. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed. 
+3. The [Active Resources](/active_resources) screen is displayed. Select the **Rightsizing** tab. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A set of GCP rightsizing recommendations in the console" width="90%" src="/img/gcp-rightsizing.png" />
