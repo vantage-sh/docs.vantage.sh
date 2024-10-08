@@ -57,10 +57,10 @@ Navigate to GitHub and obtain your Enterprise or Organization name.
 <Tabs groupId="instructions">
 <TabItem value="enterprise" label="Enterprise" default>
 
-   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub. Select your Enterprise. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/enterprises/mycompany</code>, copy <code>mycompany</code>—all lowercase, no spaces).</p>
+   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub. Select your Enterprise. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/enterprises/mycompany</code>, copy <b>only</b> <code>mycompany</code>—all lowercase, no spaces—<b>do not copy the full URL, just the <code>mycompany</code> part</b>).</p>
    </TabItem>
    <TabItem value="organization" label="Organization" default>
-   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub. Select your Organization. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/mycompany</code>, copy <code>mycompany</code>—all lowercase, no spaces).</p>
+   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub. Select your Organization. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/mycompany</code>, copy <b>only</b> <code>mycompany</code>—all lowercase, no spaces—<b>do not copy the full URL, just the <code>mycompany</code> part</b>).</p>
    </TabItem>
    </Tabs>
 

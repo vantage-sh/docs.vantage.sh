@@ -234,6 +234,11 @@ The Charge Type grouping includes costs separated by items like usage, discounts
       <td>GCP adjustments due to reasons like goodwill or SLA violations</td>
     </tr>
     <tr>
+      <td>AllocatedAmortizedDiscount</td>
+      <td>AWS</td>
+      <td>The fee that is associated with the discount</td>
+    </tr>
+    <tr>
       <td>AllocatedAmortizedFee</td>
       <td>AWS</td>
       <td>Savings Plans and Reserved Instances that have been amortized and allocated to an account with usage</td>
