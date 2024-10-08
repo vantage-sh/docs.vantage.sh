@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost data. It includes a normalized schema across cloud providers and basic filter syntax for creating complex filters. VQL is currently available as part of the [Vantage API](https://vantage.readme.io/reference/general) as well as within the [Vantage Terraform provider](/terraform).
 
 :::tip
-On [Cost Reports](/cost_reports), you can create a filter and click **View as VQL** to see the filter represented in VQL.
+On Cost and Resource Reports, you can create a filter and click **View as VQL** to see the filter represented in VQL.
 
 <div style={{display:"flex"}}>
     <img alt="Show as VQL button on a Cost Report" width="60%" src="/img/show-as-vql.png" />
@@ -24,7 +24,7 @@ On [Cost Reports](/cost_reports), you can create a filter and click **View as VQ
 
 :::
 
-- **API**. On supported endpoints, such as `/cost_reports`, you can use VQL in the `filter` parameter to programmatically create and fetch Cost Reports.
+- **API**. On supported endpoints, such as `/cost_reports` and `/resource_reports`, you can use VQL in the `filter` parameter to programmatically create and fetch Cost Reports.
 - **Terraform provider**. In supported Terraform resources, such as `vantage_saved_filter` or `vantage_cost_report`, you can use VQL for the `filter` argument to create filtered Cost Reports or saved filters.
 
 The below examples show how to use VQL on both the API and the Terraform provider. This example creates a [saved filter](/cost_reports#saved-filters) in your Vantage account using VQL.
@@ -75,7 +75,7 @@ VQL uses a schema that organizes filters into namespaces. These namespaces compr
 
 <TabItem value="keywords" label="Keywords">
 
-VQL includes keywords, like `AND`, `OR`, `IN`, `LIKE`, and `NOT`, to create complex and precise filter conditions.
+VQL includes keywords, like `AND`, `OR`, `IN`, `LIKE`, and `NOT`, to create complex and precise filter conditions. These keywords vary per report type/scope.
 
 </TabItem>
 

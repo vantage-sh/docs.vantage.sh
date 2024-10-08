@@ -27,37 +27,37 @@ VQL for Resources Reports comprises two namespaces: `resources` and `tags`, whic
   </thead>
   <tbody>
     <tr>
-      <td rowspan="8">resources</td>
+      <td rowspan="8"><code>resources</code></td>
       <td><code>resources.provider</code></td>
       <td><a href="#providers">Providers example</a></td>
     </tr>
     <tr>
-      <td><code>resources.region</code></td>
+      <td><code>region</code></td>
       <td><a href="#region">Region example</a></td>
     </tr>
     <tr>
-      <td><code>resources.account_id</code></td>
+      <td><code>account_id</code></td>
       <td><a href="#account">Account example</a></td>
     </tr>
     <tr>
-      <td><code>resources.provider_account_id</code></td>
+      <td><code>provider_account_id</code></td>
       <td><a href="#billing-account">Billing Account example</a></td>
     </tr>
     <tr>
-      <td><code>resources.type</code></td>
+      <td><code>type</code></td>
       <td><a href="#resource-type">Resource Type example</a></td>
     </tr>
     <tr>
-      <td><code>resources.label</code></td>
+      <td><code>label</code></td>
       <td><a href="#label">Label example</a></td>
     </tr>
     <tr>
-      <td><code>resources.uuid</code></td>
+      <td><code>uuid</code></td>
       <td><a href="#uuid">UUID (AWS ARN) example</a></td>
     </tr>
     <tr>
-      <td><code>resources.metadata</code></td>
-      <td><a href="#metadata">Category example</a></td>
+      <td><code>metadata</code></td>
+      <td><a href="#metadata">Metadata example</a></td>
     </tr>
     <tr>
       <td rowspan="2" style={{ textAlign: 'center' }}><code>tags</code></td>
@@ -71,22 +71,23 @@ VQL for Resources Reports comprises two namespaces: `resources` and `tags`, whic
 </table>
 
 :::note
-Availability of the fields listed above varies among different cloud providers. See the [Resource Reports documentation](/active_resources#resource-report-filters) for a full list of filter fields available per provider. 
+Availability of the fields listed above varies among different cloud providers. See the [Resource Reports documentation](/active_resources#resource-report-filters) for a full list of filter fields available per provider.
 :::
 
 ### Keywords
 
 VQL includes a set of keywords to create complex filter conditions. These keywords function similar to their SQL equivalents.
 
-| Keyword | Description                           | VQL Sample                                                                          | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
-| ------- | ------------------------------------- | ----------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `AND`   | Logical AND operator                  | `costs.provider = 'aws' AND costs.service = 'EC2'`                                  | This example filters AWS costs for the EC2 service, where both conditions must be true.                                                                                                                                                                                                                                                                                                                                                                                          |
-| `OR`    | Logical OR operator                   | `costs.provider = 'azure' OR costs.provider = 'aws'`                                | This example retrieves costs from either Azure or AWS. At least one condition must be true.                                                                                                                                                                                                                                                                                                                                                                                      |
-| `IN`    | Used to compare against an array list | `costs.provider = 'azure' AND costs.account_id IN ('account-1', 'account-2')`       | This example filters based on a list of account IDs, returning data for the specified accounts<br/><br/>You can also use `IN` along with a special syntax for filtering by multiple tags. See [Filter by Multiple Tags](/vql#multiple-tags) for details.                                                                                                                                                                                                                         |
-| `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`. <br /> Note that at this time, `LIKE` is not compatible with `costs.account_id`, `costs.provider_account_id`, `costs.region`, and `costs.service`.                                                                                                                                                                                                                                        |
-| `NOT`   | Represents negation                   | `costs.provider = 'aws' AND costs.region NOT IN ('us-east-1', 'us-east-2')`         | This example filters out data from both specified regions, providing all AWS costs _not_ in these regions. Use `NOT IN` to specify a list of single or multiple values. <br/><br/> You can also use the `!=` or `<>` operators for "is not." <br/><br/> `costs.provider = 'aws' AND costs.region != 'us-east-1'`<br/><br/>You can use `NOT LIKE` to perform string comparisons:<br/><br/>`costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value NOT LIKE '%prod%'` |
+| Keyword              | Description                                  | VQL Sample                                                                                                                            | Explanation                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
+| -------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `AND`                | Logical AND operator                         | `resources.provider = 'aws' AND resources.label = '123456'`                                                                           | This example filters AWS resources, with a specific associated label, where both conditions must be true.                                                                                                                                                                                                                                                                                                                                                                        |
+| `OR`                 | Logical OR operator                          | `(resources.provider = 'aws') OR (resources.provider = 'gcp')`                                                                        | This example retrieves resources from either AWS or GCP. At least one condition must be true.                                                                                                                                                                                                                                                                                                                                                                                    |
+| `LIKE` and `NOT LIKE`               | Performs string comparisons                  | `resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%''`                                                      | This example selects data where the resource ARN contains `arn:aws:s3:::my-bucket`, such as `arn:aws:s3:::my-bucket-123`. <br/><br/>This same query also works for `NOT LIKE` where data does not contain a particular string `(resources.provider = 'aws' AND resources.uuid NOT LIKE '%arn:aws:s3:::my-bucket%').`                                                                                                                                                                                                                                                                                                                                                        |
+| `!=`                | Represents negation, "is not"                          | `resources.provider = 'azure' AND (resources.type != 'azurerm_public_ip' AND resources.type != 'azurerm_kubernetes_cluster')`                                                           | This example filters out data from two specified resource types, providing all Azure resources that are _not_ these types.|
+| `<`, `>`, `<=`, `>=` | Mathematical operators for numerical queries | `resources.provider = 'azure' AND (resources.type = 'azurerm_virtual_machine' AND resources.metadata->>'virtual_machine_size' > '7')` | This example looks for Virtual Machines that have a size greater than 7.                                                                                                                                                                                                                                                                                                                                                                                                         |
+| `->>` | This operator is used only when constructing queries related to metadata | `resources.provider = 'aws' AND (resources.type = 'aws_instance' AND resources.metadata->>'architecture' = 'x86_64')` | This example looks for EC2 instances with an architecture of `x86_64`.                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-With these keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
+With these operators and keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
 
 ## VQL Examples {#examples}
 
@@ -102,7 +103,7 @@ Filter for provider resources associated with either AWS or GCP.
 
 ### Costs from a List of Regions {#region}
 
-Filter for Snowflake costs in two regions. Note that you will need to use the region code, such as `us-east-1`.
+Filter for AWS costs in two regions. Note that you will need to use the region code, such as `us-east-1`.
 
 ```sql
 resources.provider = 'aws' AND (resources.region = 'us-east-1' OR resources.region = 'us-west-1')
@@ -131,7 +132,9 @@ Filter costs to see a specific resource type. In the example below, the query is
 ```sql
 resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')
 ```
-<details><summary>VQL</summary>
+
+<details><summary>Resource Type VQL Representations</summary>
+
 | Provider   | VQL Representation                   | Friendly Name                           |
 |------------|--------------------------------------|-----------------------------------------|
 | AWS        | aws_batch_job_definition             | Batch Job Definition                    |
@@ -250,6 +253,7 @@ resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')
 | Google     | google_spanner_instance              | Spanner Instance                        |
 | Google     | google_sql_database_instance         | SQL Database Instance                   |
 | Google     | google_storage_bucket                | Storage Bucket                          |
+
 </details>
 
 ### Costs by Label {#label}
@@ -270,7 +274,7 @@ resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%'
 
 ### Resource Metadata Costs {#metadata}
 
-Resource metadata costs require both `provider` and `type` as well as `metadata`.
+Resource metadata costs require both `provider` and `type` as well as `metadata`. Metadata uses a specific syntax (e.g., `resources.metadata->>'domain' = 'vantage.sh'`).
 
 ```sql
 resources.provider = 'aws' AND (resources.type = 'aws_cloudfront_distribution' AND resources.metadata->>'domain' = 'vantage.sh')
@@ -286,7 +290,7 @@ resources.provider = 'aws' AND (tags.name = 'terraform' AND tags.value = 'true')
 
 ### Filter for Untagged Resources {#untagged}
 
-On providers that have a **Not Tagged**/**Not Labeled** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment.
+On providers that have a **Not Tagged** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment.
 
 ```sql
 resources.provider = 'gcp' AND tags.name = NULL) OR (resources.provider = 'aws' AND tags.name = NULL

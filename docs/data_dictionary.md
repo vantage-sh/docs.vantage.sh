@@ -1,6 +1,6 @@
 ---
 id: data_dictionary
-title: Data Dictionary
+title: Data Dictionary (Cost Reports)
 description: The page is a data dictionary of values used for creating VQL statements in the Vantage API and Terraform provider.
 keywords:
   - Data dictionary
