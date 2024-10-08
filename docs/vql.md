@@ -92,5 +92,5 @@ VQL syntax closely resembles the `WHERE` clause of a SQL query. You can construc
 
 VQL has a separate scope for each type of report—meaning that you cannot use VQL statements for Cost Reports when querying Resource Reports. See the following pages below to learn more about each VQL scope.
 
-- [VQL for Cost Reports](/vql_cost_reports)
-- [VQL for Resource Reports](/vql_resource_reports)
+- [VQL for Cost Reports](/vql_cost_report)
+- [VQL for Resource Reports](/vql_resource_report)
