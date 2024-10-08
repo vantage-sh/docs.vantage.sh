@@ -12,7 +12,36 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on August 30, 2024, with product updates for August 2024._
+_This page was last updated on October 2, 2024, with product updates for September 2024._
+
+## September 2024
+
+### Product Updates
+
+- **Currency conversion:** You can now set a [presentational currency](/vantage_account#currency-conversion), on a per-workspace basis, to visualize cost reporting data in a currency of your choice. 
+- **Datadog integration update:** Vantage provides a [visual alert](/connecting_datadog#update-datadog) in the integration settings screen when the Datadog integration requires an update.
+- **Datadog hosts costs:** For cloud resources that have the Datadog agent installed, Vantage [can associate](/active_resources#datadog-host-costs) Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs.
+- **Auto-generated Datadog Resource Reports:** Vantage automatically generates a Resource Report when it finds the Datadog Agent installed on relevant resources. Auto-generated reports will have a name similar to _AWS EC2 Instances with the Datadog Agent Installed_.
+- **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting sidebar. 
+- **View as VQL:** On Cost Report filters, a new button is available to see the [VQL](/vql) representation of a Cost Report filter.
+- **GitHub integration:** Vantage now integrates with GitHub. See the [Connecting GitHub](/connecting_github) documentation for details on how to get started.
+- **New Autopilot banner:** A banner is now displayed at the top of the **Coverage Overview** page on [Autopilot](/autopilot) when a Savings Plan is purchased.
+- **Drill down on Cost Reports:** You can now [drill down](/cost_reports#category-and-subcategory-cost-filters) in the Cost Report table when the report is grouped by more than three options.
+- **Account search for Cost Recommendations:** Organizations with many accounts can now search for an account to filter by on the [Cost Recommendations](/cost_recommendations) screen.
+- **Faster Budget loads:** Performance improvements were made to the [Budgets](/budgets) page for faster page loads.  
+- **Cost Report link in Slack alerts:** A link to the corresponding Cost Report is now displayed on Slack budget alerts.
+- **AWS Organization tags:** You can now filter and group by [AWS Organization tags](/cost_reports#aws-organization-tags) on Cost Reports.
+
+### Kubernetes Agent Updates {#k8s-sept-24}
+
+- **Updated cost calculation:** Kubernetes Efficiency Reporting and Rightsizing Recommendations now accurately [calculate pod costs](/kubernetes#cost-data-source) down to the minute, meaning if a pod runs for only 5 minutes within an hour, Vantage recognizes only 5 minutes of spend, rather than the full hour.
+- Version 1.0.26, Helm Chart [vantage-kubernetes-agent-1.0.36](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.36), includes the following update:
+    - Added support for `podSecurityContext` to define the security options the pod should be run with
+
+### API Updates
+
+[v0.1.27](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) of the Vantage Terraform Provider is now available:
+  - The `created_by_token` is now available as an option on the [`vantage_budgets`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/budgets) data source.
 
 ## August 2024
 

@@ -156,6 +156,10 @@ When percent-based cost allocation is set as a filter, forecasts will be produce
 
 If you want to view Amazon Elastic Container Service (ECS) cluster tags, you need to enable ECS-Managed Tags. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html#managed-tags) for more information. 
 
+### AWS Organization Tags {#aws-organization-tags}
+
+You can filter and group by [AWS Organization Tags](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) in Cost Reports. Create a filter for **Tag**. For the **Tag Key**, these tags are displayed like `aws:organizations:tag`. 
+
 ### Network Costs {#network-costs}
 
 For resources that generate network traffic costs (e.g., NAT Gateways), a **Network Costs** button is displayed in the Cost Report list. See the [Network Flow Reports documentation](/network_flow_reports) for details on network costs.
@@ -228,6 +232,11 @@ The Charge Type grouping includes costs separated by items like usage, discounts
       <td>adjustment</td>
       <td>GCP</td>
       <td>GCP adjustments due to reasons like goodwill or SLA violations</td>
+    </tr>
+    <tr>
+      <td>AllocatedAmortizedDiscount</td>
+      <td>AWS</td>
+      <td>The fee that is associated with the discount</td>
     </tr>
     <tr>
       <td>AllocatedAmortizedFee</td>

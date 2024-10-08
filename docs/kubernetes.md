@@ -25,17 +25,21 @@ Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, an
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
 
-### Cost Data Source
+### Cost Data Source {#cost-data-source}
 
 The costs displayed on these reports come from your integration with the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by analyzing the CPU, RAM, GPU, as well as storage usage and calculates the cost of each input based on the cost of the underlying infrastructure.
 
-[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost per hour for each type of resource. All the cost allocation calculations are done locally in your cluster and make this data available for querying.
+[Vantage uses a formula](/kubernetes#efficiency-calculations) to divide the cost of a compute instance into CPU, RAM, and GPU and then computes the cost for each type of resource. The cost calculation reflects the exact runtime of each pod, down to the minute. This means if a pod runs for only 5 minutes within an hour, Vantage recognizes only 5 minutes of spend, rather than the full hour. All the cost allocation calculations are done locally in your cluster and make this data available for querying.
 
 :::note
 Kubernetes costs are not included in monthly tracked infrastructure costs as they’re already captured from underlying EKS, GKE, or AKS costs.
 :::
 
 ## Kubernetes Efficiency Metrics and Reports
+
+:::note Discounts on Efficiency Reports
+CPU/memory rates are based on the underlying instances the pod is scheduled on. In Kubernetes Efficiency Reports, this is the undiscounted rate of the instance. Discounts are not reflected on these reports. You can view discounts on Kubernetes [Cost Reports](/cost_reports).
+:::
 
 ### View Kubernetes Efficiency Metrics
 
@@ -231,20 +235,6 @@ Vantage syncs Kubernetes managed workloads as [active resources](/active_resourc
 
 See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view this information and rightsize Kubernetes workloads.
 
-## Kubernetes Integration Methods
-
-:::tip
-Vantage recommends integrating with the [Vantage Kubernetes agent](/kubernetes_agent) to leverage the most granular reporting features and the cost-efficiency metrics.
-:::
-
-### Vantage Kubernetes Agent
+## Kubernetes Integration Method: The Vantage Kubernetes Agent
 
 Agent usage data is uploaded several times throughout the day and updated within the Vantage platform nightly. However, Kubernetes costs will not be calculated until the costs from the cluster’s corresponding infrastructure provider are available. These costs might encounter delays based on their associated cloud integration's cost data. For instance, if there is a one-day delay in an AWS Cost and Usage Report, the clusters dependent on that data will experience a similar delay. This often takes 48 hours to complete.
-
-### OpenCost Integrations
-
-While Vantage works to upstream the efficiency metrics into the main OpenCost project, you can also deploy the Vantage-maintained OpenCost branch via [the OpenCost repository](https://quay.io/repository/vantage-sh/opencost?tab=tags&tag=latest).
-
-Efficiency metrics will be available up to 24 hours after updating your clusters. You can query the Amazon Managed Prometheus associated with your integration for `count(container_cpu_idle) by (cluster_id)` to verify the metrics are making it from your Kubernetes cluster to the Prometheus that Vantage will use to periodically gather the metrics.
-
-In most cases, Prometheus running on a Kubernetes cluster will not be exposed along with a public endpoint. As a workaround, a second centralized Prometheus instance is deployed into your account. This instance is used as an aggregation point that Vantage has both network and IAM access to query. Vantage can integrate with any publicly accessible Prometheus endpoint, including Grafana Cloud.

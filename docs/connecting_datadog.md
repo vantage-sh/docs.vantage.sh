@@ -28,7 +28,7 @@ For documentation about connecting to Vantage from Datadog, see the [Vantage Int
 
 1. From the Vantage console, navigate to the [Integrations page](https://console.vantage.sh/settings/integrations).
 2. Select **Datadog** and add a connection.
-3. You will be brought to the Datadog login screen and guided through the Datadog OAUTH2 flow for adding your Datadog account.
+3. You will be brought to the Datadog login screen and guided through the Datadog OAuth flow for adding your Datadog account.
 
 After authorizing the connection with Vantage, you will see the status of your connection change to `Importing` within the Vantage console.
 
@@ -39,6 +39,14 @@ Once connected, Vantage will ingest six months of historical Datadog costs. The 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Update the Datadog Integration {#update-datadog}
+
+Sometimes an update is required to use new Vantage features related to Datadog. Navigate to the [Manage Integration](https://console.vantage.sh/settings/datadog?manage=true) page for your Datadog integration. If you need to update the integration, the **Update Required** button is displayed in the **Status** column. Click the button to access the OAuth integration workflow and reconnect your integration. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Update button for an out-of-date Datadog integration" width="90%" src="/img/datadog-update.png" />
+</div>
 
 ## Datadog Reporting Dimensions
 
@@ -129,8 +137,10 @@ On Datadog [Cost Reports](/cost_reports), you can filter across several dimensio
 - Charge Type (e.g., Usage)
 - Service (e.g., Database Monitoring)
 
-
 ## View Datadog Metrics on Cost Reports
 
 You can import Datadog metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#importing-from-datadog) documentation for more information.
 
+## Datadog Host Costs
+
+For cloud resources that have the Datadog agent installed, Vantage can associate Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs. See the [Active Resources](/active_resources#datadog-host-costs) documentation for details on how to view these costs.
