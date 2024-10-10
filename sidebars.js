@@ -75,7 +75,18 @@ module.exports = {
       items: [
         "api",
         "terraform",
-        "vql",
+        {
+          type: "category",
+          label: "Vantage Query Language (VQL)",
+          link: {
+            type: 'doc',
+            id: "vql",
+          },
+          items: [
+            "vql_cost_report",
+            "vql_resource_report",
+          ],
+        },
         "data_dictionary",
       ],     
     },
