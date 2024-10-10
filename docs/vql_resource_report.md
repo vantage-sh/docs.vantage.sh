@@ -13,6 +13,12 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
+This page describes how to use VQL when querying Resource Reports in API or using the Terraform Provider.
+
+:::tip
+If you need help constructing a VQL query, navigate to the [**Resource Reports**](https://console.vantage.sh/resources) page and click **New Resource Report**. From the top left, open the **Filters** menu. Create a filter and click the **View as VQL** button at the top of the **Filters** menu to see a filter's VQL representation. You can copy this syntax to use within your API calls.
+:::
+
 ## Resource Reports VQL Schema
 
 VQL for Resources Reports comprises two namespaces: `resources` and `tags`, which represent the available [filters](/active_resources#create-a-resource-report) on Resource Reports in the Vantage console. To reference a filter, use the following syntax: `namespace.field` (e.g., `resources.region` or `tags.name`). The following fields are available within these namespaces.
@@ -28,7 +34,7 @@ VQL for Resources Reports comprises two namespaces: `resources` and `tags`, whic
   <tbody>
     <tr>
       <td rowspan="8"><code>resources</code></td>
-      <td><code>resources.provider</code></td>
+      <td><code>provider</code></td>
       <td><a href="#providers">Providers example</a></td>
     </tr>
     <tr>
@@ -82,12 +88,12 @@ VQL includes a set of keywords to create complex filter conditions. These keywor
 | -------------------- | -------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `AND`                | Logical AND operator                         | `resources.provider = 'aws' AND resources.label = '123456'`                                                                           | This example filters AWS resources, with a specific associated label, where both conditions must be true.                                                                                                                                                                                                                                                                                                                                                                        |
 | `OR`                 | Logical OR operator                          | `(resources.provider = 'aws') OR (resources.provider = 'gcp')`                                                                        | This example retrieves resources from either AWS or GCP. At least one condition must be true.                                                                                                                                                                                                                                                                                                                                                                                    |
-| `LIKE` and `NOT LIKE`               | Performs string comparisons                  | `resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%''`                                                      | This example selects data where the resource ARN contains `arn:aws:s3:::my-bucket`, such as `arn:aws:s3:::my-bucket-123`. <br/><br/>This same query also works for `NOT LIKE` where data does not contain a particular string `(resources.provider = 'aws' AND resources.uuid NOT LIKE '%arn:aws:s3:::my-bucket%').`                                                                                                                                                                                                                                                                                                                                                        |
+| `LIKE` and `NOT LIKE`               | Performs string comparisons                  | `resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%''`                                                      | This example selects data where the resource ARN contains `arn:aws:s3:::my-bucket`, such as `arn:aws:s3:::my-bucket-123`. <br/><br/>This same query also works for `NOT LIKE` where data does not contain a particular string: `resources.provider = 'aws' AND resources.uuid NOT LIKE '%arn:aws:s3:::my-bucket%'`.                                                                                                                                                                                                                                                                                                                                                        |
 | `!=`                | Represents negation, "is not"                          | `resources.provider = 'azure' AND (resources.type != 'azurerm_public_ip' AND resources.type != 'azurerm_kubernetes_cluster')`                                                           | This example filters out data from two specified resource types, providing all Azure resources that are _not_ these types.|
 | `<`, `>`, `<=`, `>=` | Mathematical operators for numerical queries | `resources.provider = 'azure' AND (resources.type = 'azurerm_virtual_machine' AND resources.metadata->>'virtual_machine_size' > '7')` | This example looks for Virtual Machines that have a size greater than 7.                                                                                                                                                                                                                                                                                                                                                                                                         |
 | `->>` | This operator is used only when constructing queries related to metadata | `resources.provider = 'aws' AND (resources.type = 'aws_instance' AND resources.metadata->>'architecture' = 'x86_64')` | This example looks for EC2 instances with an architecture of `x86_64`.                                                                                                                                                                                                                                                                                                                                                                                                          |
 
-With these operators and keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
+With these operators and keywords, you can construct complex filter conditions in VQL.
 
 ## VQL Examples {#examples}
 
@@ -127,7 +133,7 @@ resources.provider = 'aws' AND (resources.provider_account_id = '11111111111')
 
 ### Costs by Resource Type {#resource-type}
 
-Filter costs to see a specific resource type. In the example below, the query is looking for any resource that is NOT an AWS CloudFront Distribution. Resource types are represented like `aws_cloudfront_distribution`. Expand the box below for a list of all available resource types and their VQL equivalents.
+Filter costs to see a specific resource type. In the example below, the query is looking for any AWS resource that is _not_ an AWS CloudFront Distribution. Resource types are represented like `aws_cloudfront_distribution`. Expand the box below for a list of all available resource types and their VQL equivalents.
 
 ```sql
 resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')

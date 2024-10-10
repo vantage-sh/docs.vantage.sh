@@ -12,9 +12,9 @@ keywords:
 
 This page describes how to use VQL when querying Cost Reports in API or using the Terraform Provider.
 
-## Schema
+## Cost Reports VQL Schema
 
-VQL comprises two namespaces, `costs` and `tags`, which represent the available [filters](/cost_reports#filtering-cost-reports) on Cost Reports in the Vantage console. To reference a filter, use the following syntax: `namespace.field` (e.g., `costs.provider` or `tags.name`).
+VQL comprises two namespaces: `costs` and `tags`, which represent the available [filters](/cost_reports#filtering-cost-reports) on Cost Reports in the Vantage console. To reference a filter, use the following syntax: `namespace.field` (e.g., `costs.provider` or `tags.name`).
 
 <table style={{ width: '100%' }}>
   <thead>
