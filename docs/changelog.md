@@ -12,7 +12,35 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on October 2, 2024, with product updates for September 2024._
+_This page was last updated on October 16, 2024, with product updates for 0ctober 2024._
+
+## October 2024
+
+### Product Updates
+
+- **New Azure recommendations:** Additional [recommendations](/cost_recommendations#azure), such as for rightsizing, were added for Azure.
+- **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting and Segments screens.
+- **View as VQL:** On Resource Report filters, a new button is available to see the [VQL](/vql) representation of a Resource Report filter.
+
+### Kubernetes Agent Updates
+
+_See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release._
+
+### API Updates
+- **User token endpoint:** The `last_seen_at` field is added to the response of the `/users/{user_token}` [endpoint](https://vantage.readme.io/reference/getuser).
+- **Currency on workspaces:** The `enable_currency_conversion` parameter is added to the `/workspaces` [endpoint](https://vantage.readme.io/reference/createworkspace) to enable currency conversion on workspaces.
+- **Resource Reports API:** The following endpoints were added to support the new Resource Reports API:
+  - `POST` option for the `/resource_reports` [endpoint](https://vantage.readme.io/reference/createresourcereport)
+  - `PUT` option for the `/resource_reports/{resource_report_token}` [endpoint](https://vantage.readme.io/reference/updateresourcereport)
+  - `GET` option for `/resources` [endpoint](https://vantage.readme.io/reference/getreportresources)
+  - `GET` option for the `/resources/{resource_token}` [endpoint](https://vantage.readme.io/reference/getresource)
+  - [VQL is now available](/vql_resource_report) with its own namespace and schema to support creating and managing Resource Reports
+- **`vantage-go` updates:** [Version 0.0.40](https://github.com/vantage-sh/vantage-go) of the `vantage-go` library includes the following updates:
+  - `GET /resources` added
+  - `GET`/`PUT`/`POST`/`DELETE` of `/resource_reports`
+  - `PUT /workspaces` can now configure currency for a workspace
+  - `/users` API response now includes `last_seen_at`
+- You can now use `terraform import` to manage Terraform resources outside of the current state on the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs). 
 
 ## September 2024
 
