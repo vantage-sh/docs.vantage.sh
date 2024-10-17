@@ -73,6 +73,23 @@ By using these Terraform resources, engineering teams automate cost reporting in
 The ability to create, edit, and destroy resources is keyed to the permissions of the user associated with the API token. For Enterprise customers, role-based access controls also affect these actions. Review the documentation on [RBAC for further information](/rbac).
 :::
 
+## Terraform Import
+
+`terraform import` is a command used in Terraform that allows you to bring existing infrastructure resources into Terraform management. This command helps integrate resources that were created outside of Terraform—such as those provisioned directly in the Vantage console or API—into Terraform's state file. For example, if you initially set up your cost reporting resources through the Vantage console, you can use this command to import these resources into your Terraform state, which allows you to maintain a single source of truth for your infrastructure.
+
+To use `terraform import`, run the following command:
+
+```bash
+terraform import vantage_cost_report.demo_report rprt_1abc23456c7c8a90
+```
+
+In the above example, a Cost Report that was created within the Vantage console is brought into the Terraform state.
+
+- `vantage_cost_report.demo_report`: The type of infrastructure component managed by Terraform (e.g., [`vantage_cost_report`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report)); followed by a user-defined identifier assigned to a resource in your Terraform configuration.
+- `rprt_1abc23456c7c8a90`: Example of a Cost Report `token`. This can be found in the URL for a report within the console or [via the API](https://vantage.readme.io/reference/getcostreports).
+
+See the [example below](/terraform#import-example) for a walkthrough of how to use this command.
+
 ## Terraform Examples
 
 Before you begin, ensure you have a valid [Write API token](/vantage_account#api-token).
@@ -96,6 +113,7 @@ The following example describes how to create a Cost Report for AWS using Terraf
      api_token = var.api_token
    }
    ```
+
    :::tip
    You can optionally save your API token as an environment variable and remove the `provider "vantage"{...}` block. Export your token with: `export VANTAGE_API_TOKEN=<YOUR_API_TOKEN>`.
 
@@ -108,9 +126,9 @@ The following example describes how to create a Cost Report for AWS using Terraf
    ```
 
 3. Create the `vantage_cost_report` resource using the token output from the `vantage_folder` resource. The Cost Report will be stored in the newly created AWS folder. The Cost Report's title is "AWS Costs." In addition, the `vantage_saved_filter` resource includes a `filter` parameter that uses [Vantage Query Language (VQL)](/vql), a SQL-like language for querying cloud cost and usage data. Here, the filter is set to show only AWS costs. Set the `groupings` parameter to have the report grouped by region and service.
-:::tip
-Valid groupings include: `account_id`, `billing_account_id`, `charge_type`, `cost_category`, `cost_subcategory`, `provider`, `region`, `resource_id`, `service`, `tag:<tag_value>`. Enter multiple groupings as comma-separated values: `groupings=provider,service,region`.
-:::
+   :::tip
+   Valid groupings include: `account_id`, `billing_account_id`, `charge_type`, `cost_category`, `cost_subcategory`, `provider`, `region`, `resource_id`, `service`, `tag:<tag_value>`. Enter multiple groupings as comma-separated values: `groupings=provider,service,region`.
+   :::
 
    ```bash
    resource "vantage_cost_report" "aws" {
@@ -162,6 +180,55 @@ In the following example, we will create a filter, report, and folder to track d
    ```
 
 In this manner, initial setup, deployments, and infrastructure changes are synced to Vantage. Further examples can be found in the `terraform-provider-vantage` [GitHub repository](https://github.com/vantage-sh/terraform-provider-vantage/tree/main/examples).
+
+### Use `terraform import` to Manage External Resources {#import-example}
+
+In the following example, you created a Cost Report in the Vantage console. You want to update the filter on this Cost Report to pull data for different RDS instances, and you want to do this automatically using Terraform. To update data on a resource made outside Terraform, you need to use the `terraform import` command.
+
+1. First, obtain the `token` for this Cost Report. You can access this `token` using one of the following methods:
+   - If you are viewing the report in the Vantage console, copy the report's `token` from the end of the URL (e.g., in `https://console.vantage.sh/reports/rprt_123a47b5ba1234e1`, copy `rprt_123a47b5ba1234e1`).
+   - You can access a list of your reports from the `/cost_reports` [Vantage API endpoint](https://vantage.readme.io/reference/getcostreports). The `token` is one of the values returned in the response.
+   - Use the `vantage_cost_reports` Terraform [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/cost_reports). You can call the data source and create an [output value](https://developer.hashicorp.com/terraform/language/values/outputs) to access a list of Cost Reports.
+2. At this point, Terraform is aware of the resource, but it doesn't manage it yet because the Cost Report was created outside of Terraform, in the Vantage console. To bring the external resource under Terraform's control, you need to import it using the `terraform import` command. Replace the placeholder `<token>` with the `token` you just obtained for the Cost Report.
+
+   ```bash
+   terraform import vantage_cost_report.demo_report <token>
+   ```
+
+   For example, if your Cost Report token is `rprt_123a47b5ba1234e1`, run the following command:
+
+   ```bash
+   terraform import vantage_cost_report.demo_report rprt_123a47b5ba1234e1
+   ```
+
+3. After importing the resource, you can modify its attributes in your Terraform configuration. Use the `vantage_cost_report` [Terraform resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) to update this report. If it was originally created in Terraform, the current report would look like the below.
+
+   ```bash
+   resource "vantage_cost_report" "demo_report" {
+    title               = "Terraform Demo Report"
+    filter              = "costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id IN ('arn:aws:rds:us-east-1:123456789:db:primary-01', 'arn:aws:rds:us-east-1:123456789:db:primary-02')"
+    workspace_token     = "wrkspc_12c3254c789e0123"
+   }
+   ```
+
+   In this example, you can adjust the ARNs in the `filter` parameter to reflect   two different RDS instances.
+
+   ```bash
+   resource "vantage_cost_report" "demo_report" {
+    title = "Terraform Demo Report"
+    filter = "costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service' AND costs.resource_id IN ('arn:aws:rds:us-east-1:123456789:db:primary-03', 'arn:aws:rds:us-east-1:123456789:db:primary-04')"
+    workspace_token = "wrkspc_12c3254c789e0123"
+   }
+   ```
+
+4. Finally, apply the changes to your configuration:
+
+   ```bash
+   terraform plan
+   terraform apply
+   ```
+
+   Terraform will detect the new filter and update the external resource accordingly. You can see this reflected in the Vantage console.
 
 ## Feature Requests
 
