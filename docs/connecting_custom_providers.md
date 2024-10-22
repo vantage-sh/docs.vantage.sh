@@ -93,6 +93,22 @@ The following table provides details for each field within the template, as well
       <td><code>2024-08-25</code></td>
     </tr>
     <tr>
+      <td><code>ConsumedQuantity</code></td>
+      <td>No</td>
+      <td>Quantity associated with <code>ConsumedUnit</code></td>
+      <td>Numeric</td>
+      <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=consumed#modal-column-14488">ConsumedQuantity</a></code></td>
+      <td><code>598</code></td>
+    </tr>
+    <tr>
+      <td><code>ConsumedUnit</code></td>
+      <td>No</td>
+      <td>Unit of usage associated with <code>ConsumedQuantity</code></td>
+      <td>Alphanumeric</td>
+      <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=consumed#modal-column-14491">ConsumedUnit</a></code></td>
+      <td><code>GB</code></td>
+    </tr>
+    <tr>
       <td><code>BilledCost</code></td>
       <td>Yes</td>
       <td>Cost that’s displayed</td>

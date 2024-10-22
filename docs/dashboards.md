@@ -99,3 +99,7 @@ A user can also select their personal default dashboard from any existing dashbo
 ## Share a Dashboard
 
 From the top of any dashboard, click **Share**. A link is added to your clipboard where you can share the dashboard with any Vantage user in your organization who has access to view the dashboard. Each report on the dashboard also has a share option, with a unique link.
+
+## Usage-Based Reporting on Dashboards
+
+You can add a Usage-Based Report to a dashboard. See the [Usage-Based Reporting](/usage_based_reporting#dashboards) documentation for details.

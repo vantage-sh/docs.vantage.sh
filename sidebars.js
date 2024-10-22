@@ -186,6 +186,7 @@ module.exports = {
             "dashboards",
           ],
         },
+        "usage_based_reporting",
         "annotations",
         "forecasting",
         "active_resources",

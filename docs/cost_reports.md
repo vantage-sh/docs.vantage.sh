@@ -471,6 +471,13 @@ If you notice your costs in Vantage differ from what you see in Cost Explorer, t
 
 For more tips on reviewing your cost data against Cost Explorer, see [the following blog post](https://www.vantage.sh/blog/analyze-aws-cost-data).
 
+### Usage-Based Reporting
+Usage-Based Reporting provides infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed. These reports are available within Cost Reports, where you can toggle between viewing consumption by spend or by usage. See the [Usage-Based Reporting](/usage_based_reporting) documentation for details on how to use and view these reports.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Toggle to show Usage-Based Reporting" width="80%" src="/img/usage-toggle.png" />
+</div>
+
 ## Comparative Cost Reporting {#comparative-cost-reporting}
 
 To compare costs day by day, week by week, or month by month on Cost Reports, click the **By Date** option above the cost table. A view of costs with the same date binning selected for the graph is displayed. To switch back to the previous, current, and percent change view, select **Cumulative**.
@@ -496,6 +503,7 @@ You can select from two modes when you export a report: Basic or Advanced.
   - Account (e.g., AWS member account, GCP project)
   - Billing Account (e.g., billing account name)
   - Resource ID (e.g., S3 bucket ARN, MongoDB Atlas cluster name)
+  - Usage (toggle to export [Usage-Based Reporting](/usage_based_reporting) data)
 - The Advanced export also has the option to select a specific Tag key. Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
 
 <div style={{display:"flex", justifyContent:"center"}}>
