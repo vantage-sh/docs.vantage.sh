@@ -109,3 +109,11 @@ In the table below the graph, usage data is displayed in GB-Months for subcatego
 - **TimedStorage-ByteHrs** (Standard Tier)
 
 These metrics provide an overview of how data is distributed across different S3 storage tiers. Next steps could include analyzing whether data in the **Infrequent Access** and **Intelligent Tiering** categories is optimally stored, or you could decide whether more aggressive lifecycle policies are needed to move infrequently accessed data to cheaper storage tiers, like Glacier. You could also use this usage information to identify potential cost savings by reducing the storage volume in higher-cost tiers, such as the **Standard Tier**.
+
+## Usage-Based Reporting Video Demonstration
+
+The below video talks about how to get started with Usage-Based Reporting.
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/B-1pqTMffrI?si=4S_MJzWRL-jFWj6r?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
