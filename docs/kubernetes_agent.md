@@ -200,6 +200,8 @@ AKS users should remember to follow the [AKS-specific instructions](/kubernetes_
 
 ### DNS Lookup Error {#dns-lookup-error}
 
+You may receive a DNS Lookup Error that indicates `"level":"ERROR","msg":"failed to scrape node"` and `no such host`.
+
 The agent uses the [node status addresses](https://kubernetes.io/docs/reference/node/node-status/#addresses) to determine what hostname to look up for the node's stats, which are available via the `/metrics/resource` endpoint. This can be configured with the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. By default, the priority order is `Hostname,InternalDNS,InternalIP,ExternalDNS,ExternalIP`.
 
 To understand which type to use for your cluster, you can look at the available addresses for one of your nodes. The `type` corresponds to one of the configurable `nodeAddressTypes`.
