@@ -80,9 +80,10 @@ Follow these learning tracks to understand how to best use Vantage in your role.
 
 Follow these sections to better understand how to use specific Vantage features.
 
-<VantageUGroup
+<IntroCardGroup
   cards={[
     {
+      title: 'Manage Account',
       content: (
         <ul><li>Create a new workspace</li>
         <li>Navigate through your workspaces</li></ul>
@@ -93,6 +94,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Account Management as a title'
     },
     {
+      title: 'Integrations',
       content: (
         <ul><li>Create integrations</li>
         <li>Add Custom Providers</li></ul>
@@ -103,6 +105,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Integrations as a title'
     },
     {
+      title: 'Cost Reporting',
       content: (
         <ul><li>Create and view Cost Reports</li>
         <li>Learn about additional Cost Reporting tools</li></ul>
@@ -113,6 +116,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Cost Reporting as a title'
     },
     {
+      title: 'Cost Allocation',
       content: (
         <ul><li>Create a segment hierarchy</li>
         <li>Explore virtual tagging</li></ul>
@@ -123,6 +127,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Cost Allocation as a title'
     },
     {
+      title: 'Observability',
       content: (
         <ul><li>View and create anomaly alerts</li>
         <li>Review and act on cost recommendations</li></ul>
@@ -133,6 +138,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Observability as a title'
     },
     {
+      title: 'Unit Costs',
       content: (
         <ul><li>Understand unit costs</li>
         <li>View and analyze business metrics</li></ul>
@@ -143,6 +149,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Unit Costs as a title'
     },
     {
+      title: 'Budgeting',
       content: (
         <ul><li>Create a cost budget</li>
         <li>Configure budget alerts</li></ul>
@@ -153,6 +160,7 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Budgeting as a title'
     },
     {
+      title: 'Per Resource Costs',
       content: (
         <ul><li>Monitor and manage per-resource costs</li>
         <li>View network flows and associated costs</li></ul>
@@ -163,4 +171,5 @@ Follow these sections to better understand how to use specific Vantage features.
       alt: 'Vantage University logo with Per Resource Costs as a title'
     },
   ]}
+  columns={4} 
 />
