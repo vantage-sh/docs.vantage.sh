@@ -64,7 +64,7 @@ module "vantage-integration" {
 }
 ```
 
-The below example shows how to add a member account _without_ a CUR integration. As a result, an IAM Role is created, which Vantage can assume to ingest the cost and resource metadata that are displayed within the Vantage console. See the [Terraform documentation](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) for more details.
+The below example shows how to add a member account _without_ a CUR integration. Note the `cur_bucket_name` variable is not included within the module configuration. As a result, an IAM Role is created, which Vantage can assume to ingest the cost and resource metadata that are displayed within the Vantage console. See the [Terraform documentation](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) for more details.
 
 ```bash
 terraform {
