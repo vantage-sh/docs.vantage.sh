@@ -15,15 +15,39 @@ Vantage is an official HashiCorp partner and offers a Terraform _module_ for get
 
 ## Vantage Terraform Integrations Module for AWS {#integrations-module}
 
-Use the Vantage Integrations module to link your AWS and Vantage accounts. Organizations can leverage the module to integrate thousands of AWS accounts with Vantage. To get set up with this module, see the additional documentation on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
+Use the Vantage Integrations module to link your AWS and Vantage accounts. Organizations can use the module to integrate thousands of AWS accounts with Vantage. You can view the source of the module on the module's GitHub repository:
+
+- Module file: [`main.tf`](https://github.com/vantage-sh/terraform-aws-vantage-integration/blob/main/main.tf)
+- Variables for module: [`variables.tf`](https://github.com/vantage-sh/terraform-aws-vantage-integration/blob/main/variables.tf)
+
+You can also view the module's documentation on the [Terraform Registry](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest).
 
 :::note
-For root AWS accounts, you will need to provision a CUR bucket using the `cur_bucket_name` variable. For sub-accounts, you will need to link access, but you won't need to configure the CUR bucket.
+For root AWS accounts, you need to provision a bucket for the Cost and Usage Report (CUR) using the `cur_bucket_name` variable. For sub-accounts, you need to link access, but you don't need to configure a CUR bucket.
 :::
 
-The below example shows how to add the management (root) AWS account integration where CUR and an S3 bucket are provisioned:
+The below example shows how to add the management (root) AWS account integration where the CUR and an S3 bucket are provisioned:
 
 ```bash
+terraform {
+  required_version = "~> 1.0"
+  required_providers {
+    vantage = {
+      source = "vantage-sh/vantage"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
+
+provider "vantage" {
+  # A Vantage API Token is needed to use this module, it is recommended to either use env var VANTAGE_API_TOKEN
+  # or to use a tfvars file that's not committed to the repository. Follow the instructions here to create a new 
+  # API Token: https://docs.vantage.sh/vantage_account#api-token
+  api_token = YOUR_API_TOKEN
+}
+
 provider "aws" {
   region = "us-east-1"
   assume_role {
