@@ -67,6 +67,25 @@ module "vantage-integration" {
 The below example shows how to add a member account _without_ a CUR integration. As a result, an IAM Role is created, which Vantage can assume to ingest the cost and resource metadata that are displayed within the Vantage console. See the [Terraform documentation](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest) for more details.
 
 ```bash
+terraform {
+  required_version = "~> 1.0"
+  required_providers {
+    vantage = {
+      source = "vantage-sh/vantage"
+    }
+    aws = {
+      source  = "hashicorp/aws"
+    }
+  }
+}
+
+provider "vantage" {
+  # A Vantage API Token is needed to use this module, it is recommended to either use env var VANTAGE_API_TOKEN
+  # or to use a tfvars file that's not committed to the repository. Follow the instructions here to create a new 
+  # API Token: https://docs.vantage.sh/vantage_account#api-token
+  api_token = YOUR_API_TOKEN
+}
+
 provider "aws" {
   region = "us-east-1"
   assume_role {
