@@ -21,14 +21,51 @@ Role-based access control (RBAC) facilitates fine-grained management of resource
 
 By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access.
 
-The Owner, Team Owner, Team Editor, and Team Viewer roles are described below.
+The Owner, Team Owner, Team Editor, Team Viewer, and Integration Owner roles are described below.
 
-| Role        | Description                                                                                                                                                                                                                                    |
-| ----------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owner       | A global account owner who has full access to all items. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from an item, the Owner will still be able to manage that item. |
-| Team Owner  | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.                      |
-| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team.                                                                                                       |
-| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access.                                                                                                                                                      |
+<table>
+  <tr>
+    <th>Role</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td>Owner</td>
+    <td>
+      A global account owner who has full access to all items. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from an item, the Owner will still be able to manage that item.
+    </td>
+  </tr>
+  <tr>
+    <td>Team Owner</td>
+    <td>
+      A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team.
+    </td>
+  </tr>
+  <tr>
+    <td>Team Editor</td>
+    <td>
+      A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team.
+    </td>
+  </tr>
+  <tr>
+    <td>Team Viewer</td>
+    <td>
+      A Team Viewer has read-only access to all resources to which that team is granted access.
+    </td>
+  </tr>
+  <tr>
+    <td>Integration Owner</td>
+    <td>
+      This role has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role <i>does not</i> have access to other administrative settings, like adding and removing users. 
+      <ul>
+        <li>Integration Owners can navigate to the <strong>Settings > Integrations</strong> tab in the Vantage console and manage <a href="/getting_started">provider integrations</a>.</li>
+        <li>Only an account Owner can grant the Integration Owner role to another user.</li>
+        <li>There is no limit to the number of users that can have this role.</li>
+        <li>An Integration Owner has all the privileges of an Editor, as well as integration management privileges.</li>
+      </ul>
+    </td>
+  </tr>
+</table>
+
 
 ## Manage Account Access
 
@@ -222,10 +259,10 @@ The user will be granted Owner-level permissions to that resource, in other word
 
 ## Settings Permissions
 
-Settings permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. Only Owners can manage Settings-related functions.
+Settings permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. Only Owners can manage Settings-related functions. Note that Team Owners can manage their team within the Teams UI—but only the team for which they hold the Team Owner role.
 
 :::note
-Team Owners can manage their team within the Teams UI — but only the team for which they hold the Team Owner role.
+Integration Owners can also manage provider integrations; however, they do not have access to additional administrative settings, like workspace configuration or adding/removing users.
 :::
 
 <details>
