@@ -150,6 +150,9 @@ Follow the steps below to create a new Network Flow Report:
 
 5. You can update the criteria displayed in the Sankey diagram with the following options:
    - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
+    :::note
+    This filter depends on whether `flow_direction` is present in your VPC Flow Log format. If `flow_direction` is not present in your VPC Flow Log format, then a _No data available in table_ message is displayed on the report. See the [Prerequisites section](/network_flow_reports#prerequisites) for the recommended VPC Flow Log format. To add the field to your format, create a new VPC Flow Log configuration that includes the `flow_direction` field.
+    :::
    - From the top right of the diagram, update the date range that’s displayed. Click the calendar icon and select an option, such as **Last 7 Days**, **This Month**, etc.
      :::note
      By default, Vantage ingests 7 days of network flows into your account and keeps the data available for 31 days. For Enterprise customers, this retention period can be adjusted. Contact [support@vantage.sh](mailto:support@vantage.sh) if you need a longer retention period.
