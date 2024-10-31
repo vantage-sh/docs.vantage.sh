@@ -16,7 +16,7 @@ import TabItem from '@theme/TabItem';
 The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost data. It includes a normalized schema across cloud providers and basic filter syntax for creating complex filters. VQL is currently available as part of the [Vantage API](https://vantage.readme.io/reference/general) as well as within the [Vantage Terraform provider](/terraform).
 
 :::tip
-On Cost and Resource Reports, you can create a filter and click **View as VQL** to see the filter represented in VQL.
+On Cost, Resource, and Kubernetes Efficiency Reports, you can create a filter and click **View as VQL** to see the filter represented in VQL.
 
 <div style={{display:"flex"}}>
     <img alt="Show as VQL button on a Cost Report" width="60%" src="/img/show-as-vql.png" />
@@ -94,3 +94,4 @@ VQL has a separate scope for each type of report—meaning that you cannot use V
 
 - [VQL for Cost Reports](/vql_cost_report)
 - [VQL for Resource Reports](/vql_resource_report)
+- [VQL for Kubernetes Efficiency Reports](/vql_kubernetes_efficiency_reports)

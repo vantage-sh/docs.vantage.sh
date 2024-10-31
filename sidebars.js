@@ -85,6 +85,7 @@ module.exports = {
           items: [
             "vql_cost_report",
             "vql_resource_report",
+            "vql_kubernetes_efficiency_report",
           ],
         },
         "data_dictionary",
