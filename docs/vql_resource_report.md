@@ -13,7 +13,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-This page describes how to use VQL when querying Resource Reports in API or using the Terraform Provider.
+This page describes how to use VQL when querying Resource Reports in the API or using the Terraform Provider.
 
 :::tip
 If you need help constructing a VQL query, navigate to the [**Resource Reports**](https://console.vantage.sh/resources) page and click **New Resource Report**. From the top left, open the **Filters** menu. Create a filter and click the **View as VQL** button at the top of the **Filters** menu to see a filter's VQL representation. You can copy this syntax to use within your API calls.

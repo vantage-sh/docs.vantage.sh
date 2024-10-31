@@ -10,7 +10,7 @@ keywords:
 
 # VQL for Cost Reports
 
-This page describes how to use VQL when querying Cost Reports in API or using the Terraform Provider.
+This page describes how to use VQL when querying Cost Reports in the API or using the Terraform Provider.
 
 ## Cost Reports VQL Schema
 
