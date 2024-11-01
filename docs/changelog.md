@@ -12,12 +12,13 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on October 16, 2024, with product updates for 0ctober 2024._
+_This page was last updated on November 1, 2024, with product updates for 0ctober 2024._
 
 ## October 2024
 
 ### Product Updates
 
+- **Usage Reporting:** [Usage-Based Reporting](/usage_based_reporting) is available to provide infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed.
 - **New Azure recommendations:** Additional [recommendations](/cost_recommendations#azure), such as for rightsizing, were added for Azure.
 - **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting and Segments screens.
 - **View as VQL:** On Resource Report filters, a new button is available to see the [VQL](/vql) representation of a Resource Report filter.
@@ -27,6 +28,7 @@ _This page was last updated on October 16, 2024, with product updates for 0ctobe
 _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release._
 
 ### API Updates
+
 - **User token endpoint:** The `last_seen_at` field is added to the response of the `/users/{user_token}` [endpoint](https://vantage.readme.io/reference/getuser).
 - **Currency on workspaces:** The `enable_currency_conversion` parameter is added to the `/workspaces` [endpoint](https://vantage.readme.io/reference/createworkspace) to enable currency conversion on workspaces.
 - **Resource Reports API:** The following endpoints were added to support the new Resource Reports API:
@@ -35,28 +37,31 @@ _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes
   - `GET` option for `/resources` [endpoint](https://vantage.readme.io/reference/getreportresources)
   - `GET` option for the `/resources/{resource_token}` [endpoint](https://vantage.readme.io/reference/getresource)
   - [VQL is now available](/vql_resource_report) with its own namespace and schema to support creating and managing Resource Reports
+- **Resource Reports Terraform updates:** The following resource and data source were added to the Terraform Provider to support the new Resource Reports API:
+  - `vantage_resource_report` [Terraform resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/resource_report)
+  - `vantage_resource_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/resource_reports)
 - **`vantage-go` updates:** [Version 0.0.40](https://github.com/vantage-sh/vantage-go) of the `vantage-go` library includes the following updates:
   - `GET /resources` added
   - `GET`/`PUT`/`POST`/`DELETE` of `/resource_reports`
   - `PUT /workspaces` can now configure currency for a workspace
   - `/users` API response now includes `last_seen_at`
-- You can now use `terraform import` to manage Terraform resources outside of the current state on the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs). 
+- You can now use `terraform import` to manage Terraform resources outside of the current state on the [Terraform provider](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs).
 
 ## September 2024
 
 ### Product Updates
 
-- **Currency conversion:** You can now set a [presentational currency](/vantage_account#currency-conversion), on a per-workspace basis, to visualize cost reporting data in a currency of your choice. 
+- **Currency conversion:** You can now set a [presentational currency](/vantage_account#currency-conversion), on a per-workspace basis, to visualize cost reporting data in a currency of your choice.
 - **Datadog integration update:** Vantage provides a [visual alert](/connecting_datadog#update-datadog) in the integration settings screen when the Datadog integration requires an update.
 - **Datadog hosts costs:** For cloud resources that have the Datadog agent installed, Vantage [can associate](/active_resources#datadog-host-costs) Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs.
 - **Auto-generated Datadog Resource Reports:** Vantage automatically generates a Resource Report when it finds the Datadog Agent installed on relevant resources. Auto-generated reports will have a name similar to _AWS EC2 Instances with the Datadog Agent Installed_.
-- **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting sidebar. 
+- **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting sidebar.
 - **View as VQL:** On Cost Report filters, a new button is available to see the [VQL](/vql) representation of a Cost Report filter.
 - **GitHub integration:** Vantage now integrates with GitHub. See the [Connecting GitHub](/connecting_github) documentation for details on how to get started.
 - **New Autopilot banner:** A banner is now displayed at the top of the **Coverage Overview** page on [Autopilot](/autopilot) when a Savings Plan is purchased.
 - **Drill down on Cost Reports:** You can now [drill down](/cost_reports#category-and-subcategory-cost-filters) in the Cost Report table when the report is grouped by more than three options.
 - **Account search for Cost Recommendations:** Organizations with many accounts can now search for an account to filter by on the [Cost Recommendations](/cost_recommendations) screen.
-- **Faster Budget loads:** Performance improvements were made to the [Budgets](/budgets) page for faster page loads.  
+- **Faster Budget loads:** Performance improvements were made to the [Budgets](/budgets) page for faster page loads.
 - **Cost Report link in Slack alerts:** A link to the corresponding Cost Report is now displayed on Slack budget alerts.
 - **AWS Organization tags:** You can now filter and group by [AWS Organization tags](/cost_reports#aws-organization-tags) on Cost Reports.
 
@@ -64,24 +69,25 @@ _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes
 
 - **Updated cost calculation:** Kubernetes Efficiency Reporting and Rightsizing Recommendations now accurately [calculate pod costs](/kubernetes#cost-data-source) down to the minute, meaning if a pod runs for only 5 minutes within an hour, Vantage recognizes only 5 minutes of spend, rather than the full hour.
 - Version 1.0.26, Helm Chart [vantage-kubernetes-agent-1.0.36](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.36), includes the following update:
-    - Added support for `podSecurityContext` to define the security options the pod should be run with
+  - Added support for `podSecurityContext` to define the security options the pod should be run with
 
 ### API Updates
 
 [v0.1.27](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) of the Vantage Terraform Provider is now available:
-  - The `created_by_token` is now available as an option on the [`vantage_budgets`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/budgets) data source.
+
+- The `created_by_token` is now available as an option on the [`vantage_budgets`](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/budgets) data source.
 
 ## August 2024
 
 ### Product Updates
 
-- **Savings Planner visual updates:** Visual updates were made to [Savings Planner](/savings_planner) for navigability. 
-- **Custom Providers integration:** [Custom Providers](/connecting_custom_providers) are now available as an integration option, so you can connect any of your providers to Vantage using the FinOps FOCUS schema. 
-- **Cost Report and Dashboard header visual updates:** Visual updates were made to Cost Report and Dashboard headers for better organization and navigation. 
-- **Provider icons visual improvements:** On the main [Virtual Tags](https://console.vantage.sh/settings/virtual_tags) and [Cost Reporting](https://console.vantage.sh/reporting) screens, visual updates were made to include provider icons next to each report or virtual tag in the list. 
+- **Savings Planner visual updates:** Visual updates were made to [Savings Planner](/savings_planner) for navigability.
+- **Custom Providers integration:** [Custom Providers](/connecting_custom_providers) are now available as an integration option, so you can connect any of your providers to Vantage using the FinOps FOCUS schema.
+- **Cost Report and Dashboard header visual updates:** Visual updates were made to Cost Report and Dashboard headers for better organization and navigation.
+- **Provider icons visual improvements:** On the main [Virtual Tags](https://console.vantage.sh/settings/virtual_tags) and [Cost Reporting](https://console.vantage.sh/reporting) screens, visual updates were made to include provider icons next to each report or virtual tag in the list.
 - **Autopilot for AWS Savings Plans:** [Autopilot](/autopilot) for AWS Savings Plans is now available, which allows Vantage to purchase Compute Savings Plans commitments on your behalf, with manual and automated options.
 - **Account filter matching:** For cost providers, like AWS, that have human-readable account names, you can now wildcard-match on account names in [Cost Report filters](/cost_reports#filtering-cost-reports) (e.g., set a filter, like _Account **contains** dev_).
-- **Total costs by date:** On [Cost Reports](/cost_reports#comparative-cost-reporting), the **Total Costs** row is displayed when you change the table display to **By Date**. 
+- **Total costs by date:** On [Cost Reports](/cost_reports#comparative-cost-reporting), the **Total Costs** row is displayed when you change the table display to **By Date**.
 - **Set default dashboard:** You can set the [default dashboard](/dashboards#default-dashboard) that's displayed for a team or individual users when they log in to Vantage.
 - **Additional GCP Active Resources:** The following [GCP services](/gcp_supported_services) were added and synced as active resources:
   - Cloud AlloyDB clusters, instances, and backups
@@ -107,14 +113,14 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
 ### Product Updates
 
 - **Dynamic Cost Allocation:** Dynamic cost allocation, which is the process of allocating costs based on another existing cost or metric, is now available. See the [Virtual Tagging](/virtual_tagging) documentation for details.
--  **Workspace access updates:** If you are granted access via [RBAC](/rbac) to a report in a workspace outside your regularly accessed workspace, when you access the link to the report, you will have temporary access to the new workspace and can view the items that you were granted access to.
+- **Workspace access updates:** If you are granted access via [RBAC](/rbac) to a report in a workspace outside your regularly accessed workspace, when you access the link to the report, you will have temporary access to the new workspace and can view the items that you were granted access to.
 - **Share reports across workspaces:** You can now share report links across different [workspaces](/workspaces). For example, if you're in Workspace A and open a report link from Workspace B, you'll be automatically switched to Workspace B to view the report. Previously, a `404` error was displayed.
 - **GCP active resources:** [GCP active resources](/gcp_supported_services) are now synced and available to filter within Resource Reports.
-- **GCP cost recommendations:** [Recommendations](/cost_recommendations#gcp-compute-rightsizing-recommendations) are now available for GCP Compute rightsizing and commitments. 
+- **GCP cost recommendations:** [Recommendations](/cost_recommendations#gcp-compute-rightsizing-recommendations) are now available for GCP Compute rightsizing and commitments.
 - **Grouped report forecasts:** You can now view [forecasts](/forecasting#bar-chart-view) for bar charts when they are grouped.
 - **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#flow-weight).
 - **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-cost-reports), you can now click **Save as New** at the top to create a new report based on the current report's filters.
-- **Vantage for MSPs**: Vantage for MSPs is a new set of features for managed service providers. Learn more on the [Partners website](https://www.vantage.sh/partners). 
+- **Vantage for MSPs**: Vantage for MSPs is a new set of features for managed service providers. Learn more on the [Partners website](https://www.vantage.sh/partners).
 
 ### Kubernetes Agent Updates
 
@@ -123,7 +129,7 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
 ### API Updates
 
 - **Costs endpoint updates:** The `/costs` [endpoint](https://vantage.readme.io/reference/getcosts) has been updated with the ability to specify settings parameters for returned costs, like credits, refunds, etc.
-- **Cost Report endpoint updates:** The `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) has been updated to include the following parameters for `POST` and `PUT`: 
+- **Cost Report endpoint updates:** The `/cost_reports` [endpoint](https://vantage.readme.io/reference/createcostreport) has been updated to include the following parameters for `POST` and `PUT`:
   - `previous_period_start_date`
   - `previous_period_end_date`
   - `start_date`
@@ -131,10 +137,10 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
   - `date_interval`
   - `chart_type`
   - `date_bin`
-- Two version updates were released of the Terraform provider: 
+- Two version updates were released of the Terraform provider:
   - [v0.1.23](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.23) is based on the above API changes, including new parameters for the `vantage_cost_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_report) and the `vantage_cost_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/cost_reports).
   - [v0.1.24](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.24) adds support for dynamic cost allocation on the `virtual_tag_config` resource.
-  
+
 ## June 2024
 
 ### Product Updates
@@ -153,12 +159,13 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
 ### API Updates
 
 New `/integrations` [endpoints](https://vantage.readme.io/reference/createazureintegration) are available:
-  - `GET` `/integrations`: retrieves all existing integrations
-  - `POST` `/integrations/azure`: creates a new Azure integration
-  - `POST` `/integrations/gcp`: creates a new GCP integration
-  - `DELETE` `/integrations/{integration_token}`: deletes a specific integration
-  - `GET` `/integrations/{integration_token}`: gets information about an existing integration
-  - `PUT` `/integrations/{integration_token}`: updates workspace access for an existing integration
+
+- `GET` `/integrations`: retrieves all existing integrations
+- `POST` `/integrations/azure`: creates a new Azure integration
+- `POST` `/integrations/gcp`: creates a new GCP integration
+- `DELETE` `/integrations/{integration_token}`: deletes a specific integration
+- `GET` `/integrations/{integration_token}`: gets information about an existing integration
+- `PUT` `/integrations/{integration_token}`: updates workspace access for an existing integration
 
 ## May 2024
 
@@ -169,10 +176,10 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 - **MongoDB tags:** Tags are now available as a filtering dimension for [MongoDB](/connecting_mongodb-atlas) Cost Reports.
 - **Forecasted performance of a budget:** Future [budget periods](/budgets) are now displayed and compared to forecasts on Cost Reports.
 - **Reserved Instance recommendations:** Reserved Instance [recommendations](/cost_recommendations) now include a link to [Autopilot](/autopilot) with split-out categories and usage.
-- **Negative cost axis:** The range of the cost axis on Cost Reports is updated to include negative values. This is visible in cases where costs may be negative due to things like credits. 
+- **Negative cost axis:** The range of the cost axis on Cost Reports is updated to include negative values. This is visible in cases where costs may be negative due to things like credits.
 - **Vantage University:** [Vantage University](/vantage_university) is available on the docs site and includes a set of videos for getting started with Vantage.
 - **Labeled business metrics:** [Labeled business metrics](/per_unit_costs#labels) are available to identify the source of a metric—like an associated application or cost center.
-- **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster. 
+- **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster.
 
 ### Kubernetes Agent Updates {#may-24-k8s}
 
@@ -185,9 +192,9 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 ### API Updates
 
 - **Cost recommendations endpoint:** The `/recommendations` [endpoint](https://vantage.readme.io/reference/getrecommendations) automates the retrieval of cost recommendations. The endpoint includes filtering options for parameters like category and provider.
-- **Integrations endpoint:** The `/integrations` [endpoint](https://vantage.readme.io/reference/getintegrations) automates the retrieval of information about existing integrations. You can also send a `DELETE` call to delete existing integrations. 
+- **Integrations endpoint:** The `/integrations` [endpoint](https://vantage.readme.io/reference/getintegrations) automates the retrieval of information about existing integrations. You can also send a `DELETE` call to delete existing integrations.
 - **Segment tokens in budgets:** The `cost_report_token` parameter of the `/budgets` [endpoint](https://vantage.readme.io/reference/createbudget) now accepts segment tokens (in addition to Cost Report tokens).
-- **Business metrics endpoint updates:** With the release of labeled business metrics, the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is updated to include a `label` object as part of the `values` array of objects. 
+- **Business metrics endpoint updates:** With the release of labeled business metrics, the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) is updated to include a `label` object as part of the `values` array of objects.
 
 ## April 2024
 
