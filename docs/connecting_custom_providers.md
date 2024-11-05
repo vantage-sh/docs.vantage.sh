@@ -162,7 +162,7 @@ The following table provides details for each field within the template, as well
       <td><strong>Tags</strong> filter and grouping option</td>
       <td>Valid JSON object; array of key/value pairs</td>
       <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=tags#modal-column-14387">Tags</a></code></td>
-      <td><code>{'"{\"\"env\"\":\"\"production\"\"}\"'}</code> for one tag<br/><br/><code>{'"{\"\"env\"\":\"\"prod\"\","\"env\"\":\"\"dev\"\"}\"'}</code> for multiple tags</td>
+      <td><code>{'"{\"\"env\"\":\"\"production\"\"}\"'}</code> for one tag<br/><br/><code>{'"{\"\"env\"\":\"\"prod\"\","\"application\"\":\"\"geo-location\"\"}\"'}</code> for multiple tags</td>
     </tr>
   </tbody>
 </table>
