@@ -51,13 +51,13 @@ Vantage supports Databases and Support services, as well as the following servic
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest PlanetScale costs. Once costs are processed, they will be available on your **All Resources** Cost Report.
 
-:::note
-PlanetScale data refreshes daily in Vantage.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## PlanetScale Reporting Dimensions
 

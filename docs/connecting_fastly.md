@@ -39,13 +39,13 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
 2. Click **Add API Token**, then paste the API token you just generated.
 3. Click **Connect account**. Vantage will automatically begin ingesting and visualizing your costs within the Vantage console. It should take about an hour for cost data to populate.
 
-:::note
-Fastly data refreshes daily in the Vantage console.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Fastly Reporting Dimensions
 

@@ -51,13 +51,13 @@ The `OrganizationAdmin` role provides read/write access; however, Vantage will n
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report.
 
-:::note
-Confluent data refreshes daily in the Vantage console.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Confluent Reporting Dimensions
 

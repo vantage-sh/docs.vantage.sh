@@ -131,11 +131,15 @@ If you want to have Vantage ingest per-cluster resource data from MongoDB Atlas,
 
 6. Back in the Vantage console, click **Add Key**. 
 
-Your MongoDB Atlas integration status should automatically update from `Pending` to `Importing`. MongoDB Atlas data is refreshed once a day. If you've successfully granted project access for active resources, your Active Resources view will begin populating with cost data.
+Your MongoDB Atlas integration status should automatically update from `Pending` to `Importing`. If you've successfully granted project access for active resources, your Active Resources view will begin populating with cost data.
 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## MongoDB Atlas Reporting Dimensions
 

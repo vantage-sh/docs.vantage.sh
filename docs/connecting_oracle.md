@@ -25,13 +25,13 @@ Vantage uses a read-only IAM user and API key to read from a [Cost and Usage Rep
 3. At the bottom of the setup screen, click **Add Connection**. Paste your **Tenancy** and Vantage **User ID**. Then, select your **Home Region**. 
 4. Click **Connect Account**. Costs will be ingested and processed as soon as you add the integration. It usually takes less than an hour to ingest Oracle costs.  
 
-:::note
-Oracle generally delivers usage logs once per day.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Oracle Cloud Reporting Dimensions
 

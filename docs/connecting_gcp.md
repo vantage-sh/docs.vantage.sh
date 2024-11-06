@@ -128,6 +128,10 @@ It typically takes a few hours for data to start appearing. Cloud Billing data i
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
 ## Reporting Dimensions
 
 On GCP [Cost Reports](/cost_reports), you can filter across several dimensions:

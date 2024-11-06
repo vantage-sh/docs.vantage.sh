@@ -138,13 +138,13 @@ After you add your initial account information, add the billing manager to your 
 
 An email will be sent to the Vantage-owned billing manager email address for Vantage to accept your Organization's or Enterprise's invitation. Note that it will take about 24 hours for your invitation to be accepted by Vantage. Once costs are imported, you'll receive an email, and they'll be available on your **All Resources** Cost Report.
 
-:::note
-GitHub data refreshes daily in Vantage.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## GitHub Reporting Dimensions
 

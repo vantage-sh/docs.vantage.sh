@@ -13,7 +13,6 @@ Vantage integrates with your Snowflake account through a secure, read-only user 
 
 Vantage requires read-only access to the following tables:
 
-
 - [`SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY`](https://docs.snowflake.com/en/sql-reference/functions/warehouse_metering_history.html)
   - Returns hourly credit usage for both Virtual Warehouse credit usage and Cloud Services credit usage per warehouse, for all warehouses in your account. Data is retained for one year.
 - [`SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY`](https://docs.snowflake.com/en/sql-reference/account-usage/query_history.html)
@@ -24,7 +23,6 @@ Vantage requires read-only access to the following tables:
 :::note
 As a best practice, it is suggested you create a schema specifically for the `vantage` user. Note, however, that this is optional. See the [steps below](/connecting_snowflake#vantage-schema) for details on how to create this schema.
 :::
-
 
 ## Connect Your Snowflake Account
 
@@ -94,11 +92,15 @@ The below commands are based on the Snowflake [documentation](https://community.
    - **Username** and **Password** set for the `vantage` user. 
 6. Click **Connect Account**. The status of your account will change to `Importing`. 
 
-Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. Vantage will refresh at least once daily for Snowflake. 
+Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. 
 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Troubleshoot Snowflake Errors {#troubleshoot-snowflake-errors}
 

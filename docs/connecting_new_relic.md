@@ -29,13 +29,13 @@ Vantage integrates with your New Relic account using [NerdGraph](https://docs.ne
 4. Complete the additional fields based on the specific pricing for your account. This can include the per-gigabyte ingestion rate, amount of free ingestion per month, core and full platform user pricing, and any free user seats. For more information on New Relic pricing, see the [New Relic documentation](https://docs.newrelic.com/docs/accounts/accounts-billing/new-relic-one-pricing-billing/new-relic-one-pricing-billing/).
 5. Click **Connect Account**. Vantage will automatically begin ingesting and visualizing your costs within the Vantage console, which may take a few minutes.
 
-:::note
-New Relic data refreshes daily in the Vantage console.
-:::
-
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## New Relic Reporting Dimensions
 
