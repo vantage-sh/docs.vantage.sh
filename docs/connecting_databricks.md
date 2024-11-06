@@ -65,6 +65,10 @@ Databricks generally delivers usage logs once per day.
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
 ## Custom Pricing in Databricks {#custom-pricing}
 
 From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.

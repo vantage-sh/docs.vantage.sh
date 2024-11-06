@@ -170,6 +170,10 @@ After you complete the steps for connecting via the Azure CLI or Azure portal, f
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
 ## Azure Cost and Rightsizing Recommendations
 
 Vantage currently supports [cost recommendations](/cost_recommendations) for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.

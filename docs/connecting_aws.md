@@ -84,7 +84,6 @@ If you want to create IAM roles manually or use another tool to manage your infr
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
-
 ## AWS Data Ingestion Delay {#aws-data-ingestion-delay}
 
 Vantage creates both an IAM role and a [Cost and Usage Report (CUR)](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration when onboarding to AWS. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS up to 24 hours to deliver the first CUR to Vantage. As a result, only partial data will be present until this first CUR is received.
@@ -96,6 +95,10 @@ This delay will impact a few features in the Vantage console:
 - Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until the first CUR is received.
 
 Once Vantage receives its first CUR, this functionality will automatically be made available, and Vantage will alert you via email. Ultimately, this is a limitation imposed by AWS, and all Vantage features will become active once the data is received.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Backfill AWS CUR for Previous Reporting Periods {#backfilling-aws-cur-for-previous-reporting-periods}
 

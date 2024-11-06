@@ -33,12 +33,16 @@ For documentation about connecting to Vantage from Datadog, see the [Vantage Int
 After authorizing the connection with Vantage, you will see the status of your connection change to `Importing` within the Vantage console.
 
 :::note
-Once connected, Vantage will ingest six months of historical Datadog costs. The data is refreshed everyday at 2 AM UTC, but delays, up to 72 hours, may occur.
+Once connected, Vantage will ingest six months of historical Datadog costs.
 :::
 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Update the Datadog Integration {#update-datadog}
 

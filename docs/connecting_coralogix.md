@@ -59,12 +59,16 @@ Vantage supports the Logs, Metrics, and Spans services, as well as the [applicat
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Coralogix costs. Once costs are processed, they will be available on your **All Resources** Cost Report. 
 
 :::note
-Based on limits imposed by Coralogix, the integration includes 90 days of historical Coralogix usage and cost data. Coralogix data refreshes daily in Vantage.
+Based on limits imposed by Coralogix, the integration includes 90 days of historical Coralogix usage and cost data.
 :::
 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Coralogix Reporting Dimensions
 
