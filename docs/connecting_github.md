@@ -51,6 +51,10 @@ The following steps provide information for both Enterprise and Organization [ac
 
 Follow the steps below to add your Enterprise or Organization information, set up the Vantage integration, and invite the Vantage billing manager to your account.
 
+:::note
+Note that at this time, you are unable to complete a GitHub integration if your organization or enterprise uses GitHub SSO. 
+:::
+
 #### Step 1: Obtain Your Organization or Enterprise Name
 
 Navigate to GitHub and obtain your Enterprise or Organization name.
