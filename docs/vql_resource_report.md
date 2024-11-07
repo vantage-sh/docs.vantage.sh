@@ -259,6 +259,9 @@ resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')
 | Google     | google_spanner_instance              | Spanner Instance                        |
 | Google     | google_sql_database_instance         | SQL Database Instance                   |
 | Google     | google_storage_bucket                | Storage Bucket                          |
+| Kubernetes     | kubernetes_workload                | Kubernetes Workload                          |
+| Confluent     | confluent_kafka_cluster                | Kafka Cluster                          |
+| MongoDB     | mongodbatlas_cluster                | Atlas Cluster                          |
 
 </details>
 
