@@ -5,6 +5,7 @@ description: Create Cost Reports in Vantage to drill into your costs and filter 
 keywords:
   - Cost Reports
 ---
+import ReactPlayer from 'react-player'
 
 # Cost Reports
 
@@ -102,41 +103,6 @@ To continue filtering the report, perform any of the following actions:
 - To add a separate filter set, click **+ Add a Filter**. You can also use this option to add costs from another provider. The graph is updated to display costs that match the first filter set _or_ the second filter set.
 - To remove a filter set, click the three dots (**...**) on the top right of the filter set, then click **Delete**.
 
-### Category and Subcategory Cost Filters
-
-Each service typically has multiple underlying category and subcategory costs. For example, you have AWS as a connected provider. You can filter by several subcategories, like the amount of storage you've used or the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects.
-
-Similarly, Azure and GCP also support category and subcategory costs on Cost Reports. For example, with Azure, if you filter by **Subcategory** for the **Service** of **Virtual Machines**, you can then filter for individual Azure VMs. In GCP, the labels you apply to resources will be displayed as subcategories.
-
-To drill down in the costs table to view **Category** costs:
-
-1. Add a filter for a provider, like AWS. The table below the graph is updated to show costs grouped by service.
-2. A few icons are displayed next to each listed service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
-
-<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/category-costs.gif"/>
-</div>
-<br/>
-
-### Per-Resource Cost Filters
-
-For certain providers, like AWS, you can view individual resources.
-
-1. Add a filter for a provider, like AWS. The table below the graph contains costs grouped by service.
-2. Next to each listed service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that make up the main AWS service is displayed.
-
-In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of Per Resource Costs" width="80%" src="/img/per-resource-list.png" />
-</div>
-
-You can also view the **Category** and **Subcategory** costs on a per-resource basis. In the previous example, to view a breakdown of costs for the RDS instance named **core-production-primary-01**, click the **Costs by Category** icon (looks like a dollar sign—**$**). Costs are now displayed by resource, within a category, for a specific service.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of a Single Resource Costs" width="80%" src="/img/per-resource-individual.png" />
-</div>
-
 ### Percent-Based Cost Allocation {#percent-based-cost-allocation}
 
 With percent-based cost allocation, you can filter Cost Reports to show back shared resources, like support costs or multi-tenant databases, to the team or department that uses them. As filters are set in a Cost Report, Vantage will query for costs that meet all those conditions.
@@ -173,18 +139,6 @@ In the below example, this Cost Report is grouped by **Service** and **Resource*
 ### Saved Filters
 
 You can create and use **Saved Filters** to apply commonly used filters across multiple reports. Review the [Saved Filters documentation](/saved_filters) for more information.
-
-## Adjust Chart Visualization
-
-You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.
-
-:::tip
-For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, or Monthly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
-:::
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts" width="100%" src="/img/cost-report-visualizations.png" />
-</div>
 
 ## Configure Report Groups {#configure-report-groups}
 
@@ -418,6 +372,142 @@ By default, the top five groups of costs by amount are displayed on the graph. I
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Displaying additional costs using the Other Costs dropdown menu on a Cost Report" width="90%" src="/img/other-costs.png" />
+</div>
+
+## Drill Down in Costs Table {#drilldown}
+
+Within the table below the graph, you can drill down into your report to create precise filtering and grouping views. Your options to drill down in the report will vary based on if the report is completed ungrouped or has some grouping criteria applied to it.
+
+### Drill Down in Ungrouped Report
+
+When a report is ungrouped (i.e., the **Group By** dropdown is set to **Ungrouped**), a few icons are displayed within each line of the table, depending on your ingested resources.
+
+#### Category and Subcategory Cost Filters
+
+Each service typically has multiple underlying category and subcategory costs. For example, you have AWS as a connected provider. You can filter by several subcategories, like the amount of storage you've used or the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects.
+
+1. Add a filter for a provider, like AWS. The table below the graph is updated to show costs grouped by service.
+2. A few icons are displayed next to each listed service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
+    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/category-costs.gif"/>
+</div>
+<br/>
+
+#### Per-Resource Cost Filters
+
+For certain providers, like AWS, you can view individual resources.
+
+1. Add a filter for a provider, like AWS. The table below the graph contains costs grouped by service.
+2. Next to each listed service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that make up the main AWS service is displayed.
+
+In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Example of Per Resource Costs" width="80%" src="/img/per-resource-list.png" />
+</div>
+
+You can also view the **Category** and **Subcategory** costs on a per-resource basis. In the previous example, to view a breakdown of costs for the RDS instance named **core-production-primary-01**, click the **Costs by Category** icon (looks like a dollar sign—**$**). Costs are now displayed by resource, within a category, for a specific service.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Example of a Single Resource Costs" width="80%" src="/img/per-resource-individual.png" />
+</div>
+
+### Drill Down in Grouped Report
+
+If you apply grouping criteria to the Cost Report (e.g., add a group for **Service**), another set of drilldown options is displayed on the Cost Report. In the below example:
+
+- The report is filtered to **AWS** costs and grouped by **Service**.
+- On the line item for **Elastic Compute Cloud - Compute**, you click the **Drilldown** icon.
+  - A filter for line items only matching the **Elastic Compute Cloud - Compute** service is added. 
+  - In addition, the report is now also grouped by **Category**. 
+  - The **Category** column appears also now appears as a column in the table.
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/drilldown-category.mp4'
+        alt="The Drilldown icon is clicked and adds a filter and grouping item for Category." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+
+<br/>
+
+- You can continue to click the **Drilldown** icon to add filters for selected line items and group by other options, like **Subcategory**. For example, if you now click the **Drilldown** icon on the **EC2 > Data Transfer** line item:
+  - The **Data Transfer** filter is applied. 
+  - An grouping of **Subcategory** is available.
+  - **Subcategory** is also displayed as a column in the table.
+<br/>
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/drilldown-subcategory.mp4'
+        alt="The Drilldown icon is clicked and adds a filter and grouping item for Subcategory." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+<br/>
+
+- You can also click the **Filter On** list to the right of the **Drilldown** icon and select a specific grouping/filtering option. In the below example, you select the **Region** option for the **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** line item. In the resulting report, **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** is broken down with individual line items per region.
+  - The additional filter for the **EU-DataTransfer-Out-Bytes** is added to the filter menu.
+  - The report is now also grouped by **Region**.
+  - **Region** is now a column in the table.
+<br/>
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/drilldown-region.mp4'
+        alt="The Filter On menu is clicked and adds a filter and grouping item for Region." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+
+## Adjust Chart Visualization
+
+You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.
+
+:::tip
+For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, or Monthly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts" width="100%" src="/img/cost-report-visualizations.png" />
 </div>
 
 ## Configure Report Settings
