@@ -376,7 +376,7 @@ By default, the top five groups of costs by amount are displayed on the graph. I
 
 ## Drill Down in Costs Table {#drilldown}
 
-Within the table below the graph, you can drill down into your report to create precise filtering and grouping views. Your options to drill down in the report will vary based on if the report is completed ungrouped or has some grouping criteria applied to it.
+Within the table below the graph, you can drill down into your report to create precise filtering and grouping views. Your options to drill down in the report will vary based on if the report is ungrouped or has some grouping criteria applied to it.
 
 ### Drill Down in Ungrouped Report
 
@@ -386,8 +386,8 @@ When a report is ungrouped (i.e., the **Group By** dropdown is set to **Ungroupe
 
 Each service typically has multiple underlying category and subcategory costs. For example, you have AWS as a connected provider. You can filter by several subcategories, like the amount of storage you've used or the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects.
 
-1. Add a filter for a provider, like AWS. The table below the graph is updated to show costs grouped by service.
-2. A few icons are displayed next to each listed service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
+1. Add a filter for a provider, like AWS. 
+2. A few icons are displayed next to each listed AWS service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
     <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/category-costs.gif"/>
@@ -398,8 +398,8 @@ Each service typically has multiple underlying category and subcategory costs. F
 
 For certain providers, like AWS, you can view individual resources.
 
-1. Add a filter for a provider, like AWS. The table below the graph contains costs grouped by service.
-2. Next to each listed service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that make up the main AWS service is displayed.
+1. Add a filter for a provider, like AWS. 
+2. Next to each listed AWS service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that make up the main AWS service is displayed.
 
 In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
 
@@ -415,13 +415,13 @@ You can also view the **Category** and **Subcategory** costs on a per-resource b
 
 ### Drill Down in Grouped Report
 
-If you apply grouping criteria to the Cost Report (e.g., add a group for **Service**), another set of drilldown options is displayed on the Cost Report. In the below example:
+If you apply grouping criteria to the Cost Report (e.g., set the **Group By** field to **Service**), another set of drilldown options is displayed on the Cost Report. In the below example:
 
 - The report is filtered to **AWS** costs and grouped by **Service**.
-- On the line item for **Elastic Compute Cloud - Compute**, you click the **Drilldown** icon.
-  - A filter for line items only matching the **Elastic Compute Cloud - Compute** service is added. 
+- On the line item for **Elastic Compute Cloud - Compute**, click the **Drilldown** icon.
+  - A filter for line items matching only the **Elastic Compute Cloud - Compute** service is added in the **Filters** menu. 
   - In addition, the report is now also grouped by **Category**. 
-  - The **Category** column appears also now appears as a column in the table.
+  - The **Category** column also now appears in the table.
 
 <div style={{ display: "flex", justifyContent: "center" }}>
     <div style={{ 
@@ -445,9 +445,9 @@ If you apply grouping criteria to the Cost Report (e.g., add a group for **Servi
 
 <br/>
 
-- You can continue to click the **Drilldown** icon to add filters for selected line items and group by other options, like **Subcategory**. For example, if you now click the **Drilldown** icon on the **EC2 > Data Transfer** line item:
-  - The **Data Transfer** filter is applied. 
-  - An grouping of **Subcategory** is available.
+- You can continue to click the **Drilldown** icon to add filters for selected line items and group by other options, like **Subcategory**. For example, if you click the **Drilldown** icon on the **EC2 > Data Transfer** line item:
+  - The **Data Transfer** category filter is applied in the **Filters** menu. 
+  - A grouping of **Subcategory** is available.
   - **Subcategory** is also displayed as a column in the table.
 <br/>
 
@@ -473,7 +473,7 @@ If you apply grouping criteria to the Cost Report (e.g., add a group for **Servi
 <br/>
 
 - You can also click the **Filter On** list to the right of the **Drilldown** icon and select a specific grouping/filtering option. In the below example, you select the **Region** option for the **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** line item. In the resulting report, **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** is broken down with individual line items per region.
-  - The additional filter for the **EU-DataTransfer-Out-Bytes** is added to the filter menu.
+  - The additional filter for the **EU-DataTransfer-Out-Bytes** is added to the **Filters** menu.
   - The report is now also grouped by **Region**.
   - **Region** is now a column in the table.
 <br/>
