@@ -12,7 +12,31 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on November 1, 2024, with product updates for 0ctober 2024._
+_This page was last updated on November 15, 2024, with product updates for November 2024._
+
+## November 2024
+
+### Product Updates
+
+- **Integration Owner role:** The new [Integration Owner role](/rbac) has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role does not have access to other sensitive configuration settings.
+- **View as VQL:** On Kubernetes Efficiency Report filters, a new button is available to see the [VQL](/vql) representation of a Kubernetes Efficiency Report filter.
+- **Costs drilldown:** New costs [drilldown options](/cost_reports#drilldown) are available to add additional targeted filters and grouping criteria to a Cost Report.
+- **Service aliases:** When searching for services in report filters, you can now search by common acronyms for AWS services, such as **RDS** or **S3**, rather than typing the full service name.
+
+### Kubernetes Agent Updates
+
+_See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release._
+
+### API Updates
+
+- **Kubernetes Efficiency Endpoint:** The following API methods were added to support the new `/kubernetes_efficiency_reports` [endpoint](https://vantage.readme.io/reference/createkubernetesefficiencyreport):
+  - `POST` `/kubernetes_efficiency_reports`: Creates a new Kubernetes Efficiency Report
+  - `PUT` `/kubernetes_efficiency_reports/{kubernetes_efficiency_report_token}`: Updates an existing Kubernetes Efficiency Report
+  - `GET` `/kubernetes_efficiency_reports`: Retrieves all existing Kubernetes Efficiency Reports
+  - `GET` `/kubernetes_efficiency_reports/{kubernetes_efficiency_report_token}`: Retrieves a specific Kubernetes Efficiency Report by its `kubernetes_efficiency_report_token`
+  - `DELETE` `/kubernetes_efficiency_reports/{kubernetes_efficiency_report_token}`: Deletes a specific Kubernetes Efficiency Report by its `kubernetes_efficiency_report_token`
+- **Terraform updates:** The following data source was added to the Terraform Provider to support the new Kubernetes Efficiency Reports API (resource to be released soon):
+  - `vantage_kubernetes_efficiency_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/kubernetes_efficiency_reports)
 
 ## October 2024
 
