@@ -40,6 +40,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | GitHub           | `github`       | [View GitHub Fields](#github)                    |
 | Google Cloud     | `gcp`          | [View GCP Fields](#google-cloud-platform)        |
 | Kubernetes       | `kubernetes`   | [View Kubernetes Fields](#kubernetes)            |
+| Linode           | `linode`       | [View Linode Fields](#linode)                    |
 | MongoDB Atlas    | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas)      |
 | New Relic        | `newrelic`     | [View New Relic Fields](#new-relic)              |
 | Oracle Cloud     | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)        |
@@ -211,6 +212,21 @@ _\* Virtual tags associated with this provider_
 | Region         | `region`       | string    | `costs.region`      |
 | Provider       | `provider`     | string    | `costs.provider`    |
 | Charge Type    | `charge_type`  | string    | `costs.charge_type` |
+
+## Linode {#linode}
+
+| Filter      | API Field Name | Data Type | `namespace.field`   |
+| ----------- | -------------- | --------- | ------------------- |
+| Service     | `service`      | string    | `costs.service`     |
+| Category    | `category`     | string    | `costs.category`    |
+| Subcategory | `subcategory`  | string    | `costs.subcategory` |
+| Resource    | `resource_id`  | string    | `costs.resource_id` |
+| Charge Type | `charge_type`  | string    | `costs.charge_type` |
+| Tag\*       | `name`         | string    | `tags.name`         |
+| Tag Value\* | `value`        | string    | `tags.value`        |
+| Provider    | `provider`     | string    | `costs.provider`    |
+
+_\* Virtual tags associated with this provider_
 
 ## MongoDB Atlas {#mongodb-atlas}
 
