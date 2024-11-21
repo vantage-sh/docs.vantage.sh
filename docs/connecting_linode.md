@@ -10,7 +10,7 @@ keywords:
 
 # Linode from Akamai Connected Cloud
 
-Vantage uses a read-only API key to ingest Linode from Akamai Connected Cloud costs and discounts as invoices become available. Vantage also uses service-specific APIs to enrich cost data with additional resource-specific metadata.
+Vantage uses a read-only API key to ingest Linode costs and discounts as invoices become available. Vantage also uses service-specific APIs to enrich cost data with additional resource-specific metadata.
 
 :::note
 Vantage cannot and will not perform writes to your Linode account and can see only metadata associated with your usage.
@@ -20,7 +20,7 @@ With the Vantage–Linode integration, you can track costs for Kubernetes Cluste
 
 ## Linode Kubernetes Clusters
 
-You can install the Vantage Kubernetes Agent on Linode Kubernetes Clusters to see detailed insights into real-time cluster resource utilization, efficiency, and cost allocation. See the [agent documentation](https://docs.vantage.sh/kubernetes_agent) for details on how to set up the agent.
+You can install the Vantage Kubernetes Agent on Linode Kubernetes Clusters to see detailed insights into real-time cluster resource utilization, efficiency, and cost allocation. See the [agent documentation](/kubernetes_agent) for details on how to set up the agent.
 
 ## Connect Your Linode Account
 
@@ -39,19 +39,27 @@ These instructions are a condensed version of the instructions on Linode’s [do
 :::
 
 1. Log in to [Akamai Cloud Manager](https://cloud.linode.com/).
-2. Navigate to your Linode profile's [API token page](https://cloud.linode.com/profile/tokens). You can also access this page by selecting your user profile at the top. Then, under **My Profile**, \***\*select **API Tokens\*\*.
+2. Navigate to your Linode profile's [API token page](https://cloud.linode.com/profile/tokens). You can also access this page by selecting your user profile at the top. Then, under **My Profile**, select **API Tokens**.
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Linode profile screen" width="60%" src="/img/linode-profile.png"/> </div>
+   </details>
 3. Click **Create Personal Access Token**.
 4. Enter the following information:
-   1. For **Label**, enter something that identifies this token, such as _Vantage Integration_.
-   2. For **Expiry**, select **Never**.
-   3. For **Access**, select **Read Only** for all items except VPCs. For **VPCs**, select **No Access**.
+   - For **Label**, enter something that identifies this token, such as _Vantage Integration_.
+   - For **Expiry**, select **Never**.
+   - For **Access**, select **Read Only** for all items except VPCs. For **VPCs**, select **No Access**.
+      <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Linode access token screen" width="60%" src="/img/linode-token.png"/> </div>
+   </details>
 5. Click **Create Token**. Your Personal Access Token is displayed once. Copy this token to use in your Vantage integration.
-6. From the top navigation in Vantage, click **Settings**.
-7. On the left navigation, select **Integrations** and **s**elect **Linode**.
+6. From the top navigation in **Vantage**, click **Settings**.
+7. On the left navigation, select **Integrations** and select **Linode**.
 8. The Linode integrations page is displayed. Ensure you are on the **Connect** tab.
 9. At the bottom of the page, click **Add API Key**.
 10. For **API key**, add your previously generated Personal Access Token.
-11. For **Description**, you can use your name or any other descriptor here to identify that you've added this integration.
+11. For **Description**, you can use your name or any other descriptor here to identify that you've added this integration. Use this description to differentiate this Linode account from others you may add.
 12. Click **Connect Account**.
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Linode costs. As soon as they are processed, they will be available on your All Resources Cost Report. If you decide to remove your Linode integration from Vantage, all costs associated with your Linode API token will be removed from the Vantage console.
@@ -70,7 +78,7 @@ On Linode [Cost Reports](/cost_reports/), you can filter costs across several di
 
 - Category (e.g., Linode Instance - Compute)
 - Subcategory (e.g., Linode Instance - Dedicated 16GB)
-- Tag ([Virtual Tags](https://docs.vantage.sh/virtual_tagging) created in Vantage for this provider)
+- Tag ([Virtual Tags](/virtual_tagging) created in Vantage for this provider)
 - Resource (e.g., specific resource names)
 - Charge Type (e.g., Usage or Discount)
 - Service (e.g., Node Balancer)
@@ -82,7 +90,7 @@ You can also view credits, discounts, refunds, and taxes for Linode costs in Cos
 
 ## Active Resources
 
-The following Linode resources are synced as active resources and available in [Resource Reports](https://docs.vantage.sh/active_resources).
+The following Linode resources are synced as active resources and available in [Resource Reports](/active_resources).
 
 - Linode Instances
 - Linode Kubernetes Clusters
