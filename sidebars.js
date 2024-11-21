@@ -164,6 +164,7 @@ module.exports = {
         "connecting_planetscale",
         "connecting_coralogix",
         "connecting_github",
+        "connecting_linode",
         "connecting_custom_providers",
         "provider_data_refresh",
       ],

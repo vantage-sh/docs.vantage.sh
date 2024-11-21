@@ -14,7 +14,7 @@ For supported providers, Vantage profiles for _active resources_ within your acc
 You can create _resource reports_ to see filtered views of your active resources. These reports provide visibility into all the currently operational resources within your account and the associated costs incurred by each resource. Reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
 
 :::note
-Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [GCP](/connecting_gcp), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), and [PlanetScale](/connecting_planetscale).
+Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [GCP](/connecting_gcp), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), [PlanetScale](/connecting_planetscale), and [Linode](/connecting_linode).
 :::
 
 ## AWS Active Resources
@@ -65,6 +65,10 @@ The following active resources are available for the additional providers listed
   <tr>
     <td><a href="/connecting_planetscale">PlanetScale</a></td>
     <td>PlanetScale databases</td>
+  </tr>
+  <tr>
+    <td><a href="/connecting_linode">Linode</a></td>
+    <td>Linode Instances, Kubernetes Clusters, Volumes, Object Storage, Images, and NodeBalancers</td>
   </tr>
 </table>
 
@@ -122,19 +126,19 @@ To create a resource report:
 
 The following filters are available for resource reports.
 
-| Filter             | Provider        | Examples                                                                                                                                                                                                                                                                                                         |
-| ------------------ | --------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Account            | AWS, GCP        | AWS or GCP account name (e.g., production)                                                                                                                                                                                                                                                                       |
-| Billing Account    | AWS             | AWS billing account name                                                                                                                                                                                                                                                                                         |
-| Label              | All providers   | The resource's label (i.e., name)                                                                                                                                                                                                                                                                                |
-| Metadata           | All providers   | Specific to each resource type (e.g., AWS S3 buckets object count; Azure Load Balancers provisioning state; GCP Dataflow Jobs create time; Confluent Kafka cluster type; MongoDB Atlas cluster deployed region; PlanetScale database branches count; Snowflake query invocations; Kubernetes workload namespace) |
-| Not Tagged         | All providers   | Filter to see resources not tagged with a specific tag key or any tag key                                                                                                                                                                                                                                        |
-| Region             | AWS, Azure, GCP | us-east-1, ap-northeast-2, eastus, us-east4                                                                                                                                                                                                                                                                      |
-| Resource group     | Azure           | The Azure resource group name                                                                                                                                                                                                                                                                                    |
-| Resource type      | All providers   | EC2 instances, S3 buckets, Confluent Kafka clusters, Snowflake queries, etc.                                                                                                                                                                                                                                     |
-| Subscription       | Azure           | The Azure subscription name                                                                                                                                                                                                                                                                                      |
-| Tag                | All providers   | Filter to see resource by a specific tag key or tag key/value                                                                                                                                                                                                                                                    |
-| UUID (ARN for AWS) | All providers   | The unique provider ID (i.e., ARN for AWS) for the resource                                                                                                                                                                                                                                                      |
+| Filter             | Provider                | Examples                                                                                                                                                                                                                                                                                                         |
+| ------------------ | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Account            | AWS, GCP                | AWS or GCP account name (e.g., production)                                                                                                                                                                                                                                                                       |
+| Billing Account    | AWS                     | AWS billing account name                                                                                                                                                                                                                                                                                         |
+| Label              | All providers           | The resource's label (i.e., name)                                                                                                                                                                                                                                                                                |
+| Metadata           | All providers           | Specific to each resource type (e.g., AWS S3 buckets object count; Azure Load Balancers provisioning state; GCP Dataflow Jobs create time; Confluent Kafka cluster type; MongoDB Atlas cluster deployed region; PlanetScale database branches count; Snowflake query invocations; Kubernetes workload namespace) |
+| Not Tagged         | All providers           | Filter to see resources not tagged with a specific tag key or any tag key                                                                                                                                                                                                                                        |
+| Region             | AWS, Azure, GCP, Linode | us-east-1, ap-northeast-2, eastus, us-east4, us-lax                                                                                                                                                                                                                                                              |
+| Resource group     | Azure                   | The Azure resource group name                                                                                                                                                                                                                                                                                    |
+| Resource type      | All providers           | EC2 instances, S3 buckets, Confluent Kafka clusters, Snowflake queries, etc.                                                                                                                                                                                                                                     |
+| Subscription       | Azure                   | The Azure subscription name                                                                                                                                                                                                                                                                                      |
+| Tag                | All providers           | Filter to see resource by a specific tag key or tag key/value                                                                                                                                                                                                                                                    |
+| UUID (ARN for AWS) | All providers           | The unique provider ID (i.e., ARN for AWS) for the resource                                                                                                                                                                                                                                                      |
 
 ## Export Resource Report
 
@@ -227,15 +231,15 @@ For Kubernetes workloads where Vantage identifies rightsizing opportunities, the
 
 ### Datadog Host Costs {#datadog-host-costs}
 
-For cloud resources that have the Datadog agent installed, Vantage can associate Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs. 
+For cloud resources that have the Datadog agent installed, Vantage can associate Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs.
 
 :::note
-To view these costs and agent information, you need to have a [Datadog](/connecting_datadog) integration, along with either an [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp) integration. 
+To view these costs and agent information, you need to have a [Datadog](/connecting_datadog) integration, along with either an [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp) integration.
 :::
 
 On Active Resource views for resources like EC2 instances or Virtual Machines, the **Associated Datadog Costs** section is displayed and provides a service breakdown of costs.
 
- The following resources are supported:
+The following resources are supported:
 
 - Compute resources with the Datadog agent installed, such as virtual machines or container services
 - Databases that are monitored by Datadog’s DBM
@@ -246,20 +250,20 @@ The following Datadog services are supported:
 - Database Monitoring
 - APM (Hosts)
 
-For eligible resources, the **Datadog Agent Installed** dimension, indicates whether the agent is installed. The below image shows resource data for a particular EC2 instance. On the right information panel, the **Datadog Agent Installed** dimension displays **True**. Observe associated Datadog costs for **Infrastructure Monitoring** and **APM** in the table at the bottom.  
+For eligible resources, the **Datadog Agent Installed** dimension, indicates whether the agent is installed. The below image shows resource data for a particular EC2 instance. On the right information panel, the **Datadog Agent Installed** dimension displays **True**. Observe associated Datadog costs for **Infrastructure Monitoring** and **APM** in the table at the bottom.
 
 <div style={{display:"flex", justifyContent:"center"}}>
   <img alt="The Associated Datadog Costs section is displayed on an active resource" width="90%" src="/img/datadog-host-screen.png" />
 </div>
 
-You can also create a Resource Report that filters for resources where the Datadog agent is installed. In the below image, the filter looks for EC2 instances where the agent is installed. 
+You can also create a Resource Report that filters for resources where the Datadog agent is installed. In the below image, the filter looks for EC2 instances where the agent is installed.
 
 :::tip
 Vantage automatically generates this type of report when it finds the Datadog Agent installed on relevant resources. Navigate to the [Resource Reports](https://console.vantage.sh/resources) screen. Autogenerated reports will have a name similar to _AWS EC2 Instances with the Datadog Agent Installed_.
 :::
 
 1. Select the **Metadata** filter option.
-2. For **Resource Type**, select an eligible resource, like **EC2 Instances** or **RDS Instances**. 
+2. For **Resource Type**, select an eligible resource, like **EC2 Instances** or **RDS Instances**.
 3. For **Select a Key**, select **Datadog Agent Installed**.
 4. For **Value**, select **true**.
 

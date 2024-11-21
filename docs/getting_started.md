@@ -136,6 +136,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_github",
     },
     {
+      icon: '/img/logos/logo-icon-linode.svg',
+      iconAltText: 'Linode logo',
+      title: 'Linode',
+      content: 'Vantage integrates with Linode via a read-only API key. Vantage also uses service-specific APIs to enrich cost data with additional resource-specific metadata.',
+      link: "/connecting_linode",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',
