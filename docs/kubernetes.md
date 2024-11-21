@@ -37,9 +37,10 @@ Kubernetes costs are not included in monthly tracked infrastructure costs as the
 
 ## Kubernetes Efficiency Metrics and Reports
 
-:::note Discounts on Efficiency Reports
-CPU/memory rates are based on the underlying instances the pod is scheduled on. In Kubernetes Efficiency Reports, this is the undiscounted rate of the instance. Discounts are not reflected on these reports. You can view discounts on Kubernetes [Cost Reports](/cost_reports).
-:::
+The below sections describe how to view and create Kubernetes Efficiency Metrics and Reports.
+
+### Discounts on Efficiency Reports
+CPU/memory rates are based on the underlying instances the pod is scheduled on. In Kubernetes Efficiency Reports, this is the undiscounted rate of the instance. Discounts are not reflected on these reports due to the variable nature of how discounts are applied, making it difficult to make comparisons over time. You can view discounts on Kubernetes [Cost Reports](/cost_reports).
 
 ### View Kubernetes Efficiency Metrics
 

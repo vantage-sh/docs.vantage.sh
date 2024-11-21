@@ -9,6 +9,7 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ReactPlayer from 'react-player'
 
 # Dashboards
 
@@ -35,6 +36,37 @@ For each displayed report, click **View Report** to open that report outside the
 ### Save a Dashboard to Favorites
 
 To save a dashboard to your favorites, navigate to the [Dashboards](https://console.vantage.sh/dashboards) page, then click the star icon to the right of the **Created On** column. Access your starred dashboard from the **Starred By Me** screen in the left navigation. Dashboards you create are also displayed on the **Created By Me** screen.
+
+### Edit Dashboard Report Order
+
+You can edit the order for which reports are displayed on a dashboard. 
+
+1. From the top right of a dashboard, click the pencil icon.
+2. The list of reports on the dashboard is displayed. Click **Reorder**. 
+3. Move the tile for each report up or down to change its order on the dashboard.
+4. When you are finished, click **Done Reordering** > **Save**. The new order is displayed on your dashboard. 
+
+<div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/dashboard-reorder.mp4'
+        alt="The Reorder icon is clicked on the dashboard edit screen and each report is reordered." 
+        width="100%"
+        height="100%"
+    />
+    </div>
+</div>
+
+<br/>
 
 ### Delete a Dashboard
 
