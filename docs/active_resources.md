@@ -91,6 +91,10 @@ Active resources are synced for each [workspace](/workspaces) at least once ever
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Resource Report Drill Down" width="100%" src="/img/resource.png" />
 </div>
+5. Any tags assigned to the resource (including [Virtual Tags](/virtual_tagging)) are also displayed in the **Assigned Tags** section at the bottom. 
+<div style={{display:"flex", justifyContent:"center"}}>
+<img alt="Assigned Tags on Resource Reports" width="100%" src="/img/assigned-tags.png" />
+</div>
 
 ## Create a Resource Report {#create-a-resource-report}
 
@@ -137,7 +141,7 @@ The following filters are available for resource reports.
 | Resource group     | Azure                   | The Azure resource group name                                                                                                                                                                                                                                                                                    |
 | Resource type      | All providers           | EC2 instances, S3 buckets, Confluent Kafka clusters, Snowflake queries, etc.                                                                                                                                                                                                                                     |
 | Subscription       | Azure                   | The Azure subscription name                                                                                                                                                                                                                                                                                      |
-| Tag                | All providers           | Filter to see resource by a specific tag key or tag key/value                                                                                                                                                                                                                                                    |
+| Tag                | All providers           | Filter to see resource by a specific tag key or tag key/value; includes Virtual Tags                                                                                                                                                                                                                                                    |
 | UUID (ARN for AWS) | All providers           | The unique provider ID (i.e., ARN for AWS) for the resource                                                                                                                                                                                                                                                      |
 
 ## Export Resource Report
