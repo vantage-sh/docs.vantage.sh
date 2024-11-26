@@ -170,17 +170,15 @@ The following instructions are based on the [Microsoft documentation](https://le
 - Still under **API permissions**, you may see a section for **Grant admin consent for {your domain}**.
 - Click **Grant admin consent**, and follow the prompts.
 
-#### Step 5: Contact Vantage Support
+#### Step 5: Add Azure Credentials to Vantage
 
-Contact [Vantage Support](mailto:support@vantage.sh) for information on how to send the following items to finish the connection with the Vantage app:
-
-- Application (client) ID
-- Client secret
-- Azure AD Domain
-
-:::note
-You can obtain your Azure AD Domain name on the **Overview** page of Azure Active Directory.
-:::
+- Navigate to the [**Authentication screen**](https://console.vantage.sh/settings/account_identity_providers) in Vantage.
+- Select **AzureAD**.
+- Under **Step 2**, enter the following information:
+  - **Tenant Domain:** The place you'll navigate to when you log in
+  - **Client ID**
+  - **Client Secret**
+- Click **Configure Connection**. 
 
 After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
 
