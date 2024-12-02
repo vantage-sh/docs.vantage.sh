@@ -12,12 +12,17 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on November 15, 2024, with product updates for November 2024._
+_This page was last updated on December 2, 2024, with product updates for November 2024._
 
 ## November 2024
 
 ### Product Updates
 
+- **Update Dashboard order:** You now have the option to update the [report order](/dashboards#edit-dashboard-report-order) on Dashboards.
+- **AWS human-readable account names:** In addition to the account number, the human-readable account name is now visible on the [AWS Integrations](/connecting_aws) page for AWS account integrations.
+- **Virtual Tags processing status:** The "Processing..." indicator on [Virtual Tags](/virtual_tagging) now provides more accurate status updates, specifically for the initial run of new or updated Virtual Tag configurations.
+- **Virtual Tags in Resource Reports:** You can now [filter by Virtual Tags](/active_resources#resource-report-filters) within Resource Report filters.
+- **Linode integration:** Vantage now integrates with [Linode from Akamai Connected Cloud](/connecting_linode) as its latest cost provider.
 - **Integration Owner role:** The new [Integration Owner role](/rbac) has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role does not have access to other sensitive configuration settings.
 - **View as VQL:** On Kubernetes Efficiency Report filters, a new button is available to see the [VQL](/vql) representation of a Kubernetes Efficiency Report filter.
 - **Costs drilldown:** New costs [drilldown options](/cost_reports#drilldown) are available to add additional targeted filters and grouping criteria to a Cost Report.
@@ -35,7 +40,8 @@ _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes
   - `GET` `/kubernetes_efficiency_reports`: Retrieves all existing Kubernetes Efficiency Reports
   - `GET` `/kubernetes_efficiency_reports/{kubernetes_efficiency_report_token}`: Retrieves a specific Kubernetes Efficiency Report by its `kubernetes_efficiency_report_token`
   - `DELETE` `/kubernetes_efficiency_reports/{kubernetes_efficiency_report_token}`: Deletes a specific Kubernetes Efficiency Report by its `kubernetes_efficiency_report_token`
-- **Terraform updates:** The following data source was added to the Terraform Provider to support the new Kubernetes Efficiency Reports API (resource to be released soon):
+- **Terraform updates:** The following resource and data source were added to the Terraform Provider to support the new Kubernetes Efficiency Reports API:
+  - `vantage_kubernetes_efficiency_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/kubernetes_efficiency_report)
   - `vantage_kubernetes_efficiency_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/kubernetes_efficiency_reports)
 
 ## October 2024
