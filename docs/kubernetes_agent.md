@@ -198,6 +198,16 @@ AKS users should remember to follow the [AKS-specific instructions](/kubernetes_
 
 ## Common Errors
 
+### Failed to Fetch Presigned URL — API Token Error {#presigned-url-api}
+
+The below error occurs when the agent attempts to fetch presigned URLs but fails due to an invalid `Authorization` header field value. The error log typically looks like this:
+
+```bash
+{"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to fetch presigned urls","err":"Get \"https://api.vantage.sh/internal/integrations/kubernetes_agent/…": net/http: invalid header field value for \"Authorization\""}
+```
+
+This issue is typically caused by incorrect or missing API keys. Ensure the value for the `VANTAGE_API_TOKEN` (obtained in the [Prerequisites](/kubernetes_agent#prerequisites) above) is valid and properly formatted. If necessary, generate a new token and update the configuration.
+
 ### DNS Lookup Error {#dns-lookup-error}
 
 You may receive a DNS Lookup Error that indicates `"level":"ERROR","msg":"failed to scrape node"` and `no such host`.
