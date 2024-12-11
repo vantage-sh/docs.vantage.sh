@@ -66,14 +66,7 @@ All data is encrypted in transit and at rest. Only a subset of senior employees 
 
 <details><summary>Do you have a list of third parties Vantage uses that explains what each third party is allowed to access and its purpose?</summary>
 
-We use a subset of third parties, largely for analytics, support, and payment processing. There is no PII sent to third parties, and no cost data is shared with third parties. A list of third parties is provided below:
-
-- Mixpanel: Customer analytics
-- Segment: Customer analytics
-- Customer.io: Customer communications
-- HubSpot: Sales management
-- Intercom: Support management
-- Stripe: Payment processing
+We use a subset of third parties, largely for analytics, support, and payment processing. There is no PII sent to third parties, and no cost data is shared with third parties. See the [Vantage website](https://www.vantage.sh/security) for a list of these third parties.
 
 </details>
 
