@@ -56,11 +56,13 @@ The following prerequisites are required before you install the Vantage Kubernet
 
 - A running Kubernetes cluster
 
-- An already connected primary provider (e.g., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
+- An already connected primary provider (i.e., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
 
-- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled (it's recommended to use a [service token](/vantage_account#api-service-token) rather than a [personal access token](/vantage_account#api-personal-token).)
+- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled (it's recommended to use a [service token](/vantage_account#api-service-token) rather than a [personal access token](/vantage_account#api-personal-token))
 
 - **If you do not already have an integration enabled**, navigate to the [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes?connect=true) in the Vantage console, and click the **Enable Kubernetes Agent** button (you won't need to do this for subsequent integrations)
+
+- Review the section on [Data Persistence](/kubernetes_agent#data-persistence) before you begin
 
 ## Create a Connection
 
@@ -196,9 +198,46 @@ The version noted in the console for your agent is updated when cost data is imp
 AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#aks) again when updating.
 :::
 
+## (Optional) Use S3 for Data Persistence {#data-persistence}
+
+The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. The default deployment option uses a Persistent Volume and works for clusters ranging from tens to thousands of nodes; however, if Persistent Volumes are not supported with your cluster, an alternative configuration, using S3, is available for agents deployed in AWS. If you require persistence to a different object store, you can contact [support@vantage.sh](mailto:support@vantage.sh).
+
+### Configure Agent for S3 Persistence
+
+The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
+
+Below are the expected associated permissions for the IAM role:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:PutObject",
+        "s3:ListBucket",
+        "s3:AbortMultipartUpload",
+        "s3:ListMultipartUploadParts",
+        "s3:DeleteObject"
+      ],
+      "Resource": [
+        "arn:aws:s3:::example-bucket-name/*",
+        "arn:aws:s3:::example-bucket-name"
+      ]
+    }
+  ]
+}
+```
+
+Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persistS3.bucket=example-bucket-name` values.
+
+The agent will write persisted data to the `$CLUSTER_ID/` prefix within the bucket. Multiple agents can use the same bucket as long as they do not have overlapping `CLUSTER_ID` values. An optional prefix can be prepended with `VANTAGE_PERSIST_S3_PREFIX` resulting in `$VANTAGE_PERSIST_S3_PREFIX/$CLUSTER_ID/` being the prefix used by the agent for all objects uploaded.
+
 ## Common Errors
 
-### Failed to Fetch Presigned URL — API Token Error {#presigned-url-api}
+### Failed to Fetch Presigned URL—API Token Error {#presigned-url-api}
 
 The below error occurs when the agent attempts to fetch presigned URLs but fails due to an invalid `Authorization` header field value. The error log typically looks like this:
 
@@ -207,6 +246,36 @@ The below error occurs when the agent attempts to fetch presigned URLs but fails
 ```
 
 This issue is typically caused by incorrect or missing API keys. Ensure the value for the `VANTAGE_API_TOKEN` (obtained in the [Prerequisites](/kubernetes_agent#prerequisites) above) is valid and properly formatted. If necessary, generate a new token and update the configuration.
+
+### Failed to Set Up Controller Store—`MissingRegion`
+
+This error occurs when the agent cannot initialize the controller store due to missing or misconfigured AWS region settings. The error log will typically look like:
+
+```
+failed to setup controller store  
+failed to open backup: MissingRegion: could not find region configuration  
+```
+
+This issue arises when the agent’s Service Account is not properly configured with AWS IAM roles and permissions. In this case, the agent defaults to local configuration, which lacks the necessary region configuration. 
+
+1. Verify the Service Account configuration:
+    - Check if the `eks.amazonaws.com/role-arn` annotation is correctly added to the Service Account. Run the following command to inspect the configuration:
+      ```bash
+      kubectl -n vantage get serviceaccount vka-vantage-kubernetes-agent -o yaml
+      ```
+    - Ensure the Service Account matches the Helm Chart settings in the agent’s [Helm Chart values file](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L102-L106). This is a name that you can also set within the file. 
+2. Ensure the IAM role is correctly set up:
+    - Review the [AWS IAM Roles for Service Accounts documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to confirm that the IAM role is configured with the necessary permissions and associated with the Service Account.
+3. Configure S3 persistence:
+    - See the [Agent S3 persistence setup](/kubernetes_agent/#configure-agent-for-s3-persistence) section for details. 
+    :::tip
+    One recommendation is to ensure that the S3 bucket used for persistence is in the same region as the Kubernetes cluster to minimize latency.
+    :::
+4. If necessary, recreate the pod:
+    - If the Service Account appears correct and there’s still an issue, delete the agent pod to force a fresh start with the correct configuration:
+      ```bash
+      kubectl -n vantage delete pod -l app.kubernetes.io/name=vantage-kubernetes-agent
+      ```
 
 ### DNS Lookup Error {#dns-lookup-error}
 
@@ -270,43 +339,6 @@ Additional provider references are also listed here:
 ### Volume Support Error {#volume-support}
 
 If you see an error related to `binding volumes: context deadline exceeded`, this means you may not have volume support on your cluster. This error typically occurs when your cluster is unable to provision or attach persistent storage volumes required by your applications. Check your cluster's configuration and ensure the storage provider is properly set up.
-
-## (Optional) Use S3 for Data Persistence
-
-The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. The default deployment option uses a Persistent Volume and works for clusters ranging from tens to thousands of nodes; however, if Persistent Volumes are not supported with your cluster, an alternative configuration, using S3, is available for agents deployed in AWS. If you require persistence to a different object store, you can contact [support@vantage.sh](mailto:support@vantage.sh).
-
-### Configure Agent for S3 Persistence
-
-The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
-
-Below are the expected associated permissions for the IAM role:
-
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
-    {
-      "Effect": "Allow",
-      "Action": [
-        "s3:GetObject",
-        "s3:PutObject",
-        "s3:ListBucket",
-        "s3:AbortMultipartUpload",
-        "s3:ListMultipartUploadParts",
-        "s3:DeleteObject"
-      ],
-      "Resource": [
-        "arn:aws:s3:::example-bucket-name/*",
-        "arn:aws:s3:::example-bucket-name"
-      ]
-    }
-  ]
-}
-```
-
-Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persistS3.bucket=example-bucket-name` values.
-
-The agent will write persisted data to the `$CLUSTER_ID/` prefix within the bucket. Multiple agents can use the same bucket as long as they do not have overlapping `CLUSTER_ID` values. An optional prefix can be prepended with `VANTAGE_PERSIST_S3_PREFIX` resulting in `$VANTAGE_PERSIST_S3_PREFIX/$CLUSTER_ID/` being the prefix used by the agent for all objects uploaded.
 
 ## Active Resources and Rightsizing Recommendations
 
