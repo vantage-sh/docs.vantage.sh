@@ -84,6 +84,7 @@ The following Databricks SKU groups are supported:
 - AWS DLT Compute Photon
 - AWS Serverless SQL Compute
 - AWS Serverless Inference
+- AWS Model Training
 
 :::note
 At this time, the AWS Security and Compliance SKU group is not supported. 
