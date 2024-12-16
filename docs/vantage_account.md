@@ -22,25 +22,44 @@ From the top navigation bar of the Vantage console, click **Settings**. On the s
 ### Currency Conversion {#currency-conversion}
 
 :::note
-At this time, presentational currency conversion is available only on Vantage reports, such as Cost Reports, Kubernetes Efficiency Reports, Financial Commitment Reports, and Provider Resource Reports. Additional scopes will be added soon.
+At this time, presentational currency conversion is available only on Vantage reports, such as Cost Reports, Kubernetes Efficiency Reports, Financial Commitment Reports, and Provider Resource Reports. It is also available on Budgets. Additional scopes will be added soon.
 :::
 
-By default, Vantage displays costs in US Dollars (USD). You can set a presentational currency, on a per-workspace basis, to visualize cost reporting data in a currency of your choice. When you configure currency for a workspace, you can choose between using the previous month’s closing exchange rate or the daily exchange rate. Vantage calculates the exchange rate based on a [public API](https://exchangeratesapi.io/).
+Vantage offers two options for displaying currency within the console: a _Display Preference_ and _Currency Conversion_. 
+
+- **Display Preference**: If your imported costs are already billed in a currency other than USD, you can enable a _Display Preference_. This lets you view your costs with the appropriate currency symbol—without using Vantage's currency conversion rates. This option is ideal for users who prefer their costs to reflect the currency in which they are billed.
+- **Currency Conversion**: With *Currency Conversion*, you can choose to view costs in a different currency by converting amounts using exchange rates. This is configured per workspace and offers two options:
+    - **Previous Month’s Closing Rate**: Uses the closing exchange rate for the last day of the previous month.
+    - **Daily Rate**: Applies the current exchange rate for each day.
+    
+  Vantage calculates the exchange rate based on a [public API](https://exchangeratesapi.io/).
+
+#### Enable Display Preference 
+
+To enable a display preference:
+
+1. From the top navigation, click **Settings**
+2. On the side navigation, click **Workspaces**. All your existing workspaces are displayed. Select the workspace where you want to configure your display preference.
+3. At the top of the **Workspaces** page, under **Currency Settings > Display Preference**, select your preferred currency from the list. Reports will now display your selected currency symbol next to costs.
+
+#### Enable Currency Conversion 
 
 To enable currency conversion:
 
 1. From the top navigation, click **Settings**
 2. On the side navigation, click **Workspaces**. All your existing workspaces are displayed. Select the workspace where you want to enable currency conversion.
-3. At the top of the **Workspaces** page, under **Preferred Currency**, click the toggle to enable this setting. (You can click this toggle again to disable the setting.)
-4. Select your preferred currency from the list.
-5. For **Exchange Rate Dates**, select one of the following conversion date options. For the most accurate results, use the currency method in which you are billed:
-   - **Daily Rate:** Vantage maintains a daily snapshot of exchange rates to provide estimated currency conversions. With the **Daily Rate** option, the costs' corresponding daily exchange rate will be used for the conversion.
-   - **End of Billing Period Rate:** Vantage matches each cost entry to the last date of the corresponding month in which the cost was incurred. 
+3. At the top of the **Workspaces** page, under **Currency Settings > Currency Conversion**, select **Enable,** then select your preferred currency from the list.
+  :::note
+  Anything currently set in the **Display Preference** section is overridden by your currency conversion selection.
+  :::
+4. For **Exchange Rate Dates**, select one of the following conversion date options. For the most accurate results, use the currency method in which you are billed:
+    - **Daily Rate:** Vantage maintains a daily snapshot of exchange rates to provide estimated currency conversions. With the **Daily Rate** option, the costs' corresponding daily exchange rate will be used for the conversion.
+    - **End of Billing Period Rate:** Vantage matches each cost entry to the last date of the corresponding month in which the cost was incurred.
 
 Your settings are automatically saved and available on your reports.
 
 :::note
-If you disable currency, your presentational currency will default back to USD.
+If you disable currency conversion, your presentational currency will default back to USD.
 :::
 
 ### Manage Workspaces
