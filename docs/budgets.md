@@ -18,6 +18,10 @@ You can create and assign a _budget_ to a Cost Report. Once a budget is assigned
 To get started with budgets, you can also view video demos on [Vantage University](/vantage_university_budgeting) 🎓.
 :::
 
+Budgets are either _Standard_ or _Hierarchical_:
+- **Standard budget:** This type of budget has one level that may have multiple time periods associated with it. For example, you could use this type of budget for a single department or project.
+- **Hierarchical budget:** This type of budget has multiple levels that roll up to a parent budget. For example, an application team can create individual budgets for AWS, Azure, and Databricks usage and then create a single budget for their application that combines all three of these children budgets. If the AWS budget changes, the parent application budget is automatically updated. Similarly, the organization’s FinOps team can consolidate multiple AWS budgets from various teams into a single, comprehensive parent budget to measure all AWS spend.
+
 ## Create a Budget
 
 :::note
@@ -68,11 +72,14 @@ Budget import files must adhere to the following requirements:
 - The header row of the CSV must start with a unique string or identifier (e.g., `Budget Name`).
   - The remaining values in the header row must be the budget period start date in `YYYY-MM` format (e.g., `2023-02` for February 2023).
 - Each additional row in the CSV must start with the name of the budget. Corresponding values must be expressed as decimals (e.g., `25000.00`) for every month where there is an associated budget. If there is no budget for a month, the value can be blank.
+- If the budget is a Hierarchical Budget, include the `Parent Budget` column.
 
-The below example shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Team 3 does not have a budget for 3/2024, and therefore, no budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
+#### Standard Budget Format
+
+The below example of a Standard Budget shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Team 3 does not have a budget for 3/2024, and therefore, no budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
 
 <Tabs>
-  <TabItem value="budget" label="Budget" default>
+  <TabItem value="standard-budget" label="Standard Budget" default>
     <table>
         <tr>
         <th>Budget Name</th>
@@ -82,20 +89,20 @@ The below example shows a readable view, CSV file format, the budget import scre
         </tr>
         <tr>
         <td>Team 1</td>
-        <td>50000.00</td>
-        <td>51000.00</td>
-        <td>52000.00</td>
+        <td>50000</td>
+        <td>51000</td>
+        <td>52000</td>
         </tr>
         <tr>
         <td>Team 2</td>
-        <td>30000.00</td>
-        <td>30000.00</td>
-        <td>40000.00</td>
+        <td>30000</td>
+        <td>30000</td>
+        <td>40000</td>
         </tr>
         <tr>
         <td>Team 3</td>
-        <td>45000.00</td>
-        <td>50000.00</td>
+        <td>45000</td>
+        <td>50000</td>
         <td></td>
         </tr>
     </table>
@@ -103,9 +110,9 @@ The below example shows a readable view, CSV file format, the budget import scre
   <TabItem value="csv" label="CSV File">
     <pre><code>
     Budget Name,2024-01,2024-02,2024-03<br/>
-    Team 1,50000.00,51000.00,52000.00<br/>
-    Team 2,30000.00,30000.00,40000.00<br/>
-    Team 3,45000.00,50000.00,
+    Team 1,50000,51000,52000<br/>
+    Team 2,30000,30000,40000<br/>
+    Team 3,45000,50000,
     </code></pre>
   </TabItem>
   <TabItem value="upload" label="Import Screen">
@@ -116,6 +123,102 @@ The below example shows a readable view, CSV file format, the budget import scre
     <TabItem value="imported" label="Imported Budget">
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-budget.png" />
+    </div>
+  </TabItem>
+</Tabs>
+
+#### Hierarchical Budget Format
+
+The below example of a Hierarchical Budget shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Note that the parent budgets—Engineering Org, Development Dep, and Infrastructure Dep—do not have any costs listed since these budgets are composed of the corresponding child budgets. The associated parent is listed in the `Parent Budget` column. 
+
+<Tabs>
+  <TabItem value="hierarchical-budget" label="Hierarchical Budget" default>
+    <table>
+      <thead>
+        <tr>
+          <th>Budget Name</th>
+          <th>Parent Budget</th>
+          <th>2024-10</th>
+          <th>2024-11</th>
+          <th>2024-12</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Engineering Org</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Development Dept</td>
+          <td>Engineering Org</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Infrastructure Dept</td>
+          <td>Engineering Org</td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Frontend Redesign</td>
+          <td>Development Dept</td>
+          <td>30000</td>
+          <td>35000</td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Backend Refactor</td>
+          <td>Development Dept</td>
+          <td>40000</td>
+          <td></td>
+          <td>50000</td>
+        </tr>
+        <tr>
+          <td>New Cloud Environment</td>
+          <td>Infrastructure Dept</td>
+          <td>60000</td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Cost Optimization Task</td>
+          <td>Infrastructure Dept</td>
+          <td></td>
+          <td>30000</td>
+          <td>40000</td>
+        </tr>
+      </tbody>
+    </table>
+    </TabItem>
+  <TabItem value="csv-hierarchical" label="CSV File">
+    <pre><code>
+    Budget Name,Parent Budget,2024-10,2024-11,2024-12<br/>
+    Engineering Org,,100000,<br/>
+    Development Dept,Engineering Org,,,<br/>
+    Infrastructure Dept,Engineering Org,,,<br/>
+    Frontend Redesign,Development Dept,30000,35000,<br/>
+    Backend Refactor,Development Dept,40000,,50000<br/>
+    New Cloud Environment,Infrastructure Dept,60000,,<br/>
+    Cost Optimization Task,Infrastructure Dept,,30000,40000<br/>
+    </code></pre>
+  </TabItem>
+  <TabItem value="upload" label="Import Screen">
+    <div style={{display:"flex", justifyContent:"center"}}>
+        <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="/img/import-hierarchical-budget.png" />
+    </div>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <p><i>Sample of what's displayed on import screen.</i></p>
+    </div>
+  </TabItem>
+    <TabItem value="imported" label="Imported Budget">
+    <div style={{display:"flex", justifyContent:"center"}}>
+        <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-hierarchical-budget.png" />
     </div>
   </TabItem>
 </Tabs>
@@ -156,6 +259,9 @@ Use the following troubleshooting suggestions to check for errors in your CSV fi
 - Ensure that each budget name is unique.
 - Ensure the dates in the header row are in the correct format (i.e., `YYYY-MM`).
 - Ensure values do not include other characters and are in decimal format (e.g., `56000.00`, not `$56,000.00`).
+- For Hierarchical Budgets:
+  - Ensure that parent budgets do not have any costs listed
+  - Ensure that any budget listed in the `Parent Budget` column exists
 
 ## View Budgets on Cost Reports
 
