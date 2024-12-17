@@ -11,6 +11,7 @@ keywords:
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ReactPlayer from 'react-player';
+import Checkmark from '@site/src/components/icons/Checkmark';
 
 # Vantage for MSPs
 
@@ -44,13 +45,13 @@ To provision a new customer account:
 2. From the top navigation, click **Settings**.
 3. From the left navigation, under **Partner Settings**, select **Managed Accounts.**
 4. The **Managed Accounts** administrative portal is displayed. All existing customer accounts are displayed along with the **Account Name**, **Contact Email**, and the date when the account was created. At the top, click **New Managed Account**.
-    <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Managed accounts screen with two existing accounts" width="80%" src="/img/partners/managed-screen.png" />
-    </div>
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Managed accounts screen with two existing accounts" width="80%" src="/img/partners/managed-screen.png" />
+</div>
 5. Enter an **Account Name** and a **Contact Email Address**. The email address is your administrator ID for this account and therefore must match your company’s email domain. The email address cannot exist for another customer account; however, an alias is acceptable, like `admin+customer@yourdomain.com`.
-    <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Pop-up window for creating a new managed account" width="100%" src="/img/partners/new-account.png" />
-    </div>
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Pop-up window for creating a new managed account" width="100%" src="/img/partners/new-account.png" />
+</div>
 6. Click **Create Account**.
 
 ## Access a Customer Account
@@ -61,9 +62,9 @@ From the **Managed Accounts** screen, you can move between each of your customer
 2. The customer account is displayed. When you enter a customer's account, you are considered the **Manager User** for that account.
    - A yellow bar is displayed around the border of the screen to indicate you are logged in to the customer's account.
    - On the bottom left, a pop-up is displayed to indicate which customer account you are logged in to.
-    <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="A bar is displayed around a customer's account that the manager user is logged into" width="100%" src="/img/partners/customer-account.png" />
-    </div>
+   <div style={{display:"flex", justifyContent:"center"}}>
+       <img alt="A bar is displayed around a customer's account that the manager user is logged into" width="100%" src="/img/partners/customer-account.png" />
+   </div>
 
 Perform one of the following actions to return to your management account:
 
@@ -84,15 +85,15 @@ After a customer account is created, you can enable Single Sign-On (SSO) for eac
 
 The way you add integrations to a customer account depends on how your MSP is set up. There are two available workflows:
 
-- **Workflow 1 - Unconsolidated Organizations:** An example MSP structure for this workflow might be where you have completely separate AWS Organizations set up for each customer. As an MSP, you have access to the payer account, and the customer has access to a member account. In this case, follow the steps below to ***Configure Integrations in the Customer Account***.
-- **Workflow 2 - Consolidated Organizations:** In this setup, the MSP uses a single AWS Organization that includes multiple linked accounts under a centralized management account. In this case, follow the steps below to ***Configure Integrations in the Management Account***
+- **Workflow 1 - Unconsolidated Organizations:** An example MSP structure for this workflow might be where you have completely separate AWS Organizations set up for each customer. As an MSP, you have access to the payer account, and the customer has access to a member account. In this case, follow the steps below to **_Configure Integrations in the Customer Account_**.
+- **Workflow 2 - Consolidated Organizations:** In this setup, the MSP uses a single AWS Organization that includes multiple linked accounts under a centralized management account. In this case, follow the steps below to **_Configure Integrations in the Management Account_**
 
 ### Configure Integrations in the Customer Account (Unconsolidated Organization Workflow, Most Common)
 
 If this is the first time you are adding an integration:
 
 1. From the **Managed Accounts** screen, enter a customer’s account. If this is the first time you are connecting integrations for a customer, the **Connect Accounts** screen is displayed.
-2. Select an integration and follow the steps provided in the console. 
+2. Select an integration and follow the steps provided in the console.
 
 <div style={{ display: "flex", justifyContent: "center" }}>
     <div style={{ 
@@ -114,7 +115,7 @@ If this is the first time you are adding an integration:
     </div>
 </div>
 
-If you are adding another integration: 
+If you are adding another integration:
 
 1. From the top navigation, select **Settings**.
 2. On the right navigation, click **Integrations**. All available integrations are displayed. Select an integration to get started.
@@ -125,7 +126,7 @@ See the [Quickstart](/getting_started) for a list of all other existing Vantage 
 
 ### Configure Integrations in the Management Account (Consolidated Organization Workflow, Less Common)
 
-This workflow requires that you first set up an integration in your MSP account. From the **Managed Accounts** screen, you can add any of your connected integrations to a customer account. 
+This workflow requires that you first set up an integration in your MSP account. From the **Managed Accounts** screen, you can add any of your connected integrations to a customer account.
 
 To get started, ensure that you have connected a provider integration to your management account. See the [AWS multiple accounts documentation](/connecting_aws#connecting-multiple-aws-accounts) for information on how to connect a management account with multiple linked accounts. Note that provider integrations passed down to customer accounts from an MSP's provider integrations will only be available in the first workspace of that customer. After you have connected an integration to your MSP account, follow the steps below to associate them with customer accounts.
 
@@ -245,15 +246,19 @@ You can select which rules you want added to customer accounts.
 
 Vantage for MSPs has additional role-based access control permissions for the management account. See the [Role-Based Access Control documentation](/rbac) for additional information on RBAC in Vantage.
 
-| Role    | Description                                                                                                                                                                                                                           |
-| ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Owners  | Have full control over the management account and customer accounts. They can add new customer accounts, create resources in customer accounts, and create integrations in customer accounts. They can also delete customer accounts. |
-| Editors | Editors can switch into customer accounts and manage customer accounts, but they cannot make changes to the management account.                                                                                                       |
-| Viewers | Viewers will only be able to view the management account.                                                                                                                                                                             |
+|                                        | Owner        | Integration Owner | Editor       | Viewer       |
+| -------------------------------------- | ------------ | ----------------- | ------------ | ------------ |
+| View Management Account                | <Checkmark/> | <Checkmark/>      | <Checkmark/> | <Checkmark/> |
+| Create resources in Management Account | <Checkmark/> | <Checkmark/>      | <Checkmark/> |              |
+| Add and remove Managed Accounts        | <Checkmark/> | <Checkmark/>      |              |              |
+| Add and remove provider integrations   | <Checkmark/> | <Checkmark/>      |              |              |
+| View Managed Accounts                  | <Checkmark/> | <Checkmark/>      |              |              |
+| Create resources in Managed Accounts   | <Checkmark/> | <Checkmark/>      |              |              |
+| Create new users Management Account    | <Checkmark/> |                   |              |              |
 
 ## Remove a Customer’s Account
 
-You can either _unlink_ or _delete_ a customer’s account. MSP customers cannot delete accounts. 
+You can either _unlink_ or _delete_ a customer’s account. MSP customers cannot delete accounts.
 
 :::note
 If you are a customer and want your account deleted, contact your MSP.
