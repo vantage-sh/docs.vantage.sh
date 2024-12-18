@@ -9,6 +9,7 @@ keywords:
 
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
+import ReactPlayer from 'react-player';
 
 # Budgets
 
@@ -36,12 +37,12 @@ This type of budget is composed of multiple child budgets that roll up to a pare
 Hierarchical Budgets have the following characteristics:
 
   - You can create a budget hierarchy with a maximum of 10 levels.
-  - Each parent budget will sum all budget periods of child budgets. If a child budget does not have any budget during a particular period, it will not add any budget to the parent’s budget period.
+  - Each parent budget aggregates the budget periods of its child budgets. If a child budget has no allocated budget for a specific period, that period contributes nothing to the parent’s total.
   - A Hierarchical Budget can be converted into a single-level Standard Budget. This action breaks the connection between the parent and child budgets in the hierarchy.
   - A child budget can be used only once within a given hierarchy.
     - _Example: You create a hierarchy with a parent budget for the "Marketing Organization" and child budgets for "Social Media Campaigns," "Event Marketing," and "Content Creation." The child budget for "Social Media Campaigns" cannot also appear under "Event Marketing" within the same hierarchy to avoid duplication in budget calculations._
   - A child budget can belong to multiple separate hierarchies. 
-    - _Example: Suppose your organization is structured both by departments and projects. A child budget for "Mobile App Redesign" might belong to the "Product Development" department’s hierarchy while also appearing in a completely separate hierarchy for cross-functional "Q1 Strategic Initiatives." This allows you to manage and report on budgets across different organizational contexts._
+    - _Example: Suppose your organization is structured both by departments and projects. A child budget for "Mobile App Redesign" might belong to the "Product Development" department’s hierarchy, while also appearing in a completely separate hierarchy for cross-functional "Q1 Strategic Initiatives." This allows you to manage and report on budgets across different organizational contexts._
 
 ## Create a Budget: UI Method
 
@@ -58,51 +59,49 @@ The below instructions describe how to manually create a budget in the UI. You c
 </details>
 3. From the top right of the screen, click **New Budget**.
 4. Enter a budget **Name** and click **Create Budget**.
-5. The budget details page is displayed. For **Budget Type**, select either **Standard Budget** or **Hierarchical Budget**. The options displayed will differ for either budget type.
+5. The budget details page is displayed. For **Budget Type**, select either **Standard Budget** or **Hierarchical Budget**. The options displayed differ for either budget type.
 
-<Tabs>
-  <TabItem value="standard-budget-steps" label="Standard Budget" default>
-    <ul>
-      <li>Under <b>Assign to Cost Report or Segment</b>, select the report you want the budget to be displayed on.</li>
-      <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any associated alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
-      <li>For <b>Budget Periods</b>, click <b>New Budget Period</b>. Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
-        <ul>
-          <li>Enter a start date in <b>YYYY-MM</b> format (e.g., 2024-03).</li>
-          <li>Enter an optional period end date.</li>
-          <li>Enter a total monthly budget amount in dollars.</li>
-          <li>Click <b>New Budget Period</b> to add additional budget periods.</li>
+  <Tabs>
+    <TabItem value="standard-budget-steps" label="Standard Budget" default>
+      <ul>
+        <li>Under <b>Assign to Cost Report or Segment</b>, select the report you want the budget to be displayed on. See the <a href="/budgets#view-budgets-on-cost-reports">section below</a> for details. 
+          <div class="theme-admonition theme-admonition-note alert alert--secondary admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>Budgets are scoped to a report within a specific <a href="/workspaces/">workspace</a>, and access can be controlled via <a href="/rbac">teams</a>.</p></div></div>
+        </li>
+        <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
+        <li>For <b>Budget Periods</b>, click <b>New Budget Period</b>. Standard Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
+          <ul>
+            <li>Enter a start date in <b>YYYY-MM</b> format (e.g., 2024-03).</li>
+            <li>Enter an optional period end date.</li>
+            <li>Enter a total monthly budget amount in dollars.</li>
+            <li>Click <b>New Budget Period</b> to add additional budget periods.</li>
+            <details><summary>Click to view example image</summary>
+              <div style={{display:"flex", justifyContent:"center"}}>
+              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
+              </div>
+            </details>
+          </ul>
+        </li>
+      </ul>
+    </TabItem>
+    <TabItem value="hierarchical-budget-steps" label="Hierarchical Budget">
+      <div class="theme-admonition theme-admonition-tip alert alert--success admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>To create a budget hierarchy, it’s recommended to start by creating all your terminal child budgets as <b>Standard</b> budgets. Once the child budgets are in place, you can proceed to create the parent budgets. This ensures that the child budgets are available to select and connect when setting up the parent budget.</p></div></div>
+      <ul>
+        <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
+        <li>Under <b>Child Budgets</b>, select the immediate child budgets that directly roll up to this parent budget. For example, if you have an "Org" budget with a "Department" budget as its child, and the "Department" budget has a "Team" budget as its child, you would only select the "Department" budget as the child when creating the "Org" budget.
           <details><summary>Click to view example image</summary>
             <div style={{display:"flex", justifyContent:"center"}}>
-            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
+              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-hierarchical-budget.png" />
             </div>
           </details>
-        </ul>
-      </li>
-    </ul>
-  </TabItem>
-  <TabItem value="hierarchical-budget-steps" label="Hierarchical Budget">
-    <p>The <b>Assign to Cost Report or Segment</b> is not displayed for Hierarchical Budgets. You also cannot configure any separate budget periods and budget amounts for this budget type. This is configured only for child budgets. For this budget type, from this screen, you can configure the hierarchy.</p>
-    <div class="theme-admonition theme-admonition-tip alert alert--success admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>One suggested workflow is to create all your terminal child budgets first as <b>Standard</b> budgets and then create your parent budgets.</p></div></div>
-    <ul>
-      <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any associated alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
-      <li>Under <b>Child Budgets</b>, select the corresponding next-level children budgets that roll up to this parent budget.
-        <details><summary>Click to view example image</summary>
-          <div style={{display:"flex", justifyContent:"center"}}>
-            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-hierarchical-budget.png" />
-          </div>
-        </details>
-      </li>
-    </ul>
-  </TabItem>
-</Tabs>
+        </li>
+      </ul>
+      <p>The <b>Assign to Cost Report or Segment</b> section is not displayed for Hierarchical Budgets. You also cannot configure any separate budget periods and budget amounts for this budget type. You can configure these options only for terminal child budgets.</p>
+    </TabItem>
+  </Tabs>
 
----
+  ---
 
 6. At the top right, click **Save Changes**.
-
-:::note
-Budgets are scoped to a report within a specific [workspace](/workspaces/), and access can be controlled via [teams](/rbac).
-:::
 
 ## Create a Budget: CSV Import Method {#upload}
 
@@ -120,7 +119,7 @@ Budget import files must adhere to the following requirements:
 
 #### Standard Budget Format
 
-The below example of a Standard Budget shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Team 3 does not have a budget for 3/2024, and therefore, no budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
+The below example of three Standard Budgets shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Team 3 does not have a budget for 2024-03, and therefore, no budget period is added for Team 3 during that timeframe. On the import, the period start and end date are set based on the column headers.
 
 <Tabs>
   <TabItem value="standard-budget" label="Standard Budget" default>
@@ -164,7 +163,7 @@ The below example of a Standard Budget shows a readable view, CSV file format, t
         <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="/img/import-budget.png" />
     </div>
   </TabItem>
-    <TabItem value="imported" label="Imported Budget">
+    <TabItem value="imported" label="Imported Budgets">
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-budget.png" />
     </div>
@@ -173,7 +172,7 @@ The below example of a Standard Budget shows a readable view, CSV file format, t
 
 #### Hierarchical Budget Format
 
-The below example of a Hierarchical Budget shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Note that the parent budgets—Engineering Org, Development Dep, and Infrastructure Dep—do not have any costs listed since these budgets are composed of the corresponding child budgets. The associated parent is listed in the `Parent Budget` column. 
+The below example of a Hierarchical Budget shows a readable view, CSV file format, the budget import screen, and the final budget in Vantage. Note that the parent budgets—Engineering Org, Development Dept, and Infrastructure Dept—do not have any amounts listed since these budgets are composed of the corresponding child budgets—Frontend Redesign, Backend Refactor, New Cloud Environment, and Cost Optimization Task. The associated next-level parent is listed in the `Parent Budget` column. 
 
 <Tabs>
   <TabItem value="hierarchical-budget" label="Hierarchical Budget" default>
@@ -260,9 +259,12 @@ The below example of a Hierarchical Budget shows a readable view, CSV file forma
       <p><i>Sample of what's displayed on import screen.</i></p>
     </div>
   </TabItem>
-    <TabItem value="imported" label="Imported Budget">
+    <TabItem value="imported" label="Imported Budgets">
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-hierarchical-budget.png" />
+    </div>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <p><i>Observe the Hierarchical Budget icon listed next to any parent budget (e.g., Engineering Org) in the list.</i></p>
     </div>
   </TabItem>
 </Tabs>
@@ -270,6 +272,8 @@ The below example of a Hierarchical Budget shows a readable view, CSV file forma
 ---
 
 ### Import Budget
+
+Once your CSV file is prepared, follow the steps below to import any type of budget.
 
 1. From the top navigation, click **Financial Planning**.
 2. On the left navigation, select **Budgets**.
@@ -301,12 +305,34 @@ Use the following troubleshooting suggestions to check for errors in your CSV fi
 
 - There should be no additional blank columns in the CSV file.
 - Ensure that each budget name is unique.
-- Check that budget name does not already exist in Vantage. Otherwise, you will be prompted to overwrite the existing budget with your new budget.
+- Confirm that the budget name does not already exist in Vantage. If it does, you will be prompted to overwrite the existing budget with the newly uploaded one.
+  - If you want to overwrite an existing budget, select the **Overwrite budget periods** option at the top and confirm. Any budgets with the same name will be replaced with the data from your new file.
+  <details><summary>Click to view example image</summary>
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ 
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+          borderRadius: "10px", 
+          width: "100%",
+          overflow: "hidden" 
+      }}>
+      <ReactPlayer 
+          playing 
+          muted 
+          playsinline
+          loop
+          url='/img/budget-overwrite.mp4'
+          alt="Log in to customer's account and click to add a new AWS integration." 
+          width="100%"
+          height="100%"
+      />
+      </div>
+    </div>
+  </details>
 - Ensure the dates in the header row are in the correct format (i.e., `YYYY-MM`).
-- Values cannot include other characters and should be in decimal format (e.g., `56000.00`, not `$56,000.00`).
+- Values cannot include other characters and can be in decimal format (e.g., `56000.00` or `56000`, not `$56,000.00`).
 - For Hierarchical Budgets:
-  - Ensure that parent budgets do not have any numbers listed in any of the budget periods columns. Budget numbers should be provided only for terminal child budgets.
-  -Any budget listed in the `Parent Budget` column should be already in Vantage or defined within your current CSV file. 
+  - Ensure that parent budgets do not have any amounts listed in any of the budget periods columns. Budget amounts should be provided only for terminal child budgets.
+  - Any budget listed in the `Parent Budget` column should already be present in Vantage or defined within your current CSV file. 
   - A child budget can be used only once within a given hierarchy.
 
 ## View Budget Performance and Hierarchy
