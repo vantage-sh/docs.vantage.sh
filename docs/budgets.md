@@ -321,7 +321,7 @@ Use the following troubleshooting suggestions to check for errors in your CSV fi
           playsinline
           loop
           url='/img/budget-overwrite.mp4'
-          alt="Log in to customer's account and click to add a new AWS integration." 
+          alt="Overwriting an existing budget in the import UI." 
           width="100%"
           height="100%"
       />
@@ -342,13 +342,44 @@ For any budget type, you can view both the **Performance** and **Hierarchy** tab
 ### Budget Performance
 
 Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform.
-<details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
+
+  <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Performance of a budget across six periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
     </div>
-</details>
 
 ### Budget Hierarchy
+
+On the **Hierarchy** tab, a graph is displayed that provides a time-series view of **Actual Spend** and **Total Budget**. 
+- Hover over a point on the graph to see a point-in-time view of the cumulative budget and spend. 
+- In the table, if the budget is a parent budget in the hierarchy, any immediate child budgets are listed along with their related performance. You can click the link for any listed child budget to move to the **Hierarchy** screen for that particular child budget.
+
+In the below visual example: 
+
+- The Hierarchy tab is displayed for the parent budget, "Engineering Org."
+- The user navigates to the child budget, "Infrastructure Dept.," and then to the terminal child budget, "New Cloud Environment."
+- Each parent budget lists all of its corresponding child budgets.
+- On this tab, the graph provides a cumulative view, showing the total budget and actual spend for all connected child budgets.
+  - For the terminal "New Cloud Environment budget," note that no budget was allocated beyond October. As a result, the graph line stops at October, reflecting the lack of data for subsequent months.
+
+    <div style={{ display: "flex", justifyContent: "center" }}>
+      <div style={{ 
+          boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+          borderRadius: "10px", 
+          width: "100%",
+          overflow: "hidden" 
+      }}>
+      <ReactPlayer 
+          playing 
+          muted 
+          playsinline
+          loop
+          url='/img/budget-hierarchy.mp4'
+          alt="Traversing through a budget hierarchy" 
+          width="100%"
+          height="100%"
+      />
+      </div>
+    </div>
 
 ## View Budgets on Cost Reports
 
