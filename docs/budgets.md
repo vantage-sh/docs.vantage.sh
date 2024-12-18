@@ -18,14 +18,35 @@ You can create and assign a _budget_ to a Cost Report. Once a budget is assigned
 To get started with budgets, you can also view video demos on [Vantage University](/vantage_university_budgeting) 🎓.
 :::
 
-Budgets are either _Standard_ or _Hierarchical_:
-- **Standard budget:** This type of budget has one level that may have multiple time periods associated with it. For example, you could use this type of budget for a single department or project.
-- **Hierarchical budget:** This type of budget has multiple levels that roll up to a parent budget. For example, an application team can create individual budgets for AWS, Azure, and Databricks usage and then create a single budget for their application that combines all three of these children budgets. If the AWS budget changes, the parent application budget is automatically updated. Similarly, the organization’s FinOps team can consolidate multiple AWS budgets from various teams into a single, comprehensive parent budget to measure all AWS spend.
+## Budget Types
 
-## Create a Budget
+In Vantage, you can create either _Standard_ or _Hierarchical_ budgets:
+
+### Standard Budget
+
+This type of budget has one level that may have multiple time periods associated with it. For example, you could use this type of budget to track costs for a single department or project.
+
+### Hierarchical Budget
+
+This type of budget is composed of multiple child budgets that roll up to a parent budget.
+
+- For example, an application team can create individual budgets for AWS, Azure, and Databricks usage and then create a single budget for their application that combines all three of these children budgets. If the AWS budget changes, the parent application budget is automatically updated. 
+- Similarly, the organization’s FinOps team can consolidate multiple AWS budgets from various teams into a single, comprehensive parent budget to measure all AWS spend.
+
+Hierarchical Budgets have the following characteristics:
+
+  - You can create a budget hierarchy with a maximum of 10 levels.
+  - Each parent budget will sum all budget periods of child budgets. If a child budget does not have any budget during a particular period, it will not add any budget to the parent’s budget period.
+  - A Hierarchical Budget can be converted into a single-level Standard Budget. This action breaks the connection between the parent and child budgets in the hierarchy.
+  - A child budget can be used only once within a given hierarchy.
+    - _Example: You create a hierarchy with a parent budget for the "Marketing Organization" and child budgets for "Social Media Campaigns," "Event Marketing," and "Content Creation." The child budget for "Social Media Campaigns" cannot also appear under "Event Marketing" within the same hierarchy to avoid duplication in budget calculations._
+  - A child budget can belong to multiple separate hierarchies. 
+    - _Example: Suppose your organization is structured both by departments and projects. A child budget for "Mobile App Redesign" might belong to the "Product Development" department’s hierarchy while also appearing in a completely separate hierarchy for cross-functional "Q1 Strategic Initiatives." This allows you to manage and report on budgets across different organizational contexts._
+
+## Create a Budget: UI Method
 
 :::note
-The below instructions describe how to manually create a budget. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload) for details.
+The below instructions describe how to manually create a budget in the UI. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload) for details.
 :::
 
 1. From the top navigation, click **Financial Planning**.
@@ -37,30 +58,53 @@ The below instructions describe how to manually create a budget. You can also up
 </details>
 3. From the top right of the screen, click **New Budget**.
 4. Enter a budget **Name** and click **Create Budget**.
-5. A budget details page is displayed. Under **Assign to Cost Report or Segment**, select the report you want the budget to be displayed on. You can create **Budget Alerts** to assign once your budget is created. Any associated alerts will also be listed here. See the [section below](/budgets#create-alerts) for more details.
-6. For **Budget Periods**, click **New Budget Period**. Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
-   - Enter a start date in **YYYY-MM** format (e.g., 2024-03).
-   - Enter an optional period end date.
-   - Enter a total monthly budget amount in dollars.
-   - Click **New Budget Period** to add additional budget periods.
-      <details><summary>Click to view example image</summary>
-       <div style={{display:"flex", justifyContent:"center"}}>
-           <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
-       </div>
-     </details>
-7. At the top right, click **Save Changes**.
-8. Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform.
-<details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Performance of a budget across six periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
-    </div>
-</details>
+5. The budget details page is displayed. For **Budget Type**, select either **Standard Budget** or **Hierarchical Budget**. The options displayed will differ for either budget type.
+
+<Tabs>
+  <TabItem value="standard-budget-steps" label="Standard Budget" default>
+    <ul>
+      <li>Under <b>Assign to Cost Report or Segment</b>, select the report you want the budget to be displayed on.</li>
+      <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any associated alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
+      <li>For <b>Budget Periods</b>, click <b>New Budget Period</b>. Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
+        <ul>
+          <li>Enter a start date in <b>YYYY-MM</b> format (e.g., 2024-03).</li>
+          <li>Enter an optional period end date.</li>
+          <li>Enter a total monthly budget amount in dollars.</li>
+          <li>Click <b>New Budget Period</b> to add additional budget periods.</li>
+          <details><summary>Click to view example image</summary>
+            <div style={{display:"flex", justifyContent:"center"}}>
+            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
+            </div>
+          </details>
+        </ul>
+      </li>
+    </ul>
+  </TabItem>
+  <TabItem value="hierarchical-budget-steps" label="Hierarchical Budget">
+    <p>The <b>Assign to Cost Report or Segment</b> is not displayed for Hierarchical Budgets. You also cannot configure any separate budget periods and budget amounts for this budget type. This is configured only for child budgets. For this budget type, from this screen, you can configure the hierarchy.</p>
+    <div class="theme-admonition theme-admonition-tip alert alert--success admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>One suggested workflow is to create all your terminal child budgets first as <b>Standard</b> budgets and then create your parent budgets.</p></div></div>
+    <ul>
+      <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any associated alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
+      <li>Under <b>Child Budgets</b>, select the corresponding next-level children budgets that roll up to this parent budget.
+        <details><summary>Click to view example image</summary>
+          <div style={{display:"flex", justifyContent:"center"}}>
+            <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-hierarchical-budget.png" />
+          </div>
+        </details>
+      </li>
+    </ul>
+  </TabItem>
+</Tabs>
+
+---
+
+6. At the top right, click **Save Changes**.
 
 :::note
 Budgets are scoped to a report within a specific [workspace](/workspaces/), and access can be controlled via [teams](/rbac).
 :::
 
-## Upload a Budget {#upload}
+## Create a Budget: CSV Import Method {#upload}
 
 If you have existing budgets in spreadsheets or another tool, you can import them all at once by uploading a CSV file.
 
@@ -71,7 +115,7 @@ Budget import files must adhere to the following requirements:
 - The file must be in CSV format.
 - The header row of the CSV must start with a unique string or identifier (e.g., `Budget Name`).
   - The remaining values in the header row must be the budget period start date in `YYYY-MM` format (e.g., `2023-02` for February 2023).
-- Each additional row in the CSV must start with the name of the budget. Corresponding values must be expressed as decimals (e.g., `25000.00`) for every month where there is an associated budget. If there is no budget for a month, the value can be blank.
+- Each additional row in the CSV must start with the name of the budget. Corresponding values must be expressed as decimals (e.g., `25000.00`) for every month with an associated budget. If there is no budget for a month, the value can be blank.
 - If the budget is a Hierarchical Budget, include the `Parent Budget` column.
 
 #### Standard Budget Format
@@ -199,7 +243,7 @@ The below example of a Hierarchical Budget shows a readable view, CSV file forma
   <TabItem value="csv-hierarchical" label="CSV File">
     <pre><code>
     Budget Name,Parent Budget,2024-10,2024-11,2024-12<br/>
-    Engineering Org,,100000,<br/>
+    Engineering Org,,,<br/>
     Development Dept,Engineering Org,,,<br/>
     Infrastructure Dept,Engineering Org,,,<br/>
     Frontend Redesign,Development Dept,30000,35000,<br/>
@@ -255,13 +299,30 @@ If a formatting error is found in your imported CSV file, the import wizard indi
 
 Use the following troubleshooting suggestions to check for errors in your CSV file:
 
-- Ensure there are no additional blank columns in the CSV file.
+- There should be no additional blank columns in the CSV file.
 - Ensure that each budget name is unique.
+- Check that budget name does not already exist in Vantage. Otherwise, you will be prompted to overwrite the existing budget with your new budget.
 - Ensure the dates in the header row are in the correct format (i.e., `YYYY-MM`).
-- Ensure values do not include other characters and are in decimal format (e.g., `56000.00`, not `$56,000.00`).
+- Values cannot include other characters and should be in decimal format (e.g., `56000.00`, not `$56,000.00`).
 - For Hierarchical Budgets:
-  - Ensure that parent budgets do not have any costs listed
-  - Ensure that any budget listed in the `Parent Budget` column exists
+  - Ensure that parent budgets do not have any numbers listed in any of the budget periods columns. Budget numbers should be provided only for terminal child budgets.
+  -Any budget listed in the `Parent Budget` column should be already in Vantage or defined within your current CSV file. 
+  - A child budget can be used only once within a given hierarchy.
+
+## View Budget Performance and Hierarchy
+
+For any budget type, you can view both the **Performance** and **Hierarchy** tabs to get an understanding of how the budget is performing and see any corresponding child budgets (if relevant). 
+
+### Budget Performance
+
+Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform.
+<details><summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+        <img alt="Performance of a budget across six periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
+    </div>
+</details>
+
+### Budget Hierarchy
 
 ## View Budgets on Cost Reports
 
@@ -274,14 +335,14 @@ Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report wi
 Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report. The dotted portion of the line corresponds to the future budget, which you can track against your forecasted costs.
 
 :::note
-
 If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
-
 :::
 
 ## Create Budget Alerts {#create-alerts}
 
-Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, or Microsoft Teams channels. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”).
+Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, or Microsoft Teams channels. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”). 
+
+You can create budget alerts for any type of budget—Standard or Hierarchical. For Hierarchical Budgets, the costs associated with the child budgets are aggregated at the parent budget level to determine if a budget alert should be set off.
 
 :::note
 If you want to send alerts to Slack or Microsoft Teams, see the report notifications documentation for information on how to set up a [Slack](/report_notifications#slack) or [Microsoft Teams](/report_notifications#ms-teams) integration with Vantage. Once you've set up an integration, follow the steps below to set up a budget alert.
@@ -293,7 +354,7 @@ If you want to send alerts to Slack or Microsoft Teams, see the report notificat
 4. The **New Budget Alert** modal is displayed. Configure the following parameters:
    - For **Budget**, select the budget for which the alert applies.
    - For **If Costs Exceed**, select a percentage threshold (e.g., 85% of the budget). You'll receive an alert only if the threshold is reached.
-   - Optionally, enter a period of observation within the month (e.g., “10 days from the start of the month” or “5 days before the end of the month").
+   - Optionally, enter a period of observation within the month (e.g., "10 days from the start of the month" or "5 days before the end of the month").
    - For **Email recipients**, select recipients, who are members of your team in Vantage, you want to receive the alert.
    - Optionally, select any Slack or Microsoft Teams channels you want to receive the alert.
    <details><summary>Click to view example image</summary>
