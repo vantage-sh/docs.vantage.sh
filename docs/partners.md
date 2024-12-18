@@ -246,15 +246,15 @@ You can select which rules you want added to customer accounts.
 
 Vantage for MSPs has additional role-based access control permissions for the management account. See the [Role-Based Access Control documentation](/rbac) for additional information on RBAC in Vantage.
 
-|                                        | Owner        | Integration Owner | Editor       | Viewer       |
-| -------------------------------------- | ------------ | ----------------- | ------------ | ------------ |
-| View Management Account                | <Checkmark/> | <Checkmark/>      | <Checkmark/> | <Checkmark/> |
-| Create resources in Management Account | <Checkmark/> | <Checkmark/>      | <Checkmark/> |              |
-| Add and remove Managed Accounts        | <Checkmark/> | <Checkmark/>      |              |              |
-| Add and remove provider integrations   | <Checkmark/> | <Checkmark/>      |              |              |
-| View Managed Accounts                  | <Checkmark/> | <Checkmark/>      |              |              |
-| Create resources in Managed Accounts   | <Checkmark/> | <Checkmark/>      |              |              |
-| Create new users Management Account    | <Checkmark/> |                   |              |              |
+|                                                                                                                                                                                             | Owner        | Integration Owner | Editor       | Viewer       |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- | ------------ | ------------ |
+| View Management Account                                                                                                                                                                     | <Checkmark/> | <Checkmark/>      | <Checkmark/> | <Checkmark/> |
+| Create resources in Management Account                                                                                                                                                      | <Checkmark/> | <Checkmark/>      | <Checkmark/> |              |
+| Add and remove Managed Accounts                                                                                                                                                             | <Checkmark/> | <Checkmark/>      |              |              |
+| Add and remove provider integrations                                                                                                                                                        | <Checkmark/> | <Checkmark/>      |              |              |
+| View Managed Accounts                                                                                                                                                                       | <Checkmark/> | <Checkmark/>      |              |              |
+| Create resources in Managed Accounts                                                                                                                                                        | <Checkmark/> | <Checkmark/>      |              |              |
+| Additional administrative capabilities: create new users, create new workspaces, manage teams, modify billing options, manage authentication, and manage Virtual Tags | <Checkmark/> |                   |              |              |
 
 ## Remove a Customer’s Account
 
