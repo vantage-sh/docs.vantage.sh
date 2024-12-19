@@ -16,6 +16,10 @@ import Checkmark from '@site/src/components/icons/Checkmark';
 
 Dashboards contain a set of [Cost Reports](/cost_reports), [segment reports](/segments), [resource reports](/active_resources), or [financial commitment reports](/financial_commitment_reports). You can apply date range and period filters (e.g., display daily costs) to all reports on the dashboard. A consistent date range across all reports on the dashboard can help with cost comparison between different reports. You can assign any number of reports to a dashboard, regardless of which folder the report is in. Once a dashboard is created, you can modify the name and date settings as well as add/remove reports from the dashboard.
 
+:::tip
+To get started with Dashboards, you can also watch these video demos on [Vantage University](/vantage_university_cost_reporting) 🎓.
+:::
+
 You can add the following widget types to dashboards:
 
 - [Cost Reports](/cost_reports)
