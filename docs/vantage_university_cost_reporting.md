@@ -37,7 +37,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 ## 📚 Lesson 1: Create and View a Cost Report
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.loom.com/embed/bdbbc49ee99944c38bce3423d2705d17?sid=c0a71a01-5648-4fdf-b437-91051704086b" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/pr9cOE18mPI?si=_dcUSwoLo1bkCigN?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
@@ -73,7 +73,15 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 6: View and Manage Dashboards
+## 📚 Lesson 6: Create Usage-Based Reports
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/B-1pqTMffrI?si=4S_MJzWRL-jFWj6r?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
+
+---
+
+## 📚 Lesson 7: View and Manage Dashboards
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/qWDsgh1jfGc?si=_dcUSwoLo1bkCigN?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -81,7 +89,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 7: Create Vantage Issues
+## 📚 Lesson 8: Create Vantage Issues
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/8uXySGPZslQ?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -97,5 +105,6 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 - [View Forecasts](/forecasting)
 - [Cost Report Notifications: Set Up Teams and Slack](/report_notifications#slack)
 - [Add Annotations](/annotations)
+- [Usage-Based Reports](/usage_based_reporting)
 - [Dashboards](/dashboards)
 - [Create Vantage Issues](/issues)
