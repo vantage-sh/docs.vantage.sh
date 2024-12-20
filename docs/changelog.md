@@ -12,7 +12,25 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on December 2, 2024, with product updates for November 2024._
+_This page was last updated on December 20, 2024, with product updates for December 2024._
+
+## December 2024
+
+### Product Updates
+
+- **Explore menu:** The new **Explore** menu, on the top right of the console, allows you to perform quick actions, like view recent reports, view starred reports, and create new reports—all from one menu.
+- **Customized Dashboards:** Vantage now supports the ability to move around the widget order on [Dashboards](/dashboards), change between chart and table widget types, and rename widgets directly from the Dashboard.
+- **Hierarchical Budgets:** [Hierarchical Budgets](/budgets) are available to help you match your budgets to your organization's structure. Create parent-child budgeting relationships and hierarchies. 
+- **AWS Model Training SKU Group:** The AWS Model Training SKU Group is added to the [supported custom pricing](/connecting_databricks#custom-pricing) Databricks SKU Groups.
+- **Choose a currency display preference:** If your imported costs are already billed in a currency other than USD, you can enable a [display preference](/vantage_account#currency-conversion). This lets you view your costs with the appropriate currency symbol—without using Vantage's currency conversion rates. 
+
+### Kubernetes Agent Updates
+
+_See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release._
+
+### API Updates
+
+- **Dashboards endpoint:** The `widget_tokens` parameter of the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) now supports `CostReport`, `ResourceReport`, `KubernetesEfficiencyReport`, and `FinancialCommitmentReport` tokens.
 
 ## November 2024
 
