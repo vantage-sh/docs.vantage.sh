@@ -9,14 +9,16 @@ keywords:
 
 # OpenAI
 
-Vantage integrates with your OpenAI account using the OpenAI [Costs API endpoint](https://platform.openai.com/docs/api-reference/usage/costs) and an Admin Key.
+Vantage integrates with your OpenAI account using the OpenAI [Costs API endpoint](https://platform.openai.com/docs/api-reference/usage/costs) and an Admin Key. Vantage supports any services and models that are returned in the Costs endpoint.
 
 ### Prerequisites
 
 [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to generate an OpenAI Admin Key. Note that you must be an _Organization Owner_ in your OpenAI organization to create an Admin Key.
 
 :::note
-Note that the Costs endpoint is not available to non-admin API keys. At this time, you cannot configure OpenAI Admin Keys to only allow certain permissions. Vantage will never attempt to write to any endpoints using your Admin Key. Vantage only reads from the Costs endpoint of the Usage API.
+Note that the Costs endpoint is not available to non-admin API keys. Vantage does not have the ability to perform any actions that incur costs. However, OpenAI requires an Admin Key to access the Usage APIs. This key includes additional permissions beyond what Vantage uses (see the full list of permissions [here](https://help.openai.com/en/articles/9687866-admin-and-audit-logs-api-for-the-api-platform?q=admin+api+key)). Vantage only reads data from the Costs endpoint and will never perform any other actions.
+
+All Admin Keys generated through OpenAI have revocable read-write access, and you can also enable [audit logging](https://platform.openai.com/docs/api-reference/audit-logs) if needed. Unfortunately, OpenAI does not currently support more fine-grained permissions for Admin Keys. We recommend customers submit a feature request to OpenAI for improved permission scoping, and Vantage will adopt fine-grained permissions if this becomes available.
 :::
 
 ## Create a Connection
@@ -51,8 +53,10 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 
 ## OpenAI Reporting Dimensions
 
-On OpenAI [Cost Reports](/cost_reports), you can filter across several dimensions:
+On OpenAI [Cost Reports](/cost_reports), you can filter and group across several dimensions:
 
-- Organization
-- Operation (e.g., Chat and Completions)
-- Model (e.g., GPT-3.5)
+- Service (i.e., Operations, such as “Chats and Completions”, “Images”, and “Embeddings”)
+- Category (i.e., Models and operation-specific details, such as “gpt-4o”, “text-embedding-3-small”, and “assistants api”)
+- Subcategory (i.e., Operation-specific metadata, such as “input”, output”, “cached input”)
+- Billing Account/Organization
+- Account/Project

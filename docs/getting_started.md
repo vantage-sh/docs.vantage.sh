@@ -143,6 +143,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_linode",
     },
     {
+      icon: '/img/logos/logo-icon-openai.svg',
+      iconAltText: 'OpenAI logo',
+      title: 'OpenAI',
+      content: 'Vantage integrates with OpenAI via an Admin Key and queries the Costs endpoint of the Usage API.',
+      link: "/connecting_open_ai",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',

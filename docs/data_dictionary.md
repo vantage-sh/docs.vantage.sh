@@ -43,6 +43,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Linode           | `linode`       | [View Linode Fields](#linode)                    |
 | MongoDB Atlas    | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas)      |
 | New Relic        | `newrelic`     | [View New Relic Fields](#new-relic)              |
+| OpenAI           | `openai`       | [View OpenAI Fields](#openai)                    |
 | Oracle Cloud     | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)        |
 | PlanetScale      | `planetscale`  | [View PlanetScale Fields](#planetscale)          |
 | Snowflake        | `snowflake`    | [View Snowflake Fields](#snowflake)              |
@@ -253,6 +254,22 @@ _\* Virtual tags associated with this provider_
 | Tag\*       | `name`         | string    | `tags.name`         |
 | Tag Value\* | `value`        | string    | `tags.value`        |
 | Provider    | `provider`     | string    | `costs.provider`    |
+
+_\* Virtual tags associated with this provider_
+
+## OpenAI {#openai}
+
+| Filter          | API Field Name        | Data Type | `namespace.field`           |
+| --------------- | --------------------- | --------- | --------------------------- |
+| Account         | `account_id`          | string    | `costs.account_id`          |
+| Billing Account | `provider_account_id` | string    | `costs.provider_account_id` |
+| Service         | `service`             | string    | `costs.service`             |
+| Provider        | `provider`            | string    | `costs.provider`            |
+| Category        | `category`            | string    | `costs.category`            |
+| Subcategory     | `subcategory`         | string    | `costs.subcategory`         |
+| Charge Type     | `charge_type`         | string    | `costs.charge_type`         |
+| Tag\*           | `name`                | string    | `tags.name`                 |
+| Tag Value\*     | `value`               | string    | `tags.value`                |
 
 _\* Virtual tags associated with this provider_
 
