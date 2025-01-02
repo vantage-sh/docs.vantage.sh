@@ -19,6 +19,7 @@ _This page was last updated on January 2, 2025, with product updates for Decembe
 ### Product Updates
 
 - **OpenAI cost support:** Vantage now fully integrates with [OpenAI](/connecting_open_ai) as its latest cost provider.
+- **Service aliases in Financial Commitment Reports:** When searching for services in [Financial Commitment Report](/financial_commitment_reports) filters, you can now search by common acronyms for AWS services, such as **RDS** or **S3**, rather than typing the full service name.
 - **Explore menu:** The new **Explore** menu, on the top right of the console, allows you to perform quick actions, like view recent reports, view starred reports, and create new reports—all from one menu.
 - **Customized Dashboards:** Vantage now supports the ability to move around the widget order on [Dashboards](/dashboards), change between chart and table widget types, and rename widgets directly from the Dashboard.
 - **Hierarchical Budgets:** [Hierarchical Budgets](/budgets) are available to help you match your budgets to your organization's structure. Create parent-child budgeting relationships and hierarchies. 
