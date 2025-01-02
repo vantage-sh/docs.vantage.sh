@@ -12,12 +12,13 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on December 20, 2024, with product updates for December 2024._
+_This page was last updated on January 2, 2025, with product updates for December 2024._
 
 ## December 2024
 
 ### Product Updates
 
+- **OpenAI cost support:** Vantage now fully integrates with [OpenAI](/connecting_open_ai) as its latest cost provider.
 - **Explore menu:** The new **Explore** menu, on the top right of the console, allows you to perform quick actions, like view recent reports, view starred reports, and create new reports—all from one menu.
 - **Customized Dashboards:** Vantage now supports the ability to move around the widget order on [Dashboards](/dashboards), change between chart and table widget types, and rename widgets directly from the Dashboard.
 - **Hierarchical Budgets:** [Hierarchical Budgets](/budgets) are available to help you match your budgets to your organization's structure. Create parent-child budgeting relationships and hierarchies. 
@@ -31,6 +32,7 @@ _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes
 ### API Updates
 
 - **Dashboards endpoint:** The `widget_tokens` parameter of the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) now supports `CostReport`, `ResourceReport`, `KubernetesEfficiencyReport`, and `FinancialCommitmentReport` tokens.
+- **Dashboards Terraform:** `widget_tokens` is now a supported parameter on the `vantage_dashboard` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/dashboard) and `vantage_dashboards` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/dashboards).
 
 ## November 2024
 
