@@ -64,8 +64,8 @@ The below instructions describe how to manually create a budget in the UI. You c
   <Tabs>
     <TabItem value="standard-budget-steps" label="Standard Budget" default>
       <ul>
-        <li>Under <b>Assign to Cost Report or Segment</b>, select the report you want the budget to be displayed on. See the <a href="/budgets#view-budgets-on-cost-reports">section below</a> for details. 
-          <div class="theme-admonition theme-admonition-note alert alert--secondary admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 14 16"><path fill-rule="evenodd" d="M6.3 5.69a.942.942 0 0 1-.28-.7c0-.28.09-.52.28-.7.19-.18.42-.28.7-.28.28 0 .52.09.7.28.18.19.28.42.28.7 0 .28-.09.52-.28.7a1 1 0 0 1-.7.3c-.28 0-.52-.11-.7-.3zM8 7.99c-.02-.25-.11-.48-.31-.69-.2-.19-.42-.3-.69-.31H6c-.27.02-.48.13-.69.31-.2.2-.3.44-.31.69h1v3c.02.27.11.5.31.69.2.2.42.31.69.31h1c.27 0 .48-.11.69-.31.2-.19.3-.42.31-.69H8V7.98v.01zM7 2.3c-3.14 0-5.7 2.54-5.7 5.68 0 3.14 2.56 5.7 5.7 5.7s5.7-2.55 5.7-5.7c0-3.15-2.56-5.69-5.7-5.69v.01zM7 .98c3.86 0 7 3.14 7 7s-3.14 7-7 7-7-3.12-7-7 3.14-7 7-7z"></path></svg></span>note</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>Budgets are scoped to a report within a specific <a href="/workspaces/">workspace</a>, and access can be controlled via <a href="/rbac">teams</a>.</p></div></div>
+        <li>Under <b>Assign to Cost Report or Segment</b>, select the report you want the budget to be displayed on. See the <a href="/budgets#view-budgets-on-cost-reports">section below</a> for details. <br/>
+        <i>Note: Budgets are scoped to a report within a specific <a href="/workspaces/">workspace</a>, and access can be controlled via <a href="/rbac">teams</a>.</i>
         </li>
         <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
         <li>For <b>Budget Periods</b>, click <b>New Budget Period</b>. Standard Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
@@ -84,7 +84,7 @@ The below instructions describe how to manually create a budget in the UI. You c
       </ul>
     </TabItem>
     <TabItem value="hierarchical-budget-steps" label="Hierarchical Budget">
-      <div class="theme-admonition theme-admonition-tip alert alert--success admonition_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><div class="admonitionHeading_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><span class="admonitionIcon_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><svg viewBox="0 0 12 16"><path fill-rule="evenodd" d="M6.5 0C3.48 0 1 2.19 1 5c0 .92.55 2.25 1 3 1.34 2.25 1.78 2.78 2 4v1h5v-1c.22-1.22.66-1.75 2-4 .45-.75 1-2.08 1-3 0-2.81-2.48-5-5.5-5zm3.64 7.48c-.25.44-.47.8-.67 1.11-.86 1.41-1.25 2.06-1.45 3.23-.02.05-.02.11-.02.17H5c0-.06 0-.13-.02-.17-.2-1.17-.59-1.83-1.45-3.23-.2-.31-.42-.67-.67-1.11C2.44 6.78 2 5.65 2 5c0-2.2 2.02-4 4.5-4 1.22 0 2.36.42 3.22 1.19C10.55 2.94 11 3.94 11 5c0 .66-.44 1.78-.86 2.48zM4 14h5c-.23 1.14-1.3 2-2.5 2s-2.27-.86-2.5-2z"></path></svg></span>tip</div><div class="admonitionContent_node_modules-@docusaurus-theme-classic-lib-theme-Admonition-styles-module"><p>To create a budget hierarchy, it’s recommended to start by creating all your terminal child budgets as <b>Standard</b> budgets. Once the child budgets are in place, you can proceed to create the parent budgets. This ensures that the child budgets are available to select and connect when setting up the parent budget.</p></div></div>
+      <p><i>Tip: To create a budget hierarchy, it’s recommended to start by creating all your terminal child budgets as <b>Standard</b> budgets. Once the child budgets are in place, you can proceed to create the parent budgets. This ensures that the child budgets are available to select and connect when setting up the parent budget.</i></p>
       <ul>
         <li>For <b>Budget Alerts</b>, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the <a href="/budgets#create-alerts">section below</a> for more details.</li>
         <li>Under <b>Child Budgets</b>, select the immediate child budgets that directly roll up to this parent budget. For example, if you have an "Org" budget with a "Department" budget as its child, and the "Department" budget has a "Team" budget as its child, you would only select the "Department" budget as the child when creating the "Org" budget.
@@ -101,7 +101,7 @@ The below instructions describe how to manually create a budget in the UI. You c
 
   ---
 
-6. At the top right, click **Save Changes**.
+1. At the top right, click **Save Changes**.
 
 ## Create a Budget: CSV Import Method {#upload}
 
