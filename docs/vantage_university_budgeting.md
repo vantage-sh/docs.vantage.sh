@@ -27,13 +27,19 @@ Using Vantage budgets allows you to control cloud spending effectively, ensuring
 
 ---
 
-## 📚 Lesson 1: Create a Budget
+## 📚 Lesson 1: Create Standard Budgets
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.loom.com/embed/9ac6fb9d1b2941c5a68bfbd7e647e686" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/haVyfMfspAA?si=QLX8Hf3tLW17eEEQ?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
-## 📚 Lesson 2: Create Budget Alerts
+## 📚 Lesson 2: Create Hierarchical Budgets
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/HovaTF1QGNA?si=WcuYDFVJ0jrmDTch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
+
+## 📚 Lesson 3: Create Budget Alerts
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.loom.com/embed/93dc24436d3d45f4be064e20e07acf27" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
