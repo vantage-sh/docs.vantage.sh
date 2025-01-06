@@ -157,7 +157,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 - On the left navigation, select **API permissions**.
 - Select **Add a permission**.
-- Under the **Microsoft APIs** tab, find and select the appropriate permissions required by Vantage (e.g., `Directory.Read.All`, `User.Read`).
+- Under the **Microsoft APIs** tab, find and select the appropriate permissions required by Vantage (i.e., `Directory.Read.All`, `User.Read`).
 - At the bottom, click **Add permissions**.
 
 #### Step 4: Grant Admin Consent (If Required)
