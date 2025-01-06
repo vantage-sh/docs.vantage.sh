@@ -115,7 +115,7 @@ On Databricks [Cost Reports](/cost_reports/), you can filter across several dime
 - Account (account name)
 - Category (e.g., Jobs Compute - Photon)
 - Tag/Not Tagged (includes Databricks tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
-- Cluster (e.g., Jobs Computer - `<CLUSTER_ID>`)
+- Cluster (e.g., Jobs Compute - `<CLUSTER_ID>`)
 - Charge Type (e.g., Usage)
 - Service (e.g., All Purpose Compute)
 
