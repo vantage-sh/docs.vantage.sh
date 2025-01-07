@@ -271,12 +271,6 @@ The below error occurs when the agent attempts to fetch presigned URLs but fails
 {"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to fetch presigned urls","err":"unexpected response from API: 404 Not Found"}  
 ```
 
-This error is caused by an invalid cluster ID in the agent configuration. For example, using a cluster ID like `my/invalid/clusterid` results in the agent requesting an invalid route, such as:
-
-```bash
-https://api.vantage.sh/internal/my/invalid/clusterid/upload
-```
-
 Review the section on [Naming Your Clusters](/kubernetes_agent#cluster-id) for best practices on how to name your clusters. Then, review the cluster ID in your configuration to confirm it is correct and valid. Update the configuration as needed to use a properly formatted cluster ID.
 
 ### Failed to Set Up Controller Store—`MissingRegion`
