@@ -64,6 +64,8 @@ The following prerequisites are required before you install the Vantage Kubernet
 
 - Review the section on [Data Persistence](/kubernetes_agent#data-persistence) before you begin
 
+- Review the section on [Naming Your Clusters](/kubernetes_agent#cluster-id)
+
 ## Create a Connection
 
 :::info
@@ -90,6 +92,16 @@ If you are creating an AKS connection, you will need to configure the following 
 
 - Set the `VANTAGE_KUBE_SKIP_TLS_VERIFY` environment variable to `true`. This setting is controlled by `agent.disableKubeTLSverify` within the Helm chart. For details, see the [TLS verify error](/kubernetes_agent#tls-verify-error-when-scraping-nodes) section.
 - Configure the `VANTAGE_NODE_ADDRESS_TYPES` environment variable, which is controlled by the `agent.nodeAddressTypes` in the Helm chart. In this case, the type to use for your cluster will most likely be `InternalIP`. For configuration details, see the [DNS lookup error](/kubernetes_agent#dns-lookup-error) section.
+
+### Naming Your Clusters {#cluster-id}
+
+When you name your clusters, ensure the cluster ID adheres to Kubernetes object naming conventions. While the agent does not enforce specific formats, valid characters include:
+
+- Lowercase and uppercase letters (`a-z`, `A-Z`)
+- Numbers (`0-9`)
+- Periods (`.`), underscores (`_`), and hyphens (`-`)
+
+In addition, when configuring the cluster ID, use a simplified, human-readable name that identifies the cluster. Avoid including full resource paths or unnecessary metadata. The cluster ID should be unique within your environment.
 
 ### (Optional) Enable Collection of Annotations and Namespace Labels {#enable-annotations-namespace-labels}
 
@@ -237,7 +249,11 @@ The agent will write persisted data to the `$CLUSTER_ID/` prefix within the buck
 
 ## Common Errors
 
-### Failed to Fetch Presigned URL—API Token Error {#presigned-url-api}
+### Failed to Fetch Presigned URL {#presigned-url-api}
+
+A `failed to fetch presigned urls` error can occur for a few reasons, as described below.
+
+#### API Token Error
 
 The below error occurs when the agent attempts to fetch presigned URLs but fails due to an invalid `Authorization` header field value. The error log typically looks like this:
 
@@ -246,6 +262,16 @@ The below error occurs when the agent attempts to fetch presigned URLs but fails
 ```
 
 This issue is typically caused by incorrect or missing API keys. Ensure the value for the `VANTAGE_API_TOKEN` (obtained in the [Prerequisites](/kubernetes_agent#prerequisites) above) is valid and properly formatted. If necessary, generate a new token and update the configuration.
+
+#### 404 Not Found Error
+
+The below error occurs when the agent attempts to fetch presigned URLs but fails due to the cluster ID potentially including invalid characters. The error log typically looks like this:
+
+```bash 
+{"time":"2023-12-01T00:00:00.000000000Z","level":"ERROR","msg":"failed to fetch presigned urls","err":"unexpected response from API: 404 Not Found"}  
+```
+
+Review the section on [Naming Your Clusters](/kubernetes_agent#cluster-id) for best practices on how to name your clusters. Then, review the cluster ID in your configuration to confirm it is correct and valid. Update the configuration as needed to use a properly formatted cluster ID.
 
 ### Failed to Set Up Controller Store—`MissingRegion`
 
