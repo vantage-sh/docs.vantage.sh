@@ -158,6 +158,25 @@ You can add your efficiency reports to [dashboards](/cost_reports#dashboards). T
      - Under **Add Reports**, find your efficiency report.
      - Click **Save**.
 
+## Export Kubernetes Efficiency Reports {#exporting-k8s-efficiency-reports}
+
+You can export your Kubernetes Efficiency Report as a CSV file for viewing outside the console.
+
+1. From the top right of any Kubernetes Efficiency Report, click the download icon (looks like an arrow with a line below it).
+2. Select any **Groupings** that you want added as additional columns in the report (e.g., Cluster, Namespace). In addition, you can specify any **Labels** you want included.
+3. Select a date range and **Date Bin** for the report.
+4. Select or enter the emails for any users who you want to receive an emailed copy of the report. 
+   :::note
+   Email recipients must be users in your Vantage organization.
+   :::
+5. Click **Export**.
+
+:::note
+For the **Date Bin** export option, when you select **Week**, the week in the export will begin on Monday, UTC. When you select **Month**, the month in the export will begin on the first of the month, UTC.
+:::
+
+When the export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. 
+
 ### Efficiency Calculations {#efficiency-calculations}
 
 Pod resource efficiency is defined as the resource utilization versus the resource request over a given time window. These resource utilization metrics include CPU and RAM. When viewing efficiency, it will be shown as a percentage. 100% means the resource allocation is fully efficient.
