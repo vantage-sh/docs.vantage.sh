@@ -155,7 +155,7 @@ Follow the steps below to validate the agent's installation.
    ```
 2. Logs should be free of `ERROR` messages:
    ```bash
-   ➜  containers kubectl -n vantage logs -f vka-vantage-kubernetes-agent-0
+   ➜ kubectl -n vantage logs -f vka-vantage-kubernetes-agent-0
    {"time":"2023-10-23T22:01:12.065481528Z","level":"INFO","msg":"found nodes","nodes":231}
    ...
    {"time":"2023-10-23T22:01:15.471399742Z","level":"INFO","msg":"finished initializing"}
