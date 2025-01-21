@@ -87,3 +87,15 @@ Yes.
 Yes. We store basic metadata on cloud infrastructure to be able to show corresponding costs for associated resources. We cannot access any of the underlying resources.
 
 </details>
+
+<details><summary>Does Vantage use fixed IP addresses when connecting to external providers, such as AWS or Azure?</summary>
+
+Yes, Vantage uses fixed IP addresses for outgoing traffic. All traffic from Vantage will originate from the following IP addresses:
+
+- `54.87.66.45`
+- `3.95.43.133`
+- `54.162.3.72`
+- `44.199.143.63`
+- `3.218.103.23`
+
+</details>
