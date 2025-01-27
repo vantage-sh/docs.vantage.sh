@@ -71,22 +71,33 @@ Follow the steps below to connect to Jira.
 3. Under **Apps**, select **Jira**. 
 4. Click **Connect Jira Account**. 
 5. If you are not already logged in to Jira, you will be prompted to log in. Once you are logged in to your account, the **App Authorization** screen is displayed. Review the requested app permissions, and click **Accept**.
+   :::note 
+   If you have multiple Jira instances, you will be sent back to the Vantage console to select which instance you want to integrate. Click **Confirm** to select an instance.  
+   :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Permissions for connecting Jira in the console" width="100%" src="/img/jira-permissions.png" />
 </div>
 
-Your Jira account will be synced with Vantage. Note that this sync might take some time, and you can monitor the status on the Connection page:
+Your Jira account instance will be synced with Vantage. Note that this sync might take some time, and you can monitor the status on the Connection page:
 
 - The connection’s status is displayed as either **Connected**, **Syncing,** or **Unstable.** An Unstable status indicates that one of your configurations is no longer valid. For example, you may have deleted an issue type in Jira that is connected to a Vantage Anomaly Alert, Budget Alert, or Resource Report. If you see an **Unstable** connection, contact [support@vantage.sh](mailto:support@vantage.sh) for help with triaging this issue.
-- At the top of the screen, the **Check for updates** button is displayed. Click this button if you add new projects in Jira or if you create new issue types in Jira to ensure they are synced with Vantage.
+- At the top of the screen, the **Check for updates** button is displayed. Click this button if you add new projects in Jira, or if you create new issue types in Jira, to ensure they are synced with Vantage. In addition, if you add new users to your Jira instance and need to resync your user list for fields like **Reporter**, click this button to import those new users.
 - All your projects will be listed, along with the connected account name.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Jira connection screen in the Vantage console" width="100%" src="/img/connect-jira.png" />
 </div>
 
-If you decide to remove your Jira integration from Vantage, all links to your Jira integration will be removed from the Vantage console. Any Cost Report annotations created from budget alerts will persist. Issues will remain persistent in your Jira workspace.
+### Remove Jira Integration
+
+To remove a Jira integration, navigate to the [Jira Settings](https://console.vantage.sh/settings/jira) screen and click the trashcan icon next to the connected account you want to remove. 
+
+When you remove your Jira integration from Vantage:
+
+- All links to your Jira integration will be removed from the Vantage console. 
+- Any Cost Report annotations that were created from budget alerts will persist in Vantage. 
+- Any issues that were created will persist in your Jira workspace.
 
 ## Create Jira Issues
 
@@ -203,8 +214,8 @@ Due to a technical limitation at this time, if an issue type requires you to sel
     <img alt="Creating a resource report issue" width="100%" src="/img/resource-report-ticket.png" />
 </div>
 
-1. Click **Create Ticket**. 
-2. A new ticket will be created within the selected Jira project. The issue contains information on the person who created the issue in Vantage, the Resource Report name, and a link to the Resource Report. For Resource Reports generated from Cost Recommendations, additional information about the report is also provided, like total costs, number of affected resources, and potential monthly savings.
+4. Click **Create Ticket**. 
+5. A new ticket will be created within the selected Jira project. The issue contains information on the person who created the issue in Vantage, the Resource Report name, and a link to the Resource Report. For Resource Reports generated from Cost Recommendations, additional information about the report is also provided, like total costs, number of affected resources, and potential monthly savings.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/resource-report-jira.png" />
@@ -214,7 +225,7 @@ Once the issue is created, to access the corresponding Jira ticket from the Reso
 
 ## Jira Issue Statuses in Vantage
 
-You can see a Jira Issue's status in Vantage. Issue statuses are updated once a day. Therefore, a change that is made today (e.g., changing an Issue's status in Jira from "To Do" to "In Progress") might not be reflected until tomorrow. Next to the Jira icon a badge is displayed:
+You can see a Jira issue's status in Vantage. Issue statuses are updated once a day. Therefore, a change that is made today (e.g., changing an Issue's status in Jira from "To Do" to "In Progress") might not be reflected until tomorrow. Next to the Jira icon a badge is displayed:
 
 <table>
   <thead>
@@ -230,7 +241,7 @@ You can see a Jira Issue's status in Vantage. Issue statuses are updated once a 
           <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-red.png" />
         </div>
       </td>
-      <td>The corresponding Jira Issue is currently in the Jira "To Do" status.</td>
+      <td>The corresponding Jira issue is currently in the Jira "To Do" status.</td>
     </tr>
     <tr>
       <td>
@@ -238,7 +249,7 @@ You can see a Jira Issue's status in Vantage. Issue statuses are updated once a 
           <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-yellow.png" />
         </div>
       </td>
-      <td>The corresponding Jira Issue is currently in the Jira "In Progress" status.</td>
+      <td>The corresponding Jira issue is currently in the Jira "In Progress" status.</td>
     </tr>
     <tr>
       <td>
@@ -246,7 +257,7 @@ You can see a Jira Issue's status in Vantage. Issue statuses are updated once a 
           <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-green.png" />
         </div>
       </td>
-      <td>The corresponding Jira Issue is currently in the Jira "Done" status.</td>
+      <td>The corresponding Jira issue is currently in the Jira "Done" status.</td>
     </tr>
     <tr>
       <td>
@@ -254,13 +265,13 @@ You can see a Jira Issue's status in Vantage. Issue statuses are updated once a 
           <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-blank.png" />
         </div>
       </td>
-      <td>Vantage has not received a status update yet from Jira. It can take a day from the time when a corresponding Jira Issue was created in Vantage to update this status.</td>
+      <td>Vantage has not received a status update yet from Jira. It can take a day from the time when a corresponding Jira issue was created in Vantage to update this status.</td>
     </tr>
   </tbody>
 </table>
 
 These status badges are displayed next to the Jira icon in the following locations:
 
-- Next to each Cost Anomaly with a corresponding Jira Issue in the Cost Anomaly list 
+- Next to each Cost Anomaly with a corresponding Jira issue in the Cost Anomaly list 
 - On any Cost Report Annotations for Budget Alerts
-- At the top of a Resource Report with a corresponding Jira Issue
+- At the top of a Resource Report with a corresponding Jira issue
