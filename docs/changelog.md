@@ -28,8 +28,9 @@ _This page was last updated on January 28, 2025, with product updates for Januar
 
 ### Kubernetes Agent Updates
 
-- Version 1.0.28, Helm Chart [vantage-kubernetes-agent-1.0.40](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.40), includes the following update: 
-  - Default value for `disableKubeTLSverify` is corrected from `string` to `boolean`
+- Version 1.0.28, Helm Chart [vantage-kubernetes-agent-1.0.40](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.40), includes the following updates: 
+  - Default value for `disableKubeTLSverify` is corrected from `string` to `boolean`.
+  - Now includes [sidecar init containers](https://kubernetes.io/docs/concepts/workloads/pods/sidecar-containers/) resource requests in pod resources.
 
 ### API Updates
 
