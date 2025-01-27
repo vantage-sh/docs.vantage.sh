@@ -58,7 +58,7 @@ $$
 1- \frac{\$146}{\$164.25} = 11.11\%\ effective\ savings
 $$
 
-## Create a Financial Commitment Report
+## Create a Financial Commitment Report {#create-report}
 
 :::tip
 Before you create a report, you can view a list of all your active (and expired) Savings Plans and Reserved Instances on the [Commitments](https://console.vantage.sh/financial_planning/financial_commitments) screen.
@@ -70,7 +70,10 @@ Before you create a report, you can view a list of all your active (and expired)
    - The **AWS costs where...** tile is displayed. Click **+ New Rule**.
    - For **Category**, select an available filter category.
      :::note
-     You can filter by service (e.g., Amazon EC2), account, billing account, commitment type (e.g., On-Demand), charge type (e.g., Spot Usage), category (e.g., Compute Instance), subcategory (e.g., AP-Requests-Tier1), instance type (e.g., m5.large), region, and tag.
+     You can filter by service (e.g., Amazon EC2), account, billing account, commitment type (e.g., On-Demand), commitment ARN, charge type (e.g., Spot Usage), category (e.g., Compute Instance), subcategory (e.g., AP-Requests-Tier1), instance type (e.g., m5.large), region, and tag.
+     :::
+     :::tip
+     If you want to see the discount impact of a single Savings Plan or Reserved Instance, use the **Commitment ARN** filter.
      :::
    - Two additional dropdown menus are displayed. Select **is**, **is not**, **contains**, or **does not contain** based on your desired filter criteria, then select one or more corresponding values from the second dropdown menu. For Tag, the Tag Key dropdown is displayed before the operator dropdown.
    - Click **Save**.
