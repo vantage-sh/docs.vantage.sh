@@ -76,6 +76,10 @@ During onboarding, instead of following the CloudFormation process, you can use 
 
 If you want to create IAM roles manually or use another tool to manage your infrastructure, you can create the necessary cross-account role.
 
+:::note
+If you decide to use this integration method, ensure you’ve set up a Cost and Usage Report (CUR) in your account so that Vantage will be able to pull in and read data from the CUR. After adding the IAM role ARN to Vantage, contact [Vantage Support](mailto:support@vantage.sh) with your CUR configuration.
+:::
+
 1. On the AWS connection page in the Vantage console, click **More Connection Options** > **Connect via AWS IAM Console**.
 2. You will be presented with a **Trust Relationship** and an **Inline Policy** that is required for the role. Follow the steps provided in the Vantage console to set up the role. Keep this tab open as you will need some submit the **[ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)** of the role to complete the connection.
 3. After creating the role in IAM, return to the onboarding page in Vantage and add the **ARN** of the created role to the **Cross account arn** field at the bottom of the connection workflow pop-up window. Then, click **Connect** to complete the connection.
