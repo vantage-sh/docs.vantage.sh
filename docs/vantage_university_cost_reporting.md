@@ -103,7 +103,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 - [Configure Report Groups](/cost_reports#configure-report-groups)
 - [Configure Report Settings](/cost_reports#configure-report-settings)
 - [View Forecasts](/forecasting)
-- [Cost Report Notifications: Set Up Teams and Slack](/report_notifications#slack)
+- [Cost Report Notifications: Set Up Teams and Slack](/slack)
 - [Add Annotations](/annotations)
 - [Usage-Based Reports](/usage_based_reporting)
 - [Dashboards](/dashboards)

@@ -6,16 +6,11 @@ toc_max_heading_level: 4
 keywords:
   - Jira
   - Connect Jira
-unlisted: true
 ---
 
 # Jira
 
-:::caution Early Access
-🚧 This documentation is provided for early access users of the Vantage-Jira integration. This page is currently in draft and will be updated and refined as new features are developed.
-::: 
-
-Jira is an issue-tracking and agile project management tool from Atlassian. With the Vantage–Jira integration, you can create Jira Issues for Cost Anomalies, Budget Alerts, and Cost Recommendations directly in Vantage. You can also view the progress of the associated Jira Issues directly within Vantage.
+Jira is an issue-tracking and agile project management tool from Atlassian. With the Vantage–Jira integration, you can create Jira issues for Cost Anomalies, Budget Alerts, and Resource Reports, including Resource Reports for Cost Recommendations, directly in Vantage. You can also view the progress of the associated Jira issues directly within Vantage.
 
 :::note
 This integration is specifically for users on Jira Cloud (hosted by Atlassian). Jira Server integrations (self-hosted Jira) are not currently supported.
@@ -23,7 +18,12 @@ This integration is specifically for users on Jira Cloud (hosted by Atlassian). 
 
 ## How Vantage Connects with Jira
 
-Vantage integrates with Jira via an OAuth workflow. When you connect your Jira account with Vantage, the following required permissions are automatically requested during the OAuth workflow. No further action is needed on your part to set up these permissions.
+Vantage integrates with Jira via an OAuth workflow. To create an integration, you need to have the following Jira and Vantage roles:
+
+- **Jira:** Jira users must have Admin access in order to install an application. See the [Atlassian App Integration](https://support.atlassian.com/jira-cloud-administration/docs/integrate-apps/) documentation for additional information. 
+- **Vantage:** Vantage users must have Owner or Integration Owner access in order to create Jira issues within Vantage. See the [Role-Based Access Control](/rbac) documentation for information on user roles and permissions.
+
+When you connect your Jira account with Vantage, the following required permissions are automatically requested during the OAuth workflow. No further action is needed on your part to set up these permissions.
 
 <table>
   <thead>
@@ -58,6 +58,10 @@ Vantage integrates with Jira via an OAuth workflow. When you connect your Jira a
   </tbody>
 </table>
 
+:::note
+You can integrate only a single Jira workspace into Vantage at this time. Additionally, you can only integrate a single Vantage subscription into a Jira workspace.
+:::
+
 ## Connect to Jira
 
 Follow the steps below to connect to Jira. 
@@ -66,21 +70,31 @@ Follow the steps below to connect to Jira.
 2. On the side navigation, click **Integrations**. Any provider integrations are listed on this screen, as well as any connected apps.
 3. Under **Apps**, select **Jira**. 
 4. Click **Connect Jira Account**. 
-5. If you are not already logged in to Jira, you will be prompted to log in. Once you are logged in to your account, the App Authorization screen is displayed. Review the requested app permissions, and click **Accept**.
+5. If you are not already logged in to Jira, you will be prompted to log in. Once you are logged in to your account, the **App Authorization** screen is displayed. Review the requested app permissions, and click **Accept**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Permissions for connecting Jira in the console" width="100%" src="/img/jira-permissions.png" />
 </div>
 
-Your Jira account will be connected to Vantage. On the Connection page, all your projects will be listed. If you need to update the integration or resync your projects, click **Check for updates**. 
+Your Jira account will be synced with Vantage. Note that this sync might take some time, and you can monitor the status on the Connection page:
+
+- The connection’s status is displayed as either **Connected**, **Syncing,** or **Unstable.** An Unstable status indicates that one of your configurations is no longer valid. For example, you may have deleted an issue type in Jira that is connected to a Vantage Anomaly Alert, Budget Alert, or Resource Report. If you see an **Unstable** connection, contact [support@vantage.sh](mailto:support@vantage.sh) for help with triaging this issue.
+- At the top of the screen, the **Check for updates** button is displayed. Click this button if you add new projects in Jira or if you create new issue types in Jira to ensure they are synced with Vantage.
+- All your projects will be listed, along with the connected account name.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Jira connection screen in the Vantage console" width="100%" src="/img/connect-jira.png" />
 </div>
 
+If you decide to remove your Jira integration from Vantage, all links to your Jira integration will be removed from the Vantage console. Any Cost Report annotations created from budget alerts will persist. Issues will remain persistent in your Jira workspace.
+
 ## Create Jira Issues
 
-You can create Jira issues based on Vantage budget alerts, anomalies, and recommendations. You can select which Jira project you want the issue sent to, as well as the issue type you want created (e.g., Task or Bug).
+You can create Jira issues based on Vantage Budget Alerts, Cost Anomalies, and Resource Reports. You can select which Jira project you want the issue sent to, as well as the issue type you want created (e.g., Task or Bug).
+
+:::note
+At this time, the only way to have a Jira issue associated with an event in Vantage is if the ticket is created in or by Vantage. You cannot link to existing Jira issues.
+:::
 
 :::info
 For an explanation of Jira issue types, see the [Jira documentation](https://support.atlassian.com/jira-cloud-administration/docs/what-are-issue-types/).
@@ -97,16 +111,19 @@ Review the [Vantage Budget alerts documentation](/budgets#create-alerts) for mor
 1. Create a new budget alert. Enter all budget alert criteria, such as **Threshold**. 
 2. Under **Setup App Alerts**, expand the **Jira Alerts** section. 
 3. Select the Jira **Project** where you want the issue to be created. 
-4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available Issue Types within your selected project. Additional required fields will also be listed for the selected Issue Type, based on your Jira setup. Examples are listed below:
+4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available issue types within your selected project. Additional required fields will also be listed for the selected issue type, based on your Jira setup. Any non-required Jira fields will not be displayed, and you can update these fields directly in Jira once the issue is created. Common examples are listed below:
     - Bug
         - Enter the corresponding bug Sprint ID: if required by your setup
-        - People: if required by your setup
     - Story
     - Epic
     - Subtask
         - Enter the Jira Parent task ID (e.g., `SCRUM-39`) for the subtask
     - Task
 5. Click **Save**.
+
+:::note
+Due to a technical limitation at this time, if an issue type requires you to select a team, that issue type will not be displayed.
+:::
 
 When a budget alert is triggered, the corresponding issue is generated in Jira. In the below visual example:
 
@@ -129,16 +146,19 @@ Review the Vantage [anomaly alerts documentation](/cost_anomaly_alerts#configure
 1. Create a new anomaly alert. Enter all anomaly alert criteria, such as **Alert Threshold**. 
 2. Under **Setup App Alerts**, expand the **Jira Alerts** section. 
 3. Select the Jira **Project** where you want the issue to be created. 
-4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available Issue Types within your selected project. Additional required fields will also be listed for the selected Issue Type, based on your Jira setup. Examples are listed below:
+4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available Issue Types within your selected project. Additional required fields will also be listed for the selected issue type, based on your Jira setup. Examples are listed below:
     - Bug
         - Enter the corresponding bug Sprint ID: if required by your setup
-        - People: if required by your setup
     - Story
     - Epic
     - Subtask
         - Enter the Jira Parent task ID (e.g., `SCRUM-39`) for the subtask
     - Task
 5. Click **Save**.
+
+:::note
+Due to a technical limitation at this time, if an issue type requires you to select a team, that issue type will not be displayed.
+:::
 
 When an anomaly alert is triggered for a given service, the corresponding issue is generated in Jira. As shown in the image below, the Jira icon is also displayed to the right of the anomaly, with a link to the corresponding Jira issue. 
 
@@ -152,13 +172,95 @@ In Jira, an issue is created as shown in the image below.
     <img alt="Jira representation of a Vantage anomaly alert" width="100%" src="/img/anomaly-jira.png" />
 </div>
 
-
 In this example:
 
 - A story issue type was created based on an anomaly alert that was created for the Datadog Metrics service.
 - The **Description** contains the date when the alert was triggered, the change in the dollar amount that caused this alert, and the associated Cost Report.
 - A link to the anomaly is also provided.
 
-### Cost Recommendations
+### Resource Reports and Cost Recommendations
 
-_Coming soon._
+You can create Jira issues for any [Resource Report](/active_resources) in Vantage. For example, if [Cost Recommendations](/cost_recommendations#view-cost-recommendations) impact specific resources, you can generate a Resource Report to list the affected resources. From there, you can create a corresponding Jira issue in Vantage to assign to a stakeholder, which enables them to address tasks like rightsizing or reconfiguring the affected resources. Unlike Jira issues related to Cost Anomalies or Budget Alerts, you will be creating one issue for the report.
+
+To create a Jira issue for a Resource Report:
+
+1. At the top of a saved Resource Report, click the Jira icon.
+2. From the dropdown list, select a **Project**.
+3. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available issue types within your selected project. Additional required fields will also be listed for the selected issue type, based on your Jira setup. Any non-required Jira fields will not be displayed, and you can update these fields directly in Jira once the issue is created. Common examples are listed below:
+    - Bug
+        - Enter the corresponding bug Sprint ID: if required by your setup
+    - Story
+    - Epic
+    - Subtask
+        - Enter the Jira Parent task ID (e.g., `SCRUM-39`) for the subtask
+    - Task
+    
+:::note
+Due to a technical limitation at this time, if an issue type requires you to select a team, that issue type will not be displayed.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Creating a resource report issue" width="100%" src="/img/resource-report-ticket.png" />
+</div>
+
+1. Click **Create Ticket**. 
+2. A new ticket will be created within the selected Jira project. The issue contains information on the person who created the issue in Vantage, the Resource Report name, and a link to the Resource Report. For Resource Reports generated from Cost Recommendations, additional information about the report is also provided, like total costs, number of affected resources, and potential monthly savings.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/resource-report-jira.png" />
+</div>
+
+Once the issue is created, to access the corresponding Jira ticket from the Resource Report, click the Jira icon on the top right of the report. 
+
+## Jira Issue Statuses in Vantage
+
+You can see a Jira Issue's status in Vantage. Issue statuses are updated once a day. Therefore, a change that is made today (e.g., changing an Issue's status in Jira from "To Do" to "In Progress") might not be reflected until tomorrow. Next to the Jira icon a badge is displayed:
+
+<table>
+  <thead>
+    <tr>
+      <th>Badge</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-red.png" />
+        </div>
+      </td>
+      <td>The corresponding Jira Issue is currently in the Jira "To Do" status.</td>
+    </tr>
+    <tr>
+      <td>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-yellow.png" />
+        </div>
+      </td>
+      <td>The corresponding Jira Issue is currently in the Jira "In Progress" status.</td>
+    </tr>
+    <tr>
+      <td>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-green.png" />
+        </div>
+      </td>
+      <td>The corresponding Jira Issue is currently in the Jira "Done" status.</td>
+    </tr>
+    <tr>
+      <td>
+        <div style={{display:"flex", justifyContent:"center"}}>
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-blank.png" />
+        </div>
+      </td>
+      <td>Vantage has not received a status update yet from Jira. It can take a day from the time when a corresponding Jira Issue was created in Vantage to update this status.</td>
+    </tr>
+  </tbody>
+</table>
+
+These status badges are displayed next to the Jira icon in the following locations:
+
+- Next to each Cost Anomaly with a corresponding Jira Issue in the Cost Anomaly list 
+- On any Cost Report Annotations for Budget Alerts
+- At the top of a Resource Report with a corresponding Jira Issue

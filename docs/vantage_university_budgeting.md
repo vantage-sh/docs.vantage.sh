@@ -50,5 +50,5 @@ Using Vantage budgets allows you to control cloud spending effectively, ensuring
 - [Create a Budget](/budgets/#create-a-budget)
 - [Budget CSV Import Format](/budgets/#upload)
 - [Create a Budget Alert](/budgets/#create-alerts)
-- [Configure a Slack Connection](/report_notifications#slack)
-- [Configure an MS Teams Connection](/report_notifications#ms-teams)
+- [Configure a Slack Connection](/slack)
+- [Configure an MS Teams Connection](/microsoft_teams)

@@ -56,13 +56,13 @@ Anomaly alerts are sent only for the first time they are detected. If an anomaly
 ## Configure Cost Anomaly Alerts
 
 :::note
-You can configure alerts to be sent via email, Slack, or Microsoft Teams. If you want to use Slack or Teams, you will need to configure the corresponding integration with Vantage. See the [Slack](/report_notifications#slack) or [Microsoft Teams](/report_notifications#ms-teams) integration documentation for Cost Report notifications. Once you have completed the integration steps, complete the below instructions to configure anomaly alerts.
+You can configure alerts to be sent via email, Slack, Microsoft Teams, or Jira. If you want to use Slack, Teams, or Jira you will need to configure the corresponding integration with Vantage. See the [Slack](/slack), [Microsoft Teams](/microsoft_teams), or [Jira](/jira) integration documentation for details. Once you have completed the integration steps, complete the below instructions to configure anomaly alerts.
 :::
 
 To receive alerts for any detected cost anomalies:
 
 1. From the top of the anomalies list, click **Configure Alert**.
-2. Select any email recipients you want to send the alert to. If you have Slack or Microsoft Teams configured, the **Slack channels** or **Microsoft Teams channels** fields are displayed.
+2. Select any email recipients you want to send the alert to. If you have Slack, Microsoft Teams, or Jira configured, the **Slack channels**, **Microsoft Teams channels**, or **Jira** fields are displayed.
 3. Enter an **Alert Threshold**. You'll receive an alert only if this threshold is reached.
 4. Click **Save**.
 

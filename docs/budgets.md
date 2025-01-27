@@ -397,12 +397,12 @@ If you select the **Weekly** view, you may see the budget line dip for the first
 
 ## Create Budget Alerts {#create-alerts}
 
-Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, or Microsoft Teams channels. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”). 
+Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, Microsoft Teams, or Jira. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”). 
 
 You can create budget alerts for any type of budget—Standard or Hierarchical. For Hierarchical Budgets, the costs associated with the child budgets are aggregated at the parent budget level to determine if a budget alert should be set off.
 
 :::note
-If you want to send alerts to Slack or Microsoft Teams, see the report notifications documentation for information on how to set up a [Slack](/report_notifications#slack) or [Microsoft Teams](/report_notifications#ms-teams) integration with Vantage. Once you've set up an integration, follow the steps below to set up a budget alert.
+If you want to send alerts to Slack, Microsoft Teams, or Jira, see the [Slack](/slack), [Microsoft Teams](/microsoft_teams), or [Jira](/jira) integration documentation. Once you've set up an integration, follow the steps below to set up a budget alert.
 :::
 
 1. From the top navigation, click **Financial Planning**.
@@ -413,7 +413,7 @@ If you want to send alerts to Slack or Microsoft Teams, see the report notificat
    - For **If Costs Exceed**, select a percentage threshold (e.g., 85% of the budget). You'll receive an alert only if the threshold is reached.
    - Optionally, enter a period of observation within the month (e.g., "10 days from the start of the month" or "5 days before the end of the month").
    - For **Email recipients**, select recipients, who are members of your team in Vantage, you want to receive the alert.
-   - Optionally, select any Slack or Microsoft Teams channels you want to receive the alert.
+   - Optionally, select any Slack channels, Microsoft Teams channels, or Jira projects you want to receive the alert.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="A budget alert configured to send to one user and a Slack team 10 days before the end of the month." width="50%" src="/img/configure-budget-alert.png" />
@@ -426,6 +426,8 @@ If you want to send alerts to Slack or Microsoft Teams, see the report notificat
 </div>
 
 Recipients will be notified immediately after a Cost Report is updated with the latest data. Reports are updated with the latest data at least once per day. If your budget exceeds the threshold for multiple alerts, you'll be notified only about the most severe alert (the alert with the highest threshold).
+
+An [annotation](/annotations) is also added to the corresponding Cost Report on the date the alert was triggered.
 
 ### Budget Alert Limitations
 

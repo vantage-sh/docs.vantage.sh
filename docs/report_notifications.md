@@ -27,41 +27,11 @@ Vantage also has a separate feature called _cost anomaly alerts_ to alert you on
 
 ## Set Up Slack Integration {#slack}
 
-Vantage users can add Vantage to their team's Slack account in a specific channel. To complete the integration, ensure you have permission to add integrations to your team's Slack account.
-
-1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
-2. Click **Setup Slack Integration**. Enter your workspace's Slack URL. A Slack page that describes the requested permissions for Vantage is displayed. The Vantage integration has permission to list and join channels as well as post messages to those channels.
-   :::note
-   Vantage does not read any message posted within your channels.
-   :::
-3. Select any channel where you would like to add the integration. The first notification will be sent the next day after the integration set up.
-
-<details><summary>Expand to view example Slack notifications</summary>
-  <div>
-    <img alt="Example Cost Report notification in Slack message" width="80%" src="/img/slack-notification.png"/>
-  </div>
-</details>
-
-To add the integration to a private channel, open the channel in Slack, create a new message in the channel, and type `/invite @Vantage`. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
+See the [Slack](/slack) integration documentation for information on how to set up a connection. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
 
 ## Set Up Microsoft Teams Integration {#ms-teams}
 
-Vantage also integrates with Microsoft Teams. You can adjust cost report notifications to be delivered to a specific public or private channel in Microsoft Teams. To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
-
-1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
-2. Click **Setup Microsoft Teams Integration**.
-3. Log in with your Microsoft 365 account and provide Vantage with authorization to access your account. Vantage will ask for the following permissions on your Teams account:
-   - Read names and descriptions of Teams
-   - Read names and descriptions of channels
-   - Send messages to channels
-
-<details><summary>Expand to view example MS Teams notifications</summary>
-  <div>
-    <img alt="Example Cost Report notification in an MS Teams message" width="60%" src="/img/ms-teams.png"/>
-  </div>
-</details>
-
-The Vantage app for Microsoft Teams has been verified by Microsoft. Vantage interacts with Microsoft Office 365 to set the approved permissions for the app in your account and makes use of the Microsoft Graph API to get and send info to your Microsoft Teams account. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
+See the [Microsoft Teams](/microsoft_teams) integration documentation for information on how to set up a connection. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
 
 ## Set Up Cost Report Notifications {#create-notifications}
 
