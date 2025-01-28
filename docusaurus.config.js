@@ -272,6 +272,10 @@ const config = {
                 label: "Azure VM Pricing Comparison",
                 href: "https://instances.vantage.sh/azure",
               },
+              {
+                label: "cur.vantage.sh",
+                href: "https://cur.vantage.sh/",
+              },
             ],
           },
           {
