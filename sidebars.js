@@ -95,7 +95,7 @@ module.exports = {
       type: "category",
       collapsible: false,
       collapsed: false,
-      label: "Integrations",
+      label: "Provider Integrations",
       items: [
         {
           type: "category",
@@ -168,6 +168,17 @@ module.exports = {
         "connecting_open_ai",
         "connecting_custom_providers",
         "provider_data_refresh",
+      ],
+    },
+    {
+      type: "category",
+      collapsible: false,
+      collapsed: false,
+      label: "App Integrations",
+      items: [
+        "jira",
+        "slack",
+        "microsoft_teams",
       ],
     },
     {

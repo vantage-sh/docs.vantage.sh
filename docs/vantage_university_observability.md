@@ -46,8 +46,8 @@ It’s always better to know about something before it happens. Recommendations 
 ## 📖 Additional Resources
 
 - [Cost Anomalies](/cost_anomaly_alerts)
-- [Configure a Slack Connection](/report_notifications#slack)
-- [Configure an MS Teams Connection](/report_notifications#ms-teams)
+- [Configure a Slack Connection](/slack)
+- [Configure an MS Teams Connection](/microsoft_teams)
 - [Vantage Issues](/issues)
 - [Cost Recommendations](/cost_recommendations)
 - [Kubernetes Rightsizing Recommendations](/cost_recommendations#kubernetes-rightsizing)

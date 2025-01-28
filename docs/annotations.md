@@ -94,3 +94,7 @@ When an annotation is created, a corresponding [issue](/issues) is also automati
 The issue is automatically created with the **Annotation** category label attached and a link to the annotated report. The issue's title will default to the report name and annotation's date. You can use the comment function in the issue to also comment on the annotation.
 
 When an annotation is resolved, the corresponding issue will become a closed issue. Unresolving an issue reopens the corresponding issue.
+
+## Budget Alert Annotations
+
+When a budget alert is triggered, an annotation is added to the corresponding Cost Report. See the [Budget Alerts](/budgets#create-alerts) documentation for details on how to set up budget alerts.

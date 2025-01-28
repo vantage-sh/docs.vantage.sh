@@ -101,11 +101,11 @@ const config = {
           },
           {
             from: "/slack_integration",
-            to: "/report_notifications",
+            to: "/slack",
           },
           {
             from: "/microsoft_teams_integration",
-            to: "/report_notifications",
+            to: "/microsoft_teams",
           },
           {
             from: "/permissions_aws",
