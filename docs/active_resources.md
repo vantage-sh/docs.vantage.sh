@@ -126,6 +126,10 @@ To create a resource report:
    </div>
 5. At the top of the report, click **Save**. The report name is displayed in the breadcrumbs above the report. To rename the report, click the pencil icon next to the default report name. Then, update the name and click **Save**.
 
+:::tip
+If you have a Jira integration, you can create a corresponding issue for a Resource Report in your Jira instance. See the [Jira](/jira) documentation for details.
+:::
+
 ### Resource Report Filters
 
 The following filters are available for resource reports.

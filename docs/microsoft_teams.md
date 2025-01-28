@@ -1,14 +1,14 @@
 ---
 id: microsoft_teams
 name: Microsoft Teams
-description: Create an integration with Microsoft Teams for Cost Report Notifications, Anomaly Alerts, and Budget Alerts.
+description: Create an integration with Microsoft Teams for Cost Report notifications, anomaly alerts, and budget alerts.
 keywords:
   - Microsoft Teams
 ---
 
 # Microsoft Teams
 
-Vantage integrates with Microsoft Teams so that you can send [Cost Report Notifications](/report_notifications), [Anomaly Alerts](/cost_anomaly_alerts), and [Budget Alerts](/budgets#create-alerts) to your Teams channels. You can adjust notifications to be delivered to a specific public or private channel in Microsoft Teams. 
+Vantage integrates with Microsoft Teams so that you can send [Cost Report notifications](/report_notifications), [cost anomaly alerts](/cost_anomaly_alerts), and [budget alerts](/budgets#create-alerts) to your Teams channels. You can adjust notifications to be delivered to a specific public or private channel in Microsoft Teams. 
 
 To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
 
@@ -25,4 +25,4 @@ To complete the integration, ensure you have permission to add integrations to y
   </div>
 </details>
 
-The Vantage app for Microsoft Teams has been verified by Microsoft. Vantage interacts with Microsoft Office 365 to set the approved permissions for the app in your account and makes use of the Microsoft Graph API to get and send info to your Microsoft Teams account. 
+The Vantage app for Microsoft Teams has been verified by Microsoft. Vantage interacts with Microsoft Office 365 to set the approved permissions for the app in your account and uses the Microsoft Graph API to get and send info to your Microsoft Teams account. 
