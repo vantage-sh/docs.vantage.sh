@@ -64,7 +64,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 On PlanetScale [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
 - Category (e.g., PS-10, PS-20)
-- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag ([virtual tags](/tagging) created in Vantage for this provider)
 - Resource (e.g., database name)
 - Charge Type (e.g., Usage)
 - Organization (organization ID)

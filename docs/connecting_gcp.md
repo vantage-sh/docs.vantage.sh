@@ -138,7 +138,7 @@ On GCP [Cost Reports](/cost_reports), you can filter across several dimensions:
 
 - Project (project name)
 - Category (e.g., Cloud Functions Invocations (2nd Gen))
-- Label/Not Labeled (includes GCP labels and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Label/Not Labeled (includes GCP labels and [virtual tags](/tagging) created in Vantage for this provider)
 - Resource (resource ID)
 - Region (e.g., Us East1)
 - Charge Type (e.g., Usage)

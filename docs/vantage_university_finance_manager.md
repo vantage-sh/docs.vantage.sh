@@ -58,8 +58,8 @@ See the following resources to help you get started with Virtual Tags, dynamic c
 <details><summary>Click to view resources</summary>
 
 - [Vantage University Cost Allocation](/vantage_university_cost_allocation)
-- [Create Virtual Tags](/virtual_tagging#create-virtual-tags)
-- [Virtual Tagging Examples](/virtual_tagging#examples)
+- [Create Virtual Tags](/tagging#create-virtual-tags)
+- [Virtual Tagging Examples](/tagging#examples)
 - [Create a Segment](/segments#create-a-segment)
 - [View and Create Child Segments](/segments#view-and-create-child-segments)
 

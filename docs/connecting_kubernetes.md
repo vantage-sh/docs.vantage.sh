@@ -41,7 +41,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 On Kubernetes [Cost Reports](/cost_reports), you can filter across several dimensions:
 
 - Account (associated account name)
-- Grouping (includes Kubernetes grouping names and values and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Grouping (includes Kubernetes grouping names and values and [virtual tags](/tagging) created in Vantage for this provider)
 - Region (e.g., Westus2)
 - Charge Type (e.g., Usage)
 - Cluster (cluster name)

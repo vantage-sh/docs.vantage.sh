@@ -136,7 +136,7 @@ On Datadog [Cost Reports](/cost_reports), you can filter across several dimensio
 
 - Organization (organization name)
 - Category (e.g., APM integrated spans)
-- Tag/Not Tagged (includes Datadog tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag/Not Tagged (includes Datadog tags and [virtual tags](/tagging) created in Vantage for this provider)
 - Subcategory (e.g., Virtual Network Standard IPv4 Static Public IP)
 - Charge Type (e.g., Usage)
 - Service (e.g., Database Monitoring)

@@ -78,7 +78,7 @@ On Linode [Cost Reports](/cost_reports/), you can filter costs across several di
 
 - Category (e.g., Linode Instance - Compute)
 - Subcategory (e.g., Linode Instance - Dedicated 16GB)
-- Tag ([Virtual Tags](/virtual_tagging) created in Vantage for this provider)
+- Tag ([Virtual Tags](/tagging) created in Vantage for this provider)
 - Resource (e.g., specific resource names)
 - Charge Type (e.g., Usage or Discount)
 - Service (e.g., Node Balancer)

@@ -91,7 +91,7 @@ Active resources are synced for each [workspace](/workspaces) at least once ever
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Resource Report Drill Down" width="100%" src="/img/resource.png" />
 </div>
-5. Any tags assigned to the resource (including [Virtual Tags](/virtual_tagging)) are also displayed in the **Assigned Tags** section at the bottom. 
+5. Any tags assigned to the resource (including [Virtual Tags](/tagging)) are also displayed in the **Assigned Tags** section at the bottom. 
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Assigned Tags on Resource Reports" width="100%" src="/img/assigned-tags.png" />
 </div>

@@ -119,6 +119,10 @@ const config = {
             from: "/kubernetes_container_insights",
             to: "/kubernetes_agent",
           },
+          {
+            from: "/virtual_tagging",
+            to: "/tagging",
+          },
         ],
       },
     ],

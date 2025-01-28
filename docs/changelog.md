@@ -65,7 +65,7 @@ _See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes
 
 - **Update Dashboard order:** You now have the option to update the [report order](/dashboards#edit-dashboard-report-order) on Dashboards.
 - **AWS human-readable account names:** In addition to the account number, the human-readable account name is now visible on the [AWS Integrations](/connecting_aws) page for AWS account integrations.
-- **Virtual Tags processing status:** The "Processing..." indicator on [Virtual Tags](/virtual_tagging) now provides more accurate status updates, specifically for the initial run of new or updated Virtual Tag configurations.
+- **Virtual Tags processing status:** The "Processing..." indicator on [Virtual Tags](/tagging) now provides more accurate status updates, specifically for the initial run of new or updated Virtual Tag configurations.
 - **Virtual Tags in Resource Reports:** You can now [filter by Virtual Tags](/active_resources#resource-report-filters) within Resource Report filters.
 - **Linode integration:** Vantage now integrates with [Linode from Akamai Connected Cloud](/connecting_linode) as its latest cost provider.
 - **Integration Owner role:** The new [Integration Owner role](/rbac) has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role does not have access to other sensitive configuration settings.
@@ -187,7 +187,7 @@ _See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent 
 
 ### Product Updates
 
-- **Dynamic Cost Allocation:** Dynamic cost allocation, which is the process of allocating costs based on another existing cost or metric, is now available. See the [Virtual Tagging](/virtual_tagging) documentation for details.
+- **Dynamic Cost Allocation:** Dynamic cost allocation, which is the process of allocating costs based on another existing cost or metric, is now available. See the [Virtual Tagging](/tagging) documentation for details.
 - **Workspace access updates:** If you are granted access via [RBAC](/rbac) to a report in a workspace outside your regularly accessed workspace, when you access the link to the report, you will have temporary access to the new workspace and can view the items that you were granted access to.
 - **Share reports across workspaces:** You can now share report links across different [workspaces](/workspaces). For example, if you're in Workspace A and open a report link from Workspace B, you'll be automatically switched to Workspace B to view the report. Previously, a `404` error was displayed.
 - **GCP active resources:** [GCP active resources](/gcp_supported_services) are now synced and available to filter within Resource Reports.
@@ -277,7 +277,7 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 
 - **Visual navigation improvements:** A **Create New** menu for quick actions is available on the top navigation bar.
 - **Datadog metrics:** Business metrics have been updated with the option to directly ingest [Datadog metrics](/per_unit_costs#importing-from-datadog).
-- **New virtual tagging feature:** [Virtual tagging](/virtual_tagging) is available to consistently tag costs across providers in Vantage. This feature can help to increase tagging coverage across your cloud infrastructure.
+- **New virtual tagging feature:** [Virtual tagging](/tagging) is available to consistently tag costs across providers in Vantage. This feature can help to increase tagging coverage across your cloud infrastructure.
 - **New rightsizing recommendations:** Kubernetes [rightsizing recommendations](/cost_recommendations#kubernetes-rightsizing) are now available for rightsizing managed workloads in Kubernetes.
 - **New to active resources:** Kubernetes managed workloads are synced as [active resources](/active_resources) in Vantage.
 - **Expanded forecasts:** [Forecasts](/forecasting) have been expanded to include the upcoming month, the next three months, and six months ahead.
@@ -296,7 +296,7 @@ _See [March's update](/changelog#kubernetes-agent-updates-1) for the most recent
   - The [`/financial_commitment_reports`](https://vantage.readme.io/reference/getfinancialcommitmentreports) endpoint automates the retrieval of [financial commitment reports](/financial_commitment_reports).
   - The [`/kubernetes_efficiency_reports`](https://vantage.readme.io/reference/getkubernetesefficiencyreports) endpoint automates the retrieval of [Kubernetes efficiency reports](/kubernetes).
   - The [`/anomaly_alerts`](https://vantage.readme.io/reference/getanomalyalerts) endpoint allows you to retrieve and update [anomaly alerts](/cost_anomaly_alerts).
-  - The [`/virtual_tag_configs`](https://vantage.readme.io/reference/createvirtualtagconfig) endpoint automates the creation, retrieval, and update of [virtual tags](/virtual_tagging).
+  - The [`/virtual_tag_configs`](https://vantage.readme.io/reference/createvirtualtagconfig) endpoint automates the creation, retrieval, and update of [virtual tags](/tagging).
   - The [`/anomaly_notifications`](https://vantage.readme.io/reference/createanomalynotification) endpoint automates the creation, retrieval, and update of anomaly notifications.
   - The [`/budgets`](https://vantage.readme.io/reference/createbudget) endpoint automates the creation, retrieval, and update of [budgets](/budgets).
   - The [`/budgets_alerts`](https://vantage.readme.io/reference/createbudgetalert) endpoint automates the creation, retrieval, and update of budgets alerts.

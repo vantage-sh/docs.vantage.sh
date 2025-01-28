@@ -156,7 +156,7 @@ On AWS [Cost Reports](/cost_reports), you can filter across several dimensions:
 
 - Account (AWS account name)
 - Category (e.g., EC2 Data Transfer)
-- Tag/Not Tagged (includes AWS tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag/Not Tagged (includes AWS tags and [virtual tags](/tagging) created in Vantage for this provider)
 - Subcategory (e.g., EC2 DataTransfer-In-Bytes)
 - Resource (specific resource IDs)
 - Region (e.g., US East (Ohio))
