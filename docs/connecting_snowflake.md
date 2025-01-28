@@ -136,7 +136,7 @@ On Snowflake [Cost Reports](/cost_reports), you can filter across several dimens
 - Region (e.g., AWS Eu West 1)
 - Organization (organization name)
 - Service (e.g., Data Cloud)
-- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag ([virtual tags](/tagging) created in Vantage for this provider)
 - Charge Type (e.g., Usage)
 
 ## Active Resources 

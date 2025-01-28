@@ -156,7 +156,7 @@ You can group by the following dimensions:
 - Subcategory
 - Charge Type (see the [section below](/cost_reports#charge-type) for definitions)
 - Tagged (e.g., see whether resources are or are not tagged)
-- Tag (includes [virtual tags](/virtual_tagging))
+- Tag (includes [virtual tags](/tagging))
 
 After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
 

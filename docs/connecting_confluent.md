@@ -64,7 +64,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 On Confluent [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
 - Category (e.g., Kafka Storage)
-- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag ([virtual tags](/tagging) created in Vantage for this provider)
 - Resource (resource service ID)
 - Charge Type (e.g., Usage)
 - Organization (organization ID)

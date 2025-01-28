@@ -68,7 +68,7 @@ If a provider does not have usage data, the Usage Unit column is empty and the A
 
 ## Use Virtual Tags with Usage-Based Reporting
 
-[Virtual Tags](https://docs.vantage.sh/virtual_tagging) work across both cost and usage consumption for supported providers. If you created Virtual Tags based on cost, the associated usage consumption will inherit the same Virtual Tag. You can use Virtual Tags within your filter criteria to apply Virtual Tags based on usage.
+[Virtual Tags](https://docs.vantage.sh/tagging) work across both cost and usage consumption for supported providers. If you created Virtual Tags based on cost, the associated usage consumption will inherit the same Virtual Tag. You can use Virtual Tags within your filter criteria to apply Virtual Tags based on usage.
 
 ## Usage-Based Reporting on Dashboards {#dashboards}
 

@@ -1,5 +1,5 @@
 ---
-id: virtual_tagging
+id: tagging
 name: Virtual Tagging
 description: Create virtual tags within Vantage to provide a consistent tagging schema across cloud providers.
 keywords:
@@ -37,7 +37,7 @@ If you want to transition any of your cost allocation segments to virtual tags, 
 
 With custom value tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
 
-See the [example section](/virtual_tagging#custom-values-example) below for details.
+See the [example section](/tagging#custom-values-example) below for details.
 
 ## Cost-Based and Business Metrics-Based Allocation Tags
 
@@ -55,13 +55,13 @@ The cost-based and business metrics-based allocation tag types allow for _dynami
 
 With cost-based allocation tags, you can create a dynamically allocated cost structure. Select a set of input costs (e.g., all AWS costs), an existing cost tag to use for allocation (e.g., a teams cost tag), and an output cost (e.g, a static cost, like AWS Support) that you want to be allocated the same way as your input cost.
 
-See the [example section](/virtual_tagging#cost-based-allocation-example) below for details.
+See the [example section](/tagging#cost-based-allocation-example) below for details.
 
 ### Business Metrics-Based Allocation Tags
 
 With business metrics-based allocation tags, you select an existing [business metric](/per_unit_costs) (e.g., CPU use per product) and indicate your output cost (e.g., all GCP Compute costs) so that the allocation of the output cost mimics the percentage allocation of the existing business metric.
 
-See the [example section](/virtual_tagging#metric-based-allocation-example) below for details.
+See the [example section](/tagging#metric-based-allocation-example) below for details.
 
 ## Create Virtual Tags
 

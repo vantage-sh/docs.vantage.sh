@@ -64,7 +64,7 @@ module.exports = {
         "sso",
         "rbac",
         "workspaces",
-        "virtual_tagging",
+        "tagging",
       ],
     },
     {

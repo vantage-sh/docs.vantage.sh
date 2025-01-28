@@ -54,7 +54,7 @@ As a **cloud operations manager**, you can:
 ## 📖 Additional Resources
 
 - [Role-Based Access Control](/rbac)
-- [Create Virtual Tags](/virtual_tagging#create-virtual-tags)
-- [Virtual Tagging Examples](/virtual_tagging#virtual-tagging-examples)
+- [Create Virtual Tags](/tagging#create-virtual-tags)
+- [Virtual Tagging Examples](/tagging#virtual-tagging-examples)
 - [Create a Segment](/segments#create-a-segment)
 - [View and Create Child Segments](/segments#view-and-create-child-segments)

@@ -188,7 +188,7 @@ On Azure [Cost Reports](/cost_reports), you can filter across several dimensions
 
 - Resource Group (resource group name)
 - Category (e.g., Virtual Network IP Addresses)
-- Tag/Not Tagged (includes Azure tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag/Not Tagged (includes Azure tags and [virtual tags](/tagging) created in Vantage for this provider)
 - Subcategory (e.g., Virtual Network Standard IPv4 Static Public IP)
 - Resource (resource ID)
 - Region (e.g., Us East)

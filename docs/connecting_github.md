@@ -155,7 +155,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 On GitHub [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
 
 - Category (e.g., Actions - Hosted Runner)
-- Tag (Includes the below items and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag (Includes the below items and [virtual tags](/tagging) created in Vantage for this provider)
   - owner
   - repo
   - username
@@ -173,7 +173,7 @@ You can also view GitHub credits in Cost Reports.
 
 ## GitHub Costs Demonstration
 
-The below video talks about how to get started with GitHub costs and how to use [Virtual Tags](/virtual_tagging) along with this integration.
+The below video talks about how to get started with GitHub costs and how to use [Virtual Tags](/tagging) along with this integration.
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/npyZQRlTuGY?si=AtCe7H23BvYFsZsB?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>

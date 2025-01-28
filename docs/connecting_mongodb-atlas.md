@@ -147,7 +147,7 @@ On MongoDB Atlas [Cost Reports](/cost_reports), you can filter across several di
 
 - Project (project ID)
 - Category (Atlas Cluster - Atlas Instance M2)
-- Tag (includes MongoDB tags and [virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag (includes MongoDB tags and [virtual tags](/tagging) created in Vantage for this provider)
 - Resource (service resource ID)
 - Charge Type (e.g., Usage)
 - Organization (organization name)

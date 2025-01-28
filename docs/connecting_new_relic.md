@@ -43,6 +43,6 @@ On New Relic [Cost Reports](/cost_reports), you can filter across several dimens
 
 - Account (account name)
 - Category (e.g., New Relic Users - CoreUsers)
-- Tag ([virtual tags](/virtual_tagging) created in Vantage for this provider)
+- Tag ([virtual tags](/tagging) created in Vantage for this provider)
 - Charge Type (e.g., Usage)
 - Service (e.g., New Relic Ingestion)
