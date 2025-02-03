@@ -12,18 +12,22 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on January 28, 2025, with product updates for January 2025._
+_This page was last updated on February 3, 2025, with product updates for January 2025._
 
 ## January 2025
 
 ### Product Updates
 
+- **Tagging updates:** Multiple updates were released related to tagging and [virtual tags](/tagging):
+  - New Tags Settings page to manage virtual and provider-created tags
+  - The ability to hide and unhide tag keys
+  - The ability to view an associated Cost Report for a given tag
 - **Jira integration:** Vantage integrates with [Jira](/jira) for tracking issues connected to budget alerts, cost anomalies, and Resource Reports. 
 - **Annotations for Budget Alerts:** An [annotation](/annotations#budget-alert-annotations) is now added to the corresponding Cost Report when a budget alert is triggered.
 - **Filter by Commitment ARN:** You can now filter by Commitment ARN on [Financial Commitment Reports](/financial_commitment_reports#create-report) to understand the discount impact of a single Savings Plan or Reserved Instance. 
 - **Commitments pagination:** Pagination has been added to the [**Commitments** screen](https://console.vantage.sh/financial_planning/financial_commitments) for better readability when there are many commitments. 
 - **Acronym searching for resource services:** A fix was added so that when searching for a specific resource in report filters, you can now search by common acronyms for AWS services, such as **RDS** or **S3**, rather than typing the full service name.
-- **Budgets UI updates:** On the **Budgets** [screen](/budgets) you can now filter by **Budget Type**. Additional UI updates have been made to the **Performance** and **Hierarchy** screens.
+- **Budgets UI updates:** On the **Budgets** [screen](/budgets), you can now filter by **Budget Type**. Additional UI updates have been made to the **Performance** and **Hierarchy** screens.
 - **Kubernetes Efficiency Report export:** You can now export [Kubernetes Efficiency Reports](/kubernetes#exporting-k8s-efficiency-reports) from the console. 
 
 ### Kubernetes Agent Updates
@@ -34,9 +38,10 @@ _This page was last updated on January 28, 2025, with product updates for Januar
 
 ### API Updates
 
+- **Tags API:** The `tags` [endpoint](https://vantage.readme.io/reference/updatetag) was added with `PUT` and `GET` methods for retrieving all tags and hiding tags.
 - **Usage API:** The `/costs` [endpoint](https://vantage.readme.io/reference/getcosts) has been updated to include the ability to aggregate by and retrieve usage values via the `settings[aggregate_by]` parameter.
 - **Hierarchical budgets:** The `/budgets` [endpoint](https://vantage.readme.io/reference/getbudgets) is updated to return or specify `child_budget_tokens` for any hierarchical budgets.
-- **Parameter name update:** On the `/kubernetes_efficiency_reports` [endpoint](https://vantage.readme.io/reference/createkubernetesefficiencyreport), the `date_bin` parameter is now `date_bucket.`
+- **Parameter name update:** On the `/kubernetes_efficiency_reports` [endpoint](https://vantage.readme.io/reference/createkubernetesefficiencyreport), the `date_bin` parameter is now `date_bucket`.
 
 ## December 2024
 
