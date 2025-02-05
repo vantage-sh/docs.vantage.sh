@@ -150,6 +150,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_open_ai",
     },
     {
+      icon: '/img/logos/logo-icon-grafana.svg',
+      iconAltText: 'Grafana logo',
+      title: 'Grafana Cloud',
+      content: 'Vantage integrates with Grafana Cloud via a read-only token attached to a cloud access policy.',
+      link: "/connecting_grafana",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',
