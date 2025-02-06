@@ -14,6 +14,10 @@ For every [Cost Report](/cost_reports), Vantage generates a forecast that projec
 
 To view a forecast on a Cost Report, create a new Cost Report and save it. After you create a new Cost Report, a message is displayed that indicates the forecast is generating. The processing time depends on the amount of data contained in the filtered report, but it usually takes less than 10 minutes.
 
+:::note
+If you add additional filters to an existing report, you need to save the report again for the new forecast to generate. Forecasts are generated based on _saved_ data.
+:::
+
 The forecast for the rest of the current month is displayed, by default, on the chart. Forecasts are available on line charts and bar charts. On line charts, forecasts are available for all date binning options. For bar charts, you can view forecasts for day, week, and month date binnings.
 
 The forecast includes an upper-expected band and a lower-expected band, with a median forecast that is in the middle of these two ranges. This forecast is updated daily as new cost data arrives. 
