@@ -39,6 +39,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Fastly           | `fastly`       | [View Fastly Fields](#fastly)                    |
 | GitHub           | `github`       | [View GitHub Fields](#github)                    |
 | Google Cloud     | `gcp`          | [View GCP Fields](#google-cloud-platform)        |
+| Grafana Cloud    | `grafana`      | [View Grafana Cloud Fields](#grafana-cloud)      |
 | Kubernetes       | `kubernetes`   | [View Kubernetes Fields](#kubernetes)            |
 | Linode           | `linode`       | [View Linode Fields](#linode)                    |
 | MongoDB Atlas    | `mongo`        | [View MongoDB Atlas Fields](#mongodb-atlas)      |
@@ -201,6 +202,21 @@ _\* Virtual tags associated with this provider_
 | Category        | `category`            | string    | `costs.category`            |
 | Resource        | `resource_id`         | string    | `costs.resource_id`         |
 | Charge Type     | `charge_type`         | string    | `costs.charge_type`         |
+
+## Grafana Cloud {#grafana-cloud}
+
+| Filter       | API Field Name        | Data Type | `namespace.field`           |
+| ------------ | --------------------- | --------- | --------------------------- |
+| Service      | `service`             | string    | `costs.service`             |
+| Account      | `account_id`          | string    | `costs.account_id`          |
+| Organization | `provider_account_id` | string    | `costs.provider_account_id` |
+| Tag\*        | `name`                | string    | `tags.name`                 |
+| Tag Value\*  | `value`               | string    | `tags.value`                |
+| Provider     | `provider`            | string    | `costs.provider`            |
+| Category     | `category`            | string    | `costs.category`            |
+| Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
+
+_\* Virtual tags associated with this provider_
 
 ## Kubernetes {#kubernetes}
 

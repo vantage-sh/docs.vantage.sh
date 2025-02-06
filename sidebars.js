@@ -166,6 +166,7 @@ module.exports = {
         "connecting_github",
         "connecting_linode",
         "connecting_open_ai",
+        "connecting_grafana",
         "connecting_custom_providers",
         "provider_data_refresh",
       ],
