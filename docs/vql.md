@@ -95,3 +95,5 @@ VQL has a separate scope for each type of report—meaning that you cannot use V
 - [VQL for Cost Reports](/vql_cost_report)
 - [VQL for Resource Reports](/vql_resource_report)
 - [VQL for Kubernetes Efficiency Reports](/vql_kubernetes_efficiency_report)
+- [VQL for Financial Commitment Reports](/vql_financial_commitment_report)
+- [VQL for Network Flow Reports](/vql_network_flow_report)
