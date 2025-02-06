@@ -216,6 +216,8 @@ _\* Virtual tags associated with this provider_
 | Category     | `category`            | string    | `costs.category`            |
 | Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
 
+_\* Virtual tags associated with this provider_
+
 ## Kubernetes {#kubernetes}
 
 | Filter         | API Field Name | Data Type | `namespace.field`   |
