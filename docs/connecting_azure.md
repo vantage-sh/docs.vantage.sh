@@ -157,7 +157,6 @@ Vantage recommends assigning permissions to a management group that aggregates y
    </details>
 8. Click **Next** > **Review + assign**. 
 
-
 ### Save the Credentials in Vantage {#save-credentials}
 
 After you complete the steps for connecting via the Azure CLI or Azure portal, follow the steps below to add the Azure tenant ID, service principal App ID, and service principal password/secret in Vantage. 
@@ -165,8 +164,38 @@ After you complete the steps for connecting via the Azure CLI or Azure portal, f
 1. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure integration.
 2. On the Azure integration page, click **Add Credentials**. 
 3. Add the **Azure AD Tenant ID**, **Service Principal App ID**, and **Service Principal Password** you previously obtained, then click **Connect Account**. Vantage will begin importing your Azure costs. 
+4. See the [Workspace Access](/connecting_azure#workspace-access) section below for some additional steps.
 
-### Next Steps: Manage Workspace Access
+## Azure MCA Customers: Additional Integration Steps {#azure-mca}
+
+If you currently have an [Microsoft Customer Agreement (MCA) account](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/mca-overview), after you complete the steps above, you need to follow the additional steps below to ensure Vantage pulls data from this top-level billing scope instead of pulling data subscription by subscription. With these additional steps, you will allow the service principal to have access at the billing scope level.
+
+### Step 1: Obtain Your Billing Account ID
+
+1. In Azure, navigate to **Cost Management + Billing**.
+2. On the left menu, click **Billing scopes**. 
+3. Select your **MCA Billing Account** from the list. 
+4. On the left menu, click **Settings** > **Properties**. 
+5. Copy your **Billing account id** to later send to Vantage.
+
+### Step 2: Assign the Billing Reader Role to the Service Principal
+
+1. From the left menu, select **Access Control (IAM)**.
+2. At the top, click **Add**.
+3. On the right **Add role assignment** menu, select **Billing profile reader**. 
+4. Under **Users, groups, or apps**, select the `vantage` service principal you previously created.
+  :::note 
+  If you already have a Billing Reader group, add the `vantage` service principal as a new member.
+  :::
+5. Click **Add**.
+
+### Step 3: Send Your Billing Account ID to Vantage
+
+Send the **Billing account id** you previously copied to [support@vantage.sh](mailto:support@vantage.sh). 
+- Indicate that you have set up an Azure integration and that you are a customer on an MCA agreement. 
+- In addition, indicate whether you want your Azure costs set to amortized or actual (unamortized). Note that with amortization, Reserved Instances and Savings Plans are visible.
+
+## Next Steps: Manage Workspace Access {#workspace-access}
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
