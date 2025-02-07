@@ -83,10 +83,13 @@ Your Jira account instance will be synced with Vantage. Note that this sync migh
 
 - The connection’s status is displayed as either **Connected**, **Syncing,** or **Unstable.** An Unstable status indicates that one of your configurations is no longer valid. For example, you may have deleted an issue type in Jira that is connected to a Vantage anomaly alert, budget alert, or Resource Report. 
 :::note 
-If you see an **Unstable** connection, contact [support@vantage.sh](mailto:support@vantage.sh) for help with triaging this issue.
+If you see an **Unstable** connection when you first connect, contact [support@vantage.sh](mailto:support@vantage.sh) for help with triaging this issue.
 :::
 - At the top of the screen, the **Check for updates** button is displayed. Click this button if you add new projects in Jira, or if you create new issue types in Jira, to ensure they are synced with Vantage. In addition, if you add new users to your Jira instance and need to resync your user list for fields like **Reporter**, click this button to import those new users.
 - All your projects will be listed, along with the connected account name.
+- In the **Jira Issue Alert Configurations** section, each configured alert is listed along with its status. Click the pencil icon next to the alert to edit the configuration.
+  - A **Stable** status means the alert is working as expected.
+  - An **Unstable** status indicates that Vantage can no longer find one or more Jira fields that were previously selected as part of the issue criteria. This may happen if a project, issue type, or field value that Vantage originally imported from Jira has been deleted or is no longer available. To resolve this, edit the alert configuration and update the missing criteria.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Jira connection screen in the Vantage console" width="100%" src="/img/connect-jira.png" />
