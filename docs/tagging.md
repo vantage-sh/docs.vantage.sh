@@ -193,7 +193,7 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
    <TabItem value="custom" label="Add Custom Value" default>
    <ol>
    <li>Click <strong>Assign Custom Value</strong>.</li>
-   <li>Enter a <strong>Tag Value</strong> title. Titles can contain only letters, numbers, and the following characters: <code>\_ - & + , . : / \</code>. You cannot use saved filters to define a virtual tag value's filters.</li>
+   <li>Enter a <strong>Tag Value</strong> title. Titles can contain only letters, numbers, and the following characters: <code>\_ - & + , . : / \ @</code>. You cannot use saved filters to define a virtual tag value's filters.</li>
    <li>Specify the tag value's filter criteria (i.e., <b>Output Cost Filters</b>). These filters function just like filters on Cost Reports and cost allocation segments. For information on how to create detailed filters, see the <a href="/cost_reports">Cost Reports</a> documentation.</li>
    </ol>
    </TabItem>
