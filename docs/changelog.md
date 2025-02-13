@@ -12,7 +12,30 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on February 3, 2025, with product updates for January 2025._
+_This page was last updated on February 13, 2025, with product updates for February 2025._
+
+## February 2025
+
+### Product Updates
+
+- **Budget hierachy chart updates:** On the [Budgets **Hierarchy**](/budgets#budget-hierarchy) screen, when you hover over the chart, the difference between the total budget and actual spend is now displayed. The chart is also updated to show costs aggregated by day rather than month.
+- **Tag updates:**
+  - On the **Group by** menu in reports, when you select to group by **Tag**, an icon indicating the associated cost provider is displayed next to each listed tag key.
+  - On the **Tags** configuration screen, the **View in Cost Report** button is now available for [Virtual Tags](/tagging).
+  - When creating a custom tag value filter on the **Virtual Tags** screen, hidden tags are now displayed with a hidden eye icon, indicating they are only usable in Virtual Tag configurations.
+  - The `@` character is now an accepted character for Virtual Tag value names.
+- **Grafana Cloud integration:** Vantage now integrates with [Grafana Cloud](/connecting_grafana) as its latest cost provider.
+- **View as VQL:** On Financial Commitment and Network Flow Report filters, a new button is available to see the [VQL](/vql) representation of a Financial Commitment or Network Flow Report filter.
+- **cur.vantage.sh:** The new microsite, [cur.vantage.sh](https://cur.vantage.sh/), helps you decode AWS Cost and Usage Report (CUR) billing codes for any AWS service.
+
+### Kubernetes Agent Updates
+
+_See [January's update](/changelog#k8s-jan-25) for the most recent Kubernetes agent release._
+
+### API Updates
+
+- **Network Flow Reports endpoint:** The `/network_flow_reports` [endpoint](https://vantage.readme.io/reference/createnetworkflowreport) lets you create and manage Network Flow Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
+- **Financial Commitment Reports endpoint:** The `/financial_commitment_reports` [endpoint](https://vantage.readme.io/reference/createfinancialcommitmentreport) lets you create and manage Financial Commitment Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
 
 ## January 2025
 
@@ -30,7 +53,7 @@ _This page was last updated on February 3, 2025, with product updates for Januar
 - **Budgets UI updates:** On the **Budgets** [screen](/budgets), you can now filter by **Budget Type**. Additional UI updates have been made to the **Performance** and **Hierarchy** screens.
 - **Kubernetes Efficiency Report export:** You can now export [Kubernetes Efficiency Reports](/kubernetes#exporting-k8s-efficiency-reports) from the console. 
 
-### Kubernetes Agent Updates
+### Kubernetes Agent Updates {#k8s-jan-25}
 
 - Version 1.0.28, Helm Chart [vantage-kubernetes-agent-1.0.40](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.0.40), includes the following updates: 
   - Default value for `disableKubeTLSverify` is corrected from `string` to `boolean`.
