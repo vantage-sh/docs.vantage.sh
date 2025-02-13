@@ -18,7 +18,7 @@ _This page was last updated on February 13, 2025, with product updates for Febru
 
 ### Product Updates
 
-- **Budget hierachy chart updates:** On the [Budgets **Hierarchy**](/budgets#budget-hierarchy) screen, when you hover over the chart, the difference between the total budget and actual spend is now displayed. The chart is also updated to show costs aggregated by day rather than month.
+- **Budget hierarchy chart updates:** On the [Budgets **Hierarchy**](/budgets#budget-hierarchy) screen, when you hover over the chart, the difference between the total budget and actual spend is now displayed. The chart is also updated to show costs aggregated by day rather than month.
 - **Tag updates:**
   - On the **Group by** menu in reports, when you select to group by **Tag**, an icon indicating the associated cost provider is displayed next to each listed tag key.
   - On the **Tags** configuration screen, the **View in Cost Report** button is now available for [Virtual Tags](/tagging).
