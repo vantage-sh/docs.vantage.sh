@@ -203,9 +203,9 @@ Once your costs are imported, select which workspaces this integration is associ
 
 See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
-## Azure Cost and Rightsizing Recommendations
+## Azure Cost Recommendations
 
-Vantage currently supports [cost recommendations](/cost_recommendations) for Compute Reserved Instances and Compute Unattached Virtual Hard Disks (disks that have not been attached to a VM in the last 30 days). Each recommendation shows potential savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
+Vantage provides different [cost recommendations](/cost_recommendations) for Azure. Each recommendation includes a potential monthly savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
 
 ## Kubernetes and AKS
 
