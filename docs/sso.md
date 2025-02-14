@@ -118,7 +118,18 @@ If you do not see your IdP listed, please contact [Vantage Support](mailto:suppo
 The following instructions are based on the [Microsoft documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 :::
 
-#### Step 1: Register an Application with Azure AD
+#### Step 1: Obtain Your Primary Domain from Microsoft Entra ID {#azure-step-1}
+
+<details><summary>Expand to view example image</summary>
+<div> 
+<img alt="Obtaining primary domain from Entra ID" width="80%" src="/img/primary-domain.png"/></div> <p><i>Source: Microsoft </i></p>
+</details>
+
+- Log in to the Azure portal.
+- Navigate to **Microsoft Entra ID**.
+- On the **Overview** screen, copy the **Primary domain** to use in the last step.
+
+#### Step 2: Register an Application with Azure AD {#azure-step-2}
 
 <details><summary>Expand to view example image</summary>
 <div> 
@@ -130,9 +141,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 - Set the **Supported account types** option to the appropriate setting for your organization.
 - For **Redirect URI**, select **Web** and enter `https://auth.vantage.sh/login/callback`.
 - Click **Register**.
-- Once the app registration is complete, copy the **Application (client) ID** displayed on the app's **Overview** page to send to Vantage.
+- Once the app registration is complete, copy the **Application (client) ID** displayed on the app's **Overview** page to use in the last step.
 
-#### Step 2: Generate a Client Secret
+#### Step 3: Generate a Client Secret {#azure-step-3}
 
 <details><summary>Expand to view example image</summary>
 <div> 
@@ -146,9 +157,9 @@ The following instructions are based on the [Microsoft documentation](https://le
   If this secret expires, you will need to supply Vantage with a new secret _before_ the expiration date.
   :::
 - Click **Add**.
-- Copy the secret's **Value**.
+- Copy the secret's **Value** to use in the last step.
 
-#### Step 3: Add API Permissions
+#### Step 4: Add API Permissions {#azure-step-4}
 
 <details><summary>Expand to view example image</summary>
 <div> 
@@ -157,10 +168,12 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 - On the left navigation, select **API permissions**.
 - Select **Add a permission**.
-- Under the **Microsoft APIs** tab, find and select the appropriate permissions required by Vantage (i.e., `Directory.Read.All`, `User.Read`).
+- Under the **Microsoft APIs** tab, find and select the appropriate permissions required by Vantage:
+  - `Directory.Read.All`
+  - `User.Read`
 - At the bottom, click **Add permissions**.
 
-#### Step 4: Grant Admin Consent (If Required)
+#### Step 5: Grant Admin Consent (If Required) {#azure-step-5}
 
 <details><summary>Expand to view example image</summary>
 <div> 
@@ -170,14 +183,14 @@ The following instructions are based on the [Microsoft documentation](https://le
 - Still under **API permissions**, you may see a section for **Grant admin consent for {your domain}**.
 - Click **Grant admin consent**, and follow the prompts.
 
-#### Step 5: Add Azure Credentials to Vantage
+#### Step 6: Add Azure Credentials to Vantage {#azure-step-6}
 
 - Navigate to the [**Authentication screen**](https://console.vantage.sh/settings/account_identity_providers) in Vantage.
 - Select **AzureAD**.
 - Under **Step 2**, enter the following information:
-  - **Tenant Domain:** The place you'll navigate to when you log in
-  - **Client ID**
-  - **Client Secret**
+  - **Primary Domain**: The value you obtained in [step 1](/sso#azure-step-1). _Ensure you enter only the domain name (e.g., `yourcompany.com`). Do not include `http://www`._
+  - **Client ID**: The client ID you obtained in [step 2](/sso#azure-step-2).
+  - **Client Secret**: The secret you obtained in [step 3](/sso#azure-step-3).
 - Click **Configure Connection**. 
 
 After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
