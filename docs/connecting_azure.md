@@ -178,11 +178,11 @@ If you currently have an [Microsoft Customer Agreement (MCA) account](https://le
 4. On the left menu, click **Settings** > **Properties**. 
 5. Copy your **Billing account id** to later send to Vantage.
 
-### Step 2: Assign the Billing Reader Role to the Service Principal
+### Step 2: Assign the Billing Account Reader Role to the Service Principal
 
 1. From the left menu, select **Access Control (IAM)**.
 2. At the top, click **Add**.
-3. On the right **Add role assignment** menu, select **Billing profile reader**. 
+3. On the right **Add role assignment** menu, select **Billing account reader**. 
 4. Under **Users, groups, or apps**, select the `vantage` service principal you previously created.
   :::note 
   If you already have a Billing Reader group, add the `vantage` service principal as a new member.
