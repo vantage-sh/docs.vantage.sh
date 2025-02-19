@@ -34,7 +34,7 @@ At the top of the main Tags screen, you can search for specific tags and filter 
 
 ### View Tags on a Cost Report
 
-From the **Tags** page, you can view a Cost Report that is filtered and grouped based on a selected tag. This can help you to view any current or past costs associated with the tag. In the below visual example:
+From the **Tags** page, you can view a Cost Report that is filtered and grouped based on a selected tag. You can do this for both provider and virtual tags. This can help you to view any current or past costs associated with the tag. In the below visual example:
 
 - The user searches for the `environment` virtual tag and selects to view a Cost Report for that tag.
 - The Cost Report is displayed. The report is also filtered by the tag's associated providers by the tag and grouped by that tag's values. 
@@ -67,7 +67,7 @@ To hide a tag key, click the eyeball icon next to the tag on the **All Tags** ta
 
 - **Hidden from report menus:** The tag key is no longer displayed in the **Filters** or **Group By** menus on reports for other Vantage users; however, users with the Owner role can still manage tag visibility (i.e., unhide the tag) via the **Tags** screen.
 - **Existing reports remain functional:** If a report was already filtered or grouped by the hidden tag, it will continue to work, but if you edit the report’s filters, the hidden tag will no longer be available in the filter’s selection list.
-- **Usable in virtual tags:** You can still use hidden tags when you create new virtual tags; they will appear within virtual tag filters.
+- **Usable in virtual tags:** Hidden tags can still be used when creating virtual tags and will appear in virtual tag filters. If a hidden tag is included in a virtual tag’s filter criteria, a message is displayed next to it, indicating that it is hidden and only usable for virtual tag creation.
 - **Still accessible via API:** Hidden tags remain available through [API requests](https://vantage.readme.io/reference/gettags).
 
 #### Hide Tags Example: Standardizing Redundant Tags
