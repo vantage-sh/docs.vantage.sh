@@ -44,22 +44,42 @@ Hierarchical Budgets have the following characteristics:
   - A child budget can belong to multiple separate hierarchies. 
     - _Example: Suppose your organization is structured both by departments and projects. A child budget for "Mobile App Redesign" might belong to the "Product Development" department’s hierarchy, while also appearing in a completely separate hierarchy for cross-functional "Q1 Strategic Initiatives." This allows you to manage and report on budgets across different organizational contexts._
 
+## Budgets Screen
+
+To access the main **Budgets** screen in the console:
+- From the top navigation, click **Financial Planning**.
+- On the left navigation, select **Budgets**. 
+
+All existing budgets are displayed here. You can also edit or delete budgets from this screen. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The Budgets landing page with three different budgets displayed. One budget has a month-to-date performance listed." width="100%" src="/img/budget-screen.png" />
+</div>
+
+The main **Budgets** screen provides the following information:
+
+- Each budget is displayed with a link to the budget's configuration screen.
+- Any hierarchical budgets with corresponding child budgets include the hierarchy icon to the left of the budget's name. In the example above, _Infrastructure Dept_, _Engineering Org_, and _Development Dept_ are all considered hierarchical budgets with corresponding child budgets.
+- The **Cost Report** column indicates the corresponding attached Cost Report. Only terminal child budgets can be associated with a Cost Report.
+- **MTD Budget** represents the prorated budget allocation for the month based on the number of days elapsed.
+  - For hierarchical budgets, this value is the sum of the MTD Budgets of all child budgets.
+  - For example, if the monthly budget for _Cost Optimization Task_ is $40,000 and today is February 11, then 11 days have elapsed out of 28. **The MTD Budget** is calculated as:
+
+  $$
+  \frac{11}{28} \times \$40,000 = \$15,714.29
+  $$
+
+- The **MTD Performance** column shows the percentage of actual spend relative to the MTD Budget, helping indicate whether spending is over or under budget for the month to date.
+
 ## Create a Budget: UI Method
 
 :::note
 The below instructions describe how to manually create a budget in the UI. You can also upload a CSV file to create a budget. See the [section below](/budgets#upload) for details.
 :::
 
-1. From the top navigation, click **Financial Planning**.
-2. On the left navigation, select **Budgets**. All existing budgets are displayed. You can edit or delete budgets from this screen.
-<details><summary>Click to view example image</summary>
-    <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="The Budgets landing page with three different budgets displayed. One budget has a month-to-date performance listed." width="100%" src="/img/budget-screen.png" />
-    </div>
-</details>
-3. From the top right of the screen, click **New Budget**.
-4. Enter a budget **Name** and click **Create Budget**.
-5. The budget details page is displayed. For **Budget Type**, select either **Standard Budget** or **Hierarchical Budget**. The options displayed differ for either budget type.
+1. Begin on the main **Budgets** screen. From the top right of the screen, click **New Budget**.
+2. Enter a budget **Name** and click **Create Budget**.
+3. The budget details page is displayed. For **Budget Type**, select either **Standard Budget** or **Hierarchical Budget**. The options displayed differ for either budget type.
 
   <Tabs>
     <TabItem value="standard-budget-steps" label="Standard Budget" default>
@@ -341,45 +361,105 @@ For any budget type, you can view both the **Performance** and **Hierarchy** tab
 
 ### Budget Performance
 
-Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform.
+Select the **Performance** tab to see each budget period with a month-to-date performance of how the budget performed or is forecasted to perform. The details on this screen will vary depending on whether you are viewing a parent budget or a terminal child budget.
 
-  <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Performance of a budget across six periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
-    </div>
+#### Parent Budget Performance {#parent-performance}
+
+Each child budget is listed in the table along with its **Budgeted Spend** (total budgeted spend for that month) for a given month and the **Actual Spend** (either the amount spent in a previous month or the current plus forecasted spend for the current month). If the **Actual Spend** exceeds the **Budgeted Spend**, the value is highlighted red. 
+
+In the example below, _Infrastructure Dept_ is a parent budget with the following two child budgets.
+
+| Budget Name              | 2024-12  | 2025-01  | 2025-02  |
+|--------------------------|----------|----------|----------|
+| New Cloud Environment   | $60,000   |          |          |
+| Cost Optimization Task  |          | $30,000   | $40,000   |
+
+<div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Performance of a budget across various periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
+</div>
+
+At the top of the tab, the following values are displayed:
+
+- **MTD Budget:** The total budget accrued for the month up to the current date. For the _Infrastructure Department_, only $40,000 was budgeted for the month of February (the _New Cloud Environment Task_ has no February budget). For this example, it is February 18th, so then the **MTD Budget** is calculated as:
+
+  $$
+  \frac{18}{28} \times \$40,000 = \$25,714.29
+  $$
+
+- **MTD Spend:** This is the total amount spent for the month so far across all listed budgets. 
+- **Total Budget:** This is the total amount that's been budgeted to date, prorated for the current month. In the example above, this is calculated as follows: 
+
+$$
+\$60,000 \, (\text{December New Cloud Environment budget}) + \$30,000 \, (\text{January Cost Optimization Task budget}) \\
++ \left( \frac{18}{28} \times \$40,000 \, (\text{Prorated February Cost Optimization Task budget}) \right) = \$115,714.29
+$$
+
+- **Actual Spend:** The total amount spent to date across both child budgets, including all expenditures—even for months when no budget was allocated. In this example, it covers all spend from December 1 to February 18 for both the _New Cloud Environment_ and _Cost Optimization Task_ budgets.
+
+Navigate to the Cost Report that's associated with any child budget to view the actual spend. In the example presented before, on the **Performance** tab, the **Actual Spend** for February was $43,544.19 for the _Cost Optimization Task_ child budget. Since the month is not yet complete in this case, the **Actual Spend** includes the forecasted spend for the entire month, as illustrated in the image below.
+<div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Forecasted spend for the month." width="100%" src="/img/forecasted-spend.png" />
+</div>
+
+#### Child Budget Performance
+
+On a budget with no associated children budgets, the **Performance** tab displays the following information.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Forecasted spend for the month." width="100%" src="/img/child-budget-performance.png" />
+</div>
+
+- The monthly budgeted amount is shown alongside the percentage by which actual spend is over or under budget. In the example above, the January budget was $30,000, while actual spend totaled $30,099.97—exceeding the budget by 0.33%. For ongoing months, the actual spend percentage is calculated using forecasted costs.
+- The header provides the following information:
+  - **Accrued Costs:** Total accrued costs for the current month. 
+  - **Performance (MTD):** The percentage by which the accrued budget is over or under the total accrued costs for the month. In this example, the accrued costs for the month are **\$30,678.50**, while the accrued budget is **\$25,714.29** (calculated as $\frac{18}{28} \times \$40,000$, since it is February 18). The performance is **19.31%** over budget, calculated as:  
+
+    $$
+    \frac{\$30,678.50 - \$25,714.29}{\$25,714.29} \times 100 = 19.31\%
+    $$
+  
+  - **Accrued Costs (YTD):** Total accrued costs from January 1 to the current date.
+  - **Performance (YTD):** Calculated just like **Performance (MTD)** but takes into account all accrued costs from January 1 to present.
 
 ### Budget Hierarchy
 
-On the **Hierarchy** tab, a graph is displayed that provides a time-series view of **Actual Spend** and **Total Budget**. 
-- Hover over a point on the graph to see a point-in-time view of the cumulative budget and spend. 
+On the **Hierarchy** tab, a graph is displayed that provides a time-series view of **Actual Spend** and **Total Budget**. The details provided on this screen are the same for parent and child budgets.
+
+- On the header, the same values are displayed that are on the [**Performance** tab](/budgets#parent-performance).
+- Hover over a point on the graph to see a point-in-time view of the cumulative budget, actual spend, and the difference between the two values. 
 - In the table, if the budget is a parent budget in the hierarchy, any immediate child budgets are listed along with their related performance. You can click the link for any listed child budget to move to the **Hierarchy** screen for that particular child budget.
+- The following information is provided in the table below the chart:
+  - **MTD Budget:** The prorated budget accrued for the month.
+  - **MTD Spend:** The total amount spent for the month.
+  - **MTD Performance:** The percentage by which the accrued budget is over or under the total accrued costs for the month.
+  - **Total Budget:** This is the total amount that's been budgeted to date, prorated for the current month.
+  - **Actual Spend:** The total amount spent to date—even for months when no budget was allocated.
+  - **Performance:** The percent the **Actual Spend** is over or under the **Total Budget**.
+  :::tip
+  Many of these values mirror what you see on the **Performance** tab. See the [Performance section](/budgets#parent-performance) for detailed calculations.
+  :::
 
-In the below visual example: 
+In the below visual example, the **Hierarchy** tab is displayed for the parent budget, _Engineering Org_. The user navigates to the child budget, _Infrastructure Dept_ and then to the terminal child budget, _New Cloud Environment_. Each parent budget lists all of its corresponding child budgets. On this tab, the graph provides a cumulative view, showing the total budget and actual spend for all connected child budgets. For the terminal _New Cloud Environment_ budget, note that no budget was allocated beyond October. As a result, the graph line stops at October, reflecting the lack of data for subsequent months.
 
-- The Hierarchy tab is displayed for the parent budget, "Engineering Org."
-- The user navigates to the child budget, "Infrastructure Dept.," and then to the terminal child budget, "New Cloud Environment."
-- Each parent budget lists all of its corresponding child budgets.
-- On this tab, the graph provides a cumulative view, showing the total budget and actual spend for all connected child budgets.
-  - For the terminal "New Cloud Environment budget," note that no budget was allocated beyond October. As a result, the graph line stops at October, reflecting the lack of data for subsequent months.
-
-    <div style={{ display: "flex", justifyContent: "center" }}>
-      <div style={{ 
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
-          borderRadius: "10px", 
-          width: "100%",
-          overflow: "hidden" 
-      }}>
-      <ReactPlayer 
-          playing 
-          muted 
-          playsinline
-          loop
-          url='/img/budget-hierarchy.mp4'
-          alt="Traversing through a budget hierarchy" 
-          width="100%"
-          height="100%"
-      />
-      </div>
+  <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ 
+        boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", 
+        borderRadius: "10px", 
+        width: "100%",
+        overflow: "hidden" 
+    }}>
+    <ReactPlayer 
+        playing 
+        muted 
+        playsinline
+        loop
+        url='/img/budget-hierarchy.mp4'
+        alt="Traversing through a budget hierarchy" 
+        width="100%"
+        height="100%"
+    />
     </div>
+  </div>
 
 ## View Budgets on Cost Reports
 
