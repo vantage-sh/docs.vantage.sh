@@ -187,6 +187,23 @@ Idle costs are defined as the difference between the cost of requested resources
 idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
+## Understanding the `__idle__` Namespace in Kubernetes Efficiency Reports
+
+When analyzing Kubernetes costs in Vantage, the `__idle__` namespace represents the unallocated portion of nodes per hour, providing insight into overall cluster efficiency. The `__idle__` namespace is included in total cluster costs. 
+
+To view `__idle__` namespace costs, set the report's **Group By** criteria to **Namespace**. In many cases, `__idle__` ranks among the top namespaces in terms of cost. It highlights unused capacity in your cluster and helps identify opportunities for workload optimization.
+
+`__idle__` is calculated as the difference between a node’s total capacity and the sum of allocated pod resources. For example, if a node has:
+
+- **Total capacity:** $8 \text{ CPU} / 16 \text{ GB RAM}$
+- **Pod usage:** $8 \text{ CPU} / 6 \text{ GB RAM}$
+
+Then the unallocated resources assigned to `__idle__` are:
+$$
+\text{Idle RAM} = 16 - 6 = 10 \text{ GB}
+$$
+
+The sum of allocated pod costs and `__idle__` costs should closely approximate total compute costs for the cluster. Minor discrepancies may occur due to hourly allocation calculations, such as multiple pods running at different times within an hour. In addition, if a node is fully allocated for a short period but mostly idle throughout an hour, `__idle__` may not reflect partial usage, leading to some variation in reported costs.
 
 ## Kubernetes GPU Idle Costs {#gpu}
 
@@ -203,10 +220,6 @@ idle_memory = total_allocated_memory - used_memory
 :::note
 GPU _utilization_ is not factored into the efficiency calculation; only GPU memory is tracked. If you have a workload that requires tracking GPU utilization, contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
-
-### Configure GPU Metrics
-
-The Vantage Kubernetes agent automatically collects GPU usage information via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can also be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. NVIDIA GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
 
 #### Vantage Kubernetes Agent Configuration
 
@@ -244,6 +257,10 @@ For net-new installations:
    - `--set dcgmExporter.env[0].name=DCGM_EXPORTER_COLLECTORS --set dcgmExporter.env[0].value=/etc/dcgm-exporter/dcgm-metrics.csv`.
 
 Once the operator is installed, the Vantage Kubernetes agent will begin to upload the data needed to calculate the idle costs. The data will be available on efficiency reports within 48 hours as the costs from the infrastructure provider are ingested.
+
+### Configure GPU Metrics
+
+The Vantage Kubernetes agent automatically collects GPU usage information via the [NVIDIA DCGM Exporter](https://docs.nvidia.com/datacenter/cloud-native/gpu-telemetry/latest/index.html). The exporter is included as part of the [NVIDIA GPU Operator](https://docs.nvidia.com/datacenter/cloud-native/gpu-operator/latest/overview.html), but it can also be installed independently. The agent scrapes the exporter directly and exposes the configuration for the namespace, service name, port name, and path. The default values are configured for the GPU operator default case. NVIDIA GPU idle costs are available for the agent-supported infrastructure providers—AWS, Azure, and GCP.
 
 ## Kubernetes Rightsizing Recommendations
 
