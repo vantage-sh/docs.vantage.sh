@@ -187,6 +187,27 @@ Idle costs are defined as the difference between the cost of requested resources
 idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
+## Understanding the `__idle__` Namespace in Kubernetes Efficiency Reports
+
+When analyzing Kubernetes costs in Vantage, the `__idle__` namespace represents the unallocated portion of nodes per hour, providing insight into overall cluster efficiency. The `__idle__` namespace is included in total cluster costs. 
+
+:::note
+The `__idle__` namespace is not currently enabled by default. Contact [support@vantage.sh](mailto:support@vantage.sh) if you want it enabled.
+:::
+
+To view `__idle__` namespace costs, set the report's **Group By** criteria to **Namespace**. In many cases, `__idle__` ranks among the top namespaces in terms of cost. It highlights unused capacity in your cluster and helps identify opportunities for workload optimization.
+
+`__idle__` is calculated as the difference between a node’s total capacity and the sum of allocated pod resources. For example, if a node has:
+
+- **Total capacity:** $8 \text{ CPU} / 16 \text{ GB RAM}$
+- **Pod usage:** $8 \text{ CPU} / 6 \text{ GB RAM}$
+
+Then the unallocated resources assigned to `__idle__` are:
+$$
+\text{Idle RAM} = 16 - 6 = 10 \text{ GB}
+$$
+
+The sum of allocated pod costs and `__idle__` costs should closely approximate total compute costs for the cluster. Minor discrepancies may occur due to hourly allocation calculations, such as multiple pods running at different times within an hour. In addition, if a node is fully allocated for a short period but mostly idle throughout an hour, `__idle__` may not reflect partial usage, leading to some variation in reported costs.
 
 ## Kubernetes GPU Idle Costs {#gpu}
 
