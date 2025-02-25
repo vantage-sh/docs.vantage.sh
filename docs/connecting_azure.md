@@ -23,7 +23,7 @@ Microsoft offers different billing account types based on your organization’s 
 To determine your billing account type, follow the steps in the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account).
 :::
 
-If your organization uses a Microsoft Customer Agreement (MCA) or Enterprise Agreement (EA), follow the specific integration steps linked below. Otherwise, use the instructions on this page to integrate your account with Vantage.
+If your organization uses a Microsoft Customer Agreement (MCA) or Enterprise Agreement (EA), follow the specific integration steps linked below. If you are on another account type such as a Cloud Solution Provier (CSP) or Pay as You Go, use the instructions on this page to integrate your account with Vantage.
 
 - [Microsoft Customer Agreement (MCA) Vantage integration steps](/connecting_azure_mca)
 - [Enterprise Agreement (EA) Vantage integration steps](/connecting_azure_ea)
