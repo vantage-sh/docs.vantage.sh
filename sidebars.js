@@ -118,7 +118,9 @@ module.exports = {
             id: "connecting_azure",
           },
           items: [
-            "azure_supported_services"
+            "connecting_azure_mca",
+            "connecting_azure_ea",
+            "azure_supported_services",
           ],
         },
         {
