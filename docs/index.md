@@ -97,6 +97,30 @@ Vantage maintains a variety of resources to help make the lives of cloud practit
       newTab: true,
       alt: 'Report icon'
     },
+    {
+      title: 'cur.vantage.sh',
+      content: 'This tool helps you decode AWS Cost and Usage Report (CUR) billing codes for any AWS service. Search for specific services or billing codes to find detailed information about usage types and more.',
+      image: '/img/index-cards/docs-site-card-cur.jpg',
+      link: 'https://cur.vantage.sh/',
+      newTab: true,
+      alt: 'CUR icon'
+    },
+    {
+      title: 'Vantage Blog',
+      content: 'Read insightful articles related to cloud industry trends and news. Stay up to date on Vantage press releases and product news.',
+      image: '/img/index-cards/docs-site-card-blog.jpg',
+      link: 'https://www.vantage.sh/blog/',
+      newTab: true,
+      alt: 'Blog icon'
+    },
+    {
+      title: 'FinOps as Code',
+      content: 'This repository contains tutorials and demos for implementing FinOps as Code in your organization. Practice using the Vantage API and Terraform provider with step-by-step walkthrough tutorials.',
+      image: '/img/index-cards/docs-site-card-finops-as-code.jpg',
+      link: 'https://github.com/vantage-sh/finops-as-code',
+      newTab: true,
+      alt: 'FinOps as Code icon'
+    },
   ]}
   columns={3} 
 />
