@@ -101,7 +101,7 @@ Vantage will begin importing your Azure costs.
 
 ## Step 6: Send Your Billing Account ID to Vantage {#mca-step6}
 
-Send the **Billing account id** you obtained in [step 4](/connecting_azure_mca{#mca-step4}) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an MCA agreement.
+Send the **Billing account id** you obtained in [step 4](/connecting_azure_mca#mca-step4) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an MCA agreement.
 
 ## Next Steps: Workspace Access
 

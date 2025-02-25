@@ -98,7 +98,7 @@ You need to have the **billing account owner** role permissions to assign reader
    </details>
 6. A login in screen is displayed on the right. Using your account credentials, log in to the tenant with enrollment access you want to assign.
 7. In the **Parameters** section add the following values:
-   - `billingAccountName`: Add the **billing account ID** you obtained in [step 3](/connecting_azure_ea{#ea-step3}).
+   - `billingAccountName`: Add the **billing account ID** you obtained in [step 3](/connecting_azure_ea#ea-step3).
    - `billingRoleAssignmentName`: Generate a unique GUID using the [following website](https://guidgenerator.com/), suggested by Microsoft.
    - `api-version`: Use `2019-10-01-preview`.
 8. In the **Body** section, copy and paste the request below. 
@@ -140,7 +140,7 @@ Vantage will begin importing your Azure costs.
 
 ## Step 6: Send Your Billing Account ID to Vantage {#ea-step6}
 
-Send the **Billing account id** you obtained in [step 4](/connecting_azure_ea{#ea-step4}) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an EA agreement.
+Send the **Billing account id** you obtained in [step 4](/connecting_azure_ea#ea-step4) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an EA agreement.
 
 ## Next Steps: Workspace Access
 
