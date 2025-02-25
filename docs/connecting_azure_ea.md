@@ -9,7 +9,7 @@ keywords:
 
 # Azure EA Account
 
-With the Azure EA integration, you will allow the service principal to have access at the billing scope level.
+With the Azure EA integration, you allow the service principal to have access at the billing scope level.
 
 :::note
 When you configure this integration, the Vantage service principal is granted **enrollment reader** permissions. The service principal does _not_ have permissions—nor will it ever attempt—to make any changes to your infrastructure.
@@ -73,7 +73,7 @@ To integrate your Azure EA account with Vantage, follow the below steps:
 ## Step 4: Assign Enrollment Reader Permission to the Service Principal {#ea-step4}
 
 :::note
-You need to have the **billing account owner** role permissions to assign reader permissions to the service principal. The below steps are based on the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals).
+You need to have the **billing account owner** role permissions to assign enrollment reader permissions to the service principal. The below steps are based on the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals).
 :::
 
 1. Navigate to **Microsoft Entra ID**, then select **Enterprise applications**.
@@ -90,18 +90,18 @@ You need to have the **billing account owner** role permissions to assign reader
    <i>Source: Microsoft</i>
    </details>
 4. Open the [_Role Assignments - Put_ article](https://learn.microsoft.com/en-us/rest/api/billing/role-assignments/put?view=rest-billing-2019-10-01-preview&tabs=HTTP) from the Microsoft documentation in a new tab. 
-5. Next to the _Create or update a billing role assignment_ instruction, click **Try It**.
+5. Next to the _Create or update a billing role assignment_ step, click **Try It**.
    <details><summary>Expand to view example image</summary>
    <div>
    <img alt="Azure API role assignment sample call" width="100%" src="/img/connect-azure/azure-ea-role-assignment.png"/> </div>
    <i>Source: Microsoft</i>
    </details>
-6. A login in screen is displayed on the right. Using your account credentials, log in to the tenant with enrollment access you want to assign.
-7. In the **Parameters** section add the following values:
+6. A login in screen is displayed on the right. Using your account credentials, log in to the tenant that you want to assign enrollment reader access.
+7. An API request form is displayed. In the **Parameters** section add the following values:
    - `billingAccountName`: Add the **billing account ID** you obtained in [step 3](/connecting_azure_ea#ea-step3).
-   - `billingRoleAssignmentName`: Generate a unique GUID using the [following website](https://guidgenerator.com/), suggested by Microsoft.
+   - `billingRoleAssignmentName`: Generate a unique GUID using the [a GUID generator](https://guidgenerator.com/), as suggested by Microsoft.
    - `api-version`: Use `2019-10-01-preview`.
-8. In the **Body** section, copy and paste the request below. 
+8. In the **Body** section, copy and paste the request body below. 
    ```json
    {
    "properties": {
@@ -111,16 +111,19 @@ You need to have the **billing account owner** role permissions to assign reader
    }
    }
    ```
-9.  Update placeholders in the **Body** as follows:
-       - `principalId`: The **Object ID** you copied at the beginning of this section.
-       - `principalTenantId`: Your ****Directory (tenant) ID** that you copied in [step 1](/connecting_azure_ea#ea-step1).
-       - `roleDefinitionId`: Replace `<YOUR_BILLING_ACCOUNT_ID>` with the **Billing account id** you copied in [step 3](/connecting_azure_ea#ea-step3).
-         - Note that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is the billing role definition ID for an [EnrollmentReader](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#permissions-that-can-be-assigned-to-the-service-principal).
+
+9. Update placeholders in the **Body** as follows:
+    - `principalId`: The **Object ID** you copied at the beginning of this section.
+    - `principalTenantId`: Your **Directory (tenant) ID** that you copied in [step 1](/connecting_azure_ea#ea-step1).
+    - `roleDefinitionId`: Replace `<YOUR_BILLING_ACCOUNT_ID>` with the **Billing account id** you copied in [step 3](/connecting_azure_ea#ea-step3). 
+      - Note that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is the billing role definition ID for an [EnrollmentReader](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#permissions-that-can-be-assigned-to-the-service-principal).
+   
    <details><summary>Expand to view example image</summary>
-   <div>
-   <img alt="Azure API role assignment parameters filled in" width="100%" src="/img/connect-azure/azure-ea-run.png"/> </div>
-   <i>Source: Microsoft</i>
+      <div>
+      <img alt="Azure API role assignment parameters filled in" width="100%" src="/img/connect-azure/azure-ea-run.png"/> </div>
+      <i>Source: Microsoft</i>
    </details>
+   
 10. Click **Run**. You should see a `200 OK` response, indicating that the request was successful. 
    :::tip
    If you receive an error, see the [Troubleshoot section](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#troubleshoot) of the Microsoft article these instructions were based on.
@@ -140,7 +143,7 @@ Vantage will begin importing your Azure costs.
 
 ## Step 6: Send Your Billing Account ID to Vantage {#ea-step6}
 
-Send the **Billing account id** you obtained in [step 4](/connecting_azure_ea#ea-step4) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an EA agreement.
+Send the **Billing account id** you obtained in [step 3](/connecting_azure_ea#ea-step3) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an EA agreement.
 
 ## Next Steps: Workspace Access
 

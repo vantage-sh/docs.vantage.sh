@@ -17,9 +17,11 @@ Vantage integrates with your Azure account using an Active Directory [service pr
 
 ## Before You Begin: Review Azure Billing Account Types
 
-Microsoft offers different billing account types based on your organization’s setup. Your Azure integration with Vantage depends on this account type.
+Microsoft offers different billing account types based on your organization’s setup. The way that you'll complete your Azure integration with Vantage depends on which account type you have.
 
+:::tip
 To determine your billing account type, follow the steps in the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account).
+:::
 
 If your organization uses a Microsoft Customer Agreement (MCA) or Enterprise Agreement (EA), follow the specific integration steps linked below. Otherwise, use the instructions on this page to integrate your account with Vantage.
 
