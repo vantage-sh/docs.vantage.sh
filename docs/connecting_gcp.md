@@ -43,13 +43,9 @@ If your GCP billing data is typically displayed in a currency other than USD, Va
 
 Open a new browser tab, and navigate to the [Vantage GCP Settings page](https://console.vantage.sh/settings/gcp). You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
 
-### Step 1: Grant the Vantage Service Account Permission to Access BigQuery and Active Resources {#service-account-permissions}
+### Step 1: Grant the Vantage Service Account Permission to Access BigQuery {#service-account-permissions}
 
-Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery. To enable [active resources](/active_resources), you must also grant the **Viewer** role to the Vantage GCP service account. This role allows read-only access to all resources in the project, enabling Vantage to gather data on active resources.
-
-:::info
-For a list of all supported GCP active resources, see the [GCP Supported Services](/gcp_supported_services) documentation.
-:::
+Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery.
 
 1. At the top of the IAM console, select the project that hosts the BigQuery dataset with your Cloud Billing export data.
 2. Configure the following permissions:
@@ -60,8 +56,6 @@ For a list of all supported GCP active resources, see the [GCP Supported Service
    </details>
    - In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
    - In the **Role** field, under **Assign roles**, search for and select **BigQuery Job User**.
-   - Click **+ ADD ANOTHER ROLE**.
-   - Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. This adds the role needed for active resources. 
    <details><summary>Expand to view example image</summary>
    <div>
    <img alt="Grant GCP project access" width="80%" src="/img/connect-gcp/gcp-grant-project-access.png"/> </div>
@@ -75,7 +69,7 @@ Go back to [BigQuery](https://console.cloud.google.com/bigquery), and complete t
 
 1. At the top of the BigQuery console, ensure the project that you set up to contain your billing data is selected.
 2. In the **Explorer** panel, select your project to expand it.
-3. Select the **three vertical dots** next to the dataset name, then click **Open**. The **Dataset info** will be displayed on the right. _Keep this screen open to later obtain your project ID and dataset name._
+3. Select the **three vertical dots** next to the dataset name, then click **Open**. The **Dataset info** will be displayed on the right. _Keep this screen open as you will need to obtain your project ID and dataset name in the [Add Your GCP Configuration Information to the Vantage](/connecting_gcp#gcp-config-info) step._
 4. Select the three vertical dots next to the dataset name again, then click **Share**.
    <details><summary>Expand to view example image</summary>
    <div>
@@ -94,9 +88,35 @@ Go back to [BigQuery](https://console.cloud.google.com/bigquery), and complete t
    </details>
 8. Click **SAVE**.
 
-### Step 3: Add Your GCP Configuration Information to the Vantage Console {#gcp-config-info}
+### Step 3: Grant the Vantage Service Account Permissions to Access Active Resources {#active-resources}
 
-Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) to complete the integration process.
+To enable [active resources](/active_resources), you must also grant the **Viewer** role to the Vantage GCP service account, _at the organization level_. This role allows read-only access to all resources in the organization, enabling Vantage to gather data on active resources.
+
+:::info
+For a list of all supported GCP active resources, see the [GCP Supported Services](/gcp_supported_services) documentation.
+:::
+
+1. Open a new tab in GCP (keep the BigQuery tab you were just on open for the next section), and navigate to **IAM & admin**. 
+2. On the top left of the screen, switch to your organization.
+3. Click **+ GRANT ACCESS**. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Switch to organization in GCP" width="100%" src="/img/connect-gcp/gcp-organization-level.png"/> </div>
+   </details>
+4. In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. 
+   :::tip
+   This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier and have used for other permissions.
+   :::
+5. Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. This adds the role needed for active resources. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Add viewer permission at org level" width="100%" src="/img/connect-gcp/gcp-org-permissions.png"/> </div>
+   </details>
+6. Click **SAVE**. 
+
+### Step 4: Add Your GCP Configuration Information to the Vantage Console {#gcp-config-info}
+
+Go back to your browser tab that has BigQuery open. Then, in another tab, go back to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) to complete the integration process.
 
 1. At the bottom of the Vantage GCP Integration page, click **Add Project Info**. A pop-up is displayed, which requires your Billing account ID, the project ID for the project that hosts the BigQuery dataset, and the BigQuery dataset name.
 2. To obtain your **Billing Account ID**:
@@ -107,7 +127,7 @@ Keep BigQuery open in one of your browser tabs. Go back to the [Vantage GCP Inte
    <img alt="GCP Billing account ID screen" width="80%" src="/img/connect-gcp/gcp-billing-account-id.png"/> </div>
    </details>
 3. To obtain your **Project ID hosting BigQuery dataset** and **BigQuery Dataset Name**:
-   - In the **Dataset info** screen of BigQuery (previously opened in step 3 of the last section), observe the value on the **Dataset ID** line.
+   - In the **Dataset info** screen of BigQuery (previously opened in step 3 of the [BigQuery permissions](#bigquery-permissions) section), observe the value on the **Dataset ID** line.
    <details><summary>Expand to view example image</summary>
    <div>
    <img alt="BigQuery dataset details" width="80%" src="/img/connect-gcp/gcp-dataset-id.png"/> </div>
