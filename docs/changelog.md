@@ -12,12 +12,14 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on February 13, 2025, with product updates for February 2025._
+_This page was last updated on March 3, 2025, with product updates for February 2025._
 
 ## February 2025
 
 ### Product Updates
 
+- **Business metrics on reports:** The [business metrics](/per_unit_costs) line is now displayed on reports, regardless of binning type (e.g., cumulative, daily). 
+- **Forecasts on segment reports:** Forecasts are now displayed on ungrouped [segment reports](/segments).
 - **Budget hierarchy chart updates:** On the [Budgets **Hierarchy**](/budgets#budget-hierarchy) screen, when you hover over the chart, the difference between the total budget and actual spend is now displayed. The chart is also updated to show costs aggregated by day rather than month.
 - **Tag updates:**
   - On the **Group by** menu in reports, when you select to group by **Tag**, an icon indicating the associated cost provider is displayed next to each listed tag key.
@@ -34,8 +36,16 @@ _See [January's update](/changelog#k8s-jan-25) for the most recent Kubernetes ag
 
 ### API Updates
 
+- **Business metric values endpoint:** The new `/business_metrics/{business_metric_token}/values` [endpoint](https://vantage.readme.io/reference/getbusinessmetricvalues) lets you return values related to a business metric.
+- **Forecasted costs endpoint:** The new `/cost_reports/{cost_report_token}/forecasted_costs` [endpoint](https://vantage.readme.io/reference/getforecastedcosts) lets you retrieve projected future spend from a Cost Report.
+- **Tags endpoint:** The new `/tags/{key}/values` [endpoint](https://vantage.readme.io/reference/gettagvalues) lets you retrieve corresponding tag values for a given tag.
+- **Date bucket on costs:** The `date_bin` parameter is now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts). 
 - **Network Flow Reports endpoint:** The `/network_flow_reports` [endpoint](https://vantage.readme.io/reference/createnetworkflowreport) lets you create and manage Network Flow Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
 - **Financial Commitment Reports endpoint:** The `/financial_commitment_reports` [endpoint](https://vantage.readme.io/reference/createfinancialcommitmentreport) lets you create and manage Financial Commitment Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.45](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.45).
+  - The following data source was added:
+    - `vantage_financial_commitment_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/financial_commitment_reports)
+  - The `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) is updated to support the above-mentioned modification to the corresponding API endpoint, which no longer returns the `values` field in the API response. Values are now served via the `/business_metrics/{business_metric_token}/values` endpoint.
 
 ## January 2025
 
