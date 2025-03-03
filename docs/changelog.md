@@ -32,7 +32,8 @@ _This page was last updated on March 3, 2025, with product updates for February 
 
 ### Kubernetes Agent Updates
 
-_See [January's update](/changelog#k8s-jan-25) for the most recent Kubernetes agent release._
+- Version 1.0.28, Helm Chart [vantage-kubernetes-agent-1.1.0](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.1.0), includes the following update: 
+  - Support was added for mounting volumes to the agent.
 
 ### API Updates
 
@@ -42,8 +43,10 @@ _See [January's update](/changelog#k8s-jan-25) for the most recent Kubernetes ag
 - **Date bucket on costs:** The `date_bin` parameter is now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts). 
 - **Network Flow Reports endpoint:** The `/network_flow_reports` [endpoint](https://vantage.readme.io/reference/createnetworkflowreport) lets you create and manage Network Flow Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
 - **Financial Commitment Reports endpoint:** The `/financial_commitment_reports` [endpoint](https://vantage.readme.io/reference/createfinancialcommitmentreport) lets you create and manage Financial Commitment Reports with `POST`, `GET`, `DELETE`, and `PUT` methods.
-- The following updates were made to the Terraform provider. The latest version is [version 0.1.45](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.45).
-  - The following data source was added:
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.46](https://github.com/vantage-sh/terraform-provider-vantage/releases/tag/v0.1.46).
+  - The following resources and data source were added:
+    - `vantage_network_flow_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/network_flow_report)
+    - `vantage_financial_commitment_report` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/financial_commitment_report)
     - `vantage_financial_commitment_reports` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/financial_commitment_reports)
   - The `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) is updated to support the above-mentioned modification to the corresponding API endpoint, which no longer returns the `values` field in the API response. Values are now served via the `/business_metrics/{business_metric_token}/values` endpoint.
 
