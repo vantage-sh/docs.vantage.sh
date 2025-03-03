@@ -108,6 +108,10 @@ For a list of all supported GCP active resources, see the [GCP Supported Service
    This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier and have used for other permissions.
    :::
 5. Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. This adds the role needed for active resources. 
+   <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Add viewer permission at org level" width="100%" src="/img/connect-gcp/gcp-org-permissions.png"/> </div>
+   </details>
 6. Click **SAVE**. 
 
 ### Step 4: Add Your GCP Configuration Information to the Vantage Console {#gcp-config-info}
