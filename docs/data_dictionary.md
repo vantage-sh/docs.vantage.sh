@@ -31,6 +31,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | ---------------- | -------------- | ------------------------------------------------ |
 | AWS              | `aws`          | [View AWS Fields](#aws)                          |
 | Azure            | `azure`        | [View Azure Fields](#azure)                      |
+| ClickHouse Cloud | `clickhouse`   | [View ClickHouse Cloud Fields](#clickhouse)      |
 | Confluent        | `confluent`    | [View Confluent Fields](#confluent)              |
 | Coralogix        | `coralogix`    | [View Coralogix Fields](#coralogix)              |
 | Custom Providers | _See note_     | [View Custom Provider Fields](#custom_providers) |
@@ -85,6 +86,22 @@ To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, n
 | Subcategory    | `subcategory`         | string    | `costs.subcategory`         |
 | Resource       | `resource_id`         | string    | `costs.resource_id `        |
 | Charge Type    | `charge_type`         | string    | `costs.charge_type`         |
+
+## ClickHouse Cloud {#clickhouse}
+
+| Filter       | API Field Name        | Data Type | `namespace.field`           |
+| ------------ | --------------------- | --------- | --------------------------- |
+| Provider     | `provider`            | string    | `costs.provider`            |
+| Category     | `category`            | string    | `costs.category`            |
+| Tag\*        | `name`                | string    | `tags.name`                 |
+| Tag Value\*  | `value`               | string    | `tags.value`                |
+| Subcategory  | `subcategory`         | string    | `costs.subcategory`         |
+| Resource     | `resource_id`         | string    | `costs.resource_id `        |
+| Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
+| Organization | `provider_account_id` | string    | `costs.provider_account_id` |
+| Service      | `service`             | string    | `costs.service`             |
+
+_\* Virtual tags associated with this provider_
 
 ## Confluent {#confluent}
 

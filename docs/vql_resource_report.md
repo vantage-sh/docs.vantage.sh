@@ -269,6 +269,7 @@ resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')
 | Linode     | linode_object_storage                   | Object Storage                     |
 | Linode     | linode_kubernetes_cluster               | Kubernetes Clusters                |
 | Linode     | linode_image                            | Images                             |
+| ClickHouse Cloud     | clickhouse_services                            | Services                             |
 
 </details>
 
