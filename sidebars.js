@@ -171,6 +171,7 @@ module.exports = {
         "connecting_linode",
         "connecting_open_ai",
         "connecting_grafana",
+        "connecting_clickhouse",
         "connecting_custom_providers",
         "provider_data_refresh",
       ],

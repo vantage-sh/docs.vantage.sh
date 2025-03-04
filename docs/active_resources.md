@@ -14,7 +14,7 @@ For supported providers, Vantage profiles for _active resources_ within your acc
 You can create _resource reports_ to see filtered views of your active resources. These reports provide visibility into all the currently operational resources within your account and the associated costs incurred by each resource. Reports include filterable dimensions, such as account, tag, region, service, and service-specific metadata.
 
 :::note
-Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [GCP](/connecting_gcp), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), [PlanetScale](/connecting_planetscale), and [Linode](/connecting_linode).
+Active resource views are currently supported for [AWS](/connecting_aws), [Azure](/connecting_azure), [GCP](/connecting_gcp), [Kubernetes](/connecting_kubernetes), [Snowflake](/connecting_snowflake), [MongoDB](/connecting_mongodb-atlas), [Confluent](/connecting_confluent), [PlanetScale](/connecting_planetscale), [Linode](/connecting_linode), and [ClickHouse Cloud](/connecting_clickhouse).
 :::
 
 ## AWS Active Resources
@@ -69,6 +69,10 @@ The following active resources are available for the additional providers listed
   <tr>
     <td><a href="/connecting_linode">Linode</a></td>
     <td>Linode Instances, Kubernetes Clusters, Volumes, Object Storage, Images, and NodeBalancers</td>
+  </tr>
+  <tr>
+    <td><a href="/connecting_clickhouse">ClickHouse Cloud</a></td>
+    <td>ClickHouse Cloud services</td>
   </tr>
 </table>
 

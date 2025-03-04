@@ -157,6 +157,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_grafana",
     },
     {
+      icon: '/img/logos/logo-icon-clickhouse.svg',
+      iconAltText: 'ClickHouse logo',
+      title: 'ClickHouse Cloud',
+      content: 'Vantage integrates with ClickHouse Cloud via a read-only Developer key.',
+      link: "/connecting_clickhouse",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',
