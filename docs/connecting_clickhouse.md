@@ -55,23 +55,31 @@ The below instructions for creating an API key are based on the [ClickHouse docu
 3. Add the following key details:
    - For **API key name**, enter *vantage*.
    - For **Organization Permissions**, select **Developer**. (You can read more about roles and permissions in the [ClickHouse documentation](https://clickhouse.com/docs/cloud/security/cloud-access-management/overview).)
-   - For **Expires**, select **Never**.
+   - For **Expires**, select an expiration date. If the key expires, you will need to supply Vantage with a new ClickHouse Cloud API key.
    
   <details><summary>Expand to view example image</summary>
     <div>
     <img alt="Creating a ClickHouse key" width="100%" src="/img/clickhouse-create-key.png"/> </div>
   </details>
-4. Click **Generate API Key**.
-5. Copy the newly generated **Key ID** and **Key Secret**.
+1. Click **Generate API Key**.
+   :::note
+   If you have any IP restrictions set, ensure you allow the following IP addresses for Vantage:
+   - `54.87.66.45`
+   - `3.95.43.133`
+   - `54.162.3.72`
+   - `44.199.143.63`
+   - `3.218.103.23`
+   :::
+2. Copy the newly generated **Key ID** and **Key Secret**.
     <details><summary>Expand to view example image</summary>
       <div>
       <img alt="Copying ClickHouse key and secret" width="100%" src="/img/clickhouse-key-secret.png"/> </div>
     </details>
-6. From the top navigation in Vantage, click **Settings**.
-7. On the left navigation, select **Integrations** and select **ClickHouse Cloud**.
-8. The ClickHouse Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
-9. At the bottom of the page, click **Add API Key** and paste your newly generated API key and secret.
-10. For **Organization ID**, add the ClickHouse Cloud Organization ID that was assigned to your organization during creation. To find this ID:
+3. From the top navigation in Vantage, click **Settings**.
+4. On the left navigation, select **Integrations** and select **ClickHouse Cloud**.
+5. The ClickHouse Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
+6. At the bottom of the page, click **Add API Key** and paste your newly generated API key and secret.
+7.  For **Organization ID**, add the ClickHouse Cloud Organization ID that was assigned to your organization during creation. To find this ID:
     - From the **Settings** navigation menu, under **Organization**, select your organization and click **Organization details**.
     - Copy the value displayed next to **Organization ID** and paste this in the Vantage integration form.
  
