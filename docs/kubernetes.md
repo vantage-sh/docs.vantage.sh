@@ -192,7 +192,7 @@ idle_cost = (cpu_request_cost - cpu_usage_cost) +
 When analyzing Kubernetes costs in Vantage, the `__idle__` namespace represents the unallocated portion of nodes per hour, providing insight into overall cluster efficiency. The `__idle__` namespace is included in total cluster costs. 
 
 :::note
-The `__idle__` namespace is not currently enabled by default. Contact [support@vantage.sh](mailto:support@vantage.sh) if you want it enabled.
+As of March 2025, the `__idle__` namespace is enabled by default for new integrations. Existing integrations that have not already done so can contact [support@vantage.sh](mailto:support@vantage.sh) to have the namespace enabled.
 :::
 
 To view `__idle__` namespace costs, set the report's **Group By** criteria to **Namespace**. In many cases, `__idle__` ranks among the top namespaces in terms of cost. It highlights unused capacity in your cluster and helps identify opportunities for workload optimization.
