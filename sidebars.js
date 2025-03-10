@@ -172,6 +172,7 @@ module.exports = {
         "connecting_open_ai",
         "connecting_grafana",
         "connecting_clickhouse",
+        "connecting_temporal",
         "connecting_custom_providers",
         "provider_data_refresh",
       ],

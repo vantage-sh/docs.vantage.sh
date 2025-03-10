@@ -49,6 +49,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | Oracle Cloud     | `oracle`       | [View Oracle Cloud Fields](#oracle-cloud)        |
 | PlanetScale      | `planetscale`  | [View PlanetScale Fields](#planetscale)          |
 | Snowflake        | `snowflake`    | [View Snowflake Fields](#snowflake)              |
+| Temporal Cloud   | `temporal`     | [View Temporal Cloud Fields](#temporal)          |
 
 :::note
 To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
@@ -349,3 +350,18 @@ _\* Virtual tags associated with this provider_
 | Metadata Value | `value`               | string    | `tags.value`                |
 | Service        | `service`             | string    | `costs.service`             |
 | Charge Type    | `charge_type`         | string    | `costs.charge_type`         |
+
+## Temporal Cloud {#temporal}
+
+| Filter       | API Field Name        | Data Type | `namespace.field `          |
+| ------------ | --------------------- | --------- | --------------------------- |
+| Organization | `provider_account_id` | string    | `costs.provider_account_id` |
+| Service      | `service`             | string    | `costs.service`             |
+| Provider     | `provider`            | string    | `costs.provider`            |
+| Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
+| Region       | `region`              | string    | `costs.region`              |
+| Category     | `category`            | string    | `costs.category`            |
+| Tag Name\*   | `name`                | string    | `tags.name`                 |
+| Tag Value\*  | `value`               | string    | `tags.value`                |
+
+_\* Virtual tags associated with this provider_
