@@ -86,8 +86,8 @@ Each recommendation includes potential savings as well as the number of instance
 
 | Recommendation Type                   | Description                                                                                                                                                               |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Compute Reserved Instances            | Suggestions for instances with on-demand usage that could be converted to Reserved Instances for better savings.                                                           |
-| Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days.                                                                                                             |
+| Compute Reserved Instances            | Suggestions for instances with on-demand usage that could be converted to Reserved Instances for better savings.                                                          |
+| Compute unattached virtual hard disks | Disks that have not been attached to a VM in the last 30 days.                                                                                                            |
 | Compute Savings Plans                 | Vantage will identify potential savings from purchasing Compute Savings Plans.                                                                                            |
 | Virtual Machine (VM) Rightsizing      | Vantage will suggest VM instances that can be rightsized to offer savings. Suggestions will be made available through the Active Resource page's Rightsizing tab as well. |
 | Blob Storage Reserved Instances       | Vantage will suggest purchasing Reserved Instances that can save on Blob v2 and Datalake storage Gen2 costs.                                                              |
@@ -164,13 +164,35 @@ Rightsizing recommendations require version 1.0.24 or later of the Vantage Kuber
 
 Vantage takes the following steps to calculate Kubernetes rightsizing recommendations.
 
-1. _Identify controllers with low efficiency._
+1. **_Identify controllers with low efficiency._**
    - Controllers running below an efficiency level of 80% over the last 30 days are identified.
    - Efficiency is calculated as the percentage of the average CPU or memory utilization divided by the amount allocated for that resource.
-2. _Determine the target amount for rightsizing._
-   - The target amount is calculated by dividing the average usage by the efficiency target of 80%. For example, if your average usage is 100, and the efficiency target is 80%, then Vantage determines the right size to be (100/.8), or 125.
+   - CPU usage is determined using `container_cpu_usage_seconds_total`, converted from CPU seconds to cores using $\frac{(\text{current} - \text{previous})}{\text{elapsed}}$.
+   - Memory usage is determined using `container_memory_working_set_bytes`.
+   - The Vantage agent scrapes metrics every 60 seconds, whereas Prometheus defaults to a 15-second interval. This can smooth out short-term resource usage spikes.
+   - The agent reports on an hourly interval, capturing three values—average, min, and max—for both CPU and memory:
+     - **Average:** $\frac{\sum \text{datapoints}}{\text{count(datapoints)}}$ 
+       - **CPU (Average):** $\text{avg\_over\_time}(\text{irate}(\text{container\_cpu\_usage\_seconds\_total[1m]})[1h])$
+       - **Memory (Average):** $\text{avg\_over\_time}(\text{container\_memory\_working\_set\_bytes[1h]})$
+     - **Min:** $\min(\text{datapoints})$   
+       - **CPU (Min):** $\text{min\_over\_time}(\text{irate}(\text{container\_cpu\_usage\_seconds\_total[1m]})[1h])$
+       - **Memory (Min):** $\text{min\_over\_time}(\text{container\_memory\_working\_set\_bytes[1h]})$ 
+      - **Max:** $\max(\text{datapoints})$                                                         
+        - **CPU (Max):** $\text{max\_over\_time}(\text{irate}(\text{container\_cpu\_usage\_seconds\_total[1m]})[1h])$
+        - **Memory (Max):** $\text{max\_over\_time}(\text{container\_memory\_working\_set\_bytes[1h]})$
+    - The lookback period for recommendations is 30 days, aggregating data by workload controller (e.g., Deployment).
+
+2. **_Determine the target amount for rightsizing._**
+   - The target amount is calculated by dividing the average usage by the efficiency target of 80%. For example, if your average usage is 100, and the efficiency target is 80%, then Vantage determines the right size to be $\frac{100}{.8}$, or $125$.
    - This target amount might exceed the maximum observed usage, which is acceptable to provide room for potential spikes in resource usage. This also prevents containers from being terminated due to resource exhaustion.
-3. _Calculate the potential savings._
+   - The following values are produced for each container within a workload over the lookback period:
+     - `avg`: The average usage across all pods of a workload.
+     - `min`: The average minimum usage across all pods (not the absolute minimum).
+     - `max`: The average maximum usage across all pods (not the absolute maximum).
+   - For memory, the average memory value is the average of all recorded average memory usage values over the lookback period. The max memory value is the average of all recorded max memory usage values.
+   - Every minute, the agent queries node metrics from the Kubernetes control plane, tracking both the total memory used and the highest recorded memory usage. These values are then aggregated over the hour.
+   - A similar methodology is used for CPU, where `container_cpu_usage_seconds_total` is used to track CPU usage per second, and averages/max values are derived accordingly.
+3. **_Calculate the potential savings._**
    - Savings is the difference between current configuration and target configuration multiplied by a standard hourly base rate.
    - For Deployments and StatefulSets, these savings are further multiplied by the number of replicas configured for each controller.
    - The calculated amount of savings must be at least $5 to be considered for rightsizing recommendations.
