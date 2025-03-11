@@ -118,9 +118,13 @@ After the integration is complete, two full months plus the current month to dat
 
 If you decide to remove your Temporal Cloud integration from Vantage, all costs associated with your Temporal Cloud API key will be removed from the Vantage console.
 
-### Temporal Cloud Discounts
+### Temporal Cloud Discounts and Other Fees
 
 The Temporal Cloud Usage API returns only usage information, which Vantage uses to calculate spend, and does not include separate line items for taxes, discounts, or credits. You can choose whether these line items are included in your calculated cost based on the blended rates you input in the integration settings.
+
+In addition, Vantage does not have insights into what is covered by committed spend; all costs are shown based on the blended rate provided in the integration settings.
+
+Vantage also does not include [Plan Costs](https://docs.temporal.io/cloud/pricing#base_plans) as a part of Temporal Cloud costs. You can use the [Custom Providers](/connecting_custom_providers) integration to represent your costs that are outside your usage costs. You can then use cost-based and business metrics-based [cost allocation](https://docs.vantage.sh/tagging/#cost-based-and-business-metrics-based-allocation-tags) to allocate these costs across teams.
 
 ## Update Custom Rates {#update-custom-rates}
 
