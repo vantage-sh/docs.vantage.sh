@@ -19,20 +19,20 @@ You can connect multiple Temporal Cloud integrations by providing API keys for m
 During the Temporal Cloud integration, Vantage prompts you to enter custom rates for Actions, Active Storage, and Retained Storage. By default, Vantage applies public pricing and the base rate for Actions (under 5M per month). If you exceed 5M Actions and don’t have a private rate card, you can calculate your blended rates by dividing your total costs by the usage on your bill. 
 
 :::note
-Action rates are measured in millions of actions; Active and Retained Storage rates are measured in Gigabyte-Hours. At this time, this integration does not account for any Actions included in the plan.
+Actions rates are measured in millions of actions; Active and Retained Storage rates are measured in Gigabyte-Hours. At this time, this integration does not account for any Actions included in the plan.
 :::
 
-If you have a custom rate for Temporal Cloud, you can enter your enterprise rate in the [integration settings](/connecting_temporal#vantage-console). Vantage multiplies your custom rates by the usage from the Temporal Cloud Usage API to calculate your costs. You can update your rates anytime on the [Settings page](/connecting_temporal#update-custom-rates). 
+If you have a custom rate for Temporal Cloud, you can enter your enterprise rate in the [integration settings](/connecting_temporal#vantage-console). Vantage multiplies your custom rates by the usage from the Temporal Cloud Usage API to calculate your costs. You can update your rates anytime on the [Settings page](/connecting_temporal#update-custom-rates) in Vantage. 
 
 ## Connect Your Temporal Cloud Account
 
 ### Prerequisites
 
-Create a free Vantage account, then follow the steps below to integrate Temporal Cloud costs. You need the [Account Owner](https://docs.temporal.io/cloud/users#account-level-roles) role in Temporal Cloud to create a dedicated service account for the Vantage integration, assign it the Finance Admin role, and create the associated API key.
-
+- You need the [Account Owner](https://docs.temporal.io/cloud/users#account-level-roles) role in Temporal Cloud to create a dedicated service account for the Vantage integration, assign it the Finance Admin role, and create the associated API key.
 :::note
-Vantage uses the Finance Admin role from Temporal Cloud, which has the same permissions as Account Read-only users, with additional permissions to view [billing](https://docs.temporal.io/cloud/billing-and-cost) information and update payment information. Vantage will never perform any actions to change payment method. It's recommended that you submit a feature request to Temporal Cloud for improved permission scoping, and Vantage will adopt fine-grained permissions if this becomes available.
+The Finance Admin role has the same permissions as Account Read-only users, with additional permissions to view [billing](https://docs.temporal.io/cloud/billing-and-cost) information and update payment information. Vantage will never perform any actions to change the payment method. It's recommended that you submit a feature request to Temporal Cloud for improved permission scoping, and Vantage will adopt fine-grained permissions if this becomes available.
 :::
+- Create a free Vantage account, then follow the steps below to integrate Temporal Cloud costs. 
 
 ### Create the Connection
 
@@ -58,7 +58,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
     <div>
     <img alt="Setting up the Temporal service account with relevant permissions" width="100%" src="/img/temporal-service-account.png"/> </div>
   </details>
-1. Click **Create Service Account**. Once created, you will be prompted to create an API Key for the Service Account.
+7. Click **Create Service Account**. Once created, you will be prompted to create an API Key for the service account.
 
 #### Step 2: Create an API Key for the Service Account
 
@@ -75,19 +75,22 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 3. Under **Create an API key for**, select **Service Account**.
 4. For **Mapped to Identity**, search for and select the service account you just created.
 5. Give the API key a **Name** and optional **Description**.
-6. For **Expiry Date**, select a date for when the key should expire. At this time, Temporal Cloud API keys can be configured to be valid for up to 2 years, after which you will need to rotate your Temporal Cloud API key in the Vantage console.
+6. For **Expiry Date**, select a date for when the key should expire. 
+  :::note
+  At this time, Temporal Cloud API keys can be configured to be valid for up to 2 years, after which you will need to rotate your Temporal Cloud API key in the Vantage console.
+  :::
   <details><summary>Expand to view example image</summary>
     <div>
     <img alt="Creating a new Temporal API key with relevant permissions" width="100%" src="/img/temporal-create-api-key.png"/> </div>
   </details>
 7. Click **Generate API Key** and copy the newly generated key.
 
-#### Step 3: Add API Key and Pricing Details to the Vantage Console {#vantage-console}
+#### Step 3: Add Your API Key and Pricing Details to Vantage {#vantage-console}
 
 1. From the top navigation in Vantage, click **Settings**.
-2. On the left navigation, select Integrations and select **Temporal Cloud**.
+2. On the left navigation, select **Integrations** > **Temporal Cloud**.
 3. The Temporal Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
-4. At the bottom of the page, click **Add API Key** and paste your newly generated API key. Optionally, add a **Description**.
+4. At the bottom of the page, click **Add API Key** and paste your newly generated API key. Optionally, add a **Description** to identify this integration.
 5. If you use over 5M Actions or have custom rates, you can enter your blended rates on the form. By default, these fields are pre-filled with Temporal Cloud’s public pricing. If you don't have a private rate card or use under 5M Actions, you can leave these fields as-is. See the [How Temporal Cloud Costs Are Calculated](/connecting_temporal#cost-calculation) section for details. 
 
    - Price Per Action
@@ -105,7 +108,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 1. Click **Connect Account**. 
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Temporal Cloud costs. As soon as they are processed, they will be available on your All Resources Cost Report. 
-After the integration is complete, two full months plus the current month to date of historical cost data will be imported from Temporal. Historical data will be priced at the custom rate given in the Integration Settings. Vantage will retain cost and usage data to match your retention period for all providers. 
+After the integration is complete, two full months plus the current month to date of historical cost data will be imported from Temporal Cloud. Historical data will be priced at the custom rate given in the Integration Settings. Vantage will retain cost and usage data to match your retention period for all providers. 
 
 If you decide to remove your Temporal Cloud integration from Vantage, all costs associated with your Temporal Cloud API key will be removed from the Vantage console.
 
@@ -136,14 +139,13 @@ Once your costs are imported, select which workspaces this integration is associ
 
 If your teams are running workloads across Temporal Cloud and other infrastructure providers, you can use [Virtual Tags](/tagging) in Vantage to group and analyze total application costs.
 
-For example, you may want to track the total costs for the Payments team, which operates workloads in both Temporal Cloud and AWS. By creating a Virtual Tag with the key Team and the value Payments, you can apply a filter to group together:
+For example, you may want to track the total costs for the Payments team, which operates multiple workloads in Temporal Cloud. By creating a Virtual Tag with the key `Team` and the value `Payments`, you can apply a filter to group together things like Temporal Cloud costs filtered by the `payments-prod` and `payments-staging` namespaces.
 
-- Temporal Cloud costs filtered by the `payments-prod` and `payments-staging` namespaces.
-- AWS costs filtered by related resources, such as EC2 instances and S3 buckets, supporting the Payments team’s workloads.
+You can view all namespaces using the **Resource** filter/grouping criteria on a Cost Report.
 
-You can view all namespaces using the **Resource** filter.
-
-See the following example in the [FinOps as Code repository](https://github.com/vantage-sh/finops-as-code/tree/main/terraform/temporal-costs) for sample steps on how to set up a tagging schema for teams and namespaces using the Vantage Terraform provider.
+:::tip
+See the following example in the [FinOps as Code repository](https://github.com/vantage-sh/finops-as-code/tree/main/terraform/temporal-costs) for steps on how to set up a tagging schema for teams and namespaces using the Vantage Terraform provider.
+:::
 
 ## Data Refresh
 
