@@ -19,7 +19,7 @@ You can connect multiple Temporal Cloud integrations by providing API keys for m
 During the Temporal Cloud integration, Vantage prompts you to enter custom rates for Actions, Active Storage, and Retained Storage. By default, Vantage applies public pricing and the base rate for Actions (under 5M per month). If you exceed 5M Actions and don’t have a private rate card, you can calculate your blended rates by dividing your total costs by the usage on your bill. 
 
 :::note
-Actions rates are measured in millions of actions; Active and Retained Storage rates are measured in Gigabyte-Hours. At this time, this integration does not account for any Actions included in the plan.
+Actions rates are measured in millions of Actions; Active and Retained Storage rates are measured in Gigabyte-Hours. At this time, this integration does not account for any Actions included in the plan.
 :::
 
 If you have a custom rate for Temporal Cloud, you can enter your enterprise rate in the [integration settings](/connecting_temporal#vantage-console). Vantage multiplies your custom rates by the usage from the Temporal Cloud Usage API to calculate your costs. You can update your rates anytime on the [Settings page](/connecting_temporal#update-custom-rates) in Vantage. 
@@ -30,7 +30,7 @@ If you have a custom rate for Temporal Cloud, you can enter your enterprise rate
 
 - You need the [Account Owner](https://docs.temporal.io/cloud/users#account-level-roles) role in Temporal Cloud to create a dedicated service account for the Vantage integration, assign it the Finance Admin role, and create the associated API key.
 :::note
-The Finance Admin role has the same permissions as Account Read-only users, with additional permissions to view [billing](https://docs.temporal.io/cloud/billing-and-cost) information and update payment information. Vantage will never perform any actions to change the payment method. It's recommended that you submit a feature request to Temporal Cloud for improved permission scoping, and Vantage will adopt fine-grained permissions if this becomes available.
+The Finance Admin role has the same permissions as Account Read-only users, with additional permissions to view [billing](https://docs.temporal.io/cloud/billing-and-cost) information and update payment information. Vantage will never perform any actions to change your payment method. It's recommended that you submit a feature request to Temporal Cloud for improved permission scoping, and Vantage will adopt fine-grained permissions if this becomes available.
 :::
 - Create a free Vantage account, then follow the steps below to integrate Temporal Cloud costs. 
 
@@ -54,16 +54,16 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 4. Add an optional description to identify this account.
 5. For **Account Level Role**, select **Finance Admin**.
 6. For **Namespace Permissions**, set the access for each namespace to **Read-Only**.
-    <details><summary>Expand to view example image</summary>
+  <details><summary>Expand to view example image</summary>
     <div>
     <img alt="Setting up the Temporal service account with relevant permissions" width="100%" src="/img/temporal-service-account.png"/> </div>
   </details>
   
   :::note
-  If additional namespaces are added after you create this service account that you want included in your integration, you will need to go back and update the permissions for these new namespaces.
+  If additional namespaces are added after you create this service account, and you want them included in your integration, you will need to go back and update the permissions to account for these new namespaces.
   :::
-  
-7. Click **Create Service Account**. Once created, you will be prompted to create an API Key for the service account.
+
+1. Click **Create Service Account**. Once created, you will be prompted to create an API key for the service account.
 
 #### Step 2: Create an API Key for the Service Account
 
@@ -82,13 +82,13 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 5. Give the API key a **Name** and optional **Description**.
 6. For **Expiry Date**, select a date for when the key should expire. 
   :::note
-  At this time, Temporal Cloud API keys can be configured to be valid for up to 2 years, after which you will need to rotate your Temporal Cloud API key in the Vantage console.
+  At this time, Temporal Cloud API keys can be configured to be valid for up to 2 years, after which you'll need to rotate your Temporal Cloud API key in the Vantage console.
   :::
   <details><summary>Expand to view example image</summary>
     <div>
     <img alt="Creating a new Temporal API key with relevant permissions" width="100%" src="/img/temporal-create-api-key.png"/> </div>
   </details>
-7. Click **Generate API Key** and copy the newly generated key.
+1. Click **Generate API Key** and copy the newly generated key.
 
 #### Step 3: Add Your API Key and Pricing Details to Vantage {#vantage-console}
 
@@ -113,13 +113,14 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 1. Click **Connect Account**. 
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Temporal Cloud costs. As soon as they are processed, they will be available on your All Resources Cost Report. 
-After the integration is complete, two full months plus the current month to date of historical cost data will be imported from Temporal Cloud. Historical data will be priced at the custom rate given in the Integration Settings. Vantage will retain cost and usage data to match your retention period for all providers. 
+
+After the integration is complete, two full months plus the current month to date of historical cost data will be imported from Temporal Cloud. Historical data will be priced at the custom rates provided in the integration settings. Vantage will retain cost and usage data to match your retention period for all providers. 
 
 If you decide to remove your Temporal Cloud integration from Vantage, all costs associated with your Temporal Cloud API key will be removed from the Vantage console.
 
 ### Temporal Cloud Discounts
 
-Note that the Temporal Cloud Usage API returns only usage information, which Vantage uses to calculate spend, and does not include separate line items for taxes, discounts, or credits. You can choose whether these line items are included in your calculated cost based on the blended rate you input in the Integration Settings.
+The Temporal Cloud Usage API returns only usage information, which Vantage uses to calculate spend, and does not include separate line items for taxes, discounts, or credits. You can choose whether these line items are included in your calculated cost based on the blended rates you input in the integration settings.
 
 ## Update Custom Rates {#update-custom-rates}
 

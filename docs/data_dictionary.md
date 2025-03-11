@@ -359,7 +359,6 @@ _\* Virtual tags associated with this provider_
 | Service      | `service`             | string    | `costs.service`             |
 | Provider     | `provider`            | string    | `costs.provider`            |
 | Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
-| Region       | `region`              | string    | `costs.region`              |
 | Category     | `category`            | string    | `costs.category`            |
 | Subcategory  | `subcategory`         | string    | `costs.subcategory`         |
 | Tag Name\*   | `name`                | string    | `tags.name`                 |
