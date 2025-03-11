@@ -65,6 +65,7 @@ module.exports = {
         "rbac",
         "workspaces",
         "tagging",
+        "partners",
       ],
     },
     {
