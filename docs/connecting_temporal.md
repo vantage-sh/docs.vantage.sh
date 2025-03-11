@@ -58,6 +58,11 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
     <div>
     <img alt="Setting up the Temporal service account with relevant permissions" width="100%" src="/img/temporal-service-account.png"/> </div>
   </details>
+  
+  :::note
+  If additional namespaces are added after you create this service account that you want included in your integration, you will need to go back and update the permissions for these new namespaces.
+  :::
+  
 7. Click **Create Service Account**. Once created, you will be prompted to create an API Key for the service account.
 
 #### Step 2: Create an API Key for the Service Account
