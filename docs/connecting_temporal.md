@@ -10,7 +10,7 @@ keywords:
 
 # Temporal Cloud
 
-Vantage connects to Temporal Cloud through a [service account](https://docs.temporal.io/cloud/service-accounts), with the [Finance Admin role](https://docs.temporal.io/cloud/users#account-level-roles), using an associated API key for the service account. After authorizing Vantage access to your Temporal Cloud account, Vantage will begin ingesting data using the Usage API. All credentials are encrypted. Vantage then uses the data from the Usage API to calculate costs based on public price sheets available from Temporal Cloud or custom inputs. 
+Vantage connects to Temporal Cloud through a [service account](https://docs.temporal.io/cloud/service-accounts), with the [Finance Admin role](https://docs.temporal.io/cloud/users#account-level-roles), using an associated API key for the service account. After authorizing Vantage access to your Temporal Cloud account, Vantage will begin ingesting data using the Usage endpoint of the [Temporal Cloud Operations API](https://docs.temporal.io/ops). All credentials are encrypted. Vantage then uses the data from the Usage API to calculate costs based on public price sheets available from Temporal Cloud or custom inputs. 
 
 You can connect multiple Temporal Cloud integrations by providing API keys for multiple accounts.
 
