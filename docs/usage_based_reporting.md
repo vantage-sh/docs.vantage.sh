@@ -17,7 +17,7 @@ To get started with Usage-Basesd Reports, you can also watch a video demo on [Va
 Usage-Based Reporting provides infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed. These reports are available within [Cost Reports](/cost_reports), where you can toggle between viewing consumption by spend or by usage.
 
 :::note
-Usage-Based Reporting is currently available for AWS, GCP, Azure, Oracle, and Grafana. Vantage plans to add support for other providers. Please contact [support@vantage.sh](mailto:support@vantage.sh) with other providers you’d like to see added.
+Usage-Based Reporting is currently available for AWS, GCP, Azure, Oracle, Grafana, ClickHouse Cloud, and Temporal Cloud. Vantage plans to add support for other providers. Please contact [support@vantage.sh](mailto:support@vantage.sh) with other providers you’d like to see added.
 :::
 
 ## Create Usage-Based Reports

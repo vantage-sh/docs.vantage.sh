@@ -3,7 +3,7 @@ id: connecting_clickhouse
 title: ClickHouse Cloud
 description: This page walks through how to integrate Vantage with your ClickHouse Cloud account.
 keywords:
-  - Grafana
+  - ClickHouse
   - Connect ClickHouse Cloud
 ---
 
@@ -99,11 +99,11 @@ Once your costs are imported, select which workspaces this integration is associ
 
 See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
-## Active Resources[](https://docs.vantage.sh/connecting_planetscale#active-resources)
+## Active Resources
 
 ClickHouse Cloud services are synced as active resources and available in [resource reports](/active_resources).
 
-## ClickHouse Cloud Reporting Dimensions[](https://docs.vantage.sh/connecting_grafana#grafana-reporting-dimensions)
+## ClickHouse Cloud Reporting Dimensions
 
 On ClickHouse Cloud [Cost Reports](/cost_reports), you can filter across several dimensions:
 

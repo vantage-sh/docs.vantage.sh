@@ -164,6 +164,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_clickhouse",
     },
     {
+      icon: '/img/logos/logo-icon-temporal.svg',
+      iconAltText: 'Temporal logo',
+      title: 'Temporal Cloud',
+      content: 'Vantage integrates with Temporal Cloud using an API key with Finance Admin permissions.',
+      link: "/connecting_temporal",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',
