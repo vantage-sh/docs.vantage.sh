@@ -173,6 +173,10 @@ With business metrics-based allocation tags, you select an existing [business me
 
 See the [example section](/tagging#metric-based-allocation-example) below for details.
 
+### Virtual Tags Limits {#virtual-tag-limit}
+
+You can create up to 50 Virtual Tag configurations, with each tag supporting up to 100 configuration values.
+
 ### Create Virtual Tags
 
 :::note
