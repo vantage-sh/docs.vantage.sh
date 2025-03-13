@@ -25,6 +25,12 @@ Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, an
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
 
+On Kubernetes Cost Reports, you can also group and filter to see costs by CPU, RAM, storage, and GPU. To filter by these categories:
+
+1. Create a new Kubernetes Cost Report.
+2. Add the following filter:
+   - For example to filter by CPU: All costs from **Kubernetes** where **Tag** **vntg:category** is **cpu**
+
 ### Cost Data Source {#cost-data-source}
 
 The costs displayed on these reports come from your integration with the [Vantage Kubernetes agent](/kubernetes_agent). The agent calculates the cost of a running pod by analyzing the CPU, RAM, GPU, as well as storage usage and calculates the cost of each input based on the cost of the underlying infrastructure.
