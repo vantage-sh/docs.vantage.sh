@@ -195,16 +195,17 @@ _\* Virtual tags associated with this provider_
 
 ## GitHub {#github}
 
-| Filter      | API Field Name | Data Type | `namespace.field`   |
-| ----------- | -------------- | --------- | ------------------- |
-| Service     | `service`      | string    | `costs.service`     |
-| Provider    | `provider`     | string    | `costs.provider`    |
-| Category    | `category`     | string    | `costs.category`    |
-| Subcategory | `subcategory`  | string    | `costs.subcategory` |
-| Resource    | `resource_id`  | string    | `costs.resource_id` |
-| Charge Type | `charge_type`  | string    | `costs.charge_type` |
-| Tag         | `name`         | string    | `tags.name`         |
-| Tag Value   | `value`        | string    | `tags.value`        |
+| Filter       | API Field Name        | Data Type | `namespace.field`           |
+| -----------  | --------------------- | --------- | --------------------------- |
+| Organization | `provider_account_id` | string    | `costs.provider_account_id` |
+| Service      | `service`             | string    | `costs.service`             |
+| Provider     | `provider`            | string    | `costs.provider`            |
+| Category     | `category`            | string    | `costs.category`            |
+| Subcategory  | `subcategory`         | string    | `costs.subcategory`         |
+| Resource     | `resource_id`         | string    | `costs.resource_id`         |
+| Charge Type  | `charge_type`         | string    | `costs.charge_type`         |
+| Tag          | `name`                | string    | `tags.name`                 |
+| Tag Value    | `value`               | string    | `tags.value`                |
 
 ## Google Cloud {#google-cloud-platform}
 
