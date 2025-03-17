@@ -25,33 +25,40 @@ Vantage cannot perform writes to your Grafana Cloud organization. Vantage is onl
 
 ### Create the Connection
 
-1. From your Grafana instance, navigate to the **Cloud access policies** page.
-2. At the top of the page, click **Create access policy**.
-3. For **Display name** and **Name**, enter _vantage_.
-4. Under **Scopes**, add the `billing-metrics:read` and `orgs:read` scopes. (You may need to search for scopes in the **Add scope** search box below the checklist.)
-      <details><summary>Expand to view example image</summary>
+1. Navigate to [grafana.com](https://grafana.com/) and log in to your account.
+2. On the left, under **SECURITY**, select **Access Policies**. 
+  <details><summary>Expand to view example image</summary>
+   <div>
+   <img alt="Grafana Cloud portal" width="100%" src="/img/grafana-portal.png"/> </div>
+   </details>
+3. At the top of the page, click **Create access policy**.
+4. For **Display name** and **Name**, enter _vantage_.
+5. For **Realms**, select **all stacks**, or select individual stacks if you want only certain stacks associated with the integration.
+6. Under **Scopes**, add the `billing-metrics:read` and `orgs:read` scopes. (You may need to search for these scopes in the **Add scope** search box below the checklist.)
+  <details><summary>Expand to view example image</summary>
    <div>
    <img alt="Grafana cloud access policy screen" width="60%" src="/img/grafana-cap.png"/> </div>
    </details>
 
-   :::note
+  :::note
    If you have any IP restrictions on this instance, ensure you allow the following IP addresses for Vantage:
    - `54.87.66.45`
    - `3.95.43.133`
    - `54.162.3.72`
    - `44.199.143.63`
    - `3.218.103.23`
-   :::
-5. Click **Create**.
-6. The new access policy is created. On the access policy tile, click **Add token**.
-7. Give the token a name and set the expiration to no expiry.
-8. Click **Create**, then copy the new token.
-9.  From the top navigation in Vantage, click **Settings**.
-10. On the left navigation, select **Integrations** and select **Grafana Cloud**.
-11. The Grafana Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
-12. At the bottom of the page, click **Add API Key** and paste your newly generated token.
-13. For **Organization slug**, enter the organization name that appears in your Grafana organization URL (e.g., in `https://grafana.com/orgs/vantagesh`, enter only `vantagesh`).
-14. Click **Connect Account**.
+  :::
+   
+1. Click **Create**.
+2. The new access policy is created. On the access policy tile, click **Add token**.
+3. Give the token a name and select an expiration date. If the key expires, you will need to update your integration in Vantage with a new API token.
+4.  Click **Create**, then copy the new token.
+5.  From the top navigation in Vantage, click **Settings**.
+6.  On the left navigation, select **Integrations** and select **Grafana Cloud**.
+7.  The Grafana Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
+8.  At the bottom of the page, click **Add API Key** and paste your newly generated token.
+9.  For **Organization slug**, enter the organization name that appears in your Grafana organization URL (e.g., in `https://grafana.com/orgs/vantagesh`, enter only `vantagesh`).
+10. Click **Connect Account**.
 
 Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Grafana Cloud costs. As soon as they are processed, they will be available on your All Resources Cost Report. If you decide to remove your Grafana Cloud integration from Vantage, all costs associated with your Grafana Cloud API key will be removed from the Vantage console.
 
