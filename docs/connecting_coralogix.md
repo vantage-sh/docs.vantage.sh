@@ -78,7 +78,3 @@ On Coralogix [Cost Reports](/cost_reports/), you can filter costs across several
 - Category (subsystem name)
 - Subcategory (application name)
 - Tag ([virtual tags](/tagging) created in Vantage for this provider)
-
-:::note
-Because the Metrics service doesn’t have a subsystem or application name, costs for this service can't be filtered by category or subcategory.
-:::

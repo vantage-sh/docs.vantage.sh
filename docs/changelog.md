@@ -12,7 +12,31 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on March 3, 2025, with product updates for February 2025._
+_This page was last updated on March 18, 2025, with product updates for March 2025._
+
+## March 2025
+
+### Product Updates
+
+- **New cost provider integrations:** Support is now available for [Temporal](/connecting_temporal) and [ClickHouse Cloud](/connecting_clickhouse) costs in the console.
+- **Virtual Tags updates:** The following Virtual Tags updates were released this month:
+  - [Nested Virtual Tags](/tagging#nested-virtual-tags) allow you to use the filter criteria from existing Virtual Tags in the creation of new Virtual Tags.
+  - Pagination has been added to the Virtual Tags page to assist with readability.
+- **Vantage for MSPs updates:** The following updates are available for [Vantage for MSPs](/partners) functionality:
+  - A new adjustment for [Re-Rate to Public Pricing](/partners#rerate-public) allows Vantage for MSPs users to revert their customers’ pricing back to list price, removing any enterprise discounts or private pricing
+  - A new adjustment for [Remove SP/RI Discounts](/partners#remove-discounts) lets Vantage for MSPs users decide which Reserved Instance and Savings Plan benefits their end customers receive.
+- **Kubernetes report updates:** The following updates are available for Kubernetes Cost Reports and Efficiency Reports:
+  - The Kubernetes `__idle__` namespace is now enabled by default on [Kubernetes Efficiency Reports](/kubernetes#idle-namespace).
+  - Filtering by [category](/kubernetes#kubernetes-cost-reports) to see CPU, RAM, and GPU is available on Kubernetes Cost Reports.
+  - The aggregated total metric is now available at the top of Kubernetes Efficiency Reports. 
+
+### Kubernetes Agent Updates
+
+The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods.
+
+### API Updates
+
+A fix was made on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) so that you can create a dashboard with a null date interval.
 
 ## February 2025
 
