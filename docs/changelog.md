@@ -36,7 +36,8 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 
 ### API Updates
 
-A fix was made on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) so that you can create a dashboard with a null date interval.
+- **Costs endpoint:** The `filters` parameter is now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts). If this parameter is supplied, you do not need to supply the `cost_report_token` parameter.  
+- **Dashboards endpoint:** A fix was made on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) so that you can create a dashboard with a null date interval.
 
 ## February 2025
 
