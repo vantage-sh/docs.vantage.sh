@@ -193,7 +193,7 @@ Idle costs are defined as the difference between the cost of requested resources
 idle_cost = (cpu_request_cost - cpu_usage_cost) +
             (memory_request_cost - memory_usage_cost)
 ```
-## Understanding the `__idle__` Namespace in Kubernetes Efficiency Reports
+## Understanding the `__idle__` Namespace in Kubernetes Efficiency Reports {#idle-namespace}
 
 When analyzing Kubernetes costs in Vantage, the `__idle__` namespace represents the unallocated portion of nodes per hour, providing insight into overall cluster efficiency. The `__idle__` namespace is included in total cluster costs. 
 
