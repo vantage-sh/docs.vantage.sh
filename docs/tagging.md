@@ -191,13 +191,13 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
 7. In the **Values** section, click **+Add**. Select whether you want to create a **Custom Value**, **Business Metric**, or **Cost Based** value. Click through the tabs below for instructions on each value type.
    :::note
-   You cannot use an existing virtual tag within the filters for virtual tags with forms of cost allocation (i.e., Business Metric or Cost Based virtual tags). You can, however, select an existing provider tag (e.g., one that comes from AWS). If you attempt to select an allocated virtual tag as part of your filter criteria, this following message is displayed.
+   You cannot use an existing virtual tag within the filters for virtual tags with forms of cost allocation (i.e., Business Metric or Cost Based virtual tags). You can, however, select an existing provider tag (e.g., one that comes from AWS). If you attempt to select an allocated virtual tag as part of your filter criteria, the following message is displayed.
 
     <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A message in a virtual tag filter indicating you cannot use allocated virtual tags for filter criteria in another tag" width="80%" src="/img/tags-dynamic-tot.png" />
     </div>
 
-    You can use existing virtual tags in the Output Costs Filter for Custom Value virtual tags. See the [Nested Virtual Tags](/tagging#nested-virtual-tags) section for details.
+    You can use existing virtual tags in the **Output Costs Filter** for Custom Value virtual tags. See the [Nested Virtual Tags](/tagging#nested-virtual-tags) section for details.
    :::
    <Tabs>
    <TabItem value="custom" label="Add Custom Value" default>
@@ -244,7 +244,7 @@ To reference an existing virtual tag in another virtual tag:
 2. Enter a name. 
 3. For the **Output Cost Filter**: 
     - Select a provider.
-    - Select **Tag**, then select a virtual tag key. Look for the pink tag icon with the Vantage logo to identify existing virtual tags.
+    - Select **Tag**, then select an existing virtual tag key. Look for the purple tag icon with the Vantage logo to identify existing virtual tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="The virtual tag screen selecting an existing virtual tag in the filter for a new tag value" width="80%" src="/img/tags-filter-tot.png" />
@@ -260,7 +260,7 @@ To reference an existing virtual tag in another virtual tag:
     <img alt="Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags" width="60%" src="/img/tags-delete-tot.png" />
 </div>
 
-- You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging##virtual-tag-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
+- You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging#virtual-tag-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
 
 See the [Nested Virtual Tags Example](/tagging#nested-virtual-tags-example) section below for a sample tag hierarchy.
 
@@ -468,7 +468,7 @@ You create a new tag called **Applications**:
 Next, you define a virtual tag for **Business Units**:
 
 - Each value represents a specific business unit (e.g., Core Production, Core Development).
-- Each filter uses the preexisting **Applications** virtual tag you just created to associate specific apps with the corresponding business unit. Notice that virtual tags are denoted by a pink Vantage tag icon to differentiate them from provider tags (gray icon).
+- Each filter uses the preexisting **Applications** virtual tag you just created to associate specific apps with the corresponding business unit. Notice that virtual tags are denoted by a purple Vantage tag icon to differentiate them from provider tags (gray icon).
   
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="An example of a business unit tagged associated with an existing application tag" width="80%" src="/img/tags-tot-example-apps.png" />
