@@ -252,9 +252,9 @@ To reference an existing virtual tag in another virtual tag:
 
 **Nested Virtual Tag Considerations**
 
-- Do not create a virtual tag that references itself (i.e., a cyclical reference); this will result in an error.
-- If you update the filters of a referenced virtual tag, costs are reprocessed based on the updated hierarchy.
-- If you delete or update a virtual tag that is referenced by another virtual tag, you will see a warning. If you proceed, Vantage reprocesses costs with the new configuration.
+- Do not create a nested virtual tag that references itself (i.e., a cyclical reference); this will result in an error.
+- If you update the filters of a virtual tag that is referenced by another virtual tag, costs are reprocessed based on the updated hierarchy.
+- If you delete or rename a virtual tag that is referenced by another virtual tag, you will see a warning. If you proceed, Vantage reprocesses costs with the new configuration.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags" width="60%" src="/img/tags-delete-tot.png" />
