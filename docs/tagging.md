@@ -17,7 +17,7 @@ import TabItem from '@theme/TabItem';
 With tagging visibility in Vantage, you can view your *provider tags* and create and manage *virtual tags*.
 
 - **Provider tags:** Tags that are directly associated with and managed within your cloud service providers, such as AWS, Azure, or GCP. These tags are typically applied to resources in your cloud environment to organize and categorize costs. Vantage retrieves and displays these tags in reports, which allows you to analyze costs based on existing tagging strategies.
-- **Virtual tags:** This feature can help to increase tagging coverage across your cloud infrastructure. Create cost allocation tag keys with a set of corresponding values and filters directly in the Vantage without needing to involve your engineering team in making infrastructure changes. All provider integrations in Vantage are supported, including providers that don't natively support tags. Virtual tags are available for filtering and aggregating on all [Cost Reports](/cost_reports) and [cost allocation segments](/segments). They can also be used in filter criteria on [saved filters](/saved_filters). There is no limit to the number of tag keys or values you define.
+- **Virtual tags:** This feature can help to increase tagging coverage across your cloud infrastructure. Create cost allocation tag keys with a set of corresponding values and filters directly in the Vantage without needing to involve your engineering team in making infrastructure changes. All provider integrations in Vantage are supported, including providers that don't natively support tags. Virtual tags are available for filtering and aggregating on all [Cost Reports](/cost_reports) and [cost allocation segments](/segments). They can also be used in filter criteria on [saved filters](/saved_filters). 
 
 ## Tag Management: Provider and Virtual Tags
 
@@ -143,7 +143,7 @@ Saved filters can then be used in a more ad-hoc fashion to add lenses on top of 
 If you want to transition any of your cost allocation segments to virtual tags, contact [support@vantage.sh](mailto:support@vantage.sh).
 :::
 
-### Custom Value Tags
+### Custom Value Tags {#custom-value-tags}
 
 With custom value tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
 
@@ -175,7 +175,7 @@ See the [example section](/tagging#metric-based-allocation-example) below for de
 
 ### Virtual Tags Limits {#virtual-tag-limit}
 
-You can create up to 50 Virtual Tag configurations, with each tag supporting up to 100 configuration values.
+You can create up to 50 virtual tag configurations, with each tag supporting up to 100 configuration values.
 
 ### Create Virtual Tags
 
@@ -191,7 +191,13 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 6. Enable the **Can Override** toggle if you want the virtual tag to override an existing service cost value. For example, if you create a virtual tag that conflicts with an existing provider tag, this option will override the existing provider tag key in Vantage reports.
 7. In the **Values** section, click **+Add**. Select whether you want to create a **Custom Value**, **Business Metric**, or **Cost Based** value. Click through the tabs below for instructions on each value type.
    :::note
-   You cannot use an existing Virtual Tag within the **Output Costs Filter** for any type of new Virtual Tag. You can, however, select an existing _provider tag_ (e.g., one that comes from AWS).
+   You cannot use an existing virtual tag within the filters for virtual tags with forms of cost allocation (i.e., Business Metric or Cost Based virtual tags). You can, however, select an existing provider tag (e.g., one that comes from AWS). If you attempt to select an allocated virtual tag as part of your filter criteria, the following message is displayed.
+
+    <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A message in a virtual tag filter indicating you cannot use allocated virtual tags for filter criteria in another tag" width="80%" src="/img/tags-dynamic-tot.png" />
+    </div>
+
+    You can use existing virtual tags in the **Output Costs Filter** for Custom Value virtual tags. See the [Nested Virtual Tags](/tagging#nested-virtual-tags) section for details.
    :::
    <Tabs>
    <TabItem value="custom" label="Add Custom Value" default>
@@ -225,8 +231,38 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 Processing tag changes usually takes under an hour. At the top of the **Virtual Tags** screen, the processing status is displayed. Processing times vary based on the number of tags and volume of data you have imported into Vantage.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Virtual Tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="/img/virtual-tag-status.png" />
+    <img alt="The virtual tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="/img/virtual-tag-status.png" />
 </div>
+
+#### Nested Virtual Tags {#nested-virtual-tags}
+
+With nested virtual tags, you can use virtual tags as part of the filter criteria for other virtual tag values. Nested virtual tags apply only to [Custom Value Virtual Tags](/tagging#custom-value-tags). These tags let you align cloud provider data with internal taxonomies for effective grouping and querying.
+
+To reference an existing virtual tag in another virtual tag:
+
+1. Create a new Custom Value. 
+2. Enter a name. 
+3. For the **Output Cost Filter**: 
+    - Select a provider.
+    - Select **Tag**, then select an existing virtual tag key. Look for the purple tag icon with the Vantage logo to identify existing virtual tags.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="The virtual tag screen selecting an existing virtual tag in the filter for a new tag value" width="80%" src="/img/tags-filter-tot.png" />
+</div>
+
+**Nested Virtual Tag Considerations**
+
+- Do not create a nested virtual tag that references itself (i.e., a cyclical reference); this will result in an error.
+- If you update the filters of a virtual tag that is referenced by another virtual tag, costs are reprocessed based on the updated hierarchy.
+- If you delete or rename a virtual tag that is referenced by another virtual tag, you will see a warning. If you proceed, Vantage reprocesses costs with the new configuration.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags" width="60%" src="/img/tags-delete-tot.png" />
+</div>
+
+- You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging#virtual-tag-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
+
+See the [Nested Virtual Tags Example](/tagging#nested-virtual-tags-example) section below for a sample tag hierarchy.
 
 #### Virtual Tag Order
 
@@ -412,6 +448,40 @@ The resulting report shows how much of the Namespace costs each team is allocate
     <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-metric-report.png" />
 </div>
 
+#### Nested Virtual Tags Example {#nested-virtual-tags-example}
+
+You want to maintain a hierarchy that reflects how your business units are associated with various applications, and track costs of all your applications per business unit over time. In addition, you also want to avoid having to manually update multiple virtual tags whenever an application changes ownership to another business unit, so you aim to set up a dynamic structure that’s automatically updated.
+
+##### Step 1: Create an Application Virtual Tag with Values for Each App
+
+You create a new tag called **Applications**: 
+
+- Each value represents a specific application (e.g., app1, app2, app3, app4).
+- The filters for each value are AWS costs related to specific resources, like RDS or EC2 instances.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="An example of an application tag based on specific AWS resources" width="80%" src="/img/tags-tot-example.png" />
+</div>
+
+##### Step 2: Create a Virtual Tag for Business Unit Costs
+
+Next, you define a virtual tag for **Business Units**:
+
+- Each value represents a specific business unit (e.g., Core Production, Core Development).
+- Each filter uses the preexisting **Applications** virtual tag you just created to associate specific apps with the corresponding business unit. Notice that virtual tags are denoted by a purple Vantage tag icon to differentiate them from provider tags (gray icon).
+  
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="An example of a business unit tagged associated with an existing application tag" width="80%" src="/img/tags-tot-example-apps.png" />
+</div>
+
+##### Step 3: Review the Nested Virtual Tag in Reports
+
+In associated reports, you can track all costs per business unit, knowing that each business unit comprises a set of corresponding apps. If an app ever changes its associated business unit, you need to update only the filter criteria on the **Business Units** virtual tag, and all other costs will be processed accordingly. The below report is grouped both by business unit and application to show the total breakdown.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="An example Cost Report with the Applications and Business Unit tag groupings" width="90%" src="/img/tags-tot-example-report.png" />
+</div>
+
 #### Tagging Untaggable Resources in AWS Example {#untaggable-aws}
 
 While you can apply cost and metadata tags in AWS to many resources, there are many other resources that are untaggable in AWS. Therefore, it is hard, if not almost impossible, to achieve 100% allocation in AWS alone. One quick way to first get an inventory of all untagged resources in Vantage—regardless of if they are untaggable—is to create a [Cost Report](/cost_reports) with the following filters:
@@ -433,7 +503,7 @@ See the [AWS documentation](https://docs.aws.amazon.com/ARG/latest/userguide/sup
     <img alt="Untagged cost filters" width="100%" src="/img/virtual-tag-category-tags.png" />
 </div>
 
-Many services and resource categories, however, cannot be tagged in AWS. You can use Virtual Tags to create tags in Vantage for these untaggable resources. In the table below, the _Vantage Resource Filters_ column represents the filters you can set as the **Output Cost Filters** in the Virtual Tag configuration. 
+Many services and resource categories, however, cannot be tagged in AWS. You can use virtual tags to create tags in Vantage for these untaggable resources. In the table below, the _Vantage Resource Filters_ column represents the filters you can set as the **Output Cost Filters** in the virtual tag configuration. 
 
 For example, if you want to tag S3 Data Transfer for specific resources, you could use the following filter criteria. 
 
