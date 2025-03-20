@@ -180,6 +180,7 @@ Custom billing rules can be created in the Management Account and optionally app
   - **Per Service Adjustment:** Re-rating of existing services or categories (such as Amazon CloudFront data transfer charges).
   - **Re-Rate to Public Price:** Remove discounts and private pricing for a Managed Account (further described in the [section below](/partners#rerate-public))
   - **Remove SP/RI Discounts:** Re-rate any usage for a Managed Account that is covered by Reserved Instances or Savings Plans purchased in the AWS Payer account (further described in the [section below](/partners#remove-discounts))
+  - **Re-Rate Tiered Discounts:** Recalculate tiered pricing models for applicable services for a Managed Account (further described in the [section below](/partners#rerate-tiered)).
 
 ### Re-Rate to Public Pricing Adjustment {#rerate-public}
 
@@ -206,6 +207,46 @@ You manage 20 customer AWS accounts and buy Savings Plans centrally. You want an
     <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Managed accounts screen with two existing accounts" width="70%" src="/img/partners/msp-child-discount-account.png" />
   </div>
+
+### Re-Rate Tiered Discounts {#rerate-tiered}
+
+MSPs often benefit from tiered pricing models offered by cloud providers, where unit costs decrease as usage increases. Since MSPs manage multiple customers, they can aggregate usage across all accounts to achieve lower pricing tiers that individual customers would not qualify for on their own. The **Re-Rate Tiered Discounts** billing rule allows you to re-rate customer usage back to what it would have cost without aggregated discounts to maintain more predictable pricing structures and margins.
+
+With the **Re-Rating Tiered Discounts** Billing Rule adjustment, MSPs can ensure that each customer’s costs reflect only their own usage-based tiered pricing, rather than benefiting from the MSP’s aggregated tiered discounts. This allows MSPs to align customer pricing with what they would have paid if purchasing directly from the cloud provider. Additionally, MSPs can remove AWS free-tier benefits from newly created accounts.
+
+When you apply adjustment, Vantage will re-calculate pricing tiers, on a per-customer level, and effectively reconstruct the pricing model based on each customer’s individual usage. Usage of a tiered service is recalculated for each customer’s Managed Account, and tiers are reapplied based on each customer’s usage. As a result, the following will apply in Vantage:
+
+- **When you view your parent Management Account**, you will continue to see the original price billed by AWS, and the billing rule will not be applied. This enables margin analysis and helps MSPs track where discounts and commitments are applied.
+- **When you view a customer’s Managed Account**, usage of services included in the billing rule will be presented at list price, with no indication that any adjustments were made on that usage.
+
+This rule applies to the following services:
+
+<table>
+    <tbody>
+        <tr>
+            <td><b>Removal of tiered discounts</b></td>
+            <td>
+                <ul>
+                    <li>Amazon S3</li>
+                    <li>Amazon CloudFront</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td><b>Removal of free tier</b></td>
+            <td>
+                Various services that fall under AWS’s free tier, such as:
+                <ul>
+                    <li>EC2 (t2.micro and t3.micro)</li>
+                    <li>RDS (750 hrs per month)</li>
+                    <li>S3 (5 GB per month)</li>
+                </ul>
+                For a full list of services, see the <a href="https://aws.amazon.com/free/?gclid=Cj0KCQiA_NC9BhCkARIsABSnSTZ0_36nI3dLY14YSvLLWTz5Bigmycp0_8D-2t1HSqHi7ZxSUVWjCBIaArLSEALw_wcB&trk=578b2801-ffbb-4021-a1db-01a0bafb3a4a&sc_channel=ps&ef_id=Cj0KCQiA_NC9BhCkARIsABSnSTZ0_36nI3dLY14YSvLLWTz5Bigmycp0_8D-2t1HSqHi7ZxSUVWjCBIaArLSEALw_wcB:G:s&s_kwcid=AL!4422!3!507162072479!p!!g!!aws!12563449882!121199905124&all-free-tier.sort-by=item.additionalFields.SortRank&all-free-tier.sort-order=asc&awsf.Free%20Tier%20Types=*all&awsf.Free%20Tier%20Categories=*all">AWS documentation</a>.
+            </td>
+        </tr>
+    </tbody>
+</table>
+
 
 ### Create Custom Billing Rules
 
@@ -246,6 +287,11 @@ To add new billing rules:
             </ul>
           </li>
           <li>If you select <b>Re-Rate to Public Price</b>:
+            <ul>
+              <li>No other fields are displayed. Click <b>Save</b>.</li>
+            </ul>
+          </li>
+          <li>If you select <b>Re-Rate Tiered Discounts</b>:
             <ul>
               <li>No other fields are displayed. Click <b>Save</b>.</li>
             </ul>
