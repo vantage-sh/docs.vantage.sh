@@ -498,6 +498,18 @@ If you apply grouping criteria to the Cost Report (e.g., set the **Group By** fi
     </div>
 </div>
 
+### Billing Code Descriptions
+
+AWS practitioners who are having trouble understanding AWS billing codes present in Cost Reports can find descriptions of each billing code, other variations of that billing code, and other services that use the same billing code within Cost Reports. When you view any AWS Cost Report grouped by **Provider, Service, Category, and Subcategory**, you can hover over any subcategory line item and a tooltip with a link to [cur.vantage.sh](https://cur.vantage.sh/) is provided that takes you to a page with details for that billing line item. 
+
+:::info
+[cur.vantage.sh](https://cur.vantage.sh/) is a free utility that gives cloud practitioners simple definitions of billing codes for every AWS service. The site has a distinct page for each AWS service (e.g., S3 or EC2) that clusters together similar billing codes for that service, as there may be separate or distinct billing codes for each individual region.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A Cost Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="/img/cur-cost-report.png" />
+</div>
+
 ## Adjust Chart Visualization
 
 You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.

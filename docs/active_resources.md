@@ -160,6 +160,18 @@ To export a resource report, click the export button (looks like an arrow pointi
 
 The following tabs are available for specific resources on the **Active Resources** screen. These tabs provide additional resource-specific information.
 
+### Billing Code Descriptions
+
+AWS practitioners who are having trouble understanding AWS billing codes can find descriptions of each billing code, other variations of that billing code, and other services that use the same billing code for specific services in Resource Reports. When you view a Resource Report for a specific service (e.g., EC2 instances), a link to [cur.vantage.sh](https://cur.vantage.sh/) is provided that takes you to a page with details for that billing line item. 
+
+:::info
+[cur.vantage.sh](https://cur.vantage.sh/) is a free utility that gives cloud practitioners simple definitions of billing codes for every AWS service. The site has a distinct page for each AWS service (e.g., S3 or EC2) that clusters together similar billing codes for that service, as there may be separate or distinct billing codes for each individual region.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A Resource Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="/img/cur-active-resource.png" />
+</div>
+
 ### Resource Relationships
 
 You can view relationships between specific resources on the **Relationships** tab.
