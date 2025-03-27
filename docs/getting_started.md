@@ -132,7 +132,7 @@ Next, create a data integration between at least one of your providers and Vanta
       icon: '/img/logos/logo-icon-github.svg',
       iconAltText: 'GitHub logo',
       title: 'GitHub',
-      content: 'Vantage integrates with GitHub via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise.',
+      content: 'Vantage integrates with GitHub using the Billing - vantage-sh GitHub application.',
       link: "/connecting_github",
     },
     {
