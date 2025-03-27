@@ -8,143 +8,100 @@ keywords:
   - Connect GitHub
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-
 # GitHub
 
-Vantage ingests GitHub costs via a Vantage-owned billing manager account that users add to their GitHub Organization or Enterprise. The billing manager account _has no access_ to any source code. 
+Vantage ingests GitHub costs through the [GitHub Enhanced Billing API](https://docs.github.com/en/rest/billing/enhanced-billing). With this integration, you can track costs for GitHub services, such as Actions, Large File Storage, Copilot, Codespaces, and Packages. You can programmatically grant Vantage access to GitHub billing data for multiple organizations.
 
-With the Vantage–GitHub integration, you can track costs from the following GitHub services: GitHub Actions, Shared Storage, and Copilot. In addition to these services, Vantage can also pull the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
+## Migrate to the New GitHub Billing Integration {#migrating}
+
+Previously, Vantage ingested GitHub costs using a Vantage-owned billing manager account that customers added to their GitHub Organization or Enterprise (released in September 2024). This approach required users to manually invite a billing email address, which had limitations, such as incompatibility for organizations who use SSO authentication.
+
+The second version of this integration (released in March 2025) uses the GitHub Enhanced Billing API. Any Vantage customer that is using GitHub services today and has been migrated to the Enhanced Billing API can use the new integration. GitHub started migrating customers to their new billing platform in [September 2024](https://docs.github.com/en/enterprise-cloud@latest/billing/using-the-new-billing-platform/automating-usage-reporting), with all accounts being migrated by the [end of March 2025](https://github.blog/changelog/2024-09-24-enhanced-billing-platform-for-enterprises/). See the [Prerequisites](/connecting_github#prerequisites) section below for instructions on how to validate if you’ve been migrated.
+
+:::note
+For customers on the first version of the Vantage integration, Vantage does not have a way of migrating to the new integration on your behalf. You will need to install the [Billing - vantage-sh](https://github.com/apps/billing-vantage-sh) application in your organization to use the new GitHub integration. See the [Create the Connection](/connecting_github#create-connection) section below for instructions on how to complete this new integration.
+:::
 
 ## How Vantage Integrates with GitHub
 
-The GitHub integration is completed in the following steps. **Detailed integration steps are provided in the next section.**
+The Vantage–GitHub integration requires the [Billing - vantage-sh](https://github.com/apps/billing-vantage-sh) GitHub application added to your GitHub organization. Once installed, Vantage can access cost and usage data through the [Enhanced Billing /usage API](https://docs.github.com/en/enterprise-cloud@latest/billing/using-the-new-billing-platform/automating-usage-reporting), which provides structured cost data for GitHub Actions, such as build minutes by user, repo, and workflow, as well as the associated infrastructure used to perform the build.
 
-1. Grant Vantage `manage billing:enterprise` or `read:org` access to the GitHub API, allowing Vantage to query the API for billing data returned from the [`Get usage billing report for an enterprise`](https://docs.github.com/en/enterprise-cloud@latest/rest/enterprise-admin/billing?apiVersion=2022-11-28#get-billing-usage-report-for-an-enterprise) API endpoint.
-2. Invite an account-specific Vantage email address as a billing manager to either you GitHub Enterprise or Organization. 
-3. After the Vantage user is invited, Vantage will confirm the addition of the user to your account within 24 hours. 
-4. Add the integration in the Vantage console. 
+You can see cost and usage, such as per-repository billing for Actions, Copilot UserMonths, and GigabyteHours of Shared Storage. To allocate the infrastructure costs for your self-hosted runners, you can create a Cost Report that includes both GitHub costs and the related EC2 or EKS costs, based on tags or labels.
 
-With this approach, Vantage can automatically pull a detailed usage report (CSV) from GitHub. With the information in the detailed usage report CSV, you can see granular usage breakdowns for GitHub Actions, such as build minutes by user, repository, and workflow, as well as the associated infrastructure used to perform the build. This is the most detailed method to provide the information that’s needed for this integration. 
-
-The Usage Report CSV contains metadata about every GitHub Actions build for the billing period, such as the user that initiated the build, the organization the user belongs to, the associated source code repository, the workflow name, the runner type, size, and operating system. With this additional metadata, Vantage can help you understand the users or repositories that are using the most minutes. This can help identify anomalies, build/test issues, and over-provisioned runners. Vantage customers can create filters for any of the metadata provided in the CSV.
+:::note
+As noted in the [GitHub documentation](https://docs.github.com/en/rest/billing?apiVersion=2022-11-28), access to the GitHub Enhanced Billing APIs requires `"Administration" organization permissions (read)`.
+:::
 
 ## Connect Your GitHub Account
 
-Follow the steps in this section to add a Vantage-owned GitHub billing manager account to your Organization or Enterprise. This user can pull cost and usage information from your GitHub account and send it to Vantage.
+Follow the steps in this section to install the Billing - vantage-sh GitHub application and ingest GitHub costs into Vantage.
 
-:::note
-The GitHub billing manager is customer-specific and not shared across other accounts. Per [GitHub's documentation](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization): "Billing managers do not use paid licenses in your organization's subscription."
-:::
+### Prerequisites {#prerequisites}
 
-### Prerequisites
+You must be a GitHub **Organization Owner** to install the Billing - vantage-sh GitHub application. You must also have been migrated to the GitHub Enhanced Billing API. The new GitHub Enhanced Billing platform is available to:
 
-The following steps provide information for both Enterprise and Organization [accounts](https://docs.github.com/en/get-started/learning-about-github/types-of-github-accounts).
+- All enterprise accounts, and their organizations, created after June 2, 2024
+- Enterprises that participated in the public preview program
+- Enterprises that have received a notice 30 days before their migration (see the [GitHub blog](https://github.blog/changelog/2024-09-24-enhanced-billing-platform-for-enterprises/))
 
-- Ensure you have the correct role for adding a member to your account:
-  - For [Organization accounts](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization), members of the organization's Owners team can add billing manager permissions.
-  - For [Enterprise accounts](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise?learn=get_started_with_your_enterprise_account&learnProduct=admin), Enterprise owners can invite other people to their enterprise account as billing managers.
-- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to connect to GitHub.
+To validate that you have been moved to the Enhanced Billing Platform:
 
-### Create the Connection
+- Navigate to `https://github.com/enterprises/{name}/billing` (for Enterprise accounts) or `https://github.com/organizations/{name}/billing` (for Organization accounts), and you should see the new billing platform.
+- You can also navigate to `https://github.com/enterprises/{name}/settings/billing` (for Enterprise accounts) or `https://github.com/organizations/{name}/settings/billing` (for Organization accounts). You should see a warning at the top of the page, indicating that the page has been deprecated.
+  <details>
+    <summary>Click to view example image</summary>
+    <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="Deprecated billing screen in GitHub" width="100%" src="/img/gh-deprecated-screen.png" />
+    </div>
+  </details>
 
-Follow the steps below to add your Enterprise or Organization information, set up the Vantage integration, and invite the Vantage billing manager to your account.
+[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to connect to GitHub.
 
-:::note
-Note that at this time, you are unable to complete a GitHub integration if your organization or enterprise uses GitHub SSO. 
-:::
+### Create the Connection {#create-connection}
 
-#### Step 1: Obtain Your Organization or Enterprise Name
+To complete the integration, you will add the application to your organization and set up the Vantage integration in the console.
 
-Navigate to GitHub and obtain your Enterprise or Organization name.
-<Tabs groupId="instructions">
-<TabItem value="enterprise" label="Enterprise" default>
+1. From the top navigation in Vantage, click **Settings**.
+2. On the left navigation, select **Integrations** and select **GitHub**.
+3. The GitHub integrations page is displayed. Ensure you are on the **Connect** tab.
+4. At the bottom of the page, click **Connect GitHub Account**.
+5. You will be asked to authorize the app for your organization.
+<details>
+<summary>Click to view example image</summary>
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="GitHub application authorization screen" width="100%" src="/img/gh-authorize.png" />
+</div>
+</details>
+1. Click **Authorize Billing - vantage-sh**. You will be brought to a screen where you can select your organization for the integration. Select your organization to complete the integration.
+<details>
+<summary>Click to view example image</summary>
+<div style={{display:"flex", justifyContent:"center"}}>
+  <img alt="GitHub application organization selection screen" width="100%" src="/img/gh-org.png" />
+</div>
+</details>
 
-   <p>For Enterprises, navigate to the <a href="https://github.com/settings/enterprises">Enterprises page</a> on GitHub. Select your Enterprise. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/enterprises/mycompany</code>, copy <b>only</b> <code>mycompany</code>—all lowercase, no spaces—<b>do not copy the full URL, just the <code>mycompany</code> part</b>).</p>
-   </TabItem>
-   <TabItem value="organization" label="Organization" default>
-   <p>For Organizations, navigate to the <a href="https://github.com/settings/organizations">Organizations page</a> on GitHub. Select your Organization. Copy the name that's displayed in the URL to use in step 3 (e.g., in <code>https://github.com/mycompany</code>, copy <b>only</b> <code>mycompany</code>—all lowercase, no spaces—<b>do not copy the full URL, just the <code>mycompany</code> part</b>).</p>
-   </TabItem>
-   </Tabs>
+GitHub costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest GitHub costs. As soon as they are processed, they will be available on your **All Resources** Cost Report. 
 
----
+When following the integration setup, Vantage will request 180 days of historical usage data from GitHub. The cost and usage data ingested from the [GitHub Enhanced Billing APIs](https://docs.github.com/en/rest/billing) starts the day that GitHub migrates you to this new standard. Any historical data prior to this is accessible only via the [previous form](/connecting_github#previous-integration) of the GitHub integration.
 
-#### Step 2: Create a Fine-Grained Access Token
-
-Create a personal access token for your Enterprise or Organization. These steps are also provided in the [GitHub documentation](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic).
-
-1. Navigate to the [Personal Access Tokens](https://github.com/settings/tokens) screen on GitHub.
-2. Click **Generate new token**, then click **Generate new token (classic)**.
-3. For **Note**, enter a description for the token.
-4. Select a token expiration.
-5. For **Scopes**, select the following scopes based on whether you are an Organization or Enterprise:
-   - For **Organizations**, select the `read:org` scope.
-   - For **Enterprises**, select the `manage_billing:enterprise` scope.
-6. Click **Generate token** and copy the provided token to use in step 3.
-
----
-
-#### Step 3: Add Your Account Information to Vantage
-
-Navigate to Vantage and follow the steps below to add the information you obtained in the previous steps.
-
-1. From the top navigation in Vantage click **Settings**.
-2. On the left navigation, select **Integrations**. The GitHub integrations page is displayed. Ensure you are on the **Connect** tab.
-3. Click **Add GitHub Account**.
-4. Add your Enterprise or Organization name and select your account type. For **API key**, add your previously generated personal access token.
-5. Click **Connect Account**.
-
----
-
-#### Step 4: Invite the Vantage Billing Manager to Your GitHub Account {#invite-user}
-
-After you add your initial account information, add the billing manager to your account.
-
-1. On the integration page, copy provided Vantage billing manager email address. This email address will be associated with the user who's the billing manager on your GitHub Organization or Enterprise.
-2. Navigate to GitHub and follow the steps below for either your Organization or Enterprise.
-   <Tabs groupId="instructions">
-   <TabItem value="enterprise" label="Enterprise" default>
-
-   :::note
-   These steps are also documented in [GitHub's documentation](https://docs.github.com/en/enterprise-cloud@latest/admin/managing-accounts-and-repositories/managing-users-in-your-enterprise/inviting-people-to-manage-your-enterprise?learn=get_started_with_your_enterprise_account&learnProduct=admin#inviting-an-enterprise-administrator-to-your-enterprise-account).
-   :::
-
-   <ol>
-   <li>Navigate to the Enterprise Admin screen, which will be the following URL, but with your Enterprise's name <code>https://github.com/enterprises/YOUR_ENTERPRISE_NAME/admins</code>.</li>
-   <li>At the top, click <strong>Invite admin</strong>.</li>
-   <li>Paste the Vantage billing manager email you copied earlier.</li>
-   <li>Select <strong>Billing Manager</strong> for the role.</li>
-   <li>Click <strong>Send Invitation</strong>.</li>
-   </ol>
-   </TabItem>
-   <TabItem value="organization" label="Organization" default>
-
-   :::note
-   These steps are also documented in [GitHub's documentation](https://docs.github.com/en/organizations/managing-peoples-access-to-your-organization-with-roles/adding-a-billing-manager-to-your-organization).
-   :::
-
-   <ol>
-   <li>From your GitHub account, click your profile picture in the top right.</li>
-   <li>Select <strong>Settings</strong>.</li>
-   <li>On the sidebar under <strong>Access</strong>, select <strong>Organizations</strong>.</li>
-   <li>Next to your organization, click <strong>Settings</strong>.</li>
-   <li>From the sidebar, under <strong>Access</strong>, click <strong>Billing and plans</strong>.</li>
-   <li>Under <strong>Billing management</strong>, for <strong>Billing managers</strong>, click <strong>Add</strong>.</li>
-   <li>Paste the Vantage billing manager email you copied earlier.</li>
-   <li>Click <strong>Send Invitation</strong>.</li>
-   </ol>
-   </TabItem>
-   </Tabs>
-
-   ***
-
-
-An email will be sent to the Vantage-owned billing manager email address for Vantage to accept your Organization's or Enterprise's invitation. Note that it will take about 24 hours for your invitation to be accepted by Vantage. Once costs are imported, you'll receive an email, and they'll be available on your **All Resources** Cost Report.
+If you decide to remove your GitHub integration from Vantage, all costs associated with your connected GitHub Organizations will be removed from the Vantage console.
 
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+
+### Previous Integration (Pre-March 2025) {#previous-integration}
+
+Any historical data you previously ingested into Vantage (prior to March 2025) is accessible only via the previous form of the GitHub integration. Once GitHub migrates you to the Enhanced Billing API, the previous Vantage GitHub integration will stop receiving updated data, as Vantage is no longer able to retrieve the CSV that was being used for cost and usage data.
+
+You can leave your previous integration connected to Vantage for historical billing data if you want to retain this information. On the integration settings page in Vantage, any new integrations have the `API` label displayed next to their name in the list.
+
+<details>
+  <summary>Click to view example image</summary>
+  <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="GitHub Vantage integration screen with old and new integrations" width="80%" src="/img/gh-vantage.png" />
+  </div>
+  </details>
 
 ## Data Refresh
 
@@ -152,29 +109,15 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 
 ## GitHub Reporting Dimensions
 
-On GitHub [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
+On GitHub [Cost Reports](https://docs.vantage.sh/cost_reports/), you can filter costs across several dimensions:
 
-- Category (e.g., Actions - Hosted Runner)
-- Tag (Includes the below items and [virtual tags](/tagging) created in Vantage for this provider)
-  - owner
-  - repo
-  - username
-  - workflow
-- Subcategory (e.g., Actions - Compute - UBUNTU_16_Core)
-- Resource (e.g., Actions - specific Actions workflow)
+- Organization (e.g., Organization Name)
+- Service (e.g., Actions, Copilot, Packages)
+- Category (e.g., Actions)
+- Subcategory (e.g., Actions Linux)
+- Resource (e.g., {Repository Name})
 - Charge Type (e.g., Usage)
-- Organization (organization name)
-- Service (Actions, Storage, and Copilot)
-
-You can also view GitHub credits in Cost Reports.
-
-1. At the top of any GitHub Cost Report, click **Settings**.
-2. Then, toggle on/off **Credits**.
-
-## GitHub Costs Demonstration
-
-The below video talks about how to get started with GitHub costs and how to use [Virtual Tags](/tagging) along with this integration.
-
-<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/npyZQRlTuGY?si=AtCe7H23BvYFsZsB?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
-</div><br/>
+- Tags:
+  - Owner
+  - Repo
+  - [Virtual Tags](https://docs.vantage.sh/virtual_tagging) created in Vantage
