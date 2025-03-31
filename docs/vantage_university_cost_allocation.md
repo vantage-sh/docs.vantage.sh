@@ -36,15 +36,23 @@ As a **cloud operations manager**, you can:
 
 ---
 
-## 📚 Lesson 1: Create Virtual Tags
+## 📚 Lesson 1: Introduction to Tagging
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.loom.com/embed/5b19b3be1cab430c8b0118fc5a075701" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+    <iframe src="https://www.youtube.com/embed/X-laqaupBAE?si=KHW2gBp16Qf4jN7L?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
 </div><br/>
 
 ---
 
-## 📚 Lesson 2: Create Cost Allocation Segments
+## 📚 Lesson 2: Create Virtual Tags
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/aTlDULAxUCw?si=BX0KoSyLAE3Kb0LT?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
+
+---
+
+## 📚 Lesson 3: Create Cost Allocation Segments
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.loom.com/embed/54ed4169d7984710bdbaae93d3ebf7a0" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
