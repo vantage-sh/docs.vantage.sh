@@ -171,6 +171,13 @@ Next, create a data integration between at least one of your providers and Vanta
       link: "/connecting_temporal",
     },
     {
+      icon: '/img/logos/logo-icon-twilio.svg',
+      iconAltText: 'Twilio logo',
+      title: 'Twilio',
+      content: 'Vantage integrates with Twilio using a Standard API key.',
+      link: "/connecting_twilio",
+    },
+    {
       icon: '/img/logos/logo-icon-custom-providers.svg',
       iconAltText: 'Custom Providers logo',
       title: 'Custom Providers',
