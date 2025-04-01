@@ -12,19 +12,22 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on March 18, 2025, with product updates for March 2025._
+_This page was last updated on April 1, 2025, with product updates for March 2025._
 
 ## March 2025
 
 ### Product Updates
 
-- **New cost provider integrations:** Support is now available for [Temporal](/connecting_temporal) and [ClickHouse Cloud](/connecting_clickhouse) costs in the console.
+- **cur.vantage.sh console integration:** [cur.vantage.sh](https://cur.vantage.sh/) integrates with the Vantage console. Navigate to descriptions for subcategory costs on Cost Reports and service descriptions on Resource Reports. 
+- **New cost provider integrations:** Support is now available for [Temporal](/connecting_temporal) and [ClickHouse Cloud](/connecting_clickhouse) costs in the console. Support has also been updated for the [GitHub](/connecting_github) integration to use the new Enhanced Billing API.
 - **Virtual Tags updates:** The following Virtual Tags updates were released this month:
   - [Nested Virtual Tags](/tagging#nested-virtual-tags) allow you to use the filter criteria from existing Virtual Tags in the creation of new Virtual Tags.
   - Pagination has been added to the Virtual Tags page to assist with readability.
 - **Vantage for MSPs updates:** The following updates are available for [Vantage for MSPs](/partners) functionality:
   - A new adjustment for [Re-Rate to Public Pricing](/partners#rerate-public) allows Vantage for MSPs users to revert their customers’ pricing back to list price, removing any enterprise discounts or private pricing
   - A new adjustment for [Remove SP/RI Discounts](/partners#remove-discounts) lets Vantage for MSPs users decide which Reserved Instance and Savings Plan benefits their end customers receive.
+  - A new adjustment for [Re-Rate Tiered Discounts](/partners#rerate-tiered) lets Management Accounts recalculate tiered pricing models for applicable services for a customer's Managed Account.
+  - A customer Managed Account's **Tracked Spend** is now displayed on the **Managed Accounts** homepage.
 - **Kubernetes report updates:** The following updates are available for Kubernetes Cost Reports and Efficiency Reports:
   - The Kubernetes `__idle__` namespace is now enabled by default on [Kubernetes Efficiency Reports](/kubernetes#idle-namespace).
   - Filtering by [category](/kubernetes#kubernetes-cost-reports) to see CPU, RAM, and GPU is available on Kubernetes Cost Reports.
@@ -32,7 +35,7 @@ _This page was last updated on March 18, 2025, with product updates for March 20
 
 ### Kubernetes Agent Updates
 
-The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods.
+The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods. See [February's update](/changelog#k8s-feb-25) for other recent updates.
 
 ### API Updates
 
@@ -55,7 +58,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 - **View as VQL:** On Financial Commitment and Network Flow Report filters, a new button is available to see the [VQL](/vql) representation of a Financial Commitment or Network Flow Report filter.
 - **cur.vantage.sh:** The new microsite, [cur.vantage.sh](https://cur.vantage.sh/), helps you decode AWS Cost and Usage Report (CUR) billing codes for any AWS service.
 
-### Kubernetes Agent Updates
+### Kubernetes Agent Updates {#k8s-feb-25}
 
 - Version 1.0.28, Helm Chart [vantage-kubernetes-agent-1.1.0](https://github.com/vantage-sh/helm-charts/releases/tag/vantage-kubernetes-agent-1.1.0), includes the following update: 
   - Support was added for mounting volumes to the agent.
