@@ -189,6 +189,13 @@ Once your costs are imported, select which workspaces this integration is associ
 
 See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
+## Azure Amortization
+
+Azure stores their actual and amortized billing data in separate tables. Vantage pulls in both tables for you to view either costs types within Cost Reports, with no additional integration steps required. To switch between actual and amortized costs, select **Settings** at the top of any Cost Report, and check or uncheck the **Enabled** checkbox in the Amortization section.
+
+:::note
+Azure does not show unused reservations within their amortized views. If performing charge back for Azure cost data, ensure you use either actual costs or use Custom Providers to add in unused reservation costs to your amortized Azure views.
+:::
 ## Azure Cost Recommendations
 
 Vantage provides different [cost recommendations](/cost_recommendations) for Azure. Each recommendation includes a potential monthly savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
