@@ -44,55 +44,63 @@ If your Snowflake cluster uses an IP allow list for access control, you will nee
 
 ### Snowflake Schema for Vantage {#vantage-schema}
 
-After creating the below schema, you can add only the needed views to that schema and grant the `vantage` user access to the schema.
+After creating the below schema, you can add the required views to that schema and grant the `vantage` user access to the schema. 
 
 :::info
 The below commands are based on the Snowflake [documentation](https://community.snowflake.com/s/article/Solution-Grant-access-to-specific-views-in-SNOWFLAKE-ACCOUNT-USAGE-to-custom-roles).
 :::
 
-1. In Snowflake, create a user named `vantage`, a role named `vantage`, and a warehouse named `vantage`. Grant the necessary permissions. Ensure you replace the password placeholder with a strong password for the `vantage` user.
+1. From the top navigation in Vantage, click **Settings**.
+2. On the left navigation, select **Integrations** and select **Snowflake**.
+3. The Snowflake integrations page is displayed. Ensure you are on the **Connect** tab.
+4. Copy the code that's provided under **Create Vantage User and Role** to Snowflake. This SQL creates a user named `vantage`, a role named `vantage`, and a warehouse named `vantage`. It also grants the necessary permissions. 
+   
+  :::note
+  Vantage automatically generates an [RSA public key](https://docs.snowflake.com/en/user-guide/key-pair-auth) for you to use when creating the Vantage user and role. You need to copy the code directly from the Vantage integration page to add the RSA key. 
+  :::
 
-  ```sql
-  use role accountadmin;
-  create database vantage;
-  create role vantage;
-  create user vantage;
-  grant role vantage to user vantage;
-  grant role vantage to role accountadmin;
-  create warehouse vantage;
-  grant all on warehouse vantage to role vantage;
-  alter user vantage set DEFAULT_WAREHOUSE=vantage, DEFAULT_ROLE=vantage;
-  alter user vantage set password='<A STRONG PASSWORD>';
+  ```sql title="Sample of code. Copy directly from Vantage console to get RSA key."
+  USE role accountadmin;
+  CREATE DATABASE vantage;
+  CREATE ROLE vantage;
+  CREATE USER vantage;
+  GRANT ROLE vantage to user vantage;
+  GRANT ROLE vantage to role accountadmin;
+  CREATE WAREHOUSE vantage;
+  GRANT ALL ON WAREHOUSE vantage TO ROLE vantage;
+  ALTER USER vantage SET DEFAULT_WAREHOUSE=vantage, DEFAULT_ROLE=vantage;
+  ALTER USER vantage SET password='';
+  ALTER USER vantage SET RSA_PUBLIC_KEY='<YOUR_RSA_KEY_GENERATED_BY_VANTAGE';
   ```
 
-2. Set up the Vantage-specific schema to read billing and usage data from your account.
+5. Copy the next code block to set up the Vantage-specific schema to read billing and usage data from your account.
 
   ```sql
-  use warehouse vantage;
-  create view VANTAGE.PUBLIC.QUERY_HISTORY as select * from SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY;
-  create view VANTAGE.PUBLIC.WAREHOUSE_METERING_HISTORY as select * from SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY;
-  create view VANTAGE.PUBLIC.USAGE_IN_CURRENCY_DAILY as select * from SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY;
-  grant usage on schema vantage.public to role vantage;
-  grant usage on database vantage to role vantage;
-  grant select on all views in schema VANTAGE.PUBLIC to role vantage;
+  USE WAREHOUSE vantage;
+  CREATE VIEW VANTAGE.PUBLIC.QUERY_HISTORY as select * from SNOWFLAKE.ACCOUNT_USAGE.QUERY_HISTORY;
+  CREATE VIEW VANTAGE.PUBLIC.WAREHOUSE_METERING_HISTORY as select * from SNOWFLAKE.ORGANIZATION_USAGE.WAREHOUSE_METERING_HISTORY;
+  CREATE VIEW VANTAGE.PUBLIC.USAGE_IN_CURRENCY_DAILY as select * from SNOWFLAKE.ORGANIZATION_USAGE.USAGE_IN_CURRENCY_DAILY;
+  GRANT USAGE ON SCHEMA vantage.public TO ROLE vantage;
+  GRANT USAGE ON DATABASE vantage TO ROLE vantage;
+  GRANT SELECT ON ALL VIEWS IN SCHEMA vantage.public TO ROLE vantage;
   ```
 
-3. Test your setup.
+3. Test your setup in Snowflake.
 
   ```sql
-  use role vantage;
-  select * from vantage.public.query_history limit 1;
+  USE role vantage;
+  SELECT * FROM vantage.public.query_history LIMIT 1;
   ```
 
-4. Navigate to the [Snowflake Settings page](https://console.vantage.sh/settings/snowflake) in the Vantage console to add a new Snowflake connection. Then, click **Add Connection**. 
+4. At the bottom of the Vantage console Snowflake integration page, click **Add Connection**. 
 5. Add the following information to the form:
    - **Server URL**: In the format `<account_identifier>.<region>.snowflakecomputing.com`. 
    - **Database**: The name of the database the usage views are in (e.g., `vantage`).
    - **Schema**: The name of the schema the usage views are in (e.g., `public`).
-   - **Username** and **Password** set for the `vantage` user. 
-6. Click **Connect Account**. The status of your account will change to `Importing`. 
+   - **Username** set for the `vantage` user. 
+6. Click **Connect Account**. 
 
-Costs will be ingested and processed immediately, but it may take several hours to populate all Vantage tools depending on the query volume of your warehouse. 
+Costs will be ingested and processed as soon as you add the integration, but it may take several hours to populate within Vantage depending on the query volume of your warehouse. As soon as they are processed, they will be available on your All Resources Cost Report. If you decide to remove your Snowflake integration from Vantage, all costs associated with your Snowflake integration will be removed from the Vantage console. 
 
 ### Next Steps: Manage Workspace Access
 
