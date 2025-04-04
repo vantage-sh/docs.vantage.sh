@@ -44,7 +44,7 @@ If your Snowflake cluster uses an IP allow list for access control, you will nee
 
 ### Snowflake Schema for Vantage {#vantage-schema}
 
-After creating the below schema, you can add the required views to that schema and grant the `vantage` user access to the schema. 
+After creating the below schema, you can add the required views to that schema and grant the `vantage` user access to the schema.
 
 :::info
 The below commands are based on the Snowflake [documentation](https://community.snowflake.com/s/article/Solution-Grant-access-to-specific-views-in-SNOWFLAKE-ACCOUNT-USAGE-to-custom-roles).
@@ -70,7 +70,7 @@ The below commands are based on the Snowflake [documentation](https://community.
   GRANT ALL ON WAREHOUSE vantage TO ROLE vantage;
   ALTER USER vantage SET DEFAULT_WAREHOUSE=vantage, DEFAULT_ROLE=vantage;
   ALTER USER vantage SET password='';
-  ALTER USER vantage SET RSA_PUBLIC_KEY='<YOUR_RSA_KEY_GENERATED_BY_VANTAGE';
+  ALTER USER vantage SET RSA_PUBLIC_KEY='<YOUR_RSA_KEY_GENERATED_BY_VANTAGE>';
   ```
 
 5. Copy the next code block to set up the Vantage-specific schema to read billing and usage data from your account.
