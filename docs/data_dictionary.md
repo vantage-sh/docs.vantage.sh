@@ -196,7 +196,7 @@ _\* Virtual tags associated with this provider_
 ## GitHub {#github}
 
 | Filter       | API Field Name        | Data Type | `namespace.field`           |
-| -----------  | --------------------- | --------- | --------------------------- |
+| ------------ | --------------------- | --------- | --------------------------- |
 | Organization | `provider_account_id` | string    | `costs.provider_account_id` |
 | Service      | `service`             | string    | `costs.service`             |
 | Provider     | `provider`            | string    | `costs.provider`            |
@@ -351,6 +351,8 @@ _\* Virtual tags associated with this provider_
 | Metadata Value | `value`               | string    | `tags.value`                |
 | Service        | `service`             | string    | `costs.service`             |
 | Charge Type    | `charge_type`         | string    | `costs.charge_type`         |
+| Tag            | `name`                | string    | `tags.name`                 |
+| Tag Value      | `value`               | string    | `tags.value`                |
 
 ## Temporal Cloud {#temporal}
 

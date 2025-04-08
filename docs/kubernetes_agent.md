@@ -354,7 +354,7 @@ Once changed, you can validate the change by looking for the scraping summary lo
 
 The most common cause for pod scheduling errors is the persistent volume not being provisioned. By default, the agent is deployed as a StatefulSet with a persistent volume for persisting internal state. The state allows the agent to recover from a restart without losing the historical data for the current reporting window. An example error for this case would be present in the events on the `vka-vantage-kubernetes-agent-0` pod and include an error that contains `unbound immediate PersistentVolumeClaims`.
 
-The resolution to this error is based on the cluster's configuration and the specific cloud provider. More information might be present on the persistent volume claim or persistent volume. For Kubernetes clusters on AWS, S3 can be used for data persistence, which is documented in the next section.
+The resolution to this error is based on the cluster's configuration and the specific cloud provider. More information might be present on the persistent volume claim or persistent volume. For Kubernetes clusters on AWS, S3 can be used for [data persistence](/kubernetes_agent#data-persistence).
 
 Additional provider references are also listed here:
 
