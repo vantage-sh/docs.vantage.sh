@@ -11,7 +11,7 @@ keywords:
 # Usage-Based Reporting
 
 :::tip
-To get started with Usage-Basesd Reports, you can also watch a video demo on [Vantage University](/vantage_university_cost_reporting) 🎓.
+To get started with Usage-Based Reports, you can also watch a video demo on [Vantage University](/vantage_university_cost_reporting) 🎓.
 :::
 
 Usage-Based Reporting provides infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed. These reports are available within [Cost Reports](/cost_reports), where you can toggle between viewing consumption by spend or by usage.
