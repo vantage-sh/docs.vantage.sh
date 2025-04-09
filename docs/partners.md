@@ -266,6 +266,13 @@ To add new billing rules:
     <p>With adjustments, you can select between three different re-rating options.</p>
     <ol>
       <li>Enter a rule <strong>Title</strong>, such as <i>CloudFront Re-rating</i>.</li>
+      <li>
+        Optionally, enter a <strong>Start Date</strong> and/or <strong>End Date</strong> to define when the billing rule should be active.  
+        <ul>
+          <li>If only a start date is set, the rule applies from that date onward, indefinitely.</li>
+          <li>If only an end date is set, the rule applies from the beginning of your data up to that date.</li>
+        </ul>
+      </li>
       <li>Select an <b>Adjustment Type</b>:
         <ul>
           <li>If you select <b>Per-Service Adjustment</b>:
@@ -293,14 +300,15 @@ To add new billing rules:
           </li>
           <li>If you select <b>Re-Rate Tiered Discounts</b>:
             <ul>
-              <li>No other fields are displayed. Click <b>Save</b>.</li>
+              <li>Click the toggle to select whether to include <strong>Free tier</strong> costs when re-rating.</li> 
+              <li>Click <b>Save</b>.</li>
             </ul>
           </li>
         </ul>
       </li>
     </ol>
+    <p><i>Note: You can also select whether to automatically apply the new billing rule to all existing and new Managed Accounts from this modal.</i></p>
   </TabItem>
-
 
   <TabItem value="charge-credit" label="Charge/Credit">
     <ol>
@@ -355,11 +363,7 @@ After billing rules are applied to Managed Account, re-processing of the data be
     </div>
 </div>
 
-To delete a billing rule:
-
-1. From the **Billings Rules** tab, click **Assign a Billing Rule**.
-2. Click the **x** next to any listed billing rule.
-3. Click **Save**.
+To delete a billing rule from being used on a Managed Account, from the **Billings Rules** tab, click the trashcan icon next to the rule's name.
 
 ## Role-Based Access Control
 
