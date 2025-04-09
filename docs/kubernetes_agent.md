@@ -31,7 +31,7 @@ The Vantage Kubernetes agent is compatible with the following services:
 - Google Kubernetes Engine (GKE)
 
 :::note
-At this time, the agent does not support custom rates for on-premises servers. Note that this is a planned future feature. If you have an on-premises cluster and would like to track these costs, see the [OpenCost](/opencost) documentation.
+At this time, the agent does not support custom rates for on-premises servers. 
 :::
 
 As long as the cost data for an underlying cluster instance is ingested into Vantage via a cloud integration, it is possible to calculate the corresponding pod costs.
