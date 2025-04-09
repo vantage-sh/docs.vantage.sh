@@ -10,7 +10,7 @@ keywords:
 
 # Jira
 
-Jira is an issue-tracking and agile project management tool from Atlassian. With the Vantage–Jira integration, you can create Jira issues for Cost Anomalies, Budget Alerts, and Resource Reports, including Resource Reports for Cost Recommendations, directly in Vantage. You can also view the progress of the associated Jira issues directly within Vantage.
+Jira is an issue-tracking and agile project management tool from Atlassian. With the Vantage–Jira integration, you can create Jira issues for Cost Anomalies, Budget Alerts, Cost Alerts, and Resource Reports, including Resource Reports for Cost Recommendations, directly in Vantage. You can also view the progress of the associated Jira issues directly within Vantage.
 
 :::note
 This integration is specifically for users on Jira Cloud (hosted by Atlassian). Jira Server integrations (self-hosted Jira) are not currently supported.
@@ -232,6 +232,37 @@ Due to a technical limitation at this time, if an issue type requires you to sel
 </div>
 
 After the issue is created, to access the corresponding Jira issue from the Resource Report, click the Jira icon on the top right of the report. 
+
+### Cost Alerts
+
+Cost Alerts automatically detect and notify you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.  When the set threshold is reached, Vantage creates a corresponding Jira issue.
+
+:::info
+Review the Vantage [Cost Alerts documentation](/cost_alerts) for more details on budget alerts.
+:::
+
+1. Create a new Cost alert. Enter all required alert criteria, such as dollar or percentage **Threshold**.
+2. Under **Setup App Alerts**, expand the **Jira Alerts** section.
+3. Select the Jira **Project** where you want the issue to be created.
+4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available issue types within your selected project and Jira instance. Additional required fields will also be displayed for the selected issue type (e.g., Reporter), based on your Jira setup. Any non-required Jira fields will not be displayed, and you can update these fields directly in Jira once the issue is created. Common examples are listed below:
+    - Bug
+        - Enter the corresponding bug Sprint ID: if required by your setup
+    - Story
+    - Epic
+    - Subtask
+        - Enter the Jira Parent task ID (e.g., `SCRUM-39`) for the subtask
+    - Task
+5. Click **Save**.
+
+:::note
+Due to a technical limitation at this time, if an issue type requires you to select a team, that issue type will not be available in Vantage.
+:::
+
+When a Cost Alert is triggered, the corresponding issue is generated in Jira. This issue includes an alert description, along with the date when the alert was triggered, the associated Cost Report, and the name of the Cost Alert. An [annotation](/annotations) is automatically added to the associated Cost Report on the date the alert is triggered, even if Jira notifications are not enabled. If a Jira issue is created as part of the alert, a link to the ticket will also appear in the annotation.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Cost Alert Jira ticket" width="100%" src="/img/cost-alerts-jira.png" />
+</div>
 
 ## Jira Issue Statuses in Vantage
 

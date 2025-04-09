@@ -1,14 +1,14 @@
 ---
 id: microsoft_teams
 name: Microsoft Teams
-description: Create an integration with Microsoft Teams for Cost Report notifications, anomaly alerts, and budget alerts.
+description: Create an integration with Microsoft Teams for Report Notifications, anomaly alerts, and budget alerts.
 keywords:
   - Microsoft Teams
 ---
 
 # Microsoft Teams
 
-Vantage integrates with Microsoft Teams so that you can send [Cost Report notifications](/report_notifications), [cost anomaly alerts](/cost_anomaly_alerts), and [budget alerts](/budgets#create-alerts) to your Teams channels. You can adjust notifications to be delivered to a specific public or private channel in Microsoft Teams. 
+Vantage integrates with Microsoft Teams so that you can send [Report Notifications](/report_notifications), [Cost Alerts](/cost_alerts), [Cost Anomaly Alerts](/cost_anomaly_alerts), and [Budget Alerts](/budgets#create-alerts) to your Teams channels. You can adjust notifications to be delivered to a specific public or private channel in Microsoft Teams. 
 
 To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
 
@@ -21,7 +21,7 @@ To complete the integration, ensure you have permission to add integrations to y
 
 <details><summary>Expand to view example MS Teams notifications</summary>
   <div>
-    <img alt="Example Cost Report notification in an MS Teams message" width="60%" src="/img/ms-teams.png"/>
+    <img alt="Example Report Notification in an MS Teams message" width="60%" src="/img/ms-teams.png"/>
   </div>
 </details>
 

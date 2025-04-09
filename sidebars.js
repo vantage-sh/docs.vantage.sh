@@ -209,6 +209,16 @@ module.exports = {
             "dashboards",
           ],
         },
+        {
+          type: "category",
+          label: "Notifications",
+          collapsible: true,
+          collapsed: true,
+          items: [
+            "report_notifications",
+            "cost_alerts",
+          ],
+        },
         "usage_based_reporting",
         "annotations",
         "forecasting",
@@ -216,7 +226,6 @@ module.exports = {
         "network_flow_reports",
         "segments",
         "cost_anomaly_alerts",
-        "report_notifications"
       ],
     },
     {
