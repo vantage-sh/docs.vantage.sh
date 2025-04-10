@@ -21,9 +21,9 @@ You can create either a Slack integration or a Microsoft Teams integration, but 
 
 Before any notification is sent, Vantage ensures it has the most up-to-date representation of your cost data to give you an accurate report.
 
-## Report Notifications vs. Cost Anomaly Alerts
+## Report Notifications vs. Cost Anomaly Alerts vs. Cost Alerts
 
-Vantage also has a separate feature called _cost anomaly alerts_ to alert you on excess costs. Report Notifications provide a digest of individual reports and are sent on a scheduled basis. Cost anomaly alerts are sent when costs exceed a predetermined alert threshold. They are sent as a summary, once per day, if there are new anomalies for that day. See the [Cost Anomaly Alerts documentation](/cost_anomaly_alerts) for more information.
+Vantage provides multiple ways to keep you informed about your cloud spend. Report Notifications offer a scheduled digest of individual reports and are sent on a recurring basis. [Cost Anomaly Alerts](/cost_anomaly_alerts) are sent once per day when costs exceed an anomaly threshold, based on a Vantage machine learning model. In contrast, [Cost Alerts](/cost_alerts) allow you to define custom thresholds for specific reports. They are triggered when your cost data meets the conditions you’ve set.
 
 ## Set Up Slack Integration {#slack}
 

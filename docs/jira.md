@@ -238,10 +238,10 @@ After the issue is created, to access the corresponding Jira issue from the Reso
 Cost Alerts automatically detect and notify you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.  When the set threshold is reached, Vantage creates a corresponding Jira issue.
 
 :::info
-Review the Vantage [Cost Alerts documentation](/cost_alerts) for more details on budget alerts.
+Review the Vantage [Cost Alerts documentation](/cost_alerts) for more details on Cost Alerts.
 :::
 
-1. Create a new Cost alert. Enter all required alert criteria, such as dollar or percentage **Threshold**.
+1. Create a new Cost Alert. Enter all required alert criteria, such as dollar or percentage **Threshold**.
 2. Under **Setup App Alerts**, expand the **Jira Alerts** section.
 3. Select the Jira **Project** where you want the issue to be created.
 4. Select an **Issue Type** to indicate the type of Jira issue you want created. The **Issue Type** list is generated based on available issue types within your selected project and Jira instance. Additional required fields will also be displayed for the selected issue type (e.g., Reporter), based on your Jira setup. Any non-required Jira fields will not be displayed, and you can update these fields directly in Jira once the issue is created. Common examples are listed below:
