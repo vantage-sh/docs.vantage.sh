@@ -1,14 +1,14 @@
 ---
 id: slack
 name: Slack
-description: Create an integration with Slack for Cost Report notifications, anomaly alerts, and budget alerts.
+description: Create an integration with Slack for Report Notifications, anomaly alerts, and budget alerts.
 keywords:
   - Slack
 ---
 
 # Slack
 
-Vantage integrates with Slack so that you can send [Cost Report notifications](/report_notifications), [cost anomaly alerts](/cost_anomaly_alerts), and [budget Alerts](/budgets#create-alerts) to your Slack channels. Vantage users can add Vantage to their team's Slack account in a specific channel. To complete the integration, ensure you have permission to add integrations to your team's Slack account.
+Vantage integrates with Slack so that you can send [Report Notifications](/report_notifications), [Cost Alerts](/cost_alerts), [Cost Anomaly Alerts](/cost_anomaly_alerts), and [Budget Alerts](/budgets#create-alerts) to your Slack channels. Vantage users can add Vantage to their team's Slack account in a specific channel. To complete the integration, ensure you have permission to add integrations to your team's Slack account.
 
 1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
 2. Click **Setup Slack Integration**. Enter your workspace's Slack URL. A Slack page that describes the requested permissions for Vantage is displayed. The Vantage integration has permission to list and join channels, as well as post messages to those channels.
@@ -19,7 +19,7 @@ Vantage integrates with Slack so that you can send [Cost Report notifications](/
 
   <details><summary>Expand to view example Slack notifications</summary>
     <div>
-      <img alt="Example Cost Report notification in Slack message" width="80%" src="/img/slack-notification.png"/>
+      <img alt="Example Report Notification in Slack message" width="80%" src="/img/slack-notification.png"/>
     </div>
   </details>
 

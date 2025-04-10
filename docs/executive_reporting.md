@@ -22,7 +22,7 @@ The best way to get a quick snapshot of your cloud spend is to use the [**Overvi
 
 The Overview page will show an executive-level summary of the key facets of cloud spend. It lists every connected provider as well as the AWS accounts, GCP projects, Azure subscriptions, and other providers that are incurring charges. Furthermore, it displays information on the amount of committed spend discounts, such as Savings Plans, that are in use and how much coverage [Autopilot](/autopilot) is providing.
 
-Any of the widgets shown on the Overview page can also be sent in Slack, Teams, or by email. See [Create Cost Report Notifications](/executive_reporting#create-cost-report-notifications) below.
+Any of the widgets shown on the Overview page can also be sent in Slack, Teams, or by email. See [Create Report Notifications](/executive_reporting#create-cost-report-notifications) below.
 
 ## Create Cost Segments
 
@@ -32,9 +32,9 @@ Any of the widgets shown on the Overview page can also be sent in Slack, Teams, 
 
 [Per Unit Costs](/per_unit_costs) help you calculate COGS for your organization. Reporting on the unit costs of your business impacts things like margin and decision-making around which customers, services, or endpoints are making positive margin contributions for the company.
 
-## Create Cost Report Notifications
+## Create Report Notifications
 
-Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel every month. For more information on setting up Cost Report Notifications, see the [Cost Report Notifications](/report_notifications) documentation.
+Every [Cost Report](/cost_reports) in Vantage can be automatically sent to Slack, Teams, or by email. A common workflow is to create a monthly Cost Report, group it by Provider or Tag, and send the report to `engineering@company.com` or a DevOps-related Slack channel every month. For more information on setting up Report Notifications, see the [Report Notifications](/report_notifications) documentation.
 
 ## Export Cost Reports
 

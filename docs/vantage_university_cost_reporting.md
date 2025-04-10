@@ -30,7 +30,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 - As an **engineering manager**, you may want to see why data transfer costs are increasing for storage resources. You can create a Cost Report with filters for AWS data transfer costs and view down to the resource level where you’re seeing the highest cost spikes. You use the Annotations and Vantage Issues feature to collaborate with other teams and understand changes in data transfer costs over time. You also create a dashboard to monitor team projects and present current costs over time to management.
 - As a **FinOps stakeholder**, you may want to review your tagged resources and ensure teams are following tagging standards. You can create a report to check for untagged resources across one or more providers. Use this report to help you add missing tags or update existing tags.
-- As an **application owner**, create a monthly overview of all costs related to your application. You can create a report that breaks down expenses by resource and cost category. Filter for resources with your application’s corresponding tag. Use the report to track spending trends and variations to understand the cost impact of application usage and changes over time. You set up Cost Report notifications to send you a monthly digest of specific reports so you can remember to go in and check where things are at each month.
+- As an **application owner**, create a monthly overview of all costs related to your application. You can create a report that breaks down expenses by resource and cost category. Filter for resources with your application’s corresponding tag. Use the report to track spending trends and variations to understand the cost impact of application usage and changes over time. You set up Report Notifications to send you a monthly digest of specific reports so you can remember to go in and check where things are at each month.
 
 ---
 
@@ -57,7 +57,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 4: Create Cost Report Notifications
+## 📚 Lesson 4: Create Notifications
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/CN2bsFFQ8w0?si=YXWFl04JuFOAOc-3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -103,7 +103,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 - [Configure Report Groups](/cost_reports#configure-report-groups)
 - [Configure Report Settings](/cost_reports#configure-report-settings)
 - [View Forecasts](/forecasting)
-- [Cost Report Notifications: Set Up Teams and Slack](/slack)
+- [Report Notifications: Set Up Teams and Slack](/slack)
 - [Add Annotations](/annotations)
 - [Usage-Based Reports](/usage_based_reporting)
 - [Dashboards](/dashboards)

@@ -1,15 +1,15 @@
 ---
 id: report_notifications
-title: Cost Report Notifications
-description: Create Cost Report notifications to receive scheduled updates of your costs via Slack, Microsoft Teams, or email. 
+title: Report Notifications
+description: Create Report Notifications to receive scheduled updates of your costs via Slack, Microsoft Teams, or email. 
 keywords:
   - Notifications
-  - Cost Report Notifications
+  - Report Notifications
 ---
 
-# Cost Report Notifications
+# Report Notifications
 
-Cost Report notifications provide either daily, weekly, or monthly reports for one or more Cost Reports. You can receive these notifications from the following methods:
+Report Notifications provide either daily, weekly, or monthly reports for one or more Cost Reports. You can receive these notifications from the following methods:
 
 - **Slack:** You can send a notification to one or more public or private channels in a Slack workspace.
 - **Microsoft Teams:** You can send a notification to one or more public or private channels in a Microsoft Teams account.
@@ -21,31 +21,31 @@ You can create either a Slack integration or a Microsoft Teams integration, but 
 
 Before any notification is sent, Vantage ensures it has the most up-to-date representation of your cost data to give you an accurate report.
 
-## Cost Report Notifications vs. Cost Anomaly Alerts
+## Report Notifications vs. Cost Anomaly Alerts vs. Cost Alerts
 
-Vantage also has a separate feature called _cost anomaly alerts_ to alert you on excess costs. Cost Report notifications provide a digest of individual reports and are sent on a scheduled basis. Cost anomaly alerts are sent when costs exceed a predetermined alert threshold. They are sent as a summary, once per day, if there are new anomalies for that day. See the [Cost Anomaly Alerts documentation](/cost_anomaly_alerts) for more information.
+Vantage provides multiple ways to keep you informed about your cloud spend. Report Notifications offer a scheduled digest of individual reports and are sent on a recurring basis. [Cost Anomaly Alerts](/cost_anomaly_alerts) are sent once per day when costs exceed an anomaly threshold, based on a Vantage machine learning model. In contrast, [Cost Alerts](/cost_alerts) allow you to define custom thresholds for specific reports. They are triggered when your cost data meets the conditions you’ve set.
 
 ## Set Up Slack Integration {#slack}
 
-See the [Slack](/slack) integration documentation for information on how to set up a connection. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
+See the [Slack](/slack) integration documentation for information on how to set up a connection. See the [Set Up Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
 
 ## Set Up Microsoft Teams Integration {#ms-teams}
 
-See the [Microsoft Teams](/microsoft_teams) integration documentation for information on how to set up a connection. See the [Set Up Cost Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
+See the [Microsoft Teams](/microsoft_teams) integration documentation for information on how to set up a connection. See the [Set Up Report Notifications](/report_notifications#create-notifications) section for instructions on how to set up notifications for specific reports.
 
-## Set Up Cost Report Notifications {#create-notifications}
+## Set Up Report Notifications {#create-notifications}
 
-Once you have set up either a Slack or Microsoft Teams integration, follow the steps below to create Cost Report notifications.
+Once you have set up either a Slack or Microsoft Teams integration, follow the steps below to create Report Notifications.
 
 If you instead want to create an email notification, the email report will contain a list of all of your views and a point-in-time cost for each view. The bottom of the email will include [cost recommendations](/cost_recommendations). Cost recommendations are not sent for Slack or Microsoft Teams alerts.
 
 <details><summary>Expand to view example email notification</summary>
   <div>
-    <img alt="Example Cost Report notification in an email" width="100%" src="/img/email-notification.png"/>
+    <img alt="Example Report Notification in an email" width="100%" src="/img/email-notification.png"/>
   </div>
 </details>
 
-1. Navigate to the [Cost Report Notifications screen](https://console.vantage.sh/report_notifications).
+1. Navigate to the [Report Notifications screen](https://console.vantage.sh/report_notifications).
    :::tip
    You can also click the bell icon in the top right of the console.
    :::

@@ -25,9 +25,9 @@ The first step in team accountability for cloud cost management is to create a [
 
 Within the Cost Report folder, create Cost Reports based on various dimensions for the resources that can be attributed to the relevant team. You can use [filter sets](/cost_reports#filtering-cost-reports) that can filter on provider, tag, service, resource, account, and category/subcategory.
 
-## Step 3: Use Cost Report Notifications
+## Step 3: Use Report Notifications
 
-Once the report is created, use [Cost Report notifications](/report_notifications) to send daily, weekly, or monthly roll-up reports to a set email address or Slack channel for the appropriate team. You can also set up [Cost Anomaly alerts](/cost_anomaly_alerts) on the same report to go to a set email or channel for that team, which will identify unknown or unexpected increases in daily spending for a service.
+Once the report is created, use [Report Notifications](/report_notifications) to send daily, weekly, or monthly roll-up reports to a set email address or Slack channel for the appropriate team. You can also set up [Cost Anomaly alerts](/cost_anomaly_alerts) on the same report to go to a set email or channel for that team, which will identify unknown or unexpected increases in daily spending for a service.
 
 ## Step 4: Set a Team Budget Assigned to a Cost Report
 
