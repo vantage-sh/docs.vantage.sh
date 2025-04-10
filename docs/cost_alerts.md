@@ -54,7 +54,11 @@ Alerts are delivered as soon as Vantage updates the data for the Cost Report ass
 If your cost data is retroactively updated by a cloud provider and meets one of your alert criteria, it may trigger a retroactive alert. If an alert has already been created and retroactive cost data causes it to no longer be valid, Vantage will persist the annotation in the Cost Report.
 :::
 
-Alerts are evaluated based on the groupings within a Cost Report. For example, if a report is grouped by **Region**, and you’ve set an alert to trigger on day-over-day changes of 15% or more, Vantage will evaluate each region individually. If your Cost Report is ungrouped, your Cost Alerts will be indexed based on provider (e.g., Azure) and service (e.g., Azure Storage).
+Alerts are evaluated based on the groupings within a Cost Report. 
+
+- For example, if a report is grouped by **Region**, and you’ve set an alert to trigger on day-over-day changes of 15% or more, Vantage will evaluate each region individually. 
+- If your Cost Report is ungrouped, your Cost Alerts will be indexed based on provider (e.g., Azure) and service (e.g., Azure Storage).
+- You will be alerted for new groupings in your Cost Report for any dollar-based Cost Alerts. You will not be alerted for new groupings for percent-based Cost Alerts.
 
 <div>
     <img alt="Cost Report with a Cost Alert open in the Annotations sidebar" width="100%" src="/img/cost-alerts-report.png"/>
