@@ -12,9 +12,11 @@ Vantage integrates with Microsoft Teams so that you can send [Report Notificatio
 
 To complete the integration, ensure you have permission to add integrations to your team's Microsoft Teams account.
 
-1. Navigate to the [Report Notifications page](https://console.vantage.sh/report_notifications) in the console.
-2. Click **Setup Microsoft Teams Integration**.
-3. Log in with your Microsoft 365 account and provide Vantage with authorization to access your account. Vantage will ask for the following permissions on your Teams account:
+1. From the top navigation, click **Settings**.
+2. On the left navigation, click **Integrations**.
+3. Under the **Apps** section, click **Teams**.
+4. Click **Connect Teams**. 
+5. Log in with your Microsoft 365 account and provide Vantage with authorization to access your account. Vantage will ask for the following permissions on your Teams account:
    - Read names and descriptions of Teams
    - Read names and descriptions of channels
    - Send messages to channels

@@ -127,7 +127,7 @@ You can also adjust the report to include only costs that are eligible for Reser
 
 ## Review the Report
 
-By default, financial commitment reports are grouped by Charge Type (e.g., Savings Plan Covered Spend, Spot Usage). Groupings are represented by each colored section of the bar chart. Hover over any bar to get a breakdown of costs. The breakdown is also provided in the table below the chart.
+By default, financial commitment reports are grouped by Charge Type (e.g., Savings Plan Discounted Spend, Spot Usage). Groupings are represented by each colored section of the bar chart. Hover over any bar to get a breakdown of costs. The breakdown is also provided in the table below the chart.
 
 :::note
 Costs in the graph are [unblended](https://www.vantage.sh/blog/analyze-aws-cost-data#decoding-blended-unblended-and-amortized-costs).

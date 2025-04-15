@@ -12,8 +12,38 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on April 1, 2025, with product updates for March 2025._
+_This page was last updated on April 15, 2025, with product updates for April 2025._
 
+## April 2025
+
+### Product Updates 
+
+- **App integrations:** The connection workflows for [Microsoft Teams](/microsoft_teams) and [Slack](/slack) have moved from the **Notifications** page to the **Settings** page in the App integrations section.
+- **Jira budget display fix:** A fix was made to the **Budget Alerts** screen so that if a [Jira alert](/jira) is set for a budget, this now displays for configured alerts.
+- **EBS volume unattached times:** EBS volume attach/detach times are available when querying EBS volume [active resources](/active_resources).
+- **MSP updates:** The following updates were released for the [Vantage for MSPs](/partners) feature:
+  - Optional start and end dates are added to adjustment billing rules.
+  - The Retiering adjustment billing rule now has an option for whether to include Free Tier.
+  - You can now use the **Apply to All** functionality to add a new billing rule to all new and existing Managed Accounts.
+  - A new button for deleting a billing rule from a Managed Account is available on the Managed Account's billing rule settings.
+- **Azure amortization:** You can now switch between viewing your actual costs and your [amortized costs](/connecting_azure#azure-amortization) in Azure Cost Reports.
+- **Snowflake query tags:** [Snowflake](/connecting_snowflake) query tags that are written in JSON will now be parsed accordingly and turned into tag key/values. 
+- **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
+- **Savings Plan Covered Spend renamed:** Savings Plan Covered Spend has been renamed in reports to Savings Plan Discounted Spend. 
+- **ARN names:** ARN names have been added to EBS and CloudFront. When viewing a CloudFront distribution in a Cost Report, the domain is displayed instead of the shortened ARN for easier reading. In Cost Reports and Active Resource views, when a human-readable name is available for an EBS volume, the ARN is replaced for a more readable experience.
+- **New report placeholder:** The default text in the Save Report modal for Cost Reports has been updated—you no longer need to delete "Untitled Report" before entering a title.
+
+### Kubernetes Agent Updates 
+
+See [March's update](/changelog#k8s-march-25) for the most recent update.
+
+### API Updates
+
+- **Dashboards endpoint:** On the `/dashboards` [endpoint](http://vantage.readme.io/reference/updatedashboard), you can now pass an empty string to the `date_interval parameter`. In addition, `end_date` is now an optional parameter. 
+- **Costs endpoint:** The `workspace_token` and `page` parameters are now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts).
+- **Anomaly filtering:** Filtering (e.g., for category or provider) parameters have been added to the `/anomaly_alerts` [endpoint](https://vantage.readme.io/reference/getanomalyalerts). 
+- **Cost Alerts endpoints:** New `cost_alerts` [endpoints](https://vantage.readme.io/reference/getcostalertevent) are available to support the newly released Cost Alerts feature.
+ 
 ## March 2025
 
 ### Product Updates
@@ -33,7 +63,7 @@ _This page was last updated on April 1, 2025, with product updates for March 202
   - Filtering by [category](/kubernetes#kubernetes-cost-reports) to see CPU, RAM, and GPU is available on Kubernetes Cost Reports.
   - The aggregated total metric is now available at the top of Kubernetes Efficiency Reports. 
 
-### Kubernetes Agent Updates
+### Kubernetes Agent Updates {#k8s-march-25}
 
 The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods. See [February's update](/changelog#k8s-feb-25) for other recent updates.
 
