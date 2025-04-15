@@ -98,7 +98,7 @@ Expand the sections below to see examples of each type of external Cost Alert no
   </div>
 </details>
 
-## Best Practices for Cost Alerts
+## Best Practices for Cost Alerts {#best-practices}
 
 When setting up Cost Alerts, it’s important to configure them in a way that provides meaningful insights. Below is a table outlining common configurations that may lead to a high volume of alerts and suggestions on how to optimize them.
 
