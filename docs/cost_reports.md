@@ -318,7 +318,7 @@ The Charge Type grouping includes costs separated by items like usage, discounts
       <td>GCP cost type for rounding errors</td>
     </tr>
     <tr>
-      <td>Savings Plan Covered Spend</td>
+      <td>Savings Plan Discounted Spend</td>
       <td>AWS</td>
       <td>On-demand costs covered by your Savings Plan, offsetting corresponding Savings Plan negation items</td>
     </tr>
