@@ -57,7 +57,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 4: Create Notifications
+## 📚 Lesson 4: Create Report Notifications
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/CN2bsFFQ8w0?si=YXWFl04JuFOAOc-3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -73,7 +73,15 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 6: Create Usage-Based Reports
+## 📚 Lesson 6: Create Cost Alerts
+
+<div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
+    <iframe src="https://www.youtube.com/embed/1r2UrMxYEc4?si=lFSaqJUhB_WYxWtV?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
+</div><br/>
+
+---
+
+## 📚 Lesson 7: Create Usage-Based Reports
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/B-1pqTMffrI?si=4S_MJzWRL-jFWj6r?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -81,7 +89,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 7: View and Manage Dashboards
+## 📚 Lesson 8: View and Manage Dashboards
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/qWDsgh1jfGc?si=_dcUSwoLo1bkCigN?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -89,7 +97,7 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 
 ---
 
-## 📚 Lesson 8: Create Vantage Issues
+## 📚 Lesson 9: Create Vantage Issues
 
 <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
     <iframe src="https://www.youtube.com/embed/8uXySGPZslQ?si=O-RWI8KR_0_WUzch?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
@@ -105,6 +113,8 @@ Cost Reports are helpful for any FinOps stakeholder—from engineering managers 
 - [View Forecasts](/forecasting)
 - [Report Notifications: Set Up Teams and Slack](/slack)
 - [Add Annotations](/annotations)
+- [Create Cost Alerts](/cost_alerts)
+- [Cost Alerts Best Practices](/cost_alerts#best-practices)
 - [Usage-Based Reports](/usage_based_reporting)
 - [Dashboards](/dashboards)
 - [Create Vantage Issues](/issues)
