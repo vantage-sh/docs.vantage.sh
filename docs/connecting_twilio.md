@@ -34,6 +34,29 @@ If you want to specifically capture the subaccount, you can create an API key sp
 Ideally, you could provide a single API key for an Organization, and Vantage could capture subaccount-level granularity, but this is unfortunately a limitation of Twilio's APIs. Contact your Twilio CSM to ask for enhancements to the Billing and Usage APIs.
 :::
 
+### Twilio Usage Categories
+
+Vantage captures the following usage categories from Twilio: 
+
+- `calls`
+- `sms`
+- `mms`
+- `pfax-minutes`
+- `pfax-pages`
+- `phonenumbers`
+- `recordings`
+- `transcriptions`
+- `pv`
+- `mms-messages-carrierfees`
+- `sms-messages-carrierfees`
+- `premiumsupport`
+- `enterprise`
+- `wds`
+
+:::note
+We are currently working with Twilio to expand the granularity of usage data categories. 
+:::
+
 ### Create the Connection
 
 Follow the steps below to create a connection with Twilio.
@@ -110,5 +133,5 @@ On Twilio [Cost Reports](/cost_reports), you can filter across several dimensio
 - Account (account ID of the account your Standard API key is created in)
 - Service (e.g., SMS & MMS)
 - Charge Type (e.g., Usage)
-- Category (e.g., sms-outbound)
+- Category (e.g., sms-messages-carrierfees)
 - Tags ([Virtual Tags](/tagging) created in Vantage)
