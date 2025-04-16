@@ -10,7 +10,19 @@ keywords:
 
 # GitHub
 
-Vantage ingests GitHub costs through the [GitHub Enhanced Billing API](https://docs.github.com/en/rest/billing/enhanced-billing). With this integration, you can track costs for GitHub services, such as Actions, Large File Storage, Copilot, Codespaces, and Packages. You can programmatically grant Vantage access to GitHub billing data for multiple organizations.
+Vantage ingests GitHub costs through the [GitHub Enhanced Billing API](https://docs.github.com/en/rest/billing/enhanced-billing). With this integration, you can programmatically grant Vantage access to GitHub billing data for multiple organizations.
+
+## Supported Services {#supported-services}
+
+Vantage supports the following GitHub services: 
+
+- Actions
+- Large File Storage
+- Copilot
+- Codespaces
+- Shared Storage
+- Packages
+- In addition to these services, you can also use existing Vantage tagging capabilities to track the underlying compute costs for self-hosted runners that run on a virtual machine, such as an EC2 instance, or in Kubernetes.
 
 ## Migrate to the New GitHub Billing Integration {#migrating}
 
@@ -72,13 +84,18 @@ To complete the integration, you will add the application to your organization a
   <img alt="GitHub application authorization screen" width="100%" src="/img/gh-authorize.png" />
 </div>
 </details>
-1. Click **Authorize Billing - vantage-sh**. You will be brought to a screen where you can select your organization for the integration. Select your organization to complete the integration.
-<details>
-<summary>Click to view example image</summary>
-<div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="GitHub application organization selection screen" width="100%" src="/img/gh-org.png" />
-</div>
-</details>
+1. Click **Authorize Billing - vantage-sh**. You will be brought to a screen where you can select your organization for the integration. Select your organization to complete the integration. 
+
+  :::note
+  If you are part of an Enterprise, you will have to select multiple organizations.
+  :::
+
+  <details>
+  <summary>Click to view example image</summary>
+  <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="GitHub application organization selection screen" width="100%" src="/img/gh-org.png" />
+  </div>
+  </details>
 
 GitHub costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest GitHub costs. As soon as they are processed, they will be available on your **All Resources** Cost Report. 
 
