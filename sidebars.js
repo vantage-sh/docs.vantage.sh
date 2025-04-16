@@ -75,6 +75,11 @@ module.exports = {
       label: "API and Terraform",
       items: [
         "api",
+        {
+          type: "link",
+          label: "Vantage MCP Server",
+          href: "https://github.com/vantage-sh/vantage-mcp-server",
+        },
         "terraform",
         {
           type: "category",
