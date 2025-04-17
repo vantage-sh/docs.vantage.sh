@@ -174,6 +174,7 @@ module.exports = {
         "connecting_grafana",
         "connecting_clickhouse",
         "connecting_temporal",
+        "connecting_twilio",
         "connecting_custom_providers",
         "provider_data_refresh",
       ],

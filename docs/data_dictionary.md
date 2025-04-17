@@ -50,6 +50,7 @@ Each cost provider also has a normalized name within the API. The `provider` fie
 | PlanetScale      | `planetscale`  | [View PlanetScale Fields](#planetscale)          |
 | Snowflake        | `snowflake`    | [View Snowflake Fields](#snowflake)              |
 | Temporal Cloud   | `temporal`     | [View Temporal Cloud Fields](#temporal)          |
+| Twilio           | `twilio`       | [View Twilio Fields](#twilio)                    |
 
 :::note
 To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
@@ -366,5 +367,18 @@ _\* Virtual tags associated with this provider_
 | Subcategory  | `subcategory`         | string    | `costs.subcategory`         |
 | Tag Name\*   | `name`                | string    | `tags.name`                 |
 | Tag Value\*  | `value`               | string    | `tags.value`                |
+
+## Twilio {#twilio}
+
+| Filter          | API Field Name        | Data Type | `namespace.field `          |
+| --------------- | --------------------- | --------- | --------------------------- |
+| Account         | `provider_account_id` | string    | `costs.provider_account_id` |
+| Billing Account | `account_id`          | string    | `costs.account_id`          |
+| Service         | `service`             | string    | `costs.service`             |
+| Provider        | `provider`            | string    | `costs.provider`            |
+| Charge Type     | `charge_type`         | string    | `costs.charge_type`         |
+| Category        | `category`            | string    | `costs.category`            |
+| Tag Name\*      | `name`                | string    | `tags.name`                 |
+| Tag Value\*     | `value`               | string    | `tags.value`                |
 
 _\* Virtual tags associated with this provider_
