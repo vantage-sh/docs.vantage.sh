@@ -9,7 +9,7 @@ keywords:
 
 # Datadog
 
-Vantage uses a read-only (scoped to `usage_read`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API provides hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers. For [Datadog business metrics](/per_unit_costs#importing-from-datadog), Vantage also requires the `metrics_read` and `timeseries_query` scopes.
+Vantage uses a read-only (scoped to `billing_read`) Datadog OAuth token. This token is used to pull data from the [usage metering endpoint](https://docs.datadoghq.com/api/latest/usage-metering/). The usage metering API provides hourly, daily, and monthly usage across multiple facets of Datadog. This API is available to all Pro and Enterprise customers. For [Datadog business metrics](/per_unit_costs#importing-from-datadog), Vantage also requires the `metrics_read` and `timeseries_query` scopes.
 
 :::note
 Usage is only accessible for [parent-level organizations](https://docs.datadoghq.com/account_management/multi_organization/).
