@@ -22,7 +22,7 @@ Vantage has access to all Twilio API resources, except for [API key](https://ww
 
 ### Prerequisites
 - You must have an Administrator or Developer role in Twilio to create an API key.
-- Create a free Vantage account, then follow the steps below to integrate Temporal Cloud costs.
+- Create a free Vantage account, then follow the steps below to integrate Twilio costs.
 
 ### Twilio Account Limitations {#limitations}
 
