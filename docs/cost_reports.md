@@ -595,7 +595,11 @@ When you view the **By Date** option, a **Total Costs** row is displayed at the 
 You can select from two modes when you export a report: Basic or Advanced.
 
 - With a Basic export, you can modify only the date range of a report.
-- With an Advanced export, you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
+  - If your cost report has a Business Metric associated with it, you can chose whether or not you want to export your Unit Costs at the same time as your Costs export. This will be sent to you as a separate CSV.
+  <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports-basic.png" />
+</div>
+- With an Advanced export, you have the same funftionality as a Basic export, plus you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
   - Provider (e.g., AWS, GCP, New Relic)
   - Service (e.g., EC2, EBS)
   - Region (e.g., us-east-1)
