@@ -130,31 +130,6 @@ To import business metrics from Datadog, ensure Datadog is one of your [connect
 
 Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
 
-# **Import from Datadog**
-
-To import business metrics from Datadog, ensure Datadog is one of your [connected providers](https://docs.vantage.sh/connecting_datadog). If you do not have Datadog as one of your connected providers, you will be prompted to connect your Datadog account the first time you try to create a metric.
-
-1. From the **Import Business Metrics** section, click **Import via Datadog**.
-2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and the required scopes for Vantage (i.e., `billing_read`, `usage_read`, `metrics_read`, and `timeseries_query scopes`).
-3. For **Raw Query**, enter your Datadog metric, including aggregation, rollup formula, and label filters, into the text field. Your syntax should be similar to the following example: 
-    ```
-    aws.applicationelb.request_count{availabilityzone:us-east-1c, region:us-east-1}
-    ```
-    :::info
-    The minimum aggregation for business metrics is daily. If you enter a lower granularity than daily, Vantage will perform aggregation at the daily level. For more information on the Datadog filtering syntax, see the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/).
-    :::
-
-
-
-  :::info
-  The minimum aggregation for business metrics is daily. If you enter a lower granularity than daily, Vantage will perform aggregation at the daily level
-  :::
-
-
-4. Click **Import Data**.
-
-Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](https://docs.vantage.sh/per_unit_costs#assign-metrics) section for the next steps.
-
 ### Import via the Vantage API {#import-api}
 
 You can import business metrics to Vantage, from other applications, with the Vantage API. Use the `/business_metrics` endpoint to view, create, update, and delete business metrics.
