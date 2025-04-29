@@ -107,32 +107,52 @@ Metrics are imported for the last six months. The metrics will be automatically 
 
 ### Import from Datadog {#importing-from-datadog}
 
-To import business metrics from Datadog, ensure Datadog is one of your [connected providers](/connecting_datadog). If you do not have Datadog as one of your connected providers, you will be prompted to connect your Datadog account the first time you try to create a metric.
+To import business metrics from Datadog, ensure Datadog is one of your [connected providers](https://docs.vantage.sh/connecting_datadog). If you do not have Datadog as one of your connected providers, you will be prompted to connect your Datadog account the first time you try to create a metric.
 
-1. From the **Import Business Metrics** section, click **Import via Datadog**.
-2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and the required scopes for Vantage (i.e., `usage_read`, `metrics_read`, and `timeseries_query scopes`).
-3. For **Metric**, enter a metric along with any specific filter criteria for the metric, as shown in the example below. For a more detailed explanation, expand the box below for an explainer video of how to convert Datadog syntax to Vantage Business Metrics: 
+1. From the **Import Business Metrics** section, click **Import via Datadog**.
+2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and the required scopes for Vantage (i.e., `billing_read`, `usage_read`, `metrics_read`, and `timeseries_query scopes`).
+3. For **Raw Query**, enter your Datadog metric, including aggregation, rollup formula, and label filters, into the text field. Your syntax should be similar to the following example: 
     ```
     aws.applicationelb.request_count{availabilityzone:us-east-1c, region:us-east-1}
     ```
     :::info
-    For more information on the Datadog filtering syntax, see the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/).
+    The minimum aggregation for business metrics is daily. If you enter a lower granularity than daily, Vantage will perform aggregation at the daily level. For more information on the Datadog filtering syntax, see the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/).
     :::
-    <details><summary>Click to view explainer video</summary>
-    <div style={{ position: 'relative', paddingBottom: '56.25%', height: 0 }}>
-    <iframe src="https://www.youtube.com/embed/x1PCc5CRTr8?si=gr__BRYbvrsGkZG3?rel=0&color=white&modestbranding=1&showinfo=0&wmode=transparent" frameborder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowfullscreen="true" style={{ position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', borderRadius: '10px' }}></iframe>
-    </div><br/>
-    </details>
-4. For **Aggregation**, select either **Sum**, **Average**, **Maximum**, or **Minimum**. The metric is aggregated to the day based on your selection.
-<details><summary>Click to view visual example</summary>
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Datadog metrics import screen with data added to each field" width="100%" src="/img/import-datadog.png" />
-</div>
-</details>
-5. Optionally, enter a [tag **name**](https://docs.datadoghq.com/getting_started/tagging/) for the **Label Tag** field. 
-6. Click **Import Data**.
+
+4. Click **Import Data**.
+
+  <details><summary>Click to view visual example</summary>
+  <div style={{display:"flex", justifyContent:"center"}}>
+      <img alt="The Datadog metrics import screen with data added to each field" width="100%" src="/img/import-datadog-query-syntax.png" />
+  </div>
+  </details>
 
 Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+
+# **Import from Datadog**
+
+To import business metrics from Datadog, ensure Datadog is one of your [connected providers](https://docs.vantage.sh/connecting_datadog). If you do not have Datadog as one of your connected providers, you will be prompted to connect your Datadog account the first time you try to create a metric.
+
+1. From the **Import Business Metrics** section, click **Import via Datadog**.
+2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and the required scopes for Vantage (i.e., `billing_read`, `usage_read`, `metrics_read`, and `timeseries_query scopes`).
+3. For **Raw Query**, enter your Datadog metric, including aggregation, rollup formula, and label filters, into the text field. Your syntax should be similar to the following example: 
+    ```
+    aws.applicationelb.request_count{availabilityzone:us-east-1c, region:us-east-1}
+    ```
+    :::info
+    The minimum aggregation for business metrics is daily. If you enter a lower granularity than daily, Vantage will perform aggregation at the daily level. For more information on the Datadog filtering syntax, see the [Datadog documentation](https://docs.datadoghq.com/metrics/advanced-filtering/).
+    :::
+
+
+
+  :::info
+  The minimum aggregation for business metrics is daily. If you enter a lower granularity than daily, Vantage will perform aggregation at the daily level
+  :::
+
+
+4. Click **Import Data**.
+
+Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](https://docs.vantage.sh/per_unit_costs#assign-metrics) section for the next steps.
 
 ### Import via the Vantage API {#import-api}
 
