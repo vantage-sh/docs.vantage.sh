@@ -112,6 +112,7 @@ To import business metrics from Datadog, ensure Datadog is one of your [connect
 1. From the **Import Business Metrics** section, click **Import via Datadog**.
 2. For **Account**, select the connected Datadog account for which you want to import metrics. If this is your first Datadog metric, you may be prompted to reauthorize your Datadog credentials and the required scopes for Vantage (i.e., `billing_read`, `usage_read`, `metrics_read`, and `timeseries_query scopes`).
 3. For **Raw Query**, enter your Datadog metric, including aggregation, rollup formula, and label filters, into the text field. Your syntax should be similar to the following example: 
+
     ```
     aws.applicationelb.request_count{availabilityzone:us-east-1c, region:us-east-1}
     ```
