@@ -185,7 +185,7 @@ When the export is finished generating, you’ll receive an email with a link to
 
 ### Efficiency Calculations {#efficiency-calculations}
 
-Pod resource efficiency is defined as the resource utilization versus the resource request over a given time window. These resource utilization metrics include CPU and RAM. When viewing efficiency, it will be shown as a percentage. 100% means the resource allocation is fully efficient.
+Pod resource efficiency is defined as the resource utilization versus the resource request over a given time window, prorated based on node uptime. These resource utilization metrics include CPU and RAM. When viewing efficiency, it will be shown as a percentage. 100% means the resource allocation is fully efficient.
 
 Idle costs are defined as the difference between the cost of requested resources (CPU and Memory) and the associated usage of those costs:
 

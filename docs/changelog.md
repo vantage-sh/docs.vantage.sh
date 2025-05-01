@@ -12,12 +12,17 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on April 15, 2025, with product updates for April 2025._
+_This page was last updated on May 1, 2025, with product updates for April 2025._
 
 ## April 2025
 
 ### Product Updates 
 
+- **Vantage MCP Server:** The [Vantage MCP Server](https://www.vantage.sh/blog/vantage-mcp) is now generally available, which allows customers to seamlessly interact with Vantage through LLM tools.
+- **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
+- **Twilio Integration:** Vantage now integrates with [Twilio](https://docs.vantage.sh/connecting_twilio) as its latest cost provider.
+- **Datadog Query Syntax:** Customers can now use [Datadog queries](https://docs.vantage.sh/per_unit_costs#importing-from-datadog) directly within Vantage to import Business Metrics.
+- **Unit Cost Export:** You can now [export Unit Costs](https://docs.vantage.sh/cost_reports#exporting-cost-reports) from Cost Reports from the Vantage console.
 - **App integrations:** The connection workflows for [Microsoft Teams](/microsoft_teams) and [Slack](/slack) have moved from the **Notifications** page to the **Settings** page in the App integrations section.
 - **Jira budget display fix:** A fix was made to the **Budget Alerts** screen so that if a [Jira alert](/jira) is set for a budget, this now displays for configured alerts.
 - **EBS volume unattached times:** EBS volume attach/detach times are available when querying EBS volume [active resources](/active_resources).
@@ -28,14 +33,19 @@ _This page was last updated on April 15, 2025, with product updates for April 20
   - A new button for deleting a billing rule from a Managed Account is available on the Managed Account's billing rule settings.
 - **Azure amortization:** You can now switch between viewing your actual costs and your [amortized costs](/connecting_azure#azure-amortization) in Azure Cost Reports.
 - **Snowflake query tags:** [Snowflake](/connecting_snowflake) query tags that are written in JSON will now be parsed accordingly and turned into tag key/values. 
-- **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
-- **Savings Plan Covered Spend renamed:** Savings Plan Covered Spend has been renamed in reports to Savings Plan Discounted Spend. 
+- **Savings Plan Covered Spend renamed:** Savings Plan Covered Spend has been renamed in reports to Savings Plan Discounted Spend in [Financial Commitment Reports](https://docs.vantage.sh/financial_commitment_reports). 
 - **ARN names:** ARN names have been added to EBS and CloudFront. When viewing a CloudFront distribution in a Cost Report, the domain is displayed instead of the shortened ARN for easier reading. In Cost Reports and Active Resource views, when a human-readable name is available for an EBS volume, the ARN is replaced for a more readable experience.
+- **Cloudwatch metrics for EBS:** you can now view VolumeReadBytes, VolumeWriteBytes, and VolumeQueueLength directly within [Resources Reports](https://docs.vantage.sh/active_resources/) for EBS volumes.
 - **New report placeholder:** The default text in the Save Report modal for Cost Reports has been updated—you no longer need to delete "Untitled Report" before entering a title.
+- **Hover state added to Autopilot managed service graphs:** you can now hover over the charts within [Autopilot](https://docs.vantage.sh/autopilot#autopilot-graphs).
+- **Updated UI for Business Metrics:** we have updated the UI for business metrics for [Business metrics](https://docs.vantage.sh/per_unit_costs). You can now find your imported your data in the “Imported Metrics” tab.
+- **Description added to EC2 Termination Recommendations:** we now include more specific language in the Recommendations tab and Active Resources for EC2 instances that are recommended to be terminated.
+- **Support for Multiple label grouping values for Datadog Business Metrics:** you can now group by multiple label values for Datadog Business Metrics.
+- **Unit Standardization for Hours:** Vantage will now automatically correct various forms of the “Hours” usage units across providers, such as “Hrs” or “hr” to enhance group-by experiences for usage types that use hours.
 
 ### Kubernetes Agent Updates 
 
-See [March's update](/changelog#k8s-march-25) for the most recent update.
+- **Updated Efficiency Calculations:** Kubernetes [efficiency calculations](https://docs.vantage.sh/kubernetes#efficiency-calculations) will now be prorated based on node uptime for a more accurate calculation. 
 
 ### API Updates
 
@@ -43,6 +53,13 @@ See [March's update](/changelog#k8s-march-25) for the most recent update.
 - **Costs endpoint:** The `workspace_token` and `page` parameters are now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts).
 - **Anomaly filtering:** Filtering (e.g., for category or provider) parameters have been added to the `/anomaly_alerts` [endpoint](https://vantage.readme.io/reference/getanomalyalerts). 
 - **Cost Alerts endpoints:** New `cost_alerts` [endpoints](https://vantage.readme.io/reference/getcostalertevent) are available to support the newly released Cost Alerts feature.
+- **Unit Costs:** The new endpoint `/unit_costs` [endpoint](https://vantage.readme.io/reference/getunitcosts) lets you retrieve the Unit Costs for a Cost Report
+- **Updates to Billing Rules API:** New params of `start_date`, `end_date`, and `apply_to_all` for additional flexibility when creating billing rules
+- **Data Export API:** The new endpoint
+- **Pagination in Tags API endpoint:** results in the /tags endpoint are now paginated for better experience when fetching large list of tag keys or tag values.
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.56](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs):
+    - `vantage_cost_alerts` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) was added
+    - `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) was updated to include `start_period`, `end_period`, and `apply_to_all`
  
 ## March 2025
 
@@ -71,6 +88,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 
 - **Costs endpoint:** The `filters` parameter is now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts). If this parameter is supplied, you do not need to supply the `cost_report_token` parameter.  
 - **Dashboards endpoint:** A fix was made on the `/dashboards` [endpoint](https://vantage.readme.io/reference/createdashboard) so that you can create a dashboard with a null date interval.
+
 
 ## February 2025
 

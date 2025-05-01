@@ -149,7 +149,7 @@ Follow the steps below to validate the agent's installation.
 
 1. Once installed, the agent's pod should become `READY`:
    ```bash
-   ➜ kubectl -n vantage get po
+   ➜ kubectl -n vantage get pod
    NAME                             READY   STATUS    RESTARTS   AGE
    vka-vantage-kubernetes-agent-0   1/1     Running   0          54m
    ```
