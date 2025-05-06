@@ -599,7 +599,7 @@ You can select from two modes when you export a report: Basic or Advanced.
   <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports-basic.png" />
 </div>
-- With an Advanced export, you have the same funftionality as a Basic export, plus you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
+- With an Advanced export, you have the same functionality as a Basic export, plus you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
   - Provider (e.g., AWS, GCP, New Relic)
   - Service (e.g., EC2, EBS)
   - Region (e.g., us-east-1)
