@@ -143,6 +143,20 @@ To set these options, extend the `--set` flag. You can also include the values u
 --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID,resources.limits.memory=100Mi,resources.requests.memory=100Mi
 ```
 
+### Configuring Polling Interval {#configure-polling-period}
+
+:::note
+Enabling configurable polling intervals for the Vantage Kubernetes agent currently requires specifying an image.tag when upgrading. In order to upgrade, users should upgrade their helm chart and deploy using `helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --set agent.pollingInterval={interval},image.tag={special-tag} --reuse-values`
+:::
+
+The polling interval defines how frequently the agent will pole pods for utilization information. The default poling period for the agent is 60 seconds, but the agent has allowable periods including 5 seconds, 10 seconds, 15 seconds, 30 seconds, and 60 seconds. 
+
+To set the agent’s polling period, configure the `agent.pollingInterval` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with the desired polling period in seconds, such as `--set agent.pollingInterval=30` for a 30 second polling interval. 
+
+Note that there are performance implications on both the Kubernetes API server and the Vantage Agent to shortening the interval of when the Kubernetes agent polls the pods. Your polling interval should be based on the shortest lived task within your cluster, and you should note how long it takes for the agent to scrape nodes. You can obtain this information via the `vantage_last_node_scrape_timestamp_seconds` metric provided by the agent.  We recommend that you monitor system performance and adjust the interval as needed to balance granularity with resource usage.
+
+To view the current polling period for a cluster, you can use the `kubectl describe pods -n vantage` command.
+
 ### Validate Installation
 
 Follow the steps below to validate the agent's installation.
