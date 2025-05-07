@@ -101,7 +101,11 @@ You can use the [Vantage API](https://vantage.readme.io/reference/general) to pr
 
 #### Create a Vantage API Service Token {#api-service-token}
 
-Service tokens can be created by users with owner-level permissions and are associated with an account, not with an individual user. For Enterprise customers who use teams and role-based access control, you have the option of selecting a team to inherit permissions from.
+Service tokens can be created by users with Owner or Integration Owner permissions, and are associated with an team, not with an individual user. For Enterprise customers who use teams and role-based access control, you have the option of selecting a team to inherit permissions from.
+
+:::note
+If you are creating a Service Token for the Everyone team, you must have Owner permissions.
+:::
 
 To generate an API service token:
 
