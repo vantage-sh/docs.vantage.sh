@@ -46,7 +46,7 @@ The following steps are for importing via CloudWatch or a CSV file. If you want 
 
 ### Import from a CSV File {#importing-from-a-csv}
 
-You can upload a CSV file that uses the following three-column format. This CSV file can replace existing data or be used to import new data. You can supply up to six months of metrics.
+You can upload a CSV file that uses the following three-column format. This CSV file can replace existing data or be used to import new data.
 
 The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number. The `label` column is optional. See the [section above](/per_unit_costs#labels) for more information about labels.
 
@@ -103,7 +103,7 @@ If Vantage does not have a Cross-Account IAM Role associated with your AWS accou
 </div>
 </details>
 
-Metrics are imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
 
 ### Import from Datadog {#importing-from-datadog}
 
@@ -128,7 +128,7 @@ To import business metrics from Datadog, ensure Datadog is one of your [connect
   </div>
   </details>
 
-Metrics will be imported for the last six months. The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
 
 ### Import via the Vantage API {#import-api}
 
