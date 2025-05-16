@@ -12,7 +12,31 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on May 1, 2025, with product updates for April 2025._
+_This page was last updated on May 15, 2025, with product updates for May 2025._
+
+## May 2025
+
+### Product Updates 
+
+- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://www.vantage.sh/blog/resource-anomalies) that caused them to enable faster root-cause analysis
+- **Filter by Human Readable Name**: If a resource has a human readable name in Vantage, you can now search for that in addition to the resource ARN when using Filters.
+- **Human Readable Names in Cost Report Legends**: Human readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](https://docs.vantage.sh/cost_reports).
+- **EFS in Active Resources**: EFS has been added as an [Active Resource](https://docs.vantage.sh/active_resources).
+- **Business Metric Sources:** The source of your Business Metric, either Datadog, Cloudwatch, or CSV, will now be displayed in the Business Metrics List page
+- **Google OAuth**: Google Workspace is now available for for SSO authentication.
+
+### Kubernetes Agent Updates 
+
+- **Anomaly Alerts**: Anomaly Alerts endpoint now returns the resource that drove the anomaly, if applicable
+- **Data Export:** New `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport) and `/data_exports/{data_export_token}` [endpoint](https://vantage.readme.io/reference/getdataexport) available to initiate a CSV export of a Cost Report, and check on the status of an export to retrieve the URL to download the report
+- **Business Metrics**: The `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now has new objects for datadog_metric_fields and cloudwatch_fields in order to configure Datadog and Cloudwatch Business Metric integrations programatically
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
+    - `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) now has additional optional attributes for `cloudwatch_fields` and `datadog_metroc_fields`
+    - `cost_alerts` data source
+
+- **Configurable Polling Period:** You can now set [configurable polling periods](https://www.vantage.sh/blog/ephemeral-workload-monitoring) for the Vantage kubernetes agent, as short as 5 seconds.
+
+### API Updates
 
 ## April 2025
 
