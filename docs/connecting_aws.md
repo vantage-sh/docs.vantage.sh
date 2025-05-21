@@ -29,7 +29,7 @@ Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.am
 
 Navigate to the [Vantage Integrations](https://console.vantage.sh/settings/integrations) page, and create a new AWS connection. On the AWS connection page, you will see a few options to connect.
 
-- **AWS Console:** Click the purple **Connect Vantage via AWS Console** button to directly log in to AWS. You will be directed to CloudFormation to create the necessary stack that will contain prefilled parameters.
+- **AWS Console:** Click the purple **Connect Vantage via AWS Console** button to directly log in to AWS. You will be directed to CloudFormation to create the necessary stack that will contain prefilled parameters. Click the checkbox for "I acknowledge that AWS CloudFormation might create IAM resources.", and click "Create Stack". Once the deployment is complete, you will see the stack status as `CREATE_COMPLETE`.
 - **AWS CLI:** Click the **More Connection Options** dropdown and select **Connect via AWS CLI**. The CLI commands needed to create a connection are provided on this screen.
 - **Terraform:** Click the **More Connection Options** dropdown and select **Connect via AWS Terraform**. Instructions for how to connect using the Terraform module are provided on this screen. See the [section below](/connecting_aws#terraform) for more details.
 - **AWS IAM Console:** Click the **More Connection Options** dropdown and select **Connect via AWS IAM Console**. Instructions are provided on this screen. See the [section below](/connecting_aws#iam_console) for more details.
@@ -56,10 +56,6 @@ You can connect multiple AWS accounts to Vantage; however, we strongly advise th
 
 Once you connect your root/management AWS account, Vantage will profile all member accounts present in the organization. Vantage will be able to show you accrued costs from all member accounts in the organization, as well as Active Resources that are present in that _root AWS account_.
 
-If you have multiple member accounts and want to view Active Resources present in those accounts, you use the CloudFormation StackSet that will create one role per AWS member account. You're also welcome to skip this step and add/remove individual AWS accounts from your [account settings](https://console.vantage.sh/settings/aws) whenever you want.
-
-We recommend using StackSets if you have several accounts you want to connect. Using the StackSet will automate the process for all the accounts in your organizational unit. When connecting your account, if you have at least one member account, you will see instructions, specific to your account, on how to connect your member accounts using StackSets.
-
 #### StackSet Prerequisites
 
 To leverage StackSets, you must enable your organization's access to operate a service-managed StackSet. You'll need to enable this setting in the AWS Management Console. If you don't have this setting enabled and attempt to run a StackSet command, you'll see the following error:
@@ -67,6 +63,11 @@ To leverage StackSets, you must enable your organization's access to operate a s
 `An error occurred (ValidationError) when calling the CreateStackSet operation: You must enable organizations access to operate a service managed stack set`
 
 For more information, see [AWS's instructions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for enabling this setting.
+
+#### Connecting via Stackset
+If you have multiple member accounts and want to view Active Resources present in those accounts, you use the CloudFormation StackSet that will create one role per AWS member account. You're also welcome to skip this step and add/remove individual AWS accounts from your [account settings](https://console.vantage.sh/settings/aws) whenever you want.
+
+We recommend using StackSets if you have several accounts you want to connect. Using the StackSet will automate the process for all the accounts in your organizational unit. When connecting your account, if you have at least one member account, you will see instructions, specific to your account, on how to connect your member accounts using StackSets.
 
 ### Connect with Terraform {#terraform}
 
