@@ -135,7 +135,7 @@ For Datadog, Vantage provides recommendations about making commitments for Datad
 
 Without proper resource allocation, Kubernetes clusters can become overprovisioned, leading to wasted resources and idle costs. Vantage provides Kubernetes rightsizing recommendations to help you identify affected resources.
 
-These recommendations are focused on [managed workloads](https://kubernetes.io/docs/concepts/workloads/controllers/) within Kubernetes clusters and do not provide rightsizing recommendations for the Kubernetes nodes themselves.
+These recommendations are focused on [managed workloads](https://kubernetes.io/docs/concepts/workloads/controllers/) within Kubernetes clusters. For Kubernetes Node rightsizing recommendations, you can utilize the recommendations against the node types themselves, such as EC2 Rightsizing Recommendations, and filter for the Node Label within the Active Resource report of the recommendation.
 
 :::tip
 For a full guide on understanding rightsizing and how to rightsize Kubernetes resources, see the following article in the [Cloud Cost Handbook](https://handbook.vantage.sh/kubernetes/kubernetes-rightsizing/).
