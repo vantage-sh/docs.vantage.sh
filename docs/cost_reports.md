@@ -611,6 +611,7 @@ You can select from two modes when you export a report: Basic or Advanced.
   - Resource ID (e.g., S3 bucket ARN, MongoDB Atlas cluster name)
   - Usage (toggle to export [Usage-Based Reporting](/usage_based_reporting) data)
 - The Advanced export also has the option to select a specific Tag key. Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
+- You can also chose the schema you would like to export your Cost Report in, between Vantage's schema and the FinOps Foundation [FOCUS](https://focus.finops.org/) Schema.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
