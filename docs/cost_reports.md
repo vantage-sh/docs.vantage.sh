@@ -103,6 +103,18 @@ To continue filtering the report, perform any of the following actions:
 - To add a separate filter set, click **+ Add a Filter**. You can also use this option to add costs from another provider. The graph is updated to display costs that match the first filter set _or_ the second filter set.
 - To remove a filter set, click the three dots (**...**) on the top right of the filter set, then click **Delete**.
 
+### Flexible Match {#flexible-match}
+
+The Flexible Match filter operator in Vantage makes it easier to work with inconsistent tag naming conventions. When filtering a Cost Report, users can select the “flexible match” operator to ignore differences in case, whitespace, underscores, and hyphens. This enables a single filter to match a wide variety of tag value permutations without needing to create multiple filters or normalize tag values manually. You can also exclude Flexible Match strings using the “does not flexible match” operator.
+
+Flexible Matching is especially useful for organizations dealing with non-standardized tagging schemes, as it reduces the time and effort required to create accurate filters. This operator is available in all standard filter interfaces on Cost Reports, Segment Reports, and Virtual Tag configurations, and can be used within VQL using the `~*` (Flexible Match) and `!~*` (does not Flexible Match) operators.
+
+#### Example Usage
+
+Suppose your organization tags workloads by team, but the tag values vary: one service might use `teamA`, another `team-a`, and a third `Team A`. Instead of creating separate filters for each variant, you can now create a single filter in your Cost Report using the `Flexible Match` operator and input `Team A`. Vantage will automatically normalize and match all variations, ensuring you capture the full scope of that team’s usage in one go. This will also match any future iterations of the `Team A` string your teams may create.
+
+
+
 ### Percent-Based Cost Allocation {#percent-based-cost-allocation}
 
 With percent-based cost allocation, you can filter Cost Reports to show back shared resources, like support costs or multi-tenant databases, to the team or department that uses them. As filters are set in a Cost Report, Vantage will query for costs that meet all those conditions.
