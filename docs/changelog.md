@@ -12,18 +12,23 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on May 15, 2025, with product updates for May 2025._
+_This page was last updated on June 2, 2025, with product updates for May 2025._
 
 ## May 2025
 
 ### Product Updates 
 
-- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://www.vantage.sh/blog/resource-anomalies) that caused them to enable faster root-cause analysis
+- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://www.vantage.sh/blog/resource-anomalies) that caused them to enable faster root-cause analysis.
+- **Flexible Match Filter Operation**: The [Flexible Match](https://www.vantage.sh/blog/flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
+- **FOCUS Compatible Exports**: Users can now [export](https://www.vantage.sh/blog/focus-export) their cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
 - **Filter by Human Readable Name**: If a resource has a human readable name in Vantage, you can now search for that in addition to the resource ARN when using Filters.
 - **Human Readable Names in Cost Report Legends**: Human readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](https://docs.vantage.sh/cost_reports).
 - **EFS in Active Resources**: EFS has been added as an [Active Resource](https://docs.vantage.sh/active_resources).
 - **Business Metric Sources:** The source of your Business Metric, either Datadog, Cloudwatch, or CSV, will now be displayed in the Business Metrics List page
 - **Google OAuth**: Google Workspace is now available for for SSO authentication.
+- **Previous Period Usage Metrics**: Now when viewing a [Usage-Based Cost Report](https://docs.vantage.sh/usage_based_reporting/), the Cost Report Table will now show previous period Usage in addition to previous period Cost.
+- **Azure VM Active Resources**: Azure VM's has been added to the Active Resources inventory.
+- **Units added to Active Resource Fields**: Units have been added to Active Resource fields where applicable, such as EBS Size or RDS Allocated Storage.
 
 ### Kubernetes Agent Updates 
 
@@ -37,6 +42,7 @@ _This page was last updated on May 15, 2025, with product updates for May 2025._
 - **Configurable Polling Period:** You can now set [configurable polling periods](https://www.vantage.sh/blog/ephemeral-workload-monitoring) for the Vantage kubernetes agent, as short as 5 seconds.
 
 ### API Updates
+- **Data Export API:** New parameter of `schema` in the `/costs/data_exports` endpoint
 
 ## April 2025
 
