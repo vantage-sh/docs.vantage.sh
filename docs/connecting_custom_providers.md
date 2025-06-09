@@ -70,7 +70,7 @@ The following table provides details for each field within the template, as well
     </tr>
     <tr>
       <td><code>ChargeCategory</code></td>
-      <td>No</td>
+      <td>Yes</td>
       <td><strong>Charge Type</strong> filter and grouping option</td>
       <td>Valid values are case-sensitive and include:<br/><ul><li><code>Credit</code></li><li><code>Refund</code></li><li><code>Discount</code></li><li><code>Tax</code></li><li><code>Usage</code></li></ul></td>
       <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=charge%20category#modal-column-14378">ChargeCategory</a></code></td>
