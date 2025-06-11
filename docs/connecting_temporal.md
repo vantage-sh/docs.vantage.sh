@@ -171,4 +171,4 @@ On Temporal Cloud [Cost Reports](/cost_reports), you can filter across several 
 - Category (e.g., Actions)
 - Subcategory (e.g., Retained Storage)
 - Resource ID (e.g., Namespace)
-- Tags (Temporal Cloud Tags or [Virtual Tags](/tagging) created in Vantage)
+- Tags ([Virtual Tags](/tagging) created in Vantage)
