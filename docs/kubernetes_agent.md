@@ -309,7 +309,7 @@ This issue arises when the agent’s Service Account is not properly configured 
 3. Configure S3 persistence:
     - See the [Agent S3 persistence setup](/kubernetes_agent/#configure-agent-for-s3-persistence) section for details. 
     :::tip
-    One recommendation is to ensure that the S3 bucket used for persistence is in the same region as the Kubernetes cluster to minimize latency.
+    S3 bucket used for persistence must be in the same region as the Kubernetes cluster to minimize latency.
     :::
 4. If necessary, recreate the pod:
     - If the Service Account appears correct and there’s still an issue, delete the agent pod to force a fresh start with the correct configuration:
