@@ -21,7 +21,7 @@ For documentation about connecting to Vantage from Datadog, see the [Vantage Int
 
 ### Prerequisites
 
-- When connecting your Datadog account, your user will need access to the `usage_read` scope to complete the connection. Vantage also requests the `metrics_read` and `timeseries_query` scopes for importing [Datadog business metrics](/per_unit_costs#importing-from-datadog). See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
+- When connecting your Datadog account, your user will need access to the `usage_read` and `billing_read` scopes to complete the connection. Vantage also requests the `metrics_read` and `timeseries_query` scopes for importing [Datadog business metrics](/per_unit_costs#importing-from-datadog). See the [Datadog documentation](https://docs.datadoghq.com/account_management/rbac/permissions/) for more information on roles.
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Datadog costs.
 
 ### Create the Connection
