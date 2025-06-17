@@ -12,7 +12,21 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on June 2, 2025, with product updates for May 2025._
+_This page was last updated on June 16, 2025, with product updates for June 2025._
+
+## June 2025
+
+### Product Updates 
+
+- **EKS Extended Support Recommendations**: Vantage now provides [recommendations](https://www.vantage.sh/blog/eks-extended-support) for both EKS clusters currently incurring Extended Support charges, as well as clusters that will incur costs in the next 3 months that caused them to enable faster root-cause analysis.
+- **Updated AWS Rightsizing and Idle Recommendations**: Coverage for [Rightsizing and Idle Recommendations](https://www.vantage.sh/blog/rightsizing-idle-recs) has now been extended to EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups. Each new recommendation includes 10+ contextual usage metrics, up to three instance-level optimization suggestions, projections on savings, migration effort, and future utilization metrics.
+- **Additional Metadata added to Cost Alerts**: Alerts for a percentage-based [Cost Alert](https://docs.vantage.sh/cost_alerts/) will now include metrics about both percentage and dollar increases to provide additional context to the alert.
+ - **Updated color for Cost Report bars with Incomplete Costs**: Days with incomplete data from providers will now be displayed as grey in [Cost Report](https://docs.vantage.sh/cost_reports) bar charts in order to distinguish from complete costs or forecasts.
+ - **focus.vantage.sh**: The new micro-site, [focus.vantage.sh](https://focus.vantage.sh/), is a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the [FinOps FOCUS](https://focus.finops.org/what-is-focus/) 1.1 format.
+
+
+### API Updates
+- **Business Metrics API**: the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now supports Segment Tokens to assign Business Metrics for Unit Calculation.
 
 ## May 2025
 
@@ -42,7 +56,7 @@ _This page was last updated on June 2, 2025, with product updates for May 2025._
 - **Configurable Polling Period:** You can now set [configurable polling periods](https://www.vantage.sh/blog/ephemeral-workload-monitoring) for the Vantage kubernetes agent, as short as 5 seconds.
 
 ### API Updates
-- **Data Export API:** New parameter of `schema` in the `/costs/data_exports` endpoint
+- **Data Export API:** New parameter of `schema` in the `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport)
 
 ## April 2025
 
