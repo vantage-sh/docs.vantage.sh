@@ -379,7 +379,7 @@ To add new billing rules:
     <ol>
       <li>Enter a rule <strong>Title</strong>, such as <i>9.5% discount unless Credit, Fee, Enterprise Support or Marketplace Purchase</i>.</li>
       <li>Enter a <strong>Start Date</strong> and <strong>End Date</strong></li>
-      <li>Enter the SQL for the rule you are creating. For guidance on creating rules, see <a href="/partners/sql-rule-structure">SQL Billing Rule Structure</a></li>
+      <li>Enter the SQL for the rule you are creating. For guidance on creating rules, see <a href="https://docs.vantage.sh/partners/sql-rule-structure">SQL Billing Rule Structure</a></li>
     </ol>
   </TabItem>
 </Tabs>
