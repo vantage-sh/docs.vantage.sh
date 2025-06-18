@@ -181,6 +181,7 @@ Custom billing rules can be created in the Management Account and optionally app
   - **Re-Rate to Public Price:** Remove discounts and private pricing for a Managed Account (further described in the [section below](/partners#rerate-public))
   - **Remove SP/RI Discounts:** Re-rate any usage for a Managed Account that is covered by Reserved Instances or Savings Plans purchased in the AWS Payer account (further described in the [section below](/partners#remove-discounts))
   - **Re-Rate Tiered Discounts:** Recalculate tiered pricing models for applicable services for a Managed Account (further described in the [section below](/partners#rerate-tiered)).
+- **Custom**: Custom Billing Rules allow you to craft your own billing rule using SQL based on logic you choose. This can be logic against any data within Vantage, or additinally any logic from the raw billing files from providers. At this time, only AWS is supported for applying logic to raw billing filles. Further information is available in the [section below](/partners#custom-billing-rule)
 
 ### Re-Rate to Public Pricing Adjustment {#rerate-public}
 
@@ -248,7 +249,52 @@ This rule applies to the following services:
 </table>
 
 
-### Create Custom Billing Rules
+### Custom Billing Rules {#custom-billing-rule}
+In addition to the out-of-the-box billing rules, MSP customers can everage Vantage's SQL Billing Engine to implement powerful, custom billing logic for your MSP customers. Using the SQL Billing Engine, you can apply defined pricing adjustments—such as markups, discounts, one-time fees, credits or exclusions—using SQL statements against either raw provider cost files or processed Vantage cost data. For example, you might insert additional charges for premium services, update costs to reflect negotiated rates, or exclude unused resources altogether, all tailored by customer agreement and automatically applied to their Managed Account.
+
+:::note
+Only the AWS CUR is supported for writing rules against provider provided cost files at this time. All CUR columns are made available for billing rules except for `resource_tag_%` columns, which are AWS and User defined tag keys that are unique to each account.
+:::
+
+By sequencing multiple SQL rules, you maintain full control over how each adjustment is applied. Rules execute in list order during data ingestion cycles, transforming the effective cost that end customers see—without exposing the underlying logic. It's a flexible, transparent way to deliver consistent, custom pricing models across diverse customer environments.
+
+#### SQL Rule Structure {#sql-rule-structure}
+The below information describes how to format your Custom Billing Rule SQL statements:
+- FROM or SET clause targets which schema to modify:
+  - `FROM aws` — raw AWS CUR data
+  - `FROM costs` — Vantage-processed schema
+- Supported commands:
+  - `UPDATE` — apply adjustments (e.g., discounts)
+  - `DELETE` — exclude items from billing
+  - `INSERT` — add charges or credits
+- Choosing columns:
+  - You must append the name of the dataset of the column you are wishing to select. For example, to select the linItem/LineItemType column, use `aws."lineItem/LineItemType"`
+  - A list of all the columns available to reference on the left side of the SQL textbox
+
+<div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}>
+  <img alt="Creating a custom billing rule" width="1000%" src="/img/partners/custom-billing-rule.png"/>
+</div>
+
+<p></p>
+
+**Example SQL Billing Rule**
+
+The following example gives a 9.5% discount unless Credit, Fee, Enterprise Support or Marketplace Purchase
+
+
+```sql
+UPDATE aws
+SET "lineItem/UnblendedCost" = aws."lineItem/UnblendedCost" * '0.095'
+WHERE 
+aws."lineItem/ProductCode" != 'AwsPremiumSupport' 
+AND aws."lineItem/LineItemType" != 'Credit' 
+AND aws."lineItem/LineItemType" != 'Fee' 
+AND aws."bill/BillingEntity" != 'AWS Marketplace'
+```
+
+
+
+### Create Billing Rules
 
 :::note
 Billing rules are evaluated in priority order based on the order they are listed on the Billing Rules page. 
@@ -326,6 +372,14 @@ To add new billing rules:
         <ul>
         <li><i>Tip: To see Charge Type names, navigate to the Cost Reports screen and create a new Cost Report. Above the graph, expand the Group By menu and select <strong>Charge Type</strong>. A list of existing charge type options is displayed.</i></li>
         </ul>
+    </ol>
+  </TabItem>
+
+  <TabItem value="custom" label="Custom">
+    <ol>
+      <li>Enter a rule <strong>Title</strong>, such as <i>9.5% discount unless Credit, Fee, Enterprise Support or Marketplace Purchase</i>.</li>
+      <li>Enter a <strong>Start Date</strong> and <strong>End Date</strong></li>
+      <li>Enter the SQL for the rule you are creating. For guidance on creating rules, see <a href="/partners/sql-rule-structure">SQL Billing Rule Structure</a></li>
     </ol>
   </TabItem>
 </Tabs>
