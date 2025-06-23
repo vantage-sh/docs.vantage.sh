@@ -171,7 +171,7 @@ Vantage takes the following steps to calculate Kubernetes rightsizing recommenda
    - Efficiency is calculated as the percentage of the average CPU or memory utilization divided by the amount allocated for that resource.
    - CPU usage is determined using `container_cpu_usage_seconds_total`, converted from CPU seconds to cores using $\frac{(\text{current} - \text{previous})}{\text{elapsed}}$.
    - Memory usage is determined using `container_memory_working_set_bytes`.
-   - The Vantage agent scrapes metrics every 60 seconds, whereas Prometheus defaults to a 15-second interval. This can smooth out short-term resource usage spikes.
+   - The Vantage agent scrapes metrics at scheduled intervals based on your `pollingInterval` (default to 60 seconds), whereas Prometheus defaults to a 15-second interval. This can smooth out short-term resource usage spikes.
    - The agent reports on an hourly interval, capturing three values—average, min, and max—for both CPU and memory:
      - **Average:** $\frac{\sum \text{datapoints}}{\text{count(datapoints)}}$ 
        - **CPU (Average):** $\text{avg\_over\_time}(\text{irate}(\text{container\_cpu\_usage\_seconds\_total[1m]})[1h])$
