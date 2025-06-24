@@ -292,7 +292,7 @@ AND aws."lineItem/LineItemType" != 'Fee'
 AND aws."bill/BillingEntity" != 'AWS Marketplace'
 ```
 
-
+You can find more examples of SQL Billing Rules in Vantage's [FinOps as Code](https://github.com/vantage-sh/finops-as-code/tree/main/sql-billing-rules) repository.
 
 ### Create Billing Rules
 
