@@ -125,6 +125,22 @@ You can also adjust the report to include only costs that are eligible for Reser
   - Amazon EKS
   - Amazon ECS
 
+### Hourly Reporting {#hourly-reporting}
+
+Hourly granularity within Financial Commitment Reports allows users to analyze their financial commitment coverage and utilization by the hour for any 14 day period within their data retention.  
+
+:::note
+Hourly Granularity in Financial Commitment Reports is an Opt-In feature. In order to opt in to Hourly Reporting, please reach out to [support@vantage.sh](mailto:support@vantage.sh). 
+:::
+
+Once this feature is enabled in your account, you will need to reperform your [AWS Integration](https://docs.vantage.sh/connecting_aws#create-a-connection) with a new Cost and Usage Report set to Hourly time unit if your CUR is currently set to Daily aggregation, which is the Vantage default. You can check the time unit of your CUR by finding your AWS integration in the Integration Settings, and examining the "Cost Aggregation" column. Alternatively, you can find your CUR as an Active Resource, and use the "Time Unit" metadata field.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A view of a full financial commitment report" width="100%" src="https://assets.vantage.sh/blog/hourly-granularity/hourly-granularity-console.png" />
+</div>
+
+Viewing your data in daily granularity can be done by selecting 'Hourly' in the date bin drop down. The X-axis of the chart will be reflected to show both days and hours for the report you are viewing. When switching to hourly date binning, you will automatically be switched to a 14 day period with the same end date as the date period you are currently examining. If you are viewing your costs hourly and then select a date range that is larger than 14 days, Vantage will warn you that your costs will be switched to daily if you proceed.
+
 ## Review the Report
 
 By default, financial commitment reports are grouped by Charge Type (e.g., Savings Plan Discounted Spend, Spot Usage). Groupings are represented by each colored section of the bar chart. Hover over any bar to get a breakdown of costs. The breakdown is also provided in the table below the chart.
