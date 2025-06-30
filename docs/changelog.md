@@ -12,16 +12,23 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on June 16, 2025, with product updates for June 2025._
+_This page was last updated on July 1, 2025, with product updates for June 2025._
 
 ## June 2025
 
 ### Product Updates 
 
+- **Hourly Granularity for Financial Commitment Reports**: Users can now view Financial Commitment Reports at an [hourly granularity](https://docs.vantage.sh/financial_commitment_reports/#hourly-reporting).  
+- **SQL Billing Engine**: MSP Customers now can create billing rules via the [SQL Billing Engine](https://docs.vantage.sh/partners/#custom-billing-rule), allowing for any custom logic on billing data on both Vantage-schema data, as well as AWS Cost and Usage data.
 - **EKS Extended Support Recommendations**: Vantage now provides [recommendations](https://www.vantage.sh/blog/eks-extended-support) for both EKS clusters currently incurring Extended Support charges, as well as clusters that will incur costs in the next 3 months that caused them to enable faster root-cause analysis.
-- **Updated AWS Rightsizing and Idle Recommendations**: Coverage for [Rightsizing and Idle Recommendations](https://www.vantage.sh/blog/rightsizing-idle-recs) has now been extended to EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups. Each new recommendation includes 10+ contextual usage metrics, up to three instance-level optimization suggestions, projections on savings, migration effort, and future utilization metrics.
+- **Updated AWS Rightsizing and Idle Recommendations**: Coverage for [Rightsizing and Idle Recommendations](https://docs.vantage.sh/cost_recommendations#rightsizing-recommendations) has now been extended to EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups. Each new recommendation includes 10+ contextual usage metrics, up to three instance-level optimization suggestions, projections on savings, migration effort, and future utilization metrics.
+- **Provider Summary widget now links to filtered Cost Report**: In the Provider Summary widget in the Overview page, Provider names are now clickable and will bring you to a filtered Cost Report for the selected provider.
+- **Ability to Hide Annotations**: You can now [hide annotations](https://docs.vantage.sh/annotations/#hide-annotations) on a Cost Report.
+- **Integration Tokens added to Integration URL**: You can now obtain your Integration Token from the URL of any integration you are viewing in the Vantage console.
 - **Additional Metadata added to Cost Alerts**: Alerts for a percentage-based [Cost Alert](https://docs.vantage.sh/cost_alerts/) will now include metrics about both percentage and dollar increases to provide additional context to the alert.
+- **Cost Report Y-Axis will not include negative numbers for small values**: Cost Reports Y-Axis wont show have full negative increment when only small values exist on negative side.
  - **Updated color for Cost Report bars with Incomplete Costs**: Days with incomplete data from providers will now be displayed as grey in [Cost Report](https://docs.vantage.sh/cost_reports) bar charts in order to distinguish from complete costs or forecasts.
+ - **Auto-Scaling Groups added to Active Resources**: AWS AutoScaling Groups (ASGs) now available as Active Resources.
  - **focus.vantage.sh**: The new micro-site, [focus.vantage.sh](https://focus.vantage.sh/), is a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the [FinOps FOCUS](https://focus.finops.org/what-is-focus/) 1.1 format.
 
 
@@ -32,9 +39,9 @@ _This page was last updated on June 16, 2025, with product updates for June 2025
 
 ### Product Updates 
 
-- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://www.vantage.sh/blog/resource-anomalies) that caused them to enable faster root-cause analysis.
-- **Flexible Match Filter Operation**: The [Flexible Match](https://www.vantage.sh/blog/flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
-- **FOCUS Compatible Exports**: Users can now [export](https://www.vantage.sh/blog/focus-export) their cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
+- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://docs.vantage.sh/cost_anomaly_alerts/#how-anomaly-detection-works) that caused them to enable faster root-cause analysis.
+- **Flexible Match Filter Operation**: The [Flexible Match](https://docs.vantage.sh/cost_reports/#flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
+- **FOCUS Compatible Exports**: Users can now [export](https://docs.vantage.sh/cost_reports#exporting-cost-reports) their cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
 - **Filter by Human Readable Name**: If a resource has a human readable name in Vantage, you can now search for that in addition to the resource ARN when using Filters.
 - **Human Readable Names in Cost Report Legends**: Human readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](https://docs.vantage.sh/cost_reports).
 - **EFS in Active Resources**: EFS has been added as an [Active Resource](https://docs.vantage.sh/active_resources).
@@ -62,7 +69,7 @@ _This page was last updated on June 16, 2025, with product updates for June 2025
 
 ### Product Updates 
 
-- **Vantage MCP Server:** The [Vantage MCP Server](https://www.vantage.sh/blog/vantage-mcp) is now generally available, which allows customers to seamlessly interact with Vantage through LLM tools.
+- **Vantage MCP Server:** The [Vantage MCP Server](https://github.com/vantage-sh/vantage-mcp-server/tree/main) is now generally available, which allows customers to seamlessly interact with Vantage through LLM tools.
 - **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
 - **Twilio Integration:** Vantage now integrates with [Twilio](https://docs.vantage.sh/connecting_twilio) as its latest cost provider.
 - **Datadog Query Syntax:** Customers can now use [Datadog queries](https://docs.vantage.sh/per_unit_costs#importing-from-datadog) directly within Vantage to import Business Metrics.
