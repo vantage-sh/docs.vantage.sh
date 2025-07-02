@@ -30,8 +30,8 @@ The following terms are used throughout this documentation.
 | Term                   | Definition                                                                                                                                                                                                                         |
 | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Managed Account**    | A customer account that is provisioned and administered by an MSP. Managed Accounts have full access to Vantage features but cannot manage their own subscription.                                                                 |
-| **Management Account** | The MSP’s central administrative account used to create and oversee customers' Managed Accounts, manage billing rules, and configure integrations.                                                                                           |
-| **Manager User**       | A user from the MSP’s organization who has administrative access to a customer's Managed Account. When logged in to a Managed Account, the Manager User sees visual indicators showing they are acting on behalf of the customer. |
+| **Management Account** | The MSP’s central administrative account used to create and oversee customers' Managed Accounts, manage billing rules, and configure integrations.                                                                                 |
+| **Manager User**       | A user from the MSP’s organization who accesses a customer's Managed Account. This user will inherit their role from their user in the Management Account. When logged in to a Managed Account, the Manager User sees visual indicators showing they are acting on behalf of the customer.  |
 
 ## Partner Settings
 
@@ -63,6 +63,19 @@ To provision a new customer Managed Account:
     <img alt="Pop-up window for creating a new managed account" width="100%" src="/img/partners/new-account.png" />
 </div>
 6. Click **Create Account**.
+
+## Assigning Access to Customer Manged Account {#managed-account-rbac}
+Access to Customer Managed Account is managed through [Role Based Access Control (RBAC)](/rbac). Users in the Management Account with the Owner role can set access to Managed Accounts by Team by:
+- Navigate to the **Teams** tab within Settings.
+- Click on the Team you would like to manage access for, and then click on the **Access** tab
+- Scroll down to **Managed Account Access.** Here, you will see a list of all managed accounts. Here, you can set a Team’s access to a Managed Account
+
+By default, the Everyone Team does not grant access to any Managed Accounts, and access to a Managed Account must be given by granting access through the Everyone team or another team. You can set 3 different access levels for a team:
+- **Can Access** - Members of the team will be granted explicit access to the Managed Account
+- **Cannot Access** - Members of the team will be explicitly denied access to this Managed Account
+- **Inherit Access** - Access to the Managed Account will be determined by the Everyone Team
+
+If a user is a part of a Team that “Cannot Access” a Managed Account, they will not be able to access that Managed Account, even if they are given “Can Access” via a different team. Users will maintain the same role that they have in the Management Account when entering a Managed Account. 
 
 ## Access a Customer's Managed Account
 
