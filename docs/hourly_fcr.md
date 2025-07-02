@@ -56,3 +56,58 @@ This guide will walk you through how to obtain an hourly AWS Cost and Usage Repo
 8. CloudFormation will complete the changes, which include deleting the previous CUR definition and creating a new Hourly CUR
 
 <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-8.png"/> </div>
+
+<p></p>
+
+# Enabling via Terraform
+
+If you are using the [Vantage Terraform Privder AWS Integration Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest), there is an optional parameter for <code>cur_report_time_unit</code>. Simply update this to <code>HOURLY</code> and apply your changes.
+
+```hcl
+provider "aws" {
+  region = "us-east-1"
+  assume_role {
+    role_arn = "arn:aws:iam::123456789012:role/admin-role"
+  }
+}
+
+module "vantage-integration" {
+  source  = "vantage-sh/vantage-integration/aws"
+
+  # Bucket names must be globally unique. It is provisioned with private acl's
+  # and only accessed by Vantage via the provisioned cross account role.
+  cur_bucket_name        = "my-company-cur-vantage"
+  # Optional: granularity of the CUR report: "HOURLY" or "DAILY"
+  cur_report_time_unit   = "HOURLY"
+}
+```
+
+# Enabling via Manual Deployment
+
+1. Log into AWS, and navigate to the Billing and Cost Management Console. Select Data Exports from the left nav bar
+
+<div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-1.png"/> </div>
+
+2. Click "Create" to create a new CUR definition
+
+<div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-2.png"/> </div>
+
+3. Create a Data Export with the following parameters
+- Export details
+  - Select Legacy CUR export
+  - Enter an Export name (provide any name of your chosing)
+- Export Content
+  - Check the box to 'Include resource IDs'
+  - Check the box to 'Refresh automatically'
+- Data Delivery options
+  - Set report data time granularity to <code>Hourly</code>
+  - Set 'Report versioning' to 'Overwrite existing report'
+  - Set compression type to <code>gzip</code>
+- Data Export storage settings
+  - Set the S3 bucket to be the same S3 bucket as the S3 bucket as your existing Vantage CUR
+  - Enter <code>hourly-v1</code> as the S3 path prefix
+- Click "Create Report"
+
+<div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-3.png"/> </div>
+
+
