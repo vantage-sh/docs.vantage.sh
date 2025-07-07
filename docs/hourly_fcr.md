@@ -84,6 +84,10 @@ module "vantage-integration" {
 
 # Enabling via Manual Deployment
 
+:::note
+You must be on [version 0.1.6](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) of the Vantage Kubernetes Provider or above in order to enable Hourly Granularity via Terraform
+:::
+
 1. Log into AWS, and navigate to the Billing and Cost Management Console. Select Data Exports from the left nav bar
 
 <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-1.png"/> </div>

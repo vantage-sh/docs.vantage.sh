@@ -34,6 +34,8 @@ _This page was last updated on July 1, 2025, with product updates for June 2025.
 
 ### API Updates
 - **Business Metrics API**: the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now supports Segment Tokens to assign Business Metrics for Unit Calculation.
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
+    - `vantage-integration` [module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) now includes optional `cur_report_time_unit` attribute
 
 ## May 2025
 
@@ -56,14 +58,15 @@ _This page was last updated on July 1, 2025, with product updates for June 2025.
 - **Anomaly Alerts**: Anomaly Alerts endpoint now returns the resource that drove the anomaly, if applicable
 - **Data Export:** New `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport) and `/data_exports/{data_export_token}` [endpoint](https://vantage.readme.io/reference/getdataexport) available to initiate a CSV export of a Cost Report, and check on the status of an export to retrieve the URL to download the report
 - **Business Metrics**: The `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now has new objects for datadog_metric_fields and cloudwatch_fields in order to configure Datadog and Cloudwatch Business Metric integrations programatically
-- The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
-    - `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) now has additional optional attributes for `cloudwatch_fields` and `datadog_metroc_fields`
-    - `cost_alerts` data source
+
 
 - **Configurable Polling Period:** You can now set [configurable polling periods](https://www.vantage.sh/blog/ephemeral-workload-monitoring) for the Vantage kubernetes agent, as short as 5 seconds.
 
 ### API Updates
 - **Data Export API:** New parameter of `schema` in the `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport)
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
+    - `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) now has additional optional attributes for `cloudwatch_fields` and `datadog_metroc_fields`
+    - `cost_alerts` data source
 
 ## April 2025
 
