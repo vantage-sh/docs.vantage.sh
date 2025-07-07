@@ -61,6 +61,11 @@ This guide will walk you through how to obtain an hourly AWS Cost and Usage Repo
 
 # Enabling via Terraform
 
+
+:::note
+You must be on [version 0.1.6](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) of the Vantage Kubernetes Provider or above in order to enable Hourly Granularity via Terraform
+:::
+
 If you are using the [Vantage Terraform Privder AWS Integration Module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/latest), there is an optional parameter for <code>cur_report_time_unit</code>. Simply update this to <code>HOURLY</code> and apply your changes.
 
 ```hcl
@@ -83,10 +88,6 @@ module "vantage-integration" {
 ```
 
 # Enabling via Manual Deployment
-
-:::note
-You must be on [version 0.1.6](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) of the Vantage Kubernetes Provider or above in order to enable Hourly Granularity via Terraform
-:::
 
 1. Log into AWS, and navigate to the Billing and Cost Management Console. Select Data Exports from the left nav bar
 
