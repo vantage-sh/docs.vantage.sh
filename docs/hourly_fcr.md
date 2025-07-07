@@ -19,6 +19,8 @@ Hourly Granularity in Financial Commitment Reports is an Opt-In feature. In orde
 
 This guide will walk you through how to obtain an hourly AWS Cost and Usage Report to enable Hourly Financial Commitment Reporting in Vantage.
 
+Vantage will experience a delay in receiving your cost data until the first hourly Cost and Usage Report (CUR) is received from AWS. This can take up to 24 hours. In addition, the first hourly CUR that's sent to Vantage contains only the current month's data. See the instructions for [backfilling a CUR](https://docs.vantage.sh/connecting_aws#backfilling-aws-cur-for-previous-reporting-periods).
+
 ## Enabling via CloudFormation {#cloudformation}
 
 1. Navigate to Cloudformation in the management account (or account the CUR is deployed in), and find the **“ConnectToVantage-”** stack
@@ -114,5 +116,3 @@ module "vantage-integration" {
 - Click "Create Report"
 
 <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-3.png"/> </div>
-
-
