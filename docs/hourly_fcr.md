@@ -19,7 +19,7 @@ Hourly Granularity in Financial Commitment Reports is an Opt-In feature. In orde
 
 This guide will walk you through how to obtain an hourly AWS Cost and Usage Report to enable Hourly Financial Commitment Reporting in Vantage.
 
-# Enabling via CloudFormation
+## Enabling via CloudFormation {#cloudformation}
 
 1. Navigate to Cloudformation in the management account (or account the CUR is deployed in), and find the **“ConnectToVantage-”** stack
 
@@ -59,7 +59,7 @@ This guide will walk you through how to obtain an hourly AWS Cost and Usage Repo
 
 <p></p>
 
-# Enabling via Terraform
+## Enabling via Terraform {#terraform}
 
 
 :::note
@@ -87,7 +87,7 @@ module "vantage-integration" {
 }
 ```
 
-# Enabling via Manual Deployment
+## Enabling via Manual Deployment {#manual}
 
 1. Log into AWS, and navigate to the Billing and Cost Management Console. Select Data Exports from the left nav bar
 
