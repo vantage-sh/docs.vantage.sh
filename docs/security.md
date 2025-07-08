@@ -40,9 +40,9 @@ Yes. Vantage has outsourced penetration tests to a third party that regularly pe
 
 </details>
 
-<details><summary>Does Vantage hold any security certifications, such as SOC 2 or ISO 27001?</summary>
+<details><summary>Does Vantage hold any security certifications, such as SOC 1, SOC 2, or ISO 27001?</summary>
 
-Yes. Vantage is SOC 2 Type 2 certified. To request a copy of our report, visit the [Vantage Security Page](https://vantage.sh/security). We believe that we already roughly adhere to the standards outlined in ISO 27001.
+Yes. Vantage is both SOC 1 Type 2 and SOC 2 Type 2 certified. To request a copy of our report, visit the [Vantage Security Page](https://vantage.sh/security). With these certifications, we believe that we already roughly adhere to the standards outlined in ISO 27001.
 
 </details>
 
