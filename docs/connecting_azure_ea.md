@@ -68,7 +68,7 @@ To integrate your Azure EA account with Vantage, follow the below steps:
 1. Navigate to **Cost Management + Billing**.
 2. On the left menu, click **Billing scopes** and select your **EA Billing Account** from the list.
 3. On the left menu, click **Settings** > **Properties**.
-4. Copy your **Billing account id** to [later send to Vantage](/connecting_azure_ea#ea-step6).
+4. Copy your **Billing Account Id** to add to the Vantage console later.
 
 ## Step 4: Assign Enrollment Reader Permission to the Service Principal {#ea-step4}
 
@@ -137,13 +137,10 @@ You need to have the **billing account owner** role permissions to assign enroll
    - For **Azure AD Tenant ID**, add the **Directory (tenant) ID** you obtained in [step 1](/connecting_azure_ea#ea-step1).
    - For **Service Principal App ID**, add the **Application (client) ID** you obtained in [step 1](/connecting_azure_ea#ea-step1).
    - For **Service Principal Password**, add the client secret you obtained in [step 2](/connecting_azure_ea#ea-step2).
+   - For **Billing Account Id**, add the **Billing Account Id** you obtained in [step 3](/connecting_azure_ea#ea-step3).
 4. Click **Connect Account**.
 
 Vantage will begin importing your Azure costs.
-
-## Step 6: Send Your Billing Account ID to Vantage {#ea-step6}
-
-Send the **Billing account id** you obtained in [step 3](/connecting_azure_ea#ea-step3) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an EA agreement.
 
 ## Next Steps: Workspace Access
 

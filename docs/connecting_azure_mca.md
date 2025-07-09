@@ -68,7 +68,7 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
 1. Navigate to **Cost Management + Billing**.
 2. On the left menu, click **Billing scopes** and select your **MCA Billing Account** from the list.
 3. On the left menu, click **Settings** > **Properties**.
-4. Copy your **Billing account id** to [later send to Vantage](/connecting_azure_mca#mca-step6).
+4. Copy your **Billing account id** to add to the Vantage console later.
 <details><summary>Expand to view example image</summary>
 <div>
 <img alt="Azure portal with the billing account id highlighted" width="100%" src="/img/connect-azure/azure-billing-id.png"/> </div>
@@ -95,13 +95,10 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
    - For **Azure AD Tenant ID**, add the **Directory (tenant) ID** you obtained in [step 1](/connecting_azure_mca#mca-step1).
    - For **Service Principal App ID**, add the **Application (client) ID** you obtained in [step 1](/connecting_azure_mca#mca-step1).
    - For **Service Principal Password**, add the client secret you obtained in [step 2](/connecting_azure_mca#mca-step2).
+   - For **Billing Account Id**, add the **Billing Account Id** you obtained in [step 3](/connecting_azure_ea#mca-step3).
 4. Click **Connect Account**.
 
 Vantage will begin importing your Azure costs.
-
-## Step 6: Send Your Billing Account ID to Vantage {#mca-step6}
-
-Send the **Billing account id** you obtained in [step 3](/connecting_azure_mca#mca-step3) to [support@vantage.sh](mailto:support@vantage.sh) to complete the configuration. Indicate that you have set up an Azure integration and that you are a customer on an MCA agreement.
 
 ## Next Steps: Workspace Access
 
