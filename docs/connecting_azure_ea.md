@@ -23,7 +23,6 @@ To integrate your Azure EA account with Vantage, follow the below steps:
   <tr><td><b>3</b></td><td><a href="/connecting_azure_ea#ea-step3">Obtain your billing account ID</a></td></tr>
   <tr><td><b>4</b></td><td><a href="/connecting_azure_ea#ea-step4">Assign Enrollment Reader permission to the service principal</a></td></tr>
   <tr><td><b>5</b></td><td><a href="/connecting_azure_ea#ea-step5">Add app registration credentials to Vantage</a></td></tr>
-  <tr><td><b>6</b></td><td><a href="/connecting_azure_ea#ea-step6">Send your billing account ID to Vantage</a></td></tr>
 </table>
 
 ## Step 1: Create a New Application Registration {#ea-step1}

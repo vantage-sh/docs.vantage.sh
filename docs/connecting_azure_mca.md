@@ -23,7 +23,6 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
   <tr><td><b>3</b></td><td><a href="/connecting_azure_mca#mca-step3">Obtain your billing account ID</a></td></tr>
   <tr><td><b>4</b></td><td><a href="/connecting_azure_mca#mca-step4">Assign the billing account reader role to the service principal</a></td></tr>
   <tr><td><b>5</b></td><td><a href="/connecting_azure_mca#mca-step5">Add app registration credentials to the Vantage console</a></td></tr>
-  <tr><td><b>6</b></td><td><a href="/connecting_azure_mca#mca-step6">Send your billing account ID to Vantage</a></td></tr>
 </table>
 
 ## Step 1: Create a New Application Registration {#mca-step1}
