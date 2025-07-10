@@ -134,6 +134,56 @@ To create a resource report:
 If you have a Jira integration, you can create a corresponding issue for a Resource Report in your Jira instance. See the [Jira](/jira) documentation for details.
 :::
 
+
+## Customizing Resource Report {#custom-columns}
+
+You can customize which columns appear in your Resource Reports, such as resource specific metadata fields, as well as arrange the columns in any order, allowing you to create reports that contain the exact data you need to report on. 
+
+:::note
+Resource specific metadata fields are only available when a Resource Report is filtered to a single service. Reports that span multiple services will show the default columns only.
+:::
+
+**Selecting Columns**
+
+To choose which columns appear in your Resource Report:
+
+1. Enter a **Service Resource Report** or filter a customer Resource Report to a **single service** (e.g., EC2, EBS) .
+2. Click the **Manage Columns** button in the top-right corner of the report table.
+3. Use the checkboxes to toggle metadata columns on or off.
+4. Click anywhere outside the **Manage Columns** dropdown to return to viewing your report
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
+    <img alt="GIF of selecting custom columns" width="100%" src="/img/select-columns.gif"/>
+</div>
+<br/>
+
+**Rearranging Columns**
+
+To reorder columns:
+
+1. Drag the header of a column in between the existing columns you want to place it between. You will see arrows indicating where the column you are dragging will be placed
+2. The order of the columns will be updated in the resource report, as well as in the **Manage Columns** drop down
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
+    <img alt="GIF of selecting custom columns" width="100%" src="/img/reorder-columns.gif"/>
+</div>
+<br/>
+
+**Sorting**
+
+You can sort all columns within an Active Resource Report by clicking the arrows in the header of a column. The currently sorted column will be highlighted green, with an arrow pointing the direction of the sort order.
+
+:::note
+All columns are sortable except for Resource, Type, and Team
+::: 
+
+<div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
+    <img alt="GIF of selecting custom columns" width="100%" src="/img/sort-columns.gif"/>
+</div>
+<br/>
+
+The column order is saved per report. If you save a report after customizing the columns, the configuration—including visibility, order, and sort—will persist.
+
 ### Resource Report Filters
 
 The following filters are available for resource reports.
