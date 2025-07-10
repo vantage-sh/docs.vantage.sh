@@ -159,7 +159,7 @@ To choose which columns appear in your Resource Report:
 
 **Rearranging Columns**
 
-To reorder columns:
+To reorder columns of your Resource Report:
 
 1. Drag the header of a column in between the existing columns you want to place it between. You will see arrows indicating where the column you are dragging will be placed
 2. The order of the columns will be updated in the resource report, as well as in the **Manage Columns** drop down
