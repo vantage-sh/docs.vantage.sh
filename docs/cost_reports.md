@@ -604,14 +604,15 @@ When you view the **By Date** option, a **Total Costs** row is displayed at the 
 
 ## Export Cost Reports {#exporting-cost-reports}
 
-You can select from two modes when you export a report: Basic or Advanced.
+You can select from two modes when you export a report: **Basic** or **Advanced**.
 
-- With a Basic export, you can modify only the date range of a report.
-  - If your cost report has a Business Metric associated with it, you can chose whether or not you want to export your Unit Costs at the same time as your Costs export. This will be sent to you as a separate CSV.
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports-basic.png" />
+    <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
 </div>
-- With an Advanced export, you have the same functionality as a Basic export, plus you can arbitrarily select the columns, a date range, and a date bin. The columns can be any combination of groupings from the following list:
+
+- With a **Basic** export, you can modify only the date range of a report.
+  - If your Cost Report has an associated [buisiness metric](/per_unit_costs), you can choose whether you want to export your unit costs at the same time as your costs export. This export will be sent to you as a separate CSV.
+- With an **Advanced** export, you have the same functionality as a **Basic** export, but you can also arbitrarily select the columns you want on the report, a date range, and a date bin. The columns can be any combination of groupings from the following list:
   - Provider (e.g., AWS, GCP, New Relic)
   - Service (e.g., EC2, EBS)
   - Region (e.g., us-east-1)
@@ -622,8 +623,8 @@ You can select from two modes when you export a report: Basic or Advanced.
   - Billing Account (e.g., billing account name)
   - Resource ID (e.g., S3 bucket ARN, MongoDB Atlas cluster name)
   - Usage (toggle to export [Usage-Based Reporting](/usage_based_reporting) data)
-- The Advanced export also has the option to select a specific Tag key. Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
-- You can also chose the schema you would like to export your Cost Report in, between Vantage's schema and the FinOps Foundation [FOCUS](https://focus.finops.org/) Schema.
+- The **Advanced** export also has the option to select a specific Tag key. The Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
+- For the **Schema** option, select either Vantage's default schema or the [FinOps Foundation FOCUS](https://focus.finops.org/) schema.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
