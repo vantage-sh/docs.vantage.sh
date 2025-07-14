@@ -105,9 +105,17 @@ To continue filtering the report, perform any of the following actions:
 
 ### Flexible Match {#flexible-match}
 
-The Flexible Match filter operator in Vantage helps you work with inconsistent tag naming conventions. When filtering a Cost Report, you can select the **flexible match** operator to ignore differences in case, whitespace, underscores, and hyphens. This allows a single filter to match many tag value variations—for example, `teamA`, `team_a`, `team-a`, and `Team A`—without creating multiple filters or manually normalizing tags. To exclude values, use the **does not flexible match** operator.
+The flexible match operator in Vantage helps you work with inconsistent tag naming conventions. When filtering a Cost Report, you can select the flexible match operator to ignore differences in case, whitespace, underscores, and hyphens. This allows a single filter to match many tag value variations without creating multiple filters or manually normalizing tags.
 
-Flexible Matching is especially useful for organizations dealing with non-standardized tagging schemes, as it reduces the time and effort required to create accurate filters. This operator is available in all standard filter interfaces on Cost Reports, Segment Reports, and Virtual Tag configurations, and can be used within [VQL](/vql_cost_report) using the `~*` (Flexible Match) and `!~*` (does not Flexible Match) operators.
+For example, your organization tags workloads by team, but the tag values vary: one service might use `teamA`, another `team-a`, and a third `Team A`. Instead of creating separate filters for each variant, use the flexible match operator as shown in the image below. 
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Flexible match operator" width="60%" src="/img/flex-match.png" />
+</div>
+
+Vantage automatically normalizes and matches all variations, as well as match any future iterations that are created of the `Team A` string.
+
+To exclude values, use the **does not flexible match** operator.
 
 ### Percent-Based Cost Allocation {#percent-based-cost-allocation}
 
