@@ -61,7 +61,7 @@ The recommendations that are available for [AWS](/cost_recommendations#aws), [Az
 | Networking optimizations      | Vantage will look for networking optimizations especially for CloudFront and S3.                                                                                                                          |
 | Lifecycle policies            | Vantage will profile for services that can auto-delete data to reduce costs and expected savings noted.                                                                                                   |
 | Rightsizing opportunities     | Vantage will identify rightsizing opportunities and provide specific reasons to rightsize, such as over-provisioned CPU. See more information below.                                                      |
-| Extended Support              | Vantage will identify existing resources that are incurring extended support, as well as those that are entering into extneded support within the next 3 months.                                          |
+| Extended Support              | Vantage will identify existing resources that are incurring extended support, as well as those that are entering into extended support within the next 3 months.                                          |
 
 #### Rightsizing Recommendations
 
