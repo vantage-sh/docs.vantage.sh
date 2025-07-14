@@ -143,19 +143,25 @@ To set these options, extend the `--set` flag. You can also include the values u
 --set agent.token=$VANTAGE_API_TOKEN,agent.clusterID=$CLUSTER_ID,resources.limits.memory=100Mi,resources.requests.memory=100Mi
 ```
 
-### Configuring Polling Interval {#configure-polling-period}
+### Configure Polling Interval {#configure-polling-period}
 
 :::note
-Enabling configurable polling intervals for the Vantage Kubernetes agent currently requires specifying an image.tag when upgrading. In order to upgrade, users should upgrade their helm chart and deploy using `helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --set agent.pollingInterval={interval},image.tag={special-tag} --reuse-values`
+To enable a configurable polling interval for the Vantage Kubernetes Agent, specify an `image.tag` when you upgrade. Upgrade and deploy your Helm chart using the following command: 
+
+`helm repo update && helm upgrade -n vantage vka vantage/vantage-kubernetes-agent --set agent.pollingInterval={interval},image.tag={special-tag} --reuse-values`
 :::
 
-The polling interval defines how frequently the agent will pole pods for utilization information. The default poling period for the agent is 60 seconds, but the agent has allowable periods including 5 seconds, 10 seconds, 15 seconds, 30 seconds, and 60 seconds. 
+The polling interval defines how frequently the agent will poll pods for utilization information. The polling interval applies to the entire cluster. The default polling period for the agent is 60 seconds, but the agent has allowable periods, including 5 seconds, 10 seconds, 15 seconds, 30 seconds, and 60 seconds. 
 
-To set the agent’s polling period, configure the `agent.pollingInterval` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with the desired polling period in seconds, such as `--set agent.pollingInterval=30` for a 30 second polling interval. 
+To set the agent’s polling period, configure the `agent.pollingInterval` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with the desired polling period in seconds, such as `--set agent.pollingInterval=30` for a 30-second polling interval. If you enter a polling interval that is not in the list of allowed intervals, the agent will fail to start, and an error message is returned within the response.
 
-Note that there are performance implications on both the Kubernetes API server and the Vantage Agent to shortening the interval of when the Kubernetes agent polls the pods. Your polling interval should be based on the shortest lived task within your cluster, and you should note how long it takes for the agent to scrape nodes. You can obtain this information via the `vantage_last_node_scrape_timestamp_seconds` metric provided by the agent.  We recommend that you monitor system performance and adjust the interval as needed to balance granularity with resource usage.
+:::tip
+To see the current polling period for a cluster, use the `kubectl describe pod/<pod_name> -n vantage` command. In the Vantage Helm chart, the polling interval is found in the `VANTAGE_POLLING_INTERVAL` environment variable.
+:::
 
-To view the current polling period for a cluster, you can use the `kubectl describe pods -n vantage` command.
+There are performance implications on both the Kubernetes API server and the Vantage Kubernetes agent if you shorten the interval for when the Vantage Kubernetes agent polls the pods. Your polling interval should be based on the shortest-lived task within your cluster, and you should note how long it takes for the agent to scrape nodes. You can obtain this information using the `vantage_last_node_scrape_timestamp_seconds` metric provided by the agent.  
+
+It is recommended that you monitor system performance and adjust the interval as needed to balance granularity with resource usage.
 
 ### Validate Installation
 
@@ -303,7 +309,7 @@ This issue arises when the agent’s Service Account is not properly configured 
       ```bash
       kubectl -n vantage get serviceaccount vka-vantage-kubernetes-agent -o yaml
       ```
-    - Ensure the Service Account matches the Helm Chart settings in the agent’s [Helm Chart values file](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L102-L106). This is a name that you can also set within the file. 
+    - Ensure the Service Account matches the Helm chart settings in the agent’s [Helm chart values file](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L102-L106). This is a name that you can also set within the file. 
 2. Ensure the IAM role is correctly set up:
     - Review the [AWS IAM Roles for Service Accounts documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to confirm that the IAM role is configured with the necessary permissions and associated with the Service Account.
 3. Configure S3 persistence:
