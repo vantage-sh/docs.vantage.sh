@@ -19,11 +19,15 @@ At this time, you cannot configure an alert for a specific [resource](/active_re
 
 ## How Anomaly Detection Works
 
-A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside of the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise. Anomalies are detected for each service at the category level. For example, with Amazon EC2, anomalies are detected for _Data Transfer_ or _Compute Instance_. Vantage will also index anomalies to attempt to identify the resource that is driving the change in cost. If a single resource is identified, Vantage will also surface the resource when raising the anomaly, and filter for the resource when viewing an anomaly in a Cost Report. In the case a single resource is not identified, root cause may be:
+A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise. Anomalies are detected for each service at the category level. For example, with Amazon EC2, anomalies are detected for _Data Transfer_ or _Compute Instance_. 
 
-- Multiple resources contributed to a cost spike
-- The anomaly is associated with a cost category that does not have a resource tied to it from the provider
-- The provider does not provide resource level granularity
+Vantage indexes anomalies and attempts to identify the resource responsible for the change in cost. If a single resource is identified, Vantage highlights and filters for that resource when you view the anomaly in a Cost Report.
+
+When a single resource is not identified, the root cause may be:
+
+- Multiple resources contributed to a cost spike.
+- The anomaly is associated with a cost category that does not have a resource tied to it from the provider (e.g., AWS, Azure).
+- The provider does not provide resource-level granularity.
 
 :::tip
 To get started with cost anomaly detection and alerts, you can also view a video demo on [Vantage University](/vantage_university_observability) 🎓.
