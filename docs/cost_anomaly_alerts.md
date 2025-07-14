@@ -51,7 +51,7 @@ Anomaly alerts are sent only for the first time they are detected. If an anomaly
 ## Take Action on Anomalies
 
 1. To view more information about a specific alert, select the link in the **Category** column.
-2. The alert is displayed on the corresponding Cost Report. The specific day where the alert was surfaced is highlighted. At the top right of the graph, click **Manage Anomaly**.
+2. The alert is displayed on the corresponding Cost Report. The bar for the specific day the anomaly was detected is highlighted in red. Hover over the bar to view details. If a specific resource has been identified as the cause, it will be indicated in the tooltip.  At the top right of the graph, click **Manage Anomaly**.
 3. Select one of the following actions:
    - **Create an Issue**: Select this option to create an [issue](/issues). A new tab is displayed with a new issue. The issue description will contain a link to the Cost Report where the anomaly was detected. This issue can be assigned to yourself or another teammate to resolve later. See the visual example below for how to create an issue. 
    - **Mark as Archived**: The anomaly will be displayed as **Archived** in the anomalies list.
