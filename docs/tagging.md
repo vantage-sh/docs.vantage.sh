@@ -350,9 +350,9 @@ Within Cost Reports, you can easily filter by this tag to see all costs related 
     <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="/img/virtual-tag-consolidate-report.png" />
 </div>
 
-##### Example 3: Using Flexible Match to Consolidate similar Tag Values
+##### Example 3: Using Flexible Match to Consolidate Similar Tag Values
 
-Your teams have non-standardized tagging conventions that have resulted in many different forms of casing. Team A now has many different permutations of their Team tag when looking across their usage, such as `teamA`, `team_a`, `team-a`, and `Team A` . [Flexible Match](https://docs.vantage.sh/cost_reports/#flexible_match) is an easy way to match for all of these variants, as well as future variants, in a single tag configuration.
+Your teams use inconsistent tagging conventions, resulting in multiple variations in casing and formatting. For example, Team A’s tag appears in several forms across usage data, such as `teamA`, `team_a`, `team-a`, and `Team A`. You can use the [flexible match](/cost_reports/#flexible-match) filter option to match for all of these variants, as well as future variants, in a single tag configuration.
 
 ###### Step 1: Create a New Tag
 
@@ -364,14 +364,13 @@ You create a tag key called `Teams` to override existing tags.
 
 ###### Step 2: Add Tag Values and Filters
 
-Create a Virtual Tag configuration for Team A, for for Output Cost Filters, select Teams Flexible Match to the string Team A. 
+Create a virtual tag configuration for Team A. For the **Output Cost Filters**, use the `Teams` flexible match to the string `Team A`. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="A sample Tag Value field for a value of AWS Team tag flexible matches Team A" width="80%" src="/img/virtual-tag-flexible-match.png" />
 </div>
 
 This will automatically match all variants of Team A, such as `teamA`, `team_a`, `team-a`, and `Team A` .
-
 
 #### Cost-Based Allocation Example {#cost-based-allocation-example}
 

@@ -96,6 +96,8 @@ VQL includes a set of keywords to create complex filter conditions. These keywor
 | `IN`    | Used to compare against an array list | `costs.provider = 'azure' AND costs.account_id IN ('account-1', 'account-2')`       | This example filters based on a list of account IDs, returning data for the specified accounts<br/><br/>You can also use `IN` along with a special syntax for filtering by multiple tags. See [Filter by Multiple Tags](/vql#multiple-tags) for details.                                                                                                                                                                                                                         |
 | `LIKE`  | Performs string comparisons           | `costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value LIKE '%prod%'` | This example selects data where the tag value contains `prod`, such as `production-1`. <br /> Note that at this time, `LIKE` is not compatible with `costs.account_id`, `costs.provider_account_id`, `costs.region`, and `costs.service`.                                                                                                                                                                                                                                        |
 | `NOT`   | Represents negation                   | `costs.provider = 'aws' AND costs.region NOT IN ('us-east-1', 'us-east-2')`         | This example filters out data from both specified regions, providing all AWS costs _not_ in these regions. Use `NOT IN` to specify a list of single or multiple values. <br/><br/> You can also use the `!=` or `<>` operators for "is not." <br/><br/> `costs.provider = 'aws' AND costs.region != 'us-east-1'`<br/><br/>You can use `NOT LIKE` to perform string comparisons:<br/><br/>`costs.provider = 'gcp' AND tags.name = 'environment' AND tags.value NOT LIKE '%prod%'` |
+| `~*`   | Flexible match operator for tag values                   | `costs.provider = 'aws' AND (tags.name = 'teams' AND tags.value ~* 'Team A')`         | Searches for all items where the tag value loosely matches `Team A`, ignoring case, whitespace, hyphens, and punctuation. |
+| `!~*`    | Does not flexible match operator for tag values   | `costs.provider = 'aws' AND (tags.name = 'teams' AND tags.value !~* 'Team A')`             | Filters out all items where the tag value loosely matches `Team A`, ignoring case, whitespace, hyphens, and punctuation.    |
 
 With these keywords, you can construct complex filter conditions in VQL, providing flexibility and precision when querying and analyzing cloud cost data.
 
@@ -236,8 +238,16 @@ This example filters for resources that are tagged with the `environment` tag wi
 #### Filter for Matching Tags Using `LIKE`
 
 ```sql
-costs.provider = 'azure' AND tags.name = 'environment' AND tags.value LIKE '%prod%'
+costs.provider = 'azure' AND (tags.name = 'environment' AND tags.value LIKE '%prod%')
 ```
+
+#### Filter for Tags Using Flexible Matching
+
+```sql
+costs.provider = 'azure' AND (tags.name = 'Team' AND tags.value ~* 'Team A')
+```
+
+Matches on applied tag values, such as `TeamA`, `team-a`, and `team_a` to a single `Team A` tag value. See the [Flexible Match](/cost_reports/#flexible-match) documentation for details.
 
 ### Filter for Untagged Resources {#untagged}
 
