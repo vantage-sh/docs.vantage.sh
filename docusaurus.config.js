@@ -280,6 +280,10 @@ const config = {
                 label: "cur.vantage.sh",
                 href: "https://cur.vantage.sh/",
               },
+              {
+                label: "focus.vantage.sh",
+                href: "https://focus.vantage.sh/",
+              },
             ],
           },
           {

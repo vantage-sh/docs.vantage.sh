@@ -26,6 +26,10 @@ FOCUS is an [open-source schema](https://focus.finops.org/) that standardizes co
 
 ## Review CSV Format {#format}
 
+:::tip
+Follow the steps below to create a CSV based on the FOCUS format. You can also use [focus.vantage.sh](https://focus.vantage.sh), a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the FinOps FOCUS 1.1 format.
+:::
+
 To create a Custom Provider in Vantage, create a CSV file for your data that uses the following format. Add your provider’s cost and usage data to the file. Note that there is a maximum of 10,000 rows and a file size of 2MB allowed. Each time that you upload additional cost data, you will need to create a separate CSV file for that new dataset.
 
 ```
