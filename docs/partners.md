@@ -263,37 +263,52 @@ This rule applies to the following services:
 
 
 ### Custom Billing Rules {#custom-billing-rule}
-In addition to the out-of-the-box billing rules, MSP customers can everage Vantage's SQL Billing Engine to implement powerful, custom billing logic for your MSP customers. Using the SQL Billing Engine, you can apply defined pricing adjustments—such as markups, discounts, one-time fees, credits or exclusions—using SQL statements against either raw provider cost files or processed Vantage cost data. For example, you might insert additional charges for premium services, update costs to reflect negotiated rates, or exclude unused resources altogether, all tailored by customer agreement and automatically applied to their Managed Account.
+
+Custom Billing Rules in Vantage use SQL-like syntax to adjust cost data during ingestion. Apply defined pricing adjustments—such as markups, discounts, one-time fees, credits, or exclusions—using SQL statements against either raw provider cost files or processed Vantage cost data. For example, insert additional charges for premium services, update costs to reflect negotiated rates, or exclude unused resources altogether, based on your customer agreements. 
 
 :::note
-Only the AWS CUR is supported for writing rules against provider provided cost files at this time. All CUR columns are made available for billing rules except for `resource_tag_%` columns, which are AWS and User defined tag keys that are unique to each account.
+Only the AWS Cost and Usage Report (CUR) is supported for writing rules against provider cost files at this time. All CUR columns are made available for billing rules except `resource_tag_%` columns, which are AWS- and user-defined tag keys that are unique to each account.
 :::
 
-By sequencing multiple SQL rules, you maintain full control over how each adjustment is applied. Rules execute in list order during data ingestion cycles, transforming the effective cost that end customers see—without exposing the underlying logic. It's a flexible, transparent way to deliver consistent, custom pricing models across diverse customer environments.
+Sequencing multiple SQL rules lets you control the order in which cost adjustments are applied. Rules run in list order during each data ingestion cycle and modify the effective cost shown to end customers. The logic behind the rules remains hidden, allowing for consistent pricing without exposing internal calculations.
 
 #### SQL Rule Structure {#sql-rule-structure}
-The below information describes how to format your Custom Billing Rule SQL statements:
-- FROM or SET clause targets which schema to modify:
-  - `FROM aws` — raw AWS CUR data
-  - `FROM costs` — Vantage-processed schema
-- Supported commands:
-  - `UPDATE` — apply adjustments (e.g., discounts)
-  - `DELETE` — exclude items from billing
-  - `INSERT` — add charges or credits
-- Choosing columns:
-  - You must append the name of the dataset of the column you are wishing to select. For example, to select the linItem/LineItemType column, use `aws."lineItem/LineItemType"`
-  - A list of all the columns available to reference on the left side of the SQL textbox
+
+Use the `FROM` or `SET` clause to specify which dataset your rule targets (e.g., `FROM aws`):
+
+| Dataset | Description |
+|---------|-------------|
+| `aws`   | Raw AWS CUR data. Rules written against `aws` only affect how data appears in Vantage and do **not** modify the original CUR file. |
+| `costs` | Vantage-processed cost data. Use when inserting or adjusting normalized costs. |
+
+Use the following SQL operations to define billing rules:
+
+| Operation | Description |
+|-----------|-------------|
+| `UPDATE`  | Adjust an existing cost value, such as applying a percentage discount. |
+| `DELETE`  | Remove specific line-items from being billed. |
+| `INSERT`  | Add new line-items, like charges or credits, into the `costs` dataset. |
+
+When referencing columns, you must prefix them with the dataset name (e.g., `aws."lineItem/LineItemType"`).
+
+Autocomplete is supported in the Vantage console. As you type, a list of available matching columns is displayed alongside your syntax. A complete list of available columns is also shown to the left of the SQL input field.
 
 <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}>
   <img alt="Creating a custom billing rule" width="1000%" src="/img/partners/custom-billing-rule.png"/>
 </div>
 
-<p></p>
 
-**Example SQL Billing Rule**
+The following behaviors and limitations apply when creating and managing SQL billing rules in Vantage:
 
-The following example gives a 9.5% discount unless Credit, Fee, Enterprise Support or Marketplace Purchase
+- **Validation:** Vantage automatically validates your SQL syntax and column names when you submit a rule. Errors are displayed in the UI.
+- **Execution:** Rules are applied in the order listed. If you need multiple adjustments to the same item (e.g., a discount followed by a fee), create separate rules in sequence.
+- **Date Logic:** Avoid using date logic in your SQL statement. Instead, use the rule’s `start_date` and `end_date` fields to define the application period. If SQL date conditions conflict with the rule's configured dates, the rule may not apply as expected.
+- **Security:** SQL rules run in memory and are validated before execution. There is no risk of SQL injection or impact to your actual CUR data.
+- **Limits:** Each workspace can define up to 20 billing rules. If you need more, contact [support@vantage.sh](mailto:support@vantage.sh).
 
+#### Example: Apply a Discount
+
+The following example applies a 9.5% discount to all cost line items, except those related to credits, fees, AWS support, or marketplace purchases:
 
 ```sql
 UPDATE aws
@@ -304,8 +319,9 @@ AND aws."lineItem/LineItemType" != 'Credit'
 AND aws."lineItem/LineItemType" != 'Fee' 
 AND aws."bill/BillingEntity" != 'AWS Marketplace'
 ```
-
-You can find more examples of SQL Billing Rules in Vantage's [FinOps as Code](https://github.com/vantage-sh/finops-as-code/tree/main/sql-billing-rules) repository.
+:::tip
+You can find more examples of SQL billing rules in the [FinOps as Code](https://github.com/vantage-sh/finops-as-code/tree/main/sql-billing-rules) repository.
+:::
 
 ### Create Billing Rules
 
@@ -391,8 +407,8 @@ To add new billing rules:
   <TabItem value="custom" label="Custom">
     <ol>
       <li>Enter a rule <strong>Title</strong>, such as <i>9.5% discount unless Credit, Fee, Enterprise Support or Marketplace Purchase</i>.</li>
-      <li>Enter a <strong>Start Date</strong> and <strong>End Date</strong></li>
-      <li>Enter the SQL for the rule you are creating. For guidance on creating rules, see <a href="https://docs.vantage.sh/partners/#sql-rule-structure">SQL Billing Rule Structure</a></li>
+      <li>Enter a <strong>Start Date</strong> and <strong>End Date</strong>.</li>
+      <li>Enter the SQL for the rule you are creating. For guidance on creating rules, see the <a href="/partners/#sql-rule-structure">SQL Billing Rule Structure</a> section.</li>
     </ol>
   </TabItem>
 </Tabs>
