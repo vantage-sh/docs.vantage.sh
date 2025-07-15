@@ -135,46 +135,45 @@ If you have a Jira integration, you can create a corresponding issue for a Resou
 :::
 
 
-## Customizing Resource Report {#custom-columns}
+## Customize a Resource Report {#custom-columns}
 
-You can customize which columns appear in your Resource Reports, such as resource specific metadata fields, as well as arrange the columns in any order, allowing you to create reports that contain the exact data you need to report on. 
+You can customize which columns are displayed in your Resource Reports, such as resource-specific metadata fields, as well as arrange the columns in any order.
 
 :::note
-Resource specific metadata fields are only available when a Resource Report is filtered to a single service. Reports that span multiple services will show the default columns only.
+Resource-specific metadata fields are available only when a Resource Report is filtered to a single service. Reports that span multiple services include only the default columns (i.e., **Label**, **Accrued Cost**, **Resource**, **Type**, **Region**, and **Account**).
 :::
 
-**Selecting Columns**
+### Select Columns
 
-To choose which columns appear in your Resource Report:
+To select which columns are displayed on your Resource Report:
 
-1. Enter a **Service Resource Report** or filter a customer Resource Report to a **single service** (e.g., EC2, EBS) .
-2. Click the **Manage Columns** button in the top-right corner of the report table.
-3. Use the checkboxes to toggle metadata columns on or off.
-4. Click anywhere outside the **Manage Columns** dropdown to return to viewing your report
+1. From the top menu, select **Active Resources** > **Services**, then select a service. (Alternatively, filter a Resource Report to a single service, such as EC2.)
+2. From the top-right corner of the report table, click **Manage Columns**.
+3. Select or deselect any of the listed columns to adjust the display of your report.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
     <img alt="GIF of selecting custom columns" width="100%" src="/img/select-columns.gif"/>
 </div>
 <br/>
 
-**Rearranging Columns**
+### Reorder Columns
 
-To reorder columns of your Resource Report:
+To reorder the columns of your Resource Report:
 
-1. Drag the header of a column in between the existing columns you want to place it between. You will see arrows indicating where the column you are dragging will be placed
-2. The order of the columns will be updated in the resource report, as well as in the **Manage Columns** drop down
+1. Click and drag a column header to the position between two existing columns. Arrows are displayed to indicate where the column will be inserted.
+2. The column order is updated in both the Resource Report and the **Manage Columns** dropdown menu.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
     <img alt="GIF of selecting custom columns" width="100%" src="/img/reorder-columns.gif"/>
 </div>
 <br/>
 
-**Sorting**
+### Sort Columns
 
-You can sort all columns within an Active Resource Report by clicking the arrows in the header of a column. The currently sorted column will be highlighted green, with an arrow pointing the direction of the sort order.
+To sort a column in a Resource Report, click the arrow next to a column name in the column header. The active sort column con is highlighted in green, with an arrow indicating the sort direction.
 
 :::note
-All columns are sortable except for Resource, Type, and Team
+All columns are sortable except **Resource**, **Type**, and **Team**.
 ::: 
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
@@ -182,7 +181,7 @@ All columns are sortable except for Resource, Type, and Team
 </div>
 <br/>
 
-The column order is saved per report. If you save a report after customizing the columns, the configuration—including visibility, order, and sort—will persist.
+The column order is saved per report. If you save a report after you customize the columns, the configuration—including visibility, order, and sort—will persist.
 
 ### Resource Report Filters
 
