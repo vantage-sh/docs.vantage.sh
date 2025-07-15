@@ -104,11 +104,37 @@ You have the option to further drill down into your costs:
   :::tip
   For a detailed breakdown of the **Charge Type** grouping, see the [Cost Reports](/cost_reports#charge-type) documentation.
   :::
-- To adjust the date binning, click the data bin menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**.
+- To adjust the date binning, click the data bin menu on the top right of the graph. Select either **Daily**, **Weekly**, or **Monthly**. **Hourly** granularity is available as an opt-in feature. See the [section below](/financial_commitment_reports#hourly-reporting) for details.
 - To change the date range, click the date menu on the top right of the graph and adjust the date range.
   :::note
   You can historically view back as far as your account’s retention period. By default, this period is six months.
   :::
+
+### Hourly Granularity {#hourly-reporting}
+
+:::note
+To enable this feature, contact [support@vantage.sh](mailto:support@vantage.sh). 
+:::
+
+With hourly granularity, you can analyze your financial commitment coverage and utilization, by the hour, for any 14-day period within your data retention. Once this feature is enabled in your account, you may need to update your AWS Cost and Usage Report (CUR) settings. If your CUR is currently set to daily aggregation (the Vantage default), you must [reconnect your AWS integration](connecting_aws#create-a-connection) with a new CUR configured to use an hourly time unit.
+
+You can check the time unit of your existing CUR in one of two ways:
+
+- Navigate to the [AWS integration settings](https://console.vantage.sh/settings/aws) page and look at the **Cost Aggregation** column next to your AWS integration.
+- Navigate to the [Services](https://console.vantage.sh/services) Active Resources page. 
+  - Select **CUR Report Definitions**. 
+  - Select a listed report.
+  - Under the metadata box on the right, check the **Time Unit** field.
+
+From the date bin dropdown menu, select **Hourly**. The X-axis of the chart displays both days and hours for the report you are viewing. When you switch to hourly binning, you will automatically be switched to a 14-day period with the same end date as the date period you are currently viewing. 
+
+:::note
+If you're viewing costs at an hourly granularity and select a date range longer than 14 days, Vantage will display a warning that your view will switch to daily granularity.
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="A view of a full financial commitment report" width="100%" src="https://assets.vantage.sh/blog/hourly-granularity/hourly-granularity-console.png" />
+</div>
 
 ### Commitment Eligibility Filter
 
@@ -124,22 +150,6 @@ You can also adjust the report to include only costs that are eligible for Reser
   - Amazon OpenSearch
   - Amazon EKS
   - Amazon ECS
-
-### Hourly Reporting {#hourly-reporting}
-
-Hourly granularity within Financial Commitment Reports allows users to analyze their financial commitment coverage and utilization by the hour for any 14 day period within their data retention.  
-
-:::note
-Hourly Granularity in Financial Commitment Reports is an Opt-In feature. In order to opt in to Hourly Reporting, please reach out to [support@vantage.sh](mailto:support@vantage.sh). 
-:::
-
-Once this feature is enabled in your account, you will need to reperform your [AWS Integration](https://docs.vantage.sh/connecting_aws#create-a-connection) with a new Cost and Usage Report set to Hourly time unit if your CUR is currently set to Daily aggregation, which is the Vantage default. You can check the time unit of your CUR by finding your AWS integration in the Integration Settings, and examining the "Cost Aggregation" column. Alternatively, you can find your CUR as an Active Resource, and use the "Time Unit" metadata field.
-
-<div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A view of a full financial commitment report" width="100%" src="https://assets.vantage.sh/blog/hourly-granularity/hourly-granularity-console.png" />
-</div>
-
-Viewing your data in daily granularity can be done by selecting 'Hourly' in the date bin drop down. The X-axis of the chart will be reflected to show both days and hours for the report you are viewing. When switching to hourly date binning, you will automatically be switched to a 14 day period with the same end date as the date period you are currently examining. If you are viewing your costs hourly and then select a date range that is larger than 14 days, Vantage will warn you that your costs will be switched to daily if you proceed.
 
 ## Review the Report
 

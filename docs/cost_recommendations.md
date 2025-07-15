@@ -65,9 +65,9 @@ The recommendations that are available for [AWS](/cost_recommendations#aws), [Az
 
 #### Rightsizing Recommendations
 
-If you have resources that are over-allocated in terms of vCPU and GB of RAM, you may be paying more than needed. Rightsizing recommendations can help you save significantly, by identifying rightsizing opportunities and providing specific reasons to rightsize, such as over-provisioned CPU. Vantage supports rightsizing recommendations for EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups (ASGs).
+If you have resources that are over-allocated in terms of vCPU and GB of RAM, you may be paying more than needed. Rightsizing recommendations can help you save significantly by identifying rightsizing opportunities and providing specific reasons to rightsize, such as over-provisioned CPU. Vantage supports rightsizing recommendations for EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups (ASGs). Rather than providing a single suggestion, Vantage shows several viable rightsizing options for a resource, each with projected savings and utilization tradeoffs. This allows teams to select the most appropriate option based on workload patterns and operational preferences.
 
-Each recommendation includes existing utilization metrics, up to three recommendations, potential savings, performance risk, migration effort, and projected CPU utilization. If you wish for memory metrics to be collected and displayed for EC2, AWS requires this to be collected via an agent, either a native [Cloudwatch Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/ec2-metrics-analyzed.html#cw-agent) or [supported third party agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html).
+Each recommendation includes existing utilization metrics, up to three recommendations, potential savings, performance risk, migration effort, and projected CPU utilization. If you want memory metrics collected and displayed for EC2, AWS requires this to be collected via an agent, either a native [CloudWatch Agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/ec2-metrics-analyzed.html#cw-agent) or [supported third-party agent](https://docs.aws.amazon.com/compute-optimizer/latest/ug/external-metrics-ingestion.html).
 
 To view a rightsizing recommendation:
 
