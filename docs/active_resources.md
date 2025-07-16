@@ -203,7 +203,7 @@ The following filters are available for resource reports.
 
 ## Export Resource Report
 
-To export a resource report, click the export button (looks like an arrow pointing down) on the top right of a saved resource report. The resources in the report are exported in a ZIP file with a CSV file per active resource type. Each row includes an active resource along with its cost and metadata. Select one or more Vantage user emails to send the report. Then, click **Export**. It may take a few minutes for the email to be sent.
+To export a resource report, click the export button (looks like an arrow pointing down) on the top right of a resource report (does not need to be saved). The resources in the report are exported in a ZIP file with a CSV file per active resource type. Each row includes an active resource along with its cost and metadata. Select one or more Vantage user emails to send the report. Then, click **Export**. It may take a few minutes for the email to be sent.
 
 ## Additional Active Resource Views
 
