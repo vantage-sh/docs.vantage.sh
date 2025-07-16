@@ -77,7 +77,7 @@ Access to Customer Managed Account is managed through [Role Based Access Control
    - **Cannot Access**: Members of the team will be explicitly denied access to this Managed Account.
    - **Inherit Access**: Access to the Managed Account will be determined by the Everyone Team. 
 
-By default, users on the Everyone Team do not have access to any Managed Accounts. Access must be explicitly granted—either through the Everyone Team or another team. If a user is a part of a Team that **Cannot Access** a Managed Account, they will be unable to access that Managed Account, even if they are granted **Can Access** permission via a different team. Users will maintain the same role that they have in the Management Account when they enter a Managed Account.
+If a user is a part of a Team that **Cannot Access** a Managed Account, they will be unable to access that Managed Account, even if they are granted **Can Access** permission via a different team. Users will maintain the same role that they have in the Management Account when they enter a Managed Account.
 
 ### Access Examples 
 
