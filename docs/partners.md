@@ -64,18 +64,58 @@ To provision a new customer Managed Account:
 </div>
 6. Click **Create Account**.
 
-## Assigning Access to Customer Manged Account {#managed-account-rbac}
-Access to Customer Managed Account is managed through [Role Based Access Control (RBAC)](/rbac). Users in the Management Account with the Owner role can set access to Managed Accounts by Team by:
-- Navigate to the **Teams** tab within Settings.
-- Click on the Team you would like to manage access for, and then click on the **Access** tab
-- Scroll down to **Managed Account Access.** Here, you will see a list of all managed accounts. Here, you can set a Team’s access to a Managed Account
+## Role-Based Access Control {#managed-account-rbac}
 
-By default, the Everyone Team does not grant access to any Managed Accounts, and access to a Managed Account must be given by granting access through the Everyone team or another team. You can set 3 different access levels for a team:
-- **Can Access** - Members of the team will be granted explicit access to the Managed Account
-- **Cannot Access** - Members of the team will be explicitly denied access to this Managed Account
-- **Inherit Access** - Access to the Managed Account will be determined by the Everyone Team
+Access to Customer Managed Account is managed through [Role Based Access Control (RBAC)](/rbac). Users in the Management Account with the **Owner** role can set access to Managed Accounts, based on a user's team, following the steps below:
 
-If a user is a part of a Team that “Cannot Access” a Managed Account, they will not be able to access that Managed Account, even if they are given “Can Access” via a different team. Users will maintain the same role that they have in the Management Account when entering a Managed Account. 
+1. From the top navigation, select **Settings**.
+2. Under **General Settings**, select **Teams**.
+3. Select the team you want to manage access for.
+4. Select the **Access** tab.
+5. In the **Managed Account Access** section, you can view a list of all Managed accounts. You can adjust a team's access accordingly based on the following options:
+   - **Can Access**: Members of the team will be granted explicit access to the Managed Account.
+   - **Cannot Access**: Members of the team will be explicitly denied access to this Managed Account.
+   - **Inherit Access**: Access to the Managed Account will be determined by the Everyone Team. 
+
+By default, users on the Everyone Team do not have access to any Managed Accounts. Access must be explicitly granted—either through the Everyone Team or another team. If a user is a part of a Team that **Cannot Access** a Managed Account, they will be unable to access that Managed Account, even if they are granted **Can Access** permission via a different team. Users will maintain the same role that they have in the Management Account when they enter a Managed Account.
+
+### Access Examples 
+
+*Example 1: Granting Access to a Managed Account*
+
+Team A is assigned **Can Access** to the **Customer A** Managed Account.
+
+**Result:** Any user that belongs to Team A can access the **Customer A** account with their existing role (e.g., Editor).
+
+*Example 2: Denying Access Despite Other Permissions*
+
+A user belongs to Team A with **Can Access** to the **Customer A** Managed Account.
+
+The same user also belongs to Team B, which has **Cannot Access** to the **Customer A** account.
+
+**Result:** The user cannot access the **Customer A** account because the explicit denial overrides all other access.
+
+*Example 3: Using the Everyone Team for Inheritance*
+
+The Everyone Team has **Can Access** to the **Customer A** Managed Account.
+
+A new user is added to Team A, which has **Inherit Access** to the **Customer A** account.
+
+**Result:** The user can access **Customer A** as it inherits access from Everyone Team.
+
+### User Permissions
+
+The following permissions apply based on a user's role.
+
+|                                                                                                                                                                       | Owner        | Integration Owner | Editor       | Viewer       |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- | ------------ | ------------ |
+| View Management Account                                                                                                                                               | <Checkmark/> | <Checkmark/>      | <Checkmark/> | <Checkmark/> |
+| Create resources in Management Account                                                                                                                                | <Checkmark/> | <Checkmark/>      | <Checkmark/> |              |
+| Add and remove Managed Accounts                                                                                                                                       | <Checkmark/> | <Checkmark/>      |              |              |
+| Add and remove provider integrations                                                                                                                                  | <Checkmark/> | <Checkmark/>      |              |              |
+| View Managed Accounts (if access is granted)                                                                                                                                                | <Checkmark/> | <Checkmark/>      | <Checkmark/>               | <Checkmark/>               |
+| Create resources in Managed Accounts (if access is granted)                                                                                                                                 | <Checkmark/> | <Checkmark/>      | <Checkmark/>              |              |
+| Perform additional administrative capabilities in Managed Accounts, like create new users, create new workspaces, manage teams, modify billing options, manage authentication, and manage Virtual Tags (if access is granted) | <Checkmark/> |                   |              |              |
 
 ## Access a Customer's Managed Account
 
@@ -447,20 +487,6 @@ After billing rules are applied to Managed Account, re-processing of the data be
 </div>
 
 To delete a billing rule from being used on a Managed Account, from the **Billings Rules** tab, click the trashcan icon next to the rule's name.
-
-## Role-Based Access Control
-
-Vantage for MSPs has additional role-based access control permissions for the Management Account. See the [Role-Based Access Control documentation](/rbac) for additional information on RBAC in Vantage.
-
-|                                                                                                                                                                       | Owner        | Integration Owner | Editor       | Viewer       |
-| --------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ----------------- | ------------ | ------------ |
-| View Management Account                                                                                                                                               | <Checkmark/> | <Checkmark/>      | <Checkmark/> | <Checkmark/> |
-| Create resources in Management Account                                                                                                                                | <Checkmark/> | <Checkmark/>      | <Checkmark/> |              |
-| Add and remove Managed Accounts                                                                                                                                       | <Checkmark/> | <Checkmark/>      |              |              |
-| Add and remove provider integrations                                                                                                                                  | <Checkmark/> | <Checkmark/>      |              |              |
-| View Managed Accounts                                                                                                                                                 | <Checkmark/> | <Checkmark/>      |              |              |
-| Create resources in Managed Accounts                                                                                                                                  | <Checkmark/> | <Checkmark/>      |              |              |
-| Additional administrative capabilities: create new users, create new workspaces, manage teams, modify billing options, manage authentication, and manage Virtual Tags | <Checkmark/> |                   |              |              |
 
 ## Remove a Managed Account
 
