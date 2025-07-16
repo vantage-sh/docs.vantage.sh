@@ -12,71 +12,98 @@ image: /img/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 1, 2025, with product updates for June 2025._
+_This page was last updated on July 16, 2025, with product updates for July 2025._
+
+## July 2025
+
+## Product Updates
+
+- **Tags confirmation screen:** A new confirmation box is added to the [**Tags** screen](/tagging) to prevent loss of unsaved changes when a user attempts to navigate away from the page.
+- **Filter UI update:** An update was made to the **where** section of a [report filter](/cost_reports#filtering-cost-reports) for improved dropdown usability by auto-focusing the search input when selecting from large filterable lists.
+- **Show/hide previous period:** You can now show or hide the [previous period](/cost_reports#create-report) on Cost Reports. A new toggle is displayed on the report date picker.
+- **Active Resources and Resource Report updates:** The following updates were made to update Resource Reports and add new [Active Resources](/active_resources).
+  - AWS Backup Vault Recovery Points are now available as active resources. 
+  - Stopped EC2 instances are now available as Active Resources. **State** now appears as a report column to determine if the instance is running or stopped. 
+  - Vantage now supports ad-hoc downloads of any Resource Report, allowing users to export filtered views without saving them first.
+  - You can now [customize](/active_resources/#custom-columns) which columns are displayed in your Resource Reports, such as resource-specific metadata fields, as well as arrange the columns in any order.
+- **MSP RBAC enhancements:** Two enhancements [were released](/partners#managed-account-rbac) for Managed Service Provider (MSP) access controls: 
+  - Role Based Access Control (RBAC) is now available for MSP Managed Accounts.
+  - Inherited roles are available for Management Users who enter into Managed Accounts via the Management Account. 
+
+### Kubernetes Agent Updates
+
+_See [May's update](/changelog#k8s-may-25) for the most recent Kubernetes agent release._
+
+## API Updates
+
+- **Billing rules parameter:** The `sql_query` parameter is available on the `/billing_rules` [endpoint](https://vantage.readme.io/reference/createbillingrule) and supports creating [custom billing rules](/partners#custom-billing-rule) for MSP customers. 
+- **Terraform updates:** The following Terraform updates are available:
+  - The `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) is updated so that MSP users can programmatically create SQL billing rules for their customers.
 
 ## June 2025
 
 ### Product Updates 
 
-- **Hourly Granularity for Financial Commitment Reports**: Users can now view Financial Commitment Reports at an [hourly granularity](https://docs.vantage.sh/financial_commitment_reports/#hourly-reporting).  
-- **SQL Billing Engine**: MSP Customers now can create billing rules via the [SQL Billing Engine](https://docs.vantage.sh/partners/#custom-billing-rule), allowing for any custom logic on billing data on both Vantage-schema data, as well as AWS Cost and Usage data.
-- **EKS Extended Support Recommendations**: Vantage now provides [recommendations](https://www.vantage.sh/blog/eks-extended-support) for both EKS clusters currently incurring Extended Support charges, as well as clusters that will incur costs in the next 3 months that caused them to enable faster root-cause analysis.
-- **Updated AWS Rightsizing and Idle Recommendations**: Coverage for [Rightsizing and Idle Recommendations](https://docs.vantage.sh/cost_recommendations#rightsizing-recommendations) has now been extended to EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups. Each new recommendation includes 10+ contextual usage metrics, up to three instance-level optimization suggestions, projections on savings, migration effort, and future utilization metrics.
-- **Provider Summary widget now links to filtered Cost Report**: In the Provider Summary widget in the Overview page, Provider names are now clickable and will bring you to a filtered Cost Report for the selected provider.
-- **Ability to Hide Annotations**: You can now [hide annotations](https://docs.vantage.sh/annotations/#hide-annotations) on a Cost Report.
-- **Integration Tokens added to Integration URL**: You can now obtain your Integration Token from the URL of any integration you are viewing in the Vantage console.
-- **Additional Metadata added to Cost Alerts**: Alerts for a percentage-based [Cost Alert](https://docs.vantage.sh/cost_alerts/) will now include metrics about both percentage and dollar increases to provide additional context to the alert.
-- **Cost Report Y-Axis will not include negative numbers for small values**: Cost Reports Y-Axis wont show have full negative increment when only small values exist on negative side.
- - **Updated color for Cost Report bars with Incomplete Costs**: Days with incomplete data from providers will now be displayed as grey in [Cost Report](https://docs.vantage.sh/cost_reports) bar charts in order to distinguish from complete costs or forecasts.
- - **Auto-Scaling Groups added to Active Resources**: AWS AutoScaling Groups (ASGs) now available as Active Resources.
- - **focus.vantage.sh**: The new micro-site, [focus.vantage.sh](https://focus.vantage.sh/), is a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the [FinOps FOCUS](https://focus.finops.org/what-is-focus/) 1.1 format.
+- **Hourly granularity for Financial Commitment Reports:** You can now view Financial Commitment Reports at an [hourly granularity](/financial_commitment_reports/#hourly-reporting).  
+- **SQL Billing Engine**: MSP customers now can create billing rules via the [SQL Billing Engine](/partners/#custom-billing-rule), allowing for any custom logic on billing data on both Vantage-schema data and AWS Cost and Usage data.
+- **EKS extended support recommendations**: Vantage now provides [recommendations](/cost_recommendations) for both EKS clusters currently incurring Extended Support charges and clusters that will incur costs within the next three months.
+- **Updated AWS rightsizing and idle recommendations**: Coverage for [rightsizing and idle recommendations](/cost_recommendations#rightsizing-recommendations) has now been extended to EC2, RDS, EBS, ECS, Lambda, and Auto-Scaling Groups. Each new recommendation includes 10+ contextual usage metrics, up to three instance-level optimization suggestions, projections on savings, migration effort, and future utilization metrics.
+- **Provider Summary widget now links to filtered Cost Report**: In the Provider Summary widget in the Overview page, provider names are now clickable and will bring you to a filtered Cost Report for the selected provider.
+- **Ability to Hide Annotations**: You can now [hide annotations](/annotations/#hide-annotations) on a Cost Report.
+- **Integration tokens added to integration URL**: You can now obtain your Integration Token from the URL of any integration you are viewing in the Vantage console.
+- **Additional metadata added to Cost Alerts**: Alerts for a percentage-based [Cost Alert](/cost_alerts/) will now include metrics about both percentage and dollar increases to provide additional context to the alert.
+- **Update to small values display**: Cost Report Y-Axis will no longer include negative numbers for small values.
+- **Cost Report bars with incomplete costs**: The bars for days with incomplete data from providers will now be displayed as gray in [Cost Report](/cost_reports) bar charts to distinguish from complete costs or forecasts.
+- **Auto-Scaling Groups added to active resources**: AWS AutoScaling Groups (ASGs) are now available as active resources.
+- **focus.vantage.sh**: The new micro-site, [focus.vantage.sh](https://focus.vantage.sh/), is a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the [FinOps FOCUS](https://focus.finops.org/what-is-focus/) 1.1 format.
 
+### Kubernetes Agent Updates
+
+_See [May's update](/changelog#k8s-may-25) for the most recent Kubernetes agent release._
 
 ### API Updates
-- **Business Metrics API**: the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now supports Segment Tokens to assign Business Metrics for Unit Calculation.
+- **Business Metrics API**: the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now supports segment tokens to assign business metrics for unit calculation.
 - The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
-    - `vantage-integration` [module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) now includes optional `cur_report_time_unit` attribute
+    - `vantage-integration` [module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) now includes an optional `cur_report_time_unit` attribute for adjusting report granularity. 
 
 ## May 2025
 
 ### Product Updates 
 
-- **Anomaly Detection with Resource Attribution**: Vantage will [associate Anomalies with individual Resource ARN’s](https://docs.vantage.sh/cost_anomaly_alerts/#how-anomaly-detection-works) that caused them to enable faster root-cause analysis.
-- **Flexible Match Filter Operation**: The [Flexible Match](https://docs.vantage.sh/cost_reports/#flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
-- **FOCUS Compatible Exports**: Users can now [export](https://docs.vantage.sh/cost_reports#exporting-cost-reports) their cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
-- **Filter by Human Readable Name**: If a resource has a human readable name in Vantage, you can now search for that in addition to the resource ARN when using Filters.
-- **Human Readable Names in Cost Report Legends**: Human readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](https://docs.vantage.sh/cost_reports).
-- **EFS in Active Resources**: EFS has been added as an [Active Resource](https://docs.vantage.sh/active_resources).
-- **Business Metric Sources:** The source of your Business Metric, either Datadog, Cloudwatch, or CSV, will now be displayed in the Business Metrics List page
-- **Google OAuth**: Google Workspace is now available for for SSO authentication.
-- **Previous Period Usage Metrics**: Now when viewing a [Usage-Based Cost Report](https://docs.vantage.sh/usage_based_reporting/), the Cost Report Table will now show previous period Usage in addition to previous period Cost.
-- **Azure VM Active Resources**: Azure VM's has been added to the Active Resources inventory.
-- **Units added to Active Resource Fields**: Units have been added to Active Resource fields where applicable, such as EBS Size or RDS Allocated Storage.
+- **Anomaly Detection with resource attribution**: Vantage will [associate anomalies with individual resource ARNs](/cost_anomaly_alerts/#how-anomaly-detection-works) to enable faster root-cause analysis.
+- **Flexible match filter operation**: The [Flexible Match](/cost_reports/#flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
+- **FOCUS-compatible exports**: You can now [export](/cost_reports#exporting-cost-reports) your cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
+- **Filter by human-readable name**: If a resource has a human-readable name in Vantage, you can now search for that in addition to the resource ARN when using filters in reports.
+- **Cost Report legend human-readable names**: Human-readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](/cost_reports).
+- **EFS in active resources**: EFS has been added as an [active resource](/active_resources).
+- **Business Metric sources:** The source of your Business Metric—either Datadog, CloudWatch, or CSV—will now be displayed on the main Business Metrics page.
+- **Google OAuth**: Google Workspace is now available for SSO authentication.
+- **Previous Period Usage Metrics**: When you view a [Usage-Based Cost Report](https://docs.vantage.sh/usage_based_reporting/), the table view will now show previous period usage in addition to previous period cost.
+- **Azure VM active resources**: Azure VMs are now available as active resources.
+- **Units added to active resource fields**: Units have been added to active resource fields, where applicable, such as **EBS Size** or **RDS Allocated Storage**.
 
-### Kubernetes Agent Updates 
+### Kubernetes Agent Updates {#k8s-may-25}
 
-- **Anomaly Alerts**: Anomaly Alerts endpoint now returns the resource that drove the anomaly, if applicable
-- **Data Export:** New `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport) and `/data_exports/{data_export_token}` [endpoint](https://vantage.readme.io/reference/getdataexport) available to initiate a CSV export of a Cost Report, and check on the status of an export to retrieve the URL to download the report
-- **Business Metrics**: The `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now has new objects for datadog_metric_fields and cloudwatch_fields in order to configure Datadog and Cloudwatch Business Metric integrations programatically
-
-
-- **Configurable Polling Period:** You can now set [configurable polling periods](https://www.vantage.sh/blog/ephemeral-workload-monitoring) for the Vantage kubernetes agent, as short as 5 seconds.
+**Configurable polling period:** You can now set [configurable polling periods](/kubernetes_agent/#configure-polling-period) for the Vantage Kubernetes agent, as short as 5 seconds.
 
 ### API Updates
-- **Data Export API:** New parameter of `schema` in the `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport)
+
+- **Data Export API update:** New `schema` parameter is available in the `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport)
+- **Anomaly Alerts**: The Anomaly Alerts [endpoint](https://vantage.readme.io/reference/getanomalyalerts) now returns the resource that drove the anomaly, if applicable.
+- **Business Metrics**: The `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now has new objects for `datadog_metric_fields` and `cloudwatch_fields` to programmatically configure Datadog and CloudWatch business metric integrations.
 - The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
-    - `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) now has additional optional attributes for `cloudwatch_fields` and `datadog_metroc_fields`
-    - `cost_alerts` data source
+    - `vantage_business_metric` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/business_metric) now has additional optional attributes for `cloudwatch_fields` and `datadog_metric_fields`.
+    - The `vantage_cost_alert` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/cost_alert) is now available. 
 
 ## April 2025
 
 ### Product Updates 
 
-- **Vantage MCP Server:** The [Vantage MCP Server](https://github.com/vantage-sh/vantage-mcp-server/tree/main) is now generally available, which allows customers to seamlessly interact with Vantage through LLM tools.
+- **Vantage MCP Server:** The [Vantage MCP Server](https://github.com/vantage-sh/vantage-mcp-server/tree/main) is now generally available, which allows you to interact with Vantage through LLM tools.
 - **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
-- **Twilio Integration:** Vantage now integrates with [Twilio](https://docs.vantage.sh/connecting_twilio) as its latest cost provider.
-- **Datadog Query Syntax:** Customers can now use [Datadog queries](https://docs.vantage.sh/per_unit_costs#importing-from-datadog) directly within Vantage to import Business Metrics.
-- **Unit Cost Export:** You can now [export Unit Costs](https://docs.vantage.sh/cost_reports#exporting-cost-reports) from Cost Reports from the Vantage console.
+- **Twilio integration:** Vantage now integrates with [Twilio](/connecting_twilio) as its latest cost provider.
+- **Datadog query syntax:** You can now use [Datadog queries](/per_unit_costs#importing-from-datadog) directly within Vantage to import Business Metrics.
+- **Unit Cost export:** You can now [export Unit Costs](/cost_reports#exporting-cost-reports) from Cost Reports from the Vantage console.
 - **App integrations:** The connection workflows for [Microsoft Teams](/microsoft_teams) and [Slack](/slack) have moved from the **Notifications** page to the **Settings** page in the App integrations section.
 - **Jira budget display fix:** A fix was made to the **Budget Alerts** screen so that if a [Jira alert](/jira) is set for a budget, this now displays for configured alerts.
 - **EBS volume unattached times:** EBS volume attach/detach times are available when querying EBS volume [active resources](/active_resources).
@@ -87,19 +114,19 @@ _This page was last updated on July 1, 2025, with product updates for June 2025.
   - A new button for deleting a billing rule from a Managed Account is available on the Managed Account's billing rule settings.
 - **Azure amortization:** You can now switch between viewing your actual costs and your [amortized costs](/connecting_azure#azure-amortization) in Azure Cost Reports.
 - **Snowflake query tags:** [Snowflake](/connecting_snowflake) query tags that are written in JSON will now be parsed accordingly and turned into tag key/values. 
-- **Savings Plan Covered Spend renamed:** Savings Plan Covered Spend has been renamed in reports to Savings Plan Discounted Spend in [Financial Commitment Reports](https://docs.vantage.sh/financial_commitment_reports). 
+- **Savings Plan Covered Spend renamed:** Savings Plan Covered Spend has been renamed in reports to Savings Plan Discounted Spend in [Financial Commitment Reports](/financial_commitment_reports). 
 - **ARN names:** ARN names have been added to EBS and CloudFront. When viewing a CloudFront distribution in a Cost Report, the domain is displayed instead of the shortened ARN for easier reading. In Cost Reports and Active Resource views, when a human-readable name is available for an EBS volume, the ARN is replaced for a more readable experience.
-- **Cloudwatch metrics for EBS:** you can now view VolumeReadBytes, VolumeWriteBytes, and VolumeQueueLength directly within [Resources Reports](https://docs.vantage.sh/active_resources/) for EBS volumes.
+- **CloudWatch metrics for EBS:** you can now view VolumeReadBytes, VolumeWriteBytes, and VolumeQueueLength directly within [Resources Reports](/active_resources) for EBS volumes.
 - **New report placeholder:** The default text in the Save Report modal for Cost Reports has been updated—you no longer need to delete "Untitled Report" before entering a title.
-- **Hover state added to Autopilot managed service graphs:** you can now hover over the charts within [Autopilot](https://docs.vantage.sh/autopilot#autopilot-graphs).
-- **Updated UI for Business Metrics:** we have updated the UI for business metrics for [Business metrics](https://docs.vantage.sh/per_unit_costs). You can now find your imported your data in the “Imported Metrics” tab.
-- **Description added to EC2 Termination Recommendations:** we now include more specific language in the Recommendations tab and Active Resources for EC2 instances that are recommended to be terminated.
-- **Support for Multiple label grouping values for Datadog Business Metrics:** you can now group by multiple label values for Datadog Business Metrics.
-- **Unit Standardization for Hours:** Vantage will now automatically correct various forms of the “Hours” usage units across providers, such as “Hrs” or “hr” to enhance group-by experiences for usage types that use hours.
+- **Autopilot managed service graphs:** You can now hover over the charts within [Autopilot](/autopilot#autopilot-graphs).
+- **Updated UI for Business Metrics:** Imported [business metrics](/per_unit_costs) data is now added to the **Imported Metrics** tab.
+- **EC2 termination recommendations:** More specific language is added to the Recommendations tab regarding Active Resources for EC2 instances that are recommended to be terminated.
+- **Multiple label grouping values for Datadog Business Metrics:** You can now group by multiple label values for Datadog Business Metrics.
+- **Unit standardization for hours:** Vantage will now automatically correct various forms of the “Hours” usage units across providers, such as “Hrs” or “hr” to enhance group-by experiences for usage types that use hours.
 
 ### Kubernetes Agent Updates 
 
-- **Updated Efficiency Calculations:** Kubernetes [efficiency calculations](https://docs.vantage.sh/kubernetes#efficiency-calculations) will now be prorated based on node uptime for a more accurate calculation. 
+- **Updated Efficiency Calculations:** Kubernetes [efficiency calculations](/kubernetes#efficiency-calculations) will now be prorated based on node uptime for a more accurate calculation. 
 
 ### API Updates
 
@@ -107,13 +134,13 @@ _This page was last updated on July 1, 2025, with product updates for June 2025.
 - **Costs endpoint:** The `workspace_token` and `page` parameters are now available on the `/costs` [endpoint](https://vantage.readme.io/reference/getcosts).
 - **Anomaly filtering:** Filtering (e.g., for category or provider) parameters have been added to the `/anomaly_alerts` [endpoint](https://vantage.readme.io/reference/getanomalyalerts). 
 - **Cost Alerts endpoints:** New `cost_alerts` [endpoints](https://vantage.readme.io/reference/getcostalertevent) are available to support the newly released Cost Alerts feature.
-- **Unit Costs:** The new endpoint `/unit_costs` [endpoint](https://vantage.readme.io/reference/getunitcosts) lets you retrieve the Unit Costs for a Cost Report
-- **Updates to Billing Rules API:** New params of `start_date`, `end_date`, and `apply_to_all` for additional flexibility when creating billing rules
-- **Data Export API:** The new endpoint
-- **Pagination in Tags API endpoint:** results in the /tags endpoint are now paginated for better experience when fetching large list of tag keys or tag values.
+- **Unit Costs:** The new `/unit_costs` [endpoint](https://vantage.readme.io/reference/getunitcosts) lets you retrieve the Unit Costs for a Cost Report.
+- **Updates to Billing Rules API:** The new parameters `start_date`, `end_date`, and `apply_to_all` are available for additional flexibility when creating billing rules.
+- **Data Export:** New `/costs/data_exports` [endpoint](https://vantage.readme.io/reference/createcostexport) and `/data_exports/{data_export_token}` [endpoint](https://vantage.readme.io/reference/getdataexport) available to initiate a CSV export of a Cost Report, and check on the status of an export to retrieve the URL to download the report.
+- **Pagination in tags API endpoint:** Results in the `/tags` endpoint are now paginated for a better experience when fetching large list of tag keys or tag values.
 - The following updates were made to the Terraform provider. The latest version is [version 0.1.56](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs):
-    - `vantage_cost_alerts` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) was added
-    - `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) was updated to include `start_period`, `end_period`, and `apply_to_all`
+    - `vantage_cost_alerts` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs) was added.
+    - `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) was updated to include `start_period`, `end_period`, and `apply_to_all`.
  
 ## March 2025
 

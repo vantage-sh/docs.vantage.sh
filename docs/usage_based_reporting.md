@@ -39,7 +39,7 @@ To get the most value from these reports, create a filter that represents a sing
    - The graph and chart display usage over the selected timeframe.
    - The total cost is displayed as a trendline on the chart.
    - In the table below the graph, the **Usage Unit** (e.g., GB-Hours or Metrics) and **Accrued Usage (a numerical value of calculated usage for that unit)** columns are displayed to show accrued usage for each grouping. The **Usage Unit** column is normalized for consistency across usage type for spelling, abbreviation, and capitalization.
-   - **Accrued Cost, Previous Period Cost**, and **Change** between these cost values are also displayed. Click the **By Date** option above the table to see the usage data split out by date.
+   - **Accrued Usage**, **Previous Period Usage**, **Accrued Cost**, **Previous Period Cost**, and **Change** between these cost values are also displayed. Click the **By Date** option above the table to see the usage data split out by date.
 4. Save the report.
 
 :::note
