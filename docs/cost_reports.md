@@ -32,12 +32,7 @@ To get started with Cost Reports, you can also watch these video demos on [Vanta
    - On the calendar section, under **Custom**, select the first date period field, then hover your mouse over the calendar to highlight and select a date range. (The current month is selected by default.)
    - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period. 
    - Click **Apply**. 
-   <details><summary>Click to view example video</summary>
-   <p>In this example, the user makes a custom comparison to change the comparison from March and April to February and April.</p>
-    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF that shows a user opening the date menu. The user selects a current period and then selects the custom option to choose a custom comparison date period." width="100%" src="/img/date-comparison.gif"/>
-    </div>
-   </details>
+   - You can also disable the previous period from showing on a report. Click the toggle next to the Previous Period on the Date Picker.
 7. Select one of the following date bins:
    - **Cumulative:** Displayed as a line, pie, or area chart on the graph, along with a forecast for line and area charts, if available
    - **Daily, Weekly, or Monthly:** Displayed as a bar, line, or area chart, with date ranges binned on the bottom axis and a forecast, if available

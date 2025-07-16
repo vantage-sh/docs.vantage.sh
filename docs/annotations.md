@@ -54,9 +54,9 @@ When an annotation is created, [a corresponding issue](/annotations#issue) is al
 
 ## Hide Annotations
 
-1. First, open the annotations pane from the top right of any Cost Report by clicking the **Annotation** icon (looks like a word bubble). 
-2. Click the Annotations Settings icon, which is a gear icon, in the top right of the Annotations Pane
-3. You can toggle Annotations visibility in the Chart Display section
+1. From the top right of any Cost Report, click the **Annotation** icon (looks like a word bubble).
+2. From the top right of the Annotations pane, click the **Annotations Settings** icon (looks like a gear). 
+3. You can toggle an annotation's visibility in the **Chart Display** section.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Hiding Annotations" width="80%" src="/img/hide-annotations.png" />
