@@ -106,7 +106,7 @@ The following table provides details for each field within the template, as well
     </tr>
     <tr>
       <td><code>ConsumedUnit</code></td>
-      <td>No</td>
+      <td>Only when ConsumedQuantity is provided</td>
       <td>Unit of usage associated with <code>ConsumedQuantity</code></td>
       <td>Alphanumeric</td>
       <td><code><a href="https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=consumed#modal-column-14491">ConsumedUnit</a></code></td>
