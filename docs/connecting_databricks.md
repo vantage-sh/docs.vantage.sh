@@ -61,6 +61,10 @@ After completing all the steps above, your Databricks integration status should 
 
 Databricks generally delivers usage logs once per day.
 
+### Connect via Terraform
+
+You can also connect your Databricks account using the `terraform-databricks-vantage-integration` module. Follow the steps in the module's [README](https://github.com/vantage-sh/terraform-databricks-vantage-integration) to connect your account. 
+
 ### Next Steps: Manage Workspace Access
 
 Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
