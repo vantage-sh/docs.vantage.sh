@@ -230,11 +230,45 @@ The version noted in the console for your agent is updated when cost data is imp
 AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#aks) again when updating.
 :::
 
-## (Optional) Use S3 for Data Persistence {#data-persistence}
+## Data Persistence {#data-persistence}
 
-The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. The default deployment option uses a Persistent Volume and works for clusters ranging from tens to thousands of nodes; however, if Persistent Volumes are not supported with your cluster, an alternative configuration, using S3, is available for agents deployed in AWS. If you require persistence to a different object store, you can contact [support@vantage.sh](mailto:support@vantage.sh).
+The agent requires a persistent store for periodic backups of time-series data as well as checkpointing for periodic reporting. By default, the Helm chart configures the agent to use a Persistent Volume (PV), which works well for clusters ranging from tens to thousands of nodes.
 
-### Configure Agent for S3 Persistence
+The Helm chart sets a default `persist.mountPath` value of `/var/lib/vantage-agent`, which enables PV-based persistence by default. To disable PV persistence, set `persist: null` in your `values.yaml`.
+
+If Persistent Volumes are not supported with your cluster, or if you prefer to centralize persistence, S3 is available as an alternative for agents deployed in AWS. See the [section below](/kubernetes_agent#configure-agent-for-s3-persistence) for details. If you require persistence to a different object store, contact [support@vantage.sh](mailto:support@vantage.sh).
+
+:::note
+If both a Persistent Volume and an S3 bucket are configured, the agent will prioritize S3.
+:::
+
+### Persistent Metrics Recovery {#persistent-metrics}
+
+:::note
+Persistent Metrics Recovery is enabled by default in Kubernetes Agent version v1.0.29. (See the [Upgrade the Agent](/kubernetes_agent/#upgrade-agent) section for details on how to upgrade your agent to the latest version.)
+:::
+
+Persistent Metrics Recovery ensures hourly Kubernetes metrics are preserved during upload failures. Every hour, the agent generates four report files in the container's temp directory, which are then uploaded to S3. When the agent can’t upload an hourly report, for example, due to a Vantage API or S3 outage, it performs the following actions:
+
+- Compresses the reports into a `.tar` archive and moves them to a backup location, either:
+    - A mounted volume in the container, or
+    - An S3 bucket [you configure](/kubernetes_agent/#configure-agent-for-s3-persistence)
+- Retries the upload until successful or until the report is 96 hours old.
+- Deletes old reports to manage disk space and avoid unbounded storage use.
+
+If any hourly data is not successfully uploaded within this window, it may still be lost.
+
+:::note
+This feature does not require additional configuration flags, but it does respect the `PERSIST_DIR` or `PERSIST_S3_BUCKET` environment variables, if provided. If neither is set, the agent will not store hourly backups. For persistence configuration options, see the [section above](/kubernetes_agent#data-persistence).
+:::
+
+With Persistent Metrics Recovery, the agent will temporarily hold all four report files in the container's temp directory before uploading, rather than processing them one-by-one. Note that this may result in slightly higher short-term disk usage, but it does not increase memory usage.
+
+:::tip
+The agent emits logs and metrics to indicate when reports are stored, retried, and successfully uploaded. These logs help monitor recovery status and confirm no data loss occurred. To view these logs, run the `kubectl logs <pod-name>` command.
+:::
+
+### (Optional) Configure Agent for S3 Persistence {#configure-agent-for-s3-persistence}
 
 The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
 
@@ -263,7 +297,14 @@ Below are the expected associated permissions for the IAM role:
 }
 ```
 
-Once the permissions are available, the agent can be configured to start with S3 persistence via the environment variable `VANTAGE_PERSIST_S3_BUCKET` or, if using the Helm chart, via the `--set persist=null --set persistS3.bucket=example-bucket-name` values.
+Once permissions are available, you can enable S3 persistence using one of the following:
+
+- **Environment variable**: Set `VANTAGE_PERSIST_S3_BUCKET` in the agent deployment.
+- **Helm chart values**:
+  ```bash 
+  --set persist=null \
+  --set persistS3.bucket=example-bucket-name
+  ```
 
 The agent will write persisted data to the `$CLUSTER_ID/` prefix within the bucket. Multiple agents can use the same bucket as long as they do not have overlapping `CLUSTER_ID` values. An optional prefix can be prepended with `VANTAGE_PERSIST_S3_PREFIX` resulting in `$VANTAGE_PERSIST_S3_PREFIX/$CLUSTER_ID/` being the prefix used by the agent for all objects uploaded.
 
