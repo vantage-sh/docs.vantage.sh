@@ -18,7 +18,7 @@ FOCUS is an [open-source schema](https://focus.finops.org/) that standardizes co
 
 <div style={{ position: 'relative', width: '100%', paddingBottom: '56.25%', height: '0', overflow: 'hidden' }}>
   <iframe 
-    src="https://www.youtube.com/embed/bhSyaAG6_tU?si=BcjOEGLNB8Ic7j5Z?rel=0&color=white&modestbranding=1&wmode=transparent&autoplay=1" 
+    src="https://www.youtube.com/embed/bhSyaAG6_tU?si=BcjOEGLNB8Ic7j5Z?rel=0&color=white&modestbranding=1&wmode=transparent" 
     allowFullScreen
     style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', borderRadius: '10px' }}
   ></iframe>
