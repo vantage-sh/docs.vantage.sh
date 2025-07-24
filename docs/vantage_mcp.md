@@ -19,7 +19,7 @@ import TabItem from '@theme/TabItem';
 
 With the Vantage MCP ([Model Context Protocol](https://modelcontextprotocol.io/introduction)), you can use natural language to explore your organization’s cloud costs via MCP clients, like Claude, Cursor, Goose, and others. Ask questions about your organization's previous and current cloud cost spend, cost tagging, provider integrations, and more. The MCP lets you interact with your cloud cost data through AI assistants and MCP clients. By acting as a bridge to Vantage's existing APIs, the Vantage MCP Server lets you query cloud spend data using natural language and makes cost analysis more intuitive. 
 
-Vantage has a remote and self-hosted version of the MCP.
+Vantage has remote and self-hosted versions of the MCP.
 
 - **Self-Hosted MCP**: With the Self-Hosted MCP, customers are responsible for deploying and managing their own instance of the MCP server, which includes managing API keys, handling authentication, and performing regular updates to keep up with new releases.
 - **Remote MCP:** With the Remote Vantage MCP, Vantage manages all the above items. Customers do not need to deploy a new instance of the MCP when updates are released.
@@ -57,7 +57,7 @@ Before getting started, make sure you have an active Vantage account. Authentica
 You can't use a remote MCP instance without linking it to a Vantage user, since authentication is handled through existing Vantage accounts. If you need to support users who don't have Vantage accounts, use the [self-hosted MCP](https://github.com/vantage-sh/vantage-mcp-server), which supports API key-based authentication.
 
 :::tip
-Guidance is provided below for how to install with some popular clients, like Claude and Goose. Instructions for your specific client may vary. Follow
+Guidance is provided below for how to install the remote MCP with some popular clients, like Claude and Goose. Instructions for your specific client may vary.
 ::: 
 
 :::note ChatGPT Users
@@ -80,7 +80,7 @@ At this time, the official ChatGPT client supports MCP clients only for deep res
 <Tabs groupId="mcp">
 <TabItem value="claude" label="Claude">
 
-1. From the top of Claude for Desktop, click Claude > Settings (keyboard shortcut `Command + ,`).
+1. From the top of Claude for Desktop, click **Claude** > **Settings **(keyboard shortcut `Command + ,`).
 2. From the left menu of the **Settings** pane, select **Developer**.
 3. Click **Edit Config**. A configuration file is created at:
    - **macOS:** `~/Library/Application Support/Claude/claude_desktop_config.json`
@@ -103,7 +103,7 @@ At this time, the official ChatGPT client supports MCP clients only for deep res
 <TabItem value="goose" label="Goose">
 
 1. From the left navigation pane in Goose, click **Extensions.** 
-2. On the **Extensions** screen, click **+** A**dd custom extension**.
+2. On the **Extensions** screen, click **+ Add custom extension**.
 3. Enter the following extension details:
     - For **Extension Name**, enter *Vantage*.
     - For **Type**, select **STDIO**. 
@@ -125,7 +125,7 @@ You may need to close and reopen your client for the authorization screen to dis
 
 After you configure the MCP server, an authorization screen is displayed in your browser. 
 
-1. Read the authorization information. Then, click **Allow Access** to proceed.
+1. Read the authorization information, then click **Allow Access** to proceed.
     <div style={{display:"flex", justifyContent:"center"}}>
         <img alt="Authorize the MCP in Vantage" width="60%" src="/img/mcp/vantage-auth.png" />
     </div>
@@ -156,7 +156,7 @@ You may encounter conversation limits when prompting Claude. If you encounter a 
 
 <TabItem value="goose" label="Goose">
 
-Start a new chat to begin prompting Goose. For example, you can ask, _“In Vantage, which workspaces do I have access to?”_ Goose uses the appropriate MCP tool and replies with workspace access details.
+Start a new chat to begin prompting Goose. For example, you can ask, _“In Vantage, which workspaces do I have access to?”_ Goose uses the appropriate [MCP tool](/vantage_mcp#mcp-tools) and replies with workspace access details.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Chatting with Goose and Vantage MCP" width="80%" src="/img/mcp/goose-chat.png" />
@@ -237,7 +237,7 @@ Claude responds:
 
 > *It looks like there are no S3 costs in us-east-1 for Marketing Workspace. Let me try a few other workspaces to see if your S3 costs might be in a different workspace. Let me check the "Management" workspace which seems like it might be a primary workspace.*
 
-It then uses the `query-costs` tool again to look in other workspaces until it finds spend in a workspace. 
+It then uses the `query-costs` tool again to look in other workspaces until it finds spend in a workspace: 
 
 > _Based on your query for S3 costs in us-east-1 over the last 30 days (June 22 - July 22, 2025), here's what I found:_
 >
