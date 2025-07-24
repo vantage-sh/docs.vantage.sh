@@ -38,6 +38,14 @@ The Vantage MCP Server is compatible with any AI agent that provide MCP client f
 
 You can find a complete list of example clients in the [MCP documentation](https://modelcontextprotocol.io/clients).
 
+## Access and Rate Limits
+
+Prompts sent to the Vantage MCP are processed entirely within the AI client’s environment and are not visible to Vantage. While Vantage can see which APIs are called on your behalf, it does not have access to the content of your prompts.
+
+The Vantage MCP Server itself does not impose explicit rate limits; however, usage is subject to Vantage's underlying API rate limits, which are applied at the account level. These limits include a general rate limit of 1,000 requests per hour across all API endpoints, and a more restrictive limit of 5 requests per 5 seconds, specifically for Cost Report endpoints.
+
+These limits are account-wide rather than per-user restrictions, meaning all API activity within your Vantage account contributes to these thresholds. In addition, when using the MCP with AI agents, you should consider the token limits and processing constraints of your chosen AI platform, as these may also impact your overall usage patterns and workflow efficiency.
+
 ## Configure the Self-Hosted Vantage MCP
 
 Follow the steps provided in the Self-Hosted MCP’s [GitHub repository](https://github.com/vantage-sh/vantage-mcp-server). These instructions will provide you with all necessary prerequisites needed to set up and deploy the self-hosted, local MCP.
@@ -46,11 +54,11 @@ Follow the steps provided in the Self-Hosted MCP’s [GitHub repository](https:/
 
 Before getting started, make sure you have an active Vantage account. Authentication with the remote MCP uses OAuth. Once you’ve configured your client, a browser window is displayed, which prompts you to log in to Vantage, just like you would at [console.vantage.sh](https://console.vantage.sh/).
 
-:::note
 You can't use a remote MCP instance without linking it to a Vantage user, since authentication is handled through existing Vantage accounts. If you need to support users who don't have Vantage accounts, use the [self-hosted MCP](https://github.com/vantage-sh/vantage-mcp-server), which supports API key-based authentication.
-:::
 
-Guidance is provided below for how to install with some popular clients, like Claude and Goose. Instructions for your specific client may vary. 
+:::tip
+Guidance is provided below for how to install with some popular clients, like Claude and Goose. Instructions for your specific client may vary. Follow
+::: 
 
 :::note ChatGPT Users
 At this time, the official ChatGPT client supports MCP clients only for deep research. General-use MCPs, like Vantage, are not supported. You can use the Goose client to connect to the ChatGPT-powered LLMs, and also connect to the Vantage MCP server. 
@@ -158,6 +166,15 @@ Start a new chat to begin prompting Goose. For example, you can ask, _“In Vant
 
 </Tabs>
 
+## Revoke MCP Access Token
+
+You can revoke your MCP Access Token at any time in the Vantage console. 
+
+1. From the top navigation in Vantage, click **Settings**.
+2. On the left navigation, under **General Settings**, select **API Access Tokens**.
+3. Select the **MCP Server Token** tab. 
+4. To delete your token, click **Remove MCP Access**. You can restore access at any time by re-entering the authentication flow with an MCP client.
+
 ## Vantage MCP Tools {#mcp-tools}
 
 MCP tools “are a powerful primitive in the Model Context Protocol (MCP) that enable servers to expose executable functionality to clients. Through tools, LLMs can interact with external systems, perform computations, and take actions in the real world” ([Source](https://modelcontextprotocol.io/docs/concepts/tools)). The Vantage MCP exposes the following tools:
@@ -253,6 +270,7 @@ Consider using the following best practices when working with the Vantage MCP:
 
 - Add context to your prompts. Mention primitives like provider, time frame, workspace, specific service, or tags, when applicable.
     - _Example: What was our GCP BigQuery spend for September and October 2024?_
+- Construct your prompts using group-by statements to help reduce token consumption (e.g., group costs by month as opposed to day).
 - Ask one thing at a time and avoid stacking various unrelated questions. Instead of, _“What were our EC2 costs last month, and also which accounts are over budget, and can you tell me if any tags are missing?”_ consider asking these as separate prompts to keep responses organized and information relevant.
 - Be specific. Don’t assume the client knows what terms like “important” mean. Instead of _"What are my most important costs to monitor?"_, try something more specific, like, _"Which services have the highest costs without tags?"_ or _"Which accounts had the biggest increase in spend over the past two months?"_
 
