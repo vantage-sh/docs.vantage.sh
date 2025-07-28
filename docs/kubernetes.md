@@ -2,6 +2,7 @@
 id: kubernetes
 title: Kubernetes Costs
 description: Kubernetes cost reporting and efficiency metrics documentation for Vantage including costs by cluster, namespace, and label as well as idle costs and pod efficiency metrics.
+toc_max_heading_level: 4
 keywords:
   - Kubernetes
   - Kubernetes costs
@@ -25,11 +26,34 @@ Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, an
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
 
+### Additional Kubernetes Filters
+
+Vantage provides advanced filtering and grouping options for Kubernetes Cost Reports and Efficiency Reports. These additional filters help you more accurately allocate and optimize Kubernetes spend.
+
+#### Filter by CPU, RAM, Storage, and GPU
+
 On Kubernetes Cost Reports, you can also group and filter to see costs by CPU, RAM, storage, and GPU. To filter by these categories:
 
 1. Create a new Kubernetes Cost Report.
 2. Add the following filter:
-   - For example to filter by CPU: All costs from **Kubernetes** where **Tag** **vntg:category** is **cpu**
+   - For example, to filter by CPU: All costs from **Kubernetes** where **Tag** **vntg:category** is **cpu**
+
+#### Filter by PVC and Node Labels {#pvc-node-label}
+
+:::note 
+Node Labels are collected by default with the Vantage Kubernetes agent. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#node-pvc-labels) for information on how to configure the collection of PVC Labels. 
+:::
+
+In addition to standard Kubernetes metadata, like Cluster, Namespace, and Label, Vantage also supports filtering and grouping by Persistent Volume Claim (PVC) Label and Node Label. These labels are collected by the Vantage Kubernetes agent and appear as [tags](/tagging). These tags are denoted by a tag value of `pvc:xyz` for PVCs and `node:xyz` for Nodes. You can use these labels to attribute workload costs to underlying storage or node-level infrastructure for more accurate cost allocation. 
+
+- PVC Labels are collected from persistent volumes associated with pods. 
+- Node Labels are collected from the nodes where pods are scheduled. 
+
+Each cost entry is associated with the PVC and Node at the time of use. If workloads span multiple PVCs or move across nodes, their cost is accurately apportioned and labeled accordingly.
+
+:::tip
+PVC and Node Labels can also be used in [Virtual Tags](/tagging) to define custom cost allocation dimensions for things like team, environment, application, or storage.
+:::
 
 ### Cost Data Source {#cost-data-source}
 
@@ -75,7 +99,9 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
    - The **Kubernetes costs where...** tile is displayed. Click **+ New Rule**.
    - From the filter dropdown menu, select either **Cluster**, **Namespace**, **Category** (cpu, ram, or gpu) or **Label**.
      :::note
-     See the [section below](/kubernetes#gpu) for information on how to enable GPU metrics.
+      See the [section below](/kubernetes#gpu) for information on how to enable GPU metrics.  
+
+      You can also filter by PVC Label and Node Label, which are collected by the Vantage Kubernetes agent and appear as label filters in the format `pvc:xyz` and `node:xyz`. 
      :::
    - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the second dropdown menu.
    - Click **Save**.
