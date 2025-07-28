@@ -107,8 +107,16 @@ In addition, when configuring the cluster ID, use a simplified, human-readable n
 
 You can optionally enable the collection of annotations and namespace labels.
 
-- **Annotations:** The agent accepts a comma-separated list of annotation keys, called `VANTAGE_ALLOWED_ANNOTATIONS`, as an environment variable at startup. To enable the collection of annotations, configure the `agent.allowedAnnotations` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with a list of annotations to be sent to Vantage. Note there is a max of 10 annotations, and values are truncated after 100 characters.
-- **Namespace labels:** The agent accepts `VANTAGE_COLLECT_NAMESPACE_LABELS` as an environment variable at startup. To enable the collection of namespace labels, configure the `agent.collectNamespaceLabels` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L34).
+- **Annotations:** The agent accepts a comma-separated list of annotation keys, called `VANTAGE_ALLOWED_ANNOTATIONS`, as an environment variable at startup. To enable the collection of annotations, configure the `agent.allowedAnnotations` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml) with a list of annotations to be sent to Vantage. Note there is a max of 10 annotations, and values are truncated after 100 characters.
+- **Namespace labels:** The agent accepts `VANTAGE_COLLECT_NAMESPACE_LABELS` as an environment variable at startup. To enable the collection of namespace labels, configure the `agent.collectNamespaceLabels` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml).
+
+### (Optional) Enable Collection of PVC Labels {#node-pvc-labels}
+
+:::note
+This feature is available with Vantage Kubernetes agent `v1.0.30` and later.
+:::
+
+By default, Vantage enables collection of Node Labels. You can optionally enable collection of PVC Labels by setting `VANTAGE_COLLEC_PVC_LABELS=true` in the agent's [Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml). PVC Labels are collected from persistent volumes associated with pods. 
 
 ### Manifest-Based Deployment Option {#manifest-deploy}
 
@@ -153,7 +161,7 @@ To enable a configurable polling interval for the Vantage Kubernetes Agent, spec
 
 The polling interval defines how frequently the agent will poll pods for utilization information. The polling interval applies to the entire cluster. The default polling period for the agent is 60 seconds, but the agent has allowable periods, including 5 seconds, 10 seconds, 15 seconds, 30 seconds, and 60 seconds. 
 
-To set the agent’s polling period, configure the `agent.pollingInterval` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L31) with the desired polling period in seconds, such as `--set agent.pollingInterval=30` for a 30-second polling interval. If you enter a polling interval that is not in the list of allowed intervals, the agent will fail to start, and an error message is returned within the response.
+To set the agent’s polling period, configure the `agent.pollingInterval` [parameter of the Helm chart](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml) with the desired polling period in seconds, such as `--set agent.pollingInterval=30` for a 30-second polling interval. If you enter a polling interval that is not in the list of allowed intervals, the agent will fail to start, and an error message is returned within the response.
 
 :::tip
 To see the current polling period for a cluster, use the `kubectl describe pod/<pod_name> -n vantage` command. In the Vantage Helm chart, the polling interval is found in the `VANTAGE_POLLING_INTERVAL` environment variable.
@@ -350,7 +358,7 @@ This issue arises when the agent’s Service Account is not properly configured 
       ```bash
       kubectl -n vantage get serviceaccount vka-vantage-kubernetes-agent -o yaml
       ```
-    - Ensure the Service Account matches the Helm chart settings in the agent’s [Helm chart values file](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml#L102-L106). This is a name that you can also set within the file. 
+    - Ensure the Service Account matches the Helm chart settings in the agent’s `serviceAccount` configuration block of the [Helm chart values file](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml). This is a name that you can also set within the file. 
 2. Ensure the IAM role is correctly set up:
     - Review the [AWS IAM Roles for Service Accounts documentation](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to confirm that the IAM role is configured with the necessary permissions and associated with the Service Account.
 3. Configure S3 persistence:
