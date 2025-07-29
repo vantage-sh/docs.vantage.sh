@@ -26,7 +26,7 @@ Note that the Costs endpoint is not available to non-admin API keys. Vantage doe
 3. For **Name**, add an identifiable name, like _Vantage Integration_.
 <details><summary>Click to view example image</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Create API key modal with a number 1 next to the Create new secret key button and number 2 next to the input field for the key name" width="100%" src="/img/openai-admin-key.png" />
+<img alt="Create API key modal with a number 1 next to the Create new secret key button and number 2 next to the input field for the key name" width="100%" src="https://assets.vantage.sh/docs/openai-admin-key.png" />
 </div>
 </details>
 4. For **Permissions**, select **Read only**.
@@ -35,7 +35,7 @@ Note that the Costs endpoint is not available to non-admin API keys. Vantage doe
 7. The **New OpenAI Account** modal is displayed. For **API key**, paste your previously generated Admin Key. For **Description**, enter any descriptor to identify that you've added this integration, such as your name.
 <details><summary>Click to view example image</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="The API key account modal in the Vantage console with sample data added" width="80%" src="/img/open-ai-add-key.png" />
+<img alt="The API key account modal in the Vantage console with sample data added" width="80%" src="https://assets.vantage.sh/docs/open-ai-add-key.png" />
 </div>
 </details>
 8. Click **Connect Account**.

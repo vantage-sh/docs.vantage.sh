@@ -43,28 +43,28 @@ Generate an API key, create a service account, then attach the right role to the
 4. Click **+ Add API key**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Adding an API key" width="100%" src="/img/confluent-api-key.png"/> </div>
+      <img alt="Adding an API key" width="100%" src="https://assets.vantage.sh/docs/confluent-api-key.png"/> </div>
     </details>
 5. For **Select an account for API key**, click **Service account**. 
 6. Select an existing service account or create a new one, then click **Next**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Adding a service account for the key" width="100%" src="/img/confluent-add-account.png"/> </div>
+      <img alt="Adding a service account for the key" width="100%" src="https://assets.vantage.sh/docs/confluent-add-account.png"/> </div>
     </details>
 7. For **Select resource scope for API key**, select **Cloud resource management**. Click **Next**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Adding a service account for the key" width="100%" src="/img/confluent-cloud-resource.png"/> </div>
+      <img alt="Adding a service account for the key" width="100%" src="https://assets.vantage.sh/docs/confluent-cloud-resource.png"/> </div>
     </details>
 8. Add a name and description for the key, then click **Create API key**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Adding a key name" width="100%" src="/img/confluent-create-key.png"/> </div>
+      <img alt="Adding a key name" width="100%" src="https://assets.vantage.sh/docs/confluent-create-key.png"/> </div>
     </details>
 9.  Copy the displayed key and the secret to add to Vantage. You can also download a copy of the API key from this screen.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Copy the newly generated key" width="100%" src="/img/confluent-copy-key.png"/> </div>
+      <img alt="Copy the newly generated key" width="100%" src="https://assets.vantage.sh/docs/confluent-copy-key.png"/> </div>
     </details>
 
 #### Step 2: Add the `OrganizationAdmin` Role to the Service Account
@@ -73,17 +73,17 @@ Generate an API key, create a service account, then attach the right role to the
 2. On the **Accounts & access** page, select the **Service Accounts** tab, then open the service account you associated with the integration API key. 
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Confluent Account & access screen" width="100%" src="/img/confluent-account-access.png"/> </div>
+      <img alt="Confluent Account & access screen" width="100%" src="https://assets.vantage.sh/docs/confluent-account-access.png"/> </div>
     </details>
 3. Click the **Access** tab, then click **+ Add role assignment**.
   <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Confluent add role assignment" width="100%" src="/img/confluent-add-role-assignment.png"/> </div>
+      <img alt="Confluent add role assignment" width="100%" src="https://assets.vantage.sh/docs/confluent-add-role-assignment.png"/> </div>
   </details>
 4. Select the **OrganizationAdmin** role, then click **Add**.
   <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Confluent selecting a role" width="100%" src="/img/confluent-new-role-assignment.png"/> </div>
+      <img alt="Confluent selecting a role" width="100%" src="https://assets.vantage.sh/docs/confluent-new-role-assignment.png"/> </div>
   </details>
 
 #### Step: Add the API Key to the Vantage Console

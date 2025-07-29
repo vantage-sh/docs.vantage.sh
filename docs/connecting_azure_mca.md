@@ -32,18 +32,18 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
 3.  Click **+ New registration**.
 <details><summary>Expand to view example image</summary>
  <div>
- <img alt="Azure portal with App Registration menu option selected" width="100%" src="/img/connect-azure/azure-new-app-registration.png"/> </div>
+ <img alt="Azure portal with App Registration menu option selected" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png"/> </div>
  </details>
 4.  The **Register an application** screen is displayed. For **Name**, enter _vantage_.
 5.  Leave all other settings as their defaults and click **Register**.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="/img/connect-azure/azure-register-app.png"/> </div>
+<img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-register-app.png"/> </div>
 </details>
 6.  The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="/img/connect-azure/azure-app-ids.png"/> </div>
+<img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png"/> </div>
 </details>
 
 ## Step 2: Generate a Client Secret {#mca-step2}
@@ -53,7 +53,7 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
 3. The **Add a client secret** pane is displayed. For **Description**, enter a description, such as _vantage-secret_.
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="/img/connect-azure/azure-client-secret.png"/> </div>
+   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png"/> </div>
    </details>
 4. For **Expires**, select an expiration option for the secret.
    :::caution
@@ -70,7 +70,7 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
 4. Copy your **Billing account id** to add to the Vantage console later.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Azure portal with the billing account id highlighted" width="100%" src="/img/connect-azure/azure-billing-id.png"/> </div>
+<img alt="Azure portal with the billing account id highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-billing-id.png"/> </div>
 <i>Source: Microsoft</i>
 </details>
 
@@ -81,7 +81,7 @@ To integrate your Azure MCA account with Vantage, follow the below steps:
 3. On the right **Add role assignment** pane, select **Billing account reader**.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Adding the billing account reader role for the service principal" width="100%" src="/img/connect-azure/azure-billing-account-reader.png"/> </div>
+<img alt="Adding the billing account reader role for the service principal" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-billing-account-reader.png"/> </div>
 </details>
 4. Under **Users, groups, or apps**, search for and select the _vantage_ service principal that was generated when you created the app registration in [step 1](/connecting_azure_mca#mca-step1).
 5. Click **Add**.

@@ -12,7 +12,7 @@ keywords:
 Vantage calculates a weighted cost per query by breaking down the use of Snowflake [compute credits](https://docs.snowflake.com/en/user-guide/credits.html#virtual-warehouse-credit-usage). This allows users to easily identify the most expensive queries.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Snowflake cost per query" width="80%" src="/img/snowflake_queries.png" />
+    <img alt="Snowflake cost per query" width="80%" src="https://assets.vantage.sh/docs/snowflake_queries.png" />
 </div>
 
 ## How It Works

@@ -56,11 +56,11 @@ To provision a new customer Managed Account:
 3. From the left navigation, under **Partner Settings**, select **Managed Accounts.**
 4. The **Managed Accounts** administrative portal is displayed. All existing customer accounts are displayed along with the **Account Name**, **Contact Email**, and the date when the account was created. At the top, click **New Managed Account**.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Managed accounts screen with two existing accounts" width="80%" src="/img/partners/managed-screen.png" />
+    <img alt="Managed accounts screen with two existing accounts" width="80%" src="https://assets.vantage.sh/docs/partners/managed-screen.png" />
 </div>
 5. Enter an **Account Name** and a **Contact Email Address**. The email address is your administrator ID for this account and therefore must match your company’s email domain. The email address cannot exist for another customer's Managed Account; however, an alias is acceptable, like `admin+customer@yourdomain.com`.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Pop-up window for creating a new managed account" width="100%" src="/img/partners/new-account.png" />
+    <img alt="Pop-up window for creating a new managed account" width="100%" src="https://assets.vantage.sh/docs/partners/new-account.png" />
 </div>
 6. Click **Create Account**.
 
@@ -126,7 +126,7 @@ From the **Managed Accounts** screen, you can move between each of your customer
    - A yellow bar is displayed around the border of the screen to indicate you are logged in to the Managed Account.
    - On the bottom left, a pop-up is displayed to indicate which Managed Account you are logged in to.
    <div style={{display:"flex", justifyContent:"center"}}>
-       <img alt="A bar is displayed around a customer's account that the manager user is logged into" width="100%" src="/img/partners/customer-account.png" />
+       <img alt="A bar is displayed around a customer's account that the manager user is logged into" width="100%" src="https://assets.vantage.sh/docs/partners/customer-account.png" />
    </div>
 
 Perform one of the following actions to return to your Management Account:
@@ -137,7 +137,7 @@ Perform one of the following actions to return to your Management Account:
 Once you are back in the Management Account, a confirmation message is displayed at the top.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Confirmation message that indicated you returned to the MSP account" width="80%" src="/img/partners/green-bar.png" />
+    <img alt="Confirmation message that indicated you returned to the MSP account" width="80%" src="https://assets.vantage.sh/docs/partners/green-bar.png" />
 </div>
 
 ### Single Sign-On for Managed Accounts
@@ -170,7 +170,7 @@ If this is the first time you are adding an integration:
         muted 
         playsinline
         loop
-        url='/img/partners/set-up-integration.mp4'
+        url='https://assets.vantage.sh/docs/partners/set-up-integration.mp4'
         alt="Log in to customer's account and click to add a new AWS integration." 
         width="100%"
         height="100%"
@@ -200,7 +200,7 @@ To get started, ensure that you have connected a provider integration to your Ma
 5. Click **Save**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Integrations screen for a managed account" width="100%" src="/img/partners/managed-integrations.png" />
+    <img alt="The Integrations screen for a managed account" width="100%" src="https://assets.vantage.sh/docs/partners/managed-integrations.png" />
 </div>
 
 #### Customer Managed Account Integration View {#customer-managed-account-integration-view}
@@ -212,7 +212,7 @@ When an MSP manages an integration in their MSP Management Account, a customer c
 3. Any connected integrations managed by the MSP are displayed.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Customer's view of the managed accounts screen" width="100%" src="/img/partners/customer-view.png" />
+    <img alt="Customer's view of the managed accounts screen" width="100%" src="https://assets.vantage.sh/docs/partners/customer-view.png" />
 </div>
 
 ## Create Resources in a Managed Account
@@ -220,7 +220,7 @@ When an MSP manages an integration in their MSP Management Account, a customer c
 When you are logged in to a customer’s Managed Account, you can create Vantage resources, like Cost Reports, Virtual Tags, etc. For any resources, such as a Cost Report, that a Management Account user creates in a customer’s account, the **Created By** field displays the name **Manager User**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Resource in a customer's account with the Manager User as the creator" width="100%" src="/img/partners/created-by.png" />
+    <img alt="Resource in a customer's account with the Manager User as the creator" width="100%" src="https://assets.vantage.sh/docs/partners/created-by.png" />
 </div>
 
 ## Billing Rules {#billing-rules}
@@ -255,11 +255,11 @@ You manage 20 customer AWS accounts and buy Savings Plans centrally. You want an
 
 - After the rule is applied, you will still see the cost that is billed by AWS in your parent Management Account to enable margin comparisons for end customers. In the visual example below, Savings Plan Covered Spend is still visible at the parent account level.
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Managed accounts screen with two existing accounts" width="70%" src="/img/partners/msp-parent-discount-account.png" />
+    <img alt="Managed accounts screen with two existing accounts" width="70%" src="https://assets.vantage.sh/docs/partners/msp-parent-discount-account.png" />
   </div>
 - Vantage looks up the account that purchased the Committed Spend Discount, if that account is an AWS Payer account, Vantage removes the discount on any Cost and Usage line item from any customers’ Managed Accounts where the adjustment is enabled. The below visual example shows a customer’s Managed Account. When grouped by Charge Type, only the Usage and Tax charges are shown. The Usage amount of $388.61 reflects the total list price of the usage, calculated by adding the parent account’s original Usage ($173.14) and the Savings Plan Covered Spend ($215.47) that would have otherwise reduced the cost.
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Managed accounts screen with two existing accounts" width="70%" src="/img/partners/msp-child-discount-account.png" />
+    <img alt="Managed accounts screen with two existing accounts" width="70%" src="https://assets.vantage.sh/docs/partners/msp-child-discount-account.png" />
   </div>
 
 ### Re-Rate Tiered Discounts {#rerate-tiered}
@@ -334,7 +334,7 @@ When referencing columns, you must prefix them with the dataset name (e.g., `aws
 Autocomplete is supported in the Vantage console. As you type, a list of available matching columns is displayed alongside your syntax. A complete list of available columns is also shown to the left of the SQL input field.
 
 <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}>
-  <img alt="Creating a custom billing rule" width="1000%" src="/img/partners/custom-billing-rule.png"/>
+  <img alt="Creating a custom billing rule" width="1000%" src="https://assets.vantage.sh/docs/partners/custom-billing-rule.png"/>
 </div>
 
 
@@ -478,7 +478,7 @@ After billing rules are applied to Managed Account, re-processing of the data be
         muted 
         playsinline
         loop
-        url='/img/partners/billing-rules.mp4'
+        url='https://assets.vantage.sh/docs/partners/billing-rules.mp4'
         alt="A new billing rule is created for a customer account." 
         width="100%"
         height="100%"

@@ -19,7 +19,7 @@ When a user navigates to `console.vantage.sh`, the **Overview** page is displaye
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Overview page" width="80%" src="/img/executive-overview.png" />
+    <img alt="Overview page" width="80%" src="https://assets.vantage.sh/docs/executive-overview.png" />
 </div>
 <br/>
 Depending on your provider connections, you will see some of the following widgets:

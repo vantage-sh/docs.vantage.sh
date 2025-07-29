@@ -67,18 +67,18 @@ Follow the steps below to create a connection with Twilio.
 2. On the **Account Dashboard**, your **Account SID** is displayed in the **Account Info** section. Copy the **Account SID** to use in the next section when connecting to Vantage.
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Twilio console homepage account SID" width="100%" src="/img/twilio-account-sid.png"/> </div>
+    <img alt="Twilio console homepage account SID" width="100%" src="https://assets.vantage.sh/docs/twilio-account-sid.png"/> </div>
   </details>
 3. At the top of the console, click **Admin** > **Account management**.
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Twilio console Account Management" width="100%" src="/img/twilio-account.png"/> </div>
+    <img alt="Twilio console Account Management" width="100%" src="https://assets.vantage.sh/docs/twilio-account.png"/> </div>
   </details>
 4. On the left navigation menu, under **Keys & Credentials**, click **API keys & tokens**.
 5. Click **Create API key**.
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Twilio console Create API screen" width="100%" src="/img/twilio-api.png"/> </div>
+    <img alt="Twilio console Create API screen" width="100%" src="https://assets.vantage.sh/docs/twilio-api.png"/> </div>
   </details>
 6. On the **Create new API key** page, add the following information:
     1. Enter a **Friendly name**, like *vantage.*
@@ -87,12 +87,12 @@ Follow the steps below to create a connection with Twilio.
 7. At the bottom, click **Create**.
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Twilio console New API screen" width="100%" src="/img/twilio-create-api.png"/> </div>
+    <img alt="Twilio console New API screen" width="100%" src="https://assets.vantage.sh/docs/twilio-create-api.png"/> </div>
   </details>
 8. Copy the **SID** (i.e., the string identifier for the API key) and **Secret**.
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Twilio console copy key screen" width="100%" src="/img/twilio-copy-key.png"/> </div>
+    <img alt="Twilio console copy key screen" width="100%" src="https://assets.vantage.sh/docs/twilio-copy-key.png"/> </div>
   </details>
 
 #### Step 2: Add Credentials to Vantage
@@ -107,7 +107,7 @@ Follow the steps below to create a connection with Twilio.
     - For **Account Name**, add a name that will be used for the Billing Account filter in Cost Reports. It’s recommended that you use your account name as displayed in the Twilio console (see example image below). This name must be unique across all Twilio integrations in Vantage.
       <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Twilio account name" width="100%" src="/img/twilio-account-name.png"/> </div>
+      <img alt="Twilio account name" width="100%" src="https://assets.vantage.sh/docs/twilio-account-name.png"/> </div>
       <p><i>For example, the account name here would be "My first Twilio account."</i></p>
       </details>
     - Optionally, add a **Description** to identify this integration.

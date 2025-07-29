@@ -41,7 +41,7 @@ If you instead want to create an email notification, the email report will conta
 
 <details><summary>Expand to view example email notification</summary>
   <div>
-    <img alt="Example Report Notification in an email" width="100%" src="/img/email-notification.png"/>
+    <img alt="Example Report Notification in an email" width="100%" src="https://assets.vantage.sh/docs/email-notification.png"/>
   </div>
 </details>
 

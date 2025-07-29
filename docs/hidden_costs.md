@@ -14,7 +14,7 @@ With team accountability and executive reporting in place, there are usually opp
 ## Review Active Resources {#active-resources}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Snowflake Cost Reports" width="60%" src="/img/active-resource-drill-down.png" />
+    <img alt="Snowflake Cost Reports" width="60%" src="https://assets.vantage.sh/docs/active-resource-drill-down.png" />
 </div>
 
 The [Active Resources](/active_resources) feature provides a list of all resources currently driving costs in your account. Active resources currently support AWS, Azure, Snowflake, and MongoDB Atlas. Select each resource to see full details about where it is incurring costs.
@@ -22,7 +22,7 @@ The [Active Resources](/active_resources) feature provides a list of all resourc
 ## Analyze Subcategory Costs
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="Snowflake Cost Reports" width="80%" src="/img/subcategory.gif" style={{ clipPath: "inset(10px 0 0 0)" }} />
+    <img alt="Snowflake Cost Reports" width="80%" src="https://assets.vantage.sh/docs/subcategory.gif" style={{ clipPath: "inset(10px 0 0 0)" }} />
 </div>
 <br/>
 

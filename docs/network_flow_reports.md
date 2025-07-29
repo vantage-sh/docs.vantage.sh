@@ -48,7 +48,7 @@ These logs are considered [Vended Logs](https://aws.amazon.com/cloudwatch/pricin
 Note that Vended Logs can include other cost sources besides VPC Flow Logs, but you can expect an increase in those costs after enabling them. The filters for this Cost Report are provided below.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Cost Report with filters for Vended Logs" width="80%" src="/img/vended-logs.png" />
+<img alt="Cost Report with filters for Vended Logs" width="80%" src="https://assets.vantage.sh/docs/vended-logs.png" />
 </div>
 <br/>
 
@@ -115,7 +115,7 @@ You may see a message indicating _No VPC flow logs with log destination found. I
 3. At the top, ensure **Active Resource Syncing** is turned on.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Active Resource Syncing in the Workspaces UI" width="80%" src="/img/active-resource-sync.png" />
+<img alt="Active Resource Syncing in the Workspaces UI" width="80%" src="https://assets.vantage.sh/docs/active-resource-sync.png" />
 </div>
 
 ### Manage Existing Integrations
@@ -143,7 +143,7 @@ Follow the steps below to create a new Network Flow Report:
 
    - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links, or network flows, flow from the nodes to their traffic destination (in this example, cross-AZ or public). The width of each flow corresponds with the volume of traffic or estimated cost, based on your settings, and the color corresponds with the source of the node (e.g., yellow for _public_ in the example below).
    <div style={{display:"flex", justifyContent:"center"}}>
-   <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="/img/nfr-start.png" />
+   <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="https://assets.vantage.sh/docs/nfr-start.png" />
    </div>
    - In the table below the diagram, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by the **Estimated Cost** column. Click any column header to change the sort order. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost) for details on how the Estimated Cost column is calculated.)
    - For each listed resource, a link to the [**Active Resources** screen](/active_resources) is provided. Click this link to view additional metadata about the resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
@@ -173,7 +173,7 @@ Follow the steps below to create a new Network Flow Report:
             muted 
             loop
             playsinline
-            url='/img/nfr-move-column.mp4' 
+            url='https://assets.vantage.sh/docs/nfr-move-column.mp4' 
             width="100%"
             height="100%"
             alt="A column in the table is clicked and dragged to a new location"
@@ -365,7 +365,7 @@ You can add additional fields via grouping and filtering criteria. To add a new 
             controls
             playsinline
             loop
-            url='/img/nfr-filtering.mp4'
+            url='https://assets.vantage.sh/docs/nfr-filtering.mp4'
             alt= "A report is filtered to public traffic" 
             width="100%"
             height="100%"
@@ -395,7 +395,7 @@ You can add additional fields via grouping and filtering criteria. To add a new 
             controls
             playsinline
             loop
-            url='/img/nfr-other-filters.mp4'
+            url='https://assets.vantage.sh/docs/nfr-other-filters.mp4'
             alt= "Additional filter options and filter sets are added to the report" 
             width="100%"
             height="100%"
@@ -421,7 +421,7 @@ To add additional columns to the table and diagram, expand the **Group By** menu
         muted 
         playsinline
         loop
-        url='/img/nfr-group.mp4'
+        url='https://assets.vantage.sh/docs/nfr-group.mp4'
         alt= "A report is grouped for traffic type" 
         width="100%"
         height="100%"
@@ -445,7 +445,7 @@ By default, the Sankey diagram is weighted by estimated cost. You can change thi
         muted 
         playsinline
         loop
-        url='/img/nfr-flow.mp4'
+        url='https://assets.vantage.sh/docs/nfr-flow.mp4'
         alt="The Flow Direction menu is toggled to show options for Costs and Bytes." 
         width="100%"
         height="100%"
@@ -476,7 +476,7 @@ For certain grouping criteria, you can view additional details about specific re
         muted 
         playsinline
         loop
-        url='/img/nfr-metadata.mp4'
+        url='https://assets.vantage.sh/docs/nfr-metadata.mp4'
         alt="A report is grouped by VPC ID. Then, a resource is selected and the metadata panel is displayed." 
         width="100%"
         height="100%"
@@ -511,7 +511,7 @@ On [Cost Reports](/cost_reports), for resources that generate network traffic co
 The below Cost Report is grouped by **Service** and **Resource**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="Network Costs option on a Cost Report" width="100%" src="/img/nfr-cost-report.png" />
+  <img alt="Network Costs option on a Cost Report" width="100%" src="https://assets.vantage.sh/docs/nfr-cost-report.png" />
 </div>
 
 ## Network Flow Report Examples {#nfr-examples}
@@ -519,7 +519,7 @@ The below Cost Report is grouped by **Service** and **Resource**.
 The following examples demonstrate common scenarios for using Network Flow Reports. These examples are based on the three reports that Vantage provides by default: _All Network Flow Logs_, _Cross-AZ Traffic_, and _Public Traffic Destinations_.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="/img/nfr-sample.png" />
+<img alt="Sample Network Flow Report with cross-AZ and public traffic" width="80%" src="https://assets.vantage.sh/docs/nfr-sample.png" />
 </div>
 
 ### Example 1: View All Network Traffic
@@ -527,7 +527,7 @@ The following examples demonstrate common scenarios for using Network Flow Repor
 The **All Network Flow Logs** report shows all your network flows. The flow’s Resource UUID and Peer Resource UUID are provided as well as the traffic category (e.g., public). Review this report to get a high-level view of all your traffic flows.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="/img/nfr-start.png" />
+    <img alt="Sample Network Flow Report with cross-AZ and public traffic" width="100%" src="https://assets.vantage.sh/docs/nfr-start.png" />
 </div>
 
 ### Example 2: Identify Cross-AZ Traffic
@@ -537,7 +537,7 @@ Cross-AZ data transfer within AWS incurs higher costs compared to intra-AZ data 
 In the provided cross-AZ report, you can view all cross-AZ traffic along with flow size and estimated cost. The **Peer Availability Zone ID** column shows exactly where the traffic is flowing. You can see both the source and peer AZs along with the associated source and peer resources.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Sample Network Flow Report with all cross-AZ traffic" width="100%" src="/img/nfr-az.png" />
+    <img alt="Sample Network Flow Report with all cross-AZ traffic" width="100%" src="https://assets.vantage.sh/docs/nfr-az.png" />
 </div>
 
 Review the highest-costing flows and consider the following tips:
@@ -550,7 +550,7 @@ Review the highest-costing flows and consider the following tips:
 When monitoring network costs, analyzing public traffic can reveal significant insights about where your traffic is going when it reaches the public internet. By analyzing destination details, you can ensure that traffic is taking the correct path or is going only to trusted and necessary endpoints. In this report, the **Destination Hostname** grouping/column provides a human-readable format of the destination, helping you quickly identify known destination services or endpoints.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Sample Network Flow Report with all public traffic" width="100%" src="/img/nfr-public.png" />
+    <img alt="Sample Network Flow Report with all public traffic" width="100%" src="https://assets.vantage.sh/docs/nfr-public.png" />
 </div>
 
 Vantage identifies hostnames using a reverse DNS lookup, or when vendors publish static IP address ranges, such as Datadog, Vantage can associate these IP addresses with the name of the service. The **Destination Address** provides the exact IP address, which is useful for detailed analysis to ensure traffic is reaching the intended destinations.

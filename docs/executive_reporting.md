@@ -15,7 +15,7 @@ In many cases, company leadership has requirements to reduce cloud spend or deve
 ## Review the Overview Page
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Snowflake Cost Reports" width="80%" src="/img/executive-overview.png" />
+    <img alt="Snowflake Cost Reports" width="80%" src="https://assets.vantage.sh/docs/executive-overview.png" />
 </div>
 
 The best way to get a quick snapshot of your cloud spend is to use the [**Overview**](/overview) page. This is the default page that is loaded when you sign in to [console.vantage.sh](https://console.vantage.sh).

@@ -104,7 +104,7 @@ By default, all Vantage users are part of the Everyone team. Users _cannot_ be r
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Team management window" width="50%" src="/img/team-management.png" />
+    <img alt="Team management window" width="50%" src="https://assets.vantage.sh/docs/team-management.png" />
 </div>
 
 1. From the top navigation, click **Settings**.
@@ -122,7 +122,7 @@ Account Owners can map SSO groups to teams within Vantage. The matching teams fi
 To manage a team, select the team from the **Teams** list. Four tabs are displayed: General, Members, Access, and API Access Tokens.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Team management tabs and options" width="60%" src="/img/team-management-details.png" />
+    <img alt="Team management tabs and options" width="60%" src="https://assets.vantage.sh/docs/team-management-details.png" />
 </div>
 
 - On the **General** tab, you can edit the team name and description as well as set a default team [dashboard](/dashboards#default-dashboard). 
@@ -174,7 +174,7 @@ To manage a team, select the team from the **Teams** list. Four tabs are display
 You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Manage access to a Cost Reporting dashboard" width="75%" src="/img/resource-access.png" />
+    <img alt="Manage access to a Cost Reporting dashboard" width="75%" src="https://assets.vantage.sh/docs/resource-access.png" />
 </div>
 
 :::note

@@ -115,18 +115,18 @@ Skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials
  3. Click **+ New registration**. 
   <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with App Registration menu option selected" width="100%" src="/img/connect-azure/azure-new-app-registration.png"/> </div>
+   <img alt="Azure portal with App Registration menu option selected" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png"/> </div>
    </details>
  4. The **Register an application** screen is displayed. For **Name**, enter _vantage_.
  5. Leave all other settings as their defaults and click **Register**. 
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="/img/connect-azure/azure-register-app.png"/> </div>
+   <img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-register-app.png"/> </div>
    </details>
  6. The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="/img/connect-azure/azure-app-ids.png"/> </div>
+   <img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png"/> </div>
    </details>
 
 #### Step 2: Generate a Client Secret
@@ -136,7 +136,7 @@ Skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials
 3. The **Add a client secret** pane is displayed. For **Description**, enter a description, such as _vantage-secret_. 
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="/img/connect-azure/azure-client-secret.png"/> </div>
+   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png"/> </div>
    </details>
 4. For **Expires**, select an expiration option for the secret.
   :::caution
@@ -157,18 +157,18 @@ Vantage recommends assigning permissions to a management group that aggregates y
 4. Click **Add role assignment**. 
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with management group window open. The Access control tab is highlighted." width="100%" src="/img/connect-azure/azure-add-role-assign.png"/> </div>
+   <img alt="Azure portal with management group window open. The Access control tab is highlighted." width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-add-role-assign.png"/> </div>
    </details>
 5. On the **Add role assignment** screen, select **Reader**. Then, click **Next**. 
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with Reader role highlighted" width="100%" src="/img/connect-azure/azure-add-reader-role.png"/> </div>
+   <img alt="Azure portal with Reader role highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-add-reader-role.png"/> </div>
    </details>
 6. For **Assign access to**, select **User, group, or service principal**.
 7. Click **+ Select members**. The **Select members** tab is displayed on the right. Search for the _vantage_ app you created before. Select the listed app, then click **Select**.
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Azure portal with Add role assignment window displayed" width="100%" src="/img/connect-azure/azure-add-role-assignment.png"/> </div>
+   <img alt="Azure portal with Add role assignment window displayed" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-add-role-assignment.png"/> </div>
    </details>
 8. Click **Next** > **Review + assign**. 
 

@@ -105,7 +105,7 @@ To add custom pricing for SKU groups:
 7. For **Your Discount**, enter a discount as a percentage.
    <details><summary>Click to view example image</summary>
    <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="A list of three different Databricks SKU discounts in the console. " width="80%" src="/img/databricks-skus.png" />
+      <img alt="A list of three different Databricks SKU discounts in the console. " width="80%" src="https://assets.vantage.sh/docs/databricks-skus.png" />
    </div>
    </details>
 8. To add another SKU group discount, click **+ Add a Discount**. When you are finished, click **Save**.

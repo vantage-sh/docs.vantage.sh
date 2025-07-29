@@ -32,7 +32,7 @@ To get the most value from these reports, create a filter that represents a sing
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Toggle to show Usage-Based Reporting" width="80%" src="/img/usage-toggle.png" />
+    <img alt="Toggle to show Usage-Based Reporting" width="80%" src="https://assets.vantage.sh/docs/usage-toggle.png" />
 </div>
 
 3. The following elements are displayed on the **Usage** view:
@@ -51,7 +51,7 @@ Usage data refreshes daily in the Vantage console. At this time, you cannot view
 To export usage reports, [follow the steps](/cost_reports#exporting-cost-reports) provided in the Cost Reports documentation. Ensure you are on the **Usage** view and **Usage Unit** is selected.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Exporting a Cost Report on the Usage view" width="60%" src="/img/export-usage.png" />
+    <img alt="Exporting a Cost Report on the Usage view" width="60%" src="https://assets.vantage.sh/docs/export-usage.png" />
 </div>
 
 ### View Usage Data for Custom Costs
@@ -88,7 +88,7 @@ You create the following Usage-Based Report in Vantage:
 - Group By: **Subcategory**
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of Usage-Based Report displaying EC2 instance running hours" width="80%" src="/img/usage-ec2-running-hours.png" />
+    <img alt="Example of Usage-Based Report displaying EC2 instance running hours" width="80%" src="https://assets.vantage.sh/docs/usage-ec2-running-hours.png" />
 </div>
 
 The table below the chart includes the accrued usage and the unit of measure for each line item being viewed, such as EC2 instance bill code. To get the most value from this report, focus on identifying high-usage instance families and regions to optimize compute resources and explore opportunities for cost-saving strategies, like instance rightsizing or transitioning to Savings Plans.
@@ -103,7 +103,7 @@ You create the following Usage-Based report to see total data stored in S3 in Va
 - Group By: **Subcategory**
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of Usage-Based Report displaying S3 storage options" width="80%" src="/img/usage-s3-storage.png" />
+    <img alt="Example of Usage-Based Report displaying S3 storage options" width="80%" src="https://assets.vantage.sh/docs/usage-s3-storage.png" />
 </div>
 
 In the table below the graph, usage data is displayed in GB-Months for subcategories like:

@@ -50,7 +50,7 @@ The below instructions for creating an API key are based on the [ClickHouse docu
 2. Click **+ New API key**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="ClickHouse API Key screen" width="100%" src="/img/clickhouse-api.png"/> </div>
+      <img alt="ClickHouse API Key screen" width="100%" src="https://assets.vantage.sh/docs/clickhouse-api.png"/> </div>
     </details>
 3. Add the following key details:
    - For **API key name**, enter *vantage*.
@@ -59,7 +59,7 @@ The below instructions for creating an API key are based on the [ClickHouse docu
    
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Creating a ClickHouse key" width="100%" src="/img/clickhouse-create-key.png"/> </div>
+    <img alt="Creating a ClickHouse key" width="100%" src="https://assets.vantage.sh/docs/clickhouse-create-key.png"/> </div>
   </details>
 1. Click **Generate API Key**.
    :::note
@@ -73,7 +73,7 @@ The below instructions for creating an API key are based on the [ClickHouse docu
 2. Copy the newly generated **Key ID** and **Key Secret**.
     <details><summary>Expand to view example image</summary>
       <div>
-      <img alt="Copying ClickHouse key and secret" width="100%" src="/img/clickhouse-key-secret.png"/> </div>
+      <img alt="Copying ClickHouse key and secret" width="100%" src="https://assets.vantage.sh/docs/clickhouse-key-secret.png"/> </div>
     </details>
 3. From the top navigation in Vantage, click **Settings**.
 4. On the left navigation, select **Integrations** and select **ClickHouse Cloud**.
@@ -85,7 +85,7 @@ The below instructions for creating an API key are based on the [ClickHouse docu
  
   <details><summary>Expand to view example image</summary>
     <div>
-    <img alt="Copying ClickHouse Organization ID" width="100%" src="/img/clickhouse-org-id.png"/> </div>
+    <img alt="Copying ClickHouse Organization ID" width="100%" src="https://assets.vantage.sh/docs/clickhouse-org-id.png"/> </div>
   </details>
 1.  Click **Connect Account**.
 

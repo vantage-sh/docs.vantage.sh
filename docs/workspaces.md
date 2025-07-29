@@ -56,7 +56,7 @@ Once you connect a cloud provider to Vantage, and costs are fully imported, you'
 In the below example, the Fastly integration is only available in the _Demo Accounts_ workspace. If you navigate to the _Management_ or _Marketing_ workspace, you'll be unable to view Fastly cost data in Cost Reports or other Vantage features.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The integration workspace is displayed with an arrow pointing from the settings icon. The arrow points to the integration screen with another arrow point from the settings icon. That arrow points to the specific integration and the Workspace access section." width="100%" src="/img/integration-workspace.png" />
+    <img alt="The integration workspace is displayed with an arrow pointing from the settings icon. The arrow points to the integration screen with another arrow point from the settings icon. That arrow points to the specific integration and the Workspace access section." width="100%" src="https://assets.vantage.sh/docs/integration-workspace.png" />
 </div>
 
 

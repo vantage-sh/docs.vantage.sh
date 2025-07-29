@@ -32,7 +32,7 @@ To view a future forecast, open the date picker to the top right of the chart.
 In the below example image, bars for future months are visible. Error bars are present for future months to represent the upper and lower bounds of the forecast. Hover over any future date to see the forecasted min, max, and median. Total forecasted costs are displayed above the chart, next to currently accrued costs. Forecasts are also present in grouped bar charts.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report with a forecast for the next 6 months and the mouse hovering over a future date point" width="100%" src="/img/future-forecasts.png" />
+    <img alt="A Cost Report with a forecast for the next 6 months and the mouse hovering over a future date point" width="100%" src="https://assets.vantage.sh/docs/future-forecasts.png" />
 </div>
 
 ### Line Chart View
@@ -40,7 +40,7 @@ In the below example image, bars for future months are visible. Error bars are p
 In the below example image, the light-purple area is the forecast range, with upper and lower bounds. The dark-purple dotted line represents the median forecast for that month. Hover over any future date to see the forecast median and the previous period's costs. Total forecasted costs are displayed above the chart, next to currently accrued costs. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report with a forecast for the month and the mouse hovering over a future date point" width="100%" src="/img/forecasting.png" />
+    <img alt="A Cost Report with a forecast for the month and the mouse hovering over a future date point" width="100%" src="https://assets.vantage.sh/docs/forecasting.png" />
 </div>
 
 ## View Service Forecasts

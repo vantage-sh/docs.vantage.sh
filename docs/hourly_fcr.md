@@ -26,24 +26,24 @@ Vantage will experience a delay in receiving your cost data until the first hour
 
 1. From your AWS management account (or account the CUR is deployed in), navigate to **CloudFormation**. 
 2. Open the **ConnectToVantage-** stack.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-1.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-1.png"/> </div>
 1. At the top, click **Update Stack** > **Create a change set**.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-2.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-2.png"/> </div>
 1. Select **Use existing template**, then click **Next**.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-3.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-3.png"/> </div>
 1. Make the following changes:
    - Update the **ReportName** so this it is unique. It is recommended you append _-hourly_ to the existing **ReportName**.
-     <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-4a.png"/> </div>
+     <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-4a.png"/> </div>
    - For **TimeUnit**, change the value from **DAILY** to **HOURLY**. Then, click **Next**.
-     <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-4b.png"/> </div>
+     <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-4b.png"/> </div>
 2. Check the box at the bottom to acknowledge the changes that are being made. Then, click **Next**.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-5.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-5.png"/> </div>
 1. Review your changes and click **Submit**.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-6.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-6.png"/> </div>
 1. Your change set will be created based on the changes to your resources. This process may take a few minutes. At the top right, click **Execute change set**. (If you are unable to click the **Execute change set** button, click the circular **Refresh** icon below the button.)
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-7.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-7.png"/> </div>
 1. CloudFormation processes your changes, which includes deleting the previous CUR definition and creating a new hourly CUR.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-cloudformation-step-8.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-cloudformation-step-8.png"/> </div>
 
 ## Enable via Terraform {#terraform}
 
@@ -76,9 +76,9 @@ module "vantage-integration" {
 
 1. Log in to AWS, and navigate to the **Billing and Cost Management** console. 
 2. From the left navigation menu, under **Cost and Usage Analysis**, select **Data Exports**.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-1.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-manual-step-1.png"/> </div>
 3. Click **Create** to create a new CUR definition.
-  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="/img/hourly-manual-step-2.png"/> </div>
+  <div style={{display:"flex", justifyContent:"center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)",}}><img alt="Cloudformation Console" width="100%" src="https://assets.vantage.sh/docs/hourly-manual-step-2.png"/> </div>
 3. Create a Data Export with the following parameters:
    - **Export details** section:
      - Select **Legacy CUR export**.

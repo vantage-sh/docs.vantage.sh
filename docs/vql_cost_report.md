@@ -232,7 +232,7 @@ costs.provider = 'aws' AND (tags.name, tags.value) IN (('environment', 'staging'
 This example filters for resources that are tagged with the `environment` tag with a value of `staging` as well as the `team` tag with a value of `engineering`. This filter is the same as creating the following manual filter in the console.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Filter by multiple tags in the console" width="80%" src="/img/multiple-tags-example.png" />
+    <img alt="Filter by multiple tags in the console" width="80%" src="https://assets.vantage.sh/docs/multiple-tags-example.png" />
 </div>
 
 #### Filter for Matching Tags Using `LIKE`

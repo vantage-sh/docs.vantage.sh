@@ -25,7 +25,7 @@ Keep in mind that when using the API reference tool to perform API calls, you ar
 When viewing an endpoint, all available parameters will be listed on the corresponding API documentation page, along with any requirements. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="API documentation" width="90%" src="/img/api.png" />
+    <img alt="API documentation" width="90%" src="https://assets.vantage.sh/docs/api.png" />
 </div>
 
 The above image shows a sample `POST` call to the `/folders` endpoint. 
@@ -46,28 +46,28 @@ Two versions of the API are available in the documentation:
 <CustomCardGroup
   cards={[
     {
-      icon: '/img/logos/quickstart-icon.svg',
+      icon: 'https://assets.vantage.sh/docs/logos/quickstart-icon.svg',
       iconAltText: 'Start icon',
       title: 'API Quickstart',
       content: "Get started with the Vantage API. Understand the API schema and how to call various endpoints.",
       link: "https://vantage.readme.io/reference/quickstart",
     },
     {
-      icon: '/img/logos/api-icon.svg',
+      icon: 'https://assets.vantage.sh/docs/logos/api-icon.svg',
       iconAltText: 'API icon',
       title: 'API Authentication',
       content: "Learn how to authenticate and access the Vantage API. Create an API access token with Read and Write scopes enabled.",
       link: "https://vantage.readme.io/reference/authentication",
     },
     {
-      icon: '/img/logos/vql-icon.svg',
+      icon: 'https://assets.vantage.sh/docs/logos/vql-icon.svg',
       iconAltText: 'Query logo',
       title: 'Vantage Query Language (VQL)',
       content: "Vantage Query Language (VQL) is a SQL-like language designed to filter cloud cost data. VQL provides a normalized schema across various cloud providers.",
       link: "/vql",
     },
     {
-      icon: '/img/logos/data-dictionary-icon.svg',
+      icon: 'https://assets.vantage.sh/docs/logos/data-dictionary-icon.svg',
       iconAltText: 'Dictionary icon',
       title: 'Data Dictionary',
       content: "Consult the Data Dictionary to view the normalized field names used to create VQL statements. Each provider that Vantage integrates with makes different fields available in their billing data.",

@@ -28,7 +28,7 @@ Vantage integrates with your Fastly account through a read-only API token. Fastl
    - For **Expiration**, select **Never expire**.
    <details><summary>Click to view example token creation form</summary>
    <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Fastly API token form" width="100%" src="/img/VantageFastlyInstructions_1.png" />
+    <img alt="Fastly API token form" width="100%" src="https://assets.vantage.sh/docs/VantageFastlyInstructions_1.png" />
     </div>
    </details>
 4. Click **Create Token**, and re-enter your password if prompted. Fastly will generate your API token. Copy this token for the next steps.

@@ -107,7 +107,7 @@ You can edit the widget order that's displayed on a dashboard. You can edit the 
                 muted 
                 playsinline
                 loop
-                url='/img/dashboard-reorder-dashboard.mp4'
+                url='https://assets.vantage.sh/docs/dashboard-reorder-dashboard.mp4'
                 alt="The Reorder icon is clicked on the dashboard edit screen and each report is reordered." 
                 width="100%"
                 height="100%"
@@ -135,7 +135,7 @@ You can edit the widget order that's displayed on a dashboard. You can edit the 
                 muted 
                 playsinline
                 loop
-                url='/img/dashboard-reorder.mp4'
+                url='https://assets.vantage.sh/docs/dashboard-reorder.mp4'
                 alt="The Reorder icon is clicked on the dashboard edit screen and each report is reordered." 
                 width="100%"
                 height="100%"

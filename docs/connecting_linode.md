@@ -42,7 +42,7 @@ These instructions are a condensed version of the instructions on Linode’s [do
 2. Navigate to your Linode profile's [API token page](https://cloud.linode.com/profile/tokens). You can also access this page by selecting your user profile at the top. Then, under **My Profile**, select **API Tokens**.
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Linode profile screen" width="60%" src="/img/linode-profile.png"/> </div>
+   <img alt="Linode profile screen" width="60%" src="https://assets.vantage.sh/docs/linode-profile.png"/> </div>
    </details>
 3. Click **Create Personal Access Token**.
 4. Enter the following information:
@@ -51,7 +51,7 @@ These instructions are a condensed version of the instructions on Linode’s [do
    - For **Access**, select **Read Only** for all items except VPCs. For **VPCs**, select **No Access**.
       <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Linode access token screen" width="60%" src="/img/linode-token.png"/> </div>
+   <img alt="Linode access token screen" width="60%" src="https://assets.vantage.sh/docs/linode-token.png"/> </div>
    </details>
 5. Click **Create Token**. Your Personal Access Token is displayed once. Copy this token to use in your Vantage integration.
 6. From the top navigation in **Vantage**, click **Settings**.

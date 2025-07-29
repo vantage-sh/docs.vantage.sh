@@ -3,7 +3,7 @@ id: vantage_university_finops_analyst
 title: Vantage University FinOps Analyst
 description: The FinOps Analyst track on Vantage University focuses on the steps you can take to use Vantage as your organization's FinOps Analyst.
 sidebar_label: FinOps Analyst
-image: /img/vantage-university/finops-analyst.jpg
+image: https://assets.vantage.sh/docs/vantage-university/finops-analyst.jpg
 keywords:
   - Vantage University
   - FinOps Analyst

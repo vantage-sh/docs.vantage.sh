@@ -19,7 +19,7 @@ The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost
 On Cost, Resource, and Kubernetes Efficiency Reports, you can create a filter and click **View as VQL** to see the filter represented in VQL.
 
 <div style={{display:"flex"}}>
-    <img alt="Show as VQL button on a Cost Report" width="60%" src="/img/show-as-vql.png" />
+    <img alt="Show as VQL button on a Cost Report" width="60%" src="https://assets.vantage.sh/docs/show-as-vql.png" />
 </div>
 
 :::

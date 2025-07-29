@@ -3,7 +3,7 @@ id: vantage_university_per_resource_costs
 title: Vantage University Per Resource Costs
 description: Learn about resource reporting in this Vantage University section.
 sidebar_label: Per Resource Costs
-image: /img/vantage-university/per-resource-costs.jpg
+image: https://assets.vantage.sh/docs/vantage-university/per-resource-costs.jpg
 keywords:
   - Vantage University
   - Active Resources

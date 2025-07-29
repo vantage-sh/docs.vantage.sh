@@ -53,7 +53,7 @@ To access the main **Budgets** screen in the console:
 All existing budgets are displayed here. You can also edit or delete budgets from this screen. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Budgets landing page with three different budgets displayed. One budget has a month-to-date performance listed." width="100%" src="/img/budget-screen.png" />
+    <img alt="The Budgets landing page with three different budgets displayed. One budget has a month-to-date performance listed." width="100%" src="https://assets.vantage.sh/docs/budget-screen.png" />
 </div>
 
 The main **Budgets** screen provides the following information:
@@ -96,7 +96,7 @@ The below instructions describe how to manually create a budget in the UI. You c
             <li>Click <b>New Budget Period</b> to add additional budget periods.</li>
             <details><summary>Click to view example image</summary>
               <div style={{display:"flex", justifyContent:"center"}}>
-              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-budget.png" />
+              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="https://assets.vantage.sh/docs/create-budget.png" />
               </div>
             </details>
           </ul>
@@ -110,7 +110,7 @@ The below instructions describe how to manually create a budget in the UI. You c
         <li>Under <b>Child Budgets</b>, select the immediate child budgets that directly roll up to this parent budget. For example, if you have an "Org" budget with a "Department" budget as its child, and the "Department" budget has a "Team" budget as its child, you would only select the "Department" budget as the child when creating the "Org" budget.
           <details><summary>Click to view example image</summary>
             <div style={{display:"flex", justifyContent:"center"}}>
-              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="/img/create-hierarchical-budget.png" />
+              <img alt="The Budget creation screen with three different periods added to the budget." width="100%" src="https://assets.vantage.sh/docs/create-hierarchical-budget.png" />
             </div>
           </details>
         </li>
@@ -180,12 +180,12 @@ The below example of three Standard Budgets shows a readable view, CSV file form
   </TabItem>
   <TabItem value="upload" label="Import Screen">
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="/img/import-budget.png" />
+        <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="https://assets.vantage.sh/docs/import-budget.png" />
     </div>
   </TabItem>
     <TabItem value="imported" label="Imported Budgets">
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-budget.png" />
+        <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="https://assets.vantage.sh/docs/imported-budget.png" />
     </div>
   </TabItem>
 </Tabs>
@@ -273,7 +273,7 @@ The below example of a Hierarchical Budget shows a readable view, CSV file forma
   </TabItem>
   <TabItem value="upload" label="Import Screen">
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="/img/import-hierarchical-budget.png" />
+        <img alt="An imported budget for three teams. The first two teams have three budget periods. The last team has only two budget periods imported." width="70%" src="https://assets.vantage.sh/docs/import-hierarchical-budget.png" />
     </div>
     <div style={{display:"flex", justifyContent:"center"}}>
       <p><i>Sample of what's displayed on import screen.</i></p>
@@ -281,7 +281,7 @@ The below example of a Hierarchical Budget shows a readable view, CSV file forma
   </TabItem>
     <TabItem value="imported" label="Imported Budgets">
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="/img/imported-hierarchical-budget.png" />
+        <img alt="Team 1, 2, and 3 budgets listed on the main Budgets screen." width="100%" src="https://assets.vantage.sh/docs/imported-hierarchical-budget.png" />
     </div>
     <div style={{display:"flex", justifyContent:"center"}}>
       <p><i>Observe the Hierarchical Budget icon listed next to any parent budget (e.g., Engineering Org) in the list.</i></p>
@@ -308,7 +308,7 @@ If a formatting error is found in your imported CSV file, the import wizard indi
 <Tabs>
     <TabItem value="error" label="Error Screen">
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Budget import errors" width="80%" src="/img/budget-error.png" />
+        <img alt="Budget import errors" width="80%" src="https://assets.vantage.sh/docs/budget-error.png" />
     </div>
     </TabItem>
     <TabItem value="csv" label="Source CSV File">
@@ -340,7 +340,7 @@ Use the following troubleshooting suggestions to check for errors in your CSV fi
           muted 
           playsinline
           loop
-          url='/img/budget-overwrite.mp4'
+          url='https://assets.vantage.sh/docs/budget-overwrite.mp4'
           alt="Overwriting an existing budget in the import UI." 
           width="100%"
           height="100%"
@@ -375,7 +375,7 @@ In the example below, _Infrastructure Dept_ is a parent budget with the followin
 | Cost Optimization Task  |          | $30,000   | $40,000   |
 
 <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Performance of a budget across various periods with actual and forecasted performance displayed for each month." width="100%" src="/img/budget-performance.png" />
+      <img alt="Performance of a budget across various periods with actual and forecasted performance displayed for each month." width="100%" src="https://assets.vantage.sh/docs/budget-performance.png" />
 </div>
 
 At the top of the tab, the following values are displayed:
@@ -398,7 +398,7 @@ $$
 
 Navigate to the Cost Report that's associated with any child budget to view the actual spend. In the example presented before, on the **Performance** tab, the **Actual Spend** for February was $43,544.19 for the _Cost Optimization Task_ child budget. Since the month is not yet complete in this case, the **Actual Spend** includes the forecasted spend for the entire month, as illustrated in the image below.
 <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Forecasted spend for the month." width="100%" src="/img/forecasted-spend.png" />
+      <img alt="Forecasted spend for the month." width="100%" src="https://assets.vantage.sh/docs/forecasted-spend.png" />
 </div>
 
 #### Child Budget Performance
@@ -406,7 +406,7 @@ Navigate to the Cost Report that's associated with any child budget to view the 
 On a budget with no associated children budgets, the **Performance** tab displays the following information.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Forecasted spend for the month." width="100%" src="/img/child-budget-performance.png" />
+      <img alt="Forecasted spend for the month." width="100%" src="https://assets.vantage.sh/docs/child-budget-performance.png" />
 </div>
 
 - The monthly budgeted amount is shown alongside the percentage by which actual spend is over or under budget. In the example above, the January budget was $30,000, while actual spend totaled $30,099.97—exceeding the budget by 0.33%. For ongoing months, the actual spend percentage is calculated using forecasted costs.
@@ -453,7 +453,7 @@ In the below visual example, the **Hierarchy** tab is displayed for the parent b
         muted 
         playsinline
         loop
-        url='/img/budget-hierarchy.mp4'
+        url='https://assets.vantage.sh/docs/budget-hierarchy.mp4'
         alt="Traversing through a budget hierarchy" 
         width="100%"
         height="100%"
@@ -466,7 +466,7 @@ In the below visual example, the **Hierarchy** tab is displayed for the parent b
 Once a budget is assigned to a [Cost Report](/cost_reports/), a budget report with month-to-date performance is displayed at the top of the Cost Report. The budget reflects amortized costs throughout the month, indicating whether the spending is above or below the budget month to date.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A budget is displayed as a trend line on the Cost Report in the console" width="100%" src="/img/cost-report-budget.png" />
+    <img alt="A budget is displayed as a trend line on the Cost Report in the console" width="100%" src="https://assets.vantage.sh/docs/cost-report-budget.png" />
 </div>
 
 Budgets are displayed as a yellow line on the graph in the cumulative, daily, weekly, and monthly views on a Cost Report. The dotted portion of the line corresponds to the future budget, which you can track against your forecasted costs.
@@ -496,13 +496,13 @@ If you want to send alerts to Slack, Microsoft Teams, or Jira, see the [Slack](/
    - Optionally, select any Slack channels, Microsoft Teams channels, or Jira projects you want to receive the alert.
    <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="A budget alert configured to send to one user and a Slack team 10 days before the end of the month." width="50%" src="/img/configure-budget-alert.png" />
+        <img alt="A budget alert configured to send to one user and a Slack team 10 days before the end of the month." width="50%" src="https://assets.vantage.sh/docs/configure-budget-alert.png" />
     </div>
     </details>
 5. Click **Save**. Budget alerts will look similar to the below image.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Email budget alert" width="60%" src="/img/email-budget-alert.png" />
+    <img alt="Email budget alert" width="60%" src="https://assets.vantage.sh/docs/email-budget-alert.png" />
 </div>
 
 Recipients will be notified immediately after a Cost Report is updated with the latest data. Reports are updated with the latest data at least once per day. If your budget exceeds the threshold for multiple alerts, you'll be notified only about the most severe alert (the alert with the highest threshold).

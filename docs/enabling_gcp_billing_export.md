@@ -44,7 +44,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 3. Click **Create dataset**.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Create BigQuery dataset menu" width="80%" src="/img/connect-gcp/gcp-project-create-dataset.png"/> </div>
+<img alt="Create BigQuery dataset menu" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-project-create-dataset.png"/> </div>
 </details>
 4. Configure your dataset:
 
@@ -57,7 +57,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
    - Click **Advanced options**. Set **Encryption** to **Google-managed encryption key**.
    <details><summary>Expand to view example image</summary>
    <div>
-   <img alt="Create BigQuery dataset" width="80%" src="/img/connect-gcp/gcp-create-dataset.png"/> </div>
+   <img alt="Create BigQuery dataset" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-create-dataset.png"/> </div>
    </details>
 
    :::note
@@ -75,7 +75,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 3. Ensure you are on the **BIGQUERY EXPORT** tab. (This tab should be selected by default). Then, under **Detailed usage cost**, click **EDIT SETTINGS**.
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="Create GCP Billing Export" width="80%" src="/img/connect-gcp/gcp-billing-export.png"/> </div>
+<img alt="Create GCP Billing Export" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-billing-export.png"/> </div>
 </details>
 
 4. Configure the following settings:
@@ -85,7 +85,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
    - For **Dataset**, select the dataset that you set up to contain your exported Cloud Billing data (e.g., **all_billing_data**).
 <details><summary>Expand to view example image</summary>
 <div>
-<img alt="GCP detailed usage cost configuration" width="80%" src="/img/connect-gcp/gcp-detailed-usage-cost.png"/> </div>
+<img alt="GCP detailed usage cost configuration" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-detailed-usage-cost.png"/> </div>
 </details>
 
 5. Click the **SAVE**.
