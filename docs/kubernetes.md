@@ -46,13 +46,13 @@ Node Labels are collected by default with the Vantage Kubernetes agent. See the 
 
 In addition to standard Kubernetes metadata, like Cluster, Namespace, and Label, Vantage also supports filtering and grouping by Persistent Volume Claim (PVC) Label and Node Label. These labels are collected by the Vantage Kubernetes agent and appear as [tags](/tagging). These tags are denoted by a tag value of `pvc:xyz` for PVCs and `node:xyz` for Nodes. You can use these labels to attribute workload costs to underlying storage or node-level infrastructure for more accurate cost allocation. 
 
-- PVC Labels are collected from persistent volumes associated with pods. 
-- Node Labels are collected from the nodes where pods are scheduled. 
+- PVC Labels are collected from persistent volume claims associated with pods.
+- Node Labels are collected from the nodes where pods are scheduled.
 
 Each cost entry is associated with the PVC and Node at the time of use. If workloads span multiple PVCs or move across nodes, their cost is accurately apportioned and labeled accordingly.
 
 :::tip
-PVC and Node Labels can also be used in [Virtual Tags](/tagging) to define custom cost allocation dimensions for things like team, environment, application, or storage.
+In addition to Cost Reports, PVC and Node Labels can also be used in [Virtual Tags](/tagging) to define custom cost allocation dimensions for things like team, environment, application, or storage. Node Labels can also be used in Kubernetes Efficiency Reports; however, PVC Labels cannot be used on these reports.
 :::
 
 ### Cost Data Source {#cost-data-source}
@@ -101,7 +101,7 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
      :::note
       See the [section below](/kubernetes#gpu) for information on how to enable GPU metrics.  
 
-      You can also filter by PVC Label and Node Label, which are collected by the Vantage Kubernetes agent and appear as label filters in the format `pvc:xyz` and `node:xyz`. 
+      You can also filter by Node Label, which is collected by the Vantage Kubernetes agent and appear as label filters in the format `node:xyz`. Note that PVC Labels are not available for filtering on these reports. Kubernetes Efficiency Reports provide detail into the underlying usage, efficiency, and cost of the underlying compute resources of Kubernetes Workloads. These reports do not include reporting on attached volume storage, where PVC Labels are applied. To report on both compute and storage resources, use Cost Reports.
      :::
    - Two additional dropdown menus are displayed. Select **is** or **is not** based on your desired filter criteria, then select one or more Clusters, Namespaces, or Labels from the second dropdown menu.
    - Click **Save**.
