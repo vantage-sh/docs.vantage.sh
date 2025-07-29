@@ -40,7 +40,7 @@ These instructions are a condensed version of the instructions on Linode’s [do
 
 1. Log in to [Akamai Cloud Manager](https://cloud.linode.com/).
 2. Navigate to your Linode profile's [API token page](https://cloud.linode.com/profile/tokens). You can also access this page by selecting your user profile at the top. Then, under **My Profile**, select **API Tokens**.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
    <img alt="Linode profile screen" width="60%" src="https://assets.vantage.sh/docs/linode-profile.png"/> </div>
    </details>
@@ -49,7 +49,7 @@ These instructions are a condensed version of the instructions on Linode’s [do
    - For **Label**, enter something that identifies this token, such as _Vantage Integration_.
    - For **Expiry**, select **Never**.
    - For **Access**, select **Read Only** for all items except VPCs. For **VPCs**, select **No Access**.
-      <details><summary>Expand to view example image</summary>
+      <details><summary>Click to view example image</summary>
    <div>
    <img alt="Linode access token screen" width="60%" src="https://assets.vantage.sh/docs/linode-token.png"/> </div>
    </details>

@@ -39,7 +39,7 @@ Once you have set up either a Slack or Microsoft Teams integration, follow the s
 
 If you instead want to create an email notification, the email report will contain a list of all of your views and a point-in-time cost for each view. The bottom of the email will include [cost recommendations](/cost_recommendations). Cost recommendations are not sent for Slack or Microsoft Teams alerts.
 
-<details><summary>Expand to view example email notification</summary>
+<details><summary>Click to view example email notification</summary>
   <div>
     <img alt="Example Report Notification in an email" width="100%" src="https://assets.vantage.sh/docs/email-notification.png"/>
   </div>

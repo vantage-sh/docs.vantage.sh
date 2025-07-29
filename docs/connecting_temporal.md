@@ -46,7 +46,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 
 1. In Temporal Cloud, navigate to **[Settings > Identities](https://cloud.temporal.io/settings/identities)**.
 2. At the top, click **Create Service Account**. 
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Creating a Temporal Service Account" width="100%" src="https://assets.vantage.sh/docs/temporal-create-service-account.png"/> </div>
   </details>
@@ -54,7 +54,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 4. Add an optional description to identify this account.
 5. For **Account Level Role**, select **Finance Admin**.
 6. For **Namespace Permissions**, set the access for each namespace to **Read-Only**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Setting up the Temporal service account with relevant permissions" width="100%" src="https://assets.vantage.sh/docs/temporal-service-account.png"/> </div>
   </details>
@@ -73,7 +73,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
 
 1. After you create the service account, you will be prompted to create an API key. You can also create an API key for the service account at any time. Navigate to **[Settings > API keys](https://cloud.temporal.io/settings/api-keys)**. 
 2. Click **Create API Key**. 
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Creating a new Temporal API key" width="100%" src="https://assets.vantage.sh/docs/temporal-create-api.png"/> </div>
   </details>
@@ -84,7 +84,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
   :::note
   At this time, Temporal Cloud API keys can be configured to be valid for up to 2 years, after which you'll need to rotate your Temporal Cloud API key in the Vantage console.
   :::
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Creating a new Temporal API key with relevant permissions" width="100%" src="https://assets.vantage.sh/docs/temporal-create-api-key.png"/> </div>
   </details>
@@ -106,7 +106,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
   You can also update these rates after you complete the integration. See the [Update Custom Rates](/connecting_temporal#update-custom-rates) section for details. 
   :::
 
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Adding all credentials and custom rates in the Vantage console" width="100%" src="https://assets.vantage.sh/docs/temporal-vantage-console.png"/> </div>
   </details>
@@ -134,7 +134,7 @@ After you complete the integration, you can update your custom rates if they eve
 2. Select your integration from the list. 
 3. Scroll down to the **Custom Rates** section.
 4. Update your rates accordingly, then click **Save**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
     <img alt="Editing rates for the Temporal Cloud integration in Vantage" width="100%" src="https://assets.vantage.sh/docs/temporal-edit-rates.png"/> </div>
   </details>

@@ -42,7 +42,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 
 2. In the **Explorer** panel, click the **three vertical dots** (next to your project ID).
 3. Click **Create dataset**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
 <img alt="Create BigQuery dataset menu" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-project-create-dataset.png"/> </div>
 </details>
@@ -55,7 +55,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
    - Leave the **Enable table expiration** checkbox unchecked to ensure that data never expires.
 
    - Click **Advanced options**. Set **Encryption** to **Google-managed encryption key**.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
    <img alt="Create BigQuery dataset" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-create-dataset.png"/> </div>
    </details>
@@ -73,7 +73,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
 2. In the left **Billing navigation menu**, select **Billing export**. (You can also search for and navigate to **Billing export** from the main search bar at the top of the GCP console.)
 
 3. Ensure you are on the **BIGQUERY EXPORT** tab. (This tab should be selected by default). Then, under **Detailed usage cost**, click **EDIT SETTINGS**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
 <img alt="Create GCP Billing Export" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-billing-export.png"/> </div>
 </details>
@@ -83,7 +83,7 @@ In the GCP console, navigate to [BigQuery](https://console.cloud.google.com/bigq
    - From the **Projects** list, select the project you set up to contain your billing data.
 
    - For **Dataset**, select the dataset that you set up to contain your exported Cloud Billing data (e.g., **all_billing_data**).
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
 <img alt="GCP detailed usage cost configuration" width="80%" src="https://assets.vantage.sh/docs/connect-gcp/gcp-detailed-usage-cost.png"/> </div>
 </details>

@@ -36,12 +36,12 @@ Before you can connect your IdP to Vantage, you will need the following:
 1. From the Vantage console, navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers).
 2. Click **New Connection**.
 3. Select the **SAML** connection type.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Create SSO integration in Vantage console" width="80%" src="https://assets.vantage.sh/docs/sso-configure.png"/> </div>
 </details>
 4. Copy the **Single Sign-On URL** and **Audience URL** that are provided on screen. You will need both of these URLs for your IdP's configuration.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Configuration for SAML SSO integration in Vantage console" width="80%" src="https://assets.vantage.sh/docs/saml-sso-configure.png"/> </div>
 </details>
@@ -67,18 +67,18 @@ For detailed instructions, see the [Okta support documentation](https://help.okt
 
 1. Create an app integration on Okta.
 2. For **Sign-in method**, select **SAML 2.0**. Click **Next**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Create a new Okta app integration" width="80%" src="https://assets.vantage.sh/docs/saml_okta_new.png"/> </div>
 </details>
 3. For **App Name**, enter _Vantage_.
 4. For **App Logo**, upload the [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg), then click **Next**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Okta app settings" width="80%" src="https://assets.vantage.sh/docs/saml_okta_app_name.png"/> </div>
 </details>
 5. Enter the requested **Single sign on URL** (for example, `https://auth.vantage.sh/login/callback?connection=company-com`) and **Audience URI (SP Entity ID)** (for example, `urn:auth0:vantage-production:company-com`), provided on the Vantage Authentication setup page.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
 <img alt="Okta SAML settings" width="80%" src="https://assets.vantage.sh/docs/saml_okta_settings.png"/> </div>
 </details>
@@ -120,7 +120,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 1: Obtain Your Primary Domain from Microsoft Entra ID {#azure-step-1}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Obtaining primary domain from Entra ID" width="80%" src="https://assets.vantage.sh/docs/primary-domain.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
@@ -131,7 +131,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 2: Register an Application with Azure AD {#azure-step-2}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Configuration for Azure app registration" width="80%" src="https://assets.vantage.sh/docs/azure-configure-1.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
@@ -145,7 +145,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 3: Generate a Client Secret {#azure-step-3}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Configuration for Azure client secret" width="80%" src="https://assets.vantage.sh/docs/azure-configure-2.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
@@ -161,7 +161,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 4: Add API Permissions {#azure-step-4}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Configuration for Azure app API permissions" width="80%" src="https://assets.vantage.sh/docs/azure-configure-3.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
@@ -175,7 +175,7 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 5: Grant Admin Consent (If Required) {#azure-step-5}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
 <img alt="Configuration for Azure app admin consent" width="80%" src="https://assets.vantage.sh/docs/azure-configure-4.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
