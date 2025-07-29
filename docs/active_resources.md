@@ -250,6 +250,15 @@ When available, this screen also includes **S3 Intelligent Tiering Consideration
 
 ### S3 Request Metrics and Egress
 
+:::info
+To view S3 request metrics and egress data, you must configure request metrics on the S3 bucket. Configure your `VantageCloudWatchMetricsReadOnly` IAM policy to include the following permissions:
+
+- `s3:GetMetricsConfiguration`
+- `s3:ListBucketMetricsConfigurations`
+
+Note that it takes roughly 15 minutes for AWS to begin delivering these metrics after they are enabled. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) for more information about ingress and egress request metrics.
+:::
+
 AWS charges you on a per-request basis for S3 with potentially different rates for each request type. The **Request Metrics & Egress** tab provides a summary of request metrics for the bucket and each metric's cost for the trailing 30 days.
 
 <div style={{display:"flex", justifyContent:"center"}}>
@@ -257,10 +266,6 @@ AWS charges you on a per-request basis for S3 with potentially different rates f
 </div>
 
 A graph of each request type (`GET`, `PUT`, `HEAD`, `POST`, `SELECT`, and `LIST`) is provided, which visualizes the total number of requests. The total cost for each request type is also provided.
-
-:::info
-See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) for information on how to enable ingress and egress request metrics. Note that it takes roughly 15 minutes for AWS to begin delivering these metrics after they are enabled.
-:::
 
 ### EC2 Rightsizing Recommendations
 
