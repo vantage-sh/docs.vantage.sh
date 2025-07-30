@@ -3,7 +3,7 @@ id: vantage_university_unit_costs
 title: Vantage University Unit Costs
 description: Learn about unit costs and business metrics in this Vantage University section.
 sidebar_label: Unit Costs
-image: /img/vantage-university/unit-costs.jpg
+image: https://assets.vantage.sh/docs/vantage-university/unit-costs.jpg
 keywords:
   - Vantage University
   - Unit Costs

@@ -49,7 +49,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 Sometimes an update is required to use new Vantage features related to Datadog. Navigate to the [Manage Integration](https://console.vantage.sh/settings/datadog?manage=true) page for your Datadog integration. If you need to update the integration, the **Update Required** button is displayed in the **Status** column. Click the button to access the OAuth integration workflow and reconnect your integration. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Update button for an out-of-date Datadog integration" width="90%" src="/img/datadog-update.png" />
+    <img alt="Update button for an out-of-date Datadog integration" width="90%" src="https://assets.vantage.sh/docs/datadog-update.png" />
 </div>
 
 ## Datadog Reporting Dimensions
@@ -127,7 +127,7 @@ Because these costs are always realized on the first of the month, when you comp
 In the below visual example, a Cost Report is filtered to all Datadog costs. The date grouping is set to **Daily**. If you select a service row in the table, that service is isolated on the graph, and you can see how the service is priced. In this example, Log Management has accrual data and prices daily; whereas, Containers is priced based on the p95/p99 of usage, and costs are realized on the first of the month.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-  <img alt="GIF selecting different Datadog services. When Log Management is selected, costs are displayed for the whole month. When Containers is selected, costs are displayed on the first of the month." width="100%" src="/img/datadog-costs.gif"/>
+  <img alt="GIF selecting different Datadog services. When Log Management is selected, costs are displayed for the whole month. When Containers is selected, costs are displayed on the first of the month." width="100%" src="https://assets.vantage.sh/docs/datadog-costs.gif"/>
 </div>
 
 ## Reporting Dimensions

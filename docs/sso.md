@@ -36,14 +36,14 @@ Before you can connect your IdP to Vantage, you will need the following:
 1. From the Vantage console, navigate to the [Authentication page](https://console.vantage.sh/settings/account_identity_providers).
 2. Click **New Connection**.
 3. Select the **SAML** connection type.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Create SSO integration in Vantage console" width="80%" src="/img/sso-configure.png"/> </div>
+<img alt="Create SSO integration in Vantage console" width="80%" src="https://assets.vantage.sh/docs/sso-configure.png"/> </div>
 </details>
 4. Copy the **Single Sign-On URL** and **Audience URL** that are provided on screen. You will need both of these URLs for your IdP's configuration.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Configuration for SAML SSO integration in Vantage console" width="80%" src="/img/saml-sso-configure.png"/> </div>
+<img alt="Configuration for SAML SSO integration in Vantage console" width="80%" src="https://assets.vantage.sh/docs/saml-sso-configure.png"/> </div>
 </details>
 5. To add a logo to your connection's thumbnail, use the provided [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg).
 6. Once you create the Vantage application within your IdP, copy the following information:
@@ -67,20 +67,20 @@ For detailed instructions, see the [Okta support documentation](https://help.okt
 
 1. Create an app integration on Okta.
 2. For **Sign-in method**, select **SAML 2.0**. Click **Next**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Create a new Okta app integration" width="80%" src="/img/saml_okta_new.png"/> </div>
+<img alt="Create a new Okta app integration" width="80%" src="https://assets.vantage.sh/docs/saml_okta_new.png"/> </div>
 </details>
 3. For **App Name**, enter _Vantage_.
 4. For **App Logo**, upload the [Vantage Logo](https://s3.amazonaws.com/assets.vantage.sh/www/vantage_avatar-social.jpg), then click **Next**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Okta app settings" width="80%" src="/img/saml_okta_app_name.png"/> </div>
+<img alt="Okta app settings" width="80%" src="https://assets.vantage.sh/docs/saml_okta_app_name.png"/> </div>
 </details>
 5. Enter the requested **Single sign on URL** (for example, `https://auth.vantage.sh/login/callback?connection=company-com`) and **Audience URI (SP Entity ID)** (for example, `urn:auth0:vantage-production:company-com`), provided on the Vantage Authentication setup page.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
-<img alt="Okta SAML settings" width="80%" src="/img/saml_okta_settings.png"/> </div>
+<img alt="Okta SAML settings" width="80%" src="https://assets.vantage.sh/docs/saml_okta_settings.png"/> </div>
 </details>
 6. Set the **Application username** to **Email**.
 7. Once the app integration is set up, copy the Okta-provided **Identity Provider Single Sign On URL** and **X.509 Certificate** back into Vantage.
@@ -120,9 +120,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 1: Obtain Your Primary Domain from Microsoft Entra ID {#azure-step-1}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Obtaining primary domain from Entra ID" width="80%" src="/img/primary-domain.png"/></div> <p><i>Source: Microsoft </i></p>
+<img alt="Obtaining primary domain from Entra ID" width="80%" src="https://assets.vantage.sh/docs/primary-domain.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
 
 - Log in to the Azure portal.
@@ -131,9 +131,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 2: Register an Application with Azure AD {#azure-step-2}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Configuration for Azure app registration" width="80%" src="/img/azure-configure-1.png"/></div> <p><i>Source: Microsoft </i></p>
+<img alt="Configuration for Azure app registration" width="80%" src="https://assets.vantage.sh/docs/azure-configure-1.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
 
 - From the Azure portal, navigate to **App registrations**, then click **New registration**.
@@ -145,9 +145,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 3: Generate a Client Secret {#azure-step-3}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Configuration for Azure client secret" width="80%" src="/img/azure-configure-2.png"/></div> <p><i>Source: Microsoft </i></p>
+<img alt="Configuration for Azure client secret" width="80%" src="https://assets.vantage.sh/docs/azure-configure-2.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
 
 - On the left navigation, select **Certificates & secrets**.
@@ -161,9 +161,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 4: Add API Permissions {#azure-step-4}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Configuration for Azure app API permissions" width="80%" src="/img/azure-configure-3.png"/></div> <p><i>Source: Microsoft </i></p>
+<img alt="Configuration for Azure app API permissions" width="80%" src="https://assets.vantage.sh/docs/azure-configure-3.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
 
 - On the left navigation, select **API permissions**.
@@ -175,9 +175,9 @@ The following instructions are based on the [Microsoft documentation](https://le
 
 #### Step 5: Grant Admin Consent (If Required) {#azure-step-5}
 
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div> 
-<img alt="Configuration for Azure app admin consent" width="80%" src="/img/azure-configure-4.png"/></div> <p><i>Source: Microsoft </i></p>
+<img alt="Configuration for Azure app admin consent" width="80%" src="https://assets.vantage.sh/docs/azure-configure-4.png"/></div> <p><i>Source: Microsoft </i></p>
 </details>
 
 - Still under **API permissions**, you may see a section for **Grant admin consent for {your domain}**.
@@ -218,7 +218,7 @@ The following instructions are based on the [Google documentation](https://suppo
 <details>
     <summary>Click to view example image</summary>
     <div> 
-    <img alt="Google Workspace app setup" width="80%" src="/img/set-up-google-workspace.png"/> </div>
+    <img alt="Google Workspace app setup" width="80%" src="https://assets.vantage.sh/docs/set-up-google-workspace.png"/> </div>
 </details>
 
 #### Step 2: Obtain Application Credentials and Contact Vantage Support
@@ -261,7 +261,7 @@ If your team names in Vantage _do not match_ your identity provider, or you want
 3. From the **Vantage Team** dropdown, select the corresponding Vantage team.
 4. Click **Add** to add additional mappings.
  <div style={{display:"flex", justifyContent:"center"}}>
- <img alt="SSO team assignment toggle in the console" width="80%" src="/img/sso-team-assignment.png" />
+ <img alt="SSO team assignment toggle in the console" width="80%" src="https://assets.vantage.sh/docs/sso-team-assignment.png" />
  </div>
 5. When you are finished, click **Save**.
 
@@ -282,7 +282,7 @@ To enable group mapping in Okta:
 <details>
     <summary>Click to view example image</summary>
     <div> 
-    <img alt="Okta group attribute settings" width="80%" src="/img/okta-group-attribute.png"/> </div>
+    <img alt="Okta group attribute settings" width="80%" src="https://assets.vantage.sh/docs/okta-group-attribute.png"/> </div>
 </details>
 
 :::info

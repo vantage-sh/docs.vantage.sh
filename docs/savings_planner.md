@@ -87,7 +87,7 @@ $$
 The table at the top contains a projected growth rate for the next 12 months based on the last 6 months of spend. A visualization above the table provides a view of covered/uncovered spend for each month.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A full view of the Savings Planner table with on-demand and committed spend" width="100%" src="/img/spend-table.png" />
+    <img alt="A full view of the Savings Planner table with on-demand and committed spend" width="100%" src="https://assets.vantage.sh/docs/spend-table.png" />
 </div>
 
 The following data is included in the table:
@@ -105,7 +105,7 @@ The following data is included in the table:
 To adjust the predictions for future compute spend, click any future date cell within the **Raw Compute Spend** row and manually edit the prediction value. Consider updating these values based on predicted events over the next few months. The **Savings Plan Savings/Coverage** and **Net Compute Spend** rows are automatically updated based on changes to predicted Raw Compute Spend.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF that shows a future cell in the Raw Compute Spend row. All other values within the column automatically update." width="100%" src="/img/adjust-spend.gif"/>
+    <img alt="GIF that shows a future cell in the Raw Compute Spend row. All other values within the column automatically update." width="100%" src="https://assets.vantage.sh/docs/adjust-spend.gif"/>
 </div>
 <br/>
 
@@ -133,7 +133,7 @@ For more information about Savings Plans and factors such as term, prepayment, a
 6. Select a **Purchase Date**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="A savings model option is added to the Savings Planner and an hourly commit is entered. The table at the top is updated automatically to show new predicted spend and savings." width="100%" src="/img/savings-plan.gif"/>
+    <img alt="A savings model option is added to the Savings Planner and an hourly commit is entered. The table at the top is updated automatically to show new predicted spend and savings." width="100%" src="https://assets.vantage.sh/docs/savings-plan.gif"/>
 </div>
 <br/>
 

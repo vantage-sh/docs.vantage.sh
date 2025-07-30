@@ -78,7 +78,7 @@ Cost Reports have several other features, including [anomaly detection](/cost_an
 On the **Filters** menu, click **Select a provider** and choose from any of your connected providers (AWS, Azure, etc.). Costs are filtered to all costs for the selected provider. Within the table, costs are grouped by provider service (e.g., Amazon Relational Database Service), in descending order of **Accrued Costs**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of selecting a provider filter for GCP and sorting the table by cost in the console" width="80%" src="/img/add-provider-filter.gif"/>
+    <img alt="GIF of selecting a provider filter for GCP and sorting the table by cost in the console" width="80%" src="https://assets.vantage.sh/docs/add-provider-filter.gif"/>
 </div>
 <br/>
 
@@ -87,7 +87,7 @@ To view available filter options, click **New Rule**. A list of filter options i
 Each filter includes options for exact matching and fuzzy matching. For example, in the image below, you can select **is**, **is not**, **contains**, **does not contain**, **starts with**, and **ends with** for the **Resource** filter. This set of options can vary per selected filter. Select a matching option, then select a filter value (e.g., <code>where <strong>Service</strong> is <strong>Amazon Relational Database Service</strong> + <strong>Amazon Elastic Cloud - Compute</strong></code>)
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Selecting matching criteria for a filter in a Cost Report" width="80%" src="/img/resource-filter-options.png" />
+    <img alt="Selecting matching criteria for a filter in a Cost Report" width="80%" src="https://assets.vantage.sh/docs/resource-filter-options.png" />
 </div>
 
 To continue filtering the report, perform any of the following actions:
@@ -105,7 +105,7 @@ The flexible match operator in Vantage helps you work with inconsistent tag nami
 For example, your organization tags workloads by team, but the tag values vary: one service might use `teamA`, another `team-a`, and a third `Team A`. Instead of creating separate filters for each variant, use the flexible match operator as shown in the image below. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Flexible match operator" width="60%" src="/img/flex-match.png" />
+    <img alt="Flexible match operator" width="60%" src="https://assets.vantage.sh/docs/flex-match.png" />
 </div>
 
 Vantage automatically normalizes and matches all variations, as well as match any future iterations that are created of the `Team A` string.
@@ -122,7 +122,7 @@ To set percent-based cost allocation:
 2. Click the **Add Cost Allocation** button on the filter set and enter a value between 1 and 100%. The set percentage will be applied to all the matching costs and represented accordingly in the Cost Report.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost allocation of 50% is added to a filter set on a Kubernetes Cost Report" width="80%" src="/img/showback-cost-allocation.png" />
+    <img alt="Cost allocation of 50% is added to a filter set on a Kubernetes Cost Report" width="80%" src="https://assets.vantage.sh/docs/showback-cost-allocation.png" />
 </div>
 
 When percent-based cost allocation is set as a filter, forecasts will be produced in aggregate for all set conditions, and the percentage allocation will be applied to that forecast.
@@ -142,7 +142,7 @@ For resources that generate network traffic costs (e.g., NAT Gateways), a **Netw
 In the below example, this Cost Report is grouped by **Service** and **Resource**. The **Network Costs** button is displayed next to NAT Gateway resources. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="Network Costs option on a Cost Report" width="80%" src="/img/nfr-cost-report.png" />
+  <img alt="Network Costs option on a Cost Report" width="80%" src="https://assets.vantage.sh/docs/nfr-cost-report.png" />
 </div>
 
 ### Saved Filters
@@ -170,7 +170,7 @@ You can group by the following dimensions:
 After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report that is enabled with Multi-dimensional Grouping" width="90%" src="/img/cost-report-grouping.png" />
+    <img alt="A Cost Report that is enabled with Multi-dimensional Grouping" width="90%" src="https://assets.vantage.sh/docs/cost-report-grouping.png" />
 </div>
 
 :::tip
@@ -380,7 +380,7 @@ The Charge Type grouping includes costs separated by items like usage, discounts
 By default, the top five groups of costs by amount are displayed on the graph. In addition, the Other Costs category is displayed as an aggregation of all remaining costs. To add more costs to the graph and table, click the down arrow next to **Other Costs**. The number of other costs is displayed. Click **Show X More Items**, to add additional cost groups to the report.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Displaying additional costs using the Other Costs dropdown menu on a Cost Report" width="90%" src="/img/other-costs.png" />
+    <img alt="Displaying additional costs using the Other Costs dropdown menu on a Cost Report" width="90%" src="https://assets.vantage.sh/docs/other-costs.png" />
 </div>
 
 ## Drill Down in Costs Table {#drilldown}
@@ -399,7 +399,7 @@ Each service typically has multiple underlying category and subcategory costs. F
 2. A few icons are displayed next to each listed AWS service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/category-costs.gif"/>
+    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="https://assets.vantage.sh/docs/category-costs.gif"/>
 </div>
 <br/>
 
@@ -413,13 +413,13 @@ For certain providers, like AWS, you can view individual resources.
 In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of Per Resource Costs" width="80%" src="/img/per-resource-list.png" />
+    <img alt="Example of Per Resource Costs" width="80%" src="https://assets.vantage.sh/docs/per-resource-list.png" />
 </div>
 
 You can also view the **Category** and **Subcategory** costs on a per-resource basis. In the previous example, to view a breakdown of costs for the RDS instance named **core-production-primary-01**, click the **Costs by Category** icon (looks like a dollar sign—**$**). Costs are now displayed by resource, within a category, for a specific service.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Example of a Single Resource Costs" width="80%" src="/img/per-resource-individual.png" />
+    <img alt="Example of a Single Resource Costs" width="80%" src="https://assets.vantage.sh/docs/per-resource-individual.png" />
 </div>
 
 ### Drill Down in Grouped Report
@@ -444,7 +444,7 @@ If you apply grouping criteria to the Cost Report (e.g., set the **Group By** fi
         muted 
         playsinline
         loop
-        url='/img/drilldown-category.mp4'
+        url='https://assets.vantage.sh/docs/drilldown-category.mp4'
         alt="The Drilldown icon is clicked and adds a filter and grouping item for Category." 
         width="100%"
         height="100%"
@@ -472,7 +472,7 @@ If you apply grouping criteria to the Cost Report (e.g., set the **Group By** fi
         muted 
         playsinline
         loop
-        url='/img/drilldown-subcategory.mp4'
+        url='https://assets.vantage.sh/docs/drilldown-subcategory.mp4'
         alt="The Drilldown icon is clicked and adds a filter and grouping item for Subcategory." 
         width="100%"
         height="100%"
@@ -499,7 +499,7 @@ If you apply grouping criteria to the Cost Report (e.g., set the **Group By** fi
         muted 
         playsinline
         loop
-        url='/img/drilldown-region.mp4'
+        url='https://assets.vantage.sh/docs/drilldown-region.mp4'
         alt="The Filter On menu is clicked and adds a filter and grouping item for Region." 
         width="100%"
         height="100%"
@@ -516,7 +516,7 @@ AWS practitioners who are having trouble understanding AWS billing codes present
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="/img/cur-cost-report.png" />
+    <img alt="A Cost Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="https://assets.vantage.sh/docs/cur-cost-report.png" />
 </div>
 
 ## Adjust Chart Visualization
@@ -528,7 +528,7 @@ For the Cumulative date bin, you can view line charts, pie charts, and area char
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts" width="100%" src="/img/cost-report-visualizations.png" />
+    <img alt="A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts" width="100%" src="https://assets.vantage.sh/docs/cost-report-visualizations.png" />
 </div>
 
 ## Configure Report Settings
@@ -586,7 +586,7 @@ For more tips on reviewing your cost data against Cost Explorer, see [the follow
 Usage-Based Reporting provides infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed. These reports are available within Cost Reports, where you can toggle between viewing consumption by spend or by usage. See the [Usage-Based Reporting](/usage_based_reporting) documentation for details on how to use and view these reports.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Toggle to show Usage-Based Reporting" width="80%" src="/img/usage-toggle.png" />
+    <img alt="Toggle to show Usage-Based Reporting" width="80%" src="https://assets.vantage.sh/docs/usage-toggle.png" />
 </div>
 
 ## Comparative Cost Reporting {#comparative-cost-reporting}
@@ -594,7 +594,7 @@ Usage-Based Reporting provides infrastructure consumption in non-monetary metric
 To compare costs day by day, week by week, or month by month on Cost Reports, click the **By Date** option above the cost table. A view of costs with the same date binning selected for the graph is displayed. To switch back to the previous, current, and percent change view, select **Cumulative**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Comparative View" width="80%" src="/img/by-date-view.png" />
+    <img alt="Comparative View" width="80%" src="https://assets.vantage.sh/docs/by-date-view.png" />
 </div>
 
 When you view the **By Date** option, a **Total Costs** row is displayed at the top of the table. 
@@ -604,7 +604,7 @@ When you view the **By Date** option, a **Total Costs** row is displayed at the 
 You can select from two modes when you export a report: **Basic** or **Advanced**.
 
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
+    <img alt="Cost Report Exports" width="40%" src="https://assets.vantage.sh/docs/cost-report-exports.png" />
 </div>
 
 - With a **Basic** export, you can modify only the date range of a report.
@@ -624,7 +624,7 @@ You can select from two modes when you export a report: **Basic** or **Advanced*
 - For the **Schema** option, select either Vantage's default schema or the [FinOps Foundation FOCUS](https://focus.finops.org/) schema.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report Exports" width="40%" src="/img/cost-report-exports.png" />
+    <img alt="Cost Report Exports" width="40%" src="https://assets.vantage.sh/docs/cost-report-exports.png" />
 </div>
 
 1. From the top right of any Cost Report, click the download icon (looks like an arrow with a line below it).
@@ -637,7 +637,7 @@ For the **Date Bin** export option, when you select **Week**, the week in the ex
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report Exports" width="60%" src="/img/custom-csv-export.png" />
+    <img alt="Cost Report Exports" width="60%" src="https://assets.vantage.sh/docs/custom-csv-export.png" />
 </div>
 
 When the export is finished generating, you’ll receive an email with a link to download the exported data, typically within a few minutes. An example export, with groupings of **Service Category** and **Service Subcategory**, is shown above. You can also export grouped Cost Reports and the groupings will be respected in the downloaded CSV.

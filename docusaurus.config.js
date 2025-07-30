@@ -138,7 +138,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: "/img/index-cards/docs-social-card.jpg",
+      image: "https://assets.vantage.sh/docs/index-cards/docs-social-card.jpg",
       colorMode: {
         defaultMode: "light",
         disableSwitch: true,
@@ -226,7 +226,7 @@ const config = {
         style: "dark",
         logo:
           {alt: 'Vantage',
-          src: '/img/vantage-footer-logo.svg'},
+          src: 'https://assets.vantage.sh/docs/vantage-footer-logo.svg'},
         links: [
           {
             title: "Docs",

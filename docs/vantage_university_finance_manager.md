@@ -3,7 +3,7 @@ id: vantage_university_finance_manager
 title: Vantage University Finance Manager
 description: The Finance Manager track on Vantage University focuses on the steps you can take to use Vantage as your organization's Finance Manager or CFO.
 sidebar_label: Finance Manager
-image: /img/vantage-university/finance-manager.jpg
+image: https://assets.vantage.sh/docs/vantage-university/finance-manager.jpg
 keywords:
   - Vantage University
   - Finance Manager

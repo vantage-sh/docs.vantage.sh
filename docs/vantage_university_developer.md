@@ -3,7 +3,7 @@ id: vantage_university_developer
 title: Vantage University Developer
 description: The Developer track on Vantage University focuses on the steps you can take to use Vantage as your organization's technical expert.
 sidebar_label: Developer
-image: /img/vantage-university/developer.jpg
+image: https://assets.vantage.sh/docs/vantage-university/developer.jpg
 keywords:
   - Vantage University
   - Developer

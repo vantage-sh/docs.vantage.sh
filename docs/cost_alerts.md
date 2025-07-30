@@ -61,7 +61,7 @@ Alerts are evaluated based on the groupings within a Cost Report.
 - You will be alerted for new groupings in your Cost Report for any dollar-based Cost Alerts. You will not be alerted for new groupings for percent-based Cost Alerts.
 
 <div>
-    <img alt="Cost Report with a Cost Alert open in the Annotations sidebar" width="100%" src="/img/cost-alerts-report.png"/>
+    <img alt="Cost Report with a Cost Alert open in the Annotations sidebar" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-report.png"/>
 </div>
 
 In the above visual example, the cost for **eu-west-2** increased by 15%, and the corresponding alert is triggered. An annotation is added to the report showing:
@@ -79,22 +79,22 @@ Expand the sections below to see examples of each type of external Cost Alert no
 
 <details><summary>Email Alert</summary>
   <div>
-    <img alt="Example email notification for Cost Alerts" width="100%" src="/img/cost-alerts-email.png"/>
+    <img alt="Example email notification for Cost Alerts" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-email.png"/>
   </div>
 </details>
 <details><summary>Slack Alert</summary>
   <div>
-    <img alt="Example Slack notification for Cost Alerts" width="100%" src="/img/cost-alerts-slack.png"/>
+    <img alt="Example Slack notification for Cost Alerts" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-slack.png"/>
   </div>
 </details>
 <details><summary>MS Teams Alert</summary>
   <div>
-    <img alt="Example MS Teams notification for Cost Alerts" width="100%" src="/img/cost-alerts-teams.png"/>
+    <img alt="Example MS Teams notification for Cost Alerts" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-teams.png"/>
   </div>
 </details>
 <details><summary>Jira Alert</summary>
   <div>
-    <img alt="Example Jira notification for Cost Alerts" width="100%" src="/img/cost-alerts-jira.png"/>
+    <img alt="Example Jira notification for Cost Alerts" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-jira.png"/>
   </div>
 </details>
 

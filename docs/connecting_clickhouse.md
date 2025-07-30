@@ -48,18 +48,18 @@ The below instructions for creating an API key are based on the [ClickHouse docu
 
 1. In the ClickHouse Cloud console, navigate to the **Settings** menu. Then, select **API keys**. 
 2. Click **+ New API key**.
-    <details><summary>Expand to view example image</summary>
+    <details><summary>Click to view example image</summary>
       <div>
-      <img alt="ClickHouse API Key screen" width="100%" src="/img/clickhouse-api.png"/> </div>
+      <img alt="ClickHouse API Key screen" width="100%" src="https://assets.vantage.sh/docs/clickhouse-api.png"/> </div>
     </details>
 3. Add the following key details:
    - For **API key name**, enter *vantage*.
    - For **Organization Permissions**, select **Developer**. (You can read more about roles and permissions in the [ClickHouse documentation](https://clickhouse.com/docs/cloud/security/cloud-access-management/overview).)
    - For **Expires**, select an expiration date. If the key expires, you will need to supply Vantage with a new ClickHouse Cloud API key.
    
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
-    <img alt="Creating a ClickHouse key" width="100%" src="/img/clickhouse-create-key.png"/> </div>
+    <img alt="Creating a ClickHouse key" width="100%" src="https://assets.vantage.sh/docs/clickhouse-create-key.png"/> </div>
   </details>
 1. Click **Generate API Key**.
    :::note
@@ -71,9 +71,9 @@ The below instructions for creating an API key are based on the [ClickHouse docu
    - `3.218.103.23`
    :::
 2. Copy the newly generated **Key ID** and **Key Secret**.
-    <details><summary>Expand to view example image</summary>
+    <details><summary>Click to view example image</summary>
       <div>
-      <img alt="Copying ClickHouse key and secret" width="100%" src="/img/clickhouse-key-secret.png"/> </div>
+      <img alt="Copying ClickHouse key and secret" width="100%" src="https://assets.vantage.sh/docs/clickhouse-key-secret.png"/> </div>
     </details>
 3. From the top navigation in Vantage, click **Settings**.
 4. On the left navigation, select **Integrations** and select **ClickHouse Cloud**.
@@ -83,9 +83,9 @@ The below instructions for creating an API key are based on the [ClickHouse docu
     - From the **Settings** navigation menu, under **Organization**, select your organization and click **Organization details**.
     - Copy the value displayed next to **Organization ID** and paste this in the Vantage integration form.
  
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div>
-    <img alt="Copying ClickHouse Organization ID" width="100%" src="/img/clickhouse-org-id.png"/> </div>
+    <img alt="Copying ClickHouse Organization ID" width="100%" src="https://assets.vantage.sh/docs/clickhouse-org-id.png"/> </div>
   </details>
 1.  Click **Connect Account**.
 

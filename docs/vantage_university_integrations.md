@@ -3,7 +3,7 @@ id: vantage_university_integrations
 title: Vantage University Integrations
 description: Learn about connecting integrations in this Vantage University section.
 sidebar_label: Integrations
-image: /img/vantage-university/integrations.jpg
+image: https://assets.vantage.sh/docs/vantage-university/integrations.jpg
 keywords:
   - Vantage University
   - Integrations

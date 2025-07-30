@@ -30,20 +30,20 @@ To integrate your Azure EA account with Vantage, follow the below steps:
 1.  From the main page of the Azure portal, search for and navigate to **Microsoft Entra ID**.
 2.  In the left navigation, under **Manage**, select **App registrations**.
 3.  Click **+ New registration**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
  <div>
- <img alt="Azure portal with App Registration menu option selected" width="100%" src="/img/connect-azure/azure-new-app-registration.png"/> </div>
+ <img alt="Azure portal with App Registration menu option selected" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png"/> </div>
  </details>
 4.  The **Register an application** screen is displayed. For **Name**, enter _vantage_.
 5.  Leave all other settings as their defaults and click **Register**.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
-<img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="/img/connect-azure/azure-register-app.png"/> </div>
+<img alt="Azure portal the Register an application screen and vantage entered as app name" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-register-app.png"/> </div>
 </details>
 6.  The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
-<details><summary>Expand to view example image</summary>
+<details><summary>Click to view example image</summary>
 <div>
-<img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="/img/connect-azure/azure-app-ids.png"/> </div>
+<img alt="Azure portal with the client ID and tenant ID displayed and highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png"/> </div>
 </details>
 
 ## Step 2: Generate a Client Secret {#ea-step2}
@@ -51,9 +51,9 @@ To integrate your Azure EA account with Vantage, follow the below steps:
 1. On the same page, next to the **Client credentials** field, click **Add a certificate or secret**. (You can also access the **Certificates and secrets** screen from the left navigation menu.)
 2. Click **+ New client secret**.
 3. The **Add a client secret** pane is displayed. For **Description**, enter a description, such as _vantage-secret_.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="/img/connect-azure/azure-client-secret.png"/> </div>
+   <img alt="Azure portal with the Azure client secret window open and a new secreted created called vantage-secret" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png"/> </div>
    </details>
 4. For **Expires**, select an expiration option for the secret.
    :::caution
@@ -77,22 +77,22 @@ You need to have the **billing account owner** role permissions to assign enroll
 
 1. Navigate to **Microsoft Entra ID**, then select **Enterprise applications**.
 2. From the **All applications** list, select the _vantage_ application you previously created.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Azure portal with all apps listed in Enterprise Applications" width="100%" src="/img/connect-azure/azure-ea-all-apps.png"/> </div>
+   <img alt="Azure portal with all apps listed in Enterprise Applications" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-ea-all-apps.png"/> </div>
    <i>Source: Microsoft</i>
    </details>
 3. Under **Properties**, copy the **Application ID** and **Object ID**.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Azure portal with App and Object ID listed" width="100%" src="/img/connect-azure/azure-ea-app-id.png"/> </div>
+   <img alt="Azure portal with App and Object ID listed" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-ea-app-id.png"/> </div>
    <i>Source: Microsoft</i>
    </details>
 4. Open the [_Role Assignments - Put_ article](https://learn.microsoft.com/en-us/rest/api/billing/role-assignments/put?view=rest-billing-2019-10-01-preview&tabs=HTTP) from the Microsoft documentation in a new tab. 
 5. Next to the _Create or update a billing role assignment_ step, click **Try It**.
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Azure API role assignment sample call" width="100%" src="/img/connect-azure/azure-ea-role-assignment.png"/> </div>
+   <img alt="Azure API role assignment sample call" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-ea-role-assignment.png"/> </div>
    <i>Source: Microsoft</i>
    </details>
 6. A login in screen is displayed on the right. Using your account credentials, log in to the tenant that you want to assign enrollment reader access.
@@ -117,9 +117,9 @@ You need to have the **billing account owner** role permissions to assign enroll
     - `roleDefinitionId`: Replace `<YOUR_BILLING_ACCOUNT_ID>` with the **Billing account id** you copied in [step 3](/connecting_azure_ea#ea-step3). 
       - Note that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is the billing role definition ID for an [EnrollmentReader](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#permissions-that-can-be-assigned-to-the-service-principal).
    
-   <details><summary>Expand to view example image</summary>
+   <details><summary>Click to view example image</summary>
       <div>
-      <img alt="Azure API role assignment parameters filled in" width="100%" src="/img/connect-azure/azure-ea-run.png"/> </div>
+      <img alt="Azure API role assignment parameters filled in" width="100%" src="https://assets.vantage.sh/docs/connect-azure/azure-ea-run.png"/> </div>
       <i>Source: Microsoft</i>
    </details>
    

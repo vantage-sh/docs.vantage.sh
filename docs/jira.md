@@ -76,7 +76,7 @@ Follow the steps below to connect to Jira.
    :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Permissions for connecting Jira in the console" width="100%" src="/img/jira-permissions.png" />
+    <img alt="Permissions for connecting Jira in the console" width="100%" src="https://assets.vantage.sh/docs/jira-permissions.png" />
 </div>
 
 Your Jira account instance will be synced with Vantage. Note that this sync might take some time, and you can monitor the status on the **Connection** page:
@@ -92,7 +92,7 @@ If you see an **Unstable** connection when you first connect, contact [support@v
   - An **Unstable** status indicates that Vantage can no longer find one or more Jira fields that were previously selected as part of the issue criteria. This may happen if a project, issue type, or field value that Vantage originally imported from Jira has been deleted or is no longer available. To resolve this, edit the alert configuration and update the missing criteria.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Jira connection screen in the Vantage console" width="100%" src="/img/connect-jira.png" />
+    <img alt="Jira connection screen in the Vantage console" width="100%" src="https://assets.vantage.sh/docs/connect-jira.png" />
 </div>
 
 ### Remove Jira Integration
@@ -149,7 +149,7 @@ When a budget alert is triggered, the corresponding issue is generated in Jira. 
 - An [annotation](/annotations) is added to the associated Vantage Cost Report for the date when the alert was triggered, and a link to the annotation is also provided in the Jira issue's description.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Jira representation of a Vantage Budget Alert" width="100%" src="/img/budget-alert-jira.png" />
+    <img alt="Jira representation of a Vantage Budget Alert" width="100%" src="https://assets.vantage.sh/docs/budget-alert-jira.png" />
 </div>
 
 ### Cost Anomaly Alerts
@@ -180,13 +180,13 @@ Due to a technical limitation at this time, if an issue type requires you to sel
 When a cost anomaly alert is triggered for a given service, the corresponding issue is generated in Jira. As shown in the image below, the Jira icon is also displayed to the right of the anomaly, with a link to the corresponding Jira issue. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Anomaly in the Vantage console" width="100%" src="/img/anomaly-vantage.png" />
+    <img alt="Anomaly in the Vantage console" width="100%" src="https://assets.vantage.sh/docs/anomaly-vantage.png" />
 </div>
 
 In Jira, an issue is created, like the example below.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Jira representation of a Vantage anomaly alert" width="100%" src="/img/anomaly-jira.png" />
+    <img alt="Jira representation of a Vantage anomaly alert" width="100%" src="https://assets.vantage.sh/docs/anomaly-jira.png" />
 </div>
 
 In this example:
@@ -221,14 +221,14 @@ Due to a technical limitation at this time, if an issue type requires you to sel
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Creating a resource report issue" width="100%" src="/img/resource-report-ticket.png" />
+    <img alt="Creating a resource report issue" width="100%" src="https://assets.vantage.sh/docs/resource-report-ticket.png" />
 </div>
 
 4. Click **Create Ticket**. 
 5. A new issue will be created within the selected Jira project. The issue contains information on the person who created the issue in Vantage, the Resource Report name, and a link to the Resource Report. For Resource Reports generated from Cost Recommendations, additional information about the report is also provided, like total costs, number of affected resources, and potential monthly savings.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/resource-report-jira.png" />
+    <img alt="Creating a resource report ticket for Jira" width="100%" src="https://assets.vantage.sh/docs/resource-report-jira.png" />
 </div>
 
 After the issue is created, to access the corresponding Jira issue from the Resource Report, click the Jira icon on the top right of the report. 
@@ -261,7 +261,7 @@ Due to a technical limitation at this time, if an issue type requires you to sel
 When a Cost Alert is triggered, the corresponding issue is generated in Jira. This issue includes an alert description, along with the date when the alert was triggered, the associated Cost Report, and the name of the Cost Alert. An [annotation](/annotations) is automatically added to the associated Cost Report on the date the alert is triggered, even if Jira notifications are not enabled. If a Jira issue is created as part of the alert, a link to the ticket will also appear in the annotation.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Alert Jira ticket" width="100%" src="/img/cost-alerts-jira.png" />
+    <img alt="Cost Alert Jira ticket" width="100%" src="https://assets.vantage.sh/docs/cost-alerts-jira.png" />
 </div>
 
 ## Jira Issue Statuses in Vantage
@@ -281,7 +281,7 @@ Next to the Jira icon, a badge is displayed.
     <tr>
       <td>
         <div style={{display:"flex", justifyContent:"center"}}>
-          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-red.png" />
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="https://assets.vantage.sh/docs/jira-red.png" />
         </div>
       </td>
       <td>The corresponding Jira issue is currently in the Jira "To Do" status.</td>
@@ -289,7 +289,7 @@ Next to the Jira icon, a badge is displayed.
     <tr>
       <td>
         <div style={{display:"flex", justifyContent:"center"}}>
-          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-yellow.png" />
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="https://assets.vantage.sh/docs/jira-yellow.png" />
         </div>
       </td>
       <td>The corresponding Jira issue is currently in the Jira "In Progress" status.</td>
@@ -297,7 +297,7 @@ Next to the Jira icon, a badge is displayed.
     <tr>
       <td>
         <div style={{display:"flex", justifyContent:"center"}}>
-          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-green.png" />
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="https://assets.vantage.sh/docs/jira-green.png" />
         </div>
       </td>
       <td>The corresponding Jira issue is currently in the Jira "Done" status.</td>
@@ -305,7 +305,7 @@ Next to the Jira icon, a badge is displayed.
     <tr>
       <td>
         <div style={{display:"flex", justifyContent:"center"}}>
-          <img alt="Creating a resource report ticket for Jira" width="100%" src="/img/jira-blank.png" />
+          <img alt="Creating a resource report ticket for Jira" width="100%" src="https://assets.vantage.sh/docs/jira-blank.png" />
         </div>
       </td>
       <td>Vantage has not received a status update yet from Jira. It can take a day from the time when a corresponding Jira issue was created by Vantage to update this status.</td>

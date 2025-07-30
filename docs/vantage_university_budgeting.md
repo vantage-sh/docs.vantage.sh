@@ -3,7 +3,7 @@ id: vantage_university_budgeting
 title: Vantage University Budgeting
 description: Learn how to create budgets and budget alerts in this Vantage University section.
 sidebar_label: Budgeting
-image: /img/vantage-university/budgeting.jpg
+image: https://assets.vantage.sh/docs/vantage-university/budgeting.jpg
 keywords:
   - Vantage University
   - Budgeting

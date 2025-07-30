@@ -185,11 +185,11 @@ Users must have Owner permissions to upload Custom Provider files. If you prefer
 4. Click **Upload Costs**. 
     1. If your CSV file contains any errors, the **Review** pop-up window is displayed and indicates where the error occurred. See the [Troubleshooting](/connecting_custom_providers#troubleshooting) section for details on specific errors. 
     <details><summary>Click to view example image</summary>
-       <img alt="Error screen for Custom Provider" width="80%" src="/img/custom-providers/error-screen.png"/>
+       <img alt="Error screen for Custom Provider" width="80%" src="https://assets.vantage.sh/docs/custom-providers/error-screen.png"/>
     </details>
     2. For error-free files, a message is displayed that indicates your file is okay. Click **Review** to see the first 25 rows of uploaded data. 
     <details><summary>Click to view example image</summary>
-       <img alt="Error-free Custom Provider upload" width="80%" src="/img/custom-providers/error-free-file.png"/>
+       <img alt="Error-free Custom Provider upload" width="80%" src="https://assets.vantage.sh/docs/custom-providers/error-free-file.png"/>
     </details>
 
     :::tip
@@ -200,7 +200,7 @@ Users must have Owner permissions to upload Custom Provider files. If you prefer
 6. Click **Create Custom Provider Integration**. 
 7. The **Manage** integration screen is displayed. Initially, the message _Importing and Processing_ will be displayed on this screen. You can click the **Import Costs** tab if you want to upload additional cost files.
     <details><summary>Click to view example image</summary>
-       <img alt="File is processing to be uploaded" width="80%" src="/img/custom-providers/processing.png"/>
+       <img alt="File is processing to be uploaded" width="80%" src="https://assets.vantage.sh/docs/custom-providers/processing.png"/>
     </details>
 8. Once your Custom Provider is processed, in the **Workspace Access** section of this screen, select which workspaces this integration is associated with. See the [Workspaces](https://docs.vantage.sh/workspaces#integration-workspace) documentation for more information.
 
@@ -259,13 +259,13 @@ When you upload a file that contains errors, the **Review** window displayed and
 Once you have uploaded Custom Provider costs, you can query these costs in other Vantage tools. Your Custom Provider will be included in the **Providers** list of filters on [Cost Reports](/cost_reports), [Segment Reports](/segments), and [Saved Filters](/saved_filters).
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report for custom provider" width="100%" src="/img/custom-providers/cost-report.png" />
+    <img alt="Cost Report for custom provider" width="100%" src="https://assets.vantage.sh/docs/custom-providers/cost-report.png" />
 </div>
 
 If you did not provide any information for a particular filter (e.g., `RegionId`), then those filters will be displayed as empty.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Cost Report for custom provider with no region filter" width="100%" src="/img/custom-providers/blank-filter.png" />
+    <img alt="Cost Report for custom provider with no region filter" width="100%" src="https://assets.vantage.sh/docs/custom-providers/blank-filter.png" />
 </div>
 
 ## Add Additional Imports
@@ -279,7 +279,7 @@ If you upload a file with the same name as an existing import, your new file wil
 1. Navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). 
 2. Select your Custom Provider. 
   <details><summary>Click to view example image</summary>
-      <img alt="Manage screen for custom provider" width="80%" src="/img/custom-providers/manage-screen.png"/>
+      <img alt="Manage screen for custom provider" width="80%" src="https://assets.vantage.sh/docs/custom-providers/manage-screen.png"/>
   </details>
 3. Click the **Import Costs** tab. Import your new cost file. Review any errors and correct as needed. Once uploaded, your file will be displayed within the **Imports** section of the **Manage** tab.
 
@@ -291,7 +291,7 @@ If you want to delete an imported file, the costs will be removed from your Cust
 2. Select your Custom Provider. 
 3. In the **Imports** section of the **Manage** tab, you can view existing imports along with the date the file was imported and who imported the file. Click the trashcan icon next to an import to remove it. If you delete a CSV, the corresponding data will be deleted from the provider. 
   <details><summary>Click to view example image</summary>
-      <img alt="Import section for custom provider" width="80%" src="/img/custom-providers/imports.png"/>
+      <img alt="Import section for custom provider" width="80%" src="https://assets.vantage.sh/docs/custom-providers/imports.png"/>
   </details>
 
 ## Use the API to Add a Custom Provider {#api}
