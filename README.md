@@ -4,7 +4,7 @@
 
 [![Deploy Docusaurus](https://github.com/vantage-sh/docs.vantage.sh/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/vantage-sh/docs.vantage.sh/actions/workflows/main.yml)
 
-<img src="/static/img/index-cards/docs-social-card.jpg" alt="image" width="600" height="auto">
+<img src="https://assets.vantage.sh/docs/index-cards/docs-social-card.jpg" alt="image" width="600" height="auto">
 </div>
 
 Thank you for your interest in contributing to the Vantage Product Documentation! The Vantage documentation is built using [Docusaurus 2](https://docusaurus.io/). This documentation is developed and maintained by Vantage employees.
