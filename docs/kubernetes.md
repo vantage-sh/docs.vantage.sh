@@ -40,16 +40,18 @@ On Kubernetes Cost Reports, you can also group and filter to see costs by CPU, R
 
 #### Filter by PVC and Node Labels {#pvc-node-label}
 
+:::info
+PVC and Node Labels are [key-value tags](https://kubernetes.io/docs/concepts/overview/working-with-objects/labels/) in Kubernetes. [PVC](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) Labels tag storage for filtering and grouping. [Node](https://kubernetes.io/docs/concepts/architecture/nodes/) Labels tag compute nodes to help with scheduling and analysis. You can use them to help you understand and filter usage by things like team, app, or environment.
+:::
+
 :::note 
 Node Labels are collected by default with the Vantage Kubernetes agent. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#node-pvc-labels) for information on how to configure the collection of PVC Labels. 
 :::
 
-In addition to standard Kubernetes metadata, like Cluster, Namespace, and Label, Vantage also supports filtering and grouping by Persistent Volume Claim (PVC) Label and Node Label. These labels are collected by the Vantage Kubernetes agent and appear as [tags](/tagging). These tags are denoted by a tag value of `pvc:xyz` for PVCs and `node:xyz` for Nodes. You can use these labels to attribute workload costs to underlying storage or node-level infrastructure for more accurate cost allocation. 
+In addition to standard Kubernetes metadata, like Cluster, Namespace, and Label, Vantage also supports filtering and grouping by Persistent Volume Claim (PVC) Label and Node Label. These labels are collected by the Vantage Kubernetes agent and appear as [tags](/tagging). These tags are denoted by a tag value of `pvc:xyz` for PVCs and `node:xyz` for Nodes. By using PVC labels in reporting, which ar applied to volume stores, you can attribute storage usage with Kubernetes workloads by app or team, perform cost allocation for storage, and perform targeted storage optimization. Node Labels are applied to underlying compute hosts and can be used to attribute compute costs based on infrastructure characteristics, track usage across node pools or environments, and identify optimization opportunities. 
 
 - PVC Labels are collected from persistent volume claims associated with pods.
 - Node Labels are collected from the nodes where pods are scheduled.
-
-Each cost entry is associated with the PVC and Node at the time of use. If workloads span multiple PVCs or move across nodes, their cost is accurately apportioned and labeled accordingly.
 
 :::tip
 In addition to Cost Reports, PVC and Node Labels can also be used in [Virtual Tags](/tagging) to define custom cost allocation dimensions for things like team, environment, application, or storage. Node Labels can also be used in Kubernetes Efficiency Reports; however, PVC Labels cannot be used on these reports.
