@@ -3,7 +3,7 @@ id: vantage_university_cost_reporting
 title: Vantage University Cost Reporting
 description: Learn how to get started with cost reporting in this Vantage University section.
 sidebar_label: Cost Reporting
-image: /img/vantage-university/cost-reporting.jpg
+image: https://assets.vantage.sh/docs/vantage-university/cost-reporting.jpg
 keywords:
   - Vantage University
   - Cost Reporting

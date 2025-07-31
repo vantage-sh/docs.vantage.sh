@@ -28,25 +28,25 @@ Vantage supports the Logs, Metrics, and Spans services, as well as the [applicat
     :::
 2. From the top navigation, expand the **Data Flow** menu.
 3. Select **API Keys**. 
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="The Coralogix Data Flow menu with the API Key option highlighted" width="100%" src="/img/connect-coralogix/coralogix-api-key.png"/> </div>
+   <img alt="The Coralogix Data Flow menu with the API Key option highlighted" width="100%" src="https://assets.vantage.sh/docs/connect-coralogix/coralogix-api-key.png"/> </div>
   </details>
 4. Under **Alerts, Rules and Tags API Key**, click **GENERATE NEW API KEY**. Click the copy icon next to the key and copy the generated key.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="The Coralogix API Access screen. A box is displayed around the Generate New API Key option." width="100%" src="/img/connect-coralogix/coralogix-generate-api-key.png"/> </div>
+   <img alt="The Coralogix API Access screen. A box is displayed around the Generate New API Key option." width="100%" src="https://assets.vantage.sh/docs/connect-coralogix/coralogix-generate-api-key.png"/> </div>
   </details>
 5. In the top-right corner of the navigation bar, click your user profile icon. Then, select **Organization Admin Console**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="The Coralogix profile menu. A box is displayed around the Organization Admin Console option." width="70%" src="/img/connect-coralogix/coralogix-admin-console.png"/> </div>
+   <img alt="The Coralogix profile menu. A box is displayed around the Organization Admin Console option." width="70%" src="https://assets.vantage.sh/docs/connect-coralogix/coralogix-admin-console.png"/> </div>
   </details>
 6. The **Organization Admin Console** screen is displayed. From the left navigation menu, under **Account**, select **Preferences**. 
 7. The **Account Preferences** screen is displayed. In the **Change Team name and URL** section, copy the part of the domain after your team's name. For example, if your domain is `https://test-team.cx498.coralogix.com/`, then copy only `cx498.coralogix.com`.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="The Coralogix Account Preferences screen. A number 1 tooltip is displayed next to the Preferences option. A number 2 tooltip is displayed next to the team name and URL option." width="100%" src="/img/connect-coralogix/coralogix-account-pref.png"/> </div>
+   <img alt="The Coralogix Account Preferences screen. A number 1 tooltip is displayed next to the Preferences option. A number 2 tooltip is displayed next to the team name and URL option." width="100%" src="https://assets.vantage.sh/docs/connect-coralogix/coralogix-account-pref.png"/> </div>
   </details>
 8. Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in Vantage.
 9. Select **Coralogix** and select the **Connect** tab. 

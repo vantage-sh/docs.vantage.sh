@@ -41,7 +41,7 @@ As long as the cost data for an underlying cluster instance is ingested into Van
 For [GKE Autopilot](https://cloud.google.com/kubernetes-engine/docs/concepts/autopilot-overview) users, you don’t need to install the agent. These costs will already be present under **Cost By Resource** for the **Kubernetes Engine** service in a [Cost Report](/cost_reports).
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="GKE Autopilot filters on a Cost Report" width="80%" src="/img/gke-autopilot.png" />
+    <img alt="GKE Autopilot filters on a Cost Report" width="80%" src="https://assets.vantage.sh/docs/gke-autopilot.png" />
 </div>
 
 ## Install Vantage Kubernetes Agent {#install-vantage-kubernetes-agent}
@@ -223,7 +223,7 @@ To see which version of the Kubernetes agent you are running:
 5. Scroll down to the **Clusters** section. Each cluster that is integrated with the agent is listed along with the current agent version and indicates if the agent is out of date.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Settings Clusters section with two sample clusters displayed along with the most recent version" width="80%" src="/img/k8s-upgrade-agent.png" />
+    <img alt="The Settings Clusters section with two sample clusters displayed along with the most recent version" width="80%" src="https://assets.vantage.sh/docs/k8s-upgrade-agent.png" />
 </div>
 
 To upgrade the agent, use the following command:

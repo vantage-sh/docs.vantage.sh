@@ -29,7 +29,7 @@ Your available recommendations depend on what services and resources are running
 - **Cross-provider recommendations:** Suggests where a service from another provider could be used
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A list of cost recommendations in the console" width="100%" src="/img/cost-recommendations-screen.png" />
+    <img alt="A list of cost recommendations in the console" width="100%" src="https://assets.vantage.sh/docs/cost-recommendations-screen.png" />
 </div>
 
 ## View Cost Recommendations
@@ -83,7 +83,7 @@ To view a rightsizing recommendation:
 ### Azure Recommendations {#azure}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A list of Azure-related recommendations in the console" width="70%" src="/img/azure-cost-recs.png" />
+    <img alt="A list of Azure-related recommendations in the console" width="70%" src="https://assets.vantage.sh/docs/azure-cost-recs.png" />
 </div>
 <br/>
 
@@ -103,7 +103,7 @@ To view a rightsizing recommendation:
 ### GCP Recommendations {#gcp}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A list of GCP-related recommendations in the console" width="100%" src="/img/gcp-cost-recs.png" />
+    <img alt="A list of GCP-related recommendations in the console" width="100%" src="https://assets.vantage.sh/docs/gcp-cost-recs.png" />
 </div>
 <br/>
 
@@ -123,13 +123,13 @@ Each recommendation includes potential monthly savings as well as the number of 
 3. The [Active Resources](/active_resources) screen is displayed. Select the **Rightsizing** tab. The tab includes a recommended size for migration (e.g., “Migrate from e2-medium to e2-small."). Any available idle resource recommendations are also displayed (e.g., "Stop idle VM idle-instance-1."). The potential monthly savings for taking action on these recommendations are also displayed.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A set of GCP rightsizing recommendations in the console" width="90%" src="/img/gcp-rightsizing.png" />
+    <img alt="A set of GCP rightsizing recommendations in the console" width="90%" src="https://assets.vantage.sh/docs/gcp-rightsizing.png" />
 </div>
 
 ### Datadog Recommendations {#datadog}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A list of Datadog-related recommendations in the console" width="100%" src="/img/datadog-cost-recs.png" />
+    <img alt="A list of Datadog-related recommendations in the console" width="100%" src="https://assets.vantage.sh/docs/datadog-cost-recs.png" />
 </div>
 
 For Datadog, Vantage provides recommendations about making commitments for Datadog services where [committed use discounts](https://handbook.vantage.sh/datadog/committed-use-discounts/) are offered. These recommendations are based on your actual usage of Datadog services to assist with making the right commitment.
@@ -160,7 +160,7 @@ Rightsizing recommendations require version 1.0.24 or later of the Vantage Kuber
    - The **Potential Monthly Savings** are also provided to indicate your estimated savings once these recommendations are implemented on your Kubernetes resources.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Kubernetes Rightsizing UI with a sample recommendation displayed" width="80%" src="/img/k8s-rightsize.png" />
+    <img alt="The Kubernetes Rightsizing UI with a sample recommendation displayed" width="80%" src="https://assets.vantage.sh/docs/k8s-rightsize.png" />
 </div>
 
 #### How Vantage Calculates Kubernetes Rightsizing Recommendations

@@ -43,7 +43,7 @@ At the top of any saved filter, click the **Duplicate** icon (to the left of **S
 3. Click **Saved Filters**. A list of existing saved filters is displayed.
 4. Select a saved filter to add it to the Cost Report. You can select multiple saved filters. You can also add additional ad-hoc filter criteria as a separate filter set.
    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="/img/saved-filter.gif"/>
+    <img alt="GIF of filtering RDS costs by category and sorting the table in the console" width="80%" src="https://assets.vantage.sh/docs/saved-filter.gif"/>
     </div>
     <br/>
 

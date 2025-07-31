@@ -51,7 +51,7 @@ From the **Tags** page, you can view a Cost Report that is filtered and grouped 
         muted 
         playsinline
         loop
-        url='/img/cost-report-tag.mp4'
+        url='https://assets.vantage.sh/docs/cost-report-tag.mp4'
         alt="Viewing a Cost Report for a specific tag." 
         width="100%"
         height="100%"
@@ -84,11 +84,11 @@ Because all three tags represent the same concept, having them appear separately
 
 - You navigate to the **Tags** page in Vantage to search for and identify the different versions of the environment tag. You then hide each iteration of this tag so that you can create a new standardized version of the tag with Vantage virtual tags.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="New virtual tag that shows all iterations of environment" width="100%" src="/img/tags-settings-env.png" />
+    <img alt="New virtual tag that shows all iterations of environment" width="100%" src="https://assets.vantage.sh/docs/tags-settings-env.png" />
 </div>
 - All three hidden tags no longer appear in the Filters and Group By menus for other users.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Attempting to filter for a hidden tag" width="80%" src="/img/tags-filter-env.png" />
+    <img alt="Attempting to filter for a hidden tag" width="80%" src="https://assets.vantage.sh/docs/tags-filter-env.png" />
 </div>
 - Existing reports that were already filtered or grouped by these tags remain functional; however, if a user edits the report’s filters, they will no longer see those hidden tag variations.
 
@@ -104,7 +104,7 @@ Because all three tags represent the same concept, having them appear separately
         muted 
         playsinline
         loop
-        url='/img/hidden-tag-report.mp4'
+        url='https://assets.vantage.sh/docs/hidden-tag-report.mp4'
         alt="Viewing the hidden environment tag" 
         width="100%"
         height="100%"
@@ -120,7 +120,7 @@ You then complete the following steps to create a virtual tag that combines the 
 - For each tag value (e.g., `production` or `development`), you create a filter that combines the `production` values from the previous tags. You can then use this new virtual tag within reports.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="New virtual tag that shows all iterations of environment" width="80%" src="/img/env-virtual-tag.png" />
+    <img alt="New virtual tag that shows all iterations of environment" width="80%" src="https://assets.vantage.sh/docs/env-virtual-tag.png" />
 </div>
 
 As a result, your users now see only the `environment` virtual tag in their report filters, reducing confusion and keeping reports standardized. This approach helps enforce tagging consistency without you having to further educate your users on which versions of a tag key to use in reports.
@@ -194,7 +194,7 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
    You cannot use an existing virtual tag within the filters for virtual tags with forms of cost allocation (i.e., Business Metric or Cost Based virtual tags). You can, however, select an existing provider tag (e.g., one that comes from AWS). If you attempt to select an allocated virtual tag as part of your filter criteria, the following message is displayed.
 
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A message in a virtual tag filter indicating you cannot use allocated virtual tags for filter criteria in another tag" width="80%" src="/img/tags-dynamic-tot.png" />
+    <img alt="A message in a virtual tag filter indicating you cannot use allocated virtual tags for filter criteria in another tag" width="80%" src="https://assets.vantage.sh/docs/tags-dynamic-tot.png" />
     </div>
 
     You can use existing virtual tags in the **Output Costs Filter** for Custom Value virtual tags. See the [Nested Virtual Tags](/tagging#nested-virtual-tags) section for details.
@@ -231,7 +231,7 @@ This feature requires _Owner_ permissions in Vantage. See the [Role-Based Access
 Processing tag changes usually takes under an hour. At the top of the **Virtual Tags** screen, the processing status is displayed. Processing times vary based on the number of tags and volume of data you have imported into Vantage.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The virtual tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="/img/virtual-tag-status.png" />
+    <img alt="The virtual tag screen with a processing status displayed for Fastly and New Relic" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-status.png" />
 </div>
 
 #### Nested Virtual Tags {#nested-virtual-tags}
@@ -247,7 +247,7 @@ To reference an existing virtual tag in another virtual tag:
     - Select **Tag**, then select an existing virtual tag key. Look for the purple tag icon with the Vantage logo to identify existing virtual tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The virtual tag screen selecting an existing virtual tag in the filter for a new tag value" width="80%" src="/img/tags-filter-tot.png" />
+    <img alt="The virtual tag screen selecting an existing virtual tag in the filter for a new tag value" width="80%" src="https://assets.vantage.sh/docs/tags-filter-tot.png" />
 </div>
 
 **Nested Virtual Tag Considerations**
@@ -257,7 +257,7 @@ To reference an existing virtual tag in another virtual tag:
 - If you delete or rename a virtual tag that is referenced by another virtual tag, you will see a warning. If you proceed, Vantage reprocesses costs with the new configuration.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags" width="60%" src="/img/tags-delete-tot.png" />
+    <img alt="Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags" width="60%" src="https://assets.vantage.sh/docs/tags-delete-tot.png" />
 </div>
 
 - You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging#virtual-tag-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
@@ -269,7 +269,7 @@ See the [Nested Virtual Tags Example](/tagging#nested-virtual-tags-example) sect
 Tag values are arranged in priority order on the **Virtual Tags** screen. You can move tag values up and down in the UI to reorder them, as demonstrated in the visual example below.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-     <img alt="GIF of two tag values, staging and production, being reordered in the Tags UI" width="80%" src="/img/reorder-tags.gif"/>
+     <img alt="GIF of two tag values, staging and production, being reordered in the Tags UI" width="80%" src="https://assets.vantage.sh/docs/reorder-tags.gif"/>
 </div>
 <br/>
 
@@ -280,7 +280,7 @@ When cost data is ingested into Vantage, the first value that matches the corres
 You can filter by virtual tags in Cost Reports, cost allocation segments, and when creating saved filters. Virtual tags are visible along with your existing provider tags. Use the **Tag** (**Label** in GCP) filter and grouping option.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report filter with two filters applied: one for AWS costs for the team/data tag and one for GCP costs with the same tag" width="80%" src="/img/virtual-tag-consolidate-report.png" />
+    <img alt="A Cost Report filter with two filters applied: one for AWS costs for the team/data tag and one for GCP costs with the same tag" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-consolidate-report.png" />
 </div>
 
 ### Delete a Virtual Tag
@@ -302,7 +302,7 @@ You want to create a tag mapping for each of your teams that maps corresponding 
 You create a tag key called `Teams`.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
+    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="https://assets.vantage.sh/docs/virtual-provider-tag-key.png" />
 </div>
 
 ###### Step 2: Add Tag Values and Filters
@@ -314,14 +314,14 @@ You add the corresponding set of virtual tag values and filters:
 - You continue this pattern and create similar values with corresponding filters for your other teams.
 
 <div style={{display:"flex", overflow:"scroll"}}>
-    <img alt="A sample Tag Value field for a value of data with filter for Service of BigQuery and Amazon Redshift" width="60%" src="/img/virtual-tag-provider-value-1.png" />
-    <img alt="A sample Tag Value field for a value of data with a filter for GCP Project of mobile and AWS account of mobile" width="60%" src="/img/virtual-tag-provider-value-2.png" />
+    <img alt="A sample Tag Value field for a value of data with filter for Service of BigQuery and Amazon Redshift" width="60%" src="https://assets.vantage.sh/docs/virtual-tag-provider-value-1.png" />
+    <img alt="A sample Tag Value field for a value of data with a filter for GCP Project of mobile and AWS account of mobile" width="60%" src="https://assets.vantage.sh/docs/virtual-tag-provider-value-2.png" />
 </div>
 
 Within Cost Reports, you can easily filter and group by these tag options to easily see costs for an individual team. In the below visual example, the Cost Report is grouped by the **team** tag, and the **mobile** and **data** values are displayed along with the other team tag values you created.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Cost Report grouped by Tag showing a mobile and data tag" width="100%" src="/img/virtual-tag-provider-report.png" />
+    <img alt="A sample Cost Report grouped by Tag showing a mobile and data tag" width="100%" src="https://assets.vantage.sh/docs/virtual-tag-provider-report.png" />
 </div>
 
 ##### Example 2: Consolidate Existing Tags
@@ -333,7 +333,7 @@ You have a tagging practice established at your organization, but teams often cr
 You create a tag key called `Teams` to override existing tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
+    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="https://assets.vantage.sh/docs/virtual-provider-tag-key.png" />
 </div>
 
 ###### Step 2: Add Tag Values and Filters
@@ -341,13 +341,13 @@ You create a tag key called `Teams` to override existing tags.
 You add the corresponding set of virtual tag values and filters. In this example, all permutations of the `data` team tag are combined into one virtual tag.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for a value of AWS team tags equaling data, data-prod, and Data. Another value for a GCP team Label equaling data" width="80%" src="/img/virtual-tag-consolidate-value.png" />
+    <img alt="A sample Tag Value field for a value of AWS team tags equaling data, data-prod, and Data. Another value for a GCP team Label equaling data" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-consolidate-value.png" />
 </div>
 
 Within Cost Reports, you can easily filter by this tag to see all costs related to the `data` team. This saves you the work of needing to always filter for all permutations of this tag. Now, you need to filter by only one tag.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="/img/virtual-tag-consolidate-report.png" />
+    <img alt="A Cost Report with a filter for AWS and GCP team tag of data" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-consolidate-report.png" />
 </div>
 
 ##### Example 3: Using Flexible Match to Consolidate Similar Tag Values
@@ -359,7 +359,7 @@ Your teams use inconsistent tagging conventions, resulting in multiple variation
 You create a tag key called `Teams` to override existing tags.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="/img/virtual-provider-tag-key.png" />
+    <img alt="The Tag Key field displayed in the Virtual Tags UI; the name Teams is entered" width="80%" src="https://assets.vantage.sh/docs/virtual-provider-tag-key.png" />
 </div>
 
 ###### Step 2: Add Tag Values and Filters
@@ -367,7 +367,7 @@ You create a tag key called `Teams` to override existing tags.
 Create a virtual tag configuration for Team A. For the **Output Cost Filters**, use the `Teams` flexible match to the string `Team A`. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for a value of AWS Team tag flexible matches Team A" width="80%" src="/img/virtual-tag-flexible-match.png" />
+    <img alt="A sample Tag Value field for a value of AWS Team tag flexible matches Team A" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-flexible-match.png" />
 </div>
 
 This will automatically match all variants of Team A, such as `teamA`, `team_a`, `team-a`, and `Team A` .
@@ -377,7 +377,7 @@ This will automatically match all variants of Team A, such as `teamA`, `team_a`,
 In your organization, teams share resources, such as RDS databases or EC2 instances, and each team consumes different percentages of these resources each month. Your organization is also charged a static support fee each month for AWS. As shown in the diagram below, you want to allocate a portion of the support fee to each team based on their proportional use of AWS resources. So in the below example, since the Infra team is responsible for 50% of all AWS costs, they should also be responsible for 50% of the support fee. You can create a cost-based allocation virtual tag for allocating portions of the support fee to each respective team.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="60%" src="/img/cost-based-example.png" />
+    <img alt="A flowchart that has the AWS logo in a block at the top. AWS has three arrows pointing to tag icons that say Infra 50%, Mobile 20%, and Data 30%. These tags point to a box that says Dynamic Cost Allocation with the icon for AWS Support. This box has three arrows that point to three boxes. The boxes say Infra Team AWS Support Costs 50%, Mobile Team AWS Support Costs 20%, and Data Team AWS Support Costs 30%." width="60%" src="https://assets.vantage.sh/docs/cost-based-example.png" />
 </div>
 
 ##### Prerequisites
@@ -403,7 +403,7 @@ You select your existing **teams** tag key you have in AWS that will be used for
 In this example, since your infrastructure team is responsible for 50% of all AWS costs, the mobile team for 20%, and the data team for 30%, you can mimic this allocation across another static cost, or your output cost. Select the filters for the AWS support fee.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for AWS Support Fee costs" width="70%" src="/img/virtual-tag-support-fee.png" />
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="70%" src="https://assets.vantage.sh/docs/virtual-tag-support-fee.png" />
 </div>
 
 Once the tag is created, create a new Cost Report and add the following criteria:
@@ -414,7 +414,7 @@ Once the tag is created, create a new Cost Report and add the following criteria
 The resulting report shows how much of the support fee each team is allocated.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-support-fee-report.png" />
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="https://assets.vantage.sh/docs/virtual-tag-support-fee-report.png" />
 </div>
 
 #### Business Metrics-Based Allocation Example {#metric-based-allocation-example}
@@ -422,7 +422,7 @@ The resulting report shows how much of the support fee each team is allocated.
 You are working with your infrastructure team and want to ensure that the proportional cost of CPU time on a shared resource is allocated to the distinct cost centers that are consuming the CPU. In the below example, you want each team’s portion of CPU usage billed as a corresponding percentage of the overall Namespace CPU cost. So, if Team A uses 30% of the resource’s CPU, then they should be billed a proportional percentage of the total Namespace’s costs.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A flowchart that has a CPU icon in a block at the top and says Shared Resource CPU. CPU has two arrows pointing to two boxes with people icons that say Team A CPU Usage and Team B CPU Usage. These boxes point to a box that says Total Namespace Costs with the Kubernetes icon. This box has two arrows that point to two boxes that say Portion of Namespace Costs Allocated to Team Based on Portion of CPU Usage." width="60%" src="/img/metric-based-example.png" />
+    <img alt="A flowchart that has a CPU icon in a block at the top and says Shared Resource CPU. CPU has two arrows pointing to two boxes with people icons that say Team A CPU Usage and Team B CPU Usage. These boxes point to a box that says Total Namespace Costs with the Kubernetes icon. This box has two arrows that point to two boxes that say Portion of Namespace Costs Allocated to Team Based on Portion of CPU Usage." width="60%" src="https://assets.vantage.sh/docs/metric-based-example.png" />
 </div>
 
 ##### Prerequisite
@@ -456,7 +456,7 @@ Search for and select the labeled business metric you just created to use for al
 Select the Vantage costs that will be split based on the percentages calculated in your business metric. In this case, you select a filter to show costs for the specific Namespace you want to be allocated.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for specific Kubernetes namespace costs" width="90%" src="/img/virtual-tag-metric.png" />
+    <img alt="A sample Tag Value field for specific Kubernetes namespace costs" width="90%" src="https://assets.vantage.sh/docs/virtual-tag-metric.png" />
 </div>
 
 Once the tag is created, create a new Cost Report and add the following criteria:
@@ -467,7 +467,7 @@ Once the tag is created, create a new Cost Report and add the following criteria
 The resulting report shows how much of the Namespace costs each team is allocated.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="/img/virtual-tag-metric-report.png" />
+    <img alt="A sample Tag Value field for AWS Support Fee costs" width="100%" src="https://assets.vantage.sh/docs/virtual-tag-metric-report.png" />
 </div>
 
 #### Nested Virtual Tags Example {#nested-virtual-tags-example}
@@ -482,7 +482,7 @@ You create a new tag called **Applications**:
 - The filters for each value are AWS costs related to specific resources, like RDS or EC2 instances.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An example of an application tag based on specific AWS resources" width="80%" src="/img/tags-tot-example.png" />
+    <img alt="An example of an application tag based on specific AWS resources" width="80%" src="https://assets.vantage.sh/docs/tags-tot-example.png" />
 </div>
 
 ##### Step 2: Create a Virtual Tag for Business Unit Costs
@@ -493,7 +493,7 @@ Next, you define a virtual tag for **Business Units**:
 - Each filter uses the preexisting **Applications** virtual tag you just created to associate specific apps with the corresponding business unit. Notice that virtual tags are denoted by a purple Vantage tag icon to differentiate them from provider tags (gray icon).
   
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An example of a business unit tagged associated with an existing application tag" width="80%" src="/img/tags-tot-example-apps.png" />
+    <img alt="An example of a business unit tagged associated with an existing application tag" width="80%" src="https://assets.vantage.sh/docs/tags-tot-example-apps.png" />
 </div>
 
 ##### Step 3: Review the Nested Virtual Tag in Reports
@@ -501,7 +501,7 @@ Next, you define a virtual tag for **Business Units**:
 In associated reports, you can track all costs per business unit, knowing that each business unit comprises a set of corresponding apps. If an app ever changes its associated business unit, you need to update only the filter criteria on the **Business Units** virtual tag, and all other costs will be processed accordingly. The below report is grouped both by business unit and application to show the total breakdown.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An example Cost Report with the Applications and Business Unit tag groupings" width="90%" src="/img/tags-tot-example-report.png" />
+    <img alt="An example Cost Report with the Applications and Business Unit tag groupings" width="90%" src="https://assets.vantage.sh/docs/tags-tot-example-report.png" />
 </div>
 
 #### Tagging Untaggable Resources in AWS Example {#untaggable-aws}
@@ -512,7 +512,7 @@ While you can apply cost and metadata tags in AWS to many resources, there are m
 - Where **Not Tagged** with **Any Key**
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Untagged cost filters" width="80%" src="/img/virtual-tag-not-tagged.png" />
+    <img alt="Untagged cost filters" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-not-tagged.png" />
 </div>
 
 Then, add grouping criteria for **Service** and **Category** to get a view of the types of resources that are currently untagged. If these resources are taggable in AWS, you can add cost allocation tags there and see those tags represented in Vantage when you filter or group by specific tag. 
@@ -522,7 +522,7 @@ See the [AWS documentation](https://docs.aws.amazon.com/ARG/latest/userguide/sup
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Untagged cost filters" width="100%" src="/img/virtual-tag-category-tags.png" />
+    <img alt="Untagged cost filters" width="100%" src="https://assets.vantage.sh/docs/virtual-tag-category-tags.png" />
 </div>
 
 Many services and resource categories, however, cannot be tagged in AWS. You can use virtual tags to create tags in Vantage for these untaggable resources. In the table below, the _Vantage Resource Filters_ column represents the filters you can set as the **Output Cost Filters** in the virtual tag configuration. 
@@ -530,7 +530,7 @@ Many services and resource categories, however, cannot be tagged in AWS. You can
 For example, if you want to tag S3 Data Transfer for specific resources, you could use the following filter criteria. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Untagged cost filters" width="80%" src="/img/virtual-tag-data-transfer.png" />
+    <img alt="Untagged cost filters" width="80%" src="https://assets.vantage.sh/docs/virtual-tag-data-transfer.png" />
 </div>
 
 <table>

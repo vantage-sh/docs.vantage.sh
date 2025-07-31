@@ -30,7 +30,7 @@ To move one or more folders or Cost Reports from the All Cost Reports screen:
 3. Select any listed folder, then click **Move Here**.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of moving a Cost Report from the main reports screen to a specific folder" width="100%" src="/img/move-report-to-folder.gif"/>
+    <img alt="GIF of moving a Cost Report from the main reports screen to a specific folder" width="100%" src="https://assets.vantage.sh/docs/move-report-to-folder.gif"/>
 </div>
 <br/>
 

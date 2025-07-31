@@ -61,7 +61,7 @@ To use Autopilot, ensure that you’ve [connected AWS](/connecting_aws) as a pro
 
 1. From the top right of the Autopilot dashboard, click the **Autopilot Enabled** toggle to access the onboarding workflow.
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The enable toggle on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-enabled.png" />
+    <img alt="The enable toggle on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-enabled.png" />
     </div>
 2. Click **Get Started**. Vantage performs a permissions check to ensure you have the right permissions configured for Autopilot. These permissions are used to view billing data, generate Savings Plans recommendations, and purchase them on your behalf. See the [_Autopilot Permissions_](/autopilot#permissions) section above for details. If you fail the permissions check, click **Upgrade Integration** to configure the correct permissions. 
 3. Click **Continue**.
@@ -83,7 +83,7 @@ Autopilot no longer supports purchasing and selling Reserved Instances. If you a
 If you have any questions, contact [support@vantage.sh](mailto:support@vantage.sh). If you're a current Autopilot customer, a message is displayed at the top of the console to migrate to Autopilot for AWS Savings Plans. Click **Get Started**, and the onboarding workflow previously described will be displayed.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Migration banner on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-migrate.png" />
+<img alt="Migration banner on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-migrate.png" />
 </div>
 
 ## Review Autopilot for AWS Savings Plans Dashboards
@@ -95,7 +95,7 @@ From the Autopilot dashboard, you can toggle between the Compute, RDS, ElastiCac
 After you onboard to Autopilot, the **Compute Configuration** page is displayed. By default, Autopilot is configured to a 60-day lookback with 3-year No Upfront payment types. You can also access this page by selecting **Configuration** from the left menu of the **Compute** tab. On this page, you can configure the following options.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Configuration screen on the Autopilot dashboard providing options for lookback, payment type, and term" width="100%" src="/img/autopilot/autopilot-configure.png" />
+<img alt="Configuration screen on the Autopilot dashboard providing options for lookback, payment type, and term" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-configure.png" />
 </div>
 
 #### Toggle Automatic Purchases {#toggle-auto-purchases}
@@ -123,7 +123,7 @@ Based on your configured inputs, Autopilot provides a recommended Compute Saving
 As Autopilot adjusts the commitment level, this tab includes a graph that displays your On-Demand, Savings Plans, and (if applicable) Reserved and Spot Instance usage. The graph shows daily usage, and you can use the date option above the graph to change the month that’s shown. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Coverage Overview screen on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-coverage-overview.png" />
+<img alt="Coverage Overview screen on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-coverage-overview.png" />
 </div>
 
 Above the graph, your savings are displayed, along with the percentage decrease or increase between this and last month. Your **Coverage** is also displayed, which shows your coverage across all commitment types. Finally, your **All Time Savings** found by Autopilot are displayed.
@@ -154,7 +154,7 @@ The table displays the **On-Demand Cost** for each combination of service and co
         muted 
         playsinline
         loop
-        url='/img/autopilot/autopilot-recommended.mp4'
+        url='https://assets.vantage.sh/docs/autopilot/autopilot-recommended.mp4'
         alt="The Autopilot Recommended Coverage page is displayed along with the ability to toggle settings above the chart." 
         width="100%"
         height="100%"
@@ -171,7 +171,7 @@ The **Approve Purchase** button will not be visible if automatic purchases are e
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Coverage Overview screen on the Autopilot dashboard" width="60%" src="/img/autopilot/autopilot-recommendation.png" />
+<img alt="Coverage Overview screen on the Autopilot dashboard" width="60%" src="https://assets.vantage.sh/docs/autopilot/autopilot-recommendation.png" />
 </div>
 
 #### Purchase Window
@@ -220,7 +220,7 @@ You can also view associated [active resources](/active_resources). Click the **
         muted 
         playsinline
         loop
-        url='/img/autopilot/autopilot-rds.mp4'
+        url='https://assets.vantage.sh/docs/autopilot/autopilot-rds.mp4'
         alt="The Autopilot RDS recommendation screen and selecting the displayed active resource option." 
         width="100%"
         height="100%"
@@ -233,7 +233,7 @@ You can also view associated [active resources](/active_resources). Click the **
 For RDS, the Y-axis unit is expressed in normalized instance units per hour for each compute category. The rationale for this is that RDS has the benefit of flexible instance families, where a Reserved Instance in the smallest possible unit can add up to have multiple units cover a single larger unit in that family.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="RDS recommendations on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-rds.png" />
+<img alt="RDS recommendations on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-rds.png" />
 </div>
 
 ### Redshift, OpenSearch, and ElastiCache
@@ -241,7 +241,7 @@ For RDS, the Y-axis unit is expressed in normalized instance units per hour for
 For **Redshift**, **OpenSearch**, and **ElastiCache**, the Y-axis is expressed as the number of instances. Unlike the above example, there isn't flexibility for these classes, so this is a more straightforward scenario where the units represented are the exact number of instances you should purchase.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="ElastiCache recommendations on the Autopilot dashboard" width="100%" src="/img/autopilot/autopilot-elasticache.png" />
+<img alt="ElastiCache recommendations on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-elasticache.png" />
 </div>
 
 ### Purchase a Recommendation
@@ -253,7 +253,7 @@ For each service, you are provided with the option to view and make purchases fo
 3. Click **Purchase via AWS Console** to make these purchases on AWS.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="ElastiCache recommendations on the Autopilot dashboard" width="60%" src="/img/autopilot/autopilot-rds-rec.png" />
+<img alt="ElastiCache recommendations on the Autopilot dashboard" width="60%" src="https://assets.vantage.sh/docs/autopilot/autopilot-rds-rec.png" />
 </div>
 
 Note that recommendations for these other services are generated weekly and indicate the date range for which recent Reserved Instance purchases are not included in the current recommendation. Ensure you have not already made a purchase that would cover this recommendation.

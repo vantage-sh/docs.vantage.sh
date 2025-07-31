@@ -63,7 +63,7 @@ To validate that you have been moved to the Enhanced Billing Platform:
   <details>
     <summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Deprecated billing screen in GitHub" width="100%" src="/img/gh-deprecated-screen.png" />
+      <img alt="Deprecated billing screen in GitHub" width="100%" src="https://assets.vantage.sh/docs/gh-deprecated-screen.png" />
     </div>
   </details>
 
@@ -81,7 +81,7 @@ To complete the integration, you will add the application to your organization a
 <details>
 <summary>Click to view example image</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="GitHub application authorization screen" width="100%" src="/img/gh-authorize.png" />
+  <img alt="GitHub application authorization screen" width="100%" src="https://assets.vantage.sh/docs/gh-authorize.png" />
 </div>
 </details>
 1. Click **Authorize Billing - vantage-sh**. You will be brought to a screen where you can select your organization for the integration. Select your organization to complete the integration. 
@@ -93,7 +93,7 @@ To complete the integration, you will add the application to your organization a
   <details>
   <summary>Click to view example image</summary>
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="GitHub application organization selection screen" width="100%" src="/img/gh-org.png" />
+    <img alt="GitHub application organization selection screen" width="100%" src="https://assets.vantage.sh/docs/gh-org.png" />
   </div>
   </details>
 
@@ -116,7 +116,7 @@ You can leave your previous integration connected to Vantage for historical bill
 <details>
   <summary>Click to view example image</summary>
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="GitHub Vantage integration screen with old and new integrations" width="80%" src="/img/gh-vantage.png" />
+    <img alt="GitHub Vantage integration screen with old and new integrations" width="80%" src="https://assets.vantage.sh/docs/gh-vantage.png" />
   </div>
   </details>
 

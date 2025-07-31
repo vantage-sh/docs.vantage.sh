@@ -33,22 +33,22 @@ Navigate to the [MongoDB Atlas Settings](https://console.vantage.sh/settings/mon
 You will need to add your **Organization ID**, **Public API key**, and **Private API key**. Detailed steps for obtaining each of these items are provided below. Leave this tab open so you can go back and populate these fields as you obtain each value.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="Add MongoDB information in the Vantage console" width="80%" src="/img/connect-mongo/mongodb-vantage-console.png"/> 
+  <img alt="Add MongoDB information in the Vantage console" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-vantage-console.png"/> 
 </div>
 
 ### Step 2: Obtain Organization ID
 
 1. In a new browser tab, navigate to the [MongoDB Atlas console](https://account.mongodb.com/account/login).
 2. At the top of the page, next to the **Organization** dropdown menu, click the **gear icon** to go to **Organization Settings**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Open Organization Settings in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-open-settings.png"/> 
+      <img alt="Open Organization Settings in MongoDB Atlas" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-open-settings.png"/> 
     </div>
   </details>
 3. Your **Organization ID** will be displayed at the top. Copy the **Organization ID**. Then, go back to your Vantage browser tab and paste your ID into the **Organization ID** field.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Obtain Organization ID in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-get-organization-id.png"/> 
+      <img alt="Obtain Organization ID in MongoDB Atlas" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-get-organization-id.png"/> 
     </div>
   </details>
 
@@ -58,9 +58,9 @@ Next, you'll create an API key and grant it read-only permissions to your invoic
 
 1. From the left navigation menu, click **Access Manager**.
 2. At the top, click **Create API Key**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="View Access Manager in MongoDB Atlas" width="100%" src="/img/connect-mongo/mongodb-manage-access.png"/> 
+      <img alt="View Access Manager in MongoDB Atlas" width="100%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-manage-access.png"/> 
     </div>
   </details>
 3. On the **Create API Key** screen, configure the following details:
@@ -68,16 +68,16 @@ Next, you'll create an API key and grant it read-only permissions to your invoic
      - For **Description**, enter a name, like _Vantage Integration_.
      - For **Organization Permissions**, select **Organization Billing Viewer** and **Organization Read Only**.
 
-    <details><summary>Expand to view example image</summary>
+    <details><summary>Click to view example image</summary>
       <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Edit API key permissions in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-organization-read-only.png"/> 
+        <img alt="Edit API key permissions in MongoDB Atlas" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-organization-read-only.png"/> 
       </div>
     </details>
 
 4. Click **Next**. Your public and private keys are displayed. Copy the keys and paste them into the **Public API key** and **Private API key** fields in Vantage.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Copy API keys in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-copy-api-key-private.png"/> 
+      <img alt="Copy API keys in MongoDB Atlas" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-copy-api-key-private.png"/> 
     </div>
   </details>
 
@@ -93,7 +93,7 @@ Next, you'll create an API key and grant it read-only permissions to your invoic
   ```
 
   <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Copy API keys in MongoDB Atlas" width="80%" src="/img/connect-mongo/mongodb-api-access-list.png"/> 
+    <img alt="Copy API keys in MongoDB Atlas" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-api-access-list.png"/> 
   </div>
   :::
 
@@ -104,28 +104,28 @@ If you want to have Vantage ingest per-cluster resource data from MongoDB Atlas,
 ### Step 4: Grant Project Access for Active Resources
 
 1. On the left navigation menu, select **Projects** to see your list of Atlas projects. Select your project from the list.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Open MongoDB Atlas projects" width="80%" src="/img/connect-mongo/mongodb-projects.png"/> 
+      <img alt="Open MongoDB Atlas projects" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-projects.png"/> 
     </div>
   </details>
 2. At the top, click **Access Manager**, then select the project.
 3. Click **Invite to Project**.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Invite to project in MongoDB Atlas" width="100%" src="/img/connect-mongo/mongodb-project-access.png"/> 
+      <img alt="Invite to project in MongoDB Atlas" width="100%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-project-access.png"/> 
     </div>
   </details>
 4. Search for and select the Vantage Integration API key to add it to the project.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Add Vantage key to MongoDB Atlas project" width="80%" src="/img/connect-mongo/mongodb-search-integration.png"/> 
+      <img alt="Add Vantage key to MongoDB Atlas project" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-search-integration.png"/> 
     </div>
   </details>
 5. Grant the Vantage Integration API key **Project Read Only** access. Then, click **Invite to Project**. Repeat this process for any other projects where you want to see resource-level costs.
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
     <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="Grant API key read-only access to project" width="80%" src="/img/connect-mongo/mongodb-project-read-only.png"/> 
+      <img alt="Grant API key read-only access to project" width="80%" src="https://assets.vantage.sh/docs/connect-mongo/mongodb-project-read-only.png"/> 
     </div>
   </details>
 

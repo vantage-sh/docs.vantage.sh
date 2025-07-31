@@ -27,17 +27,17 @@ Vantage cannot perform writes to your Grafana Cloud organization. Vantage is onl
 
 1. Navigate to [grafana.com](https://grafana.com/) and log in to your account.
 2. On the left, under **SECURITY**, select **Access Policies**. 
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Grafana Cloud portal" width="100%" src="/img/grafana-portal.png"/> </div>
+   <img alt="Grafana Cloud portal" width="100%" src="https://assets.vantage.sh/docs/grafana-portal.png"/> </div>
    </details>
 3. At the top of the page, click **Create access policy**.
 4. For **Display name** and **Name**, enter _vantage_.
 5. For **Realms**, select **all stacks**, or select individual stacks if you want only certain stacks associated with the integration.
 6. Under **Scopes**, add the `billing-metrics:read` and `orgs:read` scopes. (You may need to search for these scopes in the **Add scope** search box below the checklist.)
-  <details><summary>Expand to view example image</summary>
+  <details><summary>Click to view example image</summary>
    <div>
-   <img alt="Grafana cloud access policy screen" width="60%" src="/img/grafana-cap.png"/> </div>
+   <img alt="Grafana cloud access policy screen" width="60%" src="https://assets.vantage.sh/docs/grafana-cap.png"/> </div>
    </details>
 
   :::note
@@ -75,7 +75,7 @@ See the [provider data refresh documentation](/provider_data_refresh) for inform
 Due to Grafana’s billing process, billing data for the current month becomes available only on the 1st of the following month. Grafana Cloud costs are not amortized across the month; therefore, it is recommended that you view Grafana costs and usage using the **Monthly** date binning.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="" width="90%" src="/img/grafana-report.png" />
+    <img alt="" width="90%" src="https://assets.vantage.sh/docs/grafana-report.png" />
 </div>
 
 ## Grafana Reporting Dimensions

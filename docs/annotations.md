@@ -25,7 +25,7 @@ You can add annotations directly from the chart on a report or from the **Annota
     <li>To save the annotation, click the arrow icon on the bottom right of the comment box.</li>
     </ol>
     <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="Add Annotation From Graph" width="80%" src="/img/annotation-add-graph.gif" style={{ clipPath: "inset(10px 0 0 0)" }} />
+    <img alt="Add Annotation From Graph" width="80%" src="https://assets.vantage.sh/docs/annotation-add-graph.gif" style={{ clipPath: "inset(10px 0 0 0)" }} />
     </div>
     </TabItem>
   <TabItem value="add-sidebar" label="Add from the Annotation Sidebar" default>
@@ -59,7 +59,7 @@ When an annotation is created, [a corresponding issue](/annotations#issue) is al
 3. You can toggle an annotation's visibility in the **Chart Display** section.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Hiding Annotations" width="80%" src="/img/hide-annotations.png" />
+    <img alt="Hiding Annotations" width="80%" src="https://assets.vantage.sh/docs/hide-annotations.png" />
 </div>
 
 ## Delete an Annotation
@@ -98,7 +98,7 @@ When an annotation is created, a corresponding [issue](/issues) is also automati
 2. Then, select **Go to Issue**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="View of issue created by an annotation" width="80%" src="/img/annotation-issues.png" />
+    <img alt="View of issue created by an annotation" width="80%" src="https://assets.vantage.sh/docs/annotation-issues.png" />
 </div>
 
 The issue is automatically created with the **Annotation** category label attached and a link to the annotated report. The issue's title will default to the report name and annotation's date. You can use the comment function in the issue to also comment on the annotation.

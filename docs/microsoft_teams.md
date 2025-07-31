@@ -21,9 +21,9 @@ To complete the integration, ensure you have permission to add integrations to y
    - Read names and descriptions of channels
    - Send messages to channels
 
-<details><summary>Expand to view example MS Teams notifications</summary>
+<details><summary>Click to view example MS Teams notifications</summary>
   <div>
-    <img alt="Example Report Notification in an MS Teams message" width="60%" src="/img/ms-teams.png"/>
+    <img alt="Example Report Notification in an MS Teams message" width="60%" src="https://assets.vantage.sh/docs/ms-teams.png"/>
   </div>
 </details>
 

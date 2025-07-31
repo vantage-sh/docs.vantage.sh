@@ -85,19 +85,19 @@ Active resources are synced for each [workspace](/workspaces) at least once ever
 1. From the top navigation, click **Active Resources**.
 2. The **Services** screen is displayed, which contains each resource by name (e.g., CloudFront Distributions, Azure Databricks Workspaces, etc.), the total number of active resources, and accrued costs for each resource. Select a resource from the parent list to see a list of all resources within that resource group. In the below example, the NAT Gateways resource is selected from the list.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="/img/resource-report-parent.png" />
+    <img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="https://assets.vantage.sh/docs/resource-report-parent.png" />
 </div>
 3. Select an individual resource from the filtered list.
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="/img/resource-report-child.png" />
+<img alt="A sample resource report with a box around the NAT Gateways resource in the list" width="100%" src="https://assets.vantage.sh/docs/resource-report-child.png" />
 </div>
 4. The resource is displayed along with a detailed view of its costs over time. In the below image, the selected AWS NAT Gateway resource is displayed, with current and previous costs incurred. Costs for corresponding categories, like **Data Transfer**, are also provided per resource.
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Resource Report Drill Down" width="100%" src="/img/resource.png" />
+<img alt="Resource Report Drill Down" width="100%" src="https://assets.vantage.sh/docs/resource.png" />
 </div>
 5. Any tags assigned to the resource (including [Virtual Tags](/tagging)) are also displayed in the **Assigned Tags** section at the bottom. 
 <div style={{display:"flex", justifyContent:"center"}}>
-<img alt="Assigned Tags on Resource Reports" width="100%" src="/img/assigned-tags.png" />
+<img alt="Assigned Tags on Resource Reports" width="100%" src="https://assets.vantage.sh/docs/assigned-tags.png" />
 </div>
 
 ## Create a Resource Report {#create-a-resource-report}
@@ -114,7 +114,7 @@ To create a resource report:
 1. From the top navigation, click **Active Resources**.
 2. From the left navigation, click **Resource Reports**. You can create new reports and rename your existing reports from this page. The **All Active Resources Report** is provided by default.
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A full list of active resources for an account. The resource's label, type, costs, provider, region, and account are listed." width="80%" src="/img/resource-report.png" />
+    <img alt="A full list of active resources for an account. The resource's label, type, costs, provider, region, and account are listed." width="80%" src="https://assets.vantage.sh/docs/resource-report.png" />
 </div>
 3. From the top right of the page, click **New Report**.
 4. From the type right of the resource list, click **Filters**. The **Filters** panel is displayed.
@@ -126,7 +126,7 @@ To create a resource report:
    - Click + Add Filter to add a new filter set. Results are displayed where _either_ filter 1 _OR_ filter 2 are true.
    - At the top of the **Filters** panel, click **Apply Changes**.
    <div style={{display:"flex", justifyContent:"center"}}>
-       <img alt="A resource report filter with sample filter criteria for Snowflake and AWS" width="60%" src="/img/resource-report-filter.png" />
+       <img alt="A resource report filter with sample filter criteria for Snowflake and AWS" width="60%" src="https://assets.vantage.sh/docs/resource-report-filter.png" />
    </div>
 5. At the top of the report, click **Save**. The report name is displayed in the breadcrumbs above the report. To rename the report, click the pencil icon next to the default report name. Then, update the name and click **Save**.
 
@@ -152,7 +152,7 @@ To select which columns are displayed on your Resource Report:
 3. Select or deselect any of the listed columns to adjust the display of your report.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
-    <img alt="GIF of selecting custom columns" width="100%" src="/img/select-columns.gif"/>
+    <img alt="GIF of selecting custom columns" width="100%" src="https://assets.vantage.sh/docs/select-columns.gif"/>
 </div>
 <br/>
 
@@ -164,7 +164,7 @@ To reorder the columns of your Resource Report:
 2. The column order is updated in both the Resource Report and the **Manage Columns** dropdown menu.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
-    <img alt="GIF of selecting custom columns" width="100%" src="/img/reorder-columns.gif"/>
+    <img alt="GIF of selecting custom columns" width="100%" src="https://assets.vantage.sh/docs/reorder-columns.gif"/>
 </div>
 <br/>
 
@@ -177,7 +177,7 @@ All columns are sortable except **Resource**, **Type**, and **Team**.
 ::: 
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
-    <img alt="GIF of selecting custom columns" width="100%" src="/img/sort-columns.gif"/>
+    <img alt="GIF of selecting custom columns" width="100%" src="https://assets.vantage.sh/docs/sort-columns.gif"/>
 </div>
 <br/>
 
@@ -218,7 +218,7 @@ AWS practitioners who are having trouble understanding AWS billing codes can fin
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A Resource Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="/img/cur-active-resource.png" />
+    <img alt="A Resource Report grouped to show a subcategory link with the corresponding cur.vantage.sh page" width="90%" src="https://assets.vantage.sh/docs/cur-active-resource.png" />
 </div>
 
 ### Resource Relationships
@@ -226,7 +226,7 @@ AWS practitioners who are having trouble understanding AWS billing codes can fin
 You can view relationships between specific resources on the **Relationships** tab.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Relationships tab with an example EBS volume displayed" width="100%" src="/img/resource-report-relationships.png" />
+    <img alt="The Relationships tab with an example EBS volume displayed" width="100%" src="https://assets.vantage.sh/docs/resource-report-relationships.png" />
 </div>
 
 Below are some examples of relationships you may see within your active resources.
@@ -243,24 +243,29 @@ Below are some examples of relationships you may see within your active resource
 For S3 buckets, a **Storage Summary** tab is available that provides a list of storage classes, their corresponding storage sizes, and approximate monthly costs for objects in the S3 bucket.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An example of the S3 Storage Summary screen with Intelligent Tiering suggestions" width="90%" src="/img/resource-report-s3-buckets.png" />
+    <img alt="An example of the S3 Storage Summary screen with Intelligent Tiering suggestions" width="90%" src="https://assets.vantage.sh/docs/resource-report-s3-buckets.png" />
 </div>
 
 When available, this screen also includes **S3 Intelligent Tiering Considerations** with a table of possible maximum savings you can potentially yield as a result of implementing S3 Intelligent Tiering across all objects in the bucket with Standard Storage.
 
 ### S3 Request Metrics and Egress
 
+:::info
+To view S3 request metrics and egress data, you must configure request metrics on the S3 bucket. Configure your `VantageCloudWatchMetricsReadOnly` IAM policy to include the following permissions:
+
+- `s3:GetMetricsConfiguration`
+- `s3:ListBucketMetricsConfigurations`
+
+Note that it takes roughly 15 minutes for AWS to begin delivering these metrics after they are enabled. See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) for more information about ingress and egress request metrics.
+:::
+
 AWS charges you on a per-request basis for S3 with potentially different rates for each request type. The **Request Metrics & Egress** tab provides a summary of request metrics for the bucket and each metric's cost for the trailing 30 days.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="An example of the S3 Storage Summary screen with Intelligent Tiering suggestions" width="90%" src="/img/resource-report-egress.png" />
+    <img alt="An example of the S3 Storage Summary screen with Intelligent Tiering suggestions" width="90%" src="https://assets.vantage.sh/docs/resource-report-egress.png" />
 </div>
 
 A graph of each request type (`GET`, `PUT`, `HEAD`, `POST`, `SELECT`, and `LIST`) is provided, which visualizes the total number of requests. The total cost for each request type is also provided.
-
-:::info
-See the [AWS documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/metrics-configurations.html) for information on how to enable ingress and egress request metrics. Note that it takes roughly 15 minutes for AWS to begin delivering these metrics after they are enabled.
-:::
 
 ### EC2 Rightsizing Recommendations
 
@@ -271,7 +276,7 @@ For EC2 instances where Vantage identifies rightsizing opportunities, the **Righ
 For certain resources, you can view high-fidelity charts for CloudWatch metrics. On resources that support CloudWatch metrics, the **CloudWatch Metrics** tab is displayed. These metrics are useful for rightsizing servers and databases based on utilization.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Resource Report Drill Down" width="80%" src="/img/cloudwatch-metrics.png" />
+    <img alt="Resource Report Drill Down" width="80%" src="https://assets.vantage.sh/docs/cloudwatch-metrics.png" />
 </div>
 
 When you connect an AWS account to Vantage, CloudWatch metrics are configured automatically, per resource. The following services support CloudWatch metrics:
@@ -291,7 +296,7 @@ To inquire about support for Cloudwatch metrics for other services, or for monit
 For active resources that generate network traffic costs, such as NAT Gateways and EC2 instances, the **VPC Flow Logs** tab is displayed. Select this tab to view peer resources and the associated traffic category (e.g., public). A Sankey diagram of each associated network flow is provided. See the [Network Flow Reports](/network_flow_reports) documentation for details on network flow reporting.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="Network Flow Report provider resource view" width="90%" src="/img/nfr-resource.png" />
+  <img alt="Network Flow Report provider resource view" width="90%" src="https://assets.vantage.sh/docs/nfr-resource.png" />
 </div>
 
 ### EKS Extended Support
@@ -334,7 +339,7 @@ The following Datadog services are supported:
 For eligible resources, the **Datadog Agent Installed** dimension, indicates whether the agent is installed. The below image shows resource data for a particular EC2 instance. On the right information panel, the **Datadog Agent Installed** dimension displays **True**. Observe associated Datadog costs for **Infrastructure Monitoring** and **APM** in the table at the bottom.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="The Associated Datadog Costs section is displayed on an active resource" width="90%" src="/img/datadog-host-screen.png" />
+  <img alt="The Associated Datadog Costs section is displayed on an active resource" width="90%" src="https://assets.vantage.sh/docs/datadog-host-screen.png" />
 </div>
 
 You can also create a Resource Report that filters for resources where the Datadog agent is installed. In the below image, the filter looks for EC2 instances where the agent is installed.
@@ -349,5 +354,5 @@ Vantage automatically generates this type of report when it finds the Datadog Ag
 4. For **Value**, select **true**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-  <img alt="Metadata filter for Datadog Agent costs" width="90%" src="/img/datadog-filters.png" />
+  <img alt="Metadata filter for Datadog Agent costs" width="90%" src="https://assets.vantage.sh/docs/datadog-filters.png" />
 </div>

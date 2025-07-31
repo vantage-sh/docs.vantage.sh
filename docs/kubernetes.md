@@ -21,7 +21,7 @@ Vantage has two sets of tools for viewing and optimizing Kubernetes costs: viewi
 Kubernetes Cost Reports provide cost visibility by Cluster, Label, Namespace, and Service. They include Kubernetes-specific filters and filter logic. You can combine specific Kubernetes costs with other services. In the below example, the filter includes the costs of a specific service with corresponding RDS database costs.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Kubernetes and AWS Cost Report filters" width="60%" src="/img/vantage-kubernetes-reporting.png" />
+    <img alt="Kubernetes and AWS Cost Report filters" width="60%" src="https://assets.vantage.sh/docs/vantage-kubernetes-reporting.png" />
 </div>
 
 Cost Reports also provide [forecasts](/forecasting). These forecasts are updated daily and provide confidence intervals for what your costs are likely to be for the month.
@@ -109,7 +109,7 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
    - Click **Save**.
    <details><summary>Click to view visual example</summary>
    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="Create Kubernetes Efficiency filters" width="100%" src="/img/create-filter.gif" />
+    <img alt="Create Kubernetes Efficiency filters" width="100%" src="https://assets.vantage.sh/docs/create-filter.gif" />
    </div>
    </details>
 5. You can optionally edit your existing rule or add additional filter criteria.
@@ -123,7 +123,7 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
             <img
                alt="Add OR clause to Kubernetes Efficiency Report"
                style={{ width: "100%", clipPath: "inset(0 0 0 5px)", borderRadius: "10px" }}
-               src="/img/add-or-clause.gif"
+               src="https://assets.vantage.sh/docs/add-or-clause.gif"
             />
       </div>
       <div
@@ -155,7 +155,7 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
             <img
                alt="Add additional filters to Kubernetes efficiency report"
                style={{ width: "100%", clipPath: "inset(0 0 0 5px)", borderRadius: "10px" }}
-               src="/img/additional-filters.gif"
+               src="https://assets.vantage.sh/docs/additional-filters.gif"
             />
       </div>
       <div
@@ -305,7 +305,7 @@ Once the operator is installed, the Vantage Kubernetes agent will begin to uploa
 Vantage syncs Kubernetes managed workloads as [active resources](/active_resources) in your account. In cases where any of these workloads are identified to be overprovisioned, Vantage provides Kubernetes rightsizing recommendations. On the **Kubernetes Efficiency Reports** screen, a notification is displayed when rightsizing recommendations are available. Click **Review Recommendations** to view identified workloads.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Kubernetes notification for rightsizing recommendations" width="100%" src="/img/k8s-rightsize-notification.png" />
+    <img alt="Kubernetes notification for rightsizing recommendations" width="100%" src="https://assets.vantage.sh/docs/k8s-rightsize-notification.png" />
 </div>
 
 See the [Cost Recommendations](/cost_recommendations#kubernetes-rightsizing) documentation for details on how to view this information and rightsize Kubernetes workloads.

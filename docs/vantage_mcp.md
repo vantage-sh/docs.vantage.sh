@@ -2,7 +2,7 @@
 id: vantage_mcp
 title: Vantage MCP
 description: With the Vantage MCP, you can use natural language to explore your organization’s cloud costs via MCP clients, like Claude, Cursor, Goose, and others.
-image: /img/mcp/vantage-mcp.png
+image: https://assets.vantage.sh/docs/mcp/vantage-mcp.png
 keywords:
   - Model Context Protocol 
   - MCP
@@ -109,7 +109,7 @@ At this time, the official ChatGPT client supports MCP clients only for deep res
     - For **Type**, select **STDIO**. 
     - For **Command**, enter `npx -y mcp-remote https://mcp.vantage.sh/sse`.
     <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Create an extension in Goose" width="60%" src="/img/mcp/goose-extension.png" />
+    <img alt="Create an extension in Goose" width="60%" src="https://assets.vantage.sh/docs/mcp/goose-extension.png" />
     </div>
 4. Click **Add Extension**. 
 
@@ -127,7 +127,7 @@ After you configure the MCP server, an authorization screen is displayed in your
 
 1. Read the authorization information, then click **Allow Access** to proceed.
     <div style={{display:"flex", justifyContent:"center"}}>
-        <img alt="Authorize the MCP in Vantage" width="60%" src="/img/mcp/vantage-auth.png" />
+        <img alt="Authorize the MCP in Vantage" width="60%" src="https://assets.vantage.sh/docs/mcp/vantage-auth.png" />
     </div>
 2. You will then be prompted to log in to Vantage with your username and password or authenticate via SSO. After you log in to Vantage, you will have access to the Vantage MCP server.
 
@@ -139,13 +139,13 @@ After you configure the MCP server, an authorization screen is displayed in your
 Start a new chat to begin prompting Claude. For example, you can ask, _“In Vantage, which workspaces do I have access to?”_ Claude uses the appropriate [MCP tool](/vantage_mcp#mcp-tools) and replies with workspace access details.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Chatting with Claude and Vantage MCP" width="80%" src="/img/mcp/claude-chat.png" />
+    <img alt="Chatting with Claude and Vantage MCP" width="80%" src="https://assets.vantage.sh/docs/mcp/claude-chat.png" />
 </div>
 
 Each time Claude uses a new tool, you'll be asked to approve it. Click **Allow Always** to grant ongoing access, or **Allow Once** to approve it just this time.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Authorizing a tool in Claude" width="50%" src="/img/mcp/claude-tools.png" />
+    <img alt="Authorizing a tool in Claude" width="50%" src="https://assets.vantage.sh/docs/mcp/claude-tools.png" />
 </div>
 
 :::note
@@ -159,7 +159,7 @@ You may encounter conversation limits when prompting Claude. If you encounter a 
 Start a new chat to begin prompting Goose. For example, you can ask, _“In Vantage, which workspaces do I have access to?”_ Goose uses the appropriate [MCP tool](/vantage_mcp#mcp-tools) and replies with workspace access details.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Chatting with Goose and Vantage MCP" width="80%" src="/img/mcp/goose-chat.png" />
+    <img alt="Chatting with Goose and Vantage MCP" width="80%" src="https://assets.vantage.sh/docs/mcp/goose-chat.png" />
 </div>
 
 </TabItem>

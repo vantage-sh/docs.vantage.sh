@@ -19,9 +19,9 @@ Vantage integrates with Slack so that you can send [Report Notifications](/repor
    :::
 5. Select any channel where you would like to add the integration. The first notification will be sent the next day after the integration set up.
 
-  <details><summary>Expand to view example Slack notifications</summary>
+  <details><summary>Click to view example Slack notifications</summary>
     <div>
-      <img alt="Example Report Notification in Slack message" width="80%" src="/img/slack-notification.png"/>
+      <img alt="Example Report Notification in Slack message" width="80%" src="https://assets.vantage.sh/docs/slack-notification.png"/>
     </div>
   </details>
 

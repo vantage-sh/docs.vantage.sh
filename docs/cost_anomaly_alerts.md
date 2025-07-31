@@ -38,7 +38,7 @@ To get started with cost anomaly detection and alerts, you can also view a video
 To view cost anomalies, navigate to any Cost Report and select the **Anomalies** tab.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of a Cost Report with the Anomalies tab opened" width="100%" src="/img/cost-anomaly-alerts.gif"/>
+    <img alt="GIF of a Cost Report with the Anomalies tab opened" width="100%" src="https://assets.vantage.sh/docs/cost-anomaly-alerts.gif"/>
 </div>
 <br/>
 
@@ -58,7 +58,7 @@ Anomaly alerts are sent only for the first time they are detected. If an anomaly
    - **Ignore**: The anomaly will be removed from the anomalies list. The **Ignore Anomaly** pop-up is displayed where you can provide feedback to Vantage on why you are ignoring the anomaly.
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-    <img alt="GIF of a creating an issue for an Anomaly" width="100%" src="/img/anomaly-issue.gif"/>
+    <img alt="GIF of a creating an issue for an Anomaly" width="100%" src="https://assets.vantage.sh/docs/anomaly-issue.gif"/>
 </div>
 
 ## Configure Cost Anomaly Alerts
@@ -77,5 +77,5 @@ To receive alerts for any detected cost anomalies:
 To add or remove recipients or change the threshold, click **Configure Alert** and make those updates.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Alert Thresholds" width="60%" src="/img/anomaly-threshold.png" />
+    <img alt="Alert Thresholds" width="60%" src="https://assets.vantage.sh/docs/anomaly-threshold.png" />
 </div>

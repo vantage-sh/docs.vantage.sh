@@ -79,7 +79,7 @@ Before you create a report, you can view a list of all your active (and expired)
    - Click **Save**.
    <details><summary>Click to view a visual example</summary>
    <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }}>
-     <img alt="GIF of filtering a commitment report for AWS category costs that are not usage" width="100%" src="/img/filter-fcr.gif"/>
+     <img alt="GIF of filtering a commitment report for AWS category costs that are not usage" width="100%" src="https://assets.vantage.sh/docs/filter-fcr.gif"/>
    </div>
    </details>
 4. You can optionally edit your existing rules or add additional filter criteria.
@@ -98,7 +98,7 @@ You have the option to further drill down into your costs:
 
 - Above the graph, click the **Group By** dropdown menu. Select one or more grouping options. You can group by charge type, commitment type, service, account, billing account, region, category, subcategory, instance type, and tag.
   <details><summary>Click to view a visual example</summary>
-    <img alt="Filtering a commitment report for AWS category costs that are not usage" width="100%" src="/img/fcr-group.png"/>
+    <img alt="Filtering a commitment report for AWS category costs that are not usage" width="100%" src="https://assets.vantage.sh/docs/fcr-group.png"/>
   </details>
   
   :::tip
@@ -164,7 +164,7 @@ You can sort the table by any of the date or grouping columns.
 The chart contains two axes: the left axis measures costs, and the right axis measures the coverage and effective savings rate. The cost axis shows positive and negative values (i.e., discounts are represented as negative dollar values).
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="A view of a full financial commitment report" width="100%" src="/img/fcr-full-report.png" />
+    <img alt="A view of a full financial commitment report" width="100%" src="https://assets.vantage.sh/docs/fcr-full-report.png" />
 </div>
 
 Trend lines are displayed to illustrate the change in coverage and effective savings rate over time. Hover over any line to get a point-in-time view of each metric and associated costs.

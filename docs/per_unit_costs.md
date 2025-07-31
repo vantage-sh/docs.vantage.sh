@@ -15,7 +15,7 @@ A _unit_ is any metric that your business tracks, such as users, requests, trans
 In the visual example below, the business metric **Per Requests per Second** is visualized in the graph as a red line alongside daily costs. You can use this visualization to understand how changes in the request metric contribute to changes in your costs.
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Per Unit Costs displayed as a trend line on the graph in a Cost Report" width="100%" src="/img/per-unit-costs.png" />
+    <img alt="Per Unit Costs displayed as a trend line on the graph in a Cost Report" width="100%" src="https://assets.vantage.sh/docs/per-unit-costs.png" />
 </div>
 
 ## Labeled Business Metrics {#labels}
@@ -71,7 +71,7 @@ Click **Upload a CSV**. Select the CSV file and upload. After the file is import
 
 <details><summary>Click to view visual example</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The Imported Costs section with costs displayed for a month" width="80%" src="/img/imported-data.png" />
+    <img alt="The Imported Costs section with costs displayed for a month" width="80%" src="https://assets.vantage.sh/docs/imported-data.png" />
 </div>
 </details>
 
@@ -99,7 +99,7 @@ If Vantage does not have a Cross-Account IAM Role associated with your AWS accou
 9. Click **Import Data**.
 <details><summary>Click to view visual example</summary>
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="The CloudWatch metrics import screen with data added to each field" width="100%" src="/img/import-cloudwatch.png" />
+    <img alt="The CloudWatch metrics import screen with data added to each field" width="100%" src="https://assets.vantage.sh/docs/import-cloudwatch.png" />
 </div>
 </details>
 
@@ -124,7 +124,7 @@ To import business metrics from Datadog, ensure Datadog is one of your [connect
 
   <details><summary>Click to view visual example</summary>
   <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="The Datadog metrics import screen with data added to each field" width="100%" src="/img/import-datadog-query-syntax.png" />
+      <img alt="The Datadog metrics import screen with data added to each field" width="100%" src="https://assets.vantage.sh/docs/import-datadog-query-syntax.png" />
   </div>
   </details>
 
@@ -333,7 +333,7 @@ Keep in mind that the `DELETE` action is permanent, and you will no longer have 
 ## Assign Business Metrics to Cost Reports {#assign-metrics}
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Assign metric to cost report" width="100%" src="/img/assign-metrics-cost-report.png" />
+    <img alt="Assign metric to cost report" width="100%" src="https://assets.vantage.sh/docs/assign-metrics-cost-report.png" />
 </div>
 
 Once your import is complete you can assign metrics to one or more Cost Reports. You can also assign as many different business metrics to a Cost Report as you want.
@@ -349,7 +349,7 @@ Once your import is complete you can assign metrics to one or more Cost Reports.
 ## View Per Unit Costs on Cost Reports
 
 <div style={{display:"flex", justifyContent:"center"}}>
-    <img alt="Per Unit Costs displayed on a Cost Report" width="100%" src="/img/per-unit-costs-cost-report.png" />
+    <img alt="Per Unit Costs displayed on a Cost Report" width="100%" src="https://assets.vantage.sh/docs/per-unit-costs-cost-report.png" />
 </div>
 
 To inspect your unit costs, navigate to the assigned Cost Report. The average unit cost for the date range selected is displayed at the top of the screen.

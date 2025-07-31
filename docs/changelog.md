@@ -7,7 +7,7 @@ keywords:
   - Release notes
 pagination_prev: null
 pagination_next: null
-image: /img/product_changelog.jpg
+image: https://assets.vantage.sh/docs/product_changelog.jpg
 ---
 
 # Changelog
