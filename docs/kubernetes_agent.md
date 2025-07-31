@@ -116,7 +116,7 @@ You can optionally enable the collection of annotations and namespace labels.
 This feature is available with Vantage Kubernetes agent `v1.0.30` and later.
 :::
 
-By default, Node Labels are collected by the Vantage Kubernetes agent. For PVC Labels, you need to set `collectPVCLabels` to `true` in the agent's [Helm chart configuration](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml). PVC Labels are collected from persistent volume claims associated with pods. 
+By default, Node Labels are collected by the Vantage Kubernetes agent. For PVC Labels, the agent accepts `VANTAGE_COLLECT_PVC_LABELS` as an environment variable at startup. To enable the collection of PVC Labels, set `agent.collectPVCLabels` to `true` in the agent's [Helm chart configuration](https://github.com/vantage-sh/helm-charts/blob/main/charts/vantage-kubernetes-agent/values.yaml). PVC Labels are collected from persistent volume claims associated with pods. 
 
 ### Manifest-Based Deployment Option {#manifest-deploy}
 
