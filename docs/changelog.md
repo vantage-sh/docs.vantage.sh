@@ -12,17 +12,22 @@ image: https://assets.vantage.sh/docs/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on July 16, 2025, with product updates for July 2025._
+_This page was last updated on August 1, 2025, with product updates for July 2025._
 
 ## July 2025
 
 ## Product Updates
 
-- **Tags confirmation screen:** A new confirmation box is added to the [**Tags** screen](/tagging) to prevent loss of unsaved changes when a user attempts to navigate away from the page.
+- **Incomplete costs on Financial Commitment Reports:** A tooltip was added to [Financial Commitment Reports](/financial_commitment_reports#hourly-reporting) with hourly binning to indicate when costs are incomplete and still processing. 
+- **Budget screen UI updates:** Tooltips have been added to the [Budget Hierarchy](/budgets#budget-hierarchy) page to indicate what each value means.
+- **Remote MCP:** Vantage now offers a [remote MCP server](/vantage_mcp) to let AI agents access cloud cost data, with no infrastructure management required.
+- **Tags confirmation screen:** A new confirmation box is added to the [Tags screen](/tagging) to prevent loss of unsaved changes when a user attempts to navigate away from the page.
 - **Filter UI update:** An update was made to the **where** section of a [report filter](/cost_reports#filtering-cost-reports) for improved dropdown usability by auto-focusing the search input when selecting from large filterable lists.
 - **Show/hide previous period:** You can now show or hide the [previous period](/cost_reports#create-report) on Cost Reports. A new toggle is displayed on the report date picker.
-- **Active Resources and Resource Report updates:** The following updates were made to update Resource Reports and add new [Active Resources](/active_resources).
-  - AWS Backup Vault Recovery Points are now available as active resources. 
+- **Active Resources and Resource Report updates:** The following updates were made to update Resource Reports and [Active Resources](/active_resources).
+  - You can now filter by a tag name substring using the **contains** and **does not contain** filters on a Resource Report.
+  - The [dashboard](/dashboards) widget for Resource Reports now shows a tooltip indicating the accrued costs are from the past 30 days.
+  - AWS Backup Vault Recovery Points and AWS FSx Volumes are now available as Active Resources. 
   - Stopped EC2 instances are now available as Active Resources. **State** now appears as a report column to determine if the instance is running or stopped. 
   - Vantage now supports ad-hoc downloads of any Resource Report, allowing users to export filtered views without saving them first.
   - You can now [customize](/active_resources/#custom-columns) which columns are displayed in your Resource Reports, such as resource-specific metadata fields, as well as arrange the columns in any order.
@@ -32,13 +37,17 @@ _This page was last updated on July 16, 2025, with product updates for July 2025
 
 ### Kubernetes Agent Updates
 
-_See [May's update](/changelog#k8s-may-25) for the most recent Kubernetes agent release._
+- The agent [now collects](/kubernetes#pvc-node-label) Node and PVC labels for additional reporting metrics.
+- With [Persistent Metrics Recovery](/kubernetes_agent#persistent-metrics), resource metrics are retained when the upload endpoint is unreachable.
+- Support was added for the following options in the [Kubernetes agent configuration](https://github.com/vantage-sh/helm-charts):
+  - `dnsConfig`: specifies the pod's DNS configuration
+  - `collectPVCLabels`: optionally enable the collection of PVC labels
 
-## API Updates
+### API Updates
 
 - **Billing rules parameter:** The `sql_query` parameter is available on the `/billing_rules` [endpoint](https://vantage.readme.io/reference/createbillingrule) and supports creating [custom billing rules](/partners#custom-billing-rule) for MSP customers. 
 - **Terraform updates:** The following Terraform updates are available:
-  - The `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) is updated so that MSP users can programmatically create SQL billing rules for their customers.
+  - `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) and `vantage_billing_rules` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/billing_rules) are now available to support the [MSP custom billing rules](/partners#custom-billing-rule) feature.
 
 ## June 2025
 
@@ -63,7 +72,7 @@ _See [May's update](/changelog#k8s-may-25) for the most recent Kubernetes agent 
 
 ### API Updates
 - **Business Metrics API**: the `/business_metrics` [endpoint](https://vantage.readme.io/reference/createbusinessmetric) now supports segment tokens to assign business metrics for unit calculation.
-- The following updates were made to the Terraform provider. The latest version is [version 0.1.60](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
+- The following updates were made to the Terraform provider. The latest version is [version 0.1.61](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs)
     - `vantage-integration` [module](https://registry.terraform.io/modules/vantage-sh/vantage-integration/aws/0.1.6) now includes an optional `cur_report_time_unit` attribute for adjusting report granularity. 
 
 ## May 2025
