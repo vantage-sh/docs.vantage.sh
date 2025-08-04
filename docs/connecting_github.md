@@ -36,7 +36,7 @@ For customers on the first version of the Vantage integration, Vantage does not 
 
 ## How Vantage Integrates with GitHub
 
-The Vantage–GitHub integration requires the [Billing - vantage-sh](https://github.com/apps/billing-vantage-sh) GitHub application added to your GitHub organization. Once installed, Vantage can access cost and usage data through the [Enhanced Billing /usage API](https://docs.github.com/en/enterprise-cloud@latest/billing/using-the-new-billing-platform/automating-usage-reporting), which provides structured cost data for GitHub Actions, such as build minutes by user, repo, and workflow, as well as the associated infrastructure used to perform the build.
+The Vantage–GitHub integration requires the [Billing - vantage-sh](https://github.com/apps/billing-vantage-sh) GitHub application added to your GitHub organization. Once installed, Vantage can access cost and usage data through the [Enhanced Billing /usage API](https://docs.github.com/en/enterprise-cloud@latest/billing/using-the-new-billing-platform/automating-usage-reporting), which provides structured cost data for GitHub Actions, such as build minutes by user and repo, as well as the associated infrastructure used to perform the build.
 
 You can see cost and usage, such as per-repository billing for Actions, Copilot UserMonths, and GigabyteHours of Shared Storage. To allocate the infrastructure costs for your self-hosted runners, you can create a Cost Report that includes both GitHub costs and the related EC2 or EKS costs, based on tags or labels.
 
