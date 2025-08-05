@@ -274,6 +274,14 @@ Consider using the following best practices when working with the Vantage MCP:
 - Ask one thing at a time and avoid stacking various unrelated questions. Instead of, _“What were our EC2 costs last month, and also which accounts are over budget, and can you tell me if any tags are missing?”_ consider asking these as separate prompts to keep responses organized and information relevant.
 - Be specific. Don’t assume the client knows what terms like “important” mean. Instead of _"What are my most important costs to monitor?"_, try something more specific, like, _"Which services have the highest costs without tags?"_ or _"Which accounts had the biggest increase in spend over the past two months?"_
 
+### Validating Responses
+
+Because MCP relies on an LLM, responses are not always deterministic. This means that the same prompt may return slightly different answers, and results heavily depend on the context provided. You can follow the below best practices when validating outputs:
+
+- Use your existing Cost Reports or as a source of truth. For example, if you ask about EC2 spend last month, you can validate the answer against your saved report for that timeframe.
+- When you prompt a client, like Goose or Claude, you can expand the tool calls (such as `query-costs`) to view the underlying request details. You can then use this logic to help confirm whether the filters and groupings align with your intent.
+- If you find a response that appears inaccurate or misleading, share the full prompt and result with our team. See the [Feedback](/vantage_mcp#feedback) section below for details.
+
 ### Additional Prompt Examples
 
 Additional examples are provided below for how you can interact with the Vantage MCP.
@@ -313,7 +321,7 @@ Additional examples are provided below for how you can interact with the Vantage
 
 </details>
 
-## Feedback
+## Feedback {#feedback}
 
 You can join the free [Vantage Community Slack](https://vantage.sh/slack) to connect with other users and the Vantage team. In the `#mcp` channel, share feedback, ask questions, and see how others are using the Vantage MCP server. 
 
