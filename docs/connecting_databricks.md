@@ -27,6 +27,7 @@ This table is considered to be in [Private Preview](https://docs.databricks.com/
 :::
 
 - `system.compute.clusters`: contains metadata, like human-readable names, for clusters and custom tagging.
+- `system.compute.warehouses`: contains metadata such as warehouse configuration, human-readable warehouse names, and custom tags.
 - `system.access.workspace_latest`: contains human-readable names for workspaces.
 
 ## Migrate to the New Databricks Billing Integration {#migrate}
@@ -254,20 +255,20 @@ On Databricks [Cost Reports](/cost_reports), you can filter across several dime
 
 ### Databricks Tags
 
-The **Tag** filter contains values like `job_id`, which can be used to view costs for specific Databricks jobs. Vantage gets tags from `identity_metadata`, `usage_metadata`, and `custom_tags` from `system.billing_usage`, `workspace_name` from `system.access.workspaces_latest`, and `cluster_name` from `system.compute.clusters`.
+The Tag filter contains values like job_id, which can be used to view costs for specific Databricks jobs. Vantage gets tags from `identity_metadata`, `usage_metadata`, and `custom_tags` from `system.billing_usage`; `workspace_name` from `system.access.workspaces_latest`; `cluster_name`, `tags`, and `driver_instance_pool_id` from `system.compute.clusters`; and `warehouse_channel`, `warehouse_type`, `warehouse_name` from `system.compute.warehouses`. Below is a list of tags Vantage ingests.
 
 <details><summary>Click to view a list of tags Vantage ingests</summary>
 
-- `cluster_id` (`ClusterId`)
-- `job_id` (`JobId`)
-- `warehouse_id` (`SQLEndPointId`)
-- `instance_pool_id` (`DatabricksInstancePoolId`)
+- `cluster_id`
+- `job_id`
+- `warehouse_id`
+- `instance_pool_id`
 - `node_type`
 - `job_run_id`
-- `notebook_id` (`NotebookId`)
+- `notebook_id`
 - `dlt_pipeline_id`
-- `endpoint_name` (`EndpointName`)
-- `endpoint_id` (`EndpointId`)
+- `endpoint_name`
+- `endpoint_id`
 - `dlt_update_id`
 - `dlt_maintenace_id`
 - `metastore_id`
@@ -280,13 +281,16 @@ The **Tag** filter contains values like `job_id`, which can be used to view c
 - `app_id`
 - `app_name`
 - `private_endpoint_name`
-- `budget_policy_id` (`BudgetPolicyID` and `budget_policy_id` in v2)
+- `budget_policy_id`
 - `run_as`
 - `sql_warehouse_own_by`
-- `created_by` (`Creator`)
+- `created_by`
 - `workspace_name`
-- `cluster_name` (`ClusterName`)
+- `cluster_name`
 - `cluster_own_by`
 - `clusterNodeType`
-
+- `warehouse_name`
+- `warehouse_channel`
+- `warehouse_type`
+- `driver_instance_pool_id`
 </details>
