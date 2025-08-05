@@ -86,8 +86,7 @@ This integration guide provides the steps for migrating from v1 to v2.
    # find log delivery with config_name = 'vantage-billable-usage-delivery'
    databricks account log-delivery list | jq '.[] | select(.config_name == "vantage-billable-usage-delivery" and .status == "ENABLED")'
 
-   #disable log delivery
-
+   # disable log delivery
    databricks account log-delivery patch-status 
                         <config-id> 
                         --json '{ "status": "DISABLED" }' 
