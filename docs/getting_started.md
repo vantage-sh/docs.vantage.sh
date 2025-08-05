@@ -90,7 +90,7 @@ Next, create a data integration between at least one of your providers and Vanta
       icon: 'https://assets.vantage.sh/docs/logos/logo-icon-databricks.svg',
       iconAltText: 'Databricks logo',
       title: 'Databricks',
-      content: 'Vantage integrates with your Databricks account through the use of Billable Usage Logs. Vantage provides an S3 bucket for Databricks to deliver usage logs to on a periodic basis.',
+      content: 'Vantage integrates with your Databricks account using a dedicated Serverless SQL Warehouse to query system tables within a Unity Catalog-enabled workspace.',
       link: "/connecting_databricks",
     },
     {

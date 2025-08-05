@@ -9,120 +9,289 @@ keywords:
 
 # Databricks
 
-Vantage integrates with your Databricks account through the use of [Billable Usage Logs](https://docs.databricks.com/administration-guide/account-settings/billable-usage-delivery.html). Vantage provides an S3 bucket for Databricks to periodically deliver usage logs. Databricks delivers cost-only data to the bucket, outlining the Databricks service used, usage in Databricks Units (DBU), and metadata related to workspace, cluster, and any related tags.
+Vantage connects to your Databricks account using a dedicated Serverless SQL warehouse to query `system` tables within a [Unity Catalog](https://docs.databricks.com/aws/en/data-governance/unity-catalog/get-started)-enabled workspace. Vantage requires only the Data Reader permission to access these system tables and does not have the ability to perform any write actions or administrative changes in your Databricks account.
+
+You can perform the Databricks integration for each Databricks account you have or each region your Databricks account uses. Each integration you perform will collect data for all the workspaces within your Databricks account that are deployed within the same region.
+
+[Usage data](/usage_based_reporting) is available for services that measure consumption, such as usage in DBUs ([Databricks Units](https://docs.databricks.com/aws/en/getting-started/concepts#billing-databricks-units-dbus)) or GBs.
+
+## Databricks System Tables
+
+[System tables](https://docs.databricks.com/aws/en/admin/system-tables/) are a set of Unity Catalog tables that expose operational and billing metadata. For cost monitoring, Vantage uses the following tables:
+
+- `system.billing.usage`: contains SKU-level usage data by workspace.
+- `system.billing.list_prices`: provides SKU-level list pricing.
+- `system.billing.account_prices`: shows discounted prices for customers on enterprise agreements. 
+:::note
+This table is considered to be in [Private Preview](https://docs.databricks.com/aws/en/release-notes/release-types) through Databricks and may require you to work with your Databricks account team to enable it.
+:::
+
+- `system.compute.clusters`: contains metadata, like human-readable names, for clusters and custom tagging.
+- `system.compute.warehouses`: contains metadata such as warehouse configuration, human-readable warehouse names, and custom tags.
+- `system.access.workspace_latest`: contains human-readable names for workspaces.
+
+## Migrate to the New Databricks Billing Integration {#migrate}
+
+This section provides information about v1 and v2 of the Databricks integration in Vantage.
+
+### What's Improved in the New Integration
+
+Previously, Vantage ingested Databricks costs using Databricks billable usage logs (integration released in December 2022). These logs provided SKU-level usage but reflected only list pricing, and enterprise customers had to manually apply discounts in Vantage to approximate their actual costs.
+
+The new integration (released in July 2025) uses the Databricks system tables and provides more accurate, granular cost data. Switching to this integration ensures your cloud cost data in Vantage is more complete, accurate, and reflective of your negotiated Databricks pricing.
+
+Vantage recommends you perform the new integration to receive the most up-to-date billing data from Databricks, as new products will not be added to the former billable usage logs.
+
+### What You Need to Know Before Migrating
+
+Data availability for the new integration depends on:
+
+- Your Databricks account’s creation date
+- When system tables were enabled
+- How long the data has been retained in your account
+
+Databricks currently provides [one year of free retention](https://docs.databricks.com/aws/en/admin/system-tables/#which-system-tables-are-available), with plans to add configurable retention for system tables; however, backfills of system tables in Databricks will not be supported. 
+
+:::tip
+Run this query in your Databricks account to see the oldest full month of data available:
+
+```sql
+SELECT MIN(usage_date) as oldest_full_month
+FROM system.billing.usage
+WHERE DAY(usage_date) = 1;
+```
+
+:::
+
+If your Vantage retention period extends further back than your available system tables data, you can continue to use the previous Vantage integration to maintain historical continuity.
+
+To ensure data is not double-counted, Vantage will:
+
+- Backfill your new Databricks Vantage integration as far back as the Databricks system tables contain data
+- Remove any overlapping data from your old Databricks Vantage integration
+
+### How to Migrate from the v1 Integration to v2
+
+1. Follow the steps below to create a new Databricks integration, either [manually](/connecting_databricks#manual-integration) through your Databricks account or via a [Terraform module](/connecting_databricks#terraform).
+2. To view your v1 Databricks integration in Vantage, navigate to the [Integrations page](https://console.vantage.sh/settings/databricks). The integration is displayed with the label `V1 - Read Only`, and you’ll be unable to make updates to that integration in Vantage.
+
+:::note
+If you need to update any manually applied Databricks discounts on a v1 integration, contact [support@vantage.sh](mailto:support@vantage.sh).
+:::
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Databricks v1 integration in read-only mode" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-v1-integration.png" />
+</div>
 
 ## Connect Your Databricks Account
 
+You can connect to Databricks either [manually](/connecting_databricks#manual-integration) using the below workflow or using a [Terraform module](/connecting_databricks#terraform).
+
+:::note
+The Serverless SQL Warehouse required for the integration will incur a cost, estimated at approximately $84/month. Vantage uses the smallest possible Serverless SQL Warehouse to keep these costs minimal.
+:::
+
 ### Prerequisites
 
-- You need [account admin](https://docs.databricks.com/en/administration-guide/index.html) privileges in Databricks. 
+- You need [account admin](https://docs.databricks.com/en/administration-guide/index.html) privileges in Databricks.
+- A [Unity Catalog-enabled](https://docs.databricks.com/aws/en/data-governance/unity-catalog/get-started#how-do-i-know-if-my-workspace-was-enabled-for-unity-catalog) workspace.
+   - Review [this page](https://docs.databricks.com/aws/en/data-governance/unity-catalog/manage-privileges/) from the Databricks documentation for additional information about permissions with Unity Catalog.
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Databricks costs.
 
-### Create the Connection
+:::note
+Vantage will use the [following IP addresses](https://docs.vantage.sh/security#:~:text=Does%20Vantage%20use%20fixed%20IP%20addresses%20when%20connecting%20to%20external%20providers%2C%20such%20as%20AWS%20or%20Azure%3F) when connecting to your Databricks account.
+:::
 
-1. From the Vantage console, navigate to the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
-2. Click **Setup Account**.
-3. Enter your **Databricks Account ID**.
-   :::tip
-   You can find your Databricks Account ID in the user profile dropdown of the [Databricks account console](https://accounts.cloud.databricks.com/login).
-   :::
+### Create the Connection {#manual-integration}
+
+To integrate your Databricks account with Vantage, follow the below steps:
+
+<table>
+  <tr><td><b>1</b></td><td><a href="/connecting_databricks#step1">Collect your workspace and account credentials</a></td></tr>
+  <tr><td><b>2</b></td><td><a href="/connecting_databricks#step2">Create a service principal</a></td></tr>
+  <tr><td><b>3</b></td><td><a href="/connecting_databricks#step3">Create a serverless SQL warehouse and grant the service principal "Can Use" permissions on the warehouse</a></td></tr>
+  <tr><td><b>4</b></td><td><a href="/connecting_databricks#step4">Grant the service principal Data Reader permissions on the system tables</a></td></tr>
+  <tr><td><b>5</b></td><td><a href="/connecting_databricks#step5">Add resource IDs and account credentials to the Vantage integration form</a></td></tr>
+</table>
+
+### Step 1: Collect Credentials and Open Workspace {#step1}
+
+1. Log in to the [Databricks console](https://accounts.cloud.databricks.com/).
+2. From the top right of the console, click your avatar and copy your **Databricks Account ID** for later use.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Copy Databricks Account ID" width="100%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-1-1.png" />
+   </div>
+   </details>
+3. Click **Workspaces**, then select a Unity Catalog-enabled workspace within your Databricks account.
+4. Copy your **Workspace URL** for later use. Then, open the workspace.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Copy Databricks workspace URL" width="100%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-1-4.png" />
+   </div>
+   </details>
+
+### Step 2: Create a Service Principal {#step2}
+
+1. From the top right of the workspace, click your avatar and select **Settings**.
+2. **On the Settings** screen, under **Workspace admin**, select **Identity and access**.
+3. Next to **Service principals**, click **Manage**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Next to Service principals click manage" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-2-3.png" />
+   </div>
+   </details>
+4. Click **Add service principal**.
+   - On the **Add new service principal** modal, click **Add new**.
+   - For **Service principal name**, enter _vantage-billing-sp_.
+   - Click **Add**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Add service principal" width="100%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-2-4.png" />
+   </div>
+   </details>
+5. Open the newly created service principal, then select the **Secrets** tab.
+6. Click **Generate secret**.
+7. Enter a secret **Lifetime** of 730 days, then click **Generate**. (When the secret expires, you'll need to create a new one and reconfigure the integration in Vantage with the corresponding secret and client ID.)
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Generate OAuth secret" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-2-7.png" />
+   </div>
+   </details>
+8. Your **Secret** and **Client ID** are displayed. Copy these values for later use.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Copy client ID and secret" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-2-8.png" />
+   </div>
+   </details>
+
+### Step 3: Create a Serverless SQL Warehouse and Assign Permissions {#step3}
+
+1. From the left navigation menu, under **SQL**, click **SQL Warehouses.**
+2. Click **Create SQL warehouse**, and enter the following information:
+   - For **Name,** enter _vantage-billing-warehouse_.
+   - For **Cluster size**, select **2X-Small**.
+   - For **Type**, select **Serverless**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Create a SQL warehouse" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-3-2.png" />
+   </div>
+   </details>
+3. Click **Create**.
+4. After the warehouse is created, the **Manage permissions** modal window is displayed. (To access this modal, you can also click **Permissions** on the top right of the screen.)
+5. Search for and select the **vantage-billing-sp** service principal.
+6. Select the **Can Use** permission and click **Add**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Manage permissions for service principal" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-3-6.png" />
+   </div>
+   </details>
+7. Close the **Manage permissions** modal and copy your warehouse ID, displayed next to the warehouse name, for later use.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Copy warehouse ID" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-3-7.png" />
+   </div>
+   </details>
+
+### Step 4: Grant Data Reader Permissions to the Service Principal {#step4}
+
+1. From the top of the left navigation menu, click **Catalog**.
+2. In the **Catalog** menu, expand **My Organization > system**.
+3. Select the `access` schema. On the right, click **Permissions > Grant**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Add permissions to schemas" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-4-3.png" />
+   </div>
+   </details>
+4. Enter the following information to create a grant on `system.access`:
+   - For **Principals**, select the **vantage-billing-sp** service principal.
+   - For **Privilege presets**, select **Data Reader**.
+5. Click **Confirm**.
+   <details><summary>Click to view example image</summary>
+   <div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Manage permissions for service principal" width="90%" src="https://assets.vantage.sh/docs/connect-databricks/databricks-4-5.png" />
+   </div>
+   </details>
+6. Repeat the last two steps and grant Data Reader permissions for the `billing` and `compute` schemas.
+
+### Step 5: Add Credentials to Vantage {#step5}
+
+1. From the Vantage console, navigate to the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
+2. Click the **Connect** tab, then click **Set Up Account**.
+3. On the **Integration** modal screen, enter the following information:
+   - For **Databricks Account ID**, enter your account ID that you obtained in [step 1](connecting_databricks#step1).
+   - For **Service Principal OAuth Client ID** and **Service Principal OAuth Client Secret**, add the ID and secret you obtained in [step 2](connecting_databricks#step2).
+   - For **Workspace URL**, add the URL you obtained in [step 1](connecting_databricks#step1).
+   - For **SQL Warehouse ID**, add the warehouse ID you obtained in [step 3](connecting_databricks#step3).
 4. Click **Connect Account**.
-5. On the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page, you will see your account listed with a **Status** of `Pending`. Click `Pending` to complete the connection. Additional steps will be displayed on the **Finalize Your Databricks Account Setup** page. Keep this page open.
 
-### Finalize Your Databricks Account Setup
+Costs will be ingested and processed as soon as you add the integration. Vantage will load the previous six months of Databricks usage data. It usually takes less than 15 minutes to ingest Databricks costs. As soon as they are processed, they will be available on your **All Resources** Cost Report.
 
-Vantage will prepare an S3 bucket to store your Databricks [billable usage logs](https://docs.databricks.com/en/administration-guide/account-settings/usage.html#how-to-authenticate-to-the-account-api). You will need to configure Databricks to deliver your usage logs to that bucket.
+If you decide to remove your Databricks integration from Vantage, all costs associated with your Databricks account will be removed from the Vantage console.
 
-1. Install or update the [Databricks CLI](https://docs.databricks.com/en/dev-tools/cli/install.html).
-2. Configure authentication for the Databricks CLI:
-   :::info
-   The below steps are based on the [OAuth user-to-machine (U2M) authentication](https://docs.databricks.com/en/dev-tools/cli/authentication.html#oauth-user-to-machine-u2m-authentication) Databricks documentation.
-   :::
+## Connect via Terraform {#terraform}
 
-   Create `~/.databrickscfg`. Replace `<ACCOUNT_ID>` with the value of your Databricks account. (See the Databricks documentation for how to [locate your account ID](https://docs.databricks.com/en/administration-guide/account-settings/index.html#account-id).) Replace the `<ADMIN_USERNAME>` and `<ADMIN_PASSWORD>` with your account administrator user's credentials.
+You can also connect your Databricks account using the `terraform-databricks-vantage-integration` module. Follow the steps in the module's [README](https://github.com/vantage-sh/terraform-databricks-vantage-integration) to connect your account.
 
-   ```bash
-   [production]
-   host       = accounts.cloud.databricks.com
-   account_id = <ACCOUNT_ID>
-   username   = <ADMIN_USERNAME>
-   password   = <ADMIN_PASSWORD>
-   ```
+## Next Steps: Manage Workspace Access
 
-3. Initiate OAuth token management with the following command, replacing `ACCOUNT_ID` with the account ID you used in the last step:
-
-   ```bash
-   databricks auth login --host https://accounts.cloud.databricks.com/ --account-id <ACCOUNT_ID>
-   ```
-
-4. Follow the remaining instructions provided on the **Finalize Your Databricks Account Setup** page in Vantage. These instructions will walk you step by step through creating a storage configuration, creating a credential configuration, and creating a log delivery configuration to finalize the integration.
-
-After completing all the steps above, your Databricks integration status should automatically update from `Pending` to `Importing`. Once fully imported, the status will update to `Imported`. You can view your connection status on the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
-
-Databricks generally delivers usage logs once per day.
-
-### Connect via Terraform
-
-You can also connect your Databricks account using the `terraform-databricks-vantage-integration` module. Follow the steps in the module's [README](https://github.com/vantage-sh/terraform-databricks-vantage-integration) to connect your account. 
-
-### Next Steps: Manage Workspace Access
-
-Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#integration-workspace) documentation for information.
 
 ## Data Refresh
 
-See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
-
-## Custom Pricing in Databricks {#custom-pricing}
-
-From the [Databricks integration page](https://console.vantage.sh/settings/databricks), you can set custom discounts on Databricks [SKU groups](https://www.databricks.com/product/sku-groups). Once the discounts are saved, the discounted rate is applied, and Cost Reports are automatically updated to reflect the newly discounted prices. Currently, only AWS is supported. If you are using Databricks on Azure, these discounts are reflected in your Azure billing data, and a Databricks integration is not required.
-
-The following Databricks SKU groups are supported:
-
-- AWS Jobs Compute
-- AWS Jobs Compute Photon
-- AWS All-Purpose Compute
-- AWS All-Purpose Compute Photon
-- AWS SQL Compute
-- AWS DLT Compute
-- AWS DLT Compute Photon
-- AWS Serverless SQL Compute
-- AWS Serverless Inference
-- AWS Model Training
-
-:::note
-At this time, the AWS Security and Compliance SKU group is not supported. 
-:::
-
-To add custom pricing for SKU groups:
-
-1. From the top navigation, click **Settings**.
-2. From the side navigation, click **Integrations**.
-3. The **Connected Providers** page is displayed. Select the **Databricks** integration.
-4. On the **Manage** tab, select a connected account. 
-5. In the **Custom Discounts** section, click **+ Add a Discount**. 
-6. For **Service Name**, select a SKU group from the list. 
-7. For **Your Discount**, enter a discount as a percentage.
-   <details><summary>Click to view example image</summary>
-   <div style={{display:"flex", justifyContent:"center"}}>
-      <img alt="A list of three different Databricks SKU discounts in the console. " width="80%" src="https://assets.vantage.sh/docs/databricks-skus.png" />
-   </div>
-   </details>
-8. To add another SKU group discount, click **+ Add a Discount**. When you are finished, click **Save**.
-
-Once the discounts are saved, all existing cost data for the integration is re-processed. The status of each billing period is displayed on the integration page. Once the data is processed, any corresponding reports are automatically refreshed. The refresh process may take up to an hour until they are displayed on all reports.
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
 ## Databricks Reporting Dimensions
 
-On Databricks [Cost Reports](/cost_reports/), you can filter across several dimensions:
+On Databricks [Cost Reports](/cost_reports), you can filter across several dimensions:
 
-- Account (account name)
-- Category (e.g., Jobs Compute - Photon)
-- Tag/Not Tagged (includes Databricks tags and [virtual tags](/tagging) created in Vantage for this provider)
-- Cluster (e.g., Jobs Compute - `<CLUSTER_ID>`)
+- Billing Account (e.g., Organization)
+- Linked Account (e.g., Workspace)
+- Service (e.g., Jobs Compute)
 - Charge Type (e.g., Usage)
-- Service (e.g., All Purpose Compute)
+- Category (e.g., Photon)
+- Resource ID (specific ID for a given Databricks resource)
+- Tags (Tags from Databricks, see section below, and [Virtual Tags](/tagging) created in Vantage)
 
-:::note
-The **Tag** filter contains values like `JobID`, which can be used to view costs for specific Databricks jobs.
-:::
+### Databricks Tags
+
+The Tag filter contains values like job_id, which can be used to view costs for specific Databricks jobs. Vantage gets tags from `identity_metadata`, `usage_metadata`, and `custom_tags` from `system.billing_usage`; `workspace_name` from `system.access.workspaces_latest`; `cluster_name`, `tags`, and `driver_instance_pool_id` from `system.compute.clusters`; and `warehouse_channel`, `warehouse_type`, `warehouse_name` from `system.compute.warehouses`. Below is a list of tags Vantage ingests.
+
+<details><summary>Click to view a list of tags Vantage ingests</summary>
+
+- `cluster_id`
+- `job_id`
+- `warehouse_id`
+- `instance_pool_id`
+- `node_type`
+- `job_run_id`
+- `notebook_id`
+- `dlt_pipeline_id`
+- `endpoint_name`
+- `endpoint_id`
+- `dlt_update_id`
+- `dlt_maintenace_id`
+- `metastore_id`
+- `run_name`
+- `job_name`
+- `notebook_path`
+- `central_clean_room_id`
+- `source_region`
+- `destination_region`
+- `app_id`
+- `app_name`
+- `private_endpoint_name`
+- `budget_policy_id`
+- `run_as`
+- `sql_warehouse_own_by`
+- `created_by`
+- `workspace_name`
+- `cluster_name`
+- `cluster_own_by`
+- `clusterNodeType`
+- `warehouse_name`
+- `warehouse_channel`
+- `warehouse_type`
+- `driver_instance_pool_id`
+
+</details>
