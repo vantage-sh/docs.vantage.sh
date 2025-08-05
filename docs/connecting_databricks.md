@@ -293,4 +293,5 @@ The Tag filter contains values like job_id, which can be used to view costs f
 - `warehouse_channel`
 - `warehouse_type`
 - `driver_instance_pool_id`
+
 </details>
