@@ -96,7 +96,7 @@ This integration guide provides the steps for migrating from v1 to v2.
 
 ```bash
   {
-    "account_id": "90d61e57-21e1-482d-ad62-f98904e47a4b",
+    "account_id": "xxx",
     "config_id": "d0bd8965-576c-11f0-8bd2-063fa5ec6fe1",
     "config_name": "vantage-billable-usage-delivery",
     "creation_time": 1751478531000,
