@@ -87,6 +87,7 @@ This integration guide provides the steps for migrating from v1 to v2.
    databricks account log-delivery list | jq '.[] | select(.config_name == "vantage-billable-usage-delivery" and .status == "ENABLED")'
 
    #disable log delivery
+
    databricks account log-delivery patch-status 
                         <config-id> 
                         --json '{ "status": "DISABLED" }' 
@@ -111,7 +112,7 @@ This integration guide provides the steps for migrating from v1 to v2.
     },
     "log_type": "BILLABLE_USAGE",
     "output_format": "CSV",
-    "status": "DISABLED",
+    "status": "ENABLED",
     "storage_configuration_id": "341a1551-0822-40d6-b6d0-9fbc3f78e906",
     "update_time": 1753857212000
   },
