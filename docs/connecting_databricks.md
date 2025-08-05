@@ -72,8 +72,64 @@ To ensure data is not double-counted, Vantage will:
 
 ### How to Migrate from the v1 Integration to v2
 
-1. Follow the steps below to create a new Databricks integration, either [manually](/connecting_databricks#manual-integration) through your Databricks account or via a [Terraform module](/connecting_databricks#terraform).
-2. To view your v1 Databricks integration in Vantage, navigate to the [Integrations page](https://console.vantage.sh/settings/databricks). The integration is displayed with the label `V1 - Read Only`, and you’ll be unable to make updates to that integration in Vantage.
+This integration guide provides the steps for migrating from v1 to v2. 
+
+#### Step 1: Disable CUR Delivery to Vantage
+
+1. Configure the [Databricks CLI](https://docs.databricks.com/en/dev-tools/cli/install.html) for account-level authentication. Follow the [user-to-machine authentication guide](https://docs.databricks.com/en/dev-tools/cli/authentication.html#u2m-auth) to ensure you have valid credentials.
+   :::note
+   The commands below assume you have followed Databricks’s instructions and have account-level access. Be sure to use the profile that corresponds with your Databricks account administrator.
+   :::
+2.  Disable the log delivery configuration named `vantage-billable-usage-delivery` using its `config_id`.
+
+   ```bash
+   # find log delivery with config_name = 'vantage-billable-usage-delivery'
+   databricks account log-delivery list | jq '.[] | select(.config_name == "vantage-billable-usage-delivery" and .status == "ENABLED")'
+
+   #disable log delivery
+
+   databricks account log-delivery patch-status 
+                        <config-id> 
+                        --json '{ "status": "DISABLED" }' 
+   ```
+
+<details><summary>Click to view an example log delivery</summary>
+
+```bash
+  {
+    "account_id": "xxx",
+    "config_id": "d0bd8965-576c-11f0-8bd2-063fa5ec6fe1",
+    "config_name": "vantage-billable-usage-delivery",
+    "creation_time": 1751478531000,
+    "credentials_id": "d8116e60-094f-4dce-a8e7-21b0f8fe1678",
+    "delivery_path_prefix": "databricks/23c328cc-d58d-4cba-9b6a-5f1d061cdf69/90d61e57-21e1-482d-ad62-f98904e47a4b",
+    "delivery_start_time": "2025-01",
+    "log_delivery_status": {
+      "last_attempt_time": "2025-07-29T12:57:06Z",
+      "last_successful_attempt_time": "2025-07-29T12:57:06Z",
+      "message": "All logs were successfully delivered.",
+      "status": "SUCCEEDED"
+    },
+    "log_type": "BILLABLE_USAGE",
+    "output_format": "CSV",
+    "status": "ENABLED",
+    "storage_configuration_id": "341a1551-0822-40d6-b6d0-9fbc3f78e906",
+    "update_time": 1753857212000
+  },
+```
+
+</details>
+
+Once disabled, Databricks stops pushing data to a bucket, and it will no longer trigger any data ingests to Vantage.
+
+#### Step 2: Set Up the v2 Integration
+
+Follow the steps below to create a new Databricks integration, using one of the following methods: 
+
+- [Manually via your Databricks account](/connecting_databricks#manual-integration)
+- [Using a Terraform module](/connecting_databricks#terraform)
+
+To view your v1 Databricks integration in Vantage, navigate to the [Integrations page](https://console.vantage.sh/settings/databricks). The integration is displayed with the label `V1 - Read Only`, and you’ll be unable to make updates to that integration in Vantage.
 
 :::note
 If you need to update any manually applied Databricks discounts on a v1 integration, contact [support@vantage.sh](mailto:support@vantage.sh).
@@ -250,6 +306,7 @@ On Databricks [Cost Reports](/cost_reports), you can filter across several dime
 - Service (e.g., Jobs Compute)
 - Charge Type (e.g., Usage)
 - Category (e.g., Photon)
+- Subcategory (e.g., Serverless)
 - Resource ID (specific ID for a given Databricks resource)
 - Tags (Tags from Databricks, see section below, and [Virtual Tags](/tagging) created in Vantage)
 
