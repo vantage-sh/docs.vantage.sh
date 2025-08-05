@@ -163,6 +163,7 @@ _\* Regular and virtual tags associated with this provider_
 | Tag         | `name`         | string    | `tags.name`         |
 | Tag Value   | `value`        | string    | `tags.value`        |
 | Category    | `category`     | string    | `costs.category`    |
+| Subcategory | `subcategory`  | string    | `costs.subcategory` |
 | Charge Type | `charge_type`  | string    | `costs.charge_type` |
 | Provider    | `provider`     | string    | `costs.provider`    |
 

@@ -305,6 +305,7 @@ On Databricks [Cost Reports](/cost_reports), you can filter across several dime
 - Service (e.g., Jobs Compute)
 - Charge Type (e.g., Usage)
 - Category (e.g., Photon)
+- Subcategory (e.g., Serverless)
 - Resource ID (specific ID for a given Databricks resource)
 - Tags (Tags from Databricks, see section below, and [Virtual Tags](/tagging) created in Vantage)
 
