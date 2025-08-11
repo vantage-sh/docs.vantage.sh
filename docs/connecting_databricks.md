@@ -154,7 +154,13 @@ The Serverless SQL Warehouse required for the integration will incur a cost, est
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Databricks costs.
 
 :::note
-Vantage will use the [following IP addresses](https://docs.vantage.sh/security#:~:text=Does%20Vantage%20use%20fixed%20IP%20addresses%20when%20connecting%20to%20external%20providers%2C%20such%20as%20AWS%20or%20Azure%3F) when connecting to your Databricks account.
+For Enterprise tier accounts, if your organization requires an [IP Access List](https://docs.databricks.com/aws/en/security/network/front-end/ip-access-list) for access control, you will need to add each of the following IPs:
+
+- `54.87.66.45`
+- `3.95.43.133`
+- `54.162.3.72`
+- `44.199.143.63`
+- `3.218.103.23`
 :::
 
 ### Create the Connection {#manual-integration}
