@@ -35,7 +35,15 @@ To get started with Cost Reports, you can also watch these video demos on [Vanta
    - You can also disable the previous period from showing on a report. Click the toggle next to the Previous Period on the Date Picker.
 7. Select one of the following date bins:
    - **Cumulative:** Displayed as a line, pie, or area chart on the graph, along with a forecast for line and area charts, if available
-   - **Daily, Weekly, or Monthly:** Displayed as a bar, line, or area chart, with date ranges binned on the bottom axis and a forecast, if available
+   - **Daily, Weekly, Monthly, or Quarterly:** Displayed as a bar, line, or area chart, with date ranges binned on the bottom axis and a forecast, if available
+
+    :::note
+    Quarters are based on the below ranges:
+      - Q1: January 1–March 31
+      - Q2: April 1–June 30
+      - Q3: July 1–September 30
+      - Q4: October 1–December 31
+    :::
 
 You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
 
@@ -383,7 +391,7 @@ By default, the top five groups of costs by amount are displayed on the graph. I
     <img alt="Displaying additional costs using the Other Costs dropdown menu on a Cost Report" width="90%" src="https://assets.vantage.sh/docs/other-costs.png" />
 </div>
 
-## Drill Down in Costs Table {#drilldown}
+## Drill Down in Costs Table
 
 Within the table below the graph, you can drill down into your report to create precise filtering and grouping views. Your options to drill down in the report will vary based on if the report is ungrouped or has some grouping criteria applied to it.
 
@@ -507,6 +515,22 @@ If you apply grouping criteria to the Cost Report (e.g., set the **Group By** fi
     </div>
 </div>
 
+#### Tagging Drilldown
+
+When a tag is a [nested tag](/tagging#nested-virtual-tags), you can drill down into its values to view all subtags.
+
+In the example below, the report is grouped by the nested tag **Business Units**. This tag contains two values—**Core Production** and **Core Development**—each made up of other tags.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Drilling down by parent nested tag" width="80%" src="https://assets.vantage.sh/docs/nested-drilldown-1.png" />
+</div>
+
+Click the drilldown tagging icon to the left of a tag name to reveal its nested values. For example, **Core Production** is the parent tag, with **Business Unit Applications** subtags **app1** and **app2**. The Costs Report table then shows costs associated with these lower-level tags.
+
+<div style={{display:"flex", justifyContent:"center"}}>
+    <img alt="Drilling down by subtags" width="80%" src="https://assets.vantage.sh/docs/nested-drilldown-2.png" />
+</div>
+
 ### Billing Code Descriptions
 
 AWS practitioners who are having trouble understanding AWS billing codes present in Cost Reports can find descriptions of each billing code, other variations of that billing code, and other services that use the same billing code within Cost Reports. When you view any AWS Cost Report grouped by **Provider, Service, Category, and Subcategory**, you can hover over any subcategory line item and a tooltip with a link to [cur.vantage.sh](https://cur.vantage.sh/) is provided that takes you to a page with details for that billing line item. 
@@ -524,7 +548,7 @@ AWS practitioners who are having trouble understanding AWS billing codes present
 You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.
 
 :::tip
-For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, or Monthly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
+For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, Monthly, or Quarterly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
 :::
 
 <div style={{display:"flex", justifyContent:"center"}}>
@@ -591,7 +615,7 @@ Usage-Based Reporting provides infrastructure consumption in non-monetary metric
 
 ## Comparative Cost Reporting {#comparative-cost-reporting}
 
-To compare costs day by day, week by week, or month by month on Cost Reports, click the **By Date** option above the cost table. A view of costs with the same date binning selected for the graph is displayed. To switch back to the previous, current, and percent change view, select **Cumulative**.
+To compare costs day by day, week by week, month by month, or quarter on Cost Reports, click the **By Date** option above the cost table. A view of costs with the same date binning selected for the graph is displayed. To switch back to the previous, current, and percent change view, select **Cumulative**.
 
 <div style={{display:"flex", justifyContent:"center"}}>
     <img alt="Comparative View" width="80%" src="https://assets.vantage.sh/docs/by-date-view.png" />

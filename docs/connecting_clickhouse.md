@@ -112,7 +112,7 @@ On ClickHouse Cloud [Cost Reports](/cost_reports), you can filter across severa
 - Category (e.g., datawarehouse or service)
 - Subcategory (e.g., specific usage category, like `interRegionTier1DataTransferCHC` or `publicDataTransferCHC`)
 - Resource (specific ID for a given ClickHouse cluster)
-- Tags ([Virtual Tags](/tagging) created in Vantage)
+- Tags: Includes [Virtual Tags](/tagging) created in Vantage, as well as `entityName`, which is represented as Tag Key: `clickhouse:entityName`.
 - Charge Type (e.g., usage)
 
 You can also view credits or discounts for ClickHouse Cloud costs in Cost Reports.

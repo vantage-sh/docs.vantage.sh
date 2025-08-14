@@ -12,7 +12,29 @@ image: https://assets.vantage.sh/docs/product_changelog.jpg
 
 # Changelog
 
-_This page was last updated on August 1, 2025, with product updates for July 2025._
+_This page was last updated on August 15, 2025, with product updates for August 2025._
+
+## August 2025
+
+## Product Updates
+
+- **Audit logs:** [Audit logs](/audit_logs) are now available in Vantage so that account administrators can view user actions taken on Cost Reports and Virtual Tags.
+- **Additional sortable columns:** You can now sort by Resource and Type in [Resource Reports](/active_resources#sort-columns).
+- **ClickHouse `entityName`:** [ClickHouse costs](/connecting_clickhouse) now include `entityName`, represented as a tag.
+- **Nested tag report drilldown:** On Cost Reports, you can [drill down](/cost_reports#tagging-drilldown) into tag values to view nested tags and their associated costs.
+- **Quarterly date binning:** You can now [bin Cost Reports](/cost_reports#create-report) by quarter (in addition to other existing binning options, like day and month).
+- **New recommendation:** A new [recommendation](/cost_recommendations) was added for S3 Glacier Instant Retrieval optimization. This recommendation identifies S3 buckets using Standard Storage without recent access patterns. The recommendation suggests moving qualifying buckets to Glacier Instant Retrieval for cost savings of up to 82%.
+- **Autopilot date picker:** The date dropdown on the [Autopilot](/autopilot) coverage page is updated so that you can select a full date range, rather than just an individual month.
+- **Databricks system tables:** The [Databricks integration](/connecting_databricks) is updated to use Databricks system tables for more accurate, granular cost data.
+
+### Kubernetes Agent Updates
+
+Added a configurable `listLimit` [setting](https://github.com/vantage-sh/helm-charts) to load Kubernetes resources in batches during startup, improving performance on large clusters.
+
+### API Updates
+
+- **Audit logs endpoint:** The new `/audit_logs` [endpoint](https://vantage.readme.io/reference/getauditlogs) is available to programmatically return audit logs from your account.
+- **New Vantage MCP version:** A new version of the self-hosted Vantage MCP is available. This version includes additional parameter support on existing tools and the addition of the `list-folders` tool. See the MCP's repo for [release details](https://github.com/vantage-sh/vantage-mcp-server/releases/tag/v0.0.5).
 
 ## July 2025
 
