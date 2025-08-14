@@ -21,6 +21,7 @@ _This page was last updated on August 15, 2025, with product updates for August 
 - **Audit logs:** [Audit logs](/audit_logs) are now available in Vantage so that account administrators can view user actions taken on Cost Reports and Virtual Tags.
 - **Additional sortable columns:** You can now sort by Resource and Type in [Resource Reports](/active_resources#sort-columns).
 - **ClickHouse `entityName`:** [ClickHouse costs](/connecting_clickhouse) now include `entityName`, represented as a tag.
+- **MSP invoicing:** Invoicing for Managed Service Providers (MSPs) is in Private Preview. This feature allows MSPs to automate generation and distribution of invoices to their end customers. See the [release blog](https://www.vantage.sh/blog/msp-invoicing-private-preview) for details.
 - **Nested tag report drilldown:** On Cost Reports, you can [drill down](/cost_reports#tagging-drilldown) into tag values to view nested tags and their associated costs.
 - **Quarterly date binning:** You can now [bin Cost Reports](/cost_reports#create-report) by quarter (in addition to other existing binning options, like day and month).
 - **New recommendation:** A new [recommendation](/cost_recommendations) was added for S3 Glacier Instant Retrieval optimization. This recommendation identifies S3 buckets using Standard Storage without recent access patterns. The recommendation suggests moving qualifying buckets to Glacier Instant Retrieval for cost savings of up to 82%.
