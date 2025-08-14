@@ -1,0 +1,216 @@
+---
+title: Azure EA Account
+description: With the Azure EA integration, you allow the service principal to have access at the billing scope level.
+---
+
+<Info>
+**NOTE**
+
+When you configure this integration, the Vantage service principal is granted **enrollment reader** permissions. The service principal does *not* have permissions—nor will it ever attempt—to make any changes to your infrastructure.
+</Info>
+
+To integrate your Azure EA account with Vantage, follow the below steps:
+
+<CardGroup>
+    <Card title="Create a new application registration" href="/connecting_azure_ea#step-1-create-a-new-application-registration" icon="square-1" horizontal/>
+    <Card title="Generate a client secret" href="/connecting_azure_ea#step-2-generate-a-client-secret" icon="square-2" horizontal/>
+    <Card title="Obtain your billing account ID" href="/connecting_azure_ea#step-3-obtain-your-billing-account-id" icon="square-3" horizontal/>
+    <Card title="Assign Enrollment Reader permission to the service principal" href="/connecting_azure_ea#step-4-assign-enrollment-reader-permission-to-the-service-principal" icon="square-4" horizontal/>
+    <Card title="Add app registration credentials to Vantage" href="/connecting_azure_ea#step-5-add-app-registration-credentials-to-vantage" icon="square-5" horizontal/>
+</CardGroup>
+
+## Step 1 - Create a New Application Registration
+
+<Steps>
+    <Step>
+    From the main page of the Azure portal, search for and navigate to **Microsoft Entra ID**.
+    </Step>
+    <Step>
+    In the left navigation, under **Manage**, select **App registrations**.
+    </Step>
+    <Step>
+    Click **\+ New registration**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with App Registration menu option selected](https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The **Register an application** screen is displayed. For **Name**, enter *vantage*.
+    </Step>
+    <Step>
+    Leave all other settings as their defaults and click **Register**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal the Register an application screen and vantage entered as app name](https://assets.vantage.sh/docs/connect-azure/azure-register-app.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the client ID and tenant ID displayed and highlighted](https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png)
+            </Frame>
+        </Accordion>
+    </Step>
+</Steps>
+
+## Step 2 - Generate a Client Secret
+
+<Steps>
+    <Step>
+    On the same page, next to the **Client credentials** field, click **Add a certificate or secret**. (You can also access the **Certificates and secrets** screen from the left navigation menu.)
+    </Step>
+    <Step>
+    Click **\+ New client secret**.
+    </Step>
+    <Step>
+    The **Add a client secret** pane is displayed. For **Description**, enter a description, such as *vantage-secret*.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the Azure client secret window open and a new secreted created called vantage-secret](https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    For **Expires**, select an expiration option for the secret.
+        <Warning>
+            **CAUTION**
+
+            If this secret expires, you will need to supply Vantage with a new secret *before* the expiration date.
+        </Warning>
+    </Step>
+    <Step>
+    Click **Add**.
+    </Step>
+    <Step>
+    The newly created secret is displayed. Copy the secret's **Value** to add to the Vantage console later. This value will be displayed only one time.
+    </Step>
+</Steps>
+
+## Step 3 - Obtain Your Billing Account ID
+
+<Steps>
+    <Step>
+    Navigate to **Cost Management + Billing**.
+    </Step>
+    <Step>
+    On the left menu, click **Billing scopes** and select your **EA Billing Account** from the list.
+    </Step>
+    <Step>
+    On the left menu, click **Settings** > **Properties**.
+    </Step>
+    <Step>
+    Copy your **Billing Account Id** to add to the Vantage console later.
+    </Step>
+</Steps>
+
+## Step 4 - Assign Enrollment Reader Permission to the Service Principal
+
+<Info>
+**NOTE**
+
+You need to have the **billing account owner** role permissions to assign enrollment reader permissions to the service principal. The below steps are based on the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals).
+</Info>
+
+<Steps>
+    <Step>
+        Navigate to **Microsoft Entra ID**, then select **Enterprise applications**.
+    </Step>
+    <Step>
+        From the **All applications** list, select the *vantage* application you previously created.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with all apps listed in Enterprise Applications](https://assets.vantage.sh/docs/connect-azure/azure-ea-all-apps.png)
+            *Source: Microsoft*
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Under **Properties**, copy the **Application ID** and **Object ID**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with App and Object ID listed](https://assets.vantage.sh/docs/connect-azure/azure-ea-app-id.png)
+            *Source: Microsoft*
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Open the [*Role Assignments - Put* article](https://learn.microsoft.com/en-us/rest/api/billing/role-assignments/put?view=rest-billing-2019-10-01-preview&tabs=HTTP) from the Microsoft documentation in a new tab.
+    </Step>
+    <Step>
+        Next to the *Create or update a billing role assignment* step, click **Try It**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure API role assignment sample call](https://assets.vantage.sh/docs/connect-azure/azure-ea-role-assignment.png)
+            *Source: Microsoft*
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        A login in screen is displayed on the right. Using your account credentials, log in to the tenant that you want to assign enrollment reader access.
+    </Step>
+    <Step>
+        An API request form is displayed. In the **Parameters** section add the following values:
+        - `billingAccountName`: Add the **billing account ID** you obtained in step 3.
+        - `billingRoleAssignmentName`: Generate a unique GUID using the [a GUID generator](https://guidgenerator.com/), as suggested by Microsoft.
+        - `api-version`: Use `2019-10-01-preview`.
+    </Step>
+    <Step>
+        In the **Body** section, copy and paste the request body below.
+        ```
+        {"properties": {   "principalId": "<YOUR_OBJECT_ID>",   "principalTenantId": "<YOUR_TENANT_ID>",   "roleDefinitionId": "/providers/Microsoft.Billing/billingAccounts/<YOUR_BILLING_ACCOUNT_ID>/billingRoleDefinitions/24f8edb6-1668-4659-b5e2-40bb5f3a7d7e"}}
+        ```
+    </Step>
+    <Step>
+        Update placeholders in the **Body** as follows:
+        - `principalId`: The **Object ID** you copied at the beginning of this section.
+        - `principalTenantId`: Your **Directory (tenant) ID** that you copied in step 1.
+        - `roleDefinitionId`: Replace `<YOUR_BILLING_ACCOUNT_ID>` with the **Billing account id** you copied in step 3.
+            - Note that `24f8edb6-1668-4659-b5e2-40bb5f3a7d7e` is the billing role definition ID for an [EnrollmentReader](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#permissions-that-can-be-assigned-to-the-service-principal).
+            <Accordion title="Click to view example image">
+                <Frame>
+                ![Azure API role assignment parameters filled in](https://assets.vantage.sh/docs/connect-azure/azure-ea-run.png)
+                *Source: Microsoft*
+                </Frame>
+            </Accordion>
+    </Step>
+    <Step>
+        Click **Run**. You should see a `200 OK` response, indicating that the request was successful.
+        <Tip>
+        **TIP**
+
+        If you receive an error, see the [Troubleshoot section](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/assign-roles-azure-service-principals#troubleshoot) of the Microsoft article these instructions were based on.
+        </Tip>
+    </Step>
+</Steps>
+
+## Step 5 - Add App Registration Credentials to Vantage
+
+<Steps>
+    <Step>
+        Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure EA integration.
+    </Step>
+    <Step>
+        On the Azure EA integration page, click **Add Credentials**.
+    </Step>
+    <Step>
+        Add the following credentials:
+        - For **Azure AD Tenant ID**, add the **Directory (tenant) ID** you obtained in step 1.
+        - For **Service Principal App ID**, add the **Application (client) ID** you obtained in step 1.
+        - For **Service Principal Password**, add the client secret you obtained in step 2.
+        - For **Billing Account Id**, add the **Billing Account Id** you obtained in step 3.
+    </Step>
+    <Step>
+        Click **Connect Account**.
+    </Step>
+</Steps>
+
+Vantage will begin importing your Azure costs.
+
+## Next Steps: Workspace Access
+
+See the [Workspace Access](/connecting_azure#workspace-access) section on the main *Connecting Azure* page for information on how to assign this integration to one or more workspaces.
+

@@ -1,0 +1,556 @@
+---
+title: "Cost Reports"
+description: "By default, Vantage provides you with a Cost Report, named **All Resources**, that will show you all costs across all your connected cloud service accounts. You can create as many Cost Reports as you'd like and filter your costs across several dimensions. As you create Cost Reports, they will be displayed on the [Overview](/overview) page. Each report will automatically generate a [forecast](/forecasting)."
+sidebarTitle: "Overview"
+---
+
+<Tip>
+**TIP**
+
+To get started with Cost Reports, you can also watch these video demos on [Vantage University](/vantage_university_cost_reporting) <Icon icon="graduation-cap" iconType="solid" />
+</Tip>
+
+## Create a Cost Report
+
+<Steps>
+    <Step>
+    From the top navigation, click **Cost Reporting**.
+    </Step>
+    <Step>
+    On the left menu, select **Cost Reports**.
+    </Step>
+    <Step>
+    On the top right, click **\+ New**. A new, unfiltered Cost Report is displayed.
+    </Step>
+    <Step>
+    From the top left of the graph, click **Filters**.
+    </Step>
+    <Step>
+    Click **\+ Add a Filter** and select your desired filter criteria.
+    </Step>
+    <Step>
+    From the top right of the graph, use the date picker to select the date range for the report. You can select a date range that encompasses both previous and future dates, up to 6 months ahead. For more information on future forecast dates, see the [Forecasting](/forecasting) documentation.
+    By default, the Cost Report compares the selected dates to the same previous period. For example, the default comparison date for March 12–March 18 is February 12–18. To select a **custom comparison**:
+    - Open the date picker menu.
+    - In the left column, select **Custom**.
+    - On the calendar section, under **Custom**, select the first date period field, then hover your mouse over the calendar to highlight and select a date range. (The current month is selected by default.)
+    - Under **Comparing to Previous Period**, select the first date period field and select a custom comparison period.
+    - Click **Apply**.
+    - You can also disable the previous period from showing on a report. Click the toggle next to the Previous Period on the Date Picker.
+    </Step>
+    <Step>
+    Select one of the following date bins:
+    - **Cumulative:** Displayed as a line, pie, or area chart on the graph, along with a forecast for line and area charts, if available
+    - **Daily, Weekly, or Monthly:** Displayed as a bar, line, or area chart, with date ranges binned on the bottom axis and a forecast, if available
+    </Step>
+</Steps>
+
+You can perform additional filter and analysis operations on your Cost Report. See the following sections for additional instructions:
+
+<Columns cols={2}>
+<Card title="Filter a cost report" icon="filter-list" href="/cost_reports#filter-cost-reports" horizontal />
+<Card title="Configure report groups" icon="chart-column" href="/cost_reports#configure-report-groups" horizontal />
+<Card title="Configure Credits, Discounts, Refunds, Taxes" icon="gear" href="#credits-discounts-refunds-and-taxes" horizontal />
+<Card title="Enable/disable amortization" icon="toggle-on" href="/cost_reports#amortization" horizontal />
+<Card title="Perform comparative cost reporting" icon="chart-line" href="/cost_reports#comparative-cost-reporting" horizontal />
+</Columns>
+
+### Save a Cost Report
+
+After you apply all desired filters to the report, you can save your changes and name the report.
+
+<Steps>
+    <Step>
+    From the top right of the graph, click **Save As New** to create a new Cost Report with your changes, or **Save Changes** to modify the current report.
+    </Step>
+    <Step>
+    Enter a name, then click **Save**.
+	<Info>
+    **NOTE**
+
+	If you update the date range, date bin (e.g., **Last 30 Days**), or grouping, you can also permanently save these changes. Once saved, the new date range, date bucket, and grouping will persist on the [Overview](/overview) page. If you save a report that includes only changes to filter sets, the report will be displayed on the Overview page with the last six months of costs.
+	</Info>
+    </Step>
+</Steps>
+
+<Tip>
+**TIP**
+
+If you want to create a new report based on an existing report, open the existing report and click **Save as New** on the top right of the screen. You can then further refine your report criteria on the new report.
+</Tip>
+
+### Organize Cost Reports
+
+#### Cost Report Folders
+
+You can organize your Cost Reports in folders and separate them by team or group. See the [Folders](/folders) documentation for more information.
+
+#### Dashboards
+
+Cost Reports can be displayed as a group on a dashboard. The dashboard has options to display all reports by the same date range. See the [Dashboards](/dashboards) documentation for more information.
+
+### Anomalies, Forecasts, and Annotations
+
+Cost Reports have several other features, including [anomaly detection](/cost_anomaly_alerts), [forecasts](/forecasting), and [annotations](/annotations). See the linked documentation for more information about these features.
+
+## Filter Cost Reports
+
+On the **Filters** menu, click **Select a provider** and choose from any of your connected providers (AWS, Azure, etc.). Costs are filtered to all costs for the selected provider. Within the table, costs are grouped by provider service (e.g., Amazon Relational Database Service), in descending order of **Accrued Costs**.
+
+<Frame>
+![GIF of selecting a provider filter for GCP and sorting the table by cost in the console](https://assets.vantage.sh/docs/add-provider-filter.gif)
+</Frame>
+
+To view available filter options, click **New Rule**. A list of filter options is displayed (e.g., Account or Resource). Filter options vary per provider.
+
+Each filter includes options for exact matching and fuzzy matching. For example, in the image below, you can select **is**, **is not**, **contains**, **does not contain**, **starts with**, and **ends with** for the **Resource** filter. This set of options can vary per selected filter. Select a matching option, then select a filter value (e.g., `where **Service** is **Amazon Relational Database Service** + **Amazon Elastic Cloud - Compute**`)
+
+<Frame>
+![Selecting matching criteria for a filter in a Cost Report](https://assets.vantage.sh/docs/resource-filter-options.png)
+</Frame>
+
+To continue filtering the report, perform any of the following actions:
+
+- To add another value for that filter, click the **+** icon next to the first value.
+- To remove a selected filter value, click the trashcan icon.
+- To add more filter criteria, click **New Rule**. The graph is updated to display costs that match the first filter criteria *and* the second filter criteria.
+- To add a separate filter set, click **\+ Add a Filter**. You can also use this option to add costs from another provider. The graph is updated to display costs that match the first filter set *or* the second filter set.
+- To remove a filter set, click the three dots (**...**) on the top right of the filter set, then click **Delete**.
+
+### Flexible Match
+
+The flexible match operator in Vantage helps you work with inconsistent tag naming conventions. When filtering a Cost Report, you can select the flexible match operator to ignore differences in case, whitespace, underscores, and hyphens. This allows a single filter to match many tag value variations without creating multiple filters or manually normalizing tags.
+
+For example, your organization tags workloads by team, but the tag values vary: one service might use `teamA`, another `team-a`, and a third `Team A`. Instead of creating separate filters for each variant, use the flexible match operator as shown in the image below.
+
+<Frame>
+![Flexible match operator](https://assets.vantage.sh/docs/flex-match.png)
+</Frame>
+
+Vantage automatically normalizes and matches all variations, as well as match any future iterations that are created of the `Team A` string.
+
+To exclude values, use the **does not flexible match** operator.
+
+
+### Percent-Based Cost Allocation
+
+With percent-based cost allocation, you can filter Cost Reports to show back shared resources, like support costs or multi-tenant databases, to the team or department that uses them. As filters are set in a Cost Report, Vantage will query for costs that meet all those conditions.
+
+To set percent-based cost allocation:
+
+<Steps>
+    <Step>
+    From the **Filters** menu, select your desired filter criteria. For example, select the **AWS** provider option and filter by **Service** for only RDS costs.
+    </Step>
+    <Step>
+    Click the **Add Cost Allocation** button on the filter set and enter a value between 1 and 100%. The set percentage will be applied to all the matching costs and represented accordingly in the Cost Report.
+    <Frame>
+    ![Cost allocation of 50% is added to a filter set on a Kubernetes Cost Report](https://assets.vantage.sh/docs/showback-cost-allocation.png)
+    </Frame>
+    </Step>
+</Steps>
+
+When percent-based cost allocation is set as a filter, forecasts will be produced in aggregate for all set conditions, and the percentage allocation will be applied to that forecast.
+
+### Amazon Elastic Container Service (ECS)-Managed Tags
+
+If you want to view Amazon Elastic Container Service (ECS) cluster tags, you need to enable ECS-Managed Tags. See the [AWS documentation](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/ecs-using-tags.html#managed-tags) for more information.
+
+### AWS Organization Tags
+
+You can filter and group by [AWS Organization Tags](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_tagging.html) in Cost Reports. Create a filter for **Tag**. For the **Tag Key**, these tags are displayed like `aws:organizations:tag`.
+
+### Network Costs
+
+For resources that generate network traffic costs (e.g., NAT Gateways), a **Network Costs** button is displayed in the Cost Report list. See the [Network Flow Reports documentation](/network_flow_reports) for details on network costs.
+
+In the below example, this Cost Report is grouped by **Service** and **Resource**. The **Network Costs** button is displayed next to NAT Gateway resources.
+
+<Frame>
+![Network Costs option on a Cost Report](https://assets.vantage.sh/docs/nfr-cost-report.png)
+</Frame>
+
+### Saved Filters
+
+You can create and use **Saved Filters** to apply commonly used filters across multiple reports. Review the [Saved Filters documentation](/saved_filters) for more information.
+
+## Configure Report Groups
+
+With the **Group By** option, you can select one or more dimensions to group by. If you select a grouping option, both the Cost Report table and graph will include costs aggregated by the selected groupings. Once the report is saved, the report’s corresponding [Overview](/overview) widget will be updated as well.
+
+You can group by the following dimensions:
+
+- Account (e.g., member account on AWS, project on GCP)
+- Billing Account
+- Region
+- Service (e.g., Amazon S3, Azure VMs)
+- Resource
+- Provider (e.g., AWS, GCP, Azure)
+- Category
+- Subcategory
+- Charge Type (see the [section below](/cost_reports#charge-type) for definitions)
+- Tagged (e.g., see whether resources are or are not tagged)
+- Tag (includes [virtual tags](/tagging))
+
+After a Cost Report has been grouped, each grouping is displayed as a column in the table below the graph. On the graph itself, group labels are displayed with dashes between each grouping, such as `production - Acme - nat-123456`.
+
+<Frame>
+![A Cost Report that is enabled with Multi-dimensional Grouping](https://assets.vantage.sh/docs/cost-report-grouping.png)
+</Frame>
+
+<Tip>
+**TIP**
+
+To sort the table by multiple columns in the table, press **Shift + Click** on the column headers.
+</Tip>
+
+### Charge Type Grouping Category
+
+The Charge Type grouping includes costs separated by items like usage, discounts, EDP discounts, and taxes. Expand the section below to view the associated providers and definitions for each charge type.
+
+<Accordion title="Click to view Charge Types">
+
+| Charge Type | Provider | Definition |
+| --- | --- | --- |
+| adjustment | GCP | GCP adjustments due to reasons like goodwill or SLA violations |
+| AllocatedAmortizedDiscount | AWS | The fee that is associated with the discount |
+| AllocatedAmortizedFee | AWS | Savings Plans and Reserved Instances that have been amortized and allocated to an account with usage |
+| AmortizedFee | AWS | Amortized Savings Plan and Reserved Instance purchases |
+| AmortizedTax | AWS | Tax related to amortized savings plan and reserved instance purchases |
+| AWS Marketplace | AWS | AWS Marketplace fees |
+| Bundled Discount | AWS | Discounted usage for one product/service based on the usage of another product/service |
+| Credit | AWS | Any AWS credits that were applied to your bill |
+| COMMITTED\_USAGE\_DISCOUNT | GCP | Compute Engine resource-based committed use discounts |
+| COMMITTED\_USAGE\_DISCOUNT\_DOLLAR\_BASE | GCP | Spend-based committed use discounts |
+| DISCOUNT | Any provider | Discounts applied by a provider for your usage |
+| DistributorDiscount | AWS | Discounts through the [AWS Distribution Resellers Program](https://aws.amazon.com/partners/programs/distribution-resellers/) |
+| Enterprise Discount Program Discount | AWS | Discounts applied through the [AWS Enterprise Discount Program (EDP)](https://aws.amazon.com/pricing/enterprise/) |
+| Fee | AWS | Upfront annual fees paid for subscriptions, such as the fee paid for All Upfront subscriptions |
+| FeeTax | AWS | Tax related to “Fee” type |
+| FREE\_TIER | GCP | Credits applied related to GCP Free Tier usage |
+| Monthly Minimum Fee | Fastly | Minimum fee for [Fastly](https://www.fastly.com/pricing) |
+| Private Rate Discount | AWS | AWS discount based on private pricing rates |
+| PROMOTION | GCP | GCP promotional credits related to items like marketing promotions |
+| Purchase | Azure | RI and Savings Plans purchases in Azure |
+| Refund | AWS | Negative charges, indicating money refunded by AWS |
+| regular | GCP | GCP regular charges |
+| RESELLER\_MARGIN | GCP | Discounts for [GCP Reseller Program](https://cloud.google.com/marketplace/docs/partners/resell/reseller-incentives) |
+| Reserved Instance Discounted Spend | AWS | The rate for instances benefiting from Reserved Instance (RI) benefits. |
+| Reserved Instance Fee | AWS | Monthly recurring fees for Reserved Instance subscriptions |
+| RiVolumeDiscount | AWS | Volume discounts for large Reserved Instance purchases |
+| rounding\_error | GCP | GCP cost type for rounding errors |
+| Savings Plan Discounted Spend | AWS | On-demand costs covered by your Savings Plan, offsetting corresponding Savings Plan negation items |
+| Savings Plan Negation | AWS | Offset costs through your Savings Plan benefit associated with covered usage items |
+| Savings Plan Recurring Fee | AWS | Hourly recurring charges associated with a No Upfront or Partial Upfront Savings Plan |
+| Savings Plan Upfront Fee | AWS | One-time upfront fee from purchasing All Upfront or Partial Upfront Savings Plans |
+| Solution Provider Program Discount | AWS | Discounts through the [AWS Solution Provider Program](https://aws.amazon.com/partners/programs/solution-provider/) |
+| SUBSCRIPTION\_BENEFIT | GCP | Credits earned after purchase of long-term subscriptions |
+| SUSTAINED\_USAGE\_DISCOUNT | GCP | Credit for running certain Compute Engine resources for a large portion of the month |
+| Tax/tax | AWS, GCP | Taxes applied, such as sales tax |
+| Usage | Any provider (for GCP, see "regular") | Charges for usage at regular or on-demand rates |
+</Accordion>
+
+### Other Grouping Category
+
+By default, the top five groups of costs by amount are displayed on the graph. In addition, the Other Costs category is displayed as an aggregation of all remaining costs. To add more costs to the graph and table, click the down arrow next to **Other Costs**. The number of other costs is displayed. Click **Show X More Items**, to add additional cost groups to the report.
+
+<Frame>
+![Displaying additional costs using the Other Costs dropdown menu on a Cost Report](https://assets.vantage.sh/docs/other-costs.png)
+</Frame>
+
+## Drill Down in Costs Table
+
+Within the table below the graph, you can drill down into your report to create precise filtering and grouping views. Your options to drill down in the report will vary based on if the report is ungrouped or has some grouping criteria applied to it.
+
+### Drill Down in Ungrouped Report
+
+When a report is ungrouped (i.e., the **Group By** dropdown is set to **Ungrouped**), a few icons are displayed within each line of the table, depending on your ingested resources.
+
+#### Category and Subcategory Cost Filters
+
+Each service typically has multiple underlying category and subcategory costs. For example, you have AWS as a connected provider. You can filter by several subcategories, like the amount of storage you've used or the amount of egress traffic for retrieving S3 objects as well as for the actual HTTP requests you make to query for S3 objects.
+
+<Steps>
+    <Step>
+    Add a filter for a provider, like AWS.
+    </Step>
+    <Step>
+    A few icons are displayed next to each listed AWS service. Click the **Costs by Category** icon (looks like a set of squares; see the example below). A full breakdown of all subcategory costs that make up the main AWS service cost is displayed.
+    <Frame>
+    ![GIF of filtering RDS costs by category and sorting the table in the console](https://assets.vantage.sh/docs/category-costs.gif)
+    </Frame>
+    </Step>
+</Steps>
+
+#### Per-Resource Cost Filters
+
+For certain providers, like AWS, you can view individual resources.
+
+<Steps>
+    <Step>
+    Add a filter for a provider, like AWS.
+    </Step>
+    <Step>
+    Next to each listed AWS service, observe a few icons. Click the **Costs by Resource** icon (looks like a set of different shapes). A full breakdown of all resource costs that make up the main AWS service is displayed.
+    </Step>
+</Steps>
+
+In the below example, two RDS instances are present in the account. The table displays how much each instance is driving in costs—without the need for any additional tagging.
+
+<Frame>
+![Example of Per Resource Costs](https://assets.vantage.sh/docs/per-resource-list.png)
+</Frame>
+
+You can also view the **Category** and **Subcategory** costs on a per-resource basis. In the previous example, to view a breakdown of costs for the RDS instance named **core-production-primary-01**, click the **Costs by Category** icon (looks like a dollar sign—**$**). Costs are now displayed by resource, within a category, for a specific service.
+
+<Frame>
+![Example of a Single Resource Costs](https://assets.vantage.sh/docs/per-resource-individual.png)
+</Frame>
+
+### Drill Down in Grouped Report
+
+If you apply grouping criteria to the Cost Report (e.g., set the **Group By** field to **Service**), another set of drilldown options is displayed on the Cost Report. In the below example:
+
+- The report is filtered to **AWS** costs and grouped by **Service**.
+- On the line item for **Elastic Compute Cloud - Compute**, click the **Drilldown** icon.
+	- A filter for line items matching only the **Elastic Compute Cloud - Compute** service is added in the **Filters** menu.
+	- In addition, the report is now also grouped by **Category**.
+	- The **Category** column also now appears in the table.
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/drilldown-category.mp4"
+  >
+  </video>
+</Frame>
+
+- You can continue to click the **Drilldown** icon to add filters for selected line items and group by other options, like **Subcategory**. For example, if you click the **Drilldown** icon on the **EC2 > Data Transfer** line item:
+	- The **Data Transfer** category filter is applied in the **Filters** menu.
+	- A grouping of **Subcategory** is available.
+	- **Subcategory** is also displayed as a column in the table.
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/drilldown-subcategory.mp4"
+  >
+  </video>
+</Frame>
+
+- You can also click the **Filter On** list to the right of the **Drilldown** icon and select a specific grouping/filtering option. In the below example, you select the **Region** option for the **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** line item. In the resulting report, **EC2 > Data Transfer > EU-DataTransfer-Out-Bytes** is broken down with individual line items per region.
+	- The additional filter for the **EU-DataTransfer-Out-Bytes** is added to the **Filters** menu.
+	- The report is now also grouped by **Region**.
+	- **Region** is now a column in the table.
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/drilldown-region.mp4"
+  >
+  </video>
+</Frame>
+
+### Billing Code Descriptions
+
+AWS practitioners who are having trouble understanding AWS billing codes present in Cost Reports can find descriptions of each billing code, other variations of that billing code, and other services that use the same billing code within Cost Reports. When you view any AWS Cost Report grouped by **Provider, Service, Category, and Subcategory**, you can hover over any subcategory line item and a tooltip with a link to [cur.vantage.sh](https://cur.vantage.sh/) is provided that takes you to a page with details for that billing line item.
+
+<Info>
+**NOTE**
+
+[cur.vantage.sh](https://cur.vantage.sh/) is a free utility that gives cloud practitioners simple definitions of billing codes for every AWS service. The site has a distinct page for each AWS service (e.g., S3 or EC2) that clusters together similar billing codes for that service, as there may be separate or distinct billing codes for each individual region.
+</Info>
+
+<Frame>
+![A Cost Report grouped to show a subcategory link with the corresponding cur.vantage.sh page](https://assets.vantage.sh/docs/cur-cost-report.png)
+</Frame>
+
+## Adjust Chart Visualization
+
+You can adjust the chart to be displayed as either a bar chart, line chart, area chart, or pie chart. To toggle these options, click one of the corresponding buttons on the top right of the chart.
+
+<Tip>
+**TIP**
+
+For the Cumulative date bin, you can view line charts, pie charts, and area charts. For Daily, Weekly, or Monthly bins, you can view bar charts, line charts, and area charts. Report groupings (see section below) are viewable on all chart types.
+</Tip>
+
+<Frame>
+![A square around the top right of the chart highlights where you can toggle different visualization options, like line charts and area charts](https://assets.vantage.sh/docs/cost-report-visualizations.png)
+</Frame>
+
+## Configure Report Settings
+
+### Credits Discounts Refunds and Taxes
+
+By default, all Cost Reports include discounts and taxes. You can optionally enable credits and discounts, too.
+
+- **Credits:** Credits are often promotional codes redeemed for services or trials on your account.
+- **Discounts:** Discounts can include programs like the AWS Enterprise Discount program. Discounts are often negotiated with the cloud provider and based on usage. You might see discounts reflected as negative values in the Cost Report table. You can follow the below best practices for analyzing Cost Reports with discounts:
+	- If you remove the **Discount** setting, you can view usage and costs *before* the discount was applied.
+	- Group or filter the Cost Report by **Charge Type**. This grouping displays costs separated by items like usage, discounts, EDP discounts, and taxes.
+- **Refunds:** Any associated refunds.
+- **Taxes:** Any associated taxes.
+
+To configure these options:
+
+<Steps>
+    <Step>
+    Above the Cost Report graph, click **Settings**.
+    </Step>
+    <Step>
+    Select an option to toggle on/off any of the included costs (e.g., discounts, etc.).
+    </Step>
+</Steps>
+
+
+### Amortization
+
+By default, all Cost Reports show upfront fees, such as fees for Reserved Instances, Savings Plans, Marketplace purchases, and Support, amortized day by day for the period of the fee.
+
+In addition, Vantage uses committed use attribution for linked accounts. By default, you will see fees for Reserved Instances and Savings Plans assigned to the AWS account that *benefited* from the discount—not the account that purchased the commitment.
+
+For more information about this logic, see the following [Vantage blog post](https://www.vantage.sh/blog/vantage-launches-committed-use-float-cost-attribution).
+
+<Note>
+**INFO**
+
+In contrast to AWS Cost Explorer, which displays fees associated with the account responsible for the commitment or purchase, Vantage provides a comprehensive view by showing fees based on the account where the benefits were realized.
+</Note>
+
+#### Disabling Amortization
+
+You can toggle a Cost Report to not amortize upfront fees if you want to view the upfront fees on the day they were incurred.
+
+<Steps>
+    <Step>
+    From the top of any Cost Report, click **Settings**.
+    </Step>
+    <Step>
+    Under **Amortization**, uncheck **Enabled**.
+    </Step>
+    <Frame>
+    ![Enabling and disabling amortization in the console](https://assets.vantage.sh/blog/analyze-aws-cost-data/amortization.gif)
+    </Frame>
+</Steps>
+
+
+### Vantage vs. Cost Explorer
+
+If you notice your costs in Vantage differ from what you see in Cost Explorer, this could be for many reasons, including:
+
+- **Amortization logic:** As noted above, Vantage uses a different amortization logic from Cost Explorer.
+	<Tip>
+  **TIP**
+
+	If you want to align the view in Vantage to Cost Explorer, disable amortization in Vantage and compare the numbers to unblended costs in Cost Explorer.
+	</Tip>
+- **EC2-Other:** In Cost Explorer, this cost category comprises many subcategories (e.g., Data Transfer). In Vantage, EC2-Other is reallocated into direct line items. For example, if you filter for NAT gateway expenditures, the charges initially categorized under transit or egress in EC2-Other are assigned to the individual resource that created the charge.
+
+For more tips on reviewing your cost data against Cost Explorer, see [the following blog post](https://www.vantage.sh/blog/analyze-aws-cost-data).
+
+### Usage-Based Reporting
+
+Usage-Based Reporting provides infrastructure consumption in non-monetary metrics, such as virtual machine running hours, stored gigabytes of data, and read/write units consumed. These reports are available within Cost Reports, where you can toggle between viewing consumption by spend or by usage. See the [Usage-Based Reporting](/usage_based_reporting) documentation for details on how to use and view these reports.
+
+<Frame>
+![Toggle to show Usage-Based Reporting](https://assets.vantage.sh/docs/usage-toggle.png)
+</Frame>
+
+## Comparative Cost Reporting
+
+To compare costs day by day, week by week, or month by month on Cost Reports, click the **By Date** option above the cost table. A view of costs with the same date binning selected for the graph is displayed. To switch back to the previous, current, and percent change view, select **Cumulative**.
+
+<Frame>
+![Comparative View](https://assets.vantage.sh/docs/by-date-view.png)
+</Frame>
+
+When you view the **By Date** option, a **Total Costs** row is displayed at the top of the table.
+
+## Export Cost Reports
+
+You can select from two modes when you export a report: **Basic** or **Advanced**.
+
+<Frame>
+![Cost Report Exports](https://assets.vantage.sh/docs/cost-report-exports.png)
+</Frame>
+
+- With a **Basic** export, you can modify only the date range of a report.
+	- If your Cost Report has an associated [buisiness metric](/per_unit_costs), you can choose whether you want to export your unit costs at the same time as your costs export. This export will be sent to you as a separate CSV.
+- With an **Advanced** export, you have the same functionality as a **Basic** export, but you can also arbitrarily select the columns you want on the report, a date range, and a date bin. The columns can be any combination of groupings from the following list:
+	- Provider (e.g., AWS, GCP, New Relic)
+	- Service (e.g., EC2, EBS)
+	- Region (e.g., us-east-1)
+	- Service category (e.g., Storage, Compute)
+	- Service subcategory (e.g., m5.large, StandardTier)
+	- Charge Type (e.g., Usage)
+	- Account (e.g., AWS member account, GCP project)
+	- Billing Account (e.g., billing account name)
+	- Resource ID (e.g., S3 bucket ARN, MongoDB Atlas cluster name)
+	- Usage (toggle to export [Usage-Based Reporting](/usage_based_reporting) data)
+- The **Advanced** export also has the option to select a specific Tag key. The Tag key will be included as an additional column in the export, in the following format: `Tag:<TAG KEY>` (e.g., `Tag:Project`).
+- For the **Schema** option, select either Vantage's default schema or the [FinOps Foundation FOCUS](https://focus.finops.org/) schema.
+
+<Frame>
+![Cost Report Exports](https://assets.vantage.sh/docs/cost-report-exports.png)
+</Frame>
+
+<Steps>
+    <Step>
+    From the top right of any Cost Report, click the download icon (looks like an arrow with a line below it).
+    </Step>
+    <Step>
+    Select the **Basic** or **Advanced** download option, and select your desired export criteria.
+    </Step>
+    <Step>
+    Select or enter the emails for the users who you want to receive an emailed copy of the report. Note that these recipients must be users in your organization.
+    </Step>
+    <Step>
+    Click **Export**.
+    </Step>
+</Steps>
+
+
+<Info>
+**NOTE**
+
+For the **Date Bin** export option, when you select **Week**, the week in the export will begin on Monday, UTC. When you select **Month**, the month in the export will begin on the first of the month, UTC.
+</Info>
+
+<Frame>
+![Cost Report Exports](https://assets.vantage.sh/docs/custom-csv-export.png)
+</Frame>
+
+When the export is finished generating, you'll receive an email with a link to download the exported data, typically within a few minutes. An example export, with groupings of **Service Category** and **Service Subcategory**, is shown above. You can also export grouped Cost Reports and the groupings will be respected in the downloaded CSV.
+
+## Starred by Me
+
+If you want to save your favorite Cost Reports or [folders](/folders) to a convenient location, you can *star* specific resources.
+
+<Steps>
+    <Step>
+    From the [All Cost Reports](https://console.vantage.sh/reporting) screen, select the checkbox next to one or more Cost Reports.
+    </Step>
+    <Step>
+    Above the list, click **Star**. A star icon will be displayed next to the report.
+    </Step>
+    <Step>
+    To access all starred reports, navigate to the [**Starred By Me**](https://console.vantage.sh/reporting?starred=true) screen, also accessible from the left Cost Reporting navigation pane.
+    </Step>
+</Steps>
+

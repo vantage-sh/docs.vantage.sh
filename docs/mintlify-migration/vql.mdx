@@ -1,0 +1,76 @@
+---
+title: VQL (Vantage Query Language)
+sidebarTitle: Overview
+description: The Vantage Query Language (VQL) is a SQL-like language for filtering cloud cost data. It includes a normalized schema across cloud providers and basic filter syntax for creating complex filters. VQL is currently available as part of the [Vantage API](https://vantage.readme.io/reference/general) as well as within the [Vantage Terraform provider](/terraform).
+---
+
+<Tip>
+**TIP**
+
+On Cost, Resource, and Kubernetes Efficiency Reports, you can create a filter and click **View as VQL** to see the filter represented in VQL.
+
+<Frame>
+![Show as VQL button on a Cost Report](https://assets.vantage.sh/docs/show-as-vql.png)
+</Frame>
+</Tip>
+
+- **API**. On supported endpoints, such as `/cost_reports` and `/resource_reports`, you can use VQL in the `filter` parameter to programmatically create and fetch Cost Reports.
+- **Terraform provider**. In supported Terraform resources, such as `vantage_saved_filter` or `vantage_cost_report`, you can use VQL for the `filter` argument to create filtered Cost Reports or saved filters.
+
+The below examples show how to use VQL on both the API and the Terraform provider. This example creates a [saved filter](/cost_reports#saved-filters) in your Vantage account using VQL.
+
+<Tabs>
+  <Tab title="API">
+    ```bash
+        curl --request POST \
+            --url https://api.vantage.sh/v2/saved_filters \
+            --header 'content-type: application/json' \
+            --header 'authorization: Bearer <ACCESS_TOKEN>' \
+            --data @- <<EOF
+        {
+        "filter": "(costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service') OR (costs.provider = 'kubernetes')",
+        "title": "RDS and Kubernetes",
+        "workspace_token": "wrkspc_abcde12345"
+        }
+        EOF
+    ```
+  </Tab>
+  <Tab title="Terraform Provider">
+    ```terraform
+        resource "vantage_saved_filter" "rds_kubernetes" {
+            title  = "RDS and Kubernetes"
+            filter = "(costs.provider = 'aws' AND costs.service = 'Amazon Relational Database Service') OR (costs.provider = 'kubernetes')"
+            workspace_token = "wrkspc_abcde1234"
+        }
+    ```
+  </Tab>
+</Tabs>
+
+
+## Key Concepts
+
+VQL is based on the following key concepts, further described in subsequent sections.
+
+<Tabs>
+  <Tab title="Schema">
+    VQL uses a schema that organizes filters into namespaces. These namespaces comprise various fields that you can leverage to filter and retrieve specific cost-related data.
+  </Tab>
+  <Tab title="Keywords">
+    VQL includes keywords, like `AND`, `OR`, `IN`, `LIKE`, and `NOT`, to create complex and precise filter conditions. These keywords vary per report type/scope.
+  </Tab>
+  <Tab title="Syntax">
+    VQL syntax closely resembles the `WHERE` clause of a SQL query. You can construct filter operations to extract desired cost insights.
+  </Tab>
+</Tabs>
+
+## Scopes
+
+VQL has a separate scope for each type of report—meaning that you cannot use VQL statements for Cost Reports when querying Resource Reports. See the following pages below to learn more about each VQL scope.
+
+<Columns cols={2}>
+  <Card href="/vql_cost_report" title="VQL for Cost Reports" icon="chart-line" horizontal />
+  <Card href="/vql_resource_report" title="VQL for Resource Reports" icon="chart-area" horizontal />
+  <Card href="/vql_kubernetes_efficiency_report" title="VQL for Kubernetes Efficiency Reports" icon="dharmachakra" horizontal />
+  <Card href="/vql_financial_commitment_report" title="VQL for Financial Commitment Reports" icon="money-bill" horizontal />
+  <Card href="/vql_network_flow_report" title="VQL for Network Flow Reports" icon="network-wired" horizontal />
+</Columns>

@@ -1,0 +1,200 @@
+---
+title: "AWS"
+sidebarTitle: "Overview"
+description: "Vantage has a few options to connect to AWS, including CloudFormation, the AWS CLI, a Terraform module, and the AWS IAM Console. All options are described below."
+---
+
+## How Vantage Connects with AWS
+
+Vantage understands security concerns and aims to provide as secure a connection as possible with your AWS accounts. Vantage uses a mechanism called a *Cross-Account IAM Role* to interact with services in your AWS account. AWS has [publicly documented](https://aws.amazon.com/blogs/apn/securely-accessing-customer-aws-accounts-with-cross-account-iam-roles/) this method and officially recommends it as the preferred method of doing any cross-account interactions on AWS. Numerous internal AWS services and systems also leverage this method.
+
+This means that Vantage **never** needs access credentials, account logins, or passwords for AWS.
+
+### AWS Permissions
+
+When you create a Cross-Account IAM Role using the provided CloudFormation template, or via Terraform, you provide Vantage with various permissions. Vantage only collects metadata about your infrastructure and never attempts to read sensitive information from the underlying services. Our CloudFormation template is public, and you can audit the template's [list of permissions](https://vantage-public.s3.amazonaws.com/vantage-integration-combined-latest.json).
+
+### AWS GovCloud Environments
+
+Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.amazon.com/govcloud-us/details/) environments. Note that at this time, we are unable to sync active resources from GovCloud regions into the [Active Resources](/active_resources#viewing-active-resources) screen in Vantage; however, you can still view costs by resource in [Cost Reports](/cost_reports). You also have access to all other Vantage functionality.
+
+## Create a Connection
+
+Navigate to the [Vantage Integrations](https://console.vantage.sh/settings/integrations) page, and create a new AWS connection. On the AWS connection page, you will see a few options to connect.
+
+- **AWS Console:** Click the purple **Connect Vantage via AWS Console** button to directly log in to AWS. You will be directed to CloudFormation to create the necessary stack that will contain prefilled parameters. Click the checkbox for "I acknowledge that AWS CloudFormation might create IAM resources.", and click "Create Stack". Once the deployment is complete, you will see the stack status as `CREATE_COMPLETE`.
+- **AWS CLI:** Click the **More Connection Options** dropdown and select **Connect via AWS CLI**. The CLI commands needed to create a connection are provided on this screen.
+- **Terraform:** Click the **More Connection Options** dropdown and select **Connect via AWS Terraform**. Instructions for how to connect using the Terraform module are provided on this screen. See the [section below](/connecting_aws#terraform) for more details.
+- **AWS IAM Console:** Click the **More Connection Options** dropdown and select **Connect via AWS IAM Console**. Instructions are provided on this screen. See the [section below](/connecting_aws#iam_console) for more details.
+- **CloudFormation StackSet for Multiple Member Accounts:** Click the **Connect via CloudFormation StackSet** button. The necessary commands to create this connection are displayed. See the next section for more information.
+
+After you create your integration between AWS and Vantage, you can view the status of your connection on the [AWS Settings page](https://console.vantage.sh/settings/aws).
+
+<Info>
+**NOTE**
+
+Vantage will experience [a delay](/connecting_aws#aws-data-ingestion-delay) in receiving all your cost data until the first Cost and Usage Report (CUR) is received from AWS. In addition, the first CUR that's sent to Vantage contains only the current month's data. See the instructions below for [backfilling a CUR](/connecting_aws#backfilling-aws-cur-for-previous-reporting-periods).
+</Info>
+
+### Connect Multiple AWS Accounts
+
+You can connect multiple AWS accounts to Vantage; however, we strongly advise that you connect your **root or management** AWS account first. When you connect the root account, you can see all costs for the organization, including linked accounts.
+
+<Warning>
+**IMPORTANT**
+
+**If you connect only a linked or member account, you will experience the following issues:**
+
+- You will see only costs and costs by resource for that linked account, rather than for your whole organization.
+- You will be unable to see costs for the other member accounts in your AWS organization.
+- You may not see the full coverage of cost allocation tags from the organization.
+- If Reserved Instances (RIs) are purchased in the linked account, those instances will be realized in the linked account first instead of being realized across the organization.
+</Warning>
+
+Once you connect your root/management AWS account, Vantage will profile all member accounts present in the organization. Vantage will be able to show you accrued costs from all member accounts in the organization, as well as Active Resources that are present in that *root AWS account*.
+
+#### StackSet Prerequisites
+
+To leverage StackSets, you must enable your organization's access to operate a service-managed StackSet. You'll need to enable this setting in the AWS Management Console. If you don't have this setting enabled and attempt to run a StackSet command, you'll see the following error:
+
+`An error occurred (ValidationError) when calling the CreateStackSet operation: You must enable organizations access to operate a service managed stack set`
+
+For more information, see [AWS's instructions](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/stacksets-prereqs.html) for enabling this setting.
+
+#### Connecting via Stackset
+
+If you have multiple member accounts and want to view Active Resources present in those accounts, you use the CloudFormation StackSet that will create one role per AWS member account. You're also welcome to skip this step and add/remove individual AWS accounts from your [account settings](https://console.vantage.sh/settings/aws) whenever you want.
+
+We recommend using StackSets if you have several accounts you want to connect. Using the StackSet will automate the process for all the accounts in your organizational unit. When connecting your account, if you have at least one member account, you will see instructions, specific to your account, on how to connect your member accounts using StackSets.
+
+### Connect with Terraform
+
+During onboarding, instead of following the CloudFormation process, you can use the Vantage Terraform module. Refer to the [Terraform documentation](/terraform#integrations-module) for more information.
+
+### Connect by Manually Creating an IAM Role
+
+If you want to create IAM roles manually or use another tool to manage your infrastructure, you can create the necessary cross-account role.
+
+<Info>
+**NOTE**
+
+If you decide to use this integration method, ensure you’ve set up a Cost and Usage Report (CUR) in your account so that Vantage will be able to pull in and read data from the CUR. After adding the IAM role ARN to Vantage, contact [Vantage Support](/) with your CUR configuration.
+</Info>
+
+<Steps>
+    <Step>
+    On the AWS connection page in the Vantage console, click **More Connection Options** > **Connect via AWS IAM Console**.
+    </Step>
+    <Step>
+    You will be presented with a **Trust Relationship** and an **Inline Policy** that is required for the role. Follow the steps provided in the Vantage console to set up the role. Keep this tab open as you will need some submit the **[ARN](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference-arns.html)** of the role to complete the connection.
+    </Step>
+    <Step>
+    After creating the role in IAM, return to the onboarding page in Vantage and add the **ARN** of the created role to the **Cross account arn** field at the bottom of the connection workflow pop-up window. Then, click **Connect** to complete the connection.
+    </Step>
+</Steps>
+
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## AWS Data Ingestion Delay
+
+Vantage creates both an IAM role and a [Cost and Usage Report (CUR)](https://docs.aws.amazon.com/cur/latest/userguide/cur-create.html) integration when onboarding to AWS. While an IAM role is created within a minute, and historical data can be populated almost immediately, it can take AWS up to 24 hours to deliver the first CUR to Vantage. As a result, only partial data will be present until this first CUR is received.
+
+This delay will impact a few features in the Vantage console:
+
+- [Active Resources](/active_resources) will initially show only hourly and monthly rates. Once the first CUR is received, you can see actual accrued costs per resource, broken down by cost category and subcategory.
+- [Cost Reports](/cost_reports) will show line-item data per service initially but will not be able to show *costs by resource* until the first CUR is received.
+- Both [Autopilot](/autopilot/) and [Savings Planner](/savings_planner/) are unavailable until the first CUR is received.
+
+Once Vantage receives its first CUR, this functionality will automatically be made available, and Vantage will alert you via email. Ultimately, this is a limitation imposed by AWS, and all Vantage features will become active once the data is received.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
+## Backfill AWS CUR for Previous Reporting Periods
+
+The first CUR that's sent to Vantage contains only the current month's data. If you want to see historical data in Vantage, you can backfill your CUR for re-ingestion into Vantage.
+
+If you have *existing* historical CUR files, add a copy of these files to the shared Vantage S3 bucket. Then, email [our Support team](/) to ingest the backfilled CUR. By default, Vantage will automatically process CUR files for the current calendar month, but our Support team can also manually process historical CURs if notified.
+
+<Info>
+**NOTE**
+
+These files should be a daily CSV with resource ids enabled
+</Info>
+
+If you do not have this data available, you can contact AWS Support and open a ticket for AWS to backfill your CUR. Follow the steps below.
+
+<Steps>
+    <Step>
+    From your AWS root/management account, use the top search bar to search for and navigate to **Data Exports**.
+    </Step>
+    <Step>
+    A table of data exports is displayed. Observe the **Export Name** column. You should see the legacy CUR export that was created by Vantage when the integration was set up. Take note of the values in the **Export Name** and **S3 Bucket** columns.
+    </Step>
+    <Step>
+        Open a ticket with [AWS Support](https://docs.aws.amazon.com/cur/latest/userguide/billing-get-answers.html) to backfill the Vantage export. You can use the sample email template below when creating your request.
+
+        <Accordion title="AWS Support Request Template">
+        *Subject: Request for Backfilling AWS Legacy CUR Data Export*
+
+        **\[Insert your organization name\]** needs help backfilling a legacy CUR Data Export per the below requirements:
+        - Please backfill the existing **\[Insert Vantage legacy CUR Data Export name\]** report from the **\[Insert export's S3 bucket name\]** S3 bucket.
+        - We need historical data for the following period: **\[Insert start date\]** to **\[Insert end date\]**.
+        - This should be a daily CSV file.
+
+        Once the historical data is successfully backfilled into the above legacy CUR Data Export, please send us a notification or confirmation.
+
+        Thank you,
+        **\[Insert your name\]**
+        </Accordion>
+    </Step>
+    <Step>
+    Once AWS Support completes your request, please email [support@vantage.sh](mailto:support@vantage.sh) to re-ingest the backfilled legacy CUR Data Export.
+    </Step>
+</Steps>
+
+## Update the Vantage AWS Integration
+
+Occasionally, Vantage will modify the permission sets it uses to access billing and resource data on AWS. When this happens, you can update your integration.
+
+<Steps>
+    <Step>
+    Navigate to the [**Integrations** page](https://console.vantage.sh/settings/integrations) of the Vantage console.
+    </Step>
+    <Step>
+    From the **AWS** tile, click **Manage**.
+    </Step>
+    <Step>
+    The **Account** list is displayed. Click **Manage** for the cloud account that you want to update. (For AWS organizations with multiple accounts, this will usually be the Management account.)
+    </Step>
+    <Step>
+    Click **Update Vantage via AWS Console** to perform the update, or click **More Update Options** for command-line and other deployment methods.
+    </Step>
+</Steps>
+
+## Reporting Dimensions
+
+On AWS [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Account (AWS account name)
+- Category (e.g., EC2 Data Transfer)
+- Tag/Not Tagged (includes AWS tags and [virtual tags](/tagging) created in Vantage for this provider)
+- Subcategory (e.g., EC2 DataTransfer-In-Bytes)
+- Resource (specific resource IDs)
+- Region (e.g., US East (Ohio))
+- Charge Type (e.g., Usage)
+- Billing Account (AWS billing account name)
+- Marketplace (Toggle to show only Marketplace purchases or excluded)
+- Service (e.g., AWS CloudTrail)
+
+## View Amazon CloudWatch Metrics on Cost Reports
+
+You can import Amazon CloudWatch metrics as business metrics to view alongside Cost Reports. See the [Per Unit Costs](/per_unit_costs#import-from-amazon-cloudwatch) documentation for more information.
+
+## VPC Flow Logs: Network Flow Reports
+
+For network-enabled resources, Network Flow Reports provide visibility by source and destination to the flows within your network that are driving costs. See the [Network Flow Reports documentation](/network_flow_reports) for information on how to enable these reports and view data transfer costs for AWS services.
+

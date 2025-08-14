@@ -1,0 +1,285 @@
+---
+title: "Custom Providers"
+description: "With the Custom Provider integration option in Vantage, you can upload costs from providers that don’t expose billing APIs, aren’t [yet supported](/getting_started) by Vantage, or originate from custom systems. You can import costs by providing any CSV that adheres to the schema described below or through the [Vantage API](/connecting_custom_providers#api). If Vantage eventually provides support for one of your Custom Providers, you will be able to set up the official provider integration alongside your Custom Provider."
+---
+
+## FinOps FOCUS Schema
+
+FOCUS is an [open-source schema](https://focus.finops.org/) that standardizes cost and usage billing data across different cloud providers. When you add a Custom Provider in Vantage, you use a CSV template format that is a subset of the FOCUS schema. The fields in this template provide enough detail for Vantage to correctly render costs and perform cost allocation. With just the minimum required fields, Custom Provider costs are available with other Vantage features, such as anomaly alerts, report notifications, and forecasting. See the explainer video below for an introduction to this feature and how FinOps FOCUS is used.
+
+<Frame>
+<iframe
+    src="https://www.youtube.com/embed/bhSyaAG6_tU"
+    className="w-full h-96"
+/>
+</Frame>
+
+## Review CSV Format
+
+<Tip>
+**TIP**
+
+Follow the steps below to create a CSV based on the FOCUS format. You can also use [focus.vantage.sh](https://focus.vantage.sh/), a free web-based tool that converts cost CSVs or PDF invoices from select Cloud, AI, and SaaS providers into CSVs in the FinOps FOCUS 1.1 format.
+</Tip>
+
+To create a Custom Provider in Vantage, create a CSV file for your data that uses the following format. Add your provider’s cost and usage data to the file. Note that there is a maximum of 10,000 rows and a file size of 2MB allowed. Each time that you upload additional cost data, you will need to create a separate CSV file for that new dataset.
+
+```
+ChargePeriodStart,ChargeCategory,BilledCost,ResourceId,ResourceType,RegionId,ServiceCategory,ServiceName,Tags
+2021-01-01,Usage,1.23,resource-id-1,cost_sub_category-1,us-east-1,service-category-1,service-name-1,"{""tag1"":""value1"",""tag2"":""value2""}"
+```
+
+Only the following fields are required:
+
+- `ChargeCategory`
+- `ChargePeriodStart`
+- `BilledCost`
+- `ServiceName`
+
+<Info>
+**NOTE**
+
+If you want to upload amortized costs, then `ChargePeriodEnd` is also required.
+</Info>
+
+### Data Format
+
+The following table provides details for each field within the template, as well as their Vantage representation on reports.
+
+| Column Name | Required | Vantage Representation | Data Type | FOCUS Column ID & Link | Examples |
+| --- | --- | --- | --- | --- | --- |
+| `BillingCurrency` | No | Billing currency costs are displayed in | A currency code, like `GBP`.      If you enter a currency code not available in Vantage, an error is displayed on validation. Check that currency conversion is also enabled. See the [Currency Conversion](/vantage_account#currency-conversion) documentation for details. | `[BillingCurrency](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=currency#modal-column-14236)` | `JPY`, `AUD`, `USD` |
+| `ChargeCategory` | Yes | **Charge Type** filter and grouping option | Valid values are case-sensitive and include:   - `Credit` - `Refund` - `Discount` - `Tax` - `Usage` | `[ChargeCategory](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=charge%20category#modal-column-14378)` | `Usage` |
+| `ChargePeriodStart` | Yes | Start date of cost period | Date in `YYYY-MM-DD` or ISO 8601 format | `[ChargePeriodStart](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=charge%20period#modal-column-14370)` | `2024-08-25` |
+| `ChargePeriodEnd` | Only for amortized costs | End date of cost period | Date in `YYYY-MM-DD` or ISO 8601 format | `[ChargePeriodEnd](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=charge%20period#modal-column-14372)` | `2024-08-25` |
+| `ConsumedQuantity` | No | Quantity associated with `ConsumedUnit` | Numeric | `[ConsumedQuantity](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=consumed#modal-column-14488)` | `598` |
+| `ConsumedUnit` | Only when ConsumedQuantity is provided | Unit of usage associated with `ConsumedQuantity` | Alphanumeric | `[ConsumedUnit](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=consumed#modal-column-14491)` | `GB` |
+| `BilledCost` | Yes | Cost that’s displayed | Positive or negative number values accepted; dollar signs and decimal values are also acceptable      All costs are considered to be in USD | `[BilledCost](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=billed%20cost#modal-column-14212)` | `1245` or `-456` or `$1.23` or `-$1.23` |
+| `RegionId` | No | **Region** filter and grouping option | Alphanumeric | `[RegionId](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=region%20id#modal-column-14471)` | `us-east-1` |
+| `ResourceId` | No | **Resource** filter and grouping option | Alphanumeric | `[ResourceId](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=resource%20id#modal-column-14475)` | `task/3` or `123456` |
+| `ResourceType` | No | **Subcategory** filter and grouping option | Alphanumeric | `[ResourceType](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=resource%20type#modal-column-14479)` | `Large` |
+| `ServiceCategory` | No | **Category** filter and grouping option | Alphanumeric | `[ServiceCategory](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=service%20category#modal-column-14481)` | `Task` |
+| `ServiceName` | Yes | **Service** filter and grouping option | Alphanumeric | `[ServiceName](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=service%20name#modal-column-14268)` | `Compute` |
+| `Tags` | No | **Tags** filter and grouping option | Valid JSON object; array of key/value pairs | `[Tags](https://focus.finops.org/focus-columns/?prod_focus_columns%5Bquery%5D=tags#modal-column-14387)` | `"{""env"":""production""}"` for one tag      `"{""env"":""prod"",""application"":""geo-location""}"` for multiple tags |
+
+## Upload Custom Provider File
+
+Custom Provider files can be uploaded at any time in the console. The above schema adds a timestamp based on the `ChargePeriodStart` column, so Vantage can place the data in the correct relationship to other costs under a Custom Provider.
+
+<Info>
+**NOTE**
+
+Users must have Owner permissions to upload Custom Provider files. If you prefer to use the API rather than the Vantage console, see the [API](/connecting_custom_providers#api) section below.
+</Info>
+
+<Steps>
+    <Step>
+    Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in Vantage.
+    </Step>
+    <Step>
+    Select **Custom Provider**. (If you have already added a Custom Provider and are adding another one, ensure you are on the **Connect** tab.)
+    </Step>
+    <Step>
+    Click **Select a File** and upload your formatted CSV file.
+    </Step>
+    <Step>
+    Click **Upload Costs**.
+      - If your CSV file contains any errors, the **Review** pop-up window is displayed and indicates where the error occurred. See the [Troubleshooting](/connecting_custom_providers#troubleshooting) section for details on specific errors.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Error screen for Custom Provider](https://assets.vantage.sh/docs/custom-providers/error-screen.png)
+        </Frame>
+    </Accordion>
+      - For error-free files, a message is displayed that indicates your file is okay. Click **Review** to see the first 25 rows of uploaded data.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Error-free Custom Provider upload](https://assets.vantage.sh/docs/custom-providers/error-free-file.png)
+        </Frame>
+    </Accordion>
+    <Tip>
+    **TIP**
+
+    You can click **Select a File** again if you accidentally uploaded the wrong file.
+    </Tip>
+    </Step>
+    <Step>
+    Enter a **Name** for your Custom Provider. This is the name that will be displayed in report filters. Optionally, enter a **Description**.
+    </Step>
+    <Step>
+    Click **Create Custom Provider Integration**.
+    </Step>
+    <Step>
+    The **Manage** integration screen is displayed. Initially, the message *Importing and Processing* will be displayed on this screen. You can click the **Import Costs** tab if you want to upload additional cost files.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![File is processing to be uploaded](https://assets.vantage.sh/docs/custom-providers/processing.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Once your Custom Provider is processed, in the **Workspace Access** section of this screen, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for more information.
+    </Step>
+</Steps>
+
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Custom Provider costs. Once costs are processed, they will be available on your **All Resources** Cost Report. Vantage aggregates uploaded Custom Provider costs to a daily level.
+
+### Troubleshoot Custom Provider Uploads
+
+When you upload a file that contains errors, the **Review** window displayed and shows the rows where errors were identified. The first 25 rows are displayed. If you have an error in a row that’s not one of the first 25 rows, that row will be displayed at the top, along with all other errors. Some common errors are noted below.
+
+| Issue | Description | Solution |
+| --- | --- | --- |
+| Improper CSV format | The file format is not a valid CSV or exceeds the 10,000-row limit or 2MB file size max. | Ensure the file is a properly formatted CSV, with no more than 10,000 rows or 2MB in size. |
+| Missing required fields | One or more required fields (`ChargeCategory`, `ChargePeriodStart`, `BilledCost`, `ServiceName`) are missing or improperly formatted.      An error message noting which rows are missing required field values will be displayed in the **Review** window. | Verify that all required fields are present and correctly formatted. See the [CSV Format](/connecting_custom_providers#format) section for details. |
+| Invalid values | The file contains invalid values, such as incorrect date formats, invalid numbers, tags that are not formatted as JSON or have missing quotes, or incorrect case-sensitive values for `ChargeCategory`.      An error message noting which rows contain invalid values will be displayed in the **Review** window. | Double-check the data in your CSV to ensure dates are in `YYYY-MM-DD` format, numbers are valid, and `ChargeCategory` values match the allowed case-sensitive options (e.g., `Usage`, `Credit`). See the [Data Format](/connecting_custom_providers#data-format) table for details. |
+| Improper Vantage permissions | The user attempting the upload does not have the proper permissions. | Ensure you have Owner permissions to upload Custom Provider files. See the [Role-Based Access Control](/rbac) documentation for details. |
+| Duplicate file names | You attempt to upload a new costs import file that has the same name as a previous costs upload file. An error message is displayed indicating you already have a file uploaded with the same name. The new file will overwrite the old file. | Ensure each CSV file that you upload is named something different (e.g., `cloudflare_costs_8_2024`, `cloudflare_costs_9_2024`). |
+
+#### Steps to Resolve File Issues
+
+<Steps>
+    <Step>
+    After you've identified the issues, reopen your CSV file, correct the errors, and save.
+    </Step>
+    <Step>
+    On the Custom Provider upload screen, close the **Review** window, click **Select a File**, and upload the corrected version of your CSV file.
+    </Step>
+    <Step>
+    After a successful upload, a confirmation message is displayed. You can click **Review** to verify the first 25 rows of your uploaded data to ensure accuracy.
+    </Step>
+    <Step>
+    Follow steps 5–8 in the [Upload Custom Provider File](/connecting_custom_providers#upload) section to complete the upload process.
+    </Step>
+</Steps>
+
+## View Custom Provider Costs in Vantage
+
+Once you have uploaded Custom Provider costs, you can query these costs in other Vantage tools. Your Custom Provider will be included in the **Providers** list of filters on [Cost Reports](/cost_reports), [Segment Reports](/segments), and [Saved Filters](/saved_filters).
+
+<Frame>
+![Cost Report for custom provider](https://assets.vantage.sh/docs/custom-providers/cost-report.png)
+</Frame>
+
+If you did not provide any information for a particular filter (e.g., `RegionId`), then those filters will be displayed as empty.
+
+<Frame>
+![Cost Report for custom provider with no region filter](https://assets.vantage.sh/docs/custom-providers/blank-filter.png)
+</Frame>
+
+## Add Additional Imports
+
+After the initial costs import, you can add additional cost imports.
+
+<Warning>
+**Important**
+
+If you upload a file with the same name as an existing import, your new file will overwrite the original file. Ensure you have different names for each file upload (e.g., `cloudflare_costs_8_2024`, `cloudflare_costs_9_2024`).
+</Warning>
+
+<Steps>
+    <Step>
+    Navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers).
+    </Step>
+    <Step>
+    Select your Custom Provider.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Manage screen for custom provider](https://assets.vantage.sh/docs/custom-providers/manage-screen.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Click the **Import Costs** tab. Import your new cost file. Review any errors and correct as needed. Once uploaded, your file will be displayed within the **Imports** section of the **Manage** tab.
+    </Step>
+</Steps>
+
+## Delete Imported Files
+
+If you want to delete an imported file, the costs will be removed from your Custom Provider.
+
+<Steps>
+    <Step>
+    Navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers).
+    </Step>
+    <Step>
+    Select your Custom Provider.
+    </Step>
+    <Step>
+    In the **Imports** section of the **Manage** tab, you can view existing imports along with the date the file was imported and who imported the file. Click the trashcan icon next to an import to remove it. If you delete a CSV, the corresponding data will be deleted from the provider.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Import section for custom provider](https://assets.vantage.sh/docs/custom-providers/imports.png)
+        </Frame>
+    </Accordion>
+    </Step>
+</Steps>
+
+    ## Use the API to Add a Custom Provider
+
+<Tip>
+**TIP**
+
+To reference a Custom Provider in [VQL](/vql) queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
+</Tip>
+
+You can also use the API to create and upload costs for a Custom Provider.
+
+<Steps>
+    <Step>
+    Send a `POST` request to the `/integrations/custom_provider` endpoint to create the Custom Provider.
+
+    ```bash
+    curl --request POST \
+     --url https://api.vantage.sh/v2/integrations/custom_provider \
+     --header 'accept: application/json' \
+     --header 'authorization: Bearer AUTH_TOKEN' \
+     --header 'content-type: application/json' \
+     --data '
+    {
+      "name": "My Custom Provider",
+      "description": "Costs for this provider"
+    }
+    '
+    ```
+    </Step>
+    <Step>
+    On a successful `200` response, a Custom Provider `token` is returned.
+
+    ```json
+    {
+    "token": "<CUSTOM_PROVIDER_TOKEN>",
+    "provider": "custom_costs",
+    "account_identifier": "My Custom Provider from the API",
+    "status": "connected",
+    "workspace_tokens": [],
+    "created_at": "2024-08-26T14:04:17Z"
+    }
+    ```
+    </Step>
+    <Step>
+    Use the `token` to upload a CSV file via the `/integrations/{integration_token}/costs.csv` endpoint.
+
+    ```bash
+    curl --request POST \
+      --url https://api.vantage.sh/v2/integrations/<CUSTOM_PROVIDER_TOKEN>/costs.csv \
+      --header 'accept: application/json' \
+      --header 'authorization: Bearer TOKEN' \
+      --header 'content-type: multipart/form-data' \
+      --form csv='@vendor_costs.csv'
+    ```
+    </Step>
+    <Step>
+    If there are any errors, the following `422` response is returned. Fix the errors in your CSV, and upload a new file.
+
+    ```json
+    {
+      "errors": [
+        "Row 1: ChargeCategory must be one of the following: Credit, Discount, Fee, Refund, Tax, or Usage",
+        "Row 22: Tags must be a valid JSON object",
+        "Row 27: BilledCost must be a valid number",
+        "Row 31: ChargePeriodStart must be a valid date"
+      ]
+    }
+    ```
+    </Step>
+</Steps>

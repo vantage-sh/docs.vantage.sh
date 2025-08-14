@@ -1,0 +1,381 @@
+---
+title: Data Dictionary
+sidebarTitle: Data Dictionary (Cost Reports)
+---
+
+Each provider that Vantage integrates with makes different fields available in their billing data. This data is normalized into the fields below. These fields are queryable via the [Vantage API](https://vantage.readme.io/reference/general) and used when constructing [VQL](/vql) statements.
+
+Each provider table contains four columns: Filter, API Field Name, Data Type, and `namespace.field`.
+
+- The *Filter* is the friendly name that is displayed on Cost Report filters within the Vantage console.
+- The *API Field Name* is the normalized version of the filter name.
+- The *Data Type* indicates the type of data that is accepted for that field.
+- `namespace.field` is how that field is referenced in a VQL query (e.g., `costs.provider = 'aws'`, where `costs` is the namespace and `provider` is the field).
+
+<Info>
+**NOTE**
+
+See the [list of VQL examples](/vql#examples) for information on how to use these fields
+</Info>
+
+## Provider Field Values
+
+Each cost provider also has a normalized name within the API. The `provider` field is part of the `costs` namespace.
+
+| Provider | API Field Name | Link to Provider Fields |
+| --- | --- | --- |
+| AWS | `aws` | [View AWS Fields](/data_dictionary#aws) |
+| Azure | `azure` | [View Azure Fields](/data_dictionary#azure) |
+| ClickHouse Cloud | `clickhouse` | [View ClickHouse Cloud Fields](/data_dictionary#clickhouse-cloud) |
+| Confluent | `confluent` | [View Confluent Fields](/data_dictionary#confluent) |
+| Coralogix | `coralogix` | [View Coralogix Fields](/data_dictionary#coralogix) |
+| Custom Providers | *See note* | [View Custom Provider Fields](/data_dictionary#custom-providers) |
+| Databricks | `databricks` | [View Databricks Fields](/data_dictionary#databricks) |
+| Datadog | `datadog` | [View Datadog Fields](#datadog) |
+| Fastly | `fastly` | [View Fastly Fields](#fastly) |
+| GitHub | `github` | [View GitHub Fields](#github) |
+| Google Cloud | `gcp` | [View GCP Fields](/data_dictionary#google-cloud) |
+| Grafana Cloud | `grafana` | [View Grafana Cloud Fields](/data_dictionary#grafana-cloud) |
+| Kubernetes | `kubernetes` | [View Kubernetes Fields](/data_dictionary#kubernetes) |
+| Linode | `linode` | [View Linode Fields](/data_dictionary#linode) |
+| MongoDB Atlas | `mongo` | [View MongoDB Atlas Fields](/data_dictionary#mongodb-atlas) |
+| New Relic | `newrelic` | [View New Relic Fields](/data_dictionary#new-relic) |
+| OpenAI | `openai` | [View OpenAI Fields](/data_dictionary#openai) |
+| Oracle Cloud | `oracle` | [View Oracle Cloud Fields](#oracle-cloud) |
+| PlanetScale | `planetscale` | [View PlanetScale Fields](#planetscale) |
+| Snowflake | `snowflake` | [View Snowflake Fields](#snowflake) |
+| Temporal Cloud | `temporal` | [View Temporal Cloud Fields](/data_dictionary#temporal-cloud) |
+| Twilio | `twilio` | [View Twilio Fields](#twilio) |
+
+<Info>
+**NOTE**
+
+To reference a [Custom Provider](/connecting_custom_providers) in VQL queries, navigate to the [**Integrations** page](https://console.vantage.sh/settings/custom_providers). Use the displayed **Provider ID** (e.g., `custom_provider:accss_crdntl_123a45bfdaf38765`).
+</Info>
+
+## AWS
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Billing Account | `provider_account_id` | string | `costs.provider_account_id` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Service | `service` | string | `costs.service` |
+| Region | `region` | string | `costs.region` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Marketplace | `marketplace` | boolean | `costs.marketplace` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## Azure
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Subscription | `provider_account_id` | string | `costs.provider_account_id` |
+| Resource Group | `account_id` | string | `costs.account_id` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Service | `service` | string | `costs.service` |
+| Region | `region` | string | `costs.region` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Resource | `resource_id` | string | `costs.resource_id ` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## ClickHouse Cloud
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Resource | `resource_id` | string | `costs.resource_id ` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Service | `service` | string | `costs.service` |
+
+*\* Virtual tags associated with this provider*
+
+## Confluent
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Category | `category` | string | `costs.category` |
+| Organization | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Virtual tags associated with this provider*
+
+## Coralogix
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Service | `service` | string | `costs.service` |
+| Resource | `resource_id` | string | `costs.resource_id ` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Virtual tags associated with this provider*
+
+## Custom Providers
+
+Available fields are based on what you've uploaded for this Custom Provider. See the [Custom Providers](/connecting_custom_providers) documentation for details.
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Region | `region` | string | `costs.region` |
+| Resource | `resource_id` | string | `costs.resource_id ` |
+| Service | `service` | string | `costs.service` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Regular and virtual tags associated with this provider*
+
+## Databricks
+
+| Filter | API Field Name | Data Type | `namespace.field  ` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Cluster | `resource_id` | string | `costs.resource_id` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Category | `category` | string | `costs.category` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Provider | `provider` | string | `costs.provider` |
+
+## Datadog
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Organization | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## Fastly
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Region | `region` | string | `costs.region` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+
+*\* Virtual tags associated with this provider*
+
+## GitHub
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+
+## Google Cloud
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Project | `account_id` | string | `costs.account_id` |
+| Billing Account | `provider_account_id` | string | `costs.provider_account_id` |
+| Label | `name` | string | `tags.name` |
+| Label Value | `value` | string | `tags.value` |
+| Service | `service` | string | `costs.service` |
+| Region | `region` | string | `costs.region` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## Grafana Cloud
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Service | `service` | string | `costs.service` |
+| Account | `account_id` | string | `costs.account_id` |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+*\* Virtual tags associated with this provider*
+
+## Kubernetes
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Grouping | `name` | string | `tags.name` |
+| Grouping Value | `value` | string | `tags.value` |
+| Cluster | `service` | string | `costs.service` |
+| Region | `region` | string | `costs.region` |
+| Provider | `provider` | string | `costs.provider` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## Linode
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Service | `service` | string | `costs.service` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Virtual tags associated with this provider*
+
+## MongoDB Atlas
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Project | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Category | `category` | string | `costs.category` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+## New Relic
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Category | `category` | string | `costs.category` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Virtual tags associated with this provider*
+
+## OpenAI
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Account | `account_id` | string | `costs.account_id` |
+| Billing Account | `provider_account_id` | string | `costs.provider_account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+
+*\* Virtual tags associated with this provider*
+
+## Oracle Cloud
+
+| Filter | API Field Name | Data Type | `namespace.field` |
+| --- | --- | --- | --- |
+| Tenancy | `provider_account_id` | string | `costs.provider_account_id` |
+| Compartment | `account_id` | string | `costs.account_id` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+| Service | `service` | string | `costs.service` |
+| Region | `region` | string | `costs.region` |
+| Provider | `provider` | string | `costs.provider` |
+| Category | `category` | string | `costs.category` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+
+## PlanetScale
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Category | `category` | string | `costs.category` |
+| Organization | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Resource | `resource_id` | string | `costs.resource_id` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+| Provider | `provider` | string | `costs.provider` |
+
+*\* Virtual tags associated with this provider*
+
+## Snowflake
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Account | `account_id` | string | `costs.account_id` |
+| Provider | `provider` | string | `costs.provider` |
+| Region | `region` | string | `costs.region` |
+| Category | `category` | string | `costs.category` |
+| Metadata | `name` | string | `tags.name` |
+| Metadata Value | `value` | string | `tags.value` |
+| Service | `service` | string | `costs.service` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Tag | `name` | string | `tags.name` |
+| Tag Value | `value` | string | `tags.value` |
+
+## Temporal Cloud
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Organization | `provider_account_id` | string | `costs.provider_account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Category | `category` | string | `costs.category` |
+| Subcategory | `subcategory` | string | `costs.subcategory` |
+| Tag Name\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+
+## Twilio
+
+| Filter | API Field Name | Data Type | `namespace.field ` |
+| --- | --- | --- | --- |
+| Account | `provider_account_id` | string | `costs.provider_account_id` |
+| Billing Account | `account_id` | string | `costs.account_id` |
+| Service | `service` | string | `costs.service` |
+| Provider | `provider` | string | `costs.provider` |
+| Charge Type | `charge_type` | string | `costs.charge_type` |
+| Category | `category` | string | `costs.category` |
+| Tag Name\* | `name` | string | `tags.name` |
+| Tag Value\* | `value` | string | `tags.value` |
+
+*\* Virtual tags associated with this provider*

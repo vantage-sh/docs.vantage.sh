@@ -1,0 +1,167 @@
+---
+title: "Azure MCA Account"
+description: "With the Azure MCA integration, you allow the Vantage service principal to have access at the billing scope level."
+---
+
+<Info>
+**NOTE**
+
+When you configure this integration, the Vantage service principal is granted **billing account reader** permissions. The service principal does *not* have permissions—nor will it ever attempt—to make any changes to your infrastructure.
+</Info>
+
+To integrate your Azure EA account with Vantage, follow the below steps:
+
+<CardGroup>
+    <Card title="Create a new application registration" href="/connecting_azure_mca#step-1-create-a-new-application-registration" icon="square-1" horizontal/>
+    <Card title="Generate a client secret" href="/connecting_azure_mca#step-2-generate-a-client-secret" icon="square-2" horizontal/>
+    <Card title="Obtain your billing account ID" href="/connecting_azure_mca#step-3-obtain-your-billing-account-id" icon="square-3" horizontal/>
+    <Card title="Assign the billing account reader role to the service principal" href="/connecting_azure_mca#step-4-assign-the-billing-account-reader-role-to-the-service-principal" icon="square-4" horizontal/>
+    <Card title="Add app registration credentials to the Vantage console" href="/connecting_azure_mca#step-5-add-app-registration-credentials-to-vantage" icon="square-5" horizontal/>
+</CardGroup>
+
+## Step 1 - Create a New Application Registration
+
+<Steps>
+    <Step>
+    From the main page of the Azure portal, search for and navigate to **Microsoft Entra ID**.
+    </Step>
+    <Step>
+    In the left navigation, under **Manage**, select **App registrations**.
+    </Step>
+    <Step>
+    Click **\+ New registration**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with App Registration menu option selected](https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The **Register an application** screen is displayed. For **Name**, enter *vantage*.
+    </Step>
+    <Step>
+    Leave all other settings as their defaults and click **Register**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal the Register an application screen and vantage entered as app name](https://assets.vantage.sh/docs/connect-azure/azure-register-app.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the client ID and tenant ID displayed and highlighted](https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png)
+            </Frame>
+        </Accordion>
+    </Step>
+</Steps>
+
+## Step 2 - Generate a Client Secret
+
+<Steps>
+    <Step>
+    On the same page, next to the **Client credentials** field, click **Add a certificate or secret**. (You can also access the **Certificates and secrets** screen from the left navigation menu.)
+    </Step>
+    <Step>
+    Click **\+ New client secret**.
+    </Step>
+    <Step>
+    The **Add a client secret** pane is displayed. For **Description**, enter a description, such as *vantage-secret*.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the Azure client secret window open and a new secreted created called vantage-secret](https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    For **Expires**, select an expiration option for the secret.
+        <Warning>
+        **CAUTION**
+
+            If this secret expires, you will need to supply Vantage with a new secret *before* the expiration date.
+        </Warning>
+    </Step>
+    <Step>
+    Click **Add**.
+    </Step>
+    <Step>
+    The newly created secret is displayed. Copy the secret's **Value** to add to the Vantage console later. This value will be displayed only one time.
+    </Step>
+</Steps>
+
+## Step 3 - Obtain Your Billing Account ID
+
+<Steps>
+    <Step>
+    Navigate to **Cost Management + Billing**.
+    </Step>
+    <Step>
+    On the left menu, click **Billing scopes** and select your **MCA Billing Account** from the list.
+    </Step>
+    <Step>
+    On the left menu, click **Settings** > **Properties**.
+    </Step>
+    <Step>
+    Copy your **Billing account id** to add to the Vantage console later.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the billing account id highlighted](https://assets.vantage.sh/docs/connect-azure/azure-billing-id.png)
+            *Source: Microsoft*
+            </Frame>
+        </Accordion>
+    </Step>
+</Steps>
+
+## Step 4 - Assign the Billing Account Reader Role to the Service Principal
+
+<Steps>
+    <Step>
+    From the left menu, select **Access Control (IAM)**.
+    </Step>
+    <Step>
+    At the top, click **Add**.
+    </Step>
+    <Step>
+    On the right **Add role assignment** pane, select **Billing account reader**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Adding the billing account reader role for the service principal](https://assets.vantage.sh/docs/connect-azure/azure-billing-account-reader.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    Under **Users, groups, or apps**, search for and select the *vantage* service principal that was generated when you created the app registration in step 1.
+    </Step>
+    <Step>
+    Click **Add**.
+    </Step>
+</Steps>
+
+## Step 5 - Add App Registration Credentials to Vantage
+
+<Steps>
+    <Step>
+    Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure integration.
+    </Step>
+    <Step>
+    On the Azure integration page, click **Add Credentials**.
+    </Step>
+    <Step>
+    Add the following credentials:
+    - For **Azure AD Tenant ID**, add the **Directory (tenant) ID** you obtained in step 1.
+    - For **Service Principal App ID**, add the **Application (client) ID** you obtained in step 1.
+    - For **Service Principal Password**, add the client secret you obtained in step 2.
+    - For **Billing Account Id**, add the **Billing Account Id** you obtained in step 3.
+    </Step>
+    <Step>
+    Click **Connect Account**.
+    </Step>
+</Steps>
+
+Vantage will begin importing your Azure costs.
+
+## Next Steps: Workspace Access
+
+See the [Workspace Access](/connecting_azure#workspace-access) section on the main *Connecting Azure* page for information on how to assign this integration to one or more workspaces.
+
