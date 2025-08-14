@@ -61,6 +61,7 @@ module.exports = {
       items: [
         "security",
         "vantage_account",
+        "audit_logs",
         "sso",
         "rbac",
         "workspaces",
