@@ -74,7 +74,7 @@ Two sections are displayed to indicate what has been changed or not changed on t
     <img alt="Multi-dimensional Grouping" width="100%" src="https://assets.vantage.sh/docs/audit-report-changed-values.png" />
 </div>
 
-| Field Name                     | Description | Report       | Example |
+| Field Name                     | Description | Log Type       | Example |
 |--------------------------------|-------------|--------------|---------|
 | Account                        | The account associated with the Virtual Tag. | Virtual Tag  | Vantage |
 | Backfill Until                 | The date until which historical data is populated in a Virtual Tag. | Virtual Tag  | Jul 31, 2025, 20:00:00 |
