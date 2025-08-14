@@ -36,7 +36,7 @@ You can access audit logs from the **Settings** UI or directly from a Cost Repor
         <img alt="Budget import errors" width="80%" src="https://assets.vantage.sh/docs/audit-log-cost-report.png" />
     </div>
     <p>A list of audit log events is displayed for that particular report.</p> 
-    <p><i>If reports were created prior to the launch of this feature (August 2025), you will not see any associated audit logs.</i></p>
+    <p><i>Audit Logs are made available for events starting on July 22, 2025.</i></p>
     </TabItem>
     <TabItem value="virtual-tag" label="From a Virtual Tag">
     From the top right of any Virtual Tag, click the <b>View Audit Logs</b> icon. 
@@ -62,9 +62,9 @@ All audit logs contain the following object metadata at the top of the log.
 | ----------- | -------------------------------------------------------------------------------------------------------------------------------------- | ------------ | ------------------------ |
 | Object Type | What type of object was updated.                                                                                                        | All          | Cost Report; Virtual Tag |
 | Workspace   | Workspace where the object belongs, or in the case of Virtual Tags, what workspace the user took the action from.                  | All          | Management               |
-| User        | User’s name.                                                                                                                    | All          | Firstname Lastname       |
+| User        | User’s name. Any actions taken by Vantage Support will be denoted in the User field as Vantage Support.                                                                                                                    | All          | Firstname Lastname       |
 | User Role   | User’s role. | All          | Admin; Member            |
-| Source      | Where the action originated.                                                                                                             | All          | Console; API             |
+| Source      | Where the action originated. API includes the Vantage API and Terraform provider.                                                                                                             | All          | Console; API             |
 
 ### Object Details
 
@@ -92,7 +92,6 @@ Two sections are displayed to indicate what has been changed or not changed on t
 | Start Date/ End Date           | Separate fields for start and end date set for report. | Cost Report | 2025-01-26 |
 | Title                          | The title of the report. | Cost Report  | My Cost Report |
 | Token                          | Unique identifier for the object. | Cost Report and Virtual Tag  | `rprt_12345abcde67890f`, `vtag_82741abfce690354` |
-| Workspace                      | The workspace in which the report exists. | Cost Report  | Management |
 
 ## Share Audit Logs
 
