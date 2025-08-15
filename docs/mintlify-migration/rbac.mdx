@@ -1,0 +1,358 @@
+---
+title: "Role-Based Access Control (RBAC)"
+---
+
+<Info>
+**NOTE**
+
+Advanced role-based access controls are available only for Enterprise tier accounts.
+</Info>
+
+Role-based access control (RBAC) facilitates fine-grained management of resource access. Team-based access determines the specific Cost Reporting resources—such as Cost Reports, dashboards, or folders—that a user can view and/or edit.
+
+By default, all users are members of the **Everyone** team. Owners can control which workspaces/resources the Everyone team can access.
+
+The Owner, Team Owner, Team Editor, Team Viewer, and Integration Owner roles are described below.
+
+| Role | Description |
+| --- | --- |
+| Owner | A global account owner who has full access to all items. This role can also manage teams, integrations, and workspaces within an account. Even if the Everyone team is removed from an item, the Owner will still be able to manage that item. |
+| Team Owner | A Team Owner has full control over resources to which that team is granted access. Team Owners also have the ability to change which teams can access their team's resources. They can also manage members of their team. |
+| Team Editor | A Team Editor has full control over resources to which that team is granted access; however, they cannot manage the members of the team. |
+| Team Viewer | A Team Viewer has read-only access to all resources to which that team is granted access. |
+| Integration Owner | This role has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role *does not* have access to other administrative settings, like adding and removing users. <br /> • Integration Owners can navigate to the **Settings > Integrations** tab in the Vantage console and manage [provider integrations](/getting_started). <br /> • Only an account Owner can grant the Integration Owner role to another user. <br /> • There is no limit to the number of users that can have this role. <br /> • An Integration Owner has all the privileges of an Editor, as well as integration management privileges. |
+
+## Manage Account Access
+
+Owner is the only role that can invite users to and remove users from Vantage as well as change another user's role.
+
+<Tabs>
+<Tab title="Add a New User">
+<Steps>
+<Step>
+From the top navigation, click **Settings**.
+</Step>
+
+<Step>
+From the left navigation, under **General Settings**, click **People**.
+</Step>
+
+<Step>
+On the right, click **Invite People**.
+</Step>
+
+<Step>
+Enter the new user's email, then select their **Role** and any **Teams**.
+</Step>
+
+<Step>
+Click **Send Invitation**.
+</Step>
+</Steps>
+</Tab>
+
+<Tab title="Change a User's Role">
+<Steps>
+<Step>
+From the top navigation, click **Settings**.
+</Step>
+
+<Step>
+From the left navigation, under **General Settings**, click **People**.
+</Step>
+
+<Step>
+Hover over the user's row in the People list, then click the ellipses (...).
+</Step>
+
+<Step>
+Click **Edit**, then select the new user **Role**.
+</Step>
+
+<Step>
+Click **Save Changes**.
+</Step>
+</Steps>
+</Tab>
+</Tabs>
+
+## Manage Team Access
+
+### Create or Delete Teams (Owners Only)
+
+<Info>
+**NOTE**
+
+By default, all Vantage users are part of the Everyone team. Users *cannot* be removed from this team.
+</Info>
+
+<Frame>
+![Team management window](https://assets.vantage.sh/docs/team-management.png)
+</Frame>
+
+<Steps>
+<Step>
+From the top navigation, click **Settings**.
+</Step>
+
+<Step>
+On the left navigation, under **General Settings**, click **Teams**.
+</Step>
+
+<Step>
+On the Teams view, Owners can manage, add, or delete teams.
+	- To add a team, click **Create a Team**. Add a **Name** and **Description**, then click **Create Team**.
+	- To delete a team, hover over the team's name in the team list, then click the trashcan icon.
+</Step>
+</Steps>
+
+### Map Team to SSO Group (Owners Only)
+
+Account Owners can map SSO groups to teams within Vantage. The matching teams first need to be created following the steps above. Then, follow the [Set Up SSO Group Mapping for Teams](/sso#set-up-sso-group-mapping-for-teams) instructions for information on how to map teams.
+
+### Manage a Team (Team Owners)
+
+To manage a team, select the team from the **Teams** list. Four tabs are displayed: General, Members, Access, and API Access Tokens.
+
+<Frame>
+![Team management tabs and options](https://assets.vantage.sh/docs/team-management-details.png)
+</Frame>
+
+- On the **General** tab, you can edit the team name and description as well as set a default team [dashboard](/dashboards#set-a-default-dashboard).
+	<Info>
+	**NOTE**
+
+	If you set a default dashboard, members who belong to other teams with default dashboards or with a personal default dashboard already configured, may be directed to those dashboards instead.
+	</Info>
+- On the **Members** tab, you can add and remove members from a team as well as change a member's team role. Only Owners will be able to perform these actions. Additionally, Team Owners can perform these actions for their respective teams.
+- On the **Access** tab, Owners and Team Owners can manage workspace access for the team as well as view resources with granted access.
+- On the **API Access Tokens** tab, Owners and Team Owners can create [API service tokens](/vantage_account#create-a-vantage-api-service-token) at the account level that inherit permissions from the team.
+
+<Tabs>
+<Tab title="Add a Member">
+<Steps>
+<Step>
+From the **Members** tab, click **Add Members**.
+</Step>
+
+<Step>
+Select member(s) from the list.
+</Step>
+
+<Step>
+Click **Add People**.
+</Step>
+</Steps>
+</Tab>
+
+<Tab title="Remove a Member">
+<Steps>
+
+<Step>
+From the **Members** tab, hover over a user's name in the Members list.
+</Step>
+
+<Step>
+On the right, click **Remove**.
+</Step>
+
+</Steps>
+</Tab>
+
+
+<Tab title="Change Member's Role">
+<Steps>
+<Step>
+From the **Role** column of the **Members** tab, select the role dropdown.
+</Step>
+
+<Step>
+Select a new role from the list.
+</Step>
+
+</Steps>
+</Tab>
+
+<Tab title="Manage Workspace Access">
+<Steps>
+
+<Step>
+On the **Access** tab, in the **Workspace Access** box, click the dropdown next to the workspace name.
+</Step>
+
+<Step>
+Select the appropriate level of workspace access for the team: **Can Edit**, **Can View**, or **No Access**.
+</Step>
+
+</Steps>
+</Tab>
+
+
+<Tab title="View Granted Access">
+<Steps>
+
+<Step>
+On the **Access** tab, in the **Granted Access** box, select a resource for which the team was granted access. You will be brought to the resource (for example, a Cost Report).
+</Step>
+
+<Step>
+You can then edit or remove granted access directly from the resource itself.
+</Step>
+
+</Steps>
+</Tab>
+</Tabs>
+
+## Manage Resource Access
+
+You can manage access for individual Cost Reporting resources, including Cost Reports, Cost Report Folders, Dashboards, Saved Filters, Resource Reports, and Segments.
+
+<Frame>
+![Manage access to a Cost Reporting dashboard](https://assets.vantage.sh/docs/resource-access.png)
+</Frame>
+
+<Info>
+**NOTE**
+
+You can manage resource-level access from the Cost Reporting navigation list or from directly within a resource. If you are granted access to a report in a workspace outside of your regularly accessed workspace, when you access the link to that report you will have temporary access to the new workspace and can view the items that you were granted access to.
+</Info>
+
+<Tip>
+**TIP**
+
+If you want to grant access to a resource (for example, a Dashboard) to only a specific team (for example, the Marketing team), set the Everyone team to **Cannot Access**, and set the Marketing team to **Can Access**. See the [Team-Only Resource Access](/rbac#team-only-resource-access) permissions table below.
+</Tip>
+
+<Tabs>
+<Tab title="Manage Access from Cost Reporting List">
+<Steps>
+
+<Step>
+From the top navigation, click **Cost Reporting**. (For Resource Reports, click **Active Resources** > **Resource Reports**.)
+</Step>
+
+<Step>
+Select the resource category from the left navigation (e.g., Cost Reports or Segments).
+</Step>
+
+<Step>
+Hover over any resource in the list, then click the ellipses (**...**) on the right.
+</Step>
+
+<Step>
+Select **Manage Access**.
+</Step>
+
+<Step>
+Select a team from the list, and indicate the team's access level to the resource:
+	- **Can Access**: The team will have access to the resource.
+	- **Cannot Access**: The team will not have access to the resource.
+	- **Reset Access**: The team will not have access to the resource unless the team is assigned to the workspace the resource is associated with. For instance, if a specific resource from the Marketing workspace, such as a Saved Filter, was shared with the Management team, which has access only to the Management workspace, resetting the access will result in the Management team no longer having access to the Saved Filter.
+</Step>
+
+</Steps>
+</Tab>
+
+<Tab title="Manage Access from Inside Resource">
+<Steps>
+
+<Step>
+From the top navigation, click **Cost Reporting**. (For Resource Reports, click **Active Resources** > **Resource Reports**.)
+</Step>
+
+<Step>
+Select the resource category from the left navigation (e.g., Cost Reports or Segments).
+</Step>
+
+<Step>
+Hover over any resource in the list, and click the ellipses (**...**) on the right.
+</Step>
+
+<Step>
+From the top of any resource, such as a Cost Report, click the ellipses (**...**).
+</Step>
+
+<Step>
+Select **Manage Access**.
+</Step>
+
+<Step>
+Select the desired access, then click **Save**.
+</Step>
+
+</Steps>
+</Tab>
+</Tabs>
+
+### Team-Only Resource Access
+
+In the following table, the Everyone team's access to a resource (for example, a Cost Report) has been revoked. The member's team has been granted access to that specific resource.
+
+| Team Access | Team Role | Create? | Update?\* | Delete? | View? | Manage Access? |
+| --- | --- | --- | --- | --- | --- | --- |
+| No Access | Owner |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+| No Access | Editor |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+| No Access | Viewer |  |  |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+| View Access | Owner |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| View Access | Editor |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+| View Access | Viewer |  |  |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+| Edit Access | Owner | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| Edit Access | Editor | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  <Icon icon="circle-check" iconType="solid" color="#6742D6"/>|  |
+| Edit Access | Viewer |  |  |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |  |
+
+*\* Update refers to saving changes*
+
+<Info>
+**NOTE**
+
+If a user is on multiple teams that have conflicting permissions, the higher level of permissions will be granted.
+</Info>
+
+<AccordionGroup>
+<Accordion title="Multiple Teams Resource Scenario">
+- A user is on the Marketing team with **Team Owner** permissions.
+- They are also on the Engineering team with **Team Viewer** permissions.
+- Both teams are granted access to a Saved Filter.
+
+The user will be granted Owner-level permissions to that resource, in other words, they can view *and* manage that resource.
+</Accordion>
+
+<Accordion title="Multiple Workspace Access Scenario">
+- A user is on the Data Analyst team and the Data Engineering team.
+	- The Data Engineering team has **Can Edit** access to the Engineering workspace.
+	- The Data Analyst team has **Can View** access to the Engineering workspace.
+- The user has edit privileges to resources in the Engineering workspace because of their **Can Edit** abilities from the Data Engineering team.
+</Accordion>
+</AccordionGroup>
+
+## Settings Permissions
+
+Settings permissions are relevant to specific functions in the console, including Authentication, Billing & Plans, Integrations, People, Teams, and Workspaces. Only Owners can manage Settings-related functions. Note that Team Owners can manage their team within the Teams UI—but only the team for which they hold the Team Owner role.
+
+<Info>
+**NOTE**
+
+Integration Owners can also manage provider integrations; however, they do not have access to additional administrative settings, like workspace configuration or adding/removing users.
+</Info>
+
+<Accordion title="Settings Permissions Examples">
+- **Scenario 1**: You want to create a new provider integration, such as a new Azure connection. An Owner will need to create the connection.
+- **Scenario 2**: You are a Team Owner for the Engineering team. You can manage the Engineering team in the Teams UI. You will not be able to manage other teams.
+</Accordion>
+
+## Financial Planning Permissions
+
+Financial planning permissions are relevant to specific screens in the console, including Autopilot, Budgets, Budget Alerts, Business Metrics, Issues, Reserved Instances, Savings Models, and Savings Plans Usage.
+
+Users with the Editor or above role will be able to create resources and manage the above functions.
+
+<Info>
+**NOTE**
+
+Any user who is assigned to an [issue](/issues) will have update permissions for that issue.
+</Info>
+
+<Accordion title="Financial Planning Permissions Examples">
+- **Scenario 1**: You want to create a new Budget Alert. A user with an Editor or above role will need to create and manage the alert. All other users will only be able to *view* the alert.
+- **Scenario 2**: Editors and above can create and manage issues. You have a Viewer role and are assigned a new issue. You can now edit and comment on *only this new issue*.
+</Accordion>

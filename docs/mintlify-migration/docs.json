@@ -1,0 +1,390 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "aspen",
+  "name": "Vantage",
+  "colors": {
+    "primary": "#6742D6",
+    "light": "#6742D6",
+    "dark": "#6742D6"
+  },
+  "fonts": {
+    "heading": {
+      "family": "Sora"
+    }
+  },
+  "contextual": {
+    "options": [
+      "copy",
+      "view",
+      "chatgpt",
+      "claude",
+      "perplexity",
+      "mcp",
+      "cursor",
+      "vscode"
+    ]
+  },
+  "favicon": "/favicon.png",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Docs",
+        "groups": [
+          {
+            "group": "Get Started",
+            "pages": [
+              "index",
+              "getting_started"
+            ]
+          },
+          {
+            "group": "Account & Security",
+            "pages": [
+              "security",
+              "vantage_account",
+              "sso",
+              "rbac",
+              "workspaces",
+              "tagging",
+              "partners"
+            ]
+          },
+          {
+            "group": "API and Terraform",
+            "pages": [
+              "api-reference",
+              "vantage_mcp",
+              "terraform",
+              {
+                "group": "VQL (Vantage Query Language)",
+                "pages": [
+                  "vql",
+                  "vql_cost_report",
+                  "vql_resource_report",
+                  "vql_kubernetes_efficiency_report",
+                  "vql_financial_commitment_report",
+                  "vql_network_flow_report"
+                ]
+              },
+              "data_dictionary"
+            ]
+          },
+          {
+            "group": "Provider Integrations",
+            "pages": [
+              {
+                "group": "AWS",
+                "pages": [
+                  "/connecting_aws",
+                  "/aws_supported_services"
+                ]
+              },
+              {
+                "group": "Azure",
+                "pages": [
+                  "/connecting_azure",
+                  "/connecting_azure_mca",
+                  "/connecting_azure_ea",
+                  "/azure_supported_services"
+                ]
+              },
+              {
+                "group": "Google Cloud",
+                "pages": [
+                  "/connecting_gcp",
+                  "/enabling_gcp_billing_export",
+                  "/gcp_supported_services"
+                ]
+              },
+              {
+                "group": "Kubernetes",
+                "pages": [
+                  "/connecting_kubernetes",
+                  "/kubernetes_agent",
+                  "/kubernetes"
+                ]
+              },
+              "/connecting_datadog",
+              "/connecting_new_relic",
+              "/connecting_mongodb-atlas",
+              {
+                "group": "Snowflake",
+                "pages": [
+                  "/connecting_snowflake",
+                  "/snowflake_cost_by_query"
+                ]
+              },
+              "/connecting_databricks",
+              "/connecting_fastly",
+              "/connecting_oracle",
+              "/connecting_confluent",
+              "/connecting_planetscale",
+              "/connecting_coralogix",
+              "/connecting_github",
+              "/connecting_linode",
+              "/connecting_open_ai",
+              "connecting_grafana",
+              "/connecting_clickhouse",
+              "/connecting_temporal",
+              "/connecting_twilio",
+              "/connecting_custom_providers",
+              "/provider_data_refresh"
+            ]
+          },
+          {
+            "group": "App Integration",
+            "pages": [
+              "/jira",
+              "/slack",
+              "/microsoft_teams"
+            ]
+          },
+          {
+            "group": "Cost Reporting Features",
+            "pages": [
+              "/overview",
+              {
+                "group": "Cost Reports",
+                "pages": [
+                  "/cost_reports",
+                  "/saved_filters",
+                  "/folders",
+                  "/dashboards"
+                ]
+              },
+              {
+                "group": "Notifications",
+                "pages": [
+                  "/report_notifications",
+                  "/cost_alerts"
+                ]
+              },
+              "/usage_based_reporting",
+              "/annotations",
+              "/forecasting",
+              "/active_resources",
+              "/network_flow_reports",
+              "/segments",
+              "/cost_anomaly_alerts"
+            ]
+          },
+          {
+            "group": "Financial Planning Features",
+            "pages": [
+              "autopilot",
+              "budgets",
+              "per_unit_costs",
+              "issues",
+              "financial_commitment_reports",
+              "savings_planner",
+              "cost_recommendations"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Vantage University",
+        "groups": [
+          {
+            "group": "Vantage University",
+            "pages": [
+              "vantage_university",
+              {
+                "group": "User-Specific Learning Tracks",
+                "pages": [
+                  "vantage_university_finops_analyst",
+                  "vantage_university_developer",
+                  "vantage_university_finance_manager"
+                ]
+              },
+              "vantage_university_account_management",
+              "vantage_university_integrations",
+              "vantage_university_cost_reporting",
+              "vantage_university_cost_allocation",
+              "vantage_university_observability",
+              "vantage_university_unit_costs",
+              "vantage_university_budgeting",
+              "vantage_university_per_resource_costs",
+              {
+                "group": "Sample Workflow Guides",
+                "pages": [
+                  "team_accountability",
+                  "executive_reporting",
+                  "hidden_costs"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Changelog",
+        "groups": [
+          {
+            "group": " ",
+            "pages": [
+              "changelog"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "About Us",
+          "href": "https://www.vantage.sh/about",
+          "icon": "users"
+        },
+        {
+          "anchor": "Community",
+          "href": "https://vantage.sh/slack",
+          "icon": "slack"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://www.vantage.sh/blog",
+          "icon": "newspaper"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg",
+    "href": "https://www.vantage.sh"
+  },
+  "appearance": {
+    "default": "light"
+  },
+  "background": {
+    "color": {
+      "light": "#FDFCFD"
+    },
+    "decoration": "gradient"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Login",
+        "href": "https://console.vantage.sh/login"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Get Started",
+      "href": "https://console.vantage.sh/signup"
+    }
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/JoinVantage",
+      "linkedin": "https://www.linkedin.com/company/vantage-sh/",
+      "slack": "https://vantage.sh/slack",
+      "github": "https://github.com/vantage-sh/",
+      "youtube": "https://www.youtube.com/@Vantagesh"
+    },
+    "links": [
+      {
+        "header": "Docs",
+        "items": [
+          {
+            "label": "Introduction",
+            "href": "https://docs.vantage.sh/"
+          },
+          {
+            "label": "Quickstart",
+            "href": "https://docs.vantage.sh/getting_started"
+          },
+          {
+            "label": "Cost Reports",
+            "href": "https://docs.vantage.sh/cost_reports"
+          },
+          {
+            "label": "Autopilot",
+            "href": "https://docs.vantage.sh/autopilot"
+          },
+          {
+            "label": "Product Changelog",
+            "href": "https://docs.vantage.sh/changelog"
+          },
+          {
+            "label": "Vantage University",
+            "href": "https://docs.vantage.sh/vantage_university"
+          }
+        ]
+      },
+      {
+        "header": "Community",
+        "items": [
+          {
+            "label": "Slack",
+            "href": "https://vantage.sh/slack"
+          },
+          {
+            "label": "Cloud Cost Handbook",
+            "href": "https://handbook.vantage.sh/"
+          },
+          {
+            "label": "EC2Instances.info",
+            "href": "https://instances.vantage.sh/"
+          },
+          {
+            "label": "cur.vantage.sh",
+            "href": "https://cur.vantage.sh/"
+          },
+          {
+            "label": "focus.vantage.sh",
+            "href": "https://focus.vantage.sh/"
+          }
+        ]
+      },
+      {
+        "header": "More",
+        "items": [
+          {
+            "label": "API Documentation",
+            "href": "https://vantage.readme.io/reference/general"
+          },
+          {
+            "label": "Vantage Blog",
+            "href": "https://vantage.sh/blog"
+          },
+          {
+            "label": "GitHub",
+            "href": "https://github.com/vantage-sh"
+          },
+          {
+            "label": "Vantage Status",
+            "href": "https://status.vantage.sh/"
+          }
+        ]
+      },
+      {
+        "header": "Company",
+        "items": [
+          {
+            "label": "About",
+            "href": "https://www.vantage.sh/about/"
+          },
+          {
+            "label": "Privacy Policy",
+            "href": "https://www.vantage.sh/privacy-policy"
+          },
+          {
+            "label": "Terms of Use",
+            "href": "https://www.vantage.sh/website-terms-of-use"
+          },
+          {
+            "label": "Service Agreement",
+            "href": "https://www.vantage.sh/service-agreement"
+          },
+          {
+            "label": "Sub-Processors",
+            "href": "https://www.vantage.sh/subprocessors"
+          }
+        ]
+      }
+    ]
+  }
+}

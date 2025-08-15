@@ -1,0 +1,235 @@
+---
+title: Google Cloud
+sidebarTitle: Overview
+description: Vantage uses a [service account](https://cloud.google.com/iam/docs/service-accounts) to integrate with your GCP account. The service account is generated on a per-customer basis. Vantage requests extremely basic and limited permissions for GCP. During the integration process, you will grant the service account access *only* to the specific BigQuery dataset that contains your billing data.
+---
+
+## Prerequisites
+
+Before you start the integration process, you will need to complete the following prerequisites:
+
+- Create a project to store your Cloud Billing export data.
+- Create a BigQuery dataset to store your Cloud Billing export data.
+- Enable Cloud Billing export.
+
+See the [GCP Cloud Billing export](/enabling_gcp_billing_export/) instructions for details on how to complete the above steps. Then, return to this page to complete the rest of the integration process.
+
+<Info>
+**NOTE**
+
+If your organization enforces domain restrictions, you can add the following Google Cloud organization ID to allow Vantage access: `421856710303`. If you instead need the customer ID, use `C03l99qsz`.
+</Info>
+
+**If you have a pre-existing Cloud Billing export** set up, ensure your configuration adheres to the requirements below before moving further.
+
+- Your project is linked to the same Cloud Billing account that the Cloud Billing export is enabled on.
+	<Tip>
+    **TIP**
+
+	We recommend you create a dedicated project to store all Cloud Billing data, rather than using an existing project.
+	</Tip>
+- Detailed Billing Export is enabled, *not* Standard Billing Export.
+- The BigQuery dataset and table are deployed to either **US (multiple regions in United States)** or **EU (multiple regions in European Union)**.
+- If you have multiple Cloud Billing accounts, you will need to enable Cloud Billing exports on each account.
+
+<Info>
+**NOTE**
+
+If your GCP billing data is typically displayed in a currency other than USD, Vantage will convert it to USD using the `currency_conversion_rate` field in the Cloud Billing export data.
+</Info>
+
+## Create a Connection
+
+Open a new browser tab, and navigate to the [Vantage GCP Settings page](https://console.vantage.sh/settings/gcp). You should see your customer-specific service account displayed at the top of the integration page. Keep this page open.
+
+### Step 1 - Grant the Vantage Service Account Permission to Access BigQuery
+
+Back in GCP, navigate to the [IAM console](https://console.cloud.google.com/iam-admin/iam), and complete the steps below to grant the Vantage service account permission to access BigQuery.
+
+<Steps>
+    <Step>
+    At the top of the IAM console, select the project that hosts the BigQuery dataset with your Cloud Billing export data.
+    </Step>
+    <Step>
+    Configure the following permissions:
+	- In the center of the page, under **Permissions for project "My Project ABCD"**, click **\+ GRANT ACCESS**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![GCP project permissions menu](https://assets.vantage.sh/docs/connect-gcp/gcp-project-permissions-menu.png)
+            </Frame>
+        </Accordion>
+	- In the **New principals** field, under **Add principals**, paste the value for your Vantage service account. This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier.
+	- In the **Role** field, under **Assign roles**, search for and select **BigQuery Job User**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Grant GCP project access](https://assets.vantage.sh/docs/connect-gcp/gcp-grant-project-access.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    Click **SAVE**.
+    </Step>
+</Steps>
+
+### Step 2 - Grant the Vantage Service Account Permission to Access the BigQuery Dataset
+
+Go back to [BigQuery](https://console.cloud.google.com/bigquery), and complete the steps below to grant the Vantage service account permission to access the BigQuery dataset.
+
+<Steps>
+    <Step>
+        At the top of the BigQuery console, ensure the project that you set up to contain your billing data is selected.
+    </Step>
+    <Step>
+        In the **Explorer** panel, select your project to expand it.
+    </Step>
+    <Step>
+        Select the **three vertical dots** next to the dataset name, then click **Open**. The **Dataset info** will be displayed on the right. *Keep this screen open as you will need to obtain your project ID and dataset name in the [Add Your GCP Configuration Information to the Vantage](/connecting_gcp#step-4-add-your-gcp-configuration-information-to-the-vantage-console) step.*
+    </Step>
+    <Step>
+        Select the three vertical dots next to the dataset name again, then click **Share**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![BigQuery share dataset menu](https://assets.vantage.sh/docs/connect-gcp/gcp-share-dataset.png)
+            </Frame>
+        </Accordion>
+        In this example, **project-id-123456** is the project and **all\_billing\_data** is the dataset.
+    </Step>
+    <Step>
+    On the **Share permissions** panel that appears on the right, click **\+ ADD PRINCIPAL**.
+    </Step>
+    <Step>
+        In the **New principals** field, under **Add principals**, search for and select the Vantage service account.
+        <Tip>
+        **TIP**
+
+        Copy the full name of your service account from the Vantage console into the search field to search for it.
+        </Tip>
+    </Step>
+    <Step>
+        In the **Role** field, under **Assign roles**, search for and select **BigQuery Data Viewer**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Grant BigQuery dataset access](https://assets.vantage.sh/docs/connect-gcp/gcp-grant-dataset-access.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Click **SAVE**.
+    </Step>
+</Steps>
+
+### Step 3 - Grant the Vantage Service Account Permissions to Access Active Resources
+
+To enable [active resources](/active_resources), you must also grant the **Viewer** role to the Vantage GCP service account, *at the organization level*. This role allows read-only access to all resources in the organization, enabling Vantage to gather data on active resources.
+
+<Note>
+**INFO**
+
+For a list of all supported GCP active resources, see the [GCP Supported Services](/gcp_supported_services) documentation.
+</Note>
+
+<Steps>
+    <Step>
+        Open a new tab in GCP, and navigate to **IAM & admin**.
+    </Step>
+    <Step>
+        On the top left of the screen, switch to your organization.
+    </Step>
+    <Step>
+        Click **\+ GRANT ACCESS**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Switch to organization in GCP](https://assets.vantage.sh/docs/connect-gcp/gcp-organization-level.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        In the **New principals** field, under **Add principals**, paste the value for your Vantage service account.
+        <Tip>
+        **TIP**
+
+        This value is the one displayed on the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) you opened earlier and have used for other permissions.
+        </Tip>
+    </Step>
+    <Step>
+        Under **Assign roles**, click **Basic** and select the **Viewer** role from the **Role** list. This adds the role needed for active resources.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Add viewer permission at org level](https://assets.vantage.sh/docs/connect-gcp/gcp-org-permissions.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Click **SAVE**.
+    </Step>
+</Steps>
+
+
+### Step 4 - Add Your GCP Configuration Information to the Vantage Console
+
+Go back to your browser tab that has BigQuery open. Then, in another tab, go back to the [Vantage GCP Integration page](https://console.vantage.sh/settings/gcp) to complete the integration process.
+
+<Steps>
+    <Step>
+        At the bottom of the Vantage GCP Integration page, click **Add Project Info**. A pop-up is displayed, which requires your Billing account ID, the project ID for the project that hosts the BigQuery dataset, and the BigQuery dataset name.
+    </Step>
+    <Step>
+        To obtain your **Billing Account ID**:
+        - Go to [**GCP Billing**](https://console.cloud.google.com/billing).
+        - Copy the value for your billing account, displayed in the **Billing account ID** column. It will look something like `1234AB-123456-7ABC12`.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![GCP Billing account ID screen](https://assets.vantage.sh/docs/connect-gcp/gcp-billing-account-id.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        To obtain your **Project ID hosting BigQuery dataset** and **BigQuery Dataset Name**:
+        - In the **Dataset info** screen of BigQuery (previously opened in step 3 of the [BigQuery permissions](/connecting_gcp#step-2-grant-the-vantage-service-account-permission-to-access-the-bigquery-dataset) section), observe the value on the **Dataset ID** line.
+            <Accordion title="Click to view example image">
+                <Frame>
+                ![BigQuery dataset details](https://assets.vantage.sh/docs/connect-gcp/gcp-dataset-id.png)
+                </Frame>
+            </Accordion>
+        - Copy everything before the period. For example, in **project-id-123456.all\_billing\_data**, copy only **project-id-123456**. Paste this in the **Project ID hosting BigQuery dataset** field in Vantage.
+        - Copy everything after the period and paste it in the **BigQuery Dataset Name** field in Vantage. (For example, in **project-id-123456.all\_billing\_data**, copy **all\_billing\_data**.)
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Vantage console configuration](https://assets.vantage.sh/docs/connect-gcp/gcp-vantage-console.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Click **Connect Account**.
+    </Step>
+</Steps>
+
+
+<Warning>
+**IMPORTANT**
+
+It typically takes a few hours for data to start appearing. Cloud Billing data is added retroactively for the current and previous month when detailed usage cost data is configured. Full data for the current and previous month can take 24–48 hours to fully propagate.
+</Warning>
+
+
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
+## Reporting Dimensions
+
+On GCP [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Project (project name)
+- Category (e.g., Cloud Functions Invocations (2nd Gen))
+- Label/Not Labeled (includes GCP labels and [virtual tags](/tagging) created in Vantage for this provider)
+- Resource (resource ID)
+- Region (e.g., Us East1)
+- Charge Type (e.g., Usage)
+- Billing Account (billing account ID)
+- Marketplace (Toggle to show only Marketplace purchases or excluded)
+- Service (e.g., Cloud Build)

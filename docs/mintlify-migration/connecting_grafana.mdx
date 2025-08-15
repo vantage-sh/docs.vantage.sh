@@ -1,0 +1,120 @@
+---
+title: "Grafana Cloud"
+description: "Vantage connects to your Grafana Cloud account via a customer-generated read-only token attached to a cloud access policy, which allows Vantage to ingest Grafana Cloud usage costs. Vantage displays Grafana Cloud costs and associated [usage metrics](/usage_based_reporting), like GB of Traces, Log Retention GB-Month, or number of Incident Response and Management Users, directly in line with other infrastructure costs."
+---
+
+You can integrate multiple Grafana Cloud integrations by providing read-only tokens for multiple organizations.
+
+## Connect Your Grafana Cloud Account
+
+### Prerequisites
+
+[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Grafana Cloud costs.
+
+<Info>
+**NOTE**
+
+Vantage cannot perform writes to your Grafana Cloud organization. Vantage is only able to see metadata associated with your usage.
+</Info>
+
+### Create the Connection
+
+<Steps>
+    <Step>
+    Navigate to [grafana.com](https://grafana.com/) and log in to your account.
+    </Step>
+    <Step>
+    On the left, under **SECURITY**, select **Access Policies**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Grafana Cloud portal](https://assets.vantage.sh/docs/grafana-portal.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    At the top of the page, click **Create access policy**.
+    </Step>
+    <Step>
+    For **Display name** and **Name**, enter *vantage*.
+    </Step>
+    <Step>
+    For **Realms**, select **all stacks**, or select individual stacks if you want only certain stacks associated with the integration.
+    </Step>
+    <Step>
+    Under **Scopes**, add the `billing-metrics:read` and `orgs:read` scopes. (You may need to search for these scopes in the **Add scope** search box below the checklist.)
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Grafana cloud access policy screen](https://assets.vantage.sh/docs/grafana-cap.png)
+        </Frame>
+    </Accordion>
+    <Info>
+    **NOTE**
+
+    If you have any IP restrictions on this instance, ensure you allow the following IP addresses for Vantage:
+    - `54.87.66.45`
+    - `3.95.43.133`
+    - `54.162.3.72`
+    - `44.199.143.63`
+    - `3.218.103.23`
+    </Info>
+    </Step>
+    <Step>
+    Click **Create**.
+    </Step>
+    <Step>
+    The new access policy is created. On the access policy tile, click **Add token**.
+    </Step>
+    <Step>
+    Give the token a name and select an expiration date. If the key expires, you will need to update your integration in Vantage with a new API token.
+    </Step>
+    <Step>
+    Click **Create**, then copy the new token.
+    </Step>
+    <Step>
+    From the top navigation in Vantage, click **Settings**.
+    </Step>
+    <Step>
+    On the left navigation, select **Integrations** and select **Grafana Cloud**.
+    </Step>
+    <Step>
+    The Grafana Cloud integrations page is displayed. Ensure you are on the **Connect** tab.
+    </Step>
+    <Step>
+    At the bottom of the page, click **Add API Key** and paste your newly generated token.
+    </Step>
+    <Step>
+    For **Organization slug**, enter the organization name that appears in your Grafana organization URL (e.g., in `https://grafana.com/orgs/vantagesh`, enter only `vantagesh`).
+    </Step>
+    <Step>
+    Click **Connect Account**.
+    </Step>
+</Steps>
+
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Grafana Cloud costs. As soon as they are processed, they will be available on your All Resources Cost Report. If you decide to remove your Grafana Cloud integration from Vantage, all costs associated with your Grafana Cloud API key will be removed from the Vantage console.
+
+### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
+## Grafana Costs on Cost Reports
+
+Due to Grafana’s billing process, billing data for the current month becomes available only on the 1st of the following month. Grafana Cloud costs are not amortized across the month; therefore, it is recommended that you view Grafana costs and usage using the **Monthly** date binning.
+
+<Frame>
+![](https://assets.vantage.sh/docs/grafana-report.png)
+</Frame>
+
+## Grafana Reporting Dimensions
+
+On Grafana [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Service (e.g., Metrics, Traces, Logs)
+- Category (Specific usage category, like Hosted Metrics Usage or Hosted Logs Usage)
+- Organization
+- Account ID (Grafana stack)
+- Tags ([Virtual Tags](/tagging) created in Vantage)
+- Charge Type (e.g., usage)

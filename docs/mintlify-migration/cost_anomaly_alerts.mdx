@@ -1,0 +1,98 @@
+---
+title: Anomaly Detection
+description: Cost anomalies notify teams of excess costs and help engineers fix misconfigurations or other problems before they become very expensive. All costs present in a [Cost Report](/cost_reports/) will be analyzed for anomalies, and all Cost Reports can be configured to send alerts. You can also configure alerts to be sent for detected anomalies.
+---
+
+Alerts can be sent to any number of email addresses. You can select any of your team members with a Vantage account, and add their email to the alert. You can also send alerts via Slack or Microsoft Team channels. If there are new anomalies for that day, they will be sent as a summary once per day.
+
+<Info>
+**NOTE**
+
+At this time, you cannot configure an alert for a specific [resource](/active_resources/); however, you can create a Cost Report filtered to a specific tag or label and configure an alert for that report.
+</Info>
+
+## How Anomaly Detection Works
+
+A machine learning model is trained on every cost category for every service of a Cost Report. If a cost for a specific date falls outside the expected bounds, it is considered an anomaly. Vantage also filters out very low dollar value cost anomalies to reduce alerting noise. Anomalies are detected for each service at the category level. For example, with Amazon EC2, anomalies are detected for *Data Transfer* or *Compute Instance*.
+
+Vantage indexes anomalies and attempts to identify the resource responsible for the change in cost. If a single resource is identified, Vantage highlights and filters for that resource when you view the anomaly in a Cost Report.
+
+When a single resource is not identified, the root cause may be:
+
+- Multiple resources contributed to a cost spike.
+- The anomaly is associated with a cost category that does not have a resource tied to it from the provider (e.g., AWS, Azure).
+- The provider does not provide resource-level granularity.
+
+<Tip>
+**TIP**
+
+To get started with cost anomaly detection and alerts, you can also view a video demo on [Vantage University](/vantage_university_observability) <Icon icon="graduation-cap" iconType="solid" />.
+</Tip>
+
+## View Cost Anomalies
+
+To view cost anomalies, navigate to any Cost Report and select the **Anomalies** tab.
+
+<Frame>
+![GIF of a Cost Report with the Anomalies tab opened](https://assets.vantage.sh/docs/cost-anomaly-alerts.gif)
+</Frame>
+
+<Tip>
+**TIP**
+
+Anomalies are considered **Active** if they have occurred in the past seven days. Once this time window passes, they move to an **Archived** state.
+</Tip>
+
+Anomaly alerts are sent only for the first time they are detected. If an anomaly persists for multiple days in a row, Vantage will not send alerts after the first day. Historical anomalies are available to view for a Cost Report, and the **Anomaly Detected** date will be the first day the anomaly occurred.
+
+## Take Action on Anomalies
+
+<Steps>
+    <Step>
+    To view more information about a specific alert, select the link in the **Category** column.
+    </Step>
+    <Step>
+    The alert is displayed on the corresponding Cost Report. The bar for the specific day the anomaly was detected is highlighted in red. Hover over the bar to view details. If a specific resource has been identified as the cause, it will be indicated in the tooltip. At the top right of the graph, click **Manage Anomaly**.
+    </Step>
+    <Step>
+    Select one of the following actions:
+    - **Create an Issue**: Select this option to create an [issue](/issues). A new tab is displayed with a new issue. The issue description will contain a link to the Cost Report where the anomaly was detected. This issue can be assigned to yourself or another teammate to resolve later. See the visual example below for how to create an issue.
+    - **Mark as Archived**: The anomaly will be displayed as **Archived** in the anomalies list.
+    - **Ignore**: The anomaly will be removed from the anomalies list. The **Ignore Anomaly** pop-up is displayed where you can provide feedback to Vantage on why you are ignoring the anomaly.
+    </Step>
+</Steps>
+
+<Frame>
+![GIF of a creating an issue for an Anomaly](https://assets.vantage.sh/docs/anomaly-issue.gif)
+</Frame>
+
+## Configure Cost Anomaly Alerts
+
+<Info>
+**NOTE**
+
+You can configure alerts to be sent via email, Slack, Microsoft Teams, or Jira. If you want to use Slack, Teams, or Jira you will need to configure the corresponding integration with Vantage. See the [Slack](/slack), [Microsoft Teams](/microsoft_teams), or [Jira](/jira) integration documentation for details. Once you have completed the integration steps, complete the below instructions to configure anomaly alerts.
+</Info>
+
+To receive alerts for any detected cost anomalies:
+
+<Steps>
+    <Step>
+    From the top of the anomalies list, click **Configure Alert**.
+    </Step>
+    <Step>
+    Select any email recipients you want to send the alert to. If you have Slack, Microsoft Teams, or Jira configured, the **Slack channels**, **Microsoft Teams channels**, or **Jira** fields are displayed.
+    </Step>
+    <Step>
+    Enter an **Alert Threshold**. You'll receive an alert only if this threshold is reached.
+    </Step>
+    <Step>
+    Click **Save**.
+    </Step>
+</Steps>
+
+To add or remove recipients or change the threshold, click **Configure Alert** and make those updates.
+
+<Frame>
+![Alert Thresholds](https://assets.vantage.sh/docs/anomaly-threshold.png)
+</Frame>

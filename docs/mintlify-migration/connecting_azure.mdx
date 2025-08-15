@@ -1,0 +1,285 @@
+---
+title: "Azure"
+sidebarTitle: "Overview"
+description: "Vantage integrates with your Azure account using an Active Directory [service principal](https://learn.microsoft.com/en-us/azure/active-directory/fundamentals/service-accounts-principal)."
+---
+
+## Before You Begin: Review Azure Billing Account Types
+
+Microsoft offers different billing account types based on your organization’s setup. The way that you'll complete your Azure integration with Vantage depends on which account type you have.
+
+<Tip>
+**TIP**
+
+To determine your billing account type, follow the steps in the [Azure documentation](https://learn.microsoft.com/en-us/azure/cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account).
+</Tip>
+
+If your organization uses a Microsoft Customer Agreement (MCA) or Enterprise Agreement (EA), follow the specific integration steps linked below. If you are on another account type such as a Cloud Solution Provier (CSP) or Pay as You Go, use the instructions on this page to integrate your account with Vantage.
+
+<Columns cols={2}>
+    <Card title="Microsoft Customer Agreement (MCA)" href="/connecting_azure_mca" icon="microsoft">
+        Follow the specific integration steps for Microsoft Customer Agreement (MCA) accounts.
+    </Card>
+    <Card title="Enterprise Agreement (EA)" href="/connecting_azure_ea" icon="tag">
+        Follow the specific integration steps for Enterprise Agreement (EA) accounts.
+    </Card>
+</Columns>
+
+## Connect Your Azure Account (Non-MCA or EA Account)
+
+This service principal is assigned access to either [management groups](https://learn.microsoft.com/en-us/azure/governance/management-groups/overview) or individual [subscriptions](https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/ready/landing-zone/design-area/resource-org-subscriptions).
+
+You can connect hundreds of Azure subscriptions to Vantage through the management group method. Any subscriptions that are part of a [resource group](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/manage-resource-groups-portal) will be automatically imported.
+
+<Info>
+**NOTE**
+
+The service principal is granted [Reader](https://learn.microsoft.com/en-us/azure/role-based-access-control/built-in-roles#reader) permissions. It does **not** have permissions—nor will it ever attempt—to make any changes to your infrastructure.
+</Info>
+
+<Tip>
+**TIP**
+
+Instructions are provided below for you to connect via the [Azure CLI](/connecting_azure#connect-via-the-azure-cli) or the [Azure portal](/connecting_azure#connect-via-the-azure-portal).
+</Tip>
+
+### Connect via the Azure CLI
+
+#### Prerequisites
+
+- The below commands are run via the [Azure CLI](https://learn.microsoft.com/en-us/cli/azure/?view=azure-cli-latest). Ensure you have access to Azure CLI and can create service principals and manage their permissions.
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
+
+
+#### Step 1: Create an Azure Service Principal
+Create a service principal using the following command:
+
+```
+az ad sp create-for-rbac -n "vantage"
+```
+
+You should see output similar to the below output:
+
+```json
+{
+    "appId": "2d218f0f5-7ad5-4a12-abc7-bad2889d6407",
+    "displayName": "vantage",
+    "password": "8zkj3~yswKd433U12SHrvp22UoA6tOOOkZ_BYar2",
+    "tenant": "1050a480-ef60-43d7-b8db-224aad100b60"
+}
+```
+
+Record the `appId`, `password`, and `tenant` as you will enter these credentials into the Vantage console.
+
+#### Step 2: Grant the Service Principal Permissions
+
+    <Info>
+    **NOTE**
+
+    Vantage recommends assigning permissions to a management group that aggregates your subscriptions. By following this recommendation, you do not have to manually assign each subscription.
+    </Info>
+
+    Grant permissions to the `appId` from the service principal created above. The scope can be a subscription or management group. Ensure you replace `<SERVICE_PRINCIPAL_APP_ID>` with the `appId`. Replace `<MANAGEMENT_GROUP_ID>` (or `<SUBSCRIPTION_ID>`) with your management group ID (or subscription ID).
+
+    <Tabs>
+    <Tab title="Management Group">
+    ```
+    az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \  --role Reader \  --scope "/providers/Microsoft.Management/managementGroups/<MANAGEMENT_GROUP_ID>"
+    ```
+    </Tab>
+
+    <Tab title="Subscription">
+    ```
+    az role assignment create --assignee <SERVICE_PRINCIPAL_APP_ID> \  --role Reader \  --scope "/subscriptions/<SUBSCRIPTION_ID>"
+    ```
+    </Tab>
+    </Tabs>
+
+    Skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials) section for the steps to complete the connection with Vantage.
+
+
+### Connect via the Azure Portal
+
+#### Prerequisites
+
+- The below instructions are for connecting using the Azure portal. If you already completed the steps via the Azure CLI, skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials) section. You should have access to set up service principals and grant those service principals permissions.
+- [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
+
+#### Step 1 - Create a New Application Registration
+
+<Steps>
+    <Step>
+    From the main page of the Azure portal, search for and navigate to **Microsoft Entra ID**.
+    </Step>
+    <Step>
+    In the left navigation, under **Manage**, select **App registrations**.
+    </Step>
+    <Step>
+    Click **\+ New registration**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with App Registration menu option selected](https://assets.vantage.sh/docs/connect-azure/azure-new-app-registration.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The **Register an application** screen is displayed. For **Name**, enter *vantage*.
+    </Step>
+    <Step>
+    Leave all other settings as their defaults and click **Register**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal the Register an application screen and vantage entered as app name](https://assets.vantage.sh/docs/connect-azure/azure-register-app.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    The app details are displayed. Record the **Application (client) ID** and **Directory (tenant) ID** to use later.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the client ID and tenant ID displayed and highlighted](https://assets.vantage.sh/docs/connect-azure/azure-app-ids.png)
+            </Frame>
+        </Accordion>
+    </Step>
+</Steps>
+
+#### Step 2 - Generate a Client Secret
+
+<Steps>
+    <Step>
+    On the same page, next to the **Client credentials** field, click **Add a certificate or secret**. (You can also access the **Certificates and secrets** screen from the left navigation menu.)
+    </Step>
+    <Step>
+    Click **\+ New client secret**.
+    </Step>
+    <Step>
+    The **Add a client secret** pane is displayed. For **Description**, enter a description, such as *vantage-secret*.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with the Azure client secret window open and a new secreted created called vantage-secret](https://assets.vantage.sh/docs/connect-azure/azure-client-secret.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    For **Expires**, select an expiration option for the secret.
+        <Warning>
+            **CAUTION**
+
+            If this secret expires, you will need to supply Vantage with a new secret *before* the expiration date.
+        </Warning>
+    </Step>
+    <Step>
+    Click **Add**.
+    </Step>
+    <Step>
+    The newly created secret is displayed. Copy the secret's **Value** to add to the Vantage console later. This value will be displayed only one time.
+    </Step>
+</Steps>
+
+#### Step 3 - Grant the Service Principal Permissions
+
+<Info>
+**NOTE**
+
+Vantage recommends assigning permissions to a management group that aggregates your subscriptions. By following this recommendation, you do not have to manually assign each subscription.
+</Info>
+
+<Steps>
+    <Step>
+    From the top navigation, search for and navigate to **Management groups**. (If you want to assign permissions to a subscription, navigate to **Subscriptions**.)
+    </Step>
+    <Step>
+    Open the management group for which you will be assigning permissions.
+    </Step>
+    <Step>
+    On the left navigation, click **Access control (IAM)**.
+    </Step>
+    <Step>
+    Click **Add role assignment**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with management group window open. The Access control tab is highlighted.](https://assets.vantage.sh/docs/connect-azure/azure-add-role-assign.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    On the **Add role assignment** screen, select **Reader**. Then, click **Next**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with Reader role highlighted](https://assets.vantage.sh/docs/connect-azure/azure-add-reader-role.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    For **Assign access to**, select **User, group, or service principal**.
+    </Step>
+    <Step>
+    Click **\+ Select members**. The **Select members** tab is displayed on the right. Search for the *vantage* app you created before. Select the listed app, then click **Select**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            ![Azure portal with Add role assignment window displayed](https://assets.vantage.sh/docs/connect-azure/azure-add-role-assignment.png)
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+    Click **Next** > **Review + assign**.
+    </Step>
+</Steps>
+
+###  Save the Credentials in Vantage
+
+After you complete the steps for connecting via the Azure CLI or Azure portal, follow the steps below to add the Azure tenant ID, service principal App ID, and service principal password/secret in Vantage.
+
+<Steps>
+    <Step>
+    Navigate to the [Integrations page](https://console.vantage.sh/settings/integrations) in the Vantage console, and add an Azure integration.
+    </Step>
+    <Step>
+    On the Azure integration page, click **Add Credentials**.
+    </Step>
+    <Step>
+    Add the **Azure AD Tenant ID**, **Service Principal App ID**, and **Service Principal Password** you previously obtained, then click **Connect Account**. Vantage will begin importing your Azure costs.
+    </Step>
+</Steps>
+
+## Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
+## Azure Amortization
+
+Azure stores their actual and amortized billing data in separate tables. Vantage pulls in both tables for you to view either costs types within Cost Reports, with no additional integration steps required. To switch between actual and amortized costs, select **Settings** at the top of any Cost Report, and check or uncheck the **Enabled** checkbox in the Amortization section.
+
+<Info>
+**NOTE**
+
+Azure does not show unused reservations within their amortized views. If performing charge back for Azure cost data, ensure you use either actual costs or use Custom Providers to add in unused reservation costs to your amortized Azure views.
+</Info>
+
+
+## Azure Cost Recommendations
+
+Vantage provides different [cost recommendations](/cost_recommendations) for Azure. Each recommendation includes a potential monthly savings value, which is something that is not shown in Azure Advisor. Savings estimates are displayed in USD.
+
+## Kubernetes and AKS
+
+Vantage supports Kubernetes cost allocation on Azure, including Kubernetes clusters running on VMs or through AKS. Vantage recommends using the [Vantage Kubernetes agent](/kubernetes_agent) to monitor and ingest Kubernetes costs from Azure.
+
+## Azure Reporting Dimensions
+
+On Azure [Cost Reports](/cost_reports), you can filter across several dimensions:
+
+- Resource Group (resource group name)
+- Category (e.g., Virtual Network IP Addresses)
+- Tag/Not Tagged (includes Azure tags and [virtual tags](/tagging) created in Vantage for this provider)
+- Subcategory (e.g., Virtual Network Standard IPv4 Static Public IP)
+- Resource (resource ID)
+- Region (e.g., Us East)
+- Charge Type (e.g., Usage)
+- Subscription (subscription name)
+- Marketplace (Toggle to show only Marketplace purchases or excluded)
+- Service (e.g., Virtual Machines)

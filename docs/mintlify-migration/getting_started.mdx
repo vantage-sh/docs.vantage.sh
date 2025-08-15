@@ -1,0 +1,203 @@
+---
+title: Quickstart
+mode: wide
+---
+
+import { CustomCard } from '/snippets/custom-card.mdx';
+
+<Tip>
+**GET STARTED**
+
+This quickstart guide will help you to set up your Vantage account, connect one or multiple providers, and start using Cost Reporting and Financial Planning features.
+
+For video tutorials, check out [Vantage University](/vantage_university) <Icon icon="graduation-cap" iconType="solid" />.
+</Tip>
+
+## Step 1: Create an Account
+
+- To get started, [create a Vantage account](https://console.vantage.sh/signup).
+- Optionally, you can upgrade to a paid plan to unlock additional features and track higher amounts of cloud infrastructure costs. View the [Vantage Pricing page](https://www.vantage.sh/pricing) for all pricing and plan details. All paid plans have an option to trial the service before committing to a subscription.
+
+## Step 2: Connect Providers
+
+Next, create a data integration between at least one of your providers and Vantage. Detailed integration documentation is linked for each of the providers below.
+
+<div className="block dark:hidden">
+<CardGroup cols={2}>
+  <CustomCard title="Amazon Web Services (AWS)" icon="https://assets.vantage.sh/docs/logos/logo-icon-aws.svg" href="/connecting_aws" >
+  Vantage integrates with your AWS account through a Cross-Account IAM role, giving Vantage read-only access to an organization's cost data. After the initial sync, you will be able to take advantage of features in Vantage to manage, inspect, and model your AWS spend.
+
+  </CustomCard>
+  <CustomCard title="Azure" icon="https://assets.vantage.sh/docs/logos/logo-icon-azure.svg" href="/connecting_azure" >
+  Vantage integrates with your Azure account by using an Active Directory Service Principal, which can be assigned access to both management groups or individual subscriptions. Any subscriptions that are part of a resource group will be automatically imported.
+
+  </CustomCard>
+  <CustomCard title="Google Cloud Platform (GCP)" icon="https://assets.vantage.sh/docs/logos/logo-icon-gcp.svg" href="/connecting_gcp" >
+  Vantage integrates with your GCP account through a service account, providing Vantage with read-only access to an organization's cost data. Following the creation of the role with the appropriate permissions, Vantage will initiate the synchronization of cost data and resource metadata.
+  </CustomCard>
+  <CustomCard title="Kubernetes" icon="https://assets.vantage.sh/docs/logos/logo-icon-kubernetes.svg" href="/connecting_kubernetes" >
+  Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by container, service, namespace and label. The Vantage Kubernetes agent is the recommended integration point for ingesting Kubernetes costs into Vantage.
+
+  </CustomCard>
+  <CustomCard title="Datadog" icon="https://assets.vantage.sh/docs/logos/logo-icon-datadog.svg" href="/connecting_datadog">
+  Vantage integrates with your Datadog account through a read-only Datadog OAuth token. After connecting, Vantage automatically receives read-only access to appropriate cost and usage APIs to begin ingesting Datadog cost data
+
+  </CustomCard>
+  <CustomCard title="New Relic" icon="https://assets.vantage.sh/docs/logos/logo-icon-new-relic.svg" href="/connecting_new_relic">
+  Vantage integrates with your New Relic account through the use of New Relic Usage Data via the New Relic GraphQL API.
+  </CustomCard>
+  <CustomCard title="MongoDB Atlas" icon="https://assets.vantage.sh/docs/logos/logo-icon-mongodb.svg" href="/connecting_mongodb-atlas">
+  Vantage integrates with MongoDB Atlas account through read-only use of the Invoices API. To see Active Resources for your MongoDB Atlas account, Vantage uses the Clusters API and the Projects API.
+
+  </CustomCard>
+  <CustomCard title="Snowflake" icon="https://assets.vantage.sh/docs/logos/logo-icon-snowflake.svg" href="/connecting_snowflake">
+  Vantage integrates with your Snowflake account through a secure, read-only user who has access to Snowflake usage tables. Optionally, Vantage can pull from a dedicated schema that you create.
+  </CustomCard>
+  <CustomCard title="Databricks" icon="https://assets.vantage.sh/docs/logos/logo-icon-databricks.svg" href="/connecting_databricks">
+  Vantage integrates with your Databricks account using a dedicated Serverless SQL Warehouse to query system tables within a Unity Catalog-enabled workspace.
+
+  </CustomCard>
+  <CustomCard title="Fastly" icon="https://assets.vantage.sh/docs/logos/logo-icon-fastly.svg" href="/connecting_fastly">
+  Vantage integrates with your Fastly account through a read-only API token. Fastly API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.
+
+  </CustomCard>
+  <CustomCard title="Oracle Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-oracle.svg" href="/connecting_oracle">
+  Vantage connects to Oracle Cloud using a read-only IAM user and API key to read from a Cost and Usage Reports object storage bucket.
+
+  </CustomCard>
+  <CustomCard title="Confluent" icon="https://assets.vantage.sh/docs/logos/logo-icon-confluent.svg" href="/connecting_confluent" >
+  Vantage integrates with your Confluent account through a revocable read/write API key and secret. Confluent API keys are free for you to create—and adding to the Vantage console only takes a few minutes.
+  </CustomCard>
+  <CustomCard title="PlanetScale" icon="https://assets.vantage.sh/docs/logos/logo-icon-planetscale.svg" href="/connecting_planetscale">
+  Vantage integrates with your PlanetScale account via the PlanetScale Invoices API using an OAuth workflow.
+
+  </CustomCard>
+  <CustomCard title="Coralogix" icon="https://assets.vantage.sh/docs/logos/logo-icon-coralogix.svg" href="/connecting_coralogix">
+  Vantage integrates with your Coralogix account through a revocable read-only API key and your Coralogix domain.
+  </CustomCard>
+  <CustomCard title="GitHub" icon="https://assets.vantage.sh/docs/logos/logo-icon-github.svg" href="/connecting_github">
+  Vantage integrates with GitHub using the Billing - vantage-sh GitHub application.
+  </CustomCard>
+  <CustomCard title="Linode" icon="https://assets.vantage.sh/docs/logos/logo-icon-linode.svg" href="/connecting_linode">
+  Vantage integrates with Linode via a read-only API key. Vantage also uses service-specific APIs to enrich cost data with additional resource-specific metadata.
+  </CustomCard>
+  <CustomCard title="OpenAI" icon="https://assets.vantage.sh/docs/logos/logo-icon-openai.svg" href="/connecting_open_ai">
+  Vantage integrates with OpenAI via an Admin Key and queries the Costs endpoint of the Usage API.
+
+  </CustomCard>
+  <CustomCard title="Grafana Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-grafana.svg" href="/connecting_grafana">
+  Vantage integrates with Grafana Cloud via a read-only token attached to a cloud access policy.
+
+  </CustomCard>
+  <CustomCard title="ClickHouse Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-clickhouse.svg" href="/connecting_clickhouse">
+  Vantage integrates with ClickHouse Cloud via a read-only Developer key.
+  </CustomCard>
+  <CustomCard title="Temporal Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-temporal.svg" href="/connecting_temporal">
+  Vantage integrates with Temporal Cloud using an API key with Finance Admin permissions.
+  </CustomCard>
+  <CustomCard title="Twilio" icon="https://assets.vantage.sh/docs/logos/logo-icon-twilio.svg" href="/connecting_twilio">
+  Vantage integrates with Twilio using a Standard API key.
+  </CustomCard>
+  <CustomCard title="Custom Providers" icon="https://assets.vantage.sh/docs/logos/logo-icon-custom-providers.svg" href="/connecting_custom_providers">
+  Vantage integrates any of your Custom Providers through a schema based on the FinOps FOCUS specification.
+  </CustomCard>
+</CardGroup>
+</div>
+
+
+<div className="hidden dark:block">
+<CardGroup cols={2} >
+  <CustomCard title="Amazon Web Services (AWS)" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/aws.svg" href="/connecting_aws" className="dark:block hidden">
+  Vantage integrates with your AWS account through a Cross-Account IAM role, giving Vantage read-only access to an organization's cost data. After the initial sync, you will be able to take advantage of features in Vantage to manage, inspect, and model your AWS spend.
+
+  </CustomCard>
+  <CustomCard title="Azure" icon="https://assets.vantage.sh/docs/logos/logo-icon-azure.svg" href="/connecting_azure" className="dark:block hidden">
+  Vantage integrates with your Azure account by using an Active Directory Service Principal, which can be assigned access to both management groups or individual subscriptions. Any subscriptions that are part of a resource group will be automatically imported.
+
+  </CustomCard>
+  <CustomCard title="Google Cloud Platform (GCP)" icon="https://assets.vantage.sh/docs/logos/logo-icon-gcp.svg" href="/connecting_gcp" >
+  Vantage integrates with your GCP account through a service account, providing Vantage with read-only access to an organization's cost data. Following the creation of the role with the appropriate permissions, Vantage will initiate the synchronization of cost data and resource metadata.
+  </CustomCard>
+  <CustomCard title="Kubernetes" icon="https://assets.vantage.sh/docs/logos/logo-icon-kubernetes.svg" href="/connecting_kubernetes" >
+  Vantage allows you to see in-cluster costs for Kubernetes clusters, including seeing costs by container, service, namespace and label. The Vantage Kubernetes agent is the recommended integration point for ingesting Kubernetes costs into Vantage.
+
+  </CustomCard>
+  <CustomCard title="Datadog" icon="https://assets.vantage.sh/docs/logos/logo-icon-datadog.svg" href="/connecting_datadog">
+  Vantage integrates with your Datadog account through a read-only Datadog OAuth token. After connecting, Vantage automatically receives read-only access to appropriate cost and usage APIs to begin ingesting Datadog cost data
+
+  </CustomCard>
+  <CustomCard title="New Relic" icon="https://assets.vantage.sh/docs/logos/logo-icon-new-relic.svg" href="/connecting_new_relic">
+  Vantage integrates with your New Relic account through the use of New Relic Usage Data via the New Relic GraphQL API.
+  </CustomCard>
+  <CustomCard title="MongoDB Atlas" icon="https://assets.vantage.sh/docs/logos/logo-icon-mongodb.svg" href="/connecting_mongodb-atlas">
+  Vantage integrates with MongoDB Atlas account through read-only use of the Invoices API. To see Active Resources for your MongoDB Atlas account, Vantage uses the Clusters API and the Projects API.
+
+  </CustomCard>
+  <CustomCard title="Snowflake" icon="https://assets.vantage.sh/docs/logos/logo-icon-snowflake.svg" href="/connecting_snowflake">
+  Vantage integrates with your Snowflake account through a secure, read-only user who has access to Snowflake usage tables. Optionally, Vantage can pull from a dedicated schema that you create.
+  </CustomCard>
+  <CustomCard title="Databricks" icon="https://assets.vantage.sh/docs/logos/logo-icon-databricks.svg" href="/connecting_databricks">
+  Vantage integrates with your Databricks account using a dedicated Serverless SQL Warehouse to query system tables within a Unity Catalog-enabled workspace.
+
+  </CustomCard>
+  <CustomCard title="Fastly" icon="https://assets.vantage.sh/docs/logos/logo-icon-fastly.svg" href="/connecting_fastly">
+  Vantage integrates with your Fastly account through a read-only API token. Fastly API tokens are free for you to create—and adding them to the Vantage console only takes a few minutes.
+
+  </CustomCard>
+  <CustomCard title="Oracle Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-oracle.svg" href="/connecting_oracle">
+  Vantage connects to Oracle Cloud using a read-only IAM user and API key to read from a Cost and Usage Reports object storage bucket.
+
+  </CustomCard>
+  <CustomCard title="Confluent" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/confluent.svg" href="/connecting_confluent" >
+  Vantage integrates with your Confluent account through a revocable read/write API key and secret. Confluent API keys are free for you to create—and adding to the Vantage console only takes a few minutes.
+  </CustomCard>
+  <CustomCard title="PlanetScale" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/planetScala.svg" href="/connecting_planetscale">
+  Vantage integrates with your PlanetScale account via the PlanetScale Invoices API using an OAuth workflow.
+
+  </CustomCard>
+  <CustomCard title="Coralogix" icon="https://assets.vantage.sh/docs/logos/logo-icon-coralogix.svg" href="/connecting_coralogix">
+  Vantage integrates with your Coralogix account through a revocable read-only API key and your Coralogix domain.
+  </CustomCard>
+  <CustomCard title="GitHub" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/github.svg" href="/connecting_github">
+  Vantage integrates with GitHub using the Billing - vantage-sh GitHub application.
+  </CustomCard>
+  <CustomCard title="Linode" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/linode.svg" href="/connecting_linode">
+  Vantage integrates with Linode via a read-only API key. Vantage also uses service-specific APIs to enrich cost data with additional resource-specific metadata.
+  </CustomCard>
+  <CustomCard title="OpenAI" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/chatgpt.svg" href="/connecting_open_ai">
+  Vantage integrates with OpenAI via an Admin Key and queries the Costs endpoint of the Usage API.
+
+  </CustomCard>
+  <CustomCard title="Grafana Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-grafana.svg" href="/connecting_grafana">
+  Vantage integrates with Grafana Cloud via a read-only token attached to a cloud access policy.
+
+  </CustomCard>
+  <CustomCard title="ClickHouse Cloud" icon="https://assets.vantage.sh/docs/logos/logo-icon-clickhouse.svg" href="/connecting_clickhouse">
+  Vantage integrates with ClickHouse Cloud via a read-only Developer key.
+  </CustomCard>
+  <CustomCard title="Temporal Cloud" icon="https://mintlify-assets.b-cdn.net/vantage/august%208-2025/temporal-cloud.svg" href="/connecting_temporal">
+  Vantage integrates with Temporal Cloud using an API key with Finance Admin permissions.
+  </CustomCard>
+  <CustomCard title="Twilio" icon="https://assets.vantage.sh/docs/logos/logo-icon-twilio.svg" href="/connecting_twilio">
+  Vantage integrates with Twilio using a Standard API key.
+  </CustomCard>
+  <CustomCard title="Custom Providers" icon="https://assets.vantage.sh/docs/logos/logo-icon-custom-providers.svg" href="/connecting_custom_providers">
+  Vantage integrates any of your Custom Providers through a schema based on the FinOps FOCUS specification.
+  </CustomCard>
+</CardGroup>
+</div>
+<Note>
+**OTHER PROVIDERS**
+
+Vantage will be launching support for additional cloud infrastructure providers in the future. If you have a particular provider that you would like supported, please reach out to [support@vantage.sh](mailto:support@vantage.sh).
+</Note>
+
+## Step 3: View Ingested Costs and Create Cost Reporting Resources
+
+Once you create some provider integrations, Vantage will automatically begin ingesting billing information for your account. The default landing page in the Vantage console is the [**Overview**](/overview) page. This page serves as an executive-level summary, providing a comprehensive snapshot of the cost metrics that matter most to you.
+
+As you continue to set up your cost reporting infrastructure, you can use the below guides for some best practices in Vantage.
+
+- [**Team Accountability**](/team_accountability): To ensure team accountability in cloud cost management, follow this guide. Create Cost Report Folders for specific teams, generate Cost Reports for various dimensions, implement Report Notifications, set team budgets, and continually monitor and optimize to minimize unnecessary expenses, thus guaranteeing efficient cloud spending.
+- [**Executive Reporting**](/executive_reporting): If you want to set up executive-level reporting, follow this guide. Use tools in Vantage to effortlessly gather and present comprehensive insights into your organization's cloud spending, enabling you to deliver actionable reports that facilitate informed decision-making at the executive level.
+- [**Find Hidden Costs**](/hidden_costs): If you want to uncover hidden costs and optimize spending, follow this guide. Vantage provides tools like Active Resources for listing cost-driving resources and Cost Anomaly Alerts to automatically detect and alert on unexpected expenses.

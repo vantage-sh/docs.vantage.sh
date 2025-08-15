@@ -1,0 +1,281 @@
+---
+title: VQL for Resource Reports
+description: This page describes how to use VQL when querying Resource Reports in the API or using the Terraform Provider.
+---
+
+<Tip>
+**TIP**
+
+If you need help constructing a VQL query, navigate to the [**Resource Reports**](https://console.vantage.sh/resources) page and click **New Resource Report**. From the top left, open the **Filters** menu. Create a filter and click the **View as VQL** button at the top of the **Filters** menu to see a filter's VQL representation. You can copy this syntax to use within your API calls.
+</Tip>
+
+## Resource Reports VQL Schema
+
+VQL for Resources Reports comprises two namespaces: `resources` and `tags`, which represent the available [filters](/active_resources#create-a-resource-report) on Resource Reports in the Vantage console. To reference a filter, use the following syntax: `namespace.field` (e.g., `resources.region` or `tags.name`). The following fields are available within these namespaces.
+
+
+| Namespace | Field | VQL Example |
+| --- | --- | --- |
+| `resources` | `provider` | [Providers example](/vql_resource_report#combining-providers) |
+| `resources` | `region` | [Region example](/vql_resource_report#costs-from-a-list-of-regions) |
+| `resources` | `account_id` | [Account example](/vql_resource_report#costs-by-account-id) |
+| `resources` | `provider_account_id` | [Billing Account example](/vql_resource_report#costs-by-billing-account) |
+| `resources` | `type` | [Resource Type example](/vql_resource_report#costs-by-resource-type) |
+| `resources` | `label` | [Label example](/vql_resource_report#costs-by-label) |
+| `resources` | `uuid` | [UUID (AWS ARN) example](/vql_resource_report#costs-for-specific-arn) |
+| `resources` | `metadata` | [Metadata example](/vql_resource_report#resource-metadata-costs) |
+| `tags` | `name` | [Tags name/value example](/vql_resource_report#filter-by-tag) |
+| `tags` | `value` | [Untagged example](/vql_resource_report#filter-for-untagged-resources) |
+
+
+<Info>
+**NOTE**
+
+Availability of the fields listed above varies among different cloud providers. See the [Resource Reports documentation](/active_resources#resource-report-filters) for a full list of filter fields available per provider.
+</Info>
+
+### Keywords
+
+VQL includes a set of keywords to create complex filter conditions. These keywords function similar to their SQL equivalents.
+
+| Keyword | Description | VQL Sample | Explanation |
+| --- | --- | --- | --- |
+| `AND` | Logical AND operator | `resources.provider = 'aws' AND resources.label = '123456'` | This example filters AWS resources, with a specific associated label, where both conditions must be true. |
+| `OR` | Logical OR operator | `(resources.provider = 'aws') OR (resources.provider = 'gcp')` | This example retrieves resources from either AWS or GCP. At least one condition must be true. |
+| `LIKE` and `NOT LIKE` | Performs string comparisons | `resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%''` | This example selects data where the resource ARN contains `arn:aws:s3:::my-bucket`, such as `arn:aws:s3:::my-bucket-123`.  <br /><br />     This same query also works for `NOT LIKE` where data does not contain a particular string: `resources.provider = 'aws' AND resources.uuid NOT LIKE '%arn:aws:s3:::my-bucket%'`. |
+| `IN`/`NOT IN` | Used to compare against an array list | `(resources.provider = 'aws' AND (resources.region IN ('ap-northeast-1','ap-northeast-3')))` | This example filters based on a list of regions, returning data for the specified regions  <br /><br />     You can also use `NOT IN` to find results that are anything but the items within the list: `(resources.provider = 'aws' AND (resources.region NOT IN ('ap-northeast-1','ap-northeast-3')))` |
+| `!=` | Represents negation, "is not" | `resources.provider = 'azure' AND (resources.type != 'azurerm_public_ip' AND resources.type != 'azurerm_kubernetes_cluster')` | This example filters out data from two specified resource types, providing all Azure resources that are *not* these types. |
+| `<`, `>`, `<=`, `>=` | Mathematical operators for numerical queries | `resources.provider = 'azure' AND (resources.type = 'azurerm_virtual_machine' AND resources.metadata->>'virtual_machine_size' > '7')` | This example looks for Virtual Machines that have a size greater than 7. |
+| `->>` | This operator is used only when constructing queries related to metadata | `resources.provider = 'aws' AND (resources.type = 'aws_instance' AND resources.metadata->>'architecture' = 'x86_64')` | This example looks for EC2 instances with an architecture of `x86_64`. |
+
+With these operators and keywords, you can construct complex filter conditions in VQL.
+
+## VQL Examples
+
+The following examples cover common use cases for VQL.
+
+### Combining Providers
+
+Filter for provider resources associated with either AWS or GCP.
+
+```sql
+(resources.provider = 'aws') OR (resources.provider = 'gcp')
+```
+
+### Costs from a List of Regions
+
+Filter for AWS costs in two regions. Note that you will need to use the region code, such as `us-east-1`.
+
+```sql
+resources.provider = 'aws' AND (resources.region = 'us-east-1' OR resources.region = 'us-west-1')
+```
+
+### Costs by Account ID
+
+Costs for a specific set of resource types and account ID.
+
+```sql
+resources.provider = 'gcp' AND (resources.account_id = 'user-proj-1234') AND (resources.type = 'google_compute_disk' OR resources.type = 'google_compute_instance')
+```
+
+### Costs by Billing Account
+
+Costs for a specific billing account.
+
+```sql
+resources.provider = 'aws' AND (resources.provider_account_id = '11111111111')
+```
+
+### Costs by Resource Type
+
+Filter costs to see a specific resource type. In the example below, the query is looking for any AWS resource that is *not* an AWS CloudFront Distribution. Resource types are represented like `aws_cloudfront_distribution`. Expand the box below for a list of all available resource types and their VQL equivalents.
+
+```sql
+resources.provider = 'aws' AND (resources.type != 'aws_cloudfront_distribution')
+```
+
+<Accordion title="Resource Type VQL Representations">
+| Provider | VQL Representation | Friendly Name |
+| --- | --- | --- |
+| AWS | aws\_app\_stream\_fleet | App Stream Fleet |
+| AWS | aws\_app\_stream\_image\_builder | App Stream Image Builder |
+| AWS | aws\_auto\_scaling\_group | Auto Scaling Group |
+| AWS | aws\_backup\_vault\_recovery\_point | Backup Vault Recovery Vault |
+| AWS | aws\_batch\_job\_definition | Batch Job Definition |
+| AWS | aws\_carrier\_gateway | Carrier Gateway |
+| AWS | aws\_cloudfront\_distribution | CloudFront Distribution |
+| AWS | aws\_cloudtrail | CloudTrail |
+| AWS | aws\_cloudwatch\_log\_group | CloudWatch Log Group |
+| AWS | aws\_codebuild\_project | CodeBuild Project |
+| AWS | aws\_codepipeline | CodePipeline |
+| AWS | aws\_config\_config\_rule | Config Rule |
+| AWS | aws\_db\_instance | RDS Instance |
+| AWS | aws\_db\_snapshot | RDS Snapshot |
+| AWS | aws\_docdb\_cluster\_instance | DocumentDB Cluster Instance |
+| AWS | aws\_dynamodb\_table | DynamoDB Table |
+| AWS | aws\_ebs\_volume | EBS Volume |
+| AWS | aws\_ec2\_instance | EC2 Instance |
+| AWS | aws\_ec2\_managed\_prefix\_list | EC2 Managed Prefix List |
+| AWS | aws\_ec2\_reserved\_instance | EC2 Reserved Instance |
+| AWS | aws\_ec2\_transit\_gateway | EC2 Transit Gateway |
+| AWS | aws\_ecr\_repository | ECR Repository |
+| AWS | aws\_ecs\_service | ECS Service |
+| AWS | aws\_ecs\_task\_definition | ECS Task Definition |
+| AWS | aws\_efs\_file\_system | EFS File System |
+| AWS | aws\_egress\_only\_internet\_gateway | Egress-Only Internet Gateway |
+| AWS | aws\_eip | Elastic IP |
+| AWS | aws\_elasticache\_cluster | ElastiCache Cluster |
+| AWS | aws\_elasticsearch\_domain | Elasticsearch Domain |
+| AWS | aws\_flow\_log | Flow Log |
+| AWS | aws\_fsx\_volume | FsX Volume |
+| AWS | aws\_glacier\_vault | Glacier Vault |
+| AWS | aws\_globalaccelerator\_accelerator | Global Accelerator |
+| AWS | aws\_glue\_job | Glue Job |
+| AWS | aws\_instance\_snapshot | EC2 Instance Snapshot |
+| AWS | aws\_internet\_gateway | Internet Gateway |
+| AWS | aws\_kms\_key | KMS Key |
+| AWS | aws\_lambda\_function | Lambda Function |
+| AWS | aws\_lb | Load Balancer |
+| AWS | aws\_mediaconnect\_flow | MediaConnect Flow |
+| AWS | aws\_mediaconvert\_job | MediaConvert Job |
+| AWS | aws\_medialive\_channel | MediaLive Channel |
+| AWS | aws\_media\_package\_channel | MediaPackage Channel |
+| AWS | aws\_media\_package\_vod\_asset | MediaPackage VOD Asset |
+| AWS | aws\_media\_store\_container | MediaStore Container |
+| AWS | aws\_media\_tailor\_channel | MediaTailor Channel |
+| AWS | aws\_media\_tailor\_playback\_configuration | MediaTailor Playback Configuration |
+| AWS | aws\_mq\_broker | MQ Broker |
+| AWS | aws\_msk\_cluster | MSK Cluster |
+| AWS | aws\_nat\_gateway | NAT Gateway |
+| AWS | aws\_network\_interface | Network Interface |
+| AWS | aws\_outposts\_outpost | Outposts Outpost |
+| AWS | aws\_rds\_reserved\_instance | RDS Reserved Instance |
+| AWS | aws\_redshift\_cluster | Redshift Cluster |
+| AWS | aws\_report\_definition | Report Definition |
+| AWS | aws\_route53\_resolver\_query\_log\_config | Route 53 Resolver Query Log Config |
+| AWS | aws\_route53\_zone | Route 53 Zone |
+| AWS | aws\_route\_table | Route Table |
+| AWS | aws\_s3\_bucket | S3 Bucket |
+| AWS | aws\_sagemaker\_model | SageMaker Model |
+| AWS | aws\_savings\_plan | Savings Plan |
+| AWS | aws\_secretsmanager\_secret | Secrets Manager Secret |
+| AWS | aws\_sns\_topic | SNS Topic |
+| AWS | aws\_sqs\_queue | SQS Queue |
+| AWS | aws\_subnet | Subnet |
+| AWS | aws\_transfer\_server | Transfer Server |
+| AWS | aws\_vpc | VPC |
+| AWS | aws\_vpc\_endpoint | VPC Endpoint |
+| AWS | aws\_vpc\_peering\_connection | VPC Peering Connection |
+| AWS | aws\_vpn\_gateway | VPN Gateway |
+| AWS | aws\_wafv2\_web\_acl | WAFv2 Web ACL |
+| AWS | aws\_workspaces\_workspace | WorkSpaces Workspace |
+| Azure | azurerm\_application\_gateway | Application Gateway |
+| Azure | azurerm\_application\_insights | Application Insights |
+| Azure | azurerm\_app\_service\_plan | App Service Plan |
+| Azure | azurerm\_firewall | Firewall |
+| Azure | azurerm\_snapshot | Snapshot |
+| Azure | azurerm\_container\_registry | Container Registry |
+| Azure | azurerm\_cosmosdb\_account | CosmosDB Account |
+| Azure | azurerm\_databricks\_workspace | Databricks Workspace |
+| Azure | azurerm\_managed\_disk | Managed Disk |
+| Azure | azurerm\_dns\_zone | DNS Zone |
+| Azure | azurerm\_sql\_elasticpool | SQL Elastic Pool |
+| Azure | azurerm\_express\_route\_circuit | ExpressRoute Circuit |
+| Azure | azurerm\_lb | Load Balancer |
+| Azure | azurerm\_log\_analytics\_workspace | Log Analytics Workspace |
+| Azure | azurerm\_logic\_app\_workflow | Logic App Workflow |
+| Azure | azurerm\_kubernetes\_cluster | Kubernetes Cluster |
+| Azure | azurerm\_nat\_gateway | NAT Gateway |
+| Azure | azurerm\_postgresql\_flexible\_server | PostgreSQL Flexible Server |
+| Azure | azurerm\_postgresql\_server | PostgreSQL Server |
+| Azure | azurerm\_powerbi\_dedicated\_capacity | Power BI Dedicated Capacity |
+| Azure | azurerm\_private\_endpoint | Private Endpoint |
+| Azure | azurerm\_public\_ip | Public IP |
+| Azure | azurerm\_recovery\_services\_vault | Recovery Services Vault |
+| Azure | azurerm\_redis\_cache | Redis Cache |
+| Azure | azurerm\_security\_center\_pricing | Security Center Pricing |
+| Azure | azurerm\_sql\_database | SQL Database |
+| Azure | azurerm\_sql\_managed\_instance | SQL Managed Instance |
+| Azure | azurerm\_storage\_account | Storage Account |
+| Azure | azurerm\_synapse\_workspace | Synapse Workspace |
+| Azure | azurerm\_virtual\_machine | Virtual Machine |
+| Azure | azurerm\_virtual\_machine\_scale\_set | Virtual Machine Scale Set |
+| Azure | azurerm\_virtual\_network\_gateway | Virtual Network Gateway |
+| ClickHouse Cloud | clickhouse\_service | Services |
+| Confluent | confluent\_kafka\_cluster | Kafka Cluster |
+| Google | google\_alloydb\_backup | AlloyDB Backup |
+| Google | google\_alloydb\_cluster | AlloyDB Cluster |
+| Google | google\_alloydb\_instance | AlloyDB Instance |
+| Google | google\_app\_engine\_service | App Engine Service |
+| Google | google\_bigquery\_dataset | BigQuery Dataset |
+| Google | google\_bigtable\_instance | Bigtable Instance |
+| Google | google\_compute\_disk | Compute Disk |
+| Google | google\_compute\_instance | Compute Instance |
+| Google | google\_container\_cluster | Container Cluster |
+| Google | google\_dataflow\_job | Dataflow Job |
+| Google | google\_firestore\_database | Firestore Database |
+| Google | google\_cloudfunctions\_function | Cloud Functions Function |
+| Google | google\_logging\_project\_bucket\_config | Logging Project Bucket Config |
+| Google | google\_redis\_instance | Redis Instance |
+| Google | google\_cloud\_run\_service | Cloud Run Service |
+| Google | google\_secret\_manager\_secret | Secret Manager Secret |
+| Google | google\_spanner\_instance | Spanner Instance |
+| Google | google\_sql\_database\_instance | SQL Database Instance |
+| Google | google\_storage\_bucket | Storage Bucket |
+| Kubernetes | kubernetes\_workload | Kubernetes Workload |
+| Linode | linode\_instance | Instances |
+| Linode | linode\_node\_balancer | Node Balancer |
+| Linode | linode\_node\_balancer\_type | Node Balancer Type |
+| Linode | linode\_volume | Volume |
+| Linode | linode\_volume\_type | Volume Type |
+| Linode | linode\_object\_storage | Object Storage |
+| Linode | linode\_linode\_type | Linode Type |
+| Linode | linode\_object\_storage\_type | Object Storage Type |
+| Linode | linode\_kubernetes\_cluster | Kubernetes Clusters |
+| Linode | linode\_kubernetes\_type | Kubernetes Type |
+| Linode | linode\_image | Images |
+| MongoDB | mongodbatlas\_cluster | Atlas Cluster |
+| PlanetScale | planetscale\_database | Database |
+| Snowflake | snowflake\_query | Queries |
+| Temporal | temporal\_namespace | Namespaces |
+</Accordion>
+
+### Costs by Label
+
+Resource costs by specific label.
+
+```sql
+resources.provider = 'aws' AND resources.label = '123456'
+```
+
+### Costs for Specific ARN
+
+The UUID is the unique identifier for the resource. In the case of AWS resources, this is the ARN. The below example shows a query for resources that contain specific text within the ARN.
+
+```sql
+resources.provider = 'aws' AND resources.uuid LIKE '%arn:aws:s3:::my-bucket%'
+```
+
+### Resource Metadata Costs
+
+Resource metadata costs require both `provider` and `type` as well as `metadata`. Metadata uses a specific syntax (e.g., `resources.metadata->>'domain' = 'vantage.sh'`).
+
+```sql
+resources.provider = 'aws' AND (resources.type = 'aws_cloudfront_distribution' AND resources.metadata->>'domain' = 'vantage.sh')
+```
+
+### Filter by Tag
+
+Filter resources based on a specific tag, such as `terraform`, with the value `true`, in AWS.
+
+```sql
+resources.provider = 'aws' AND (tags.name = 'terraform' AND tags.value = 'true')
+```
+
+### Filter for Untagged Resources
+
+On providers that have a **Not Tagged** filter option in the console, you can use the below VQL to see untagged resources. This example looks for untagged resources in a multi-cloud environment.
+
+```sql
+resources.provider = 'gcp' AND tags.name = NULL) OR (resources.provider = 'aws' AND tags.name = NULL
+```

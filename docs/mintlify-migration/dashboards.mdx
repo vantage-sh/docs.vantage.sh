@@ -1,0 +1,240 @@
+---
+title: "Dashboards"
+description: "Dashboards contain widgets, like reports. You can apply date range and period filters (e.g., display daily costs) to all reports on the dashboard. A consistent date range across all reports on the dashboard can help with cost comparison between different reports. Once a dashboard is created, you can customize the widgets on your dashboard according to your preferences."
+---
+
+<Tip>
+**TIP**
+
+To get started with dashboards, you can also watch these video demos on [Vantage University](/vantage_university_cost_reporting) <Icon icon="graduation-cap" iconType="solid" />.
+</Tip>
+
+You can add the following widget types to dashboards:
+
+<Columns cols={2}>
+<Card title="Cost Reports" icon="chart-line" href="/cost_reports" horizontal />
+<Card title="Usage Reports" icon="chart-bar" href="/usage_based_reporting" horizontal />
+<Card title="Resource Reports" icon="server" href="/active_resources" horizontal />
+<Card title="Kubernetes Efficiency Reports" icon="chart-line" href="/kubernetes" horizontal />
+<Card title="Financial Commitment Reports" icon="dollar-sign" href="/financial_commitment_reports" horizontal />
+</Columns>
+
+## Create a Dashboard
+
+<Steps>
+    <Step>
+    From the top navigation, click **Cost Reporting**.
+    </Step>
+    <Step>
+    On the left menu, select **Dashboards**. All existing dashboards are displayed within this view.
+    </Step>
+    <Step>
+    Click **\+ New Dashboard**.
+    </Step>
+    <Step>
+    Enter a **Name**.
+    </Step>
+    <Step>
+        Under **Widget Settings**, select the widgets you want displayed on the dashboard. Widgets are initially added to dashboards in chronological order, with the most recently added widget appearing at the bottom.
+        <Info>
+        **NOTE**
+
+        At this time, you cannot add widgets from the Overview page, such as **Provider Summary**.
+        </Info>
+    </Step>
+    <Step>
+        Click **Save**.
+    <Frame>
+    ![A dashboard in the console displayed with four different reports](https://assets.vantage.sh/blog/dashboards/dashboards-2.png)
+    </Frame>
+    </Step>
+</Steps>
+
+
+For each displayed report, click **View Report** to open that report in a new tab.
+
+### Save a Dashboard to Favorites
+
+To save a dashboard to your favorites, navigate to the [Dashboards](https://console.vantage.sh/dashboards) page, then click the star icon to the right of the dashboard's name. Access your starred dashboard from the **Starred By Me** screen in the left navigation. Dashboards you create are also displayed on the **Created By Me** screen.
+
+### Delete a Dashboard
+
+To delete a dashboard, navigate to the [Dashboards](https://console.vantage.sh/dashboards) page, then click the ellipses to the right of the dashboard's name. Click **Delete**.
+
+## Customize a Dashboard
+
+On the dashboard, you can apply the following customizations:
+
+- To change the date range of all displayed reports, click the date picker on the right of the screen. Select a date range and click **Apply**. On the top right, click **Save Filters** to keep these settings. Click **Clear Filters** on the top left to remove filter updates.
+- To change the date grouping, click the date bin menu on the top right. Select either **Cumulative**, **Monthly**, **Weekly**, or **Daily**. On the top right, click **Save Filters** to keep these settings. Click **Clear Filters** on the top left to remove filter updates.
+- To create a new dashboard based on an existing dashboard, click the down arrow next to **Save Filters**. Then, click **Save as New**. You can then enter a new dashboard name and add additional customizations.
+- To reset each widget back to its original settings, click **Reset**.
+- To add more widgets to the dashboard or change the dashboard's name, click the pencil icon on the top right of the dashboard. Edit the dashboard and save.
+
+<Info>
+**NOTE**
+
+These customization options do not apply to [folder dashboards](/folders#create-a-dashboard-from-a-folder), which are designed to be a read-only one-to-one representation of the resources within a folder. These customization options also do not apply to the **Overview** page.
+</Info>
+
+
+### Edit Widget Name and Type
+
+You can edit the widget type to display as a chart or table. The following widget types are available for the reports listed below.
+
+| Widget Type | Chart View | Table View |
+| --- | --- | --- |
+| Cost Reports | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| Usage Reports | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| Resource Reports |  | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| Kubernetes Efficiency Reports | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+| Financial Commitment Reports | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> | <Icon icon="circle-check" iconType="solid" color="#6742D6"/> |
+
+<Steps>
+    <Step>
+    From any widget on a dashboard, click the pencil icon.
+    </Step>
+    <Step>
+    The widget edit slideout is displayed on the right side of the screen.
+    - To change the widget type, under **Default Widget State** select either **Chart** or **Table**. The widget type is automatically updated.
+    - To change the widget's name, click the pencil icon next to the current widget name in the slideout and update the name.
+    </Step>
+</Steps>
+
+
+### Edit Dashboard Widget Order
+
+You can edit the widget order that's displayed on a dashboard. You can edit the order directly on the dashboard or through the dashboard edit screen.
+
+<Tabs>
+    <Tab title="From the Dashboard">
+    <Steps>
+        <Step>
+        From the top right of a dashboard, click the **Reorder Widgets** icon (looks like a set of six dots).
+        </Step>
+        <Step>
+        Hover over and select any widget. Drag the widget to a new spot on the dashboard.
+        </Step>
+        <Step>
+        At the top, click **Done Reordering**. The new order is displayed on your dashboard.
+
+        <Frame>
+        <video
+            autoPlay
+            muted
+            loop
+            preload="auto"
+            width="100%"
+            height="auto"
+            src="https://assets.vantage.sh/docs/dashboard-reorder-dashboard.mp4"
+        >
+        </video>
+        </Frame>
+        </Step>
+    </Steps>
+    </Tab>
+    <Tab title="From the Dashboard Edit Screen">
+    <Steps>
+        <Step>
+        From the top right of a dashboard, click the pencil icon.
+        </Step>
+        <Step>
+        The list of reports on the dashboard is displayed. Click **Reorder**.
+        </Step>
+        <Step>
+        Move the tile for each report up or down to change its order on the dashboard.
+        </Step>
+        <Step>
+        When you are finished, click **Done Reordering** > **Save**. The new order is displayed on your dashboard.
+
+        <Frame>
+        <video
+            autoPlay
+            muted
+            loop
+            preload="auto"
+            width="100%"
+            height="auto"
+            src="https://assets.vantage.sh/docs/dashboard-reorder.mp4"
+        >
+        </video>
+        </Frame>
+        </Step>
+    </Steps>
+    </Tab>
+</Tabs>
+
+## Add a Saved Filter to a Dashboard
+
+You can use [saved filters](/saved_filters) to apply consistent filter logic to multiple Cost Reports on a dashboard. If you have a dashboard of high-level Cost Reports (e.g., filtered only to connected providers or services), and you want to further filter a dashboard to a team or specific category, you can use saved filters on dashboards to quickly apply this logic.
+
+<Steps>
+    <Step>
+    From the top right of any dashboard, click the **Saved Filters** dropdown menu.
+    </Step>
+    <Step>
+    Select one or more saved filters. The filter logic is applied across all Cost Reports on the dashboard.
+    <Info>
+    **NOTE**
+
+    When you add a saved filter to a dashboard, if a preexisting filter on a Cost Report and the saved filter use the same provider (e.g., both use AWS), "AND" logic is used between each filter set (i.e., show costs where the preexisting filter AND saved filter are true). If the preexisting filter and saved filter use different providers, “OR” logic is used between each filter set.
+    </Info>
+    </Step>
+</Steps>
+
+
+## Set a Default Dashboard
+
+You can set a default dashboard that's displayed when a user logs in to Vantage and visits `console.vantage.sh`, instead of the [Overview](/overview) screen. This default dashboard can be set for a team or by an individual user. When the user logs in to Vantage, they will be redirected to that dashboard, and will be in the [workspace](/workspaces) that is associated with that dashboard.
+
+<Info>
+**NOTE**
+
+- If a user is a member of a team with a configured default dashboard and also has a personal dashboard configured, the personal dashboard is displayed.
+- If a user is a member of two different teams with configured default dashboards, the user will see the default dashboard of the first team they were added to.
+</Info>
+
+<Tabs>
+    <Tab title="Set Default Dashboard for Team">
+        A user with [Owner-level](/rbac) permissions can set a default dashboard for a team.
+
+    <Steps>
+        <Step>
+        From the top navigation, click **Settings**.
+        </Step>
+        <Step>
+        From the left navigation, under **General Settings**, click **Teams**.
+        </Step>
+        <Step>
+        Under **Default Dashboard**, select the dashboard that should be displayed when a member of the team visits `console.vantage.sh`. If you want to remove the default dashboard and display the Overview page instead, select **None**.
+        </Step>
+        <Step>
+        Click **Save**.
+        </Step>
+    </Steps>
+    </Tab>
+
+    <Tab title="Set Personal Default Dashboard">
+        <Steps>
+            <Step>
+            From the top navigation, click **Settings**.
+            </Step>
+            <Step>
+            From the left navigation, under **Personal Settings**, click **Profile**.
+            </Step>
+            <Step>
+            Under **Default Dashboard**, select the dashboard that should be displayed when you visit `console.vantage.sh`. If you want to remove the default dashboard and display the Overview page instead, select **None**.
+            </Step>
+        </Steps>
+    </Tab>
+</Tabs>
+
+<Tip>
+**TIP**
+
+A user can also select their personal default dashboard from any existing dashboard. At the top right of the dashboard, click the ellipses. Click **Set Default Dashboard** and confirm.
+</Tip>
+
+## Share a Dashboard
+
+From the top of any dashboard, click the ellipses (**...**) icon, then click **Copy URL**. A link is added to your clipboard where you can share the dashboard with any Vantage user in your organization who has access to view the dashboard. Each widget on the dashboard also has a **Copy Link** option, with a unique link.

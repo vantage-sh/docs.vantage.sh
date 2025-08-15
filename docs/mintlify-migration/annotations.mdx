@@ -1,0 +1,173 @@
+---
+title: Annotations
+description: Annotations add context to events or data points within [Cost Reports](/cost_reports) or [Segment Reports](/segments). The annotation consists of a date and a comment. Annotations are particularly useful for describing the infrastructure or cost event that occurred on a particular date.
+---
+
+## Add an Annotation
+
+You can add annotations directly from the chart on a report or from the **Annotations** sidebar.
+
+<Tabs>
+    <Tab title="From a Cost Report Chart">
+    <Steps>
+        <Step>
+        From any report chart or graph, hover over the chart's bars or line and select any date point you want to annotate.
+        </Step>
+        <Step>
+        The **Annotations** sidebar is displayed on the right side of the screen. Your username is displayed as well as the date that corresponds with the selected date point on the chart. Enter a comment for the annotation.
+        </Step>
+        <Step>
+        To save the annotation, click the arrow icon on the bottom right of the comment box.
+        </Step>
+    </Steps>
+
+    <Frame>
+    ![Add Annotation From Graph](https://assets.vantage.sh/docs/annotation-add-graph.gif)
+    </Frame>
+    </Tab>
+
+    <Tab title="From the Annotation Sidebar">
+        <Steps>
+            <Step>
+            From the top-right of any report, click the **Annotation** icon (looks like a word bubble).
+            </Step>
+            <Step>
+            The **Annotations** sidebar is displayed. Click **New**.
+            </Step>
+            <Step>
+            Select the appropriate date from the date picker, and enter a comment.
+            </Step>
+            <Step>
+            To save the annotation, click the arrow icon on the bottom right of the comment box.
+            </Step>
+        </Steps>
+    </Tab>
+</Tabs>
+
+<Info>
+**NOTE**
+
+When an annotation is created, [a corresponding issue](/annotations#view-corresponding-issues) is also created.
+</Info>
+
+## View and Edit Annotations
+
+<Steps>
+    <Step>
+    To view an annotation, from the top right of any Cost Report, click the **Annotation** icon (looks like a word bubble).
+    </Step>
+    <Step>
+    The **Annotations** sidebar is displayed, with the most recently added annotation at the top of the list. A vertical line is also displayed on the Cost Report chart or graph for dates that have an existing annotation.
+    </Step>
+    <Step>
+    To edit the annotation, click the ellipses (...) on the top right of the annotation, then select **Edit**.
+    </Step>
+    <Step>
+    Select a new date from the date picker and/or edit the text in the comment field.
+    </Step>
+    <Step>
+    To save the annotation, click the arrow icon on the bottom right of the comment box.
+    </Step>
+</Steps>
+
+## Hide Annotations
+
+<Steps>
+    <Step>
+    From the top right of any Cost Report, click the **Annotation** icon (looks like a word bubble).
+    </Step>
+    <Step>
+    From the top right of the Annotations pane, click the **Annotations Settings** icon (looks like a gear).
+    </Step>
+    <Step>
+    You can toggle an annotation's visibility in the **Chart Display** section.
+    </Step>
+</Steps>
+
+<Frame>
+![Hiding Annotations](https://assets.vantage.sh/docs/hide-annotations.png)
+</Frame>
+
+## Delete an Annotation
+
+<Steps>
+    <Step>
+    To delete an annotation, from the top right of any Cost Report, click the **Annotation** icon (looks like a word bubble).
+    </Step>
+    <Step>
+    The **Annotations** sidebar is displayed. Click the ellipses (...) on the top right of the annotation, then select **Remove** > **OK**.
+    </Step>
+</Steps>
+
+<Tip>
+**TIP**
+
+Instead of deleting an annotation, consider resolving the annotation, as described below.
+</Tip>
+
+## Resolve an Annotation
+
+<Steps>
+    <Step>
+    To resolve an annotation, from the top right of any Cost Report, click the **Annotation** icon (looks like a word bubble).
+    </Step>
+    <Step>
+    The **Annotations** sidebar is displayed. Click the ellipses (...) on the top right of the annotation, then select **Mark as Resolved**.
+    </Step>
+</Steps>
+
+<Tip>
+**TIP**
+
+To unresolve an annotation, repeat the previous steps, but instead, select the **Unresolve** option.
+</Tip>
+
+### View Resolved Annotations
+
+By default, Cost Reports are filtered to hide resolved annotations from the annotations list and the chart/graph.
+
+<Steps>
+    <Step>
+    To view resolved annotations, click the **Annotation** icon at the top right of the screen.
+    </Step>
+    <Step>
+    From the **Annotations** sidebar, click the filter icon (next to the **New** button), then click **Show Resolved**. Resolved annotations are displayed in both views.
+    </Step>
+</Steps>
+
+## Share an Annotation
+
+<Steps>
+    <Step>
+    To share an annotation with a teammate, from the top right of any Cost Report, click the **Annotation** icon.
+    </Step>
+    <Step>
+    The **Annotations** sidebar is displayed. Click the ellipses (...) on the top right of the annotation, then select **Copy Link**. A link is added to your clipboard, which you can use to share with a teammate.
+    </Step>
+</Steps>
+
+## View Corresponding Issues
+
+When an annotation is created, a corresponding [issue](/issues) is also automatically created.
+
+<Steps>
+    <Step>
+    To open the corresponding issue, click the ellipses (...) on the top right of the annotation.
+    </Step>
+    <Step>
+    Then, select **Go to Issue**.
+
+    <Frame>
+    ![View of issue created by an annotation](https://assets.vantage.sh/docs/annotation-issues.png)
+    </Frame>
+    </Step>
+</Steps>
+
+The issue is automatically created with the **Annotation** category label attached and a link to the annotated report. The issue's title will default to the report name and annotation's date. You can use the comment function in the issue to also comment on the annotation.
+
+When an annotation is resolved, the corresponding issue will become a closed issue. Unresolving an issue reopens the corresponding issue.
+
+## Budget Alert Annotations
+
+When a budget alert is triggered, an annotation is added to the corresponding Cost Report. See the [Budget Alerts](/budgets#budget-alerts) documentation for details on how to set up budget alerts.
+

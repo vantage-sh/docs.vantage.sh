@@ -1,0 +1,34 @@
+---
+title: Find Hidden Costs
+description: With team accountability and executive reporting in place, there are usually opportunities to turn off or optimize resources that are unexpectedly driving costs. Vantage has numerous "cost debugging" features to help you drill down into cost trends."
+---
+
+## Review Active Resources
+
+<Frame>
+![Snowflake Cost Reports](https://assets.vantage.sh/docs/active-resource-drill-down.png)
+</Frame>
+
+The [Active Resources](/active_resources) feature provides a list of all resources currently driving costs in your account. Active resources currently support AWS, Azure, Snowflake, and MongoDB Atlas. Select each resource to see full details about where it is incurring costs.
+
+## Analyze Subcategory Costs
+
+<Frame>
+![Snowflake Cost Reports](https://assets.vantage.sh/docs/subcategory.gif)
+</Frame>
+
+To drill down into specific resources, like EC2 instances, Azure VMs, or Google Cloud VMs, you can use [Cost Reports](/cost_reports). Click through Service -> Resource -> Category -> Subcategory to reach the most granular object that the provider has billing data for.
+
+## View Cost Anomaly Alerts
+
+[Cost Anomaly Alerts](/cost_anomaly_alerts) automatically detect anomalies, but these alerts must be configured.
+
+Once you have created Cost Reports, navigate to the **Anomalies** tab on each report to view costs that the Vantage algorithm has detected as being outside the expected range. You can drill into these costs by clicking through the categories displayed on the report and also configure alerts to be sent to Slack, Teams, or email for future anomalies.
+
+## Additional User Workflows
+
+<Columns cols={2}>
+<Card title="Team Accountability" icon="users" href="/team_accountability" horizontal />
+
+<Card title="Executive Reporting" icon="chart-line" href="/executive_reporting" horizontal />
+</Columns>

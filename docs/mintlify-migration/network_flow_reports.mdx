@@ -1,0 +1,439 @@
+---
+title: Network Flow Reports
+description: For any network-enabled resource, Network Flow Reports provide visibility by source and destination to the flows within your network that are driving costs. You can filter these reports to identify resources that are accruing network costs, generate detailed views of the sources and destinations of the network traffic, and investigate metadata on specific resources in the flow. This feature makes it possible to correlate data transfer charges with both external services, such as Datadog, and internal applications.
+---
+
+<Info>
+**NOTE**
+
+At this time, only AWS is supported. Additional support for providers with flow log functionality, such as Azure and Google Cloud, is planned for the future.
+</Info>
+
+## Set Up VPC Flow Log Integration
+
+Network Flow Reports require an existing [AWS provider integration](/connecting_aws). The Vantage AWS account-specific IAM role needs to be granted access to the S3 buckets where you publish your VPC Flow Logs. Vantage can automatically detect any existing S3 buckets that contain VPC Flow Logs. You need to configure this integration for each AWS account that has an S3 bucket with VPC Flow Logs.
+
+<Info>
+**NOTE**
+
+The Vantage configuration does not work with Amazon CloudWatch because of the high cost of querying CloudWatch. Logs need to be published to S3 for the Vantage integration to work.
+</Info>
+
+### Prerequisites
+
+Ensure you have at least the following fields in your VPC Flow Log format to increase the discoverability of network-related costs. If you do not have these fields enabled, Vantage may be unable to properly correlate your network flows to estimated costs.
+
+```bash
+${action} ${bytes} ${dstaddr} ${start} ${end} ${flow-direction} ${log-status} ${region} ${srcaddr} ${account-id} ${instance-id} ${interface-id} ${subnet-id} ${vpc-id} ${az-id}
+```
+
+See the [AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs-s3.html#flow-logs-s3-create-flow-log) for information on how to set up VPC Flow Logs that publish to S3. Vantage can ingest both Text and Parquet log file formats.
+
+#### Cost to Enable VPC Flow Logs in AWS
+
+When you enable VPC Flow Logs, you incur both S3 storage costs and CloudWatch data ingestion costs on your AWS bill. These charges are represented in the costs for the S3 bucket where your flow logs are written to as well as an `S3-Egress` fee from CloudWatch. Unfortunately, there is no way around these costs being incurred. Vantage has contacted various AWS platform teams to attempt to remove this cost, but this is likely a limitation that AWS is unwilling to change or remove.
+
+These logs are considered [Vended Logs](https://aws.amazon.com/cloudwatch/pricing/#Vended_Logs). You can create a [Cost Report](/cost_reports) that monitors these charges:
+
+- Set **Provider** to **AWS**.
+- Set **Subcategory** to **AmazonCloudWatch contains VendedLog**.
+
+Note that Vended Logs can include other cost sources besides VPC Flow Logs, but you can expect an increase in those costs after enabling them. The filters for this Cost Report are provided below.
+
+<Frame>
+![Cost Report with filters for Vended Logs](https://assets.vantage.sh/docs/vended-logs.png)
+</Frame>
+
+<Note>
+**INFO**
+
+For more information about VPC Flow Logs pricing, see this [Cloud Cost Handbook article](https://handbook.vantage.sh/aws/services/vpc-flow-logs-pricing/).
+</Note>
+
+### Enable the Integration
+
+<Steps>
+    <Step>
+    From the top navigation bar, click **Active Resources**.
+    </Step>
+    <Step>
+    From the side navigation bar, select **Network Flow Reports**.
+    </Step>
+    <Step>
+        Click **Configure VPC Flow Logs**.
+        <Info>
+        **NOTE**
+
+        See the [Troubleshooting](/network_flow_reports#troubleshooting) section if you are running into issues with seeing some of your flow logs on the onboarding workflow.
+        </Info>
+    </Step>
+    <Step>
+        All flow logs that have been synced as active resources in Vantage are displayed in the left panel of the onboarding workflow. Click the checkbox next to any listed flow log to select all log files. You can also click the down arrow to the right of any flow log and select or deselect specific log files listed.
+        <Tip>
+        **TIP**
+
+        If you do not see specific flow log files, check whether they are [synced as active resources](https://console.vantage.sh/resources/new?filter=%7B%22%7C%7C%22%3A%5B%7B%22%5E%22%3A%5B%7B%22%3D%22%3A%5B%22provider_id%22%2C1%5D%7D%2C%7B%22%7C%7C%22%3A%5B%7B%22%3D%22%3A%5B%22type%22%2C%22ProviderResource%3A%3AAws%3A%3AVpcFlowLog%22%5D%7D%5D%7D%5D%7D%5D%7D%7D&resource_type=ProviderResource%3A%3AAws%3A%3AVpcFlowLog&title=VPC+Flow+Logs) in Vantage. Ensure that all accounts where there are flow logs have [active resources enabled](/active_resources#aws-active-resources) in Vantage.
+        </Tip>
+    </Step>
+    <Step>
+    When you select the checkbox, the **Sync All** toggle is automatically enabled. You can disable this option if you do not want the files to automatically sync again each night.
+    </Step>
+    <Step>
+    The right panel contains instructions on how to get set up using the AWS CLI, AWS Management Console, or the [Vantage Terraform provider](/terraform). Select the tab for your preferred option. If you have multiple connected accounts with VPC Flow Logs, instructions or code samples are provided for each account.
+    </Step>
+    <Step>
+    After you run the code in the AWS CLI, deploy your Terraform configuration, or complete the steps in the AWS Management Console, click **Check Permissions**. A message is displayed that indicates whether the bucket permissions were successfully set up or if they are missing. A red **X** is displayed next to any buckets in the left panel that do not have sufficient permissions. Some log files may also be unsupported. See the [section below](/network_flow_reports#unsupported-logs) for details.
+    </Step>
+    <Step>
+    Once permissions are successfully set up, click **Connect**. A message is displayed that indicates your flow logs are being imported. Click **Check Import Status** to review the status of your integration. A **Processing…** status is displayed until the import is complete.
+    </Step>
+</Steps>
+
+Data is usually available within 24 hours of initially enabling the integration. You will receive an email once the data import is complete. Vantage ingests your logs nightly.
+
+### Unsupported Logs
+
+When a particular log cannot be imported, Vantage displays either an `UNSUPPORTED TRAFFIC`, `UNSUPPORTED DESTINATION`, or `UNSUPPORTED LOG FORMAT` label next to the log name in the **Manage VPC Flow Logs** window. Hover your mouse over this label to see additional information about the issue.
+
+| Issue | Description |
+| --- | --- |
+| `UNSUPPORTED TRAFFIC` | Vantage does not import any `REJECT` flows, nor any flows that do not generate corresponding costs. |
+| `UNSUPPORTED DESTINATION` | This message is displayed if a log is going to any destination other than S3. Logs need to be published to S3 to be imported by Vantage. |
+| `UNSUPPORTED LOG FORMAT` | Unsupported log format means that your log may be missing some required columns. Hover over the `UNSUPPORTED LOG FORMAT` label to see a list of missing columns. Ensure your logs contain the columns noted in the [Prerequisites](/network_flow_reports#prerequisites) section. |
+
+### Troubleshooting
+
+When you click **Check Permissions** during the onboarding process, an error is displayed when you the correct permissions are not set up. Ensure that you add the correct permissions displayed in the onboarding workflow for *each* account.
+
+#### KMS Encrypted Buckets
+
+An error is displayed for buckets that are encrypted with AWS Key Management Service (KMS). You will need to either remove encryption on these buckets or provide Vantage the necessary permissions to decrypt (i.e., `kms:Decrypt`).
+
+#### No Logs Displayed
+
+You may see a message indicating *No VPC flow logs with log destination found. If you have recently created these resources it may take up to 24 hours for Vantage to sync the metadata.* Wait at least 24 hours if you recently created new resources. This can also be an issue if you have not enabled active resource syncing. To enable syncing:
+
+<Steps>
+    <Step>
+    Navigate to the [Workspaces](https://console.vantage.sh/settings/workspaces) section of the console.
+    </Step>
+    <Step>
+    Select the workspace your AWS integration is set up.
+    </Step>
+    <Step>
+    At the top, ensure **Active Resource Syncing** is turned on.
+    </Step>
+</Steps>
+
+<Frame>
+![Active Resource Syncing in the Workspaces UI](https://assets.vantage.sh/docs/active-resource-sync.png)
+</Frame>
+
+### Manage Existing Integrations
+
+You can view your integration status and add additional flow logs from the [VPC Flow Logs integration](https://console.vantage.sh/settings/aws?vpc_flow_logs=true) page. At the top of the **Manage Connected VPC Flow Logs** panel, click **Manage**. The **Manage Flow Logs** pop-up window is displayed. After the initial import, you can perform the following actions from this window:
+
+- Select additional S3 buckets and logs to sync
+- Deselect an S3 bucket or log files to remove the bucket from syncing
+
+<Info>
+**NOTE**
+
+If you add additional fields to your VPC Flow Log format in AWS, and you already sync these logs to Vantage, this new data will be imported to Vantage on the next nightly import.
+</Info>
+
+## Create a New Network Flow Report
+
+Follow the steps below to create a new Network Flow Report:
+
+<Steps>
+    <Step>
+        From the top navigation, click **Active Resources**.
+    </Step>
+    <Step>
+        From the side navigation, click **Network Flow Reports**. All your existing Network Flow Reports are displayed, along with who created the report and the date it was created.
+        <Tip>
+        **TIP**
+
+        Three reports are provided, by default, on this page: *All Network Flow Logs*, *Cross-AZ Traffic*, and *Public Traffic Destinations*. See the [Network Flow Report Examples section](/network_flow_reports#network-flow-report-examples) below for tips on how to get started with these reports.
+        </Tip>
+    </Step>
+    <Step>
+        To create a new report, click **New Network Flow Report**.
+    </Step>
+    <Step>
+        A new Network Flow Report is displayed.
+        - At the top of the report, a [Sankey diagram](https://en.wikipedia.org/wiki/Sankey_diagram) is provided. This diagram shows different network flows, based on your selected filters and grouping criteria. For example, in the image below, the nodes on the left side of the diagram show the sources of network traffic. Links, or network flows, flow from the nodes to their traffic destination (in this example, cross-AZ or public). The width of each flow corresponds with the volume of traffic or estimated cost, based on your settings, and the color corresponds with the source of the node (e.g., yellow for *public* in the example below).
+        <Frame>
+        ![Sample Network Flow Report with cross-AZ and public traffic](https://assets.vantage.sh/docs/nfr-start.png)
+        </Frame>
+        - In the table below the diagram, the network flow information is displayed along with the volume of traffic (in bytes). The table is sorted in descending order by the **Estimated Cost** column. Click any column header to change the sort order. Each flow shows the estimated cost associated with that specific traffic route, helping you identify the most expensive data transfers. (See the [section below](/network_flow_reports#estimated-cost-calculation-for-network-flows) for details on how the Estimated Cost column is calculated.)
+        - For each listed resource, a link to the [**Active Resources** screen](/active_resources) is provided. Click this link to view additional metadata about the resource. From the **Active Resources** screen, click the **Relationships** tab to view any associated resources, such as a corresponding IGW for a VPC resource.
+    </Step>
+    <Step>
+        You can update the criteria displayed in the Sankey diagram with the following options:
+        - By default, both egress and ingress traffic are displayed. Expand the **Flow Direction** menu above the diagram to change the flow to only **Egress** or **Ingress**.
+        <Info>
+        **NOTE**
+
+        This filter depends on whether `flow_direction` is present in your VPC Flow Log format. If `flow_direction` is not present in your VPC Flow Log format, then a *No data available in table* message is displayed on the report. See the [Prerequisites section](/network_flow_reports#prerequisites) for the recommended VPC Flow Log format. To add the field to your format, create a new VPC Flow Log configuration that includes the `flow_direction` field.
+        </Info>
+        <Info>
+        **NOTE**
+
+        By default, Vantage ingests network flows into your account daily and keeps the data available for one week. For Enterprise customers, this retention period can be adjusted. Contact [support@vantage.sh](mailto:support@vantage.sh) if you need a longer retention period.
+        </Info>
+        - You can move the columns in the table at the bottom to visualize different flows. The diagram is also updated to depict the new order in the table.
+        <Accordion title="Click to view example image">
+        <video src="https://assets.vantage.sh/docs/nfr-move-column.mp4" preload="auto" autoplay="" loop="" playsinline="" webkit-playsinline="" x5-playsinline="" style={{ width: '100%', height: '100%' }}></video>
+        </Accordion>
+        - You can also filter and group/add more columns to the report. See the next section for details.
+    </Step>
+    <Step>
+        To save the report, from the top right of the screen, click **Save as New**. Enter a report name, then click **Save**. (To edit this name, click the pencil icon in the breadcrumbs above the chart, next to the report's name.)
+    </Step>
+</Steps>
+
+## Filter and Group a Network Flow Report
+
+By default, a Network Flow Report is grouped by the following fields:
+
+- Source Resource UUID
+- Peer Resource UUID
+- Traffic Category
+
+You can filter and group by multiple criteria in Network Flow Reports. Expand the box below to see all available filter and grouping criteria with a description of each option.
+
+<Accordion title="Click to view all fields">
+
+| Vantage Field | Description | Example |
+| --- | --- | --- |
+| Account ID | AWS account ID of the source network | production, 123456789012 |
+| Availability Zone ID | ID of the source Availability Zone | us-east-1a |
+| Destination Address | Specific IP address that identifies the location of where the traffic is being sent | An IP, like 1.23.456.90 |
+| Destination Hostname | Domain name that corresponds with the IP address of the destination *(see note below table)* | 01234.broadband.com      OR      Datadog      A `dsthostname:null` value means Vantage is unable to reverse DNS the `dst_address` IP address. |
+| Flow Direction | Movement of network traffic relative to a specific network interface | Ingress or egress |
+| Interface ID | Source ENI ID | eni-001d78b2agh4caa05 |
+| Instance ID | Source instance ID | i-0b22a22eec53b9321 |
+| Peer Resource UUID | Destination resource ARN or tag (if available) | eni-c123ab7f9c55af9a6d      OR      example-tag |
+| Peer Account ID | Destination account ID | production, 123456789012 |
+| Peer VPC ID | Destination VPC ID | vpc-12a34567b8g8a03ef |
+| Peer Region ID | AWS Region of destination | us-west-2 |
+| Peer Availability Zone ID | ID of the Availability Zone for the destination | us-east-1b |
+| Peer Subnet ID | Destination subnet ID | subnet-123ab7f9c55af9a6d |
+| Peer Interface ID | Destination ENI ID | eni-001d78b2agh4caa12 |
+| Peer Instance ID | Destination instance ID | i-0b22a22eec53b9321 |
+| Region | AWS Region of the source | us-east-1 |
+| Resource UUID | Source resource ARN or tag (if available) | eni-c123ab7f9c55af9a6d      OR      example-tag |
+| Source Address | Specific IP address from which the network traffic originates | An IP, like 1.23.456.90 |
+| Source Hostname | Domain name that corresponds with the IP address of the source *(see note below table)* | 100.123.456.789.bc.googleusercontent.com      OR      Datadog |
+| Subnet ID | ID of the source subnet | subnet-123ab7f9c55af9a6d |
+| Traffic Category | The type of traffic | public, cross-AZ, cross-region, unknown      An `Unknown` value means Vantage is unable to categorize the type of traffic based on the available metadata. |
+| Traffic Path | Path traffic takes to reach the destination, such as through a virtual private gateway | - In VPC - Internet Gateway or Gateway VPC Endpoint - Virtual Private Gateway - Intra-Region VPC Peering - Inter-Region VPC Peering - Local Gateway - Gateway VPC Endpoint (Nitro-based instances) - Internet Gateway (Nitro-based instances) |
+| VPC ID | ID of the source VPC | vpc-12a34567b8g8a03ef |
+
+<Info>
+**NOTE**
+
+To derive the hostname, Vantage checks against some hardcoded IP ranges, and then falls back to reverse DNS lookup for the IPs. If you have services with known IP ranges you want added, contact [support@vantage.sh](/).
+</Info>
+</Accordion>
+
+
+### Apply Filter Criteria
+
+You can add additional fields via grouping and filtering criteria. To add a new filter:
+
+<Steps>
+    <Step>
+        Click the **Filters** button on the top left of the diagram.
+        - The **AWS costs where...** tile is displayed. Click **+ New Rule**.
+        - From the filter dropdown menu, select an option, like **Account ID**, **Instance ID**, etc.
+        - Two additional dropdown menus are displayed. Select **is**, **is not**, **contains**, or **does not contain** based on your desired filter criteria, then select one or more values from the second dropdown menu. For **contains** or **does not contain,** enter any text criteria to filter by.
+        <Note>
+        **INFO**
+
+        If you are unable to see any values for a filter, this means that you are not capturing this information in your VPC Flow Logs format, and therefore, Vantage is unable to import this data.
+        </Note>
+        - Click **Add**.
+        <Accordion title="Click to view example image">
+            <Frame>
+            <video
+                autoPlay
+                muted
+                loop
+                preload="auto"
+                width="100%"
+                height="auto"
+                src="https://assets.vantage.sh/docs/nfr-filtering.mp4"
+            >
+            </video>
+            </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        You can optionally edit your existing rule or add additional filter criteria.
+        - To edit the rule you just created, select the rule, make your changes, and click **Add**.
+        - If you want to add a rule to filter multiple criteria, such as filter by certain Regions and another rule to filter by certain Destination Hostnames, click **+ New Rule**. Add the additional criteria and click **Add**.
+        - To add a separate rule set, above the filter set, click **+ New Filter**. This rule set will be displayed as **Or AWS costs where...** on the new tile.
+        - To delete a rule set, click the trashcan icon on the top right of the rule set.
+        <Accordion title="Click to view example image">
+
+        <Frame>
+            <video
+                autoPlay
+                muted
+                loop
+                preload="auto"
+                width="100%"
+                height="auto"
+                src="https://assets.vantage.sh/docs/nfr-other-filters.mp4"
+            >
+            </video>
+        </Frame>
+        </Accordion>
+    </Step>
+    <Step>
+        Above the rule set(s), click **Apply**. The diagram will update with your existing filter criteria.
+    </Step>
+</Steps>
+
+### Apply Grouping Criteria
+
+To add additional columns to the table and diagram, expand the **Group By** menu. Select or deselect grouping criteria. As you add grouping criteria, additional nodes and flows are displayed on the diagram. Additional columns are also added to the table for any new grouping criteria.
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/nfr-group.mp4"
+  >
+  </video>
+</Frame>
+
+### Adjust Flow Weight
+
+By default, the Sankey diagram is weighted by estimated cost. You can change this view to be weighted by bytes, or volume. Above the chart, click the **Flow Weight** menu and select **Costs** or **Bytes**. The Sankey diagram is updated accordingly. When you hover over a flow, the corresponding cost or volume in bytes is displayed in the tooltip.
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/nfr-flow.mp4"
+  >
+  </video>
+</Frame>
+
+## View Flow Log Metadata
+
+For certain grouping criteria, you can view additional details about specific resources. Vantage provides this information when it can fetch provider resource metadata. If Vantage can resolve the IP address for the Source Address and Destination Address grouping criteria, it will also provide metadata for these groupings.
+
+<Steps>
+    <Step>
+    Expand the **Group By** menu and add one or more of the following options to your grouping criteria:
+    - Interface ID/Peer Interface ID
+    - Subnet ID/Peer Subnet ID
+    - VPC ID/Peer VPC ID
+    - UUID/Peer UUID
+    </Step>
+    <Step>
+    In the table, select the row for any resource. The **Flow Log Metadata** panel is displayed on the right side of the screen. Data is provided for the **Peer** and **Peer Resource**. In this panel, click the link for any listed resource to see a provider resource report displayed.
+    </Step>
+</Steps>
+
+<Frame>
+  <video
+    autoPlay
+    muted
+    loop
+    preload="auto"
+    width="100%"
+    height="auto"
+    src="https://assets.vantage.sh/docs/nfr-metadata.mp4"
+  >
+  </video>
+</Frame>
+
+## Estimated Cost Calculation for Network Flows
+
+The estimated cost for each flow is calculated by applying your blended data transfer rates to the flow of traffic. For example, if a flow is moving between one subnet to another and those subnets are in different Availability Zones, Vantage applies your cross-AZ data transfer rate to those bytes.
+
+<Info>
+**NOTE**
+
+Because data transfer rates can be tiered, and the metadata associated with the destination may change, this calculation is a best-effort calculation; however, it does help to identify cost hotspots within your network.
+</Info>
+
+The flow logs cost calculation is based on the following formula:
+
+$$
+Estimated\ Cost=\sum_{i=1}^{N} (Rate_{i} \times Volume_{i})
+$$
+
+- $N$ is the total number of data flows.
+- $R_i$ is the rate (cost per unit of data) for the $i$\-th flow.
+- $V_i$ is the volume of data transferred for the $i$\-th flow.
+
+Vantage first identifies the different flows of data within your network. It uses information provided within the AWS Cost and Usage Reports (CUR) to determine the specific rate (cost per unit of data) that applies to each type of data flow (e.g., cross-AZ, public). Each rate for each data flow is multiplied by the amount of data transferred in that flow. The estimated cost is then determined by the sum of these products.
+
+## Network Costs on Cost Reports
+
+On [Cost Reports](/cost_reports), for resources that generate network traffic costs (e.g., NAT Gateways), a **Network Costs** button is displayed in the Cost Report list. Click this button to view a Network Flow Report that is filtered to flows coming from that specific resource.
+
+The below Cost Report is grouped by **Service** and **Resource**.
+
+<Frame>
+![Network Costs option on a Cost Report](https://assets.vantage.sh/docs/nfr-cost-report.png)
+</Frame>
+
+## Network Flow Report Examples
+
+The following examples demonstrate common scenarios for using Network Flow Reports. These examples are based on the three reports that Vantage provides by default: *All Network Flow Logs*, *Cross-AZ Traffic*, and *Public Traffic Destinations*.
+
+<Frame>
+![Sample Network Flow Report with cross-AZ and public traffic](https://assets.vantage.sh/docs/nfr-sample.png)
+</Frame>
+
+### Example 1: View All Network Traffic
+
+The **All Network Flow Logs** report shows all your network flows. The flow’s Resource UUID and Peer Resource UUID are provided as well as the traffic category (e.g., public). Review this report to get a high-level view of all your traffic flows.
+
+<Frame>
+![Sample Network Flow Report with cross-AZ and public traffic](https://assets.vantage.sh/docs/nfr-start.png)
+</Frame>
+
+### Example 2: Identify Cross-AZ Traffic
+
+Cross-AZ data transfer within AWS incurs higher costs compared to intra-AZ data transfer. [According to AWS](https://aws.amazon.com/ec2/pricing/on-demand/#Data_Transfer), “For data transferred between a Local Zone and an Availability Zone within the same AWS Region, "in" to and "out" from Amazon EC2 in the Local Zone” data is charged at $0.01/GB for *both* transfer in and transfer out. Transferring data between AZs requires more network bandwidth compared to transferring data within the same AZ. This additional bandwidth consumption contributes to higher costs.
+
+In the provided cross-AZ report, you can view all cross-AZ traffic along with flow size and estimated cost. The **Peer Availability Zone ID** column shows exactly where the traffic is flowing. You can see both the source and peer AZs along with the associated source and peer resources.
+
+<Frame>
+![Sample Network Flow Report with all cross-AZ traffic](https://assets.vantage.sh/docs/nfr-az.png)
+</Frame>
+
+Review the highest-costing flows and consider the following tips:
+
+- Try to place dependent resources within the same AZ to minimize cross-AZ data transfer.
+- Use [VPC endpoints](https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-access-aws-services.html) to route traffic internally within AWS, reducing the need for cross-AZ traffic. This can help in minimizing data transfer costs and enhance security by keeping everything in the same VPC.
+
+### Example 3: Examine Public Traffic
+
+When monitoring network costs, analyzing public traffic can reveal significant insights about where your traffic is going when it reaches the public internet. By analyzing destination details, you can ensure that traffic is taking the correct path or is going only to trusted and necessary endpoints. In this report, the **Destination Hostname** grouping/column provides a human-readable format of the destination, helping you quickly identify known destination services or endpoints.
+
+<Frame>
+![Sample Network Flow Report with all public traffic](https://assets.vantage.sh/docs/nfr-public.png)
+</Frame>
+
+Vantage identifies hostnames using a reverse DNS lookup, or when vendors publish static IP address ranges, such as Datadog, Vantage can associate these IP addresses with the name of the service. The **Destination Address** provides the exact IP address, which is useful for detailed analysis to ensure traffic is reaching the intended destinations.
+
+Examine this report to understand which resources are generating public traffic and where that traffic is going. Consider whether you might use alternative services, like AWS [Direct Connect](https://aws.amazon.com/directconnect/), [CloudFront](https://aws.amazon.com/cloudfront/), or [PrivateLink](https://docs.aws.amazon.com/whitepapers/latest/aws-vpc-connectivity-options/aws-privatelink.html), to optimize data transfer and reduce costs.
+

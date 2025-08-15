@@ -1,0 +1,170 @@
+---
+title: "Confluent"
+description: "Vantage integrates with your Confluent account using a Confluent API key and secret to access the [Billing API](https://docs.confluent.io/cloud/current/billing/overview.html#retrieve-costs-for-a-range-of-dates). This endpoint provides structured cost data, broken down by category (e.g., Kafka or Connect), resource (e.g., Kafka Cluster), and subcategory (e.g., Kafka Storage or Connect Capacity)."
+---
+
+Vantage currently supports the following Confluent products:
+
+- Kafka
+- Connect
+- KSQL
+- Audit Logs
+- Cluster Links
+- Custom Connect
+- Support Cloud
+
+## Connect Your Confluent Account
+
+### Prerequisites
+
+[Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to generate a Confluent API key.
+
+<Info>
+**NOTE**
+
+To access the Billing API, Vantage needs the `OrganizationAdmin` role attached to the service account (instructions provided below). The `OrganizationAdmin` role provides read/write access; however, Vantage will never perform write operations and will only read from the Billing API and Organizations API.
+</Info>
+
+### Create the Connection
+
+Generate an API key, create a service account, then attach the right role to the service account.
+
+#### Step 1 - Generate an API Key and Service Account
+
+<Steps>
+    <Step>
+    Log in to the [Confluent Cloud console](https://confluent.cloud/login).
+    </Step>
+    <Step>
+    From the top right of the console, click the hamburger menu.
+    </Step>
+    <Step>
+    Under **ADMINISTRATION**, click **API keys**.
+    </Step>
+    <Step>
+    Click **\+ Add API key**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Adding an API key](https://assets.vantage.sh/docs/confluent-api-key.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    For **Select an account for API key**, click **Service account**.
+    </Step>
+    <Step>
+    Select an existing service account or create a new one, then click **Next**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Adding a service account for the key](https://assets.vantage.sh/docs/confluent-add-account.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    For **Select resource scope for API key**, select **Cloud resource management**. Click **Next**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Adding a service account for the key](https://assets.vantage.sh/docs/confluent-cloud-resource.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Add a name and description for the key, then click **Create API key**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Adding a key name](https://assets.vantage.sh/docs/confluent-create-key.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Copy the displayed key and the secret to add to Vantage. You can also download a copy of the API key from this screen.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Copy the newly generated key](https://assets.vantage.sh/docs/confluent-copy-key.png)
+        </Frame>
+    </Accordion>
+    </Step>
+</Steps>
+
+#### Step 2 - Add the `OrganizationAdmin` Role to the Service Account
+
+<Steps>
+    <Step>
+    From the top hamburger menu of the Confluent Cloud console, select **Accounts & access**.
+    </Step>
+    <Step>
+    On the **Accounts & access** page, select the **Service Accounts** tab, then open the service account you associated with the integration API key.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Confluent Account & access screen](https://assets.vantage.sh/docs/confluent-account-access.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Click the **Access** tab, then click **\+ Add role assignment**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Confluent add role assignment](https://assets.vantage.sh/docs/confluent-add-role-assignment.png)
+        </Frame>
+    </Accordion>
+    </Step>
+    <Step>
+    Select the **OrganizationAdmin** role, then click **Add**.
+    <Accordion title="Click to view example image">
+        <Frame>
+        ![Confluent selecting a role](https://assets.vantage.sh/docs/confluent-new-role-assignment.png)
+        </Frame>
+    </Accordion>
+    </Step>
+</Steps>
+
+#### Step 3 - Add the API Key to the Vantage Console
+
+<Steps>
+    <Step>
+    From the top navigation in Vantage, click **Settings**.
+    </Step>
+    <Step>
+    On the left navigation, select **Integrations** and select **Confluent**.
+    </Step>
+    <Step>
+    The Confluent integrations page is displayed. Ensure you are on the **Connect** tab.
+    </Step>
+    <Step>
+    At the bottom of the page, click **Add API Key** and paste your newly generated **API key** and **API secret**.
+    </Step>
+    <Step>
+    Click **Connect Account**.
+    </Step>
+</Steps>
+
+Costs will be ingested and processed as soon as you add the integration. It usually takes less than 15 minutes to ingest Confluent costs. As soon as the costs are processed, they will be available on your **All Resources** Cost Report. If you decide to remove your Confluent integration from Vantage, all costs associated with your Confluent API key will be removed from the Vantage console.
+
+#### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## Data Refresh
+
+See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
+
+## Active Resources
+
+Confluent Kafka Clusters are synced as active resources and available in [resource reports](/active_resources).
+
+## Confluent Reporting Dimensions
+
+On Confluent [Cost Reports](/cost_reports/), you can filter costs across several dimensions:
+
+- Category (e.g., Kafka Storage)
+- Tag ([virtual tags](/tagging) created in Vantage for this provider)
+- Resource (resource service ID)
+- Charge Type (e.g., Usage)
+- Organization (organization ID)
+- Service (e.g., Kafka)
+
+You can also view credits or discounts for Confluent costs in Cost Reports.
+
+
+1. At the top of any Confluent Cost Report, click **Settings**.
+2. Then, toggle on/off **Credits** and/or **Discounts**.
