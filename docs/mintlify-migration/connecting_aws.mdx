@@ -16,7 +16,7 @@ When you create a Cross-Account IAM Role using the provided CloudFormation templ
 
 ### AWS GovCloud Environments
 
-Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.amazon.com/govcloud-us/details/) environments. Note that at this time, we are unable to sync active resources from GovCloud regions into the [Active Resources](/active_resources#viewing-active-resources) screen in Vantage; however, you can still view costs by resource in [Cost Reports](/cost_reports). You also have access to all other Vantage functionality.
+Vantage supports ingesting costs for infrastructure in [GovCloud](https://aws.amazon.com/govcloud-us/details/) environments. Note that at this time, we are unable to sync active resources from GovCloud regions into the [Active Resources](/active_resources#view-active-resources) screen in Vantage; however, you can still view costs by resource in [Cost Reports](/cost_reports). You also have access to all other Vantage functionality.
 
 ## Create a Connection
 
@@ -24,8 +24,8 @@ Navigate to the [Vantage Integrations](https://console.vantage.sh/settings/integ
 
 - **AWS Console:** Click the purple **Connect Vantage via AWS Console** button to directly log in to AWS. You will be directed to CloudFormation to create the necessary stack that will contain prefilled parameters. Click the checkbox for "I acknowledge that AWS CloudFormation might create IAM resources.", and click "Create Stack". Once the deployment is complete, you will see the stack status as `CREATE_COMPLETE`.
 - **AWS CLI:** Click the **More Connection Options** dropdown and select **Connect via AWS CLI**. The CLI commands needed to create a connection are provided on this screen.
-- **Terraform:** Click the **More Connection Options** dropdown and select **Connect via AWS Terraform**. Instructions for how to connect using the Terraform module are provided on this screen. See the [section below](/connecting_aws#terraform) for more details.
-- **AWS IAM Console:** Click the **More Connection Options** dropdown and select **Connect via AWS IAM Console**. Instructions are provided on this screen. See the [section below](/connecting_aws#iam_console) for more details.
+- **Terraform:** Click the **More Connection Options** dropdown and select **Connect via AWS Terraform**. Instructions for how to connect using the Terraform module are provided on this screen. See the [section below](/connecting_aws#connect-with-terraform) for more details.
+- **AWS IAM Console:** Click the **More Connection Options** dropdown and select **Connect via AWS IAM Console**. Instructions are provided on this screen. See the [section below](/connecting_aws#connect-by-manually-creating-an-iam-role) for more details.
 - **CloudFormation StackSet for Multiple Member Accounts:** Click the **Connect via CloudFormation StackSet** button. The necessary commands to create this connection are displayed. See the next section for more information.
 
 After you create your integration between AWS and Vantage, you can view the status of your connection on the [AWS Settings page](https://console.vantage.sh/settings/aws).
@@ -36,7 +36,7 @@ After you create your integration between AWS and Vantage, you can view the stat
 Vantage will experience [a delay](/connecting_aws#aws-data-ingestion-delay) in receiving all your cost data until the first Cost and Usage Report (CUR) is received from AWS. In addition, the first CUR that's sent to Vantage contains only the current month's data. See the instructions below for [backfilling a CUR](/connecting_aws#backfilling-aws-cur-for-previous-reporting-periods).
 </Info>
 
-### Connect Multiple AWS Accounts
+### Connecting Multiple AWS Accounts
 
 You can connect multiple AWS accounts to Vantage; however, we strongly advise that you connect your **root or management** AWS account first. When you connect the root account, you can see all costs for the organization, including linked accounts.
 
@@ -69,7 +69,7 @@ We recommend using StackSets if you have several accounts you want to connect. U
 
 ### Connect with Terraform
 
-During onboarding, instead of following the CloudFormation process, you can use the Vantage Terraform module. Refer to the [Terraform documentation](/terraform#integrations-module) for more information.
+During onboarding, instead of following the CloudFormation process, you can use the Vantage Terraform module. See the [Terraform documentation](/terraform#vantage-terraform-integrations-module-for-aws) for more information.
 
 ### Connect by Manually Creating an IAM Role
 
@@ -113,7 +113,7 @@ Once Vantage receives its first CUR, this functionality will automatically be ma
 
 See the [provider data refresh documentation](/provider_data_refresh) for information on when data for each provider refreshes in Vantage.
 
-## Backfill AWS CUR for Previous Reporting Periods
+## Backfilling AWS CUR for Previous Reporting Periods
 
 The first CUR that's sent to Vantage contains only the current month's data. If you want to see historical data in Vantage, you can backfill your CUR for re-ingestion into Vantage.
 

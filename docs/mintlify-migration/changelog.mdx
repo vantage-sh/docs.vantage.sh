@@ -5,7 +5,6 @@ description: "_This page was last updated on August 1, 2025, with product update
 
 <Update label="July 2025">
 
-
 ## Product Updates
 
 - **Incomplete costs on Financial Commitment Reports:** A tooltip was added to [Financial Commitment Reports](/financial_commitment_reports#hourly-reporting) with hourly binning to indicate when costs are incomplete and still processing.
@@ -13,7 +12,7 @@ description: "_This page was last updated on August 1, 2025, with product update
 - **Remote MCP:** Vantage now offers a [remote MCP server](/vantage_mcp) to let AI agents access cloud cost data, with no infrastructure management required.
 - **Tags confirmation screen:** A new confirmation box is added to the [Tags screen](/tagging) to prevent loss of unsaved changes when a user attempts to navigate away from the page.
 - **Filter UI update:** An update was made to the **where** section of a [report filter](/cost_reports#filter-cost-reports) for improved dropdown usability by auto-focusing the search input when selecting from large filterable lists.
-- **Show/hide previous period:** You can now show or hide the [previous period](/cost_reports#create-report) on Cost Reports. A new toggle is displayed on the report date picker.
+- **Show/hide previous period:** You can now show or hide the [previous period](/cost_reports#create-a-cost-report) on Cost Reports. A new toggle is displayed on the report date picker.
 - **Active Resources and Resource Report updates:** The following updates were made to update Resource Reports and [Active Resources](/active_resources).
 	- You can now filter by a tag name substring using the **contains** and **does not contain** filters on a Resource Report.
 	- The [dashboard](/dashboards) widget for Resource Reports now shows a tooltip indicating the accrued costs are from the past 30 days.
@@ -21,21 +20,21 @@ description: "_This page was last updated on August 1, 2025, with product update
 	- Stopped EC2 instances are now available as Active Resources. **State** now appears as a report column to determine if the instance is running or stopped.
 	- Vantage now supports ad-hoc downloads of any Resource Report, allowing users to export filtered views without saving them first.
 	- You can now [customize](/active_resources#customize-a-resource-report) which columns are displayed in your Resource Reports, such as resource-specific metadata fields, as well as arrange the columns in any order.
-- **MSP RBAC enhancements:** Two enhancements [were released](/partners#managed-account-rbac) for Managed Service Provider (MSP) access controls:
+- **MSP RBAC enhancements:** Two enhancements [were released](/partners#role-based-access-control) for Managed Service Provider (MSP) access controls:
 	- Role Based Access Control (RBAC) is now available for MSP Managed Accounts.
 	- Inherited roles are available for Management Users who enter into Managed Accounts via the Management Account.
 
 ### Kubernetes Agent Updates
 
-- The agent [now collects](/kubernetes#pvc-node-label) Node and PVC labels for additional reporting metrics.
-- With [Persistent Metrics Recovery](/kubernetes_agent#persistent-metrics), resource metrics are retained when the upload endpoint is unreachable.
+- The agent [now collects](/kubernetes#filter-by-pvc-and-node-labels) Node and PVC labels for additional reporting metrics.
+- With [Persistent Metrics Recovery](/kubernetes_agent#persistent-metrics-recovery), resource metrics are retained when the upload endpoint is unreachable.
 - Support was added for the following options in the [Kubernetes agent configuration](https://github.com/vantage-sh/helm-charts):
 	- `dnsConfig`: specifies the pod's DNS configuration
 	- `collectPVCLabels`: optionally enable the collection of PVC labels
 
 ### API Updates
 
-- **Billing rules parameter:** The `sql_query` parameter is available on the `/billing_rules` [endpoint](https://vantage.readme.io/reference/createbillingrule) and supports creating [custom billing rules](/partners#custom-billing-rule) for MSP customers.
+- **Billing rules parameter:** The `sql_query` parameter is available on the `/billing_rules` [endpoint](https://vantage.readme.io/reference/createbillingrule) and supports creating [custom billing rules](/partners#custom-billing-rules) for MSP customers.
 - **Terraform updates:** The following Terraform updates are available:
 	- `vantage_billing_rule` [resource](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/resources/billing_rule) and `vantage_billing_rules` [data source](https://registry.terraform.io/providers/vantage-sh/vantage/latest/docs/data-sources/billing_rules) are now available to support the [MSP custom billing rules](/partners#custom-billing-rule) feature.
 </Update>
@@ -59,7 +58,7 @@ description: "_This page was last updated on August 1, 2025, with product update
 
 ### Kubernetes Agent Updates
 
-*See [May's update](/changelog#k8s-may-25) for the most recent Kubernetes agent release.*
+*See [May's update](/changelog#kubernetes-agent-updates-3) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -75,7 +74,7 @@ description: "_This page was last updated on August 1, 2025, with product update
 
 - **Anomaly Detection with resource attribution**: Vantage will [associate anomalies with individual resource ARNs](/cost_anomaly_alerts#how-anomaly-detection-works) to enable faster root-cause analysis.
 - **Flexible match filter operation**: The [Flexible Match](/cost_reports#flexible-match) filter operator ignores casing, whitespace, underscores, and hyphenation to match all variants of a string when performing a look-up for a value.
-- **FOCUS-compatible exports**: You can now [export](/cost_reports#exporting-cost-reports) your cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
+- **FOCUS-compatible exports**: You can now [export](/cost_reports#export-cost-reports) your cloud cost and usage data in the FinOps Foundation’s open-source FinOps Open Cost and Usage Specification ([FOCUS](https://focus.finops.org/)) format.
 - **Filter by human-readable name**: If a resource has a human-readable name in Vantage, you can now search for that in addition to the resource ARN when using filters in reports.
 - **Cost Report legend human-readable names**: Human-readable names now replace the ARN of a resource in the legend when viewing a [Cost Report](/cost_reports).
 - **EFS in active resources**: EFS has been added as an [active resource](/active_resources).
@@ -107,7 +106,7 @@ description: "_This page was last updated on August 1, 2025, with product update
 - **Custom Cost Alerts:** The [Cost Alerts](/cost_alerts) feature automatically detects and notifies you of cost changes—whether by percentage or fixed amount—across customizable time periods, like day-over-day, month-over-month, or quarter-over-quarter.
 - **Twilio integration:** Vantage now integrates with [Twilio](/connecting_twilio) as its latest cost provider.
 - **Datadog query syntax:** You can now use [Datadog queries](/per_unit_costs#import-from-datadog) directly within Vantage to import Business Metrics.
-- **Unit Cost export:** You can now [export Unit Costs](/cost_reports#exporting-cost-reports) from Cost Reports from the Vantage console.
+- **Unit Cost export:** You can now [export Unit Costs](/cost_reports#export-cost-reports) from Cost Reports from the Vantage console.
 - **App integrations:** The connection workflows for [Microsoft Teams](/microsoft_teams) and [Slack](/slack) have moved from the **Notifications** page to the **Settings** page in the App integrations section.
 - **Jira budget display fix:** A fix was made to the **Budget Alerts** screen so that if a [Jira alert](/jira) is set for a budget, this now displays for configured alerts.
 - **EBS volume unattached times:** EBS volume attach/detach times are available when querying EBS volume [active resources](/active_resources).
@@ -158,18 +157,18 @@ description: "_This page was last updated on August 1, 2025, with product update
 	- [Nested Virtual Tags](/tagging#nested-virtual-tags) allow you to use the filter criteria from existing Virtual Tags in the creation of new Virtual Tags.
 	- Pagination has been added to the Virtual Tags page to assist with readability.
 - **Vantage for MSPs updates:** The following updates are available for [Vantage for MSPs](/partners) functionality:
-	- A new adjustment for [Re-Rate to Public Pricing](/partners#rerate-public) allows Vantage for MSPs users to revert their customers’ pricing back to list price, removing any enterprise discounts or private pricing
-	- A new adjustment for [Remove SP/RI Discounts](/partners#remove-discounts) lets Vantage for MSPs users decide which Reserved Instance and Savings Plan benefits their end customers receive.
-	- A new adjustment for [Re-Rate Tiered Discounts](/partners#rerate-tiered) lets Management Accounts recalculate tiered pricing models for applicable services for a customer's Managed Account.
+	- A new adjustment for [Re-Rate to Public Pricing](/partners#re-rate-to-public-pricing-adjustment) allows Vantage for MSPs users to revert their customers’ pricing back to list price, removing any enterprise discounts or private pricing
+	- A new adjustment for [Remove SP/RI Discounts](/partners#remove-sp%2Fri-discounts-adjustment) lets Vantage for MSPs users decide which Reserved Instance and Savings Plan benefits their end customers receive.
+	- A new adjustment for [Re-Rate Tiered Discounts](/partners#re-rate-tiered-discounts) lets Management Accounts recalculate tiered pricing models for applicable services for a customer's Managed Account.
 	- A customer Managed Account's **Tracked Spend** is now displayed on the **Managed Accounts** homepage.
 - **Kubernetes report updates:** The following updates are available for Kubernetes Cost Reports and Efficiency Reports:
-	- The Kubernetes `__idle__` namespace is now enabled by default on [Kubernetes Efficiency Reports](/kubernetes#idle-namespace).
+	- The Kubernetes `__idle__` namespace is now enabled by default on [Kubernetes Efficiency Reports](/kubernetes#understanding-the-idle-namespace-in-kubernetes-efficiency-reports).
 	- Filtering by [category](/kubernetes#kubernetes-cost-reports) to see CPU, RAM, and GPU is available on Kubernetes Cost Reports.
 	- The aggregated total metric is now available at the top of Kubernetes Efficiency Reports.
 
 ### Kubernetes Agent Updates
 
-The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods. See [February's update](/changelog#k8s-feb-25) for other recent updates.
+The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker hyperpods. See [February's update](/changelog#kubernetes-agent-updates-6) for other recent updates.
 
 ### API Updates
 
@@ -226,11 +225,11 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 	- The ability to view an associated Cost Report for a given tag
 - **Jira integration:** Vantage integrates with [Jira](/jira) for tracking issues connected to budget alerts, cost anomalies, and Resource Reports.
 - **Annotations for Budget Alerts:** An [annotation](/annotations#budget-alert-annotations) is now added to the corresponding Cost Report when a budget alert is triggered.
-- **Filter by Commitment ARN:** You can now filter by Commitment ARN on [Financial Commitment Reports](/financial_commitment_reports#create-report) to understand the discount impact of a single Savings Plan or Reserved Instance.
+- **Filter by Commitment ARN:** You can now filter by Commitment ARN on [Financial Commitment Reports](/financial_commitment_reports#create-a-financial-commitment-report) to understand the discount impact of a single Savings Plan or Reserved Instance.
 - **Commitments pagination:** Pagination has been added to the [**Commitments** screen](https://console.vantage.sh/financial_planning/financial_commitments) for better readability when there are many commitments.
 - **Acronym searching for resource services:** A fix was added so that when searching for a specific resource in report filters, you can now search by common acronyms for AWS services, such as **RDS** or **S3**, rather than typing the full service name.
 - **Budgets UI updates:** On the **Budgets** [screen](/budgets), you can now filter by **Budget Type**. Additional UI updates have been made to the **Performance** and **Hierarchy** screens.
-- **Kubernetes Efficiency Report export:** You can now export [Kubernetes Efficiency Reports](/kubernetes#exporting-k8s-efficiency-reports) from the console.
+- **Kubernetes Efficiency Report export:** You can now export [Kubernetes Efficiency Reports](/kubernetes#export-kubernetes-efficiency-reports) from the console.
 
 ### Kubernetes Agent Updates
 
@@ -261,7 +260,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 
 ### Kubernetes Agent Updates
 
-*See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release.*
+*See [September's update](/changelog#kubernetes-agent-updates-6) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -281,12 +280,12 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 - **Linode integration:** Vantage now integrates with [Linode from Akamai Connected Cloud](/connecting_linode) as its latest cost provider.
 - **Integration Owner role:** The new [Integration Owner role](/rbac) has all the privileges of the Editor role, as well as the ability to configure and manage access to provider integrations. The role does not have access to other sensitive configuration settings.
 - **View as VQL:** On Kubernetes Efficiency Report filters, a new button is available to see the [VQL](/vql) representation of a Kubernetes Efficiency Report filter.
-- **Costs drilldown:** New costs [drilldown options](/cost_reports#drilldown) are available to add additional targeted filters and grouping criteria to a Cost Report.
+- **Costs drilldown:** New costs [drilldown options](/cost_reports#drill-down-in-costs-table) are available to add additional targeted filters and grouping criteria to a Cost Report.
 - **Service aliases:** When searching for services in report filters, you can now search by common acronyms for AWS services, such as **RDS** or **S3**, rather than typing the full service name.
 
 ### Kubernetes Agent Updates
 
-*See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release.*
+*See [September's update](/changelog#kubernetes-agent-updates-6) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -313,7 +312,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 
 ### Kubernetes Agent Updates
 
-*See [September's update](/changelog#k8s-sept-24) for the most recent Kubernetes agent release.*
+*See [September's update](/changelog#kubernetes-agent-updates-6) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -342,7 +341,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 ## Product Updates
 
 - **Currency conversion:** You can now set a [presentational currency](/vantage_account#currency-conversion), on a per-workspace basis, to visualize cost reporting data in a currency of your choice.
-- **Datadog integration update:** Vantage provides a [visual alert](/connecting_datadog#update-datadog) in the integration settings screen when the Datadog integration requires an update.
+- **Datadog integration update:** Vantage provides a [visual alert](/connecting_datadog#update-the-datadog-integration) in the integration settings screen when the Datadog integration requires an update.
 - **Datadog hosts costs:** For cloud resources that have the Datadog agent installed, Vantage [can associate](/active_resources#datadog-host-costs) Datadog per-host fees along with the primary cloud resources from AWS, Azure, and Google Cloud that drive those costs.
 - **Auto-generated Datadog Resource Reports:** Vantage automatically generates a Resource Report when it finds the Datadog Agent installed on relevant resources. Auto-generated reports will have a name similar to *AWS EC2 Instances with the Datadog Agent Installed*.
 - **Visual UI updates:** Visual updates have been made to the look and feel of the Cost Reporting sidebar.
@@ -379,7 +378,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 - **Autopilot for AWS Savings Plans:** [Autopilot](/autopilot) for AWS Savings Plans is now available, which allows Vantage to purchase Compute Savings Plans commitments on your behalf, with manual and automated options.
 - **Account filter matching:** For cost providers, like AWS, that have human-readable account names, you can now wildcard-match on account names in [Cost Report filters](/cost_reports#filter-cost-reports) (e.g., set a filter, like *Account **contains** dev*).
 - **Total costs by date:** On [Cost Reports](/cost_reports#comparative-cost-reporting), the **Total Costs** row is displayed when you change the table display to **By Date**.
-- **Set default dashboard:** You can set the [default dashboard](/dashboards#default-dashboard) that's displayed for a team or individual users when they log in to Vantage.
+- **Set default dashboard:** You can set the [default dashboard](/dashboards#set-a-default-dashboard) that's displayed for a team or individual users when they log in to Vantage.
 - **Additional GCP Active Resources:** The following [GCP services](/gcp_supported_services) were added and synced as active resources:
 	- Cloud AlloyDB clusters, instances, and backups
 	- Cloud Container clusters
@@ -389,7 +388,7 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 
 ### Kubernetes Agent Updates
 
-*See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release.*
+*See [May's update](/changelog#kubernetes-agent-updates-15) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -411,13 +410,13 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 - **GCP active resources:** [GCP active resources](/gcp_supported_services) are now synced and available to filter within Resource Reports.
 - **GCP cost recommendations:** [Recommendations](/cost_recommendations#gcp-compute-rightsizing-recommendations) are now available for GCP Compute rightsizing and commitments.
 - **Grouped report forecasts:** You can now view [forecasts](/forecasting#bar-chart-view) for bar charts when they are grouped.
-- **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#flow-weight).
-- **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-cost-reports), you can now click **Save as New** at the top to create a new report based on the current report's filters.
+- **Flow weight on Network Flow Reports:** You can now change the Sankey diagram to be weighted by either costs or bytes on [Network Flow Reports](/network_flow_reports#adjust-flow-weight).
+- **Save as new on reports:** On existing reports, like a [Cost Report](/cost_reports#saving-a-cost-report), you can now click **Save as New** at the top to create a new report based on the current report's filters.
 - **Vantage for MSPs**: Vantage for MSPs is a new set of features for managed service providers. Learn more on the [Partners website](https://www.vantage.sh/partners).
 
 ### Kubernetes Agent Updates
 
-*See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release.*
+*See [May's update](/changelog#kubernetes-agent-updates-15) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -444,12 +443,12 @@ The Vantage Kubernetes agent now supports ingesting costs for Amazon SageMaker h
 - **New dashboard widgets:** Resource Reports are a new widget option on [dashboards](/dashboards).
 - **Data transfer cost visibility:** [Network Flow Reports](/network_flow_reports) are available to provide visibility by source and destination to the flows within your network that are driving costs.
 - **New active resources:** VPC Flow Logs are now synced as [active resources](/active_resources).
-- **VPC Flow Logs active resources tab:** The **VPC Flow Logs** tab is available on the [Active Resources screen](/active_resources#flow-logs) for resources that generate network traffic. This tab shows network flows for related resources.
+- **VPC Flow Logs active resources tab:** The **VPC Flow Logs** tab is available on the [Active Resources screen](/active_resources#vpc-flow-logs) for resources that generate network traffic. This tab shows network flows for related resources.
 - **Network costs:** A new **Network Costs** button is displayed on [Cost Reports](/cost_reports#network-costs) for resources that generate network costs, like NAT Gateways.
 
 ### Kubernetes Agent Updates
 
-*See [May's update](/changelog#may-24-k8s) for the most recent Kubernetes agent release.*
+*See [May's update](/changelog#kubernetes-agent-updates-15) for the most recent Kubernetes agent release.*
 
 ### API Updates
 
@@ -476,7 +475,7 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 - **Negative cost axis:** The range of the cost axis on Cost Reports is updated to include negative values. This is visible in cases where costs may be negative due to things like credits.
 - **Vantage University:** [Vantage University](/vantage_university) is available on the docs site and includes a set of videos for getting started with Vantage.
 - **Labeled business metrics:** [Labeled business metrics](/per_unit_costs#labels) are available to identify the source of a metric—like an associated application or cost center.
-- **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#gpu) for NVIDIA GPU usage within a Kubernetes cluster.
+- **Kubernetes GPU idle costs:** For each Kubernetes pod, you can now view the [idle and total costs](/kubernetes#kubernetes-gpu-idle-costs) for NVIDIA GPU usage within a Kubernetes cluster.
 
 ### Kubernetes Agent Updates
 
@@ -507,7 +506,7 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 - **Expanded forecasts:** [Forecasts](/forecasting) have been expanded to include the upcoming month, the next three months, and six months ahead.
 - **Kubernetes agent version:** The [Clusters](/kubernetes_agent#upgrade-agent) section of the Kubernetes agent settings screen is updated to show cluster name, version, and indicate if the cluster is out of date.
 - **Expanded chart options:** [Expanded chart options](/cost_reports#adjust-chart-visualization) are available for Cost Reports, including expanded date bin selections for area and line charts and multi-line charts for grouped data.
-- **API service tokens:** Users with owner-level permissions can now create [API service tokens](/vantage_account#api-token) for authenticating with the Vantage API at the account level, rather than being associated with a specific user.
+- **API service tokens:** Users with owner-level permissions can now create [API service tokens](/vantage_account#create-an-api-token) for authenticating with the Vantage API at the account level, rather than being associated with a specific user.
 
 ### Kubernetes Agent Updates
 
@@ -552,7 +551,7 @@ New `/integrations` [endpoints](https://vantage.readme.io/reference/createazurei
 - **Segments sync status**: Cost allocation [segments](/segments#edit-a-segment) are now updated to show segment sync status. The look and feel of this page have been visually updated as well.
 - **Filterable cost recommendations**: Recommendations are now filterable by provider on the [Cost Recommendations](/cost_recommendations) screen.
 - **Pie chart option**: You can now change the [graph view](/cost_reports#configure-report-groups) on Cost Reports to a pie chart.
-- **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-report) is updated to allow for custom period selections.
+- **Custom date filtering**: The date picker on [Cost Reports](/cost_reports#create-a-cost-report) is updated to allow for custom period selections.
 - **Custom Databricks pricing**: Custom discounts are [now supported](/connecting_databricks#custom-pricing) for Databricks SKU groups.
 
 ### Kubernetes Agent Updates

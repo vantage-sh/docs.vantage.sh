@@ -84,7 +84,7 @@ The below instructions describe how to manually create a budget in the UI. You c
 - Under **Assign to Cost Report or Segment**, select the report you want the budget to be displayed on. See the [section below](/budgets#view-budgets-on-cost-reports) for details.
 
 *Note: Budgets are scoped to a report within a specific [workspace](/workspaces/), and access can be controlled via [teams](/rbac).*
-- For **Budget Alerts**, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the [section below](/budgets#create-alerts) for more details.
+- For **Budget Alerts**, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the [section below](/budgets#budget-alerts) for more details.
 - For **Budget Periods**, click **New Budget Period**. Standard Budgets can have multiple budget periods, one for each month, with a specific amount for each period:
 	- Enter a start date in **YYYY-MM** format (e.g., 2024-03).
 	- Enter an optional period end date.
@@ -105,7 +105,7 @@ The below instructions describe how to manually create a budget in the UI. You c
 To create a budget hierarchy, it’s recommended to start by creating all your terminal child budgets as **Standard** budgets. Once the child budgets are in place, you can proceed to create the parent budgets. This ensures that the child budgets are available to select and connect when setting up the parent budget.*
 </Tip>
 
-- For **Budget Alerts**, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the [section below](/budgets#create-alerts) for more details.
+- For **Budget Alerts**, you can optionally assign alerts once your budget is created. Any existing alerts will also be listed here. See the [section below](/budgets#budget-alerts) for more details.
 - Under **Child Budgets**, select the immediate child budgets that directly roll up to this parent budget. For example, if you have an "Org" budget with a "Department" budget as its child, and the "Department" budget has a "Team" budget as its child, you would only select the "Department" budget as the child when creating the "Org" budget.
 
 <Accordion title="Click to view example image">
@@ -347,7 +347,7 @@ $\frac{18}{28} \times 40{,}000$, since it is February 18). The performance is **
 
 On the **Hierarchy** tab, a graph is displayed that provides a time-series view of **Actual Spend** and **Total Budget**. The details provided on this screen are the same for parent and child budgets.
 
-- On the header, the same values are displayed that are on the [**Performance** tab](/budgets#parent-performance).
+- On the header, the same values are displayed that are on the [**Performance** tab](/budgets#parent-budget-performance).
 - Hover over a point on the graph to see a point-in-time view of the cumulative budget, actual spend, and the difference between the two values.
 - In the table, if the budget is a parent budget in the hierarchy, any immediate child budgets are listed along with their related performance. You can click the link for any listed child budget to move to the **Hierarchy** screen for that particular child budget.
 - The following information is provided in the table below the chart:
@@ -367,7 +367,6 @@ In the below visual example, the **Hierarchy** tab is displayed for the parent b
 
 <Frame>
   <video
-    autoPlay
     muted
     loop
     className="w-full aspect-video rounded-xl"
@@ -391,7 +390,7 @@ Budgets are displayed as a yellow line on the graph in the cumulative, daily, we
 If you select the **Weekly** view, you may see the budget line dip for the first and last week of the month. This is because budgets are metered per day.
 </Info>
 
-## Create Budget Alerts
+## Budget Alerts
 
 Budget alerts are automated alerts based on configurable budget thresholds. Create a budget alert for any of your existing budgets to notify you when a percentage of a budget is exceeded for a designated period. You can configure alerts to notify Vantage users via email, Slack, Microsoft Teams, or Jira. Periods can be set before or after a certain number of days into the month (e.g., “10 days from the start of the month”).
 

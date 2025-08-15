@@ -9,7 +9,7 @@ description: "With hourly granularity, you can analyze your financial commitment
 To enable this feature, contact [support@vantage.sh](mailto:support@vantage.sh).
 </Info>
 
-If your Cost and Usage Report (CUR) is currently set to daily aggregation (the Vantage default), you must [reconnect your AWS integration](/connecting_aws#create-a-connection) with a new CUR configured to use an hourly time unit. This guide walks through how to obtain an hourly AWS Cost and Usage Report using [CloudFormation](/hourly_fcr#cloudformation), [Terraform](/hourly_fcr#terraform), or through a [manual process](/hourly_fcr#manual).
+If your Cost and Usage Report (CUR) is currently set to daily aggregation (the Vantage default), you must [reconnect your AWS integration](/connecting_aws#create-a-connection) with a new CUR configured to use an hourly time unit. This guide walks through how to obtain an hourly AWS Cost and Usage Report using [CloudFormation](/hourly_fcr#enable-via-cloudformation), [Terraform](/hourly_fcr#enable-via-terraform), or through a [manual process](/hourly_fcr#enable-via-manual-deployment).
 
 Vantage will experience a delay in receiving your cost data until the first hourly CUR is received from AWS. This process can take up to 24 hours. In addition, the first hourly CUR that's sent to Vantage contains only the current month's data. Follow the instructions for [backfilling a CUR](/connecting_aws#backfilling-aws-cur-for-previous-reporting-periods) to obtain additional months' data.
 

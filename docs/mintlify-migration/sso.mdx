@@ -83,7 +83,7 @@ Before you can connect your IdP to Vantage, you will need the following:
     </Step>
 
     <Step>
-    **Optional:** If you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
+    **Optional:** If you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mapping-for-teams) instructions below.
     </Step>
 
 </Steps>
@@ -230,7 +230,7 @@ After disabling/removing the connection, you will be able to log in to the app w
   documentation](https://learn.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app).
 </Note>
 
-#### Step 1: Obtain Your Primary Domain from Microsoft Entra ID
+#### Step 1 - Obtain Your Primary Domain from Microsoft Entra ID
 
 <Accordion title="Expand to view example image">
   <Frame caption="Source: Microsoft">
@@ -255,7 +255,7 @@ After disabling/removing the connection, you will be able to log in to the app w
 </Steps>
 
 
-#### Step 2: Register an OAuth Application with Azure
+#### Step 2 - Register an OAuth Application with Azure
 
 <Accordion title="Expand to view example image">
   <Frame caption="Source: Microsoft">
@@ -295,7 +295,7 @@ After disabling/removing the connection, you will be able to log in to the app w
 
 </Steps>
 
-#### Step 3: Generate a Client Secret
+#### Step 3 - Generate a Client Secret
 
 <Accordion title="Expand to view example image">
   <Frame caption="Source: Microsoft">
@@ -337,7 +337,7 @@ After disabling/removing the connection, you will be able to log in to the app w
 
 </Steps>
 
-#### Step 4: Add API Permissions
+#### Step 4 - Add API Permissions
 
 <Accordion title="Expand to view example image">
   <Frame caption="Source: Microsoft">
@@ -369,7 +369,7 @@ After disabling/removing the connection, you will be able to log in to the app w
 
 </Steps>
 
-#### Step 5: Grant Admin Consent (If Required)
+#### Step 5 - Grant Admin Consent (If Required)
 
 <Accordion title="Expand to view example image">
   <Frame caption="Source: Microsoft">
@@ -393,7 +393,7 @@ After disabling/removing the connection, you will be able to log in to the app w
 
 </Steps>
 
-#### Step 6: Contact Vantage Support
+#### Step 6 - Contact Vantage Support
 
 <Steps>
 
@@ -407,16 +407,16 @@ After disabling/removing the connection, you will be able to log in to the app w
 
     <Step>
     Under **Step 2**, enter the following information:
-      - **Primary Domain**: The value you obtained in [step 1](/sso#azure-step-1). *Ensure you enter only the domain name (e.g., `yourcompany.com`). Do not include `http://www`.*
-      - **Client ID**: The client ID you obtained in [step 2](/sso#azure-step-2).
-      - **Client Secret**: The secret you obtained in [step 3](/sso#azure-step-3).
+      - **Primary Domain**: The value you obtained in step 1. *Ensure you enter only the domain name (e.g., `yourcompany.com`). Do not include `http://www`.*
+      - **Client ID**: The client ID you obtained in step 2.
+      - **Client Secret**: The secret you obtained in step 3.
     </Step>
     <Step>
     Click **Configure Connection**.
     </Step>
 </Steps>
 
-After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
+After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mapping-for-teams) instructions below.
 
 ### Authenticate with Google Workspace
 
@@ -427,7 +427,7 @@ After your connection is complete, if you would like to set up SSO group mapping
   documentation](https://support.google.com/googleapi/answer/6158849).
 </Note>
 
-#### Step 1: Register an OAuth Application with Google
+#### Step 1 - Register an OAuth Application with Google
 
 <Steps>
 
@@ -477,12 +477,12 @@ After your connection is complete, if you would like to set up SSO group mapping
 </Frame>
 </Accordion>
 
-#### Step 2: Obtain Application Credentials and Contact Vantage Support
+#### Step 2 - Obtain Application Credentials and Contact Vantage Support
 
 - Copy your app's **CLIENT ID** and **CLIENT SECRET**.
 - Contact [Vantage Support](mailto:support@vantage.sh) for information on how to send these credentials to finish connecting with the Vantage app.
 
-After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mappings) instructions below.
+After your connection is complete, if you would like to set up SSO group mappings based on your existing Vantage teams, [see the SSO Group Mappings](/sso#set-up-sso-group-mapping-for-teams) instructions below.
 
 ### Authenticate with Rippling
 
@@ -494,7 +494,7 @@ With the SSO Team Assignment feature, you can automatically assign users to Vant
 
 ### Prerequisites
 
-To use the SSO Team Assignment feature, you will need to have teams already set up in Vantage. See the [Role-Based Access Control: Create Teams](/rbac#create-team) documentation for information on how to create teams in Vantage.
+To use the SSO Team Assignment feature, you will need to have teams already set up in Vantage. See the [Role-Based Access Control: Create Teams](/rbac#create-or-delete-teams-owners-only) documentation for information on how to create teams in Vantage.
 
 ### Enable SSO Team Assignment
 

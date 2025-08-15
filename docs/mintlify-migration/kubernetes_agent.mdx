@@ -53,7 +53,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 - `kubectl`
 - A running Kubernetes cluster
 - An already connected primary provider (i.e., [AWS](/connecting_aws), [Azure](/connecting_azure), or [GCP](/connecting_gcp))
-- A [Vantage API token](/vantage_account#api-token) with READ and WRITE scopes enabled (it's recommended to use a [service token](/vantage_account#api-service-token) rather than a [personal access token](/vantage_account#api-personal-token))
+- A [Vantage API token](/vantage_account#create-an-api-token) with READ and WRITE scopes enabled (it's recommended to use a [service token](/vantage_account#create-a-vantage-api-service-token) rather than a [personal access token](/vantage_account#create-a-vantage-api-personal-access-token))
 - **If you do not already have an integration enabled**, navigate to the [Kubernetes Integration page](https://console.vantage.sh/settings/kubernetes?connect=true) in the Vantage console, and click the **Enable Kubernetes Agent** button (you won't need to do this for subsequent integrations)
 - Review the section on [Data Persistence](/kubernetes_agent#data-persistence) before you begin
 - Review the section on [Naming Your Clusters](/kubernetes_agent#cluster-id)
@@ -63,7 +63,7 @@ The following prerequisites are required before you install the Vantage Kubernet
 <Note>
 **INFO**
 
-The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations. If you would like to use a manifest-based option instead, see the [section below](/kubernetes_agent#manifest-deploy)
+The following steps are also provided in the Vantage Kubernetes agent Helm chart repository. See [the Helm chart repository](https://github.com/vantage-sh/helm-charts/tree/main/charts/vantage-kubernetes-agent) for all value configurations. If you would like to use a manifest-based option instead, see the [section below](/kubernetes_agent#manifest-based-deployment-option)
 </Note>
 
 To set up a *new* Kubernetes agent connection:
@@ -100,7 +100,7 @@ When you name your clusters, ensure the cluster ID adheres to Kubernetes object 
 
 In addition, when configuring the cluster ID, use a simplified, human-readable name that identifies the cluster. Avoid including full resource paths or unnecessary metadata. The cluster ID should be unique within your environment.
 
-### (Optional) Enable Collection of Annotations and Namespace Labels
+### Enable Collection of Annotations and Namespace Labels
 
 You can optionally enable the collection of annotations and namespace labels.
 
@@ -234,7 +234,7 @@ For users who want to monitor the agent:
     </Step>
 </Steps>
 
-## Upgrade the Agent
+## Upgrade Agent
 
 To see which version of the Kubernetes agent you are running:
 
@@ -271,7 +271,7 @@ The version noted in the console for your agent is updated when cost data is imp
 <Info>
 **NOTE**
 
-AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#aks) again when updating.
+AKS users should remember to follow the [AKS-specific instructions](/kubernetes_agent#azure-kubernetes-service-aks-connections) again when updating.
 </Info>
 
 ## Data Persistence
@@ -320,7 +320,7 @@ With Persistent Metrics Recovery, the agent will temporarily hold all four repor
 The agent emits logs and metrics to indicate when reports are stored, retried, and successfully uploaded. These logs help monitor recovery status and confirm no data loss occurred. To view these logs, run the `kubectl logs <pod-name>` command.
 </Tip>
 
-### (Optional) Configure Agent for S3 Persistence
+### Configure Agent for S3 Persistence
 
 The agent uses [IAM roles for service accounts](https://docs.aws.amazon.com/eks/latest/userguide/iam-roles-for-service-accounts.html) to access the configured bucket. The default `vantage` namespace and `vka-vantage-kubernetes-agent` service account names may vary based on your configuration.
 

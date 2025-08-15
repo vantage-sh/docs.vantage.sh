@@ -15,7 +15,7 @@ During the Temporal Cloud integration, Vantage prompts you to enter custom rates
 Actions rates are measured in millions of Actions; Active and Retained Storage rates are measured in Gigabyte-Hours. At this time, this integration does not account for any Actions included in the plan.
 </Info>
 
-If you have a custom rate for Temporal Cloud, you can enter your enterprise rate in the [integration settings](/connecting_temporal#vantage-console). Vantage multiplies your custom rates by the usage from the Temporal Cloud Usage API to calculate your costs. You can update your rates anytime on the [Settings page](/connecting_temporal#update-custom-rates) in Vantage.
+If you have a custom rate for Temporal Cloud, you can enter your enterprise rate in the [integration settings](/connecting_temporal#step-3-add-your-api-key-and-pricing-details-to-vantage). Vantage multiplies your custom rates by the usage from the Temporal Cloud Usage API to calculate your costs. You can update your rates anytime on the [Settings page](/connecting_temporal#update-custom-rates) in Vantage.
 
 ## Connect Your Temporal Cloud Account
 
@@ -34,7 +34,7 @@ The Finance Admin role has the same permissions as Account Read-only users, with
 
 To create an integration with Temporal Cloud and Vantage, you need to create a service account and an API key for that service account.
 
-#### Step 1: Create a Service Account
+#### Step 1 - Create a Service Account
 
 <Note>
 **INFO**
@@ -81,7 +81,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
     </Step>
 </Steps>
 
-#### Step 2: Create an API Key for the Service Account
+#### Step 2 - Create an API Key for the Service Account
 
 <Note>
 **INFO**
@@ -128,7 +128,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
     </Step>
 </Steps>
 
-#### Step 3: Add Your API Key and Pricing Details to Vantage
+#### Step 3 - Add Your API Key and Pricing Details to Vantage
 
 <Steps>
     <Step>
@@ -144,7 +144,7 @@ The below instructions are based on the [Temporal Cloud documentation](https://d
     At the bottom of the page, click **Add API Key** and paste your newly generated API key. Optionally, add a **Description** to identify this integration.
     </Step>
     <Step>
-    If you use over 5M Actions or have custom rates, you can enter your blended rates on the form. By default, these fields are pre-filled with Temporal Cloud's public pricing. If you don't have a private rate card or use under 5M Actions, you can leave these fields as-is. See the [How Temporal Cloud Costs Are Calculated](/connecting_temporal#cost-calculation) section for details.
+    If you use over 5M Actions or have custom rates, you can enter your blended rates on the form. By default, these fields are pre-filled with Temporal Cloud's public pricing. If you don't have a private rate card or use under 5M Actions, you can leave these fields as-is. See the [How Temporal Cloud Costs Are Calculated](/connecting_temporal#how-temporal-cloud-costs-are-calculated) section for details.
     - Price Per Action
     - Price Per Gigabyte-hour of Active Storage
     - Price Per Gigabyte-hour of Retained Storage
@@ -170,7 +170,11 @@ After the integration is complete, two full months plus the current month to dat
 
 If you decide to remove your Temporal Cloud integration from Vantage, all costs associated with your Temporal Cloud API key will be removed from the Vantage console.
 
-### Temporal Cloud Discounts and Other Fees
+#### Next Steps: Manage Workspace Access
+
+Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
+
+## Temporal Cloud Discounts and Other Fees
 
 The Temporal Cloud Usage API returns only usage information, which Vantage uses to calculate spend, and does not include separate line items for taxes, discounts, or credits. You can choose whether these line items are included in your calculated cost based on the blended rates you input in the integration settings.
 
@@ -203,10 +207,6 @@ After you complete the integration, you can update your custom rates if they eve
 </Steps>
 
 When you update your custom rate, your historical data will be reprocessed with the updated rate, and any Cost Report with Temporal Cloud costs will display the new rate that you have input. All future costs that are imported will use the new custom rate.
-
-### Next Steps: Manage Workspace Access
-
-Once your costs are imported, select which workspaces this integration is associated with. See the [Workspaces](/workspaces#manage-workspace-provider-integrations) documentation for information.
 
 ## Use Case: Associate Temporal Cloud Namespaces with Infrastructure Costs Using Virtual Tags
 

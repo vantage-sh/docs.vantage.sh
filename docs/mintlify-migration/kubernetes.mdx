@@ -47,7 +47,7 @@ PVC and Node Labels are [key-value tags](https://kubernetes.io/docs/concepts/ove
 <Info>
 **NOTE**
 
-Node Labels are collected by default with the Vantage Kubernetes agent. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#node-pvc-labels) for information on how to configure the collection of PVC Labels.
+Node Labels are collected by default with the Vantage Kubernetes agent. See the [Vantage Kubernetes agent documentation](/kubernetes_agent#enable-collection-of-pvc-labels) for information on how to configure the collection of PVC Labels.
 </Info>
 
 In addition to standard Kubernetes metadata, like Cluster, Namespace, and Label, Vantage also supports filtering and grouping by Persistent Volume Claim (PVC) Label and Node Label. These labels are collected by the Vantage Kubernetes agent and appear as [tags](/tagging). These tags are denoted by a tag value of `pvc:xyz` for PVCs and `node:xyz` for Nodes. By using PVC labels in reporting, which are applied to volume stores, you can attribute storage usage with Kubernetes workloads by app or team, perform cost allocation for storage, and perform targeted storage optimization. Node Labels are applied to underlying compute hosts and can be used to attribute compute costs based on infrastructure characteristics, track usage across node pools or environments, and identify optimization opportunities.
@@ -108,7 +108,7 @@ With Kubernetes efficiency reports, you can filter your Kubernetes cost data and
 <Info>
 **NOTE**
 
-Labels will include namespace labels and annotations if enabled in your [Vantage Kubernetes agent integration](/kubernetes_agent#enable-annotations-namespace-labels).
+Labels will include namespace labels and annotations if enabled in your [Vantage Kubernetes agent integration](/kubernetes_agent#enable-collection-of-annotations-and-namespace-labels).
 </Info>
 
 <Steps>
@@ -128,7 +128,7 @@ Labels will include namespace labels and annotations if enabled in your [Vantage
         <Info>
         **NOTE**
 
-        See the [section below](/kubernetes#gpu) for information on how to enable GPU metrics.
+        See the [section below](/kubernetes#kubernetes-gpu-idle-costs) for information on how to enable GPU metrics.
 
         You can also filter by Node Labels, which are collected by the Vantage Kubernetes agent and appear as label filters in the format `node:xyz`. Note that PVC Labels are not available for filtering on these reports. Kubernetes Efficiency Reports provide detail into the usage, efficiency, and cost of the underlying compute resources of Kubernetes Workloads. These reports do not include reporting on attached volume storage, where PVC Labels are applied. To report on both compute and storage resources, use Cost Reports.
         </Info>
@@ -181,7 +181,7 @@ You can edit the filter criteria on a report at any time. Remember to click **Sa
 
 ### Add an Efficiency Report to a Dashboard
 
-You can add your efficiency reports to [dashboards](/cost_reports#dashboards). These reports will be displayed on the dashboard, along with other cost and segment reports.
+You can add your efficiency reports to [dashboards](/dashboards). These reports will be displayed on the dashboard, along with other cost and segment reports.
 
 <Steps>
     <Step>

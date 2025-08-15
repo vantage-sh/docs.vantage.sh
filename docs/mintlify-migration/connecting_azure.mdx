@@ -40,7 +40,7 @@ The service principal is granted [Reader](https://learn.microsoft.com/en-us/azur
 <Tip>
 **TIP**
 
-Instructions are provided below for you to connect via the [Azure CLI](/connecting_azure#azure-cli) or the [Azure portal](/connecting_azure#azure-portal).
+Instructions are provided below for you to connect via the [Azure CLI](/connecting_azure#connect-via-the-azure-cli) or the [Azure portal](/connecting_azure#connect-via-the-azure-portal).
 </Tip>
 
 ### Connect via the Azure CLI
@@ -105,7 +105,7 @@ Record the `appId`, `password`, and `tenant` as you will enter these credentials
 - The below instructions are for connecting using the Azure portal. If you already completed the steps via the Azure CLI, skip to the [Save the Credentials in Vantage](/connecting_azure#save-credentials) section. You should have access to set up service principals and grant those service principals permissions.
 - [Create a free Vantage account](https://console.vantage.sh/signup), then follow the steps below to integrate Azure costs.
 
-#### Step 1: Create a New Application Registration
+#### Step 1 - Create a New Application Registration
 
 <Steps>
     <Step>
@@ -143,7 +143,7 @@ Record the `appId`, `password`, and `tenant` as you will enter these credentials
     </Step>
 </Steps>
 
-#### Step 2: Generate a Client Secret
+#### Step 2 - Generate a Client Secret
 
 <Steps>
     <Step>
@@ -176,7 +176,7 @@ Record the `appId`, `password`, and `tenant` as you will enter these credentials
     </Step>
 </Steps>
 
-#### Step 3: Grant the Service Principal Permissions
+#### Step 3 - Grant the Service Principal Permissions
 
 <Info>
 **NOTE**
@@ -239,9 +239,6 @@ After you complete the steps for connecting via the Azure CLI or Azure portal, f
     </Step>
     <Step>
     Add the **Azure AD Tenant ID**, **Service Principal App ID**, and **Service Principal Password** you previously obtained, then click **Connect Account**. Vantage will begin importing your Azure costs.
-    </Step>
-    <Step>
-    See the [Workspace Access](/connecting_azure#workspace-access) section below for some additional steps.
     </Step>
 </Steps>
 

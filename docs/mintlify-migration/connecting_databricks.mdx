@@ -149,7 +149,7 @@ If you need to update any manually applied Databricks discounts on a v1 integrat
 
 ## Connect Your Databricks Account
 
-You can connect to Databricks either [manually](/connecting_databricks#manual-integration) using the below workflow or using a [Terraform module](/connecting_databricks#terraform).
+You can connect to Databricks either [manually](/connecting_databricks#create-the-connection) using the below workflow or using a [Terraform module](/connecting_databricks#terraform).
 
 <Info>
 **NOTE**
@@ -177,12 +177,12 @@ To integrate your Databricks account with Vantage, follow the below steps:
 <CardGroup>
     <Card title="Collect your workspace and account credentials" href="/connecting_databricks#step-1-collect-credentials-and-open-workspace" icon="square-1" horizontal/>
     <Card title="Create a service principal" href="/connecting_databricks#step-2-create-a-service-principal" icon="square-2" horizontal/>
-    <Card title="Create a serverless SQL warehouse and grant the service principal 'Can Use' permissions on the warehouse" href="/connecting_databricks#step-3-create-a-serverless-sql-warehouse-and-assign-permissions" icon="square-3" horizontal/>
+    <Card title="Create a serverless SQL warehouse and grant the service principal Can Use permissions on the warehouse" href="/connecting_databricks#step-3-create-a-serverless-sql-warehouse-and-assign-permissions" icon="square-3" horizontal/>
     <Card title="Grant the service principal Data Reader permissions on the system tables" href="/connecting_databricks#step-4-grant-data-reader-permissions-to-the-service-principal" icon="square-4" horizontal/>
     <Card title="Add resource IDs and account credentials to the Vantage integration form" href="/connecting_databricks#step-5-add-credentials-to-vantage" icon="square-5" horizontal/>
 </CardGroup>
 
-### Step 1 - Collect Credentials and Open Workspace
+#### Step 1 - Collect Credentials and Open Workspace
 
 <Steps>
     <Step>
@@ -210,7 +210,7 @@ Copy your **Workspace URL** for later use. Then, open the workspace.
     </Step>
 </Steps>
 
-### Step 2 - Create a Service Principal
+#### Step 2 - Create a Service Principal
 
 <Steps>
     <Step>
@@ -262,7 +262,7 @@ Next to **Service principals**, click **Manage**.
     </Step>
 </Steps>
 
-### Step 3 - Create a Serverless SQL Warehouse and Assign Permissions
+#### Step 3 - Create a Serverless SQL Warehouse and Assign Permissions
 
 <Steps>
     <Step>
@@ -306,7 +306,7 @@ Close the **Manage permissions** modal and copy your warehouse ID, displayed nex
     </Step>
 </Steps>
 
-### Step 4 - Grant Data Reader Permissions to the Service Principal
+#### Step 4 - Grant Data Reader Permissions to the Service Principal
 
 <Steps>
     <Step>
@@ -341,21 +341,21 @@ Repeat the last two steps and grant Data Reader permissions for the `billing` an
     </Step>
 </Steps>
 
-### Step 5 - Add Credentials to Vantage
+#### Step 5 - Add Credentials to Vantage
 
 <Steps>
     <Step>
-From the Vantage console, navigate to the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
+From the Vantage console, navigate to the [Databricks Settings](https://console.vantage.sh/settings/databricks/) page.
     </Step>
     <Step>
 Click the **Connect** tab, then click **Set Up Account**.
     </Step>
     <Step>
 On the **Integration** modal screen, enter the following information:
-   - For **Databricks Account ID**, enter your account ID that you obtained in [step 1](connecting_databricks#step1).
-   - For **Service Principal OAuth Client ID** and **Service Principal OAuth Client Secret**, add the ID and secret you obtained in [step 2](connecting_databricks#step2).
-   - For **Workspace URL**, add the URL you obtained in [step 1](connecting_databricks#step1).
-   - For **SQL Warehouse ID**, add the warehouse ID you obtained in [step 3](connecting_databricks#step3).
+   - For **Databricks Account ID**, enter your account ID that you obtained in step 1.
+   - For **Service Principal OAuth Client ID** and **Service Principal OAuth Client Secret**, add the ID and secret you obtained in step 2.
+   - For **Workspace URL**, add the URL you obtained in step 1.
+   - For **SQL Warehouse ID**, add the warehouse ID you obtained in step 3.
     </Step>
     <Step>
 Click **Connect Account**.

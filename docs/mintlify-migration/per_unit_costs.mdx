@@ -47,15 +47,15 @@ The following steps are for importing via CloudWatch or a CSV file. If you want 
   </Step>
   <Step>
   The **Business Metrics** screen is displayed:
-   - In the **Assigned Cost Reports** section, you can select one or more Cost Reports where the business metric will be displayed. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for details.
-   - In the **Import Business Metrics** section, you can import business metrics from a [CSV file](/per_unit_costs#importing-from-a-csv), [Amazon CloudWatch](/per_unit_costs#import-from-amazon-cloudwatch), or [Datadog](/per_unit_costs#import-from-datadog).
+   - In the **Assigned Cost Reports** section, you can select one or more Cost Reports where the business metric will be displayed. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-business-metrics-to-cost-reports) section for details.
+   - In the **Import Business Metrics** section, you can import business metrics from a [CSV file](/per_unit_costs#import-from-a-csv-file), [Amazon CloudWatch](/per_unit_costs#import-from-amazon-cloudwatch), or [Datadog](/per_unit_costs#import-from-datadog).
   </Step>
 </Steps>
 ### Import from a CSV File
 
 You can upload a CSV file that uses the following three-column format. This CSV file can replace existing data or be used to import new data.
 
-The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number. The `label` column is optional. See the [section above](/per_unit_costs#labels) for more information about labels.
+The `date` column must be in `YYYY-MM-DD` format. The `amount` column must be a number. The `label` column is optional. See the [section above](/per_unit_costs#labeled-business-metrics) for more information about labels.
 
 <Info>
 **NOTE**
@@ -84,7 +84,7 @@ Click **Upload a CSV**. Select the CSV file and upload. After the file is import
   </Frame>
 </Accordion>
 
-To add additional metrics or change the value of a metric, update your source CSV file. Then, click **Edit** and upload the edited file. The new or updated metric is displayed in the table. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+To add additional metrics or change the value of a metric, update your source CSV file. Then, click **Edit** and upload the edited file. The new or updated metric is displayed in the table. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-business-metrics-to-cost-reports) section for the next steps.
 
 ### Import from Amazon CloudWatch
 
@@ -137,7 +137,7 @@ If Vantage does not have a Cross-Account IAM Role associated with your AWS accou
 </Step>
 </Steps>
 
-The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-business-metrics-to-cost-reports) section for the next steps.
 
 ### Import from Datadog
 
@@ -175,7 +175,7 @@ The minimum aggregation for business metrics is daily. If you enter a lower gran
   </Step>
 </Steps>
 
-The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-metrics) section for the next steps.
+The metrics will be automatically synced, daily, along with cost data from other integrations. See the [Assign Business Metrics to Cost Reports](/per_unit_costs#assign-business-metrics-to-cost-reports) section for the next steps.
 
 ### Import via the Vantage API
 
@@ -189,7 +189,7 @@ The basic steps for using this endpoint are provided below. See the [API documen
 
 #### Prerequisites
 
-Ensure you have a valid Read/Write [Vantage API token](/vantage_account#api-token).
+Ensure you have a valid Read/Write [Vantage API token](/vantage_account#create-an-api-token).
 
 #### Create a Business Metric
 
@@ -248,7 +248,7 @@ curl --request POST \
 - `values` is an array of objects that comprises the `date` and `amount` key/value pairs associated with each business metric data point.
   - `date` needs to be in `YYYY-MM-DD` format.
   - `amount` needs to be a number.
-  - `label` is an optional field. See the [section above](/per_unit_costs#labels) for details.
+  - `label` is an optional field. See the [section above](/per_unit_costs#labeled-business-metrics) for details.
 
 The following JSON is returned in a successful `201` response, which includes the unique business metric `token`. Dates in the response are displayed in [ISO 8601](https://en.wikipedia.org/wiki/ISO_8601) format.
 

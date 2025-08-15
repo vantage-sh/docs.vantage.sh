@@ -69,7 +69,7 @@ Custom Provider files can be uploaded at any time in the console. The above sche
 <Info>
 **NOTE**
 
-Users must have Owner permissions to upload Custom Provider files. If you prefer to use the API rather than the Vantage console, see the [API](/connecting_custom_providers#api) section below.
+Users must have Owner permissions to upload Custom Provider files. If you prefer to use the API rather than the Vantage console, see the [API](/connecting_custom_providers#use-the-api-to-add-a-custom-provider) section below.
 </Info>
 
 <Steps>
@@ -84,7 +84,7 @@ Users must have Owner permissions to upload Custom Provider files. If you prefer
     </Step>
     <Step>
     Click **Upload Costs**.
-      - If your CSV file contains any errors, the **Review** pop-up window is displayed and indicates where the error occurred. See the [Troubleshooting](/connecting_custom_providers#troubleshooting) section for details on specific errors.
+      - If your CSV file contains any errors, the **Review** pop-up window is displayed and indicates where the error occurred. See the [Troubleshooting](/connecting_custom_providers#troubleshoot-custom-provider-uploads) section for details on specific errors.
     <Accordion title="Click to view example image">
         <Frame>
         ![Error screen for Custom Provider](https://assets.vantage.sh/docs/custom-providers/error-screen.png)
@@ -130,7 +130,7 @@ When you upload a file that contains errors, the **Review** window displayed and
 | Issue | Description | Solution |
 | --- | --- | --- |
 | Improper CSV format | The file format is not a valid CSV or exceeds the 10,000-row limit or 2MB file size max. | Ensure the file is a properly formatted CSV, with no more than 10,000 rows or 2MB in size. |
-| Missing required fields | One or more required fields (`ChargeCategory`, `ChargePeriodStart`, `BilledCost`, `ServiceName`) are missing or improperly formatted.      An error message noting which rows are missing required field values will be displayed in the **Review** window. | Verify that all required fields are present and correctly formatted. See the [CSV Format](/connecting_custom_providers#format) section for details. |
+| Missing required fields | One or more required fields (`ChargeCategory`, `ChargePeriodStart`, `BilledCost`, `ServiceName`) are missing or improperly formatted.      An error message noting which rows are missing required field values will be displayed in the **Review** window. | Verify that all required fields are present and correctly formatted. See the [CSV Format](/connecting_custom_providers#review-csv-format) section for details. |
 | Invalid values | The file contains invalid values, such as incorrect date formats, invalid numbers, tags that are not formatted as JSON or have missing quotes, or incorrect case-sensitive values for `ChargeCategory`.      An error message noting which rows contain invalid values will be displayed in the **Review** window. | Double-check the data in your CSV to ensure dates are in `YYYY-MM-DD` format, numbers are valid, and `ChargeCategory` values match the allowed case-sensitive options (e.g., `Usage`, `Credit`). See the [Data Format](/connecting_custom_providers#data-format) table for details. |
 | Improper Vantage permissions | The user attempting the upload does not have the proper permissions. | Ensure you have Owner permissions to upload Custom Provider files. See the [Role-Based Access Control](/rbac) documentation for details. |
 | Duplicate file names | You attempt to upload a new costs import file that has the same name as a previous costs upload file. An error message is displayed indicating you already have a file uploaded with the same name. The new file will overwrite the old file. | Ensure each CSV file that you upload is named something different (e.g., `cloudflare_costs_8_2024`, `cloudflare_costs_9_2024`). |
@@ -148,7 +148,7 @@ When you upload a file that contains errors, the **Review** window displayed and
     After a successful upload, a confirmation message is displayed. You can click **Review** to verify the first 25 rows of your uploaded data to ensure accuracy.
     </Step>
     <Step>
-    Follow steps 5–8 in the [Upload Custom Provider File](/connecting_custom_providers#upload) section to complete the upload process.
+    Follow steps 5–8 in the [Upload Custom Provider File](/connecting_custom_providers#upload-custom-provider-file) section to complete the upload process.
     </Step>
 </Steps>
 

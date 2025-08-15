@@ -126,7 +126,7 @@ If you want to transition any of your cost allocation segments to virtual tags, 
 
 With custom value tags, you can create new cross-provider cost allocation tags to help better your tagging strategy. For example, you may have a series of resource tags, by product, across each of your providers. You can create custom tags in Vantage to combine those costs into one unique product tag for all resources in that product group.
 
-See the [example section](/tagging#custom-values-example) below for details.
+See the [example section](/tagging#custom-value-examples) below for details.
 
 ### Cost-Based and Business Metrics-Based Allocation Tags
 
@@ -149,9 +149,9 @@ See the [example section](/tagging#cost-based-allocation-example) below for deta
 
 With business metrics-based allocation tags, you select an existing [business metric](/per_unit_costs) (e.g., CPU use per product) and indicate your output cost (e.g., all GCP Compute costs) so that the allocation of the output cost mimics the percentage allocation of the existing business metric.
 
-See the [example section](/tagging#metric-based-allocation-example) below for details.
+See the [example section](/tagging#business-metrics-based-allocation-example) below for details.
 
-### Virtual Tags Limits
+### Virtual Tags Limit
 
 You can create up to 50 virtual tag configurations, with each tag supporting up to 100 configuration values.
 
@@ -311,7 +311,7 @@ To reference an existing virtual tag in another virtual tag:
 ![Modal that's displayed indicating if you delete a nested virtual tag that it will affect other connected tags](https://assets.vantage.sh/docs/tags-delete-tot.png)
 </Frame>
 
-- You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging#virtual-tag-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
+- You can create up to 49 nested virtual tags, since an organization is [limited to](/tagging#virtual-tags-limit) 50 distinct virtual tag keys. Because nested virtual tags are processed sequentially, increasing the number of nested values will slow down the tagging process.
 
 See the [Nested Virtual Tags Example](/tagging#nested-virtual-tags-example) section below for a sample tag hierarchy.
 
