@@ -120,7 +120,7 @@ Based on your configured inputs, Autopilot provides a recommended Compute Saving
 
 #### Coverage Overview
 
-As Autopilot adjusts the commitment level, this tab includes a graph that displays your On-Demand, Savings Plans, and (if applicable) Reserved and Spot Instance usage. The graph shows daily usage, and you can use the date option above the graph to change the month that’s shown. 
+As Autopilot adjusts the commitment level, this tab includes a graph that displays your On-Demand, Savings Plans, and (if applicable) Reserved and Spot Instance usage. The graph shows daily usage, and you can use the date picker above the graph to change the time period that’s shown. 
 
 <div style={{display:"flex", justifyContent:"center"}}>
 <img alt="Coverage Overview screen on the Autopilot dashboard" width="100%" src="https://assets.vantage.sh/docs/autopilot/autopilot-coverage-overview.png" />

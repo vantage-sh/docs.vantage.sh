@@ -173,7 +173,7 @@ To reorder the columns of your Resource Report:
 To sort a column in a Resource Report, click the arrow next to a column name in the column header. The active sort column con is highlighted in green, with an arrow indicating the sort direction.
 
 :::note
-All columns are sortable except **Resource**, **Type**, and **Team**.
+All columns are sortable except **Account**.
 ::: 
 
 <div style={{ display: "flex", justifyContent: "center", boxShadow: "0 0 10px rgba(0, 0, 0, 0.2)", borderRadius: "10px", overflow: "hidden" }} width="80%">
