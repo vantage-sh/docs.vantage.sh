@@ -3,9 +3,9 @@
   "theme": "aspen",
   "name": "Vantage",
   "colors": {
-    "primary": "#ad4dd6",
-    "light": "#D676FF",
-    "dark": "#ad4dd6"
+    "primary": "#6742D6",
+    "light": "#6742D6",
+    "dark": "#6742D6"
   },
   "fonts": {
     "heading": {
