@@ -293,7 +293,7 @@
             "href": "https://docs.vantage.sh/"
           },
           {
-            "label": "Integrations Quickstart",
+            "label": "Quickstart",
             "href": "https://docs.vantage.sh/getting_started"
           },
           {
@@ -322,16 +322,12 @@
             "href": "https://vantage.sh/slack"
           },
           {
-            "label": "Cloud Costs Handbook",
+            "label": "Cloud Cost Handbook",
             "href": "https://handbook.vantage.sh/"
           },
           {
-            "label": "AWS Instances Pricing",
+            "label": "EC2Instances.info",
             "href": "https://instances.vantage.sh/"
-          },
-          {
-            "label": "Azure VM Pricing Comparison",
-            "href": "https://instances.vantage.sh/azure"
           },
           {
             "label": "cur.vantage.sh",
@@ -376,15 +372,15 @@
             "href": "https://www.vantage.sh/privacy-policy"
           },
           {
-            "label": "Website Terms of Use",
+            "label": "Terms of Use",
             "href": "https://www.vantage.sh/website-terms-of-use"
           },
           {
-            "label": "VNTG Service Agreement",
+            "label": "Service Agreement",
             "href": "https://www.vantage.sh/service-agreement"
           },
           {
-            "label": "Authorized Sub-Processors",
+            "label": "Sub-Processors",
             "href": "https://www.vantage.sh/subprocessors"
           }
         ]
